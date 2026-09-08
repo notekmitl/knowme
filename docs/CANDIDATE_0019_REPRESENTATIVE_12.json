@@ -1,0 +1,1261 @@
+{
+  "status": "CONTENT_CANDIDATE_PENDING_OWNER_REVIEW",
+  "counts": {
+    "profiles": 12,
+    "known": 11,
+    "unknown": 1
+  },
+  "profiles": [
+    {
+      "contextId": "mahabhut2537.rem1.sunday",
+      "currentAge": 36,
+      "currentPeriod": {
+        "contextId": "mahabhut2537.rem1.sunday",
+        "matrixApplicationId": "mahabhut2537.rem1.sunday.mercury.30_46",
+        "planet": "mercury",
+        "taksaRole": "sri",
+        "mahabhutHouse": "marana",
+        "periodStatus": "dueng_tok",
+        "ageStart": 30,
+        "ageEnd": 46
+      },
+      "completedPastPeriods": 3,
+      "claims": [
+        {
+          "semanticOwner": "past",
+          "section": "อายุ 0–6 ปี",
+          "componentId": "PECV2-31A0DFE9D34B",
+          "text": "ช่วงอายุ 0–17 ปี คนรอบตัวและกิจวัตรถูกจำกัดลง และโครงสร้างเดิมที่ต้องปรับเปลี่ยนรูปเพื่อปิดภาระเดิม",
+          "source": "selector.mahabhut2537.rem1.sunday.sun.0_6"
+        },
+        {
+          "semanticOwner": "past",
+          "section": "อายุ 7–21 ปี",
+          "componentId": "PECV2-FA12A97DBA42",
+          "text": "ช่วงอายุ 16–23 ปี กำลังและความต่อเนื่องถูกจำกัดลง และรอบเดิมที่ปิดลงเปลี่ยนรูปเพื่อปิดภาระเดิม",
+          "source": "selector.mahabhut2537.rem1.sunday.moon.7_21"
+        },
+        {
+          "semanticOwner": "past",
+          "section": "อายุ 22–29 ปี",
+          "componentId": "PECV2-559E640423AB",
+          "text": "ช่วงอายุ 28–46 ปี อำนาจตัดสินใจขยายผลชัดขึ้น และทรัพยากรและการเงินกลายเป็นฐานของช่วงต่อมา",
+          "source": "selector.mahabhut2537.rem1.sunday.mars.22_29"
+        },
+        {
+          "semanticOwner": "overview",
+          "section": "ภาพรวมเส้นทางชีวิต",
+          "componentId": "PECV2-605C6DDFAEFF",
+          "text": "ผลงานและการยอมรับกำลังลดภาระ และสิ่งที่หมดบทบาทเปลี่ยนรูปเพื่อให้เส้นทางชีวิตปิดเรื่องเดิมก่อนเริ่มรอบใหม่",
+          "source": "selector.mahabhut2537.rem1.sunday.mercury.30_46"
+        },
+        {
+          "semanticOwner": "current",
+          "section": "คำทำนายปัจจุบัน — อายุ 36 ปี",
+          "componentId": "PECV2-8CAE5E9C1064",
+          "text": "อายุ 30 ปี ผลงานและการยอมรับลดลงเพื่อปิดภาระ และสิ่งที่หมดบทบาทถูกจัดใหม่ในรอบปัจจุบัน",
+          "source": "selector.mahabhut2537.rem1.sunday.mercury.30_46"
+        },
+        {
+          "semanticOwner": "work",
+          "section": "การงาน",
+          "componentId": "PECV2-7227E9E8515C",
+          "text": "งานเดินหน้าจากผลที่ส่งมอบต่อเนื่อง ขอบเขตหลักขยายขึ้น แต่ภาระที่กินเวลาทำให้ผลลัพธ์เข้าที่ช้ากว่าปริมาณงาน",
+          "source": "prediction.career.current.strong"
+        },
+        {
+          "semanticOwner": "finance",
+          "section": "การเงิน",
+          "componentId": "PECV2-36193DB2F990",
+          "text": "การเงินเดินหน้าจากผลที่ส่งมอบต่อเนื่อง ขอบเขตหลักขยายขึ้น แต่ภาระที่กินเวลาทำให้ผลลัพธ์เข้าที่ช้ากว่าปริมาณงาน",
+          "source": "prediction.finance.current.strong"
+        },
+        {
+          "semanticOwner": "relationship",
+          "section": "ความรักและความสัมพันธ์",
+          "componentId": "PECV2-7073B1B3CFB3",
+          "text": "ความสัมพันธ์เดินหน้าจากผลที่ส่งมอบต่อเนื่อง ขอบเขตหลักขยายขึ้น แต่ภาระที่กินเวลาทำให้ผลลัพธ์เข้าที่ช้ากว่าปริมาณงาน",
+          "source": "prediction.relationship.current.strong"
+        },
+        {
+          "semanticOwner": "health",
+          "section": "สุขภาพ",
+          "componentId": "PECV2-0A18444524EC",
+          "text": "สุขภาพและการพักเดินหน้าจากผลที่ส่งมอบต่อเนื่อง ขอบเขตหลักขยายขึ้น แต่ภาระที่กินเวลาทำให้ผลลัพธ์เข้าที่ช้ากว่าปริมาณงาน",
+          "source": "prediction.health.current.strong"
+        },
+        {
+          "semanticOwner": "support",
+          "section": "โชคลาภและแรงสนับสนุน",
+          "componentId": "PECV2-40A7AC239090",
+          "text": "ผลงานและการยอมรับลดบทบาทลง แรงสนับสนุนจึงมุ่งไปที่การปิดเรื่องค้างและจัดสิ่งที่หมดบทบาทใหม่",
+          "source": "selector.mahabhut2537.rem1.sunday.mercury.30_46"
+        },
+        {
+          "semanticOwner": "rolling12",
+          "section": "แนวโน้ม 12 เดือนข้างหน้า",
+          "componentId": "PECV2-9A4F6657A0D8",
+          "text": "ตลอด 12 เดือน เส้นทางชีวิตขยายจากผลงานเดิม เรื่องค้างได้ข้อสรุปก่อนบทบาทใหม่เริ่มทำงานเต็มที่",
+          "source": "prediction.career.next12Months.strong"
+        },
+        {
+          "semanticOwner": "next",
+          "section": "ช่วงชีวิตถัดไป — อายุ 47–65 ปี",
+          "componentId": "PECV2-AD7323B12E96",
+          "text": "ช่วงชีวิตถัดไป เส้นทางชีวิตเปลี่ยนผ่านด้วยการปิดภาระเดิม โครงสร้างใหม่เริ่มหลังเรื่องค้างสิ้นสุดลง",
+          "source": "prediction.relationship.nextLifePeriod.quiet"
+        },
+        {
+          "semanticOwner": "summary",
+          "section": "สรุปคำทำนาย",
+          "componentId": "PECV2-BE7262A87CE8",
+          "text": "รอบปัจจุบันปิดภาระที่ค้างอยู่ก่อน แล้วผลจากเรื่องที่ทำต่อเนื่องจึงต่อยอดเป็นฐานของช่วงถัดไป",
+          "source": "PRV2-mahabhut2537-rem1-sunday-SUMMARY-01"
+        },
+        {
+          "semanticOwner": "advice",
+          "section": "คำแนะนำสั้น ๆ",
+          "componentId": "PECV2-04DEBB947FC8",
+          "text": "ตัดสินใจจากขอบเขตงาน ผลตอบแทน และข้อตกลงที่ยืนยันได้ พร้อมกันพื้นที่พักให้เพียงพอกับภาระจริง",
+          "source": "PRV2-mahabhut2537-rem1-sunday-ADVICE-01"
+        },
+        {
+          "semanticOwner": "disclosure",
+          "section": "คำแนะนำสั้น ๆ",
+          "componentId": "PECV2-2473FFF74FF1",
+          "text": "คำทำนายนี้เป็นมุมมองตามความเชื่อ ใช้ประกอบการทบทวนชีวิตและเทียบกับข้อเท็จจริงก่อนตัดสินใจเรื่องสำคัญ",
+          "source": "PRV2-mahabhut2537-rem1-sunday-DISCLOSURE-01"
+        }
+      ]
+    },
+    {
+      "contextId": "mahabhut2537.rem2.monday",
+      "currentAge": 28,
+      "currentPeriod": {
+        "contextId": "mahabhut2537.rem2.monday",
+        "matrixApplicationId": "mahabhut2537.rem2.monday.mercury.24_40",
+        "planet": "mercury",
+        "taksaRole": "det",
+        "mahabhutHouse": "khumsap",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 24,
+        "ageEnd": 40
+      },
+      "completedPastPeriods": 2,
+      "claims": [
+        {
+          "semanticOwner": "past",
+          "section": "อายุ 0–15 ปี",
+          "componentId": "PECV2-31A0DFE9D34B",
+          "text": "ช่วงอายุ 0–17 ปี คนรอบตัวและกิจวัตรถูกจำกัดลง และโครงสร้างเดิมที่ต้องปรับเปลี่ยนรูปเพื่อปิดภาระเดิม",
+          "source": "selector.mahabhut2537.rem2.monday.moon.0_15"
+        },
+        {
+          "semanticOwner": "past",
+          "section": "อายุ 16–23 ปี",
+          "componentId": "PECV2-FA12A97DBA42",
+          "text": "ช่วงอายุ 16–23 ปี กำลังและความต่อเนื่องถูกจำกัดลง และรอบเดิมที่ปิดลงเปลี่ยนรูปเพื่อปิดภาระเดิม",
+          "source": "selector.mahabhut2537.rem2.monday.mars.16_23"
+        },
+        {
+          "semanticOwner": "overview",
+          "section": "ภาพรวมเส้นทางชีวิต",
+          "componentId": "PECV2-19059A0F615F",
+          "text": "อำนาจตัดสินใจกำลังขยายผล และทรัพยากรและการเงินเปิดทางให้เส้นทางชีวิตเดินต่อด้วยบทบาทที่ชัดขึ้น",
+          "source": "selector.mahabhut2537.rem2.monday.mercury.24_40"
+        },
+        {
+          "semanticOwner": "current",
+          "section": "คำทำนายปัจจุบัน — อายุ 28 ปี",
+          "componentId": "PECV2-F14279D27DD8",
+          "text": "อายุ 24 ปี อำนาจตัดสินใจเริ่มให้ผลเป็นรูปธรรม และทรัพยากรและการเงินขยายขึ้นในรอบปัจจุบัน",
+          "source": "selector.mahabhut2537.rem2.monday.mercury.24_40"
+        },
+        {
+          "semanticOwner": "work",
+          "section": "การงาน",
+          "componentId": "PECV2-7227E9E8515C",
+          "text": "งานเดินหน้าจากผลที่ส่งมอบต่อเนื่อง ขอบเขตหลักขยายขึ้น แต่ภาระที่กินเวลาทำให้ผลลัพธ์เข้าที่ช้ากว่าปริมาณงาน",
+          "source": "prediction.career.current.strong"
+        },
+        {
+          "semanticOwner": "finance",
+          "section": "การเงิน",
+          "componentId": "PECV2-36193DB2F990",
+          "text": "การเงินเดินหน้าจากผลที่ส่งมอบต่อเนื่อง ขอบเขตหลักขยายขึ้น แต่ภาระที่กินเวลาทำให้ผลลัพธ์เข้าที่ช้ากว่าปริมาณงาน",
+          "source": "prediction.finance.current.strong"
+        },
+        {
+          "semanticOwner": "relationship",
+          "section": "ความรักและความสัมพันธ์",
+          "componentId": "PECV2-8CD0C27A282A",
+          "text": "ความสัมพันธ์เดินหน้าจากผลที่ส่งมอบต่อเนื่อง ขอบเขตหลักขยายขึ้น แต่ภาระที่กินเวลาทำให้ผลลัพธ์เข้าที่ช้ากว่าปริมาณงาน",
+          "source": "prediction.relationship.current.active"
+        },
+        {
+          "semanticOwner": "health",
+          "section": "สุขภาพ",
+          "componentId": "PECV2-0A18444524EC",
+          "text": "สุขภาพและการพักเดินหน้าจากผลที่ส่งมอบต่อเนื่อง ขอบเขตหลักขยายขึ้น แต่ภาระที่กินเวลาทำให้ผลลัพธ์เข้าที่ช้ากว่าปริมาณงาน",
+          "source": "prediction.health.current.strong"
+        },
+        {
+          "semanticOwner": "support",
+          "section": "โชคลาภและแรงสนับสนุน",
+          "componentId": "PECV2-EA957AA6D22E",
+          "text": "อำนาจตัดสินใจพาแรงสนับสนุนเข้ามาเปิดทาง และทรัพยากรและการเงินทำให้เรื่องติดขัดกลับมาเดินต่อ",
+          "source": "selector.mahabhut2537.rem2.monday.mercury.24_40"
+        },
+        {
+          "semanticOwner": "rolling12",
+          "section": "แนวโน้ม 12 เดือนข้างหน้า",
+          "componentId": "PECV2-DF035F2EF723",
+          "text": "ตลอด 12 เดือน เส้นทางชีวิตขยายจากผลงานเดิม เรื่องค้างได้ข้อสรุปก่อนบทบาทใหม่เริ่มทำงานเต็มที่",
+          "source": "prediction.relationship.next12Months.active"
+        },
+        {
+          "semanticOwner": "next",
+          "section": "ช่วงชีวิตถัดไป — อายุ 41–59 ปี",
+          "componentId": "PECV2-AD7323B12E96",
+          "text": "ช่วงชีวิตถัดไป เส้นทางชีวิตเปลี่ยนผ่านด้วยการปิดภาระเดิม โครงสร้างใหม่เริ่มหลังเรื่องค้างสิ้นสุดลง",
+          "source": "prediction.relationship.nextLifePeriod.quiet"
+        },
+        {
+          "semanticOwner": "summary",
+          "section": "สรุปคำทำนาย",
+          "componentId": "PECV2-BE7262A87CE8",
+          "text": "รอบปัจจุบันปิดภาระที่ค้างอยู่ก่อน แล้วผลจากเรื่องที่ทำต่อเนื่องจึงต่อยอดเป็นฐานของช่วงถัดไป",
+          "source": "PRV2-mahabhut2537-rem2-monday-SUMMARY-01"
+        },
+        {
+          "semanticOwner": "advice",
+          "section": "คำแนะนำสั้น ๆ",
+          "componentId": "PECV2-04DEBB947FC8",
+          "text": "ตัดสินใจจากขอบเขตงาน ผลตอบแทน และข้อตกลงที่ยืนยันได้ พร้อมกันพื้นที่พักให้เพียงพอกับภาระจริง",
+          "source": "PRV2-mahabhut2537-rem2-monday-ADVICE-01"
+        },
+        {
+          "semanticOwner": "disclosure",
+          "section": "คำแนะนำสั้น ๆ",
+          "componentId": "PECV2-2473FFF74FF1",
+          "text": "คำทำนายนี้เป็นมุมมองตามความเชื่อ ใช้ประกอบการทบทวนชีวิตและเทียบกับข้อเท็จจริงก่อนตัดสินใจเรื่องสำคัญ",
+          "source": "PRV2-mahabhut2537-rem2-monday-DISCLOSURE-01"
+        }
+      ]
+    },
+    {
+      "contextId": "mahabhut2537.rem3.tuesday",
+      "currentAge": 54,
+      "currentPeriod": {
+        "contextId": "mahabhut2537.rem3.tuesday",
+        "matrixApplicationId": "mahabhut2537.rem3.tuesday.jupiter.36_54",
+        "planet": "jupiter",
+        "taksaRole": "sri",
+        "mahabhutHouse": "khumsap",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 36,
+        "ageEnd": 54
+      },
+      "completedPastPeriods": 3,
+      "claims": [
+        {
+          "semanticOwner": "past",
+          "section": "อายุ 0–8 ปี",
+          "componentId": "PECV2-31A0DFE9D34B",
+          "text": "ช่วงอายุ 0–17 ปี คนรอบตัวและกิจวัตรถูกจำกัดลง และโครงสร้างเดิมที่ต้องปรับเปลี่ยนรูปเพื่อปิดภาระเดิม",
+          "source": "selector.mahabhut2537.rem3.tuesday.mars.0_8"
+        },
+        {
+          "semanticOwner": "past",
+          "section": "อายุ 9–25 ปี",
+          "componentId": "PECV2-FA12A97DBA42",
+          "text": "ช่วงอายุ 16–23 ปี กำลังและความต่อเนื่องถูกจำกัดลง และรอบเดิมที่ปิดลงเปลี่ยนรูปเพื่อปิดภาระเดิม",
+          "source": "selector.mahabhut2537.rem3.tuesday.mercury.9_25"
+        },
+        {
+          "semanticOwner": "past",
+          "section": "อายุ 26–35 ปี",
+          "componentId": "PECV2-AA665B978160",
+          "text": "ช่วงอายุ 26–35 ปี อำนาจตัดสินใจขยายผลชัดขึ้น และหน้าที่และอำนาจกลายเป็นฐานของช่วงต่อมา",
+          "source": "selector.mahabhut2537.rem3.tuesday.saturn.26_35"
+        },
+        {
+          "semanticOwner": "overview",
+          "section": "ภาพรวมเส้นทางชีวิต",
+          "componentId": "PECV2-E20D1153AE31",
+          "text": "ผลงานและการยอมรับกำลังขยายผล และทรัพยากรและการเงินเปิดทางให้เส้นทางชีวิตเดินต่อด้วยบทบาทที่ชัดขึ้น",
+          "source": "selector.mahabhut2537.rem3.tuesday.jupiter.36_54"
+        },
+        {
+          "semanticOwner": "current",
+          "section": "คำทำนายปัจจุบัน — อายุ 54 ปี",
+          "componentId": "PECV2-A2F4AD65C1EE",
+          "text": "อายุ 36 ปี ผลงานและการยอมรับเริ่มให้ผลเป็นรูปธรรม และทรัพยากรและการเงินขยายขึ้นในรอบปัจจุบัน",
+          "source": "selector.mahabhut2537.rem3.tuesday.jupiter.36_54"
+        },
+        {
+          "semanticOwner": "work",
+          "section": "การงาน",
+          "componentId": "PECV2-7227E9E8515C",
+          "text": "งานเดินหน้าจากผลที่ส่งมอบต่อเนื่อง ขอบเขตหลักขยายขึ้น แต่ภาระที่กินเวลาทำให้ผลลัพธ์เข้าที่ช้ากว่าปริมาณงาน",
+          "source": "prediction.career.current.strong"
+        },
+        {
+          "semanticOwner": "finance",
+          "section": "การเงิน",
+          "componentId": "PECV2-36193DB2F990",
+          "text": "การเงินเดินหน้าจากผลที่ส่งมอบต่อเนื่อง ขอบเขตหลักขยายขึ้น แต่ภาระที่กินเวลาทำให้ผลลัพธ์เข้าที่ช้ากว่าปริมาณงาน",
+          "source": "prediction.finance.current.strong"
+        },
+        {
+          "semanticOwner": "relationship",
+          "section": "ความรักและความสัมพันธ์",
+          "componentId": "PECV2-7073B1B3CFB3",
+          "text": "ความสัมพันธ์เดินหน้าจากผลที่ส่งมอบต่อเนื่อง ขอบเขตหลักขยายขึ้น แต่ภาระที่กินเวลาทำให้ผลลัพธ์เข้าที่ช้ากว่าปริมาณงาน",
+          "source": "prediction.relationship.current.strong"
+        },
+        {
+          "semanticOwner": "health",
+          "section": "สุขภาพ",
+          "componentId": "PECV2-0A18444524EC",
+          "text": "สุขภาพและการพักเดินหน้าจากผลที่ส่งมอบต่อเนื่อง ขอบเขตหลักขยายขึ้น แต่ภาระที่กินเวลาทำให้ผลลัพธ์เข้าที่ช้ากว่าปริมาณงาน",
+          "source": "prediction.health.current.strong"
+        },
+        {
+          "semanticOwner": "support",
+          "section": "โชคลาภและแรงสนับสนุน",
+          "componentId": "PECV2-DB9037CB517C",
+          "text": "ผลงานและการยอมรับพาแรงสนับสนุนเข้ามาเปิดทาง และทรัพยากรและการเงินทำให้เรื่องติดขัดกลับมาเดินต่อ",
+          "source": "selector.mahabhut2537.rem3.tuesday.jupiter.36_54"
+        },
+        {
+          "semanticOwner": "rolling12",
+          "section": "แนวโน้ม 12 เดือนข้างหน้า",
+          "componentId": "PECV2-C2BDBE3FE571",
+          "text": "ตลอด 12 เดือน เส้นทางชีวิตลดภาระเดิม เรื่องที่ไม่สร้างผลจบลงก่อนขอบเขตใหม่เข้าที่",
+          "source": "prediction.relationship.next12Months.quiet"
+        },
+        {
+          "semanticOwner": "next",
+          "section": "ช่วงชีวิตถัดไป — อายุ 55–66 ปี",
+          "componentId": "PECV2-AD7323B12E96",
+          "text": "ช่วงชีวิตถัดไป เส้นทางชีวิตเปลี่ยนผ่านด้วยการปิดภาระเดิม โครงสร้างใหม่เริ่มหลังเรื่องค้างสิ้นสุดลง",
+          "source": "prediction.relationship.nextLifePeriod.quiet"
+        },
+        {
+          "semanticOwner": "summary",
+          "section": "สรุปคำทำนาย",
+          "componentId": "PECV2-BE7262A87CE8",
+          "text": "รอบปัจจุบันปิดภาระที่ค้างอยู่ก่อน แล้วผลจากเรื่องที่ทำต่อเนื่องจึงต่อยอดเป็นฐานของช่วงถัดไป",
+          "source": "PRV2-mahabhut2537-rem3-tuesday-SUMMARY-01"
+        },
+        {
+          "semanticOwner": "advice",
+          "section": "คำแนะนำสั้น ๆ",
+          "componentId": "PECV2-04DEBB947FC8",
+          "text": "ตัดสินใจจากขอบเขตงาน ผลตอบแทน และข้อตกลงที่ยืนยันได้ พร้อมกันพื้นที่พักให้เพียงพอกับภาระจริง",
+          "source": "PRV2-mahabhut2537-rem3-tuesday-ADVICE-01"
+        },
+        {
+          "semanticOwner": "disclosure",
+          "section": "คำแนะนำสั้น ๆ",
+          "componentId": "PECV2-2473FFF74FF1",
+          "text": "คำทำนายนี้เป็นมุมมองตามความเชื่อ ใช้ประกอบการทบทวนชีวิตและเทียบกับข้อเท็จจริงก่อนตัดสินใจเรื่องสำคัญ",
+          "source": "PRV2-mahabhut2537-rem3-tuesday-DISCLOSURE-01"
+        }
+      ]
+    },
+    {
+      "contextId": "mahabhut2537.rem4.wednesday",
+      "currentAge": 4,
+      "currentPeriod": {
+        "contextId": "mahabhut2537.rem4.wednesday",
+        "matrixApplicationId": "mahabhut2537.rem4.wednesday.mercury.0_17",
+        "planet": "mercury",
+        "taksaRole": "boriwan",
+        "mahabhutHouse": "phangkha",
+        "periodStatus": "dueng_tok",
+        "ageStart": 0,
+        "ageEnd": 17
+      },
+      "completedPastPeriods": 0,
+      "claims": [
+        {
+          "semanticOwner": "overview",
+          "section": "ภาพรวมเส้นทางชีวิต",
+          "componentId": "PECV2-8B0C79318B5B",
+          "text": "คนรอบตัวและกิจวัตรกำลังลดภาระ และโครงสร้างเดิมที่ต้องปรับเปลี่ยนรูปเพื่อให้เส้นทางชีวิตปิดเรื่องเดิมก่อนเริ่มรอบใหม่",
+          "source": "selector.mahabhut2537.rem4.wednesday.mercury.0_17"
+        },
+        {
+          "semanticOwner": "current",
+          "section": "คำทำนายปัจจุบัน — อายุ 4 ปี",
+          "componentId": "PECV2-22C7A64C11C0",
+          "text": "อายุ 0 ปี คนรอบตัวและกิจวัตรลดลงเพื่อปิดภาระ และโครงสร้างเดิมที่ต้องปรับถูกจัดใหม่ในรอบปัจจุบัน",
+          "source": "selector.mahabhut2537.rem4.wednesday.mercury.0_17"
+        },
+        {
+          "semanticOwner": "work",
+          "section": "การงาน",
+          "componentId": "PECV2-7227E9E8515C",
+          "text": "งานเดินหน้าจากผลที่ส่งมอบต่อเนื่อง ขอบเขตหลักขยายขึ้น แต่ภาระที่กินเวลาทำให้ผลลัพธ์เข้าที่ช้ากว่าปริมาณงาน",
+          "source": "prediction.career.current.strong"
+        },
+        {
+          "semanticOwner": "finance",
+          "section": "การเงิน",
+          "componentId": "PECV2-36193DB2F990",
+          "text": "การเงินเดินหน้าจากผลที่ส่งมอบต่อเนื่อง ขอบเขตหลักขยายขึ้น แต่ภาระที่กินเวลาทำให้ผลลัพธ์เข้าที่ช้ากว่าปริมาณงาน",
+          "source": "prediction.finance.current.strong"
+        },
+        {
+          "semanticOwner": "relationship",
+          "section": "ความรักและความสัมพันธ์",
+          "componentId": "PECV2-7073B1B3CFB3",
+          "text": "ความสัมพันธ์เดินหน้าจากผลที่ส่งมอบต่อเนื่อง ขอบเขตหลักขยายขึ้น แต่ภาระที่กินเวลาทำให้ผลลัพธ์เข้าที่ช้ากว่าปริมาณงาน",
+          "source": "prediction.relationship.current.strong"
+        },
+        {
+          "semanticOwner": "health",
+          "section": "สุขภาพ",
+          "componentId": "PECV2-0A18444524EC",
+          "text": "สุขภาพและการพักเดินหน้าจากผลที่ส่งมอบต่อเนื่อง ขอบเขตหลักขยายขึ้น แต่ภาระที่กินเวลาทำให้ผลลัพธ์เข้าที่ช้ากว่าปริมาณงาน",
+          "source": "prediction.health.current.strong"
+        },
+        {
+          "semanticOwner": "support",
+          "section": "โชคลาภและแรงสนับสนุน",
+          "componentId": "PECV2-958FE973D52E",
+          "text": "คนรอบตัวและกิจวัตรลดบทบาทลง แรงสนับสนุนจึงมุ่งไปที่การปิดเรื่องค้างและจัดโครงสร้างเดิมที่ต้องปรับใหม่",
+          "source": "selector.mahabhut2537.rem4.wednesday.mercury.0_17"
+        },
+        {
+          "semanticOwner": "rolling12",
+          "section": "แนวโน้ม 12 เดือนข้างหน้า",
+          "componentId": "PECV2-9A4F6657A0D8",
+          "text": "ตลอด 12 เดือน เส้นทางชีวิตขยายจากผลงานเดิม เรื่องค้างได้ข้อสรุปก่อนบทบาทใหม่เริ่มทำงานเต็มที่",
+          "source": "prediction.career.next12Months.strong"
+        },
+        {
+          "semanticOwner": "next",
+          "section": "ช่วงชีวิตถัดไป — อายุ 18–27 ปี",
+          "componentId": "PECV2-AD7323B12E96",
+          "text": "ช่วงชีวิตถัดไป เส้นทางชีวิตเปลี่ยนผ่านด้วยการปิดภาระเดิม โครงสร้างใหม่เริ่มหลังเรื่องค้างสิ้นสุดลง",
+          "source": "prediction.relationship.nextLifePeriod.quiet"
+        },
+        {
+          "semanticOwner": "summary",
+          "section": "สรุปคำทำนาย",
+          "componentId": "PECV2-BE7262A87CE8",
+          "text": "รอบปัจจุบันปิดภาระที่ค้างอยู่ก่อน แล้วผลจากเรื่องที่ทำต่อเนื่องจึงต่อยอดเป็นฐานของช่วงถัดไป",
+          "source": "PRV2-mahabhut2537-rem4-wednesday-SUMMARY-01"
+        },
+        {
+          "semanticOwner": "advice",
+          "section": "คำแนะนำสั้น ๆ",
+          "componentId": "PECV2-04DEBB947FC8",
+          "text": "ตัดสินใจจากขอบเขตงาน ผลตอบแทน และข้อตกลงที่ยืนยันได้ พร้อมกันพื้นที่พักให้เพียงพอกับภาระจริง",
+          "source": "PRV2-mahabhut2537-rem4-wednesday-ADVICE-01"
+        },
+        {
+          "semanticOwner": "disclosure",
+          "section": "คำแนะนำสั้น ๆ",
+          "componentId": "PECV2-2473FFF74FF1",
+          "text": "คำทำนายนี้เป็นมุมมองตามความเชื่อ ใช้ประกอบการทบทวนชีวิตและเทียบกับข้อเท็จจริงก่อนตัดสินใจเรื่องสำคัญ",
+          "source": "PRV2-mahabhut2537-rem4-wednesday-DISCLOSURE-01"
+        }
+      ]
+    },
+    {
+      "contextId": "mahabhut2537.rem5.thursday",
+      "currentAge": 10,
+      "currentPeriod": {
+        "contextId": "mahabhut2537.rem5.thursday",
+        "matrixApplicationId": "mahabhut2537.rem5.thursday.jupiter.0_19",
+        "planet": "jupiter",
+        "taksaRole": "boriwan",
+        "mahabhutHouse": "phangkha",
+        "periodStatus": "dueng_tok",
+        "ageStart": 0,
+        "ageEnd": 19
+      },
+      "completedPastPeriods": 0,
+      "claims": [
+        {
+          "semanticOwner": "overview",
+          "section": "ภาพรวมเส้นทางชีวิต",
+          "componentId": "PECV2-8B0C79318B5B",
+          "text": "คนรอบตัวและกิจวัตรกำลังลดภาระ และโครงสร้างเดิมที่ต้องปรับเปลี่ยนรูปเพื่อให้เส้นทางชีวิตปิดเรื่องเดิมก่อนเริ่มรอบใหม่",
+          "source": "selector.mahabhut2537.rem5.thursday.jupiter.0_19"
+        },
+        {
+          "semanticOwner": "current",
+          "section": "คำทำนายปัจจุบัน — อายุ 10 ปี",
+          "componentId": "PECV2-22C7A64C11C0",
+          "text": "อายุ 0 ปี คนรอบตัวและกิจวัตรลดลงเพื่อปิดภาระ และโครงสร้างเดิมที่ต้องปรับถูกจัดใหม่ในรอบปัจจุบัน",
+          "source": "selector.mahabhut2537.rem5.thursday.jupiter.0_19"
+        },
+        {
+          "semanticOwner": "work",
+          "section": "การงาน",
+          "componentId": "PECV2-7227E9E8515C",
+          "text": "งานเดินหน้าจากผลที่ส่งมอบต่อเนื่อง ขอบเขตหลักขยายขึ้น แต่ภาระที่กินเวลาทำให้ผลลัพธ์เข้าที่ช้ากว่าปริมาณงาน",
+          "source": "prediction.career.current.strong"
+        },
+        {
+          "semanticOwner": "finance",
+          "section": "การเงิน",
+          "componentId": "PECV2-36193DB2F990",
+          "text": "การเงินเดินหน้าจากผลที่ส่งมอบต่อเนื่อง ขอบเขตหลักขยายขึ้น แต่ภาระที่กินเวลาทำให้ผลลัพธ์เข้าที่ช้ากว่าปริมาณงาน",
+          "source": "prediction.finance.current.strong"
+        },
+        {
+          "semanticOwner": "relationship",
+          "section": "ความรักและความสัมพันธ์",
+          "componentId": "PECV2-7073B1B3CFB3",
+          "text": "ความสัมพันธ์เดินหน้าจากผลที่ส่งมอบต่อเนื่อง ขอบเขตหลักขยายขึ้น แต่ภาระที่กินเวลาทำให้ผลลัพธ์เข้าที่ช้ากว่าปริมาณงาน",
+          "source": "prediction.relationship.current.strong"
+        },
+        {
+          "semanticOwner": "health",
+          "section": "สุขภาพ",
+          "componentId": "PECV2-0A18444524EC",
+          "text": "สุขภาพและการพักเดินหน้าจากผลที่ส่งมอบต่อเนื่อง ขอบเขตหลักขยายขึ้น แต่ภาระที่กินเวลาทำให้ผลลัพธ์เข้าที่ช้ากว่าปริมาณงาน",
+          "source": "prediction.health.current.strong"
+        },
+        {
+          "semanticOwner": "support",
+          "section": "โชคลาภและแรงสนับสนุน",
+          "componentId": "PECV2-958FE973D52E",
+          "text": "คนรอบตัวและกิจวัตรลดบทบาทลง แรงสนับสนุนจึงมุ่งไปที่การปิดเรื่องค้างและจัดโครงสร้างเดิมที่ต้องปรับใหม่",
+          "source": "selector.mahabhut2537.rem5.thursday.jupiter.0_19"
+        },
+        {
+          "semanticOwner": "rolling12",
+          "section": "แนวโน้ม 12 เดือนข้างหน้า",
+          "componentId": "PECV2-9A4F6657A0D8",
+          "text": "ตลอด 12 เดือน เส้นทางชีวิตขยายจากผลงานเดิม เรื่องค้างได้ข้อสรุปก่อนบทบาทใหม่เริ่มทำงานเต็มที่",
+          "source": "prediction.career.next12Months.strong"
+        },
+        {
+          "semanticOwner": "next",
+          "section": "ช่วงชีวิตถัดไป — อายุ 20–31 ปี",
+          "componentId": "PECV2-EE73A7B17628",
+          "text": "ช่วงชีวิตถัดไป เส้นทางชีวิตขยายเป็นฐานระยะยาว บทบาทใหม่เริ่มจากสิ่งที่สะสมและส่งมอบไว้แล้ว",
+          "source": "prediction.finance.nextLifePeriod.active"
+        },
+        {
+          "semanticOwner": "summary",
+          "section": "สรุปคำทำนาย",
+          "componentId": "PECV2-BE7262A87CE8",
+          "text": "รอบปัจจุบันปิดภาระที่ค้างอยู่ก่อน แล้วผลจากเรื่องที่ทำต่อเนื่องจึงต่อยอดเป็นฐานของช่วงถัดไป",
+          "source": "PRV2-mahabhut2537-rem5-thursday-SUMMARY-01"
+        },
+        {
+          "semanticOwner": "advice",
+          "section": "คำแนะนำสั้น ๆ",
+          "componentId": "PECV2-04DEBB947FC8",
+          "text": "ตัดสินใจจากขอบเขตงาน ผลตอบแทน และข้อตกลงที่ยืนยันได้ พร้อมกันพื้นที่พักให้เพียงพอกับภาระจริง",
+          "source": "PRV2-mahabhut2537-rem5-thursday-ADVICE-01"
+        },
+        {
+          "semanticOwner": "disclosure",
+          "section": "คำแนะนำสั้น ๆ",
+          "componentId": "PECV2-2473FFF74FF1",
+          "text": "คำทำนายนี้เป็นมุมมองตามความเชื่อ ใช้ประกอบการทบทวนชีวิตและเทียบกับข้อเท็จจริงก่อนตัดสินใจเรื่องสำคัญ",
+          "source": "PRV2-mahabhut2537-rem5-thursday-DISCLOSURE-01"
+        }
+      ]
+    },
+    {
+      "contextId": "mahabhut2537.rem6.friday",
+      "currentAge": 65,
+      "currentPeriod": {
+        "contextId": "mahabhut2537.rem6.friday",
+        "matrixApplicationId": "mahabhut2537.rem6.friday.mercury.51_67",
+        "planet": "mercury",
+        "taksaRole": "mula",
+        "mahabhutHouse": "racha",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 51,
+        "ageEnd": 67
+      },
+      "completedPastPeriods": 4,
+      "claims": [
+        {
+          "semanticOwner": "past",
+          "section": "อายุ 0–21 ปี",
+          "componentId": "PECV2-31A0DFE9D34B",
+          "text": "ช่วงอายุ 0–17 ปี คนรอบตัวและกิจวัตรถูกจำกัดลง และโครงสร้างเดิมที่ต้องปรับเปลี่ยนรูปเพื่อปิดภาระเดิม",
+          "source": "selector.mahabhut2537.rem6.friday.venus.0_21"
+        },
+        {
+          "semanticOwner": "past",
+          "section": "อายุ 22–27 ปี",
+          "componentId": "PECV2-3C08A5728997",
+          "text": "ช่วงอายุ 16–23 ปี กำลังและความต่อเนื่องขยายผลชัดขึ้น และทรัพยากรและการเงินกลายเป็นฐานของช่วงต่อมา",
+          "source": "selector.mahabhut2537.rem6.friday.sun.22_27"
+        },
+        {
+          "semanticOwner": "past",
+          "section": "อายุ 28–42 ปี",
+          "componentId": "PECV2-95BC61B7FF1A",
+          "text": "ช่วงอายุ 30–41 ปี อำนาจตัดสินใจถูกจำกัดลง และสิ่งที่หมดบทบาทเปลี่ยนรูปเพื่อปิดภาระเดิม",
+          "source": "selector.mahabhut2537.rem6.friday.moon.28_42"
+        },
+        {
+          "semanticOwner": "past",
+          "section": "อายุ 43–50 ปี",
+          "componentId": "PECV2-50A6E916104A",
+          "text": "ช่วงอายุ 43–50 ปี ผลงานและการยอมรับขยายผลชัดขึ้น และหน้าที่และอำนาจกลายเป็นฐานของช่วงต่อมา",
+          "source": "selector.mahabhut2537.rem6.friday.mars.43_50"
+        },
+        {
+          "semanticOwner": "overview",
+          "section": "ภาพรวมเส้นทางชีวิต",
+          "componentId": "PECV2-9C1847CD9416",
+          "text": "ฐานงานและทรัพย์สินเดิมกำลังขยายผล และสถานะและบทบาทเปิดทางให้เส้นทางชีวิตเดินต่อด้วยบทบาทที่ชัดขึ้น",
+          "source": "selector.mahabhut2537.rem6.friday.mercury.51_67"
+        },
+        {
+          "semanticOwner": "current",
+          "section": "คำทำนายปัจจุบัน — อายุ 65 ปี",
+          "componentId": "PECV2-C52F7CD4589B",
+          "text": "อายุ 51 ปี ฐานงานและทรัพย์สินเดิมเริ่มให้ผลเป็นรูปธรรม และสถานะและบทบาทขยายขึ้นในรอบปัจจุบัน",
+          "source": "selector.mahabhut2537.rem6.friday.mercury.51_67"
+        },
+        {
+          "semanticOwner": "work",
+          "section": "การงาน",
+          "componentId": "PECV2-7227E9E8515C",
+          "text": "งานเดินหน้าจากผลที่ส่งมอบต่อเนื่อง ขอบเขตหลักขยายขึ้น แต่ภาระที่กินเวลาทำให้ผลลัพธ์เข้าที่ช้ากว่าปริมาณงาน",
+          "source": "prediction.career.current.strong"
+        },
+        {
+          "semanticOwner": "finance",
+          "section": "การเงิน",
+          "componentId": "PECV2-36193DB2F990",
+          "text": "การเงินเดินหน้าจากผลที่ส่งมอบต่อเนื่อง ขอบเขตหลักขยายขึ้น แต่ภาระที่กินเวลาทำให้ผลลัพธ์เข้าที่ช้ากว่าปริมาณงาน",
+          "source": "prediction.finance.current.strong"
+        },
+        {
+          "semanticOwner": "relationship",
+          "section": "ความรักและความสัมพันธ์",
+          "componentId": "PECV2-7073B1B3CFB3",
+          "text": "ความสัมพันธ์เดินหน้าจากผลที่ส่งมอบต่อเนื่อง ขอบเขตหลักขยายขึ้น แต่ภาระที่กินเวลาทำให้ผลลัพธ์เข้าที่ช้ากว่าปริมาณงาน",
+          "source": "prediction.relationship.current.strong"
+        },
+        {
+          "semanticOwner": "health",
+          "section": "สุขภาพ",
+          "componentId": "PECV2-0A18444524EC",
+          "text": "สุขภาพและการพักเดินหน้าจากผลที่ส่งมอบต่อเนื่อง ขอบเขตหลักขยายขึ้น แต่ภาระที่กินเวลาทำให้ผลลัพธ์เข้าที่ช้ากว่าปริมาณงาน",
+          "source": "prediction.health.current.strong"
+        },
+        {
+          "semanticOwner": "support",
+          "section": "โชคลาภและแรงสนับสนุน",
+          "componentId": "PECV2-DBADCE7BAD7A",
+          "text": "ฐานงานและทรัพย์สินเดิมพาแรงสนับสนุนเข้ามาเปิดทาง และสถานะและบทบาททำให้เรื่องติดขัดกลับมาเดินต่อ",
+          "source": "selector.mahabhut2537.rem6.friday.mercury.51_67"
+        },
+        {
+          "semanticOwner": "rolling12",
+          "section": "แนวโน้ม 12 เดือนข้างหน้า",
+          "componentId": "PECV2-9A4F6657A0D8",
+          "text": "ตลอด 12 เดือน เส้นทางชีวิตขยายจากผลงานเดิม เรื่องค้างได้ข้อสรุปก่อนบทบาทใหม่เริ่มทำงานเต็มที่",
+          "source": "prediction.career.next12Months.strong"
+        },
+        {
+          "semanticOwner": "next",
+          "section": "ช่วงชีวิตถัดไป — อายุ 68–77 ปี",
+          "componentId": "PECV2-4EDA20597B1D",
+          "text": "ช่วงชีวิตถัดไป เส้นทางชีวิตขยายเป็นฐานระยะยาว บทบาทใหม่เริ่มจากสิ่งที่สะสมและส่งมอบไว้แล้ว",
+          "source": "prediction.relationship.nextLifePeriod.active"
+        },
+        {
+          "semanticOwner": "summary",
+          "section": "สรุปคำทำนาย",
+          "componentId": "PECV2-BE7262A87CE8",
+          "text": "รอบปัจจุบันปิดภาระที่ค้างอยู่ก่อน แล้วผลจากเรื่องที่ทำต่อเนื่องจึงต่อยอดเป็นฐานของช่วงถัดไป",
+          "source": "PRV2-mahabhut2537-rem6-friday-SUMMARY-01"
+        },
+        {
+          "semanticOwner": "advice",
+          "section": "คำแนะนำสั้น ๆ",
+          "componentId": "PECV2-04DEBB947FC8",
+          "text": "ตัดสินใจจากขอบเขตงาน ผลตอบแทน และข้อตกลงที่ยืนยันได้ พร้อมกันพื้นที่พักให้เพียงพอกับภาระจริง",
+          "source": "PRV2-mahabhut2537-rem6-friday-ADVICE-01"
+        },
+        {
+          "semanticOwner": "disclosure",
+          "section": "คำแนะนำสั้น ๆ",
+          "componentId": "PECV2-2473FFF74FF1",
+          "text": "คำทำนายนี้เป็นมุมมองตามความเชื่อ ใช้ประกอบการทบทวนชีวิตและเทียบกับข้อเท็จจริงก่อนตัดสินใจเรื่องสำคัญ",
+          "source": "PRV2-mahabhut2537-rem6-friday-DISCLOSURE-01"
+        }
+      ]
+    },
+    {
+      "contextId": "mahabhut2537.rem0.saturday",
+      "currentAge": 30,
+      "currentPeriod": {
+        "contextId": "mahabhut2537.rem0.saturday",
+        "matrixApplicationId": "mahabhut2537.rem0.saturday.rahu.30_41",
+        "planet": "rahu",
+        "taksaRole": "det",
+        "mahabhutHouse": "athibodi",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 30,
+        "ageEnd": 41
+      },
+      "completedPastPeriods": 2,
+      "claims": [
+        {
+          "semanticOwner": "past",
+          "section": "อายุ 0–10 ปี",
+          "componentId": "PECV2-31A0DFE9D34B",
+          "text": "ช่วงอายุ 0–17 ปี คนรอบตัวและกิจวัตรถูกจำกัดลง และโครงสร้างเดิมที่ต้องปรับเปลี่ยนรูปเพื่อปิดภาระเดิม",
+          "source": "selector.mahabhut2537.rem0.saturday.saturn.0_10"
+        },
+        {
+          "semanticOwner": "past",
+          "section": "อายุ 11–29 ปี",
+          "componentId": "PECV2-D9A79D52BD2E",
+          "text": "ช่วงอายุ 11–29 ปี กำลังและความต่อเนื่องขยายผลชัดขึ้น และสถานะและบทบาทกลายเป็นฐานของช่วงต่อมา",
+          "source": "selector.mahabhut2537.rem0.saturday.jupiter.11_29"
+        },
+        {
+          "semanticOwner": "overview",
+          "section": "ภาพรวมเส้นทางชีวิต",
+          "componentId": "PECV2-2C1B0B4175C9",
+          "text": "อำนาจตัดสินใจกำลังขยายผล และหน้าที่และอำนาจเปิดทางให้เส้นทางชีวิตเดินต่อด้วยบทบาทที่ชัดขึ้น",
+          "source": "selector.mahabhut2537.rem0.saturday.rahu.30_41"
+        },
+        {
+          "semanticOwner": "current",
+          "section": "คำทำนายปัจจุบัน — อายุ 30 ปี",
+          "componentId": "PECV2-D2E703618A21",
+          "text": "อายุ 30 ปี อำนาจตัดสินใจเริ่มให้ผลเป็นรูปธรรม และหน้าที่และอำนาจขยายขึ้นในรอบปัจจุบัน",
+          "source": "selector.mahabhut2537.rem0.saturday.rahu.30_41"
+        },
+        {
+          "semanticOwner": "work",
+          "section": "การงาน",
+          "componentId": "PECV2-7227E9E8515C",
+          "text": "งานเดินหน้าจากผลที่ส่งมอบต่อเนื่อง ขอบเขตหลักขยายขึ้น แต่ภาระที่กินเวลาทำให้ผลลัพธ์เข้าที่ช้ากว่าปริมาณงาน",
+          "source": "prediction.career.current.strong"
+        },
+        {
+          "semanticOwner": "finance",
+          "section": "การเงิน",
+          "componentId": "PECV2-36193DB2F990",
+          "text": "การเงินเดินหน้าจากผลที่ส่งมอบต่อเนื่อง ขอบเขตหลักขยายขึ้น แต่ภาระที่กินเวลาทำให้ผลลัพธ์เข้าที่ช้ากว่าปริมาณงาน",
+          "source": "prediction.finance.current.strong"
+        },
+        {
+          "semanticOwner": "relationship",
+          "section": "ความรักและความสัมพันธ์",
+          "componentId": "PECV2-8CD0C27A282A",
+          "text": "ความสัมพันธ์เดินหน้าจากผลที่ส่งมอบต่อเนื่อง ขอบเขตหลักขยายขึ้น แต่ภาระที่กินเวลาทำให้ผลลัพธ์เข้าที่ช้ากว่าปริมาณงาน",
+          "source": "prediction.relationship.current.active"
+        },
+        {
+          "semanticOwner": "health",
+          "section": "สุขภาพ",
+          "componentId": "PECV2-FCDA8ABD646E",
+          "text": "สุขภาพและการพักเดินหน้าจากผลที่ส่งมอบต่อเนื่อง ขอบเขตหลักขยายขึ้น แต่ภาระที่กินเวลาทำให้ผลลัพธ์เข้าที่ช้ากว่าปริมาณงาน",
+          "source": "prediction.health.current.active"
+        },
+        {
+          "semanticOwner": "support",
+          "section": "โชคลาภและแรงสนับสนุน",
+          "componentId": "PECV2-EE407E96722C",
+          "text": "อำนาจตัดสินใจพาแรงสนับสนุนเข้ามาเปิดทาง และหน้าที่และอำนาจทำให้เรื่องติดขัดกลับมาเดินต่อ",
+          "source": "selector.mahabhut2537.rem0.saturday.rahu.30_41"
+        },
+        {
+          "semanticOwner": "rolling12",
+          "section": "แนวโน้ม 12 เดือนข้างหน้า",
+          "componentId": "PECV2-DF035F2EF723",
+          "text": "ตลอด 12 เดือน เส้นทางชีวิตขยายจากผลงานเดิม เรื่องค้างได้ข้อสรุปก่อนบทบาทใหม่เริ่มทำงานเต็มที่",
+          "source": "prediction.relationship.next12Months.active"
+        },
+        {
+          "semanticOwner": "next",
+          "section": "ช่วงชีวิตถัดไป — อายุ 42–62 ปี",
+          "componentId": "PECV2-AF7315E62573",
+          "text": "ช่วงชีวิตถัดไป เส้นทางชีวิตขยายเป็นฐานระยะยาว บทบาทใหม่เริ่มจากสิ่งที่สะสมและส่งมอบไว้แล้ว",
+          "source": "prediction.career.nextLifePeriod.strong"
+        },
+        {
+          "semanticOwner": "summary",
+          "section": "สรุปคำทำนาย",
+          "componentId": "PECV2-BE7262A87CE8",
+          "text": "รอบปัจจุบันปิดภาระที่ค้างอยู่ก่อน แล้วผลจากเรื่องที่ทำต่อเนื่องจึงต่อยอดเป็นฐานของช่วงถัดไป",
+          "source": "PRV2-mahabhut2537-rem0-saturday-SUMMARY-01"
+        },
+        {
+          "semanticOwner": "advice",
+          "section": "คำแนะนำสั้น ๆ",
+          "componentId": "PECV2-04DEBB947FC8",
+          "text": "ตัดสินใจจากขอบเขตงาน ผลตอบแทน และข้อตกลงที่ยืนยันได้ พร้อมกันพื้นที่พักให้เพียงพอกับภาระจริง",
+          "source": "PRV2-mahabhut2537-rem0-saturday-ADVICE-01"
+        },
+        {
+          "semanticOwner": "disclosure",
+          "section": "คำแนะนำสั้น ๆ",
+          "componentId": "PECV2-2473FFF74FF1",
+          "text": "คำทำนายนี้เป็นมุมมองตามความเชื่อ ใช้ประกอบการทบทวนชีวิตและเทียบกับข้อเท็จจริงก่อนตัดสินใจเรื่องสำคัญ",
+          "source": "PRV2-mahabhut2537-rem0-saturday-DISCLOSURE-01"
+        }
+      ]
+    },
+    {
+      "contextId": "mahabhut2537.rem6.saturday",
+      "currentAge": 10,
+      "currentPeriod": {
+        "contextId": "mahabhut2537.rem6.saturday",
+        "matrixApplicationId": "mahabhut2537.rem6.saturday.saturn.0_10",
+        "planet": "saturn",
+        "taksaRole": "boriwan",
+        "mahabhutHouse": "puti",
+        "periodStatus": "dueng_tok",
+        "ageStart": 0,
+        "ageEnd": 10
+      },
+      "completedPastPeriods": 0,
+      "claims": [
+        {
+          "semanticOwner": "overview",
+          "section": "ภาพรวมเส้นทางชีวิต",
+          "componentId": "PECV2-33196B4C680B",
+          "text": "คนรอบตัวและกิจวัตรกำลังลดภาระ และรอบเดิมที่ปิดลงเปลี่ยนรูปเพื่อให้เส้นทางชีวิตปิดเรื่องเดิมก่อนเริ่มรอบใหม่",
+          "source": "selector.mahabhut2537.rem6.saturday.saturn.0_10"
+        },
+        {
+          "semanticOwner": "current",
+          "section": "คำทำนายปัจจุบัน — อายุ 10 ปี",
+          "componentId": "PECV2-93F850F34132",
+          "text": "อายุ 0 ปี คนรอบตัวและกิจวัตรลดลงเพื่อปิดภาระ และรอบเดิมที่ปิดลงถูกจัดใหม่ในรอบปัจจุบัน",
+          "source": "selector.mahabhut2537.rem6.saturday.saturn.0_10"
+        },
+        {
+          "semanticOwner": "work",
+          "section": "การงาน",
+          "componentId": "PECV2-7227E9E8515C",
+          "text": "งานเดินหน้าจากผลที่ส่งมอบต่อเนื่อง ขอบเขตหลักขยายขึ้น แต่ภาระที่กินเวลาทำให้ผลลัพธ์เข้าที่ช้ากว่าปริมาณงาน",
+          "source": "prediction.career.current.strong"
+        },
+        {
+          "semanticOwner": "finance",
+          "section": "การเงิน",
+          "componentId": "PECV2-2A4D0D5EF176",
+          "text": "การเงินเดินหน้าจากผลที่ส่งมอบต่อเนื่อง ขอบเขตหลักขยายขึ้น แต่ภาระที่กินเวลาทำให้ผลลัพธ์เข้าที่ช้ากว่าปริมาณงาน",
+          "source": "prediction.finance.current.active"
+        },
+        {
+          "semanticOwner": "relationship",
+          "section": "ความรักและความสัมพันธ์",
+          "componentId": "PECV2-8CD0C27A282A",
+          "text": "ความสัมพันธ์เดินหน้าจากผลที่ส่งมอบต่อเนื่อง ขอบเขตหลักขยายขึ้น แต่ภาระที่กินเวลาทำให้ผลลัพธ์เข้าที่ช้ากว่าปริมาณงาน",
+          "source": "prediction.relationship.current.active"
+        },
+        {
+          "semanticOwner": "health",
+          "section": "สุขภาพ",
+          "componentId": "PECV2-FCDA8ABD646E",
+          "text": "สุขภาพและการพักเดินหน้าจากผลที่ส่งมอบต่อเนื่อง ขอบเขตหลักขยายขึ้น แต่ภาระที่กินเวลาทำให้ผลลัพธ์เข้าที่ช้ากว่าปริมาณงาน",
+          "source": "prediction.health.current.active"
+        },
+        {
+          "semanticOwner": "support",
+          "section": "โชคลาภและแรงสนับสนุน",
+          "componentId": "PECV2-2F7826848C2F",
+          "text": "คนรอบตัวและกิจวัตรลดบทบาทลง แรงสนับสนุนจึงมุ่งไปที่การปิดเรื่องค้างและจัดรอบเดิมที่ปิดลงใหม่",
+          "source": "selector.mahabhut2537.rem6.saturday.saturn.0_10"
+        },
+        {
+          "semanticOwner": "rolling12",
+          "section": "แนวโน้ม 12 เดือนข้างหน้า",
+          "componentId": "PECV2-7062B1641F60",
+          "text": "ตลอด 12 เดือน เส้นทางชีวิตขยายจากผลงานเดิม เรื่องค้างได้ข้อสรุปก่อนบทบาทใหม่เริ่มทำงานเต็มที่",
+          "source": "prediction.career.next12Months.strong"
+        },
+        {
+          "semanticOwner": "next",
+          "section": "ช่วงชีวิตถัดไป — อายุ 11–29 ปี",
+          "componentId": "PECV2-D3ADE4CD516C",
+          "text": "ช่วงชีวิตถัดไป เส้นทางชีวิตขยายเป็นฐานระยะยาว บทบาทใหม่เริ่มจากสิ่งที่สะสมและส่งมอบไว้แล้ว",
+          "source": "prediction.career.nextLifePeriod.strong"
+        },
+        {
+          "semanticOwner": "summary",
+          "section": "สรุปคำทำนาย",
+          "componentId": "PECV2-BE7262A87CE8",
+          "text": "รอบปัจจุบันปิดภาระที่ค้างอยู่ก่อน แล้วผลจากเรื่องที่ทำต่อเนื่องจึงต่อยอดเป็นฐานของช่วงถัดไป",
+          "source": "PRV2-mahabhut2537-rem6-saturday-SUMMARY-01"
+        },
+        {
+          "semanticOwner": "advice",
+          "section": "คำแนะนำสั้น ๆ",
+          "componentId": "PECV2-04DEBB947FC8",
+          "text": "ตัดสินใจจากขอบเขตงาน ผลตอบแทน และข้อตกลงที่ยืนยันได้ พร้อมกันพื้นที่พักให้เพียงพอกับภาระจริง",
+          "source": "PRV2-mahabhut2537-rem6-saturday-ADVICE-01"
+        },
+        {
+          "semanticOwner": "disclosure",
+          "section": "คำแนะนำสั้น ๆ",
+          "componentId": "PECV2-2473FFF74FF1",
+          "text": "คำทำนายนี้เป็นมุมมองตามความเชื่อ ใช้ประกอบการทบทวนชีวิตและเทียบกับข้อเท็จจริงก่อนตัดสินใจเรื่องสำคัญ",
+          "source": "PRV2-mahabhut2537-rem6-saturday-DISCLOSURE-01"
+        }
+      ]
+    },
+    {
+      "contextId": "mahabhut2537.rem5.tuesday",
+      "currentAge": 17,
+      "currentPeriod": {
+        "contextId": "mahabhut2537.rem5.tuesday",
+        "matrixApplicationId": "mahabhut2537.rem5.tuesday.mercury.9_25",
+        "planet": "mercury",
+        "taksaRole": "ayu",
+        "mahabhutHouse": "thongchai",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 9,
+        "ageEnd": 25
+      },
+      "completedPastPeriods": 1,
+      "claims": [
+        {
+          "semanticOwner": "past",
+          "section": "อายุ 0–8 ปี",
+          "componentId": "PECV2-42735E8148FA",
+          "text": "ช่วงอายุ 0–8 ปี คนรอบตัวและกิจวัตรขยายผลชัดขึ้น และสถานะและบทบาทกลายเป็นฐานของช่วงต่อมา",
+          "source": "selector.mahabhut2537.rem5.tuesday.mars.0_8"
+        },
+        {
+          "semanticOwner": "overview",
+          "section": "ภาพรวมเส้นทางชีวิต",
+          "componentId": "PECV2-3CCC5DE2F995",
+          "text": "กำลังและความต่อเนื่องกำลังขยายผล และเป้าหมายระยะยาวเปิดทางให้เส้นทางชีวิตเดินต่อด้วยบทบาทที่ชัดขึ้น",
+          "source": "selector.mahabhut2537.rem5.tuesday.mercury.9_25"
+        },
+        {
+          "semanticOwner": "current",
+          "section": "คำทำนายปัจจุบัน — อายุ 17 ปี",
+          "componentId": "PECV2-D36FFB7E72F2",
+          "text": "อายุ 9 ปี กำลังและความต่อเนื่องเริ่มให้ผลเป็นรูปธรรม และเป้าหมายระยะยาวขยายขึ้นในรอบปัจจุบัน",
+          "source": "selector.mahabhut2537.rem5.tuesday.mercury.9_25"
+        },
+        {
+          "semanticOwner": "work",
+          "section": "การงาน",
+          "componentId": "PECV2-7227E9E8515C",
+          "text": "งานเดินหน้าจากผลที่ส่งมอบต่อเนื่อง ขอบเขตหลักขยายขึ้น แต่ภาระที่กินเวลาทำให้ผลลัพธ์เข้าที่ช้ากว่าปริมาณงาน",
+          "source": "prediction.career.current.strong"
+        },
+        {
+          "semanticOwner": "finance",
+          "section": "การเงิน",
+          "componentId": "PECV2-36193DB2F990",
+          "text": "การเงินเดินหน้าจากผลที่ส่งมอบต่อเนื่อง ขอบเขตหลักขยายขึ้น แต่ภาระที่กินเวลาทำให้ผลลัพธ์เข้าที่ช้ากว่าปริมาณงาน",
+          "source": "prediction.finance.current.strong"
+        },
+        {
+          "semanticOwner": "relationship",
+          "section": "ความรักและความสัมพันธ์",
+          "componentId": "PECV2-7073B1B3CFB3",
+          "text": "ความสัมพันธ์เดินหน้าจากผลที่ส่งมอบต่อเนื่อง ขอบเขตหลักขยายขึ้น แต่ภาระที่กินเวลาทำให้ผลลัพธ์เข้าที่ช้ากว่าปริมาณงาน",
+          "source": "prediction.relationship.current.strong"
+        },
+        {
+          "semanticOwner": "health",
+          "section": "สุขภาพ",
+          "componentId": "PECV2-0A18444524EC",
+          "text": "สุขภาพและการพักเดินหน้าจากผลที่ส่งมอบต่อเนื่อง ขอบเขตหลักขยายขึ้น แต่ภาระที่กินเวลาทำให้ผลลัพธ์เข้าที่ช้ากว่าปริมาณงาน",
+          "source": "prediction.health.current.strong"
+        },
+        {
+          "semanticOwner": "support",
+          "section": "โชคลาภและแรงสนับสนุน",
+          "componentId": "PECV2-9FC3289548D7",
+          "text": "กำลังและความต่อเนื่องพาแรงสนับสนุนเข้ามาเปิดทาง และเป้าหมายระยะยาวทำให้เรื่องติดขัดกลับมาเดินต่อ",
+          "source": "selector.mahabhut2537.rem5.tuesday.mercury.9_25"
+        },
+        {
+          "semanticOwner": "rolling12",
+          "section": "แนวโน้ม 12 เดือนข้างหน้า",
+          "componentId": "PECV2-9A4F6657A0D8",
+          "text": "ตลอด 12 เดือน เส้นทางชีวิตขยายจากผลงานเดิม เรื่องค้างได้ข้อสรุปก่อนบทบาทใหม่เริ่มทำงานเต็มที่",
+          "source": "prediction.career.next12Months.strong"
+        },
+        {
+          "semanticOwner": "next",
+          "section": "ช่วงชีวิตถัดไป — อายุ 26–35 ปี",
+          "componentId": "PECV2-AD7323B12E96",
+          "text": "ช่วงชีวิตถัดไป เส้นทางชีวิตเปลี่ยนผ่านด้วยการปิดภาระเดิม โครงสร้างใหม่เริ่มหลังเรื่องค้างสิ้นสุดลง",
+          "source": "prediction.relationship.nextLifePeriod.quiet"
+        },
+        {
+          "semanticOwner": "summary",
+          "section": "สรุปคำทำนาย",
+          "componentId": "PECV2-BE7262A87CE8",
+          "text": "รอบปัจจุบันปิดภาระที่ค้างอยู่ก่อน แล้วผลจากเรื่องที่ทำต่อเนื่องจึงต่อยอดเป็นฐานของช่วงถัดไป",
+          "source": "PRV2-mahabhut2537-rem5-tuesday-SUMMARY-01"
+        },
+        {
+          "semanticOwner": "advice",
+          "section": "คำแนะนำสั้น ๆ",
+          "componentId": "PECV2-04DEBB947FC8",
+          "text": "ตัดสินใจจากขอบเขตงาน ผลตอบแทน และข้อตกลงที่ยืนยันได้ พร้อมกันพื้นที่พักให้เพียงพอกับภาระจริง",
+          "source": "PRV2-mahabhut2537-rem5-tuesday-ADVICE-01"
+        },
+        {
+          "semanticOwner": "disclosure",
+          "section": "คำแนะนำสั้น ๆ",
+          "componentId": "PECV2-2473FFF74FF1",
+          "text": "คำทำนายนี้เป็นมุมมองตามความเชื่อ ใช้ประกอบการทบทวนชีวิตและเทียบกับข้อเท็จจริงก่อนตัดสินใจเรื่องสำคัญ",
+          "source": "PRV2-mahabhut2537-rem5-tuesday-DISCLOSURE-01"
+        }
+      ]
+    },
+    {
+      "contextId": "mahabhut2537.rem2.friday",
+      "currentAge": 6,
+      "currentPeriod": {
+        "contextId": "mahabhut2537.rem2.friday",
+        "matrixApplicationId": "mahabhut2537.rem2.friday.venus.0_21",
+        "planet": "venus",
+        "taksaRole": "boriwan",
+        "mahabhutHouse": "athibodi",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 0,
+        "ageEnd": 21
+      },
+      "completedPastPeriods": 0,
+      "claims": [
+        {
+          "semanticOwner": "overview",
+          "section": "ภาพรวมเส้นทางชีวิต",
+          "componentId": "PECV2-004037732BFD",
+          "text": "คนรอบตัวและกิจวัตรกำลังขยายผล และหน้าที่และอำนาจเปิดทางให้เส้นทางชีวิตเดินต่อด้วยบทบาทที่ชัดขึ้น",
+          "source": "selector.mahabhut2537.rem2.friday.venus.0_21"
+        },
+        {
+          "semanticOwner": "current",
+          "section": "คำทำนายปัจจุบัน — อายุ 6 ปี",
+          "componentId": "PECV2-28B7BD85ABE8",
+          "text": "อายุ 0 ปี คนรอบตัวและกิจวัตรเริ่มให้ผลเป็นรูปธรรม และหน้าที่และอำนาจขยายขึ้นในรอบปัจจุบัน",
+          "source": "selector.mahabhut2537.rem2.friday.venus.0_21"
+        },
+        {
+          "semanticOwner": "work",
+          "section": "การงาน",
+          "componentId": "PECV2-7227E9E8515C",
+          "text": "งานเดินหน้าจากผลที่ส่งมอบต่อเนื่อง ขอบเขตหลักขยายขึ้น แต่ภาระที่กินเวลาทำให้ผลลัพธ์เข้าที่ช้ากว่าปริมาณงาน",
+          "source": "prediction.career.current.strong"
+        },
+        {
+          "semanticOwner": "finance",
+          "section": "การเงิน",
+          "componentId": "PECV2-36193DB2F990",
+          "text": "การเงินเดินหน้าจากผลที่ส่งมอบต่อเนื่อง ขอบเขตหลักขยายขึ้น แต่ภาระที่กินเวลาทำให้ผลลัพธ์เข้าที่ช้ากว่าปริมาณงาน",
+          "source": "prediction.finance.current.strong"
+        },
+        {
+          "semanticOwner": "relationship",
+          "section": "ความรักและความสัมพันธ์",
+          "componentId": "PECV2-7073B1B3CFB3",
+          "text": "ความสัมพันธ์เดินหน้าจากผลที่ส่งมอบต่อเนื่อง ขอบเขตหลักขยายขึ้น แต่ภาระที่กินเวลาทำให้ผลลัพธ์เข้าที่ช้ากว่าปริมาณงาน",
+          "source": "prediction.relationship.current.strong"
+        },
+        {
+          "semanticOwner": "health",
+          "section": "สุขภาพ",
+          "componentId": "PECV2-0A18444524EC",
+          "text": "สุขภาพและการพักเดินหน้าจากผลที่ส่งมอบต่อเนื่อง ขอบเขตหลักขยายขึ้น แต่ภาระที่กินเวลาทำให้ผลลัพธ์เข้าที่ช้ากว่าปริมาณงาน",
+          "source": "prediction.health.current.strong"
+        },
+        {
+          "semanticOwner": "support",
+          "section": "โชคลาภและแรงสนับสนุน",
+          "componentId": "PECV2-96FEF4E0BBBF",
+          "text": "คนรอบตัวและกิจวัตรพาแรงสนับสนุนเข้ามาเปิดทาง และหน้าที่และอำนาจทำให้เรื่องติดขัดกลับมาเดินต่อ",
+          "source": "selector.mahabhut2537.rem2.friday.venus.0_21"
+        },
+        {
+          "semanticOwner": "rolling12",
+          "section": "แนวโน้ม 12 เดือนข้างหน้า",
+          "componentId": "PECV2-9A4F6657A0D8",
+          "text": "ตลอด 12 เดือน เส้นทางชีวิตขยายจากผลงานเดิม เรื่องค้างได้ข้อสรุปก่อนบทบาทใหม่เริ่มทำงานเต็มที่",
+          "source": "prediction.career.next12Months.strong"
+        },
+        {
+          "semanticOwner": "next",
+          "section": "ช่วงชีวิตถัดไป — อายุ 22–27 ปี",
+          "componentId": "PECV2-AD7323B12E96",
+          "text": "ช่วงชีวิตถัดไป เส้นทางชีวิตเปลี่ยนผ่านด้วยการปิดภาระเดิม โครงสร้างใหม่เริ่มหลังเรื่องค้างสิ้นสุดลง",
+          "source": "prediction.relationship.nextLifePeriod.quiet"
+        },
+        {
+          "semanticOwner": "summary",
+          "section": "สรุปคำทำนาย",
+          "componentId": "PECV2-BE7262A87CE8",
+          "text": "รอบปัจจุบันปิดภาระที่ค้างอยู่ก่อน แล้วผลจากเรื่องที่ทำต่อเนื่องจึงต่อยอดเป็นฐานของช่วงถัดไป",
+          "source": "PRV2-mahabhut2537-rem2-friday-SUMMARY-01"
+        },
+        {
+          "semanticOwner": "advice",
+          "section": "คำแนะนำสั้น ๆ",
+          "componentId": "PECV2-04DEBB947FC8",
+          "text": "ตัดสินใจจากขอบเขตงาน ผลตอบแทน และข้อตกลงที่ยืนยันได้ พร้อมกันพื้นที่พักให้เพียงพอกับภาระจริง",
+          "source": "PRV2-mahabhut2537-rem2-friday-ADVICE-01"
+        },
+        {
+          "semanticOwner": "disclosure",
+          "section": "คำแนะนำสั้น ๆ",
+          "componentId": "PECV2-2473FFF74FF1",
+          "text": "คำทำนายนี้เป็นมุมมองตามความเชื่อ ใช้ประกอบการทบทวนชีวิตและเทียบกับข้อเท็จจริงก่อนตัดสินใจเรื่องสำคัญ",
+          "source": "PRV2-mahabhut2537-rem2-friday-DISCLOSURE-01"
+        }
+      ]
+    },
+    {
+      "contextId": "mahabhut2537.rem3.monday",
+      "currentAge": 61,
+      "currentPeriod": {
+        "contextId": "mahabhut2537.rem3.monday",
+        "matrixApplicationId": "mahabhut2537.rem3.monday.venus.60_80",
+        "planet": "venus",
+        "taksaRole": "mula",
+        "mahabhutHouse": "marana",
+        "periodStatus": "dueng_tok",
+        "ageStart": 60,
+        "ageEnd": 80
+      },
+      "completedPastPeriods": 4,
+      "claims": [
+        {
+          "semanticOwner": "past",
+          "section": "อายุ 0–15 ปี",
+          "componentId": "PECV2-3D53E599C84C",
+          "text": "ช่วงอายุ 0–17 ปี คนรอบตัวและกิจวัตรขยายผลชัดขึ้น และเป้าหมายระยะยาวกลายเป็นฐานของช่วงต่อมา",
+          "source": "selector.mahabhut2537.rem3.monday.moon.0_15"
+        },
+        {
+          "semanticOwner": "past",
+          "section": "อายุ 16–23 ปี",
+          "componentId": "PECV2-50D64524C81C",
+          "text": "ช่วงอายุ 11–29 ปี กำลังและความต่อเนื่องถูกจำกัดลง และโครงสร้างเดิมที่ต้องปรับเปลี่ยนรูปเพื่อปิดภาระเดิม",
+          "source": "selector.mahabhut2537.rem3.monday.mars.16_23"
+        },
+        {
+          "semanticOwner": "past",
+          "section": "อายุ 24–40 ปี",
+          "componentId": "PECV2-9B20DC45AB52",
+          "text": "ช่วงอายุ 28–42 ปี อำนาจตัดสินใจถูกจำกัดลง และรอบเดิมที่ปิดลงเปลี่ยนรูปเพื่อปิดภาระเดิม",
+          "source": "selector.mahabhut2537.rem3.monday.mercury.24_40"
+        },
+        {
+          "semanticOwner": "past",
+          "section": "อายุ 41–59 ปี",
+          "componentId": "PECV2-3BF963102126",
+          "text": "ช่วงอายุ 41–59 ปี ผลงานและการยอมรับขยายผลชัดขึ้น และทรัพยากรและการเงินกลายเป็นฐานของช่วงต่อมา",
+          "source": "selector.mahabhut2537.rem3.monday.jupiter.41_59"
+        },
+        {
+          "semanticOwner": "overview",
+          "section": "ภาพรวมเส้นทางชีวิต",
+          "componentId": "PECV2-722415D65293",
+          "text": "ฐานงานและทรัพย์สินเดิมกำลังลดภาระ และสิ่งที่หมดบทบาทเปลี่ยนรูปเพื่อให้เส้นทางชีวิตปิดเรื่องเดิมก่อนเริ่มรอบใหม่",
+          "source": "selector.mahabhut2537.rem3.monday.venus.60_80"
+        },
+        {
+          "semanticOwner": "current",
+          "section": "คำทำนายปัจจุบัน — อายุ 61 ปี",
+          "componentId": "PECV2-44CB6C9018E0",
+          "text": "อายุ 60 ปี ฐานงานและทรัพย์สินเดิมลดลงเพื่อปิดภาระ และสิ่งที่หมดบทบาทถูกจัดใหม่ในรอบปัจจุบัน",
+          "source": "selector.mahabhut2537.rem3.monday.venus.60_80"
+        },
+        {
+          "semanticOwner": "work",
+          "section": "การงาน",
+          "componentId": "PECV2-7227E9E8515C",
+          "text": "งานเดินหน้าจากผลที่ส่งมอบต่อเนื่อง ขอบเขตหลักขยายขึ้น แต่ภาระที่กินเวลาทำให้ผลลัพธ์เข้าที่ช้ากว่าปริมาณงาน",
+          "source": "prediction.career.current.strong"
+        },
+        {
+          "semanticOwner": "finance",
+          "section": "การเงิน",
+          "componentId": "PECV2-36193DB2F990",
+          "text": "การเงินเดินหน้าจากผลที่ส่งมอบต่อเนื่อง ขอบเขตหลักขยายขึ้น แต่ภาระที่กินเวลาทำให้ผลลัพธ์เข้าที่ช้ากว่าปริมาณงาน",
+          "source": "prediction.finance.current.strong"
+        },
+        {
+          "semanticOwner": "relationship",
+          "section": "ความรักและความสัมพันธ์",
+          "componentId": "PECV2-7073B1B3CFB3",
+          "text": "ความสัมพันธ์เดินหน้าจากผลที่ส่งมอบต่อเนื่อง ขอบเขตหลักขยายขึ้น แต่ภาระที่กินเวลาทำให้ผลลัพธ์เข้าที่ช้ากว่าปริมาณงาน",
+          "source": "prediction.relationship.current.strong"
+        },
+        {
+          "semanticOwner": "health",
+          "section": "สุขภาพ",
+          "componentId": "PECV2-0A18444524EC",
+          "text": "สุขภาพและการพักเดินหน้าจากผลที่ส่งมอบต่อเนื่อง ขอบเขตหลักขยายขึ้น แต่ภาระที่กินเวลาทำให้ผลลัพธ์เข้าที่ช้ากว่าปริมาณงาน",
+          "source": "prediction.health.current.strong"
+        },
+        {
+          "semanticOwner": "support",
+          "section": "โชคลาภและแรงสนับสนุน",
+          "componentId": "PECV2-37C66EEE9214",
+          "text": "ฐานงานและทรัพย์สินเดิมลดบทบาทลง แรงสนับสนุนจึงมุ่งไปที่การปิดเรื่องค้างและจัดสิ่งที่หมดบทบาทใหม่",
+          "source": "selector.mahabhut2537.rem3.monday.venus.60_80"
+        },
+        {
+          "semanticOwner": "rolling12",
+          "section": "แนวโน้ม 12 เดือนข้างหน้า",
+          "componentId": "PECV2-9A4F6657A0D8",
+          "text": "ตลอด 12 เดือน เส้นทางชีวิตขยายจากผลงานเดิม เรื่องค้างได้ข้อสรุปก่อนบทบาทใหม่เริ่มทำงานเต็มที่",
+          "source": "prediction.career.next12Months.strong"
+        },
+        {
+          "semanticOwner": "next",
+          "section": "ช่วงชีวิตถัดไป — อายุ 81–90 ปี",
+          "componentId": "PECV2-AD7323B12E96",
+          "text": "ช่วงชีวิตถัดไป เส้นทางชีวิตเปลี่ยนผ่านด้วยการปิดภาระเดิม โครงสร้างใหม่เริ่มหลังเรื่องค้างสิ้นสุดลง",
+          "source": "prediction.relationship.nextLifePeriod.quiet"
+        },
+        {
+          "semanticOwner": "summary",
+          "section": "สรุปคำทำนาย",
+          "componentId": "PECV2-BE7262A87CE8",
+          "text": "รอบปัจจุบันปิดภาระที่ค้างอยู่ก่อน แล้วผลจากเรื่องที่ทำต่อเนื่องจึงต่อยอดเป็นฐานของช่วงถัดไป",
+          "source": "PRV2-mahabhut2537-rem3-monday-SUMMARY-01"
+        },
+        {
+          "semanticOwner": "advice",
+          "section": "คำแนะนำสั้น ๆ",
+          "componentId": "PECV2-04DEBB947FC8",
+          "text": "ตัดสินใจจากขอบเขตงาน ผลตอบแทน และข้อตกลงที่ยืนยันได้ พร้อมกันพื้นที่พักให้เพียงพอกับภาระจริง",
+          "source": "PRV2-mahabhut2537-rem3-monday-ADVICE-01"
+        },
+        {
+          "semanticOwner": "disclosure",
+          "section": "คำแนะนำสั้น ๆ",
+          "componentId": "PECV2-2473FFF74FF1",
+          "text": "คำทำนายนี้เป็นมุมมองตามความเชื่อ ใช้ประกอบการทบทวนชีวิตและเทียบกับข้อเท็จจริงก่อนตัดสินใจเรื่องสำคัญ",
+          "source": "PRV2-mahabhut2537-rem3-monday-DISCLOSURE-01"
+        }
+      ]
+    },
+    {
+      "contextId": "unknown-time.fail-closed",
+      "birthTimeKnown": false,
+      "omitted": true,
+      "omissionReason": "ไม่มีเวลาเกิด จึงเว้นลัคนา เรือน และคำทำนายที่ต้องใช้เวลาเกิด",
+      "claims": []
+    }
+  ]
+}

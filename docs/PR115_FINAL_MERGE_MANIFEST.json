@@ -1,0 +1,1559 @@
+{
+  "schema": "knowme-pr115-final-merge-manifest-v1",
+  "createdDate": "2026-09-08",
+  "base": {
+    "branch": "main",
+    "sha": "cd2718f6cfb6aff66ca46ebe6811e2a56379a8d7"
+  },
+  "acceptedState": {
+    "implementationCommit": "6d4d4d1a4a03d2a97d8d1c11afd67baa05f4e48d",
+    "evidenceDocsHead": "44949815a08139b25b376d473b9495372197d17a",
+    "candidate0023Sha256": "FDA1DA8917CD5ADCA4650AECF87414DCFCDEE7F13019DF0794ECF76DFD91E7F2",
+    "candidate0011HistoricalSha256": "6AA94C7A01555310C5189FAAF711597057C5DF2F102246A0DF3946DAB2B62A1E",
+    "ownerReviewZipSha256": "CE95A3A1757C269D356178D4232D58A282FFBD6C68309351D4877F335380B488",
+    "ownerProductAcceptance": "PASS"
+  },
+  "closeout": {
+    "pathSanitizationCommit": "7a416ce75fe5697443b8a52773cd66bc04323434",
+    "pathSanitizationLedger": [
+      "docs/PR115_PATH_SANITIZATION_LEDGER.md",
+      "docs/PR115_PATH_SANITIZATION_LEDGER.json"
+    ],
+    "postCommitGate": "PASS"
+  },
+  "changedPathSummary": {
+    "total": 239,
+    "byCategory": {
+      "Canon/contracts": 7,
+      "evidence/tooling": 62,
+      "historical evidence": 89,
+      "production source": 13,
+      "status docs": 6,
+      "tests": 62
+    },
+    "unknownOrUnclassified": 0
+  },
+  "mergeSurfaceGates": {
+    "trackedBuildOrBinaryOutput": 0,
+    "productAcceptanceDelta": 0,
+    "firebaseOrDeploymentConfigurationDelta": 0,
+    "productionImportsOfCandidates0019To0022": 0,
+    "fixtureOrMinuteSpecificRuntimeOverrides": 0,
+    "candidate0011ActiveRuntimeOverrides": 0,
+    "knownToUnknownLeakage": 0,
+    "unknownToKnownLeakage": 0,
+    "unknownInfographic": 0,
+    "rejectedCandidateRuntimeImports": 0,
+    "actualMachineLocalAbsolutePathPayloads": 0,
+    "detectorOrRedactionLiteralFiles": [
+      "tool/or5r_package.py",
+      "tool/package_or4.py",
+      "tool/pr115_or10r_validation.ps1"
+    ],
+    "unresolvedTokens": 0,
+    "secretFindings": 0,
+    "unsafeArchivePaths": 0
+  },
+  "behavior": {
+    "known0003And0035PredictiveBodyIdentical": true,
+    "known0003Identity": "00:03 / Aquarius 9°24′",
+    "known0035Identity": "00:35 / Aquarius 19°19′",
+    "infographicRange": "29 ส.ค. 2569 – 28 ส.ค. 2570",
+    "infographicHero": "ขอบเขตงานจะกว้างขึ้น และรายรับจะเพิ่มขึ้น",
+    "infographicHeroOccurrences": 1,
+    "unknownFailClosed": true,
+    "unknownPlaceholderVariants": 225,
+    "unknownPlaceholderMismatches": 0
+  },
+  "validation": {
+    "nodeCatalogContexts": 49,
+    "nodeCatalogPeriods": 392,
+    "nodeTests": {
+      "passed": 9,
+      "total": 9
+    },
+    "flutterRuntimeFixtureExport": {
+      "passed": 26,
+      "total": 26
+    },
+    "flutterNarrativeExportInfographicArtifact": {
+      "passed": 283,
+      "total": 283
+    },
+    "flutterPdfTitleOnly": {
+      "passed": 4,
+      "total": 4
+    },
+    "flutterCopyAudit": {
+      "passed": 1,
+      "total": 1,
+      "profiles": 300,
+      "totalFieldsExamined": 24186,
+      "changedProfiles": 225,
+      "changedFields": 9611,
+      "semanticImpact": 0,
+      "omissionImpact": 0,
+      "additionImpact": 0,
+      "traceabilityImpact": 0
+    },
+    "runtimeAudit": {
+      "profiles": 300,
+      "knownComplete": 225,
+      "unknownFailClosed": 75,
+      "contexts": 49,
+      "periods": 392,
+      "claimBindings": 2925,
+      "uniqueSignatures": 220,
+      "uniqueBodies": 220,
+      "unsupportedClaims": 0
+    },
+    "fullFlutterSuite": {
+      "passed": 1646,
+      "total": 1646
+    },
+    "analyzer": {
+      "baselineDiagnostics": 298,
+      "currentDiagnostics": 298,
+      "newDiagnosticsInChangedFiles": 0
+    },
+    "gitDiffCheck": "PASS",
+    "preCommit": "PASS (docs-only scope; analyzer/tests were already run separately; auto full-suite skip)",
+    "postCommit": "PASS"
+  },
+  "paths": [
+    {
+      "status": "A",
+      "path": "docs/PREDICTIVE_EDITORIAL_COMPONENT_LIBRARY_V2.json",
+      "category": "Canon/contracts",
+      "reason": "Runtime contract, generated rule mapping, or task contract."
+    },
+    {
+      "status": "A",
+      "path": "docs/PREDICTIVE_EDITORIAL_COMPONENT_LIBRARY_V2.md",
+      "category": "Canon/contracts",
+      "reason": "Runtime contract, generated rule mapping, or task contract."
+    },
+    {
+      "status": "A",
+      "path": "docs/PREDICTIVE_RUNTIME_V2_392_PERIOD_RUNTIME_MAPPING.json",
+      "category": "Canon/contracts",
+      "reason": "Runtime contract, generated rule mapping, or task contract."
+    },
+    {
+      "status": "A",
+      "path": "docs/PREDICTIVE_RUNTIME_V2_49_CONTEXT_READER_COPY.json",
+      "category": "Canon/contracts",
+      "reason": "Runtime contract, generated rule mapping, or task contract."
+    },
+    {
+      "status": "A",
+      "path": "docs/PREDICTIVE_RUNTIME_V2_CLAIM_LEVEL_BINDINGS.json",
+      "category": "Canon/contracts",
+      "reason": "Runtime contract, generated rule mapping, or task contract."
+    },
+    {
+      "status": "A",
+      "path": "docs/PREDICTIVE_SIGNATURE_OUTPUT_CONTRACT_V1.md",
+      "category": "Canon/contracts",
+      "reason": "Runtime contract, generated rule mapping, or task contract."
+    },
+    {
+      "status": "M",
+      "path": "task_scope.json",
+      "category": "Canon/contracts",
+      "reason": "Runtime contract, generated rule mapping, or task contract."
+    },
+    {
+      "status": "A",
+      "path": "docs/CANDIDATE_0023_ACTUAL_0035_FULL_READER_COPY.md",
+      "category": "evidence/tooling",
+      "reason": "Accepted evidence, validation output, audit, ledger, manifest, or generation/QA tooling."
+    },
+    {
+      "status": "A",
+      "path": "docs/CANDIDATE_0023_CLAIM_MAP.json",
+      "category": "evidence/tooling",
+      "reason": "Accepted evidence, validation output, audit, ledger, manifest, or generation/QA tooling."
+    },
+    {
+      "status": "A",
+      "path": "docs/CANDIDATE_0023_CLAIM_MAP.md",
+      "category": "evidence/tooling",
+      "reason": "Accepted evidence, validation output, audit, ledger, manifest, or generation/QA tooling."
+    },
+    {
+      "status": "A",
+      "path": "docs/CANDIDATE_0023_CONTENT_AUDIT.json",
+      "category": "evidence/tooling",
+      "reason": "Accepted evidence, validation output, audit, ledger, manifest, or generation/QA tooling."
+    },
+    {
+      "status": "A",
+      "path": "docs/CANDIDATE_0023_CONTENT_AUDIT.md",
+      "category": "evidence/tooling",
+      "reason": "Accepted evidence, validation output, audit, ledger, manifest, or generation/QA tooling."
+    },
+    {
+      "status": "A",
+      "path": "docs/CANDIDATE_0023_EXACT_COPY_EVIDENCE.json",
+      "category": "evidence/tooling",
+      "reason": "Accepted evidence, validation output, audit, ledger, manifest, or generation/QA tooling."
+    },
+    {
+      "status": "A",
+      "path": "docs/CANDIDATE_0023_EXACT_COPY_EVIDENCE.md",
+      "category": "evidence/tooling",
+      "reason": "Accepted evidence, validation output, audit, ledger, manifest, or generation/QA tooling."
+    },
+    {
+      "status": "A",
+      "path": "docs/CANDIDATE_0023_SEMANTIC_OWNERSHIP.json",
+      "category": "evidence/tooling",
+      "reason": "Accepted evidence, validation output, audit, ledger, manifest, or generation/QA tooling."
+    },
+    {
+      "status": "A",
+      "path": "docs/CANDIDATE_0023_SEMANTIC_OWNERSHIP.md",
+      "category": "evidence/tooling",
+      "reason": "Accepted evidence, validation output, audit, ledger, manifest, or generation/QA tooling."
+    },
+    {
+      "status": "A",
+      "path": "docs/PR115_FINAL_MERGE_MANIFEST.json",
+      "category": "evidence/tooling",
+      "reason": "Accepted evidence, validation output, audit, ledger, manifest, or generation/QA tooling."
+    },
+    {
+      "status": "A",
+      "path": "docs/PR115_FINAL_MERGE_MANIFEST.md",
+      "category": "evidence/tooling",
+      "reason": "Accepted evidence, validation output, audit, ledger, manifest, or generation/QA tooling."
+    },
+    {
+      "status": "A",
+      "path": "docs/PR115_OR10_CONTRACT_CONFLICT_TRUTH_CORRECTION.json",
+      "category": "evidence/tooling",
+      "reason": "Accepted evidence, validation output, audit, ledger, manifest, or generation/QA tooling."
+    },
+    {
+      "status": "A",
+      "path": "docs/PR115_OR10_CONTRACT_CONFLICT_TRUTH_CORRECTION.md",
+      "category": "evidence/tooling",
+      "reason": "Accepted evidence, validation output, audit, ledger, manifest, or generation/QA tooling."
+    },
+    {
+      "status": "A",
+      "path": "docs/PR115_OR10R_R1_BEFORE_EVIDENCE.json",
+      "category": "evidence/tooling",
+      "reason": "Accepted evidence, validation output, audit, ledger, manifest, or generation/QA tooling."
+    },
+    {
+      "status": "A",
+      "path": "docs/PR115_OR10R_R1_OWNER_REVIEW.md",
+      "category": "evidence/tooling",
+      "reason": "Accepted evidence, validation output, audit, ledger, manifest, or generation/QA tooling."
+    },
+    {
+      "status": "A",
+      "path": "docs/PR115_OR10R_R1_VALIDATION.json",
+      "category": "evidence/tooling",
+      "reason": "Accepted evidence, validation output, audit, ledger, manifest, or generation/QA tooling."
+    },
+    {
+      "status": "A",
+      "path": "docs/PR115_OR10R_R1_VISUAL_REVIEW.json",
+      "category": "evidence/tooling",
+      "reason": "Accepted evidence, validation output, audit, ledger, manifest, or generation/QA tooling."
+    },
+    {
+      "status": "A",
+      "path": "docs/PR115_OR10R_VALIDATION.json",
+      "category": "evidence/tooling",
+      "reason": "Accepted evidence, validation output, audit, ledger, manifest, or generation/QA tooling."
+    },
+    {
+      "status": "A",
+      "path": "docs/PR115_OR9_VALIDATION.json",
+      "category": "evidence/tooling",
+      "reason": "Accepted evidence, validation output, audit, ledger, manifest, or generation/QA tooling."
+    },
+    {
+      "status": "A",
+      "path": "docs/PR115_PATH_SANITIZATION_LEDGER.json",
+      "category": "evidence/tooling",
+      "reason": "Accepted evidence, validation output, audit, ledger, manifest, or generation/QA tooling."
+    },
+    {
+      "status": "A",
+      "path": "docs/PR115_PATH_SANITIZATION_LEDGER.md",
+      "category": "evidence/tooling",
+      "reason": "Accepted evidence, validation output, audit, ledger, manifest, or generation/QA tooling."
+    },
+    {
+      "status": "A",
+      "path": "docs/PREDICTIVE_RUNTIME_V2_CONTENT_QUALITY_AUDIT.json",
+      "category": "evidence/tooling",
+      "reason": "Accepted evidence, validation output, audit, ledger, manifest, or generation/QA tooling."
+    },
+    {
+      "status": "A",
+      "path": "docs/PREDICTIVE_RUNTIME_V2_GENERALIZATION_AUDIT.json",
+      "category": "evidence/tooling",
+      "reason": "Accepted evidence, validation output, audit, ledger, manifest, or generation/QA tooling."
+    },
+    {
+      "status": "A",
+      "path": "docs/PREDICTIVE_RUNTIME_V2_GENERALIZATION_AUDIT.md",
+      "category": "evidence/tooling",
+      "reason": "Accepted evidence, validation output, audit, ledger, manifest, or generation/QA tooling."
+    },
+    {
+      "status": "A",
+      "path": "docs/PREDICTIVE_RUNTIME_V2_GOLDEN_NEIGHBOR_COMPARISON.json",
+      "category": "evidence/tooling",
+      "reason": "Accepted evidence, validation output, audit, ledger, manifest, or generation/QA tooling."
+    },
+    {
+      "status": "A",
+      "path": "docs/PREDICTIVE_RUNTIME_V2_HUMAN_REVIEW_49_CONTEXTS.md",
+      "category": "evidence/tooling",
+      "reason": "Accepted evidence, validation output, audit, ledger, manifest, or generation/QA tooling."
+    },
+    {
+      "status": "A",
+      "path": "docs/PREDICTIVE_RUNTIME_V2_OR2_TRUTH_CORRECTION.json",
+      "category": "evidence/tooling",
+      "reason": "Accepted evidence, validation output, audit, ledger, manifest, or generation/QA tooling."
+    },
+    {
+      "status": "A",
+      "path": "docs/PREDICTIVE_RUNTIME_V2_OR2_TRUTH_CORRECTION.md",
+      "category": "evidence/tooling",
+      "reason": "Accepted evidence, validation output, audit, ledger, manifest, or generation/QA tooling."
+    },
+    {
+      "status": "A",
+      "path": "docs/PREDICTIVE_RUNTIME_V2_OR3_SEMANTIC_FEASIBILITY.json",
+      "category": "evidence/tooling",
+      "reason": "Accepted evidence, validation output, audit, ledger, manifest, or generation/QA tooling."
+    },
+    {
+      "status": "A",
+      "path": "docs/PREDICTIVE_RUNTIME_V2_OR3_SEMANTIC_FEASIBILITY.md",
+      "category": "evidence/tooling",
+      "reason": "Accepted evidence, validation output, audit, ledger, manifest, or generation/QA tooling."
+    },
+    {
+      "status": "A",
+      "path": "docs/PREDICTIVE_RUNTIME_V2_OWNER_REUSE_AUDIT.json",
+      "category": "evidence/tooling",
+      "reason": "Accepted evidence, validation output, audit, ledger, manifest, or generation/QA tooling."
+    },
+    {
+      "status": "A",
+      "path": "docs/PREDICTIVE_RUNTIME_V2_RAW_300_PROFILE_AUDIT.json",
+      "category": "evidence/tooling",
+      "reason": "Accepted evidence, validation output, audit, ledger, manifest, or generation/QA tooling."
+    },
+    {
+      "status": "A",
+      "path": "tool/build_or4_candidate.mjs",
+      "category": "evidence/tooling",
+      "reason": "Accepted evidence, validation output, audit, ledger, manifest, or generation/QA tooling."
+    },
+    {
+      "status": "A",
+      "path": "tool/build_or4_truth.mjs",
+      "category": "evidence/tooling",
+      "reason": "Accepted evidence, validation output, audit, ledger, manifest, or generation/QA tooling."
+    },
+    {
+      "status": "A",
+      "path": "tool/build_predictive_content_truth_or3.mjs",
+      "category": "evidence/tooling",
+      "reason": "Accepted evidence, validation output, audit, ledger, manifest, or generation/QA tooling."
+    },
+    {
+      "status": "A",
+      "path": "tool/build_predictive_editorial_candidate_0019.mjs",
+      "category": "evidence/tooling",
+      "reason": "Accepted evidence, validation output, audit, ledger, manifest, or generation/QA tooling."
+    },
+    {
+      "status": "A",
+      "path": "tool/build_predictive_runtime_v2_audit.mjs",
+      "category": "evidence/tooling",
+      "reason": "Accepted evidence, validation output, audit, ledger, manifest, or generation/QA tooling."
+    },
+    {
+      "status": "A",
+      "path": "tool/generate_predictive_runtime_v2_catalog.mjs",
+      "category": "evidence/tooling",
+      "reason": "Accepted evidence, validation output, audit, ledger, manifest, or generation/QA tooling."
+    },
+    {
+      "status": "A",
+      "path": "tool/or4_content_validator.mjs",
+      "category": "evidence/tooling",
+      "reason": "Accepted evidence, validation output, audit, ledger, manifest, or generation/QA tooling."
+    },
+    {
+      "status": "A",
+      "path": "tool/or4_negative_controls.mjs",
+      "category": "evidence/tooling",
+      "reason": "Accepted evidence, validation output, audit, ledger, manifest, or generation/QA tooling."
+    },
+    {
+      "status": "A",
+      "path": "tool/or4_reader_generator.mjs",
+      "category": "evidence/tooling",
+      "reason": "Accepted evidence, validation output, audit, ledger, manifest, or generation/QA tooling."
+    },
+    {
+      "status": "A",
+      "path": "tool/or5r_actual_authority_v2.mjs",
+      "category": "evidence/tooling",
+      "reason": "Accepted evidence, validation output, audit, ledger, manifest, or generation/QA tooling."
+    },
+    {
+      "status": "A",
+      "path": "tool/or5r_actual_pdf_gate.py",
+      "category": "evidence/tooling",
+      "reason": "Accepted evidence, validation output, audit, ledger, manifest, or generation/QA tooling."
+    },
+    {
+      "status": "A",
+      "path": "tool/or5r_artifact_app.dart",
+      "category": "evidence/tooling",
+      "reason": "Accepted evidence, validation output, audit, ledger, manifest, or generation/QA tooling."
+    },
+    {
+      "status": "A",
+      "path": "tool/or5r_authority_matrix.mjs",
+      "category": "evidence/tooling",
+      "reason": "Accepted evidence, validation output, audit, ledger, manifest, or generation/QA tooling."
+    },
+    {
+      "status": "A",
+      "path": "tool/or5r_capture.cjs",
+      "category": "evidence/tooling",
+      "reason": "Accepted evidence, validation output, audit, ledger, manifest, or generation/QA tooling."
+    },
+    {
+      "status": "A",
+      "path": "tool/or5r_migration_evidence.mjs",
+      "category": "evidence/tooling",
+      "reason": "Accepted evidence, validation output, audit, ledger, manifest, or generation/QA tooling."
+    },
+    {
+      "status": "A",
+      "path": "tool/or5r_neutral_evidence.mjs",
+      "category": "evidence/tooling",
+      "reason": "Accepted evidence, validation output, audit, ledger, manifest, or generation/QA tooling."
+    },
+    {
+      "status": "A",
+      "path": "tool/or5r_neutral_validation.ps1",
+      "category": "evidence/tooling",
+      "reason": "Accepted evidence, validation output, audit, ledger, manifest, or generation/QA tooling."
+    },
+    {
+      "status": "A",
+      "path": "tool/or5r_package.py",
+      "category": "evidence/tooling",
+      "reason": "Accepted evidence, validation output, audit, ledger, manifest, or generation/QA tooling."
+    },
+    {
+      "status": "A",
+      "path": "tool/or5r_validation_evidence.mjs",
+      "category": "evidence/tooling",
+      "reason": "Accepted evidence, validation output, audit, ledger, manifest, or generation/QA tooling."
+    },
+    {
+      "status": "A",
+      "path": "tool/package_or4.py",
+      "category": "evidence/tooling",
+      "reason": "Accepted evidence, validation output, audit, ledger, manifest, or generation/QA tooling."
+    },
+    {
+      "status": "A",
+      "path": "tool/pr115_or10r_validation.ps1",
+      "category": "evidence/tooling",
+      "reason": "Accepted evidence, validation output, audit, ledger, manifest, or generation/QA tooling."
+    },
+    {
+      "status": "A",
+      "path": "tool/pr115_or6_content_candidate.mjs",
+      "category": "evidence/tooling",
+      "reason": "Accepted evidence, validation output, audit, ledger, manifest, or generation/QA tooling."
+    },
+    {
+      "status": "A",
+      "path": "tool/pr115_or6_validation.ps1",
+      "category": "evidence/tooling",
+      "reason": "Accepted evidence, validation output, audit, ledger, manifest, or generation/QA tooling."
+    },
+    {
+      "status": "A",
+      "path": "tool/pr115_or7_content_candidate.mjs",
+      "category": "evidence/tooling",
+      "reason": "Accepted evidence, validation output, audit, ledger, manifest, or generation/QA tooling."
+    },
+    {
+      "status": "A",
+      "path": "tool/pr115_or7_validation.ps1",
+      "category": "evidence/tooling",
+      "reason": "Accepted evidence, validation output, audit, ledger, manifest, or generation/QA tooling."
+    },
+    {
+      "status": "A",
+      "path": "tool/pr115_or8_content_candidate.mjs",
+      "category": "evidence/tooling",
+      "reason": "Accepted evidence, validation output, audit, ledger, manifest, or generation/QA tooling."
+    },
+    {
+      "status": "A",
+      "path": "tool/pr115_or8_validation.ps1",
+      "category": "evidence/tooling",
+      "reason": "Accepted evidence, validation output, audit, ledger, manifest, or generation/QA tooling."
+    },
+    {
+      "status": "A",
+      "path": "tool/pr115_or9_content_candidate.mjs",
+      "category": "evidence/tooling",
+      "reason": "Accepted evidence, validation output, audit, ledger, manifest, or generation/QA tooling."
+    },
+    {
+      "status": "A",
+      "path": "tool/pr115_or9_validation.ps1",
+      "category": "evidence/tooling",
+      "reason": "Accepted evidence, validation output, audit, ledger, manifest, or generation/QA tooling."
+    },
+    {
+      "status": "M",
+      "path": "tool/thai_report_vnext_cross_runtime_manifest.dart",
+      "category": "evidence/tooling",
+      "reason": "Accepted evidence, validation output, audit, ledger, manifest, or generation/QA tooling."
+    },
+    {
+      "status": "A",
+      "path": "docs/ACTUAL_0035_AUTHORITY_MATRIX_V2.json",
+      "category": "historical evidence",
+      "reason": "Retained rejected/diagnostic evidence; not imported by production runtime."
+    },
+    {
+      "status": "A",
+      "path": "docs/ACTUAL_0035_AUTHORITY_MATRIX_V2.md",
+      "category": "historical evidence",
+      "reason": "Retained rejected/diagnostic evidence; not imported by production runtime."
+    },
+    {
+      "status": "A",
+      "path": "docs/ACTUAL_0035_CONTENT_REVIEW.json",
+      "category": "historical evidence",
+      "reason": "Retained rejected/diagnostic evidence; not imported by production runtime."
+    },
+    {
+      "status": "A",
+      "path": "docs/ACTUAL_0035_CONTENT_REVIEW.md",
+      "category": "historical evidence",
+      "reason": "Retained rejected/diagnostic evidence; not imported by production runtime."
+    },
+    {
+      "status": "A",
+      "path": "docs/ACTUAL_0035_EMITTED_PREDICTIONS.json",
+      "category": "historical evidence",
+      "reason": "Retained rejected/diagnostic evidence; not imported by production runtime."
+    },
+    {
+      "status": "A",
+      "path": "docs/ACTUAL_0035_EMITTED_PREDICTIONS.md",
+      "category": "historical evidence",
+      "reason": "Retained rejected/diagnostic evidence; not imported by production runtime."
+    },
+    {
+      "status": "A",
+      "path": "docs/ACTUAL_0035_FULL_READER_COPY.md",
+      "category": "historical evidence",
+      "reason": "Retained rejected/diagnostic evidence; not imported by production runtime."
+    },
+    {
+      "status": "A",
+      "path": "docs/ACTUAL_0035_PAST_PERIOD_EQUIVALENCE.json",
+      "category": "historical evidence",
+      "reason": "Retained rejected/diagnostic evidence; not imported by production runtime."
+    },
+    {
+      "status": "A",
+      "path": "docs/ACTUAL_0035_PAST_PERIOD_EQUIVALENCE.md",
+      "category": "historical evidence",
+      "reason": "Retained rejected/diagnostic evidence; not imported by production runtime."
+    },
+    {
+      "status": "A",
+      "path": "docs/ACTUAL_0035_SEMANTIC_SLOT_COVERAGE.json",
+      "category": "historical evidence",
+      "reason": "Retained rejected/diagnostic evidence; not imported by production runtime."
+    },
+    {
+      "status": "A",
+      "path": "docs/ACTUAL_0035_SEMANTIC_SLOT_COVERAGE.md",
+      "category": "historical evidence",
+      "reason": "Retained rejected/diagnostic evidence; not imported by production runtime."
+    },
+    {
+      "status": "A",
+      "path": "docs/CANDIDATE_0019_49_CONTEXT_SIMULATION.json",
+      "category": "historical evidence",
+      "reason": "Retained rejected/diagnostic evidence; not imported by production runtime."
+    },
+    {
+      "status": "A",
+      "path": "docs/CANDIDATE_0019_ACTUAL_0035.md",
+      "category": "historical evidence",
+      "reason": "Retained rejected/diagnostic evidence; not imported by production runtime."
+    },
+    {
+      "status": "A",
+      "path": "docs/CANDIDATE_0019_CONTENT_AUDIT.json",
+      "category": "historical evidence",
+      "reason": "Retained rejected/diagnostic evidence; not imported by production runtime."
+    },
+    {
+      "status": "A",
+      "path": "docs/CANDIDATE_0019_CONTENT_AUDIT.md",
+      "category": "historical evidence",
+      "reason": "Retained rejected/diagnostic evidence; not imported by production runtime."
+    },
+    {
+      "status": "A",
+      "path": "docs/CANDIDATE_0019_GOLDEN_0003_REFERENCE.md",
+      "category": "historical evidence",
+      "reason": "Retained rejected/diagnostic evidence; not imported by production runtime."
+    },
+    {
+      "status": "A",
+      "path": "docs/CANDIDATE_0019_REPRESENTATIVE_12.json",
+      "category": "historical evidence",
+      "reason": "Retained rejected/diagnostic evidence; not imported by production runtime."
+    },
+    {
+      "status": "A",
+      "path": "docs/CANDIDATE_0019_REPRESENTATIVE_12.md",
+      "category": "historical evidence",
+      "reason": "Retained rejected/diagnostic evidence; not imported by production runtime."
+    },
+    {
+      "status": "A",
+      "path": "docs/CANDIDATE_0020_ACTUAL_0035_FULL_READER_COPY.md",
+      "category": "historical evidence",
+      "reason": "Retained rejected/diagnostic evidence; not imported by production runtime."
+    },
+    {
+      "status": "A",
+      "path": "docs/CANDIDATE_0020_ACTUAL_0035.json",
+      "category": "historical evidence",
+      "reason": "Retained rejected/diagnostic evidence; not imported by production runtime."
+    },
+    {
+      "status": "A",
+      "path": "docs/CANDIDATE_0020_ACTUAL_0035.md",
+      "category": "historical evidence",
+      "reason": "Retained rejected/diagnostic evidence; not imported by production runtime."
+    },
+    {
+      "status": "A",
+      "path": "docs/CANDIDATE_0020_BEFORE_AFTER.md",
+      "category": "historical evidence",
+      "reason": "Retained rejected/diagnostic evidence; not imported by production runtime."
+    },
+    {
+      "status": "A",
+      "path": "docs/CANDIDATE_0020_CLAIM_MAP.json",
+      "category": "historical evidence",
+      "reason": "Retained rejected/diagnostic evidence; not imported by production runtime."
+    },
+    {
+      "status": "A",
+      "path": "docs/CANDIDATE_0020_CLAIM_MAP.md",
+      "category": "historical evidence",
+      "reason": "Retained rejected/diagnostic evidence; not imported by production runtime."
+    },
+    {
+      "status": "A",
+      "path": "docs/CANDIDATE_0020_CONTENT_AUDIT.json",
+      "category": "historical evidence",
+      "reason": "Retained rejected/diagnostic evidence; not imported by production runtime."
+    },
+    {
+      "status": "A",
+      "path": "docs/CANDIDATE_0020_CONTENT_AUDIT.md",
+      "category": "historical evidence",
+      "reason": "Retained rejected/diagnostic evidence; not imported by production runtime."
+    },
+    {
+      "status": "A",
+      "path": "docs/CANDIDATE_0020_CONTENT_TRUTH_CORRECTION.json",
+      "category": "historical evidence",
+      "reason": "Retained rejected/diagnostic evidence; not imported by production runtime."
+    },
+    {
+      "status": "A",
+      "path": "docs/CANDIDATE_0020_CONTENT_TRUTH_CORRECTION.md",
+      "category": "historical evidence",
+      "reason": "Retained rejected/diagnostic evidence; not imported by production runtime."
+    },
+    {
+      "status": "A",
+      "path": "docs/CANDIDATE_0020_TO_0021_BEFORE_AFTER.md",
+      "category": "historical evidence",
+      "reason": "Retained rejected/diagnostic evidence; not imported by production runtime."
+    },
+    {
+      "status": "A",
+      "path": "docs/CANDIDATE_0021_ACTUAL_0035_FULL_READER_COPY.md",
+      "category": "historical evidence",
+      "reason": "Retained rejected/diagnostic evidence; not imported by production runtime."
+    },
+    {
+      "status": "A",
+      "path": "docs/CANDIDATE_0021_CLAIM_MAP.json",
+      "category": "historical evidence",
+      "reason": "Retained rejected/diagnostic evidence; not imported by production runtime."
+    },
+    {
+      "status": "A",
+      "path": "docs/CANDIDATE_0021_CLAIM_MAP.md",
+      "category": "historical evidence",
+      "reason": "Retained rejected/diagnostic evidence; not imported by production runtime."
+    },
+    {
+      "status": "A",
+      "path": "docs/CANDIDATE_0021_CONTENT_AUDIT.json",
+      "category": "historical evidence",
+      "reason": "Retained rejected/diagnostic evidence; not imported by production runtime."
+    },
+    {
+      "status": "A",
+      "path": "docs/CANDIDATE_0021_CONTENT_AUDIT.md",
+      "category": "historical evidence",
+      "reason": "Retained rejected/diagnostic evidence; not imported by production runtime."
+    },
+    {
+      "status": "A",
+      "path": "docs/CANDIDATE_0021_OWNER_REVIEW.json",
+      "category": "historical evidence",
+      "reason": "Retained rejected/diagnostic evidence; not imported by production runtime."
+    },
+    {
+      "status": "A",
+      "path": "docs/CANDIDATE_0021_OWNER_REVIEW.md",
+      "category": "historical evidence",
+      "reason": "Retained rejected/diagnostic evidence; not imported by production runtime."
+    },
+    {
+      "status": "A",
+      "path": "docs/CANDIDATE_0021_SEMANTIC_OWNERSHIP.json",
+      "category": "historical evidence",
+      "reason": "Retained rejected/diagnostic evidence; not imported by production runtime."
+    },
+    {
+      "status": "A",
+      "path": "docs/CANDIDATE_0021_SEMANTIC_OWNERSHIP.md",
+      "category": "historical evidence",
+      "reason": "Retained rejected/diagnostic evidence; not imported by production runtime."
+    },
+    {
+      "status": "A",
+      "path": "docs/CANDIDATE_0021_TO_0022_BEFORE_AFTER.md",
+      "category": "historical evidence",
+      "reason": "Retained rejected/diagnostic evidence; not imported by production runtime."
+    },
+    {
+      "status": "A",
+      "path": "docs/CANDIDATE_0022_ACTUAL_0035_FULL_READER_COPY.md",
+      "category": "historical evidence",
+      "reason": "Retained rejected/diagnostic evidence; not imported by production runtime."
+    },
+    {
+      "status": "A",
+      "path": "docs/CANDIDATE_0022_CLAIM_MAP.json",
+      "category": "historical evidence",
+      "reason": "Retained rejected/diagnostic evidence; not imported by production runtime."
+    },
+    {
+      "status": "A",
+      "path": "docs/CANDIDATE_0022_CLAIM_MAP.md",
+      "category": "historical evidence",
+      "reason": "Retained rejected/diagnostic evidence; not imported by production runtime."
+    },
+    {
+      "status": "A",
+      "path": "docs/CANDIDATE_0022_CONTENT_AUDIT.json",
+      "category": "historical evidence",
+      "reason": "Retained rejected/diagnostic evidence; not imported by production runtime."
+    },
+    {
+      "status": "A",
+      "path": "docs/CANDIDATE_0022_CONTENT_AUDIT.md",
+      "category": "historical evidence",
+      "reason": "Retained rejected/diagnostic evidence; not imported by production runtime."
+    },
+    {
+      "status": "A",
+      "path": "docs/CANDIDATE_0022_EXACT_COPY_EVIDENCE.json",
+      "category": "historical evidence",
+      "reason": "Retained rejected/diagnostic evidence; not imported by production runtime."
+    },
+    {
+      "status": "A",
+      "path": "docs/CANDIDATE_0022_EXACT_COPY_EVIDENCE.md",
+      "category": "historical evidence",
+      "reason": "Retained rejected/diagnostic evidence; not imported by production runtime."
+    },
+    {
+      "status": "A",
+      "path": "docs/CANDIDATE_0022_OWNER_REVIEW.md",
+      "category": "historical evidence",
+      "reason": "Retained rejected/diagnostic evidence; not imported by production runtime."
+    },
+    {
+      "status": "A",
+      "path": "docs/CANDIDATE_0022_SEMANTIC_OWNERSHIP.json",
+      "category": "historical evidence",
+      "reason": "Retained rejected/diagnostic evidence; not imported by production runtime."
+    },
+    {
+      "status": "A",
+      "path": "docs/CANDIDATE_0022_SEMANTIC_OWNERSHIP.md",
+      "category": "historical evidence",
+      "reason": "Retained rejected/diagnostic evidence; not imported by production runtime."
+    },
+    {
+      "status": "A",
+      "path": "docs/CANDIDATE_0022_TO_0023_BEFORE_AFTER.md",
+      "category": "historical evidence",
+      "reason": "Retained rejected/diagnostic evidence; not imported by production runtime."
+    },
+    {
+      "status": "A",
+      "path": "docs/OR4_49_CONTEXT_SIMULATION.json",
+      "category": "historical evidence",
+      "reason": "Retained rejected/diagnostic evidence; not imported by production runtime."
+    },
+    {
+      "status": "A",
+      "path": "docs/OR4_AGE_BINDING_AUDIT.json",
+      "category": "historical evidence",
+      "reason": "Retained rejected/diagnostic evidence; not imported by production runtime."
+    },
+    {
+      "status": "A",
+      "path": "docs/OR4_CLOSEOUT.md",
+      "category": "historical evidence",
+      "reason": "Retained rejected/diagnostic evidence; not imported by production runtime."
+    },
+    {
+      "status": "A",
+      "path": "docs/OR4_COMPONENT_LIBRARY.json",
+      "category": "historical evidence",
+      "reason": "Retained rejected/diagnostic evidence; not imported by production runtime."
+    },
+    {
+      "status": "A",
+      "path": "docs/OR4_COMPONENT_LIBRARY.md",
+      "category": "historical evidence",
+      "reason": "Retained rejected/diagnostic evidence; not imported by production runtime."
+    },
+    {
+      "status": "A",
+      "path": "docs/OR4_CONTENT_AUDIT.json",
+      "category": "historical evidence",
+      "reason": "Retained rejected/diagnostic evidence; not imported by production runtime."
+    },
+    {
+      "status": "A",
+      "path": "docs/OR4_DOMAIN_LANGUAGE_AUDIT.json",
+      "category": "historical evidence",
+      "reason": "Retained rejected/diagnostic evidence; not imported by production runtime."
+    },
+    {
+      "status": "A",
+      "path": "docs/OR4_GENERATION_TRACE.json",
+      "category": "historical evidence",
+      "reason": "Retained rejected/diagnostic evidence; not imported by production runtime."
+    },
+    {
+      "status": "A",
+      "path": "docs/OR4_GOLDEN_COMPARISON.json",
+      "category": "historical evidence",
+      "reason": "Retained rejected/diagnostic evidence; not imported by production runtime."
+    },
+    {
+      "status": "A",
+      "path": "docs/OR4_NEGATIVE_CONTROLS.json",
+      "category": "historical evidence",
+      "reason": "Retained rejected/diagnostic evidence; not imported by production runtime."
+    },
+    {
+      "status": "A",
+      "path": "docs/OR4_REPRESENTATIVE_FULL_COPY.json",
+      "category": "historical evidence",
+      "reason": "Retained rejected/diagnostic evidence; not imported by production runtime."
+    },
+    {
+      "status": "A",
+      "path": "docs/OR4_REPRESENTATIVE_FULL_COPY.md",
+      "category": "historical evidence",
+      "reason": "Retained rejected/diagnostic evidence; not imported by production runtime."
+    },
+    {
+      "status": "A",
+      "path": "docs/OR4_SEMANTIC_FEASIBILITY.json",
+      "category": "historical evidence",
+      "reason": "Retained rejected/diagnostic evidence; not imported by production runtime."
+    },
+    {
+      "status": "A",
+      "path": "docs/OR4_SEMANTIC_FEASIBILITY.md",
+      "category": "historical evidence",
+      "reason": "Retained rejected/diagnostic evidence; not imported by production runtime."
+    },
+    {
+      "status": "A",
+      "path": "docs/OR4_TRUTH_CORRECTION.json",
+      "category": "historical evidence",
+      "reason": "Retained rejected/diagnostic evidence; not imported by production runtime."
+    },
+    {
+      "status": "A",
+      "path": "docs/OR4_TRUTH_CORRECTION.md",
+      "category": "historical evidence",
+      "reason": "Retained rejected/diagnostic evidence; not imported by production runtime."
+    },
+    {
+      "status": "A",
+      "path": "docs/OR5R_ACTUAL_0035_AUTHORITY_MATRIX.json",
+      "category": "historical evidence",
+      "reason": "Retained rejected/diagnostic evidence; not imported by production runtime."
+    },
+    {
+      "status": "A",
+      "path": "docs/OR5R_ACTUAL_0035_AUTHORITY_MATRIX.md",
+      "category": "historical evidence",
+      "reason": "Retained rejected/diagnostic evidence; not imported by production runtime."
+    },
+    {
+      "status": "A",
+      "path": "docs/OR5R_ASSERTION_MIGRATION_LEDGER.json",
+      "category": "historical evidence",
+      "reason": "Retained rejected/diagnostic evidence; not imported by production runtime."
+    },
+    {
+      "status": "A",
+      "path": "docs/OR5R_ASSERTION_MIGRATION.md",
+      "category": "historical evidence",
+      "reason": "Retained rejected/diagnostic evidence; not imported by production runtime."
+    },
+    {
+      "status": "A",
+      "path": "docs/OR5R_AUTHORITY_GATE_TRUTH_CORRECTION.json",
+      "category": "historical evidence",
+      "reason": "Retained rejected/diagnostic evidence; not imported by production runtime."
+    },
+    {
+      "status": "A",
+      "path": "docs/OR5R_AUTHORITY_GATE_TRUTH_CORRECTION.md",
+      "category": "historical evidence",
+      "reason": "Retained rejected/diagnostic evidence; not imported by production runtime."
+    },
+    {
+      "status": "A",
+      "path": "docs/OR5R_FAILURE_CLASSIFICATION.json",
+      "category": "historical evidence",
+      "reason": "Retained rejected/diagnostic evidence; not imported by production runtime."
+    },
+    {
+      "status": "A",
+      "path": "docs/OR5R_FAILURE_RESOLUTION.json",
+      "category": "historical evidence",
+      "reason": "Retained rejected/diagnostic evidence; not imported by production runtime."
+    },
+    {
+      "status": "A",
+      "path": "docs/OR5R_FULL_SUITE_FIRST_RUN_FAILURES.json",
+      "category": "historical evidence",
+      "reason": "Retained rejected/diagnostic evidence; not imported by production runtime."
+    },
+    {
+      "status": "A",
+      "path": "docs/OR5R_FULL_SUITE_GATE_FAILURES.json",
+      "category": "historical evidence",
+      "reason": "Retained rejected/diagnostic evidence; not imported by production runtime."
+    },
+    {
+      "status": "A",
+      "path": "docs/OR5R_NEUTRAL_V2_VALIDATION.json",
+      "category": "historical evidence",
+      "reason": "Retained rejected/diagnostic evidence; not imported by production runtime."
+    },
+    {
+      "status": "A",
+      "path": "docs/OR5R_OWNER_PACKAGE_VERIFICATION.json",
+      "category": "historical evidence",
+      "reason": "Retained rejected/diagnostic evidence; not imported by production runtime."
+    },
+    {
+      "status": "A",
+      "path": "docs/OR5R_PDF_REPAIR.md",
+      "category": "historical evidence",
+      "reason": "Retained rejected/diagnostic evidence; not imported by production runtime."
+    },
+    {
+      "status": "A",
+      "path": "docs/OR5R_PDF_REPAIR_VALIDATION.json",
+      "category": "historical evidence",
+      "reason": "Retained rejected/diagnostic evidence; not imported by production runtime."
+    },
+    {
+      "status": "A",
+      "path": "docs/OR5R_POST_GATE_PARITY_BLOCKER.json",
+      "category": "historical evidence",
+      "reason": "Retained rejected/diagnostic evidence; not imported by production runtime."
+    },
+    {
+      "status": "A",
+      "path": "docs/OR5R_POST_GATE_PARITY_BLOCKER.md",
+      "category": "historical evidence",
+      "reason": "Retained rejected/diagnostic evidence; not imported by production runtime."
+    },
+    {
+      "status": "A",
+      "path": "docs/OR5R_RUNTIME_REPAIR_STATUS.md",
+      "category": "historical evidence",
+      "reason": "Retained rejected/diagnostic evidence; not imported by production runtime."
+    },
+    {
+      "status": "A",
+      "path": "docs/OR5_SENTINEL_CONTAINMENT_BLOCKER.md",
+      "category": "historical evidence",
+      "reason": "Retained rejected/diagnostic evidence; not imported by production runtime."
+    },
+    {
+      "status": "A",
+      "path": "docs/PR115_OR6_OWNER_CONTENT_DECISION.json",
+      "category": "historical evidence",
+      "reason": "Retained rejected/diagnostic evidence; not imported by production runtime."
+    },
+    {
+      "status": "A",
+      "path": "docs/PR115_OR6_OWNER_CONTENT_DECISION.md",
+      "category": "historical evidence",
+      "reason": "Retained rejected/diagnostic evidence; not imported by production runtime."
+    },
+    {
+      "status": "A",
+      "path": "docs/PR115_OR6_VALIDATION.json",
+      "category": "historical evidence",
+      "reason": "Retained rejected/diagnostic evidence; not imported by production runtime."
+    },
+    {
+      "status": "A",
+      "path": "docs/PR115_OR7_VALIDATION.json",
+      "category": "historical evidence",
+      "reason": "Retained rejected/diagnostic evidence; not imported by production runtime."
+    },
+    {
+      "status": "A",
+      "path": "docs/PR115_OR8_VALIDATION.json",
+      "category": "historical evidence",
+      "reason": "Retained rejected/diagnostic evidence; not imported by production runtime."
+    },
+    {
+      "status": "M",
+      "path": "lib/features/astrology/thai/foundation/lunar/providers/thai_lunar_calendar_provider.dart",
+      "category": "production source",
+      "reason": "PR115 runtime/application source."
+    },
+    {
+      "status": "M",
+      "path": "lib/features/astrology/thai/mirror/presentation/thai_mirror_consumer_presenter.dart",
+      "category": "production source",
+      "reason": "PR115 runtime/application source."
+    },
+    {
+      "status": "M",
+      "path": "lib/features/astrology/thai/mirror/runtime/thai_mirror_pipeline.dart",
+      "category": "production source",
+      "reason": "PR115 runtime/application source."
+    },
+    {
+      "status": "M",
+      "path": "lib/features/birth_normalization/application/adapters/thai_birth_adapter.dart",
+      "category": "production source",
+      "reason": "PR115 runtime/application source."
+    },
+    {
+      "status": "M",
+      "path": "lib/features/birth_normalization/application/birth_normalizer.dart",
+      "category": "production source",
+      "reason": "PR115 runtime/application source."
+    },
+    {
+      "status": "M",
+      "path": "lib/features/birth_normalization/domain/birth_normalization_reason.dart",
+      "category": "production source",
+      "reason": "PR115 runtime/application source."
+    },
+    {
+      "status": "A",
+      "path": "lib/features/thai_beta/application/narrative/predictive_runtime_v2_catalog.g.dart",
+      "category": "production source",
+      "reason": "PR115 runtime/application source."
+    },
+    {
+      "status": "A",
+      "path": "lib/features/thai_beta/application/narrative/predictive_runtime_v2.dart",
+      "category": "production source",
+      "reason": "PR115 runtime/application source."
+    },
+    {
+      "status": "M",
+      "path": "lib/features/thai_beta/application/narrative/thai_beta_clause_repetition_audit.dart",
+      "category": "production source",
+      "reason": "PR115 runtime/application source."
+    },
+    {
+      "status": "M",
+      "path": "lib/features/thai_beta/application/narrative/thai_beta_narrative_composer.dart",
+      "category": "production source",
+      "reason": "PR115 runtime/application source."
+    },
+    {
+      "status": "M",
+      "path": "lib/features/thai_beta/application/thai_beta_report_export_document.dart",
+      "category": "production source",
+      "reason": "PR115 runtime/application source."
+    },
+    {
+      "status": "M",
+      "path": "lib/features/thai_beta/application/thai_beta_report_pdf_exporter.dart",
+      "category": "production source",
+      "reason": "PR115 runtime/application source."
+    },
+    {
+      "status": "M",
+      "path": "lib/features/thai_beta/presentation/widgets/thai_beta_shared_report_view.dart",
+      "category": "production source",
+      "reason": "PR115 runtime/application source."
+    },
+    {
+      "status": "M",
+      "path": "docs/CURRENT_STATUS.md",
+      "category": "status docs",
+      "reason": "Required current status and handoff record."
+    },
+    {
+      "status": "M",
+      "path": "docs/HANDOFF.md",
+      "category": "status docs",
+      "reason": "Required current status and handoff record."
+    },
+    {
+      "status": "M",
+      "path": "docs/ROADMAP.md",
+      "category": "status docs",
+      "reason": "Required current status and handoff record."
+    },
+    {
+      "status": "M",
+      "path": "docs/THAI_REPORT_READER_EXPERIENCE_V2.md",
+      "category": "status docs",
+      "reason": "Required current status and handoff record."
+    },
+    {
+      "status": "M",
+      "path": "task.md",
+      "category": "status docs",
+      "reason": "Required current status and handoff record."
+    },
+    {
+      "status": "M",
+      "path": "TASK_RESULT.md",
+      "category": "status docs",
+      "reason": "Required current status and handoff record."
+    },
+    {
+      "status": "A",
+      "path": "test/evidence/fixtures/or5r_known_baseline.json",
+      "category": "tests",
+      "reason": "Regression, fixture, canonical, export, or evidence test."
+    },
+    {
+      "status": "A",
+      "path": "test/evidence/or4_content.test.mjs",
+      "category": "tests",
+      "reason": "Regression, fixture, canonical, export, or evidence test."
+    },
+    {
+      "status": "A",
+      "path": "test/evidence/or4_generation.test.mjs",
+      "category": "tests",
+      "reason": "Regression, fixture, canonical, export, or evidence test."
+    },
+    {
+      "status": "A",
+      "path": "test/evidence/or5r_actual_authority_v2.test.mjs",
+      "category": "tests",
+      "reason": "Regression, fixture, canonical, export, or evidence test."
+    },
+    {
+      "status": "A",
+      "path": "test/evidence/or5r_sentinel_runtime_test.dart",
+      "category": "tests",
+      "reason": "Regression, fixture, canonical, export, or evidence test."
+    },
+    {
+      "status": "A",
+      "path": "test/evidence/or5r_unknown_contract.dart",
+      "category": "tests",
+      "reason": "Regression, fixture, canonical, export, or evidence test."
+    },
+    {
+      "status": "A",
+      "path": "test/evidence/or5r_unknown_contract_test.dart",
+      "category": "tests",
+      "reason": "Regression, fixture, canonical, export, or evidence test."
+    },
+    {
+      "status": "A",
+      "path": "test/evidence/or5r_unknown_projection.dart",
+      "category": "tests",
+      "reason": "Regression, fixture, canonical, export, or evidence test."
+    },
+    {
+      "status": "A",
+      "path": "test/evidence/pr115_or10r_predictive_signature.test.mjs",
+      "category": "tests",
+      "reason": "Regression, fixture, canonical, export, or evidence test."
+    },
+    {
+      "status": "A",
+      "path": "test/evidence/pr115_or6_content_candidate.test.mjs",
+      "category": "tests",
+      "reason": "Regression, fixture, canonical, export, or evidence test."
+    },
+    {
+      "status": "A",
+      "path": "test/evidence/pr115_or7_content_candidate.test.mjs",
+      "category": "tests",
+      "reason": "Regression, fixture, canonical, export, or evidence test."
+    },
+    {
+      "status": "A",
+      "path": "test/evidence/pr115_or8_content_candidate.test.mjs",
+      "category": "tests",
+      "reason": "Regression, fixture, canonical, export, or evidence test."
+    },
+    {
+      "status": "A",
+      "path": "test/evidence/pr115_or9_content_candidate.test.mjs",
+      "category": "tests",
+      "reason": "Regression, fixture, canonical, export, or evidence test."
+    },
+    {
+      "status": "A",
+      "path": "test/evidence/predictive_content_truth_or3.test.mjs",
+      "category": "tests",
+      "reason": "Regression, fixture, canonical, export, or evidence test."
+    },
+    {
+      "status": "A",
+      "path": "test/evidence/predictive_editorial_candidate_0019.test.mjs",
+      "category": "tests",
+      "reason": "Regression, fixture, canonical, export, or evidence test."
+    },
+    {
+      "status": "A",
+      "path": "test/evidence/predictive_runtime_v2_foundation.test.mjs",
+      "category": "tests",
+      "reason": "Regression, fixture, canonical, export, or evidence test."
+    },
+    {
+      "status": "A",
+      "path": "test/evidence/predictive_runtime_v2_or1_evidence_test.dart",
+      "category": "tests",
+      "reason": "Regression, fixture, canonical, export, or evidence test."
+    },
+    {
+      "status": "A",
+      "path": "test/evidence/predictive_runtime_v2_or5_actual_input_export_test.dart",
+      "category": "tests",
+      "reason": "Regression, fixture, canonical, export, or evidence test."
+    },
+    {
+      "status": "M",
+      "path": "test/thai_foundation_engine_test.dart",
+      "category": "tests",
+      "reason": "Regression, fixture, canonical, export, or evidence test."
+    },
+    {
+      "status": "M",
+      "path": "test/validation/thai_beta/core_reading/thai_beta_readability_acceptance_test.dart",
+      "category": "tests",
+      "reason": "Regression, fixture, canonical, export, or evidence test."
+    },
+    {
+      "status": "M",
+      "path": "test/validation/thai_beta/core_reading/thai_birth_profile_core_reading_test.dart",
+      "category": "tests",
+      "reason": "Regression, fixture, canonical, export, or evidence test."
+    },
+    {
+      "status": "M",
+      "path": "test/validation/thai_beta/life_map/thai_life_map_v123_report_acceptance_test.dart",
+      "category": "tests",
+      "reason": "Regression, fixture, canonical, export, or evidence test."
+    },
+    {
+      "status": "M",
+      "path": "test/validation/thai_beta/life_map/v124/thai_life_map_v124_accuracy_audit_test.dart",
+      "category": "tests",
+      "reason": "Regression, fixture, canonical, export, or evidence test."
+    },
+    {
+      "status": "M",
+      "path": "test/validation/thai_beta/life_map/v124/thai_life_map_v124_audit_runner.dart",
+      "category": "tests",
+      "reason": "Regression, fixture, canonical, export, or evidence test."
+    },
+    {
+      "status": "M",
+      "path": "test/validation/thai_beta/life_map/v126/thai_life_map_v126_time_bucket_ux_test.dart",
+      "category": "tests",
+      "reason": "Regression, fixture, canonical, export, or evidence test."
+    },
+    {
+      "status": "M",
+      "path": "test/validation/thai_beta/life_map/v135/thai_life_map_v135_evidence_detail_test.dart",
+      "category": "tests",
+      "reason": "Regression, fixture, canonical, export, or evidence test."
+    },
+    {
+      "status": "M",
+      "path": "test/validation/thai_beta/life_map/v135/thai_life_map_v135_product_qa_artifact_test.dart",
+      "category": "tests",
+      "reason": "Regression, fixture, canonical, export, or evidence test."
+    },
+    {
+      "status": "M",
+      "path": "test/validation/thai_beta/life_map/v135/thai_life_map_v135_ui_primary_test.dart",
+      "category": "tests",
+      "reason": "Regression, fixture, canonical, export, or evidence test."
+    },
+    {
+      "status": "M",
+      "path": "test/validation/thai_beta/live_asof/thai_beta_copy_normalization_scope_test.dart",
+      "category": "tests",
+      "reason": "Regression, fixture, canonical, export, or evidence test."
+    },
+    {
+      "status": "M",
+      "path": "test/validation/thai_beta/live_asof/thai_beta_copy_semantic_safety_test.dart",
+      "category": "tests",
+      "reason": "Regression, fixture, canonical, export, or evidence test."
+    },
+    {
+      "status": "M",
+      "path": "test/validation/thai_beta/live_asof/thai_beta_cross_runtime_300_vm_test.dart",
+      "category": "tests",
+      "reason": "Regression, fixture, canonical, export, or evidence test."
+    },
+    {
+      "status": "M",
+      "path": "test/validation/thai_beta/live_asof/thai_beta_cross_runtime_manifest.dart",
+      "category": "tests",
+      "reason": "Regression, fixture, canonical, export, or evidence test."
+    },
+    {
+      "status": "M",
+      "path": "test/validation/thai_beta/live_asof/thai_beta_date_aware_contract_test.dart",
+      "category": "tests",
+      "reason": "Regression, fixture, canonical, export, or evidence test."
+    },
+    {
+      "status": "M",
+      "path": "test/validation/thai_beta/live_asof/thai_beta_live_oracle_parity_test.dart",
+      "category": "tests",
+      "reason": "Regression, fixture, canonical, export, or evidence test."
+    },
+    {
+      "status": "M",
+      "path": "test/validation/thai_beta/narrative/thai_beta_input_fixture_separation_test.dart",
+      "category": "tests",
+      "reason": "Regression, fixture, canonical, export, or evidence test."
+    },
+    {
+      "status": "M",
+      "path": "test/validation/thai_beta/narrative/thai_beta_narrative_v111_test.dart",
+      "category": "tests",
+      "reason": "Regression, fixture, canonical, export, or evidence test."
+    },
+    {
+      "status": "M",
+      "path": "test/validation/thai_beta/narrative/thai_beta_narrative_v11_test.dart",
+      "category": "tests",
+      "reason": "Regression, fixture, canonical, export, or evidence test."
+    },
+    {
+      "status": "M",
+      "path": "test/validation/thai_beta/narrative/thai_beta_narrative_v15_claim_planning_test.dart",
+      "category": "tests",
+      "reason": "Regression, fixture, canonical, export, or evidence test."
+    },
+    {
+      "status": "M",
+      "path": "test/validation/thai_beta/narrative/thai_beta_narrative_v15_r3_report_composer_test.dart",
+      "category": "tests",
+      "reason": "Regression, fixture, canonical, export, or evidence test."
+    },
+    {
+      "status": "M",
+      "path": "test/validation/thai_beta/narrative/thai_beta_narrative_v15_r4_acceptance_test.dart",
+      "category": "tests",
+      "reason": "Regression, fixture, canonical, export, or evidence test."
+    },
+    {
+      "status": "M",
+      "path": "test/validation/thai_beta/narrative/thai_beta_narrative_v15_r5_acceptance_test.dart",
+      "category": "tests",
+      "reason": "Regression, fixture, canonical, export, or evidence test."
+    },
+    {
+      "status": "M",
+      "path": "test/validation/thai_beta/narrative/thai_beta_narrative_v15_r6_reader_quality_test.dart",
+      "category": "tests",
+      "reason": "Regression, fixture, canonical, export, or evidence test."
+    },
+    {
+      "status": "M",
+      "path": "test/validation/thai_beta/narrative/thai_beta_narrative_v15_r7_reader_quality_test.dart",
+      "category": "tests",
+      "reason": "Regression, fixture, canonical, export, or evidence test."
+    },
+    {
+      "status": "M",
+      "path": "test/validation/thai_beta/narrative/thai_beta_report_v121_acceptance_test.dart",
+      "category": "tests",
+      "reason": "Regression, fixture, canonical, export, or evidence test."
+    },
+    {
+      "status": "M",
+      "path": "test/validation/thai_beta/narrative/thai_beta_report_v122_editorial_test.dart",
+      "category": "tests",
+      "reason": "Regression, fixture, canonical, export, or evidence test."
+    },
+    {
+      "status": "M",
+      "path": "test/validation/thai_beta/narrative/thai_consumer_narrative_voice_v1_test.dart",
+      "category": "tests",
+      "reason": "Regression, fixture, canonical, export, or evidence test."
+    },
+    {
+      "status": "A",
+      "path": "test/validation/thai_beta/narrative/thai_predictive_runtime_v2_test.dart",
+      "category": "tests",
+      "reason": "Regression, fixture, canonical, export, or evidence test."
+    },
+    {
+      "status": "M",
+      "path": "test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart",
+      "category": "tests",
+      "reason": "Regression, fixture, canonical, export, or evidence test."
+    },
+    {
+      "status": "A",
+      "path": "test/validation/thai_beta/thai_beta_pdf_title_only_test.dart",
+      "category": "tests",
+      "reason": "Regression, fixture, canonical, export, or evidence test."
+    },
+    {
+      "status": "M",
+      "path": "test/validation/thai_beta/thai_beta_report_export_test.dart",
+      "category": "tests",
+      "reason": "Regression, fixture, canonical, export, or evidence test."
+    },
+    {
+      "status": "M",
+      "path": "test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart",
+      "category": "tests",
+      "reason": "Regression, fixture, canonical, export, or evidence test."
+    },
+    {
+      "status": "M",
+      "path": "test/validation/thai_beta/thai_report_experience_infographic_vnext_test.dart",
+      "category": "tests",
+      "reason": "Regression, fixture, canonical, export, or evidence test."
+    },
+    {
+      "status": "M",
+      "path": "test/validation/thai_beta/thai_report_vnext_artifact_generation_test.dart",
+      "category": "tests",
+      "reason": "Regression, fixture, canonical, export, or evidence test."
+    },
+    {
+      "status": "M",
+      "path": "test/validation/thai/thai_archetype_context_metadata_test.dart",
+      "category": "tests",
+      "reason": "Regression, fixture, canonical, export, or evidence test."
+    },
+    {
+      "status": "M",
+      "path": "test/validation/thai/thai_engine_life_period_rise_fall_metadata_completion_test.dart",
+      "category": "tests",
+      "reason": "Regression, fixture, canonical, export, or evidence test."
+    },
+    {
+      "status": "M",
+      "path": "test/validation/thai/thai_engine_life_period_rise_fall_metadata_rerun_test.dart",
+      "category": "tests",
+      "reason": "Regression, fixture, canonical, export, or evidence test."
+    },
+    {
+      "status": "M",
+      "path": "test/validation/thai/thai_engine_life_period_rise_fall_metadata_test.dart",
+      "category": "tests",
+      "reason": "Regression, fixture, canonical, export, or evidence test."
+    },
+    {
+      "status": "M",
+      "path": "test/validation/thai/thai_internal_evidence_qa_pass_test.dart",
+      "category": "tests",
+      "reason": "Regression, fixture, canonical, export, or evidence test."
+    },
+    {
+      "status": "M",
+      "path": "test/validation/thai/thai_life_period_position_metadata_completion_test.dart",
+      "category": "tests",
+      "reason": "Regression, fixture, canonical, export, or evidence test."
+    },
+    {
+      "status": "M",
+      "path": "test/validation/thai/thai_life_period_position_metadata_test.dart",
+      "category": "tests",
+      "reason": "Regression, fixture, canonical, export, or evidence test."
+    },
+    {
+      "status": "M",
+      "path": "test/validation/thai/thai_life_period_position_strategy_correction_test.dart",
+      "category": "tests",
+      "reason": "Regression, fixture, canonical, export, or evidence test."
+    },
+    {
+      "status": "M",
+      "path": "test/validation/thai/thai_period_context_normalization_test.dart",
+      "category": "tests",
+      "reason": "Regression, fixture, canonical, export, or evidence test."
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "zip": "build/OWNER_REVIEW_THAI_PREDICTIVE_NARRATIVE_V2_RUNTIME_V2_OR5R_376d5d0.zip",
+  "sha256": "CC80EA03E0595844F675336438566DDBC329E8A7C077ED9C78DB75C74E0E960C",
+  "bytes": 16676130,
+  "entries": 165,
+  "crcErrors": 0,
+  "extractionErrors": 0,
+  "missing": 0,
+  "extra": 0,
+  "hashMismatch": 0,
+  "sizeMismatch": 0,
+  "signatureErrors": 0,
+  "signaturesChecked": 94,
+  "secretHits": 0,
+  "unsafeArchivePaths": 0,
+  "absoluteLocalTextPaths": 0,
+  "secretScanScope": "All extracted bytes; private keys, GitHub tokens, Google API keys, assigned password/access/refresh token literals. No credentials were used."
+}

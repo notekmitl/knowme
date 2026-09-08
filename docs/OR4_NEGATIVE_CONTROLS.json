@@ -1,0 +1,542 @@
+{
+  "status": "PASS",
+  "controls": 27,
+  "rejected": 27,
+  "positiveControl": "PASS",
+  "cases": [
+    {
+      "name": "past section/body",
+      "expectedCode": "past_section_body_age_mismatch",
+      "rejected": true,
+      "observedErrors": [
+        {
+          "code": "past_section_body_age_mismatch",
+          "ref": "validator-unit-only/claims/0",
+          "expected": [
+            1,
+            10
+          ],
+          "actual": [
+            2,
+            10
+          ]
+        },
+        {
+          "code": "past_body_source_period_mismatch",
+          "ref": "validator-unit-only/claims/0",
+          "expected": {
+            "contextId": "test.context",
+            "matrixApplicationId": "test.0_10",
+            "ageStart": 0,
+            "ageEnd": 10
+          },
+          "actual": {
+            "body": [
+              2,
+              10
+            ],
+            "source": {
+              "contextId": "test.context",
+              "matrixApplicationId": "test.0_10",
+              "ageStart": 0,
+              "ageEnd": 10
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "wrong source period",
+      "expectedCode": "past_body_source_period_mismatch",
+      "rejected": true,
+      "observedErrors": [
+        {
+          "code": "missing_completed_past_period",
+          "ref": "validator-unit-only",
+          "expected": "test.0_10",
+          "actual": null
+        },
+        {
+          "code": "past_body_source_period_mismatch",
+          "ref": "validator-unit-only/claims/0",
+          "expected": null,
+          "actual": {
+            "body": [
+              1,
+              10
+            ],
+            "source": {
+              "contextId": "test.context",
+              "matrixApplicationId": "test.0_9",
+              "ageStart": 0,
+              "ageEnd": 9
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "current/start-age confusion",
+      "expectedCode": "current_heading_body_age_mismatch",
+      "rejected": true,
+      "observedErrors": [
+        {
+          "code": "current_heading_body_age_mismatch",
+          "ref": "validator-unit-only/claims/3",
+          "expected": 44,
+          "actual": [
+            44,
+            42
+          ]
+        }
+      ]
+    },
+    {
+      "name": "frozen first-binding age",
+      "expectedCode": "frozen_literal_age_component",
+      "rejected": true,
+      "observedErrors": [
+        {
+          "code": "frozen_literal_age_component",
+          "ref": "bad",
+          "expected": "dynamic age placeholder",
+          "actual": "อายุ 42 ปี"
+        }
+      ]
+    },
+    {
+      "name": "period applicability",
+      "expectedCode": "current_age_period_applicability_error",
+      "rejected": true,
+      "observedErrors": [
+        {
+          "code": "current_age_period_applicability_error",
+          "ref": "validator-unit-only/claims/3",
+          "expected": {
+            "contextId": "test.context",
+            "matrixApplicationId": "test.42_62",
+            "ageStart": 42,
+            "ageEnd": 62
+          },
+          "actual": {
+            "contextId": "test.context",
+            "matrixApplicationId": "test.30_41",
+            "ageStart": 30,
+            "ageEnd": 41
+          }
+        }
+      ]
+    },
+    {
+      "name": "next age",
+      "expectedCode": "next_heading_body_age_mismatch",
+      "rejected": true,
+      "observedErrors": [
+        {
+          "code": "next_heading_body_age_mismatch",
+          "ref": "validator-unit-only/claims/4",
+          "expected": {
+            "contextId": "test.context",
+            "matrixApplicationId": "test.63_79",
+            "ageStart": 63,
+            "ageEnd": 79
+          },
+          "actual": {
+            "heading": "ช่วงชีวิตถัดไป — อายุ 63–79 ปี",
+            "text": "ช่วงอายุ 64–79 ปี",
+            "source": {
+              "contextId": "test.context",
+              "matrixApplicationId": "test.63_79",
+              "ageStart": 63,
+              "ageEnd": 79
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "missing past",
+      "expectedCode": "missing_completed_past_period",
+      "rejected": true,
+      "observedErrors": [
+        {
+          "code": "missing_completed_past_period",
+          "ref": "validator-unit-only",
+          "expected": "test.11_29",
+          "actual": null
+        }
+      ]
+    },
+    {
+      "name": "gap",
+      "expectedCode": "chronology_overlap_or_gap",
+      "rejected": true,
+      "observedErrors": [
+        {
+          "code": "chronology_overlap_or_gap",
+          "ref": "validator-unit-only",
+          "expected": 11,
+          "actual": 12
+        },
+        {
+          "code": "past_body_source_period_mismatch",
+          "ref": "validator-unit-only/claims/1",
+          "expected": {
+            "contextId": "test.context",
+            "matrixApplicationId": "test.11_29",
+            "ageStart": 12,
+            "ageEnd": 29
+          },
+          "actual": {
+            "body": [
+              11,
+              29
+            ],
+            "source": {
+              "contextId": "test.context",
+              "matrixApplicationId": "test.11_29",
+              "ageStart": 12,
+              "ageEnd": 29
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "past future",
+      "expectedCode": "past_future_tense",
+      "rejected": true,
+      "observedErrors": [
+        {
+          "code": "past_future_tense",
+          "ref": "validator-unit-only/claims/0",
+          "expected": "past tense",
+          "actual": "ช่วงอายุ 1–10 ปีผ่านไปแล้ว จะเกิดขึ้น"
+        }
+      ]
+    },
+    {
+      "name": "domain noun substitution",
+      "expectedCode": "cross_domain_template_leakage",
+      "rejected": true,
+      "observedErrors": [
+        {
+          "code": "cross_domain_template_leakage",
+          "ref": "validator-unit-only/claims/6",
+          "expected": "domain-specific text",
+          "actual": "การเงินเดินหน้าจากผลที่ส่งมอบต่อเนื่อง"
+        },
+        {
+          "code": "domain_vocabulary_mismatch",
+          "ref": "validator-unit-only/claims/6",
+          "expected": "finance",
+          "actual": "การเงินเดินหน้าจากผลที่ส่งมอบต่อเนื่อง"
+        },
+        {
+          "code": "domain_vocabulary_mismatch",
+          "ref": "validator-unit-only/claims/6",
+          "expected": "no work-vocabulary substitution",
+          "actual": "การเงินเดินหน้าจากผลที่ส่งมอบต่อเนื่อง"
+        }
+      ]
+    },
+    {
+      "name": "work vocabulary into finance",
+      "expectedCode": "domain_vocabulary_mismatch",
+      "rejected": true,
+      "observedErrors": [
+        {
+          "code": "domain_vocabulary_mismatch",
+          "ref": "validator-unit-only/claims/6",
+          "expected": "finance",
+          "actual": "ผลงานที่ส่งมอบขยายอำนาจตัดสินใจเรื่องงาน"
+        },
+        {
+          "code": "domain_vocabulary_mismatch",
+          "ref": "validator-unit-only/claims/6",
+          "expected": "no work-vocabulary substitution",
+          "actual": "ผลงานที่ส่งมอบขยายอำนาจตัดสินใจเรื่องงาน"
+        }
+      ]
+    },
+    {
+      "name": "work vocabulary into relationship",
+      "expectedCode": "domain_vocabulary_mismatch",
+      "rejected": true,
+      "observedErrors": [
+        {
+          "code": "domain_vocabulary_mismatch",
+          "ref": "validator-unit-only/claims/6",
+          "expected": "relationship",
+          "actual": "ผลงานที่ส่งมอบขยายอำนาจตัดสินใจเรื่องงาน"
+        },
+        {
+          "code": "domain_vocabulary_mismatch",
+          "ref": "validator-unit-only/claims/6",
+          "expected": "no work-vocabulary substitution",
+          "actual": "ผลงานที่ส่งมอบขยายอำนาจตัดสินใจเรื่องงาน"
+        }
+      ]
+    },
+    {
+      "name": "work vocabulary into health",
+      "expectedCode": "domain_vocabulary_mismatch",
+      "rejected": true,
+      "observedErrors": [
+        {
+          "code": "domain_vocabulary_mismatch",
+          "ref": "validator-unit-only/claims/6",
+          "expected": "health",
+          "actual": "ผลงานที่ส่งมอบขยายอำนาจตัดสินใจเรื่องงาน"
+        },
+        {
+          "code": "domain_vocabulary_mismatch",
+          "ref": "validator-unit-only/claims/6",
+          "expected": "no work-vocabulary substitution",
+          "actual": "ผลงานที่ส่งมอบขยายอำนาจตัดสินใจเรื่องงาน"
+        }
+      ]
+    },
+    {
+      "name": "unsupported authority",
+      "expectedCode": "unsupported_domain_claim",
+      "rejected": true,
+      "observedErrors": [
+        {
+          "code": "unsupported_domain_claim",
+          "ref": "validator-unit-only/claims/5",
+          "expected": "verified full semantic sentence binding",
+          "actual": {
+            "status": "VERIFIED",
+            "authorityRefs": [],
+            "supportedSentences": [
+              "งานขยายบทบาทและอำนาจตัดสินใจ"
+            ],
+            "materialSignature": "synthetic-career",
+            "domain": "career",
+            "horizon": "current",
+            "direction": "strong",
+            "sourcePeriodId": "test.42_62"
+          }
+        }
+      ]
+    },
+    {
+      "name": "direction mismatch",
+      "expectedCode": "direction_mismatch",
+      "rejected": true,
+      "observedErrors": [
+        {
+          "code": "direction_mismatch",
+          "ref": "validator-unit-only/claims/5",
+          "expected": "strong",
+          "actual": "corrupted"
+        }
+      ]
+    },
+    {
+      "name": "domain mismatch",
+      "expectedCode": "domain_mismatch",
+      "rejected": true,
+      "observedErrors": [
+        {
+          "code": "domain_mismatch",
+          "ref": "validator-unit-only/claims/5",
+          "expected": "career",
+          "actual": "corrupted"
+        }
+      ]
+    },
+    {
+      "name": "horizon mismatch",
+      "expectedCode": "horizon_mismatch",
+      "rejected": true,
+      "observedErrors": [
+        {
+          "code": "horizon_mismatch",
+          "ref": "validator-unit-only/claims/5",
+          "expected": "current",
+          "actual": "corrupted"
+        }
+      ]
+    },
+    {
+      "name": "exact cross-section",
+      "expectedCode": "exact_cross_section_duplicate",
+      "rejected": true,
+      "observedErrors": [
+        {
+          "code": "exact_cross_section_duplicate",
+          "ref": "validator-unit-only",
+          "expected": "work",
+          "actual": "rolling12"
+        }
+      ]
+    },
+    {
+      "name": "near cross-section",
+      "expectedCode": "near_cross_section_duplicate",
+      "rejected": true,
+      "observedErrors": [
+        {
+          "code": "near_cross_section_duplicate",
+          "ref": "validator-unit-only",
+          "expected": "งานขยายบทบาทและอำนาจตัดสินใจ",
+          "actual": "งานขยายบทบาทและอำนาจตัดสินใจเพิ่ม"
+        }
+      ]
+    },
+    {
+      "name": "advice leakage",
+      "expectedCode": "prediction_advice_leakage",
+      "rejected": true,
+      "observedErrors": [
+        {
+          "code": "unsupported_domain_claim",
+          "ref": "validator-unit-only/claims/5",
+          "expected": "verified full semantic sentence binding",
+          "actual": {
+            "status": "VERIFIED",
+            "authorityRefs": [
+              "synthetic-unit-test-only"
+            ],
+            "supportedSentences": [
+              "งานขยายบทบาทและอำนาจตัดสินใจ"
+            ],
+            "materialSignature": "synthetic-career",
+            "domain": "career",
+            "horizon": "current",
+            "direction": "strong",
+            "sourcePeriodId": "test.42_62"
+          }
+        },
+        {
+          "code": "prediction_advice_leakage",
+          "ref": "validator-unit-only/claims/5",
+          "expected": "prediction",
+          "actual": "งานขยายบทบาทและอำนาจตัดสินใจ ควรเลือกงาน"
+        }
+      ]
+    },
+    {
+      "name": "personality leakage",
+      "expectedCode": "personality_leakage",
+      "rejected": true,
+      "observedErrors": [
+        {
+          "code": "unsupported_domain_claim",
+          "ref": "validator-unit-only/claims/5",
+          "expected": "verified full semantic sentence binding",
+          "actual": {
+            "status": "VERIFIED",
+            "authorityRefs": [
+              "synthetic-unit-test-only"
+            ],
+            "supportedSentences": [
+              "งานขยายบทบาทและอำนาจตัดสินใจ"
+            ],
+            "materialSignature": "synthetic-career",
+            "domain": "career",
+            "horizon": "current",
+            "direction": "strong",
+            "sourcePeriodId": "test.42_62"
+          }
+        },
+        {
+          "code": "personality_leakage",
+          "ref": "validator-unit-only/claims/5",
+          "expected": "prediction",
+          "actual": "งานขยายบทบาทและอำนาจตัดสินใจ คุณเป็นคนอดทน"
+        }
+      ]
+    },
+    {
+      "name": "methodology leakage",
+      "expectedCode": "methodology_leakage",
+      "rejected": true,
+      "observedErrors": [
+        {
+          "code": "unsupported_domain_claim",
+          "ref": "validator-unit-only/claims/5",
+          "expected": "verified full semantic sentence binding",
+          "actual": {
+            "status": "VERIFIED",
+            "authorityRefs": [
+              "synthetic-unit-test-only"
+            ],
+            "supportedSentences": [
+              "งานขยายบทบาทและอำนาจตัดสินใจ"
+            ],
+            "materialSignature": "synthetic-career",
+            "domain": "career",
+            "horizon": "current",
+            "direction": "strong",
+            "sourcePeriodId": "test.42_62"
+          }
+        },
+        {
+          "code": "methodology_leakage",
+          "ref": "validator-unit-only/claims/5",
+          "expected": "reader language",
+          "actual": "งานขยายบทบาทและอำนาจตัดสินใจ selector ชี้ผล"
+        }
+      ]
+    },
+    {
+      "name": "material reuse",
+      "expectedCode": "identical_sentence_different_material",
+      "rejected": true,
+      "observedErrors": [
+        {
+          "code": "identical_sentence_different_material",
+          "ref": "validator-unit-only/claims/6",
+          "expected": "[\"career\",\"current\",\"synthetic-career\",[\"synthetic-unit-test-only\"],\"test.42_62\"]",
+          "actual": "[\"career\",\"current\",\"different\",[\"synthetic-unit-test-only\"],\"test.42_62\"]"
+        },
+        {
+          "code": "evidence_mismatched_sentence_reuse",
+          "ref": "validator-unit-only/claims/6",
+          "expected": "validator-unit-only/claims/5",
+          "actual": "[\"career\",\"current\",\"different\",[\"synthetic-unit-test-only\"],\"test.42_62\"]"
+        }
+      ]
+    },
+    {
+      "name": "Golden oracle input",
+      "expectedCode": "golden_generation_input",
+      "source": "const template=readFileSync('CANDIDATE_0011.md')",
+      "rejected": true,
+      "observedErrors": [
+        "generation_external_input",
+        "golden_generation_input"
+      ]
+    },
+    {
+      "name": "fixture string replacement",
+      "expectedCode": "fixture_value_replacement",
+      "source": "text.replaceAll('00:03','00:35')",
+      "rejected": true,
+      "observedErrors": [
+        "fixture_value_replacement"
+      ]
+    },
+    {
+      "name": "fixture branch",
+      "expectedCode": "fixture_specific_branch",
+      "source": "if(fixture.birthTime === '00:35') return fixed;",
+      "rejected": true,
+      "observedErrors": [
+        "fixture_specific_branch"
+      ]
+    },
+    {
+      "name": "external import",
+      "expectedCode": "generation_external_input",
+      "source": "import fs from 'node:fs';",
+      "rejected": true,
+      "observedErrors": [
+        "generation_external_input"
+      ]
+    }
+  ]
+}

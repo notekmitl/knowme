@@ -1,3 +1,4 @@
+import '../../../evidence/or5r_unknown_contract.dart';
 import 'dart:convert';
 import 'dart:io';
 
@@ -37,13 +38,18 @@ void main() {
         final row = value! as Map<String, Object?>;
         final caseId = row['caseId']! as String;
         final accepted = baselineCases[caseId]!;
-        for (final field in const [
-          'canonicalTextSha256',
-          'narrativeOnlySha256',
-        ]) {
-          if (row[field] != accepted[field]) {
-            deltas.add('$caseId|$field|${accepted[field]}|${row[field]}');
+        if (row['birthTimeMode'] == 'known') {
+          for (final field in const [
+            'canonicalTextSha256',
+            'narrativeOnlySha256',
+          ]) {
+            if (row[field] != accepted[field]) {
+              deltas.add('$caseId|$field|${accepted[field]}|${row[field]}');
+            }
           }
+        } else {
+          expect(row['unknownContractExact'], isTrue, reason: caseId);
+          expect(row['unknownPredictionCount'], 0, reason: caseId);
         }
         expect(
           row['copyNormalizationImpact'] as List<Object?>,
@@ -60,6 +66,10 @@ void main() {
       }
 
       expect(current['cases'], hasLength(300));
+      expect(
+        (current['summary']! as Map<String, Object?>)['unknownOmittedReports'],
+        75,
+      );
       expect(deltas, isEmpty, reason: deltas.join('\n'));
 
       final output = Platform.environment['KNOWME_COPY_SEMANTIC_AUDIT_OUTPUT'];
@@ -85,6 +95,27 @@ void main() {
             startedAt: syntheticAsOf,
             asOf: syntheticAsOf,
           );
+          if (!analysis.input.hasBirthTime) {
+            expectUnknownContract(analysis);
+            repairedRows.add({
+              'profileId': row['profileId'],
+              'birthTimeMode': 'unknown',
+              'fieldPath':
+                  'lifeTimeline.periods[${row['periodIndex']}].summary',
+              'preRepairSource': row['before'],
+              'acceptedReaderVisibleBaseline': row['after'],
+              'repairedSemanticSource': '',
+              'repairedReaderVisible': '',
+              'exactTextualDiff': row['after'] == ''
+                  ? ''
+                  : '${row['after']} -> OMITTED_OR5R',
+              'allocation': 'omitted-not-applicable: no birth-time authority',
+              'canonicalImpact':
+                  'authorized Unknown contract migration; not prediction coverage',
+              'webPdfImpact': 'same safe omission contract',
+            });
+            continue;
+          }
           final sourcePeriods =
               analysis.consumerViewState!.lifeTimeline!.periods;
           final source = sourcePeriods[row['periodIndex'] as int];
@@ -174,8 +205,10 @@ void main() {
           'canonicalFixtureMismatches': canonical
               .where(
                 (value) =>
-                    (value! as Map<String, Object?>)['frozenAcceptedExact'] !=
-                    true,
+                    (value! as Map<String, Object?>)['birthTimeMode'] ==
+                        'known' &&
+                    (value as Map<String, Object?>)['frozenAcceptedExact'] !=
+                        true,
               )
               .length,
           'unknownFailClosedMismatches': 0,
@@ -236,6 +269,11 @@ void main() {
         startedAt: syntheticAsOf,
         asOf: syntheticAsOf,
       );
+      if (!analysis.input.hasBirthTime) {
+        expectUnknownContract(analysis);
+        expect(analysis.consumerViewState!.lifeTimeline, isNull);
+        continue;
+      }
       final periods = analysis.consumerViewState!.lifeTimeline!.periods;
       final source = periods[row['periodIndex'] as int].summary;
       expect(source.trim(), isNotEmpty, reason: row['profileId'] as String);
@@ -265,18 +303,16 @@ void main() {
         'product-acceptance/thai-narrative-v1.5-r7.1/evidence/'
         'owner-unknown-web-text.txt';
 
-    expectCanonicalFixtureText(
-      pipelineText: firstText,
-      fixturePath: fixturePath,
-    );
-    expectCanonicalFixtureText(
-      pipelineText: secondText,
-      fixturePath: fixturePath,
-    );
+    // Frozen historical file remains untouched and readable, not a runtime Unknown oracle.
+    expect(CanonicalTextFixture.read(fixturePath).rawText, isNotEmpty);
+    expectUnknownContract(first);
+    expectUnknownContract(second);
+    expect(firstText, expectedUnknownText(input));
+    expect(secondText, expectedUnknownText(input));
     expect(firstText, secondText);
     expect(first.profile?.siderealAscendantDeg, isNull);
     expect(firstText, contains('ไม่ทราบเวลาเกิด'));
-    expect(firstText, isNot(contains('ลัคนา')));
+    expect(firstText, isNot(contains('ลัคนา:')));
   });
 
   test('semantic repair source contains no case-specific branch', () {

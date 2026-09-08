@@ -1,0 +1,124 @@
+{
+  "schema": "or5r-neutral-validation/2",
+  "sourceBase": "8325e04275d7cb58447abbf9b5dd1ff12acda2d8",
+  "validatorCommit": "6513f97205830a7234e3a04dc60f36e83fab8f62",
+  "extraction": {
+    "runs": [
+      {
+        "run": 1,
+        "passed": 2,
+        "failed": 0,
+        "log": "build/or5r-neutral-review-validation/extraction-1.log",
+        "sha256": "322AC47C7C9E05151D4EC7A6AAF3C905F8EAEA4D7E8EFEE83FC03D1996040D07"
+      },
+      {
+        "run": 2,
+        "passed": 2,
+        "failed": 0,
+        "log": "build/or5r-neutral-review-validation/extraction-2.log",
+        "sha256": "322AC47C7C9E05151D4EC7A6AAF3C905F8EAEA4D7E8EFEE83FC03D1996040D07"
+      }
+    ],
+    "determinism": {
+      "comparisons": [
+        {
+          "name": "OR5_ACTUAL_0035_RUNTIME_EVIDENCE.json",
+          "firstSha256": "307B8DBFEF75FD572BCB9AC1F57C1F7335214C525533A79FA66EE4FBC075AABE",
+          "secondSha256": "307B8DBFEF75FD572BCB9AC1F57C1F7335214C525533A79FA66EE4FBC075AABE"
+        },
+        {
+          "name": "OR5_RAW_0003_20260829.json",
+          "firstSha256": "9A84E49BEC45F89434B3D3368CCD7EC2DE0265946435FA1EE7DFF4B56966767D",
+          "secondSha256": "9A84E49BEC45F89434B3D3368CCD7EC2DE0265946435FA1EE7DFF4B56966767D"
+        },
+        {
+          "name": "OR5_RAW_0003_20260807.json",
+          "firstSha256": "3EE36E8B6BFB46B244CB977C90C1DD79B3FAAE489F4FC246A5FC9A50772E5319",
+          "secondSha256": "3EE36E8B6BFB46B244CB977C90C1DD79B3FAAE489F4FC246A5FC9A50772E5319"
+        },
+        {
+          "name": "OR5_UNKNOWN_RUNTIME_EVIDENCE.json",
+          "firstSha256": "8F6343C7F7205E930DAFCFDBF38E3A3702743B914893FCC7AD8FEF8726CE28C9",
+          "secondSha256": "8F6343C7F7205E930DAFCFDBF38E3A3702743B914893FCC7AD8FEF8726CE28C9"
+        }
+      ],
+      "pairs": 4,
+      "mismatches": 0
+    }
+  },
+  "node": {
+    "tests": 33,
+    "passed": 33,
+    "failed": 0,
+    "skipped": 0,
+    "log": "build/or5r-neutral-review-validation/node-tests.tap",
+    "logSha256": "E33BDDB6F424EB7B5876AB2552E3122C3BD80955D19E07CA728258F7C6F0DACF",
+    "controls": {
+      "realOwnerAcceptedPositive": "PASS; excluded from actual totals",
+      "sourceFieldPositive": "PASS; test-only fact, not product prediction",
+      "namedNegativeControls": 12,
+      "duplicateSemanticOwnerControl": 1,
+      "additionalMissingRoleControls": 5,
+      "candidateOracleNegativeControls": 13,
+      "existingEvidenceResolverNegativeControls": 9
+    }
+  },
+  "historicalEvidence": [
+    {
+      "path": "tool/or5r_authority_matrix.mjs",
+      "sha256": "DA3177F43BCF1A753784871DD2DB29BFB016AD47AD9FE7E6202300558095F2CE",
+      "currentSha256": "DA3177F43BCF1A753784871DD2DB29BFB016AD47AD9FE7E6202300558095F2CE",
+      "baseSha256": "DA3177F43BCF1A753784871DD2DB29BFB016AD47AD9FE7E6202300558095F2CE"
+    },
+    {
+      "path": "docs/OR5R_ACTUAL_0035_AUTHORITY_MATRIX.md",
+      "sha256": "588CD29E7F891A94DD27419EEA7B7CFEC0A24DB1A5E4E67C955940D9F07D2806",
+      "currentSha256": "588CD29E7F891A94DD27419EEA7B7CFEC0A24DB1A5E4E67C955940D9F07D2806",
+      "baseSha256": "588CD29E7F891A94DD27419EEA7B7CFEC0A24DB1A5E4E67C955940D9F07D2806"
+    },
+    {
+      "path": "docs/OR5R_ACTUAL_0035_AUTHORITY_MATRIX.json",
+      "sha256": "05C4B59668B5C156213C6F7063A9BF4CE2E8BAC5409E1E12D31F66CE1FD5A115",
+      "currentSha256": "05C4B59668B5C156213C6F7063A9BF4CE2E8BAC5409E1E12D31F66CE1FD5A115",
+      "baseSha256": "05C4B59668B5C156213C6F7063A9BF4CE2E8BAC5409E1E12D31F66CE1FD5A115"
+    }
+  ],
+  "candidateReaderSha256": "6AA94C7A01555310C5189FAAF711597057C5DF2F102246A0DF3946DAB2B62A1E",
+  "actualAuthority": {
+    "entries": 10,
+    "counts": {
+      "SOURCE_CHAIN_SUPPORTED": 0,
+      "OWNER_APPROVED_TEMPLATE_SUPPORTED": 0,
+      "OWNER_TEMPLATE_REVIEW_REQUIRED": 8,
+      "UNSUPPORTED_MISSING_COMPONENT": 1,
+      "UNSUPPORTED_SEMANTIC_EXPANSION": 1,
+      "OMIT": 0
+    },
+    "supported": 0,
+    "componentCompletePendingReview": 8,
+    "coverageComplete": false,
+    "status": "ACTUAL 00:35 CLAIM AUTHORITY NO-GO"
+  },
+  "semanticSlots": {
+    "required": 15,
+    "applicable": 15,
+    "emitted": 13,
+    "supported": 2,
+    "predictionSupported": 0,
+    "nonPredictiveProvenanceSupported": 2,
+    "missing": 2,
+    "duplicate": 0
+  },
+  "contentReview": "AI/Machine Content Audit — PENDING OWNER CONTENT REVIEW",
+  "commands": [
+    "powershell -ExecutionPolicy Bypass -File tool/or5r_neutral_validation.ps1 -Extract",
+    "node tool/or5r_actual_authority_v2.mjs",
+    "node tool/or5r_neutral_evidence.mjs",
+    "powershell -ExecutionPolicy Bypass -File scripts/knowme_task_gate.ps1 -ScopeFile task_scope.json -Phase PreCommit",
+    "powershell -ExecutionPolicy Bypass -File scripts/knowme_task_gate.ps1 -ScopeFile task_scope.json -Phase PostCommit",
+    "git diff --check"
+  ],
+  "firstPreCommitLog": "build/or5r-neutral-precommit-1.log",
+  "firstPostCommitLog": "build/or5r-neutral-postcommit-1.log",
+  "fullFlutterAndAnalyzer": "NOT RERUN: user-authorized evidence/tool-only task, no Dart/runtime/Flutter-test delta. Existing focused Dart extraction/oracle tests only. No new PDF/Web generation."
+}

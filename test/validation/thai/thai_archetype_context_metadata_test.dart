@@ -1,3 +1,4 @@
+import '../../evidence/or5r_unknown_contract.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:knowme/features/astrology/thai/core/life_period/life_period_status_metadata.dart';
 import 'package:knowme/features/astrology/thai/knowledge/canon/integration/integration.dart';
@@ -51,38 +52,38 @@ void main() {
       );
     });
 
-    test('position and status blockers propagate NEEDS_PERIOD_CONTEXT_MAPPING',
-        () async {
-      final pipeline = ThaiMirrorPipeline.generate(
-        ThaiMirrorPipeline.sampleQaBirthData(),
-      );
-      final statusAudit = LifePeriodStatusMetadataResolver.audit(
-        pipeline.lifePeriods,
-        profile: pipeline.profile,
-        birthData: pipeline.birthData,
-        canonIndex: repository.index,
-      );
-      final bundle = await ThaiReportCanonEvidenceEnricher.enrich(
-        pipeline,
-        repository: repository,
-      );
+    test(
+      'position and status blockers propagate NEEDS_PERIOD_CONTEXT_MAPPING',
+      () async {
+        final pipeline = ThaiMirrorPipeline.generate(
+          ThaiMirrorPipeline.sampleQaBirthData(),
+        );
+        final statusAudit = LifePeriodStatusMetadataResolver.audit(
+          pipeline.lifePeriods,
+          profile: pipeline.profile,
+          birthData: pipeline.birthData,
+          canonIndex: repository.index,
+        );
+        final bundle = await ThaiReportCanonEvidenceEnricher.enrich(
+          pipeline,
+          repository: repository,
+        );
 
-      expect(statusAudit.blocker, isNull);
-      expect(statusAudit.positionFeasibility.metadataBlocker, isNull);
-      expect(
-        bundle.trace.lifePeriodArchetypeMetadataBlocker,
-        isNull,
-      );
-      expect(
-        bundle.trace.lifePeriodPositionMetadataBlocker,
-        LifePeriodPositionMetadataBlocker.partialPositionMetadata,
-      );
-      expect(
-        bundle.trace.lifePeriodPositionFeasibilityResult,
-        LifePeriodPositionMetadataFeasibilityResult
-            .readyToExposeMetadata.wire,
-      );
-    });
+        expect(statusAudit.blocker, isNull);
+        expect(statusAudit.positionFeasibility.metadataBlocker, isNull);
+        expect(bundle.trace.lifePeriodArchetypeMetadataBlocker, isNull);
+        expect(
+          bundle.trace.lifePeriodPositionMetadataBlocker,
+          LifePeriodPositionMetadataBlocker.partialPositionMetadata,
+        );
+        expect(
+          bundle.trace.lifePeriodPositionFeasibilityResult,
+          LifePeriodPositionMetadataFeasibilityResult
+              .readyToExposeMetadata
+              .wire,
+        );
+      },
+    );
   });
 
   group('ThaiArchetypeContextMetadataResolver', () {
@@ -120,13 +121,11 @@ void main() {
     });
 
     test('Canon mapping completeness audit documents all seven rows', () {
+      expect(ThaiArchetypeContextP19Rules.remainderToArchetypeChart.length, 7);
       expect(
-        ThaiArchetypeContextP19Rules.remainderToArchetypeChart.length,
-        7,
-      );
-      expect(
-        ThaiArchetypeContextMappingRegistry.audit(index: repository.index)
-            .missingRemainderIds,
+        ThaiArchetypeContextMappingRegistry.audit(
+          index: repository.index,
+        ).missingRemainderIds,
         isEmpty,
       );
     });
@@ -137,6 +136,7 @@ void main() {
       final audit = await ThaiCanonEvidenceAlignmentRunner.run(
         repository: repository,
       );
+      expectCanonTimePartition(audit.fixtureResults);
 
       int sumTrace(List<String> Function(ThaiCanonEvidenceTrace t) pick) =>
           audit.fixtureResults.fold<int>(
@@ -144,23 +144,18 @@ void main() {
             (sum, result) => sum + pick(result.bundle.trace).length,
           );
 
-      expect(
-        sumTrace((t) => t.lifePeriodsWithCanonDerivedStatus),
-        8,
-      );
+      expect(sumTrace((t) => t.lifePeriodsWithCanonDerivedStatus), 8);
       expect(audit.totalLifePeriodsWithoutRuntimeStatus, 16);
-      expect(
-        sumTrace((t) => t.lifePeriodsWithRuntimeStatus),
-        56,
-      );
+      expect(sumTrace((t) => t.lifePeriodsWithRuntimeStatus), 48);
     });
 
     test('ThaiMirrorPipeline user-facing fingerprint unchanged', () async {
       final pipeline = ThaiMirrorPipeline.generate(
         ThaiMirrorPipeline.sampleQaBirthData(),
       );
-      final before =
-          ThaiReportCanonEvidenceEnricher.userFacingFingerprint(pipeline);
+      final before = ThaiReportCanonEvidenceEnricher.userFacingFingerprint(
+        pipeline,
+      );
       await ThaiReportCanonEvidenceEnricher.enrich(
         pipeline,
         repository: repository,

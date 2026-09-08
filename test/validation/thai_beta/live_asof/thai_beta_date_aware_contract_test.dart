@@ -1,3 +1,4 @@
+import '../../../evidence/or5r_unknown_contract.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:knowme/features/astrology/thai/mirror/thai_mirror_stable_hash.dart';
@@ -91,15 +92,15 @@ void main() {
         onBirthday.normalizedSnapshot!.toMap(),
       );
       expect(beforeBirthday.profile!.lagnaKey, onBirthday.profile!.lagnaKey);
-      expect(
-        beforeBirthday.pipelineResult!.lifePeriods!.currentAge,
-        onBirthday.pipelineResult!.lifePeriods!.currentAge - 1,
-      );
+      expectUnknownContract(beforeBirthday);
+      expectUnknownContract(onBirthday);
+      expect(beforeBirthday.pipelineResult!.lifePeriods, isNull);
+      expect(onBirthday.pipelineResult!.lifePeriods, isNull);
+      expect(beforeBirthday.asOf, DateTime(2026, 8, 16, 23, 59, 59));
+      expect(onBirthday.asOf, DateTime(2026, 8, 17));
       expect(
         ThaiBetaReportExportDocument.fromAnalysis(beforeBirthday).fullPlainText,
-        isNot(
-          ThaiBetaReportExportDocument.fromAnalysis(onBirthday).fullPlainText,
-        ),
+        ThaiBetaReportExportDocument.fromAnalysis(onBirthday).fullPlainText,
       );
     });
 

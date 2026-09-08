@@ -1,0 +1,251 @@
+{
+  "status": "CONTENT_FOUNDATION_NO_GO",
+  "machineContentAudit": "FAIL",
+  "ownerHumanReview": "PENDING",
+  "productContentStatus": "NO_GO",
+  "runtime": "NO_GO",
+  "singlePathRenderer": true,
+  "completeCandidate0020": false,
+  "findings": [
+    {
+      "code": "ACTUAL_0035_BINDINGS_NOT_EXPORTED",
+      "source": "test/evidence/predictive_runtime_v2_or1_evidence_test.dart",
+      "symbol": "_goldenNeighborComparison.item",
+      "jsonPointer": "/generalized00_35",
+      "availableFields": [
+        "contextId",
+        "currentPeriod",
+        "generationPath",
+        "ownerAcceptedGoldenOverrideApplied",
+        "unexpectedFixtureSpecificBranches",
+        "fixtureReferenceLeakage",
+        "evidenceBindingMismatches",
+        "readerLines"
+      ],
+      "missing": [
+        "typedMaterials",
+        "claim bindings",
+        "resolved Canon domain refs"
+      ],
+      "consequence": "Do not infer material equality from similar reader text or shared context."
+    },
+    {
+      "code": "AVAILABLE_TYPED_FIXTURE_DIFFERENT",
+      "source": "docs/THAI_PREDICTIVE_EVIDENCE_RESOLUTION_V1.json",
+      "typedGenerationFixture": {
+        "fixtureId": "regression-known-0003",
+        "firstName": "Acceptance",
+        "lastName": "Fixture",
+        "birthDate": "1982-06-06",
+        "birthHour": 0,
+        "birthMinute": 3,
+        "birthTimeUnknown": false,
+        "province": "เชียงใหม่",
+        "provinceKey": "chiang_mai",
+        "asOf": "2026-08-07 Asia/Bangkok"
+      },
+      "required": {
+        "birthTime": "00:35",
+        "asOf": "2026-08-29"
+      },
+      "consequence": "Existing 00:03 / 2026-08-07 typed records cannot be relabelled as 00:35 / 2026-08-29."
+    },
+    {
+      "code": "CONTEXT_REPRESENTATIVE_NOT_TARGET",
+      "source": "docs/PREDICTIVE_RUNTIME_V2_49_CONTEXT_READER_COPY.json",
+      "context": "mahabhut2537.rem0.saturday",
+      "representativeCurrentPeriod": {
+        "contextId": "mahabhut2537.rem0.saturday",
+        "matrixApplicationId": "mahabhut2537.rem0.saturday.rahu.30_41",
+        "planet": "rahu",
+        "taksaRole": "det",
+        "mahabhutHouse": "athibodi",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 30,
+        "ageEnd": 41
+      },
+      "targetCurrentPeriod": {
+        "contextId": "mahabhut2537.rem0.saturday",
+        "matrixApplicationId": "mahabhut2537.rem0.saturday.venus.42_62",
+        "planet": "venus",
+        "taksaRole": "sri",
+        "mahabhutHouse": "thongchai",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 42,
+        "ageEnd": 62,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem0.saturday.venus.42_62",
+        "selectorAuthority": "selector.mahabhut2537.rem0.saturday.venus.42_62",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      "consequence": "Same context alone is not profile/material equivalence."
+    },
+    {
+      "code": "DOMAIN_TEMPLATE_UNVERIFIED",
+      "source": "docs/OR4_COMPONENT_LIBRARY.json",
+      "proposedComponents": 42,
+      "verified": 0,
+      "consequence": "The interpretation contract permits composed claims but requires resolved domain, direction, timing, conflict and certainty. OR3 prose/band metadata do not prove that chain."
+    }
+  ],
+  "existingAuthorityRecognized": "Owner-authorized Product Interpretation Contract V1 and Candidate 0011 acceptance are retained. No claim is made that all Canon domain authority is absent.",
+  "typedRecordsReviewed": [
+    {
+      "id": "typed.current.career",
+      "fixture": {
+        "fixtureId": "regression-known-0003",
+        "firstName": "Acceptance",
+        "lastName": "Fixture",
+        "birthDate": "1982-06-06",
+        "birthHour": 0,
+        "birthMinute": 3,
+        "birthTimeUnknown": false,
+        "province": "เชียงใหม่",
+        "provinceKey": "chiang_mai",
+        "asOf": "2026-08-07 Asia/Bangkok"
+      },
+      "domain": "career",
+      "horizon": "current"
+    },
+    {
+      "id": "typed.current.finance",
+      "fixture": {
+        "fixtureId": "regression-known-0003",
+        "firstName": "Acceptance",
+        "lastName": "Fixture",
+        "birthDate": "1982-06-06",
+        "birthHour": 0,
+        "birthMinute": 3,
+        "birthTimeUnknown": false,
+        "province": "เชียงใหม่",
+        "provinceKey": "chiang_mai",
+        "asOf": "2026-08-07 Asia/Bangkok"
+      },
+      "domain": "finance",
+      "horizon": "current"
+    },
+    {
+      "id": "typed.current.relationship",
+      "fixture": {
+        "fixtureId": "regression-known-0003",
+        "firstName": "Acceptance",
+        "lastName": "Fixture",
+        "birthDate": "1982-06-06",
+        "birthHour": 0,
+        "birthMinute": 3,
+        "birthTimeUnknown": false,
+        "province": "เชียงใหม่",
+        "provinceKey": "chiang_mai",
+        "asOf": "2026-08-07 Asia/Bangkok"
+      },
+      "domain": "relationship",
+      "horizon": "current"
+    },
+    {
+      "id": "typed.current.health",
+      "fixture": {
+        "fixtureId": "regression-known-0003",
+        "firstName": "Acceptance",
+        "lastName": "Fixture",
+        "birthDate": "1982-06-06",
+        "birthHour": 0,
+        "birthMinute": 3,
+        "birthTimeUnknown": false,
+        "province": "เชียงใหม่",
+        "provinceKey": "chiang_mai",
+        "asOf": "2026-08-07 Asia/Bangkok"
+      },
+      "domain": "health",
+      "horizon": "current"
+    },
+    {
+      "id": "typed.next12Months.career",
+      "fixture": {
+        "fixtureId": "regression-known-0003",
+        "firstName": "Acceptance",
+        "lastName": "Fixture",
+        "birthDate": "1982-06-06",
+        "birthHour": 0,
+        "birthMinute": 3,
+        "birthTimeUnknown": false,
+        "province": "เชียงใหม่",
+        "provinceKey": "chiang_mai",
+        "asOf": "2026-08-07 Asia/Bangkok"
+      },
+      "domain": "career",
+      "horizon": "next12Months"
+    },
+    {
+      "id": "typed.next12Months.finance",
+      "fixture": {
+        "fixtureId": "regression-known-0003",
+        "firstName": "Acceptance",
+        "lastName": "Fixture",
+        "birthDate": "1982-06-06",
+        "birthHour": 0,
+        "birthMinute": 3,
+        "birthTimeUnknown": false,
+        "province": "เชียงใหม่",
+        "provinceKey": "chiang_mai",
+        "asOf": "2026-08-07 Asia/Bangkok"
+      },
+      "domain": "finance",
+      "horizon": "next12Months"
+    },
+    {
+      "id": "typed.next12Months.relationship",
+      "fixture": {
+        "fixtureId": "regression-known-0003",
+        "firstName": "Acceptance",
+        "lastName": "Fixture",
+        "birthDate": "1982-06-06",
+        "birthHour": 0,
+        "birthMinute": 3,
+        "birthTimeUnknown": false,
+        "province": "เชียงใหม่",
+        "provinceKey": "chiang_mai",
+        "asOf": "2026-08-07 Asia/Bangkok"
+      },
+      "domain": "relationship",
+      "horizon": "next12Months"
+    },
+    {
+      "id": "typed.nextLifePeriod.career",
+      "fixture": {
+        "fixtureId": "regression-known-0003",
+        "firstName": "Acceptance",
+        "lastName": "Fixture",
+        "birthDate": "1982-06-06",
+        "birthHour": 0,
+        "birthMinute": 3,
+        "birthTimeUnknown": false,
+        "province": "เชียงใหม่",
+        "provinceKey": "chiang_mai",
+        "asOf": "2026-08-07 Asia/Bangkok"
+      },
+      "domain": "career",
+      "horizon": "nextLifePeriod"
+    },
+    {
+      "id": "typed.nextLifePeriod.finance",
+      "fixture": {
+        "fixtureId": "regression-known-0003",
+        "firstName": "Acceptance",
+        "lastName": "Fixture",
+        "birthDate": "1982-06-06",
+        "birthHour": 0,
+        "birthMinute": 3,
+        "birthTimeUnknown": false,
+        "province": "เชียงใหม่",
+        "provinceKey": "chiang_mai",
+        "asOf": "2026-08-07 Asia/Bangkok"
+      },
+      "domain": "finance",
+      "horizon": "nextLifePeriod"
+    }
+  ],
+  "requiredNextEvidence": [
+    "Export actual input-bound typed materials and resolved claim chains for 00:35 at 2026-08-29; use existing runtime read-only in a separately scoped extraction step.",
+    "Resolve Canon domain + material direction/timing + conflict/certainty into approved full-sentence meanings for every emitted component.",
+    "Then regenerate with this one renderer and compare to the immutable oracle; do not fill gaps by copying accepted text."
+  ]
+}

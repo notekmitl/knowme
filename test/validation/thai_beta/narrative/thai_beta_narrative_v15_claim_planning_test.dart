@@ -1,3 +1,4 @@
+import '../../../evidence/or5r_unknown_contract.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:knowme/features/thai_beta/application/narrative/thai_beta_narrative_composer.dart';
 import 'package:knowme/features/thai_beta/application/narrative/thai_beta_report_claim_ledger.dart';
@@ -68,25 +69,28 @@ void main() {
           startedAt: DateTime(2026, 8, 7),
         );
         final view = ThaiBetaNarrativeComposer.narrativeView(analysis);
-        final domains = view.futurePrediction!.windows
-            .expand((window) => window.domains)
-            .map((domain) => domain.material!.domain)
-            .toList();
-        expect(domains.toSet().length, 4);
-        expect(domains.length, 12);
-        expect(
-          view.futurePrediction!.windows.every(
-            (window) =>
-                window.domains.length == 4 &&
-                window.domains
-                        .map((domain) => domain.material!.domain)
-                        .toSet()
-                        .length ==
-                    4,
-          ),
-          isTrue,
-        );
-
+        if (knownTime) {
+          final domains = view.futurePrediction!.windows
+              .expand((window) => window.domains)
+              .map((domain) => domain.material!.domain)
+              .toList();
+          expect(domains.toSet().length, 4);
+          expect(domains.length, 12);
+          expect(
+            view.futurePrediction!.windows.every(
+              (window) =>
+                  window.domains.length == 4 &&
+                  window.domains
+                          .map((domain) => domain.material!.domain)
+                          .toSet()
+                          .length ==
+                      4,
+            ),
+            isTrue,
+          );
+        } else {
+          expectUnknownContract(analysis);
+        }
         final text = ThaiBetaReportExportDocument.fromAnalysis(
           analysis,
         ).fullPlainText;

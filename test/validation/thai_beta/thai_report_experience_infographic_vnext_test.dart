@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 import 'dart:typed_data';
+import '../../evidence/or5r_unknown_contract.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -264,12 +265,27 @@ void main() {
       }
     });
 
-    test('Known and Unknown place the image after its 12-month narrative', () {
+    test('Known places image after narrative; Unknown omits both', () {
       for (final knownTime in [true, false]) {
         final document = ThaiBetaReportExportDocument.candidate(
           _analysis(knownTime: knownTime),
         );
         final insertion = document.infographicInsertionSectionIndex;
+        if (!knownTime) {
+          expectUnknownDocument(_analysis(knownTime: false).input, document);
+          expect(document.infographic, isNull);
+          expect(
+            document.sections.where(
+              (s) => s.title == 'แนวโน้ม 12 เดือนข้างหน้า',
+            ),
+            isEmpty,
+          );
+          expect(
+            browserPrintMarkup(document),
+            isNot(contains('class="infographic-page"')),
+          );
+          continue;
+        }
         expect(document.sections[insertion].title, 'แนวโน้ม 12 เดือนข้างหน้า');
         final markup = browserPrintMarkup(
           document,
@@ -312,6 +328,15 @@ void main() {
       'uses four evidence-backed domains and fails closed on month timeline',
       () {
         for (final knownTime in [true, false]) {
+          if (!knownTime) {
+            final unknown = _analysis(knownTime: false);
+            expectUnknownContract(unknown);
+            expect(
+              ThaiBetaReportExportDocument.candidate(unknown).infographic,
+              isNull,
+            );
+            continue;
+          }
           final data = ThaiBetaReportExportDocument.candidate(
             _analysis(knownTime: knownTime),
           ).infographic!;
@@ -331,7 +356,6 @@ void main() {
           expect(data.monthlyGapReason, contains('ไม่มีคะแนนหรือหลักฐาน'));
           expect(data.title, isNot(contains('1982')));
           expect(data.title, isNot(contains('กรุงเทพมหานคร')));
-          if (!knownTime) expect(data.disclaimer, contains('ไม่มีเวลาเกิด'));
         }
       },
     );
@@ -361,6 +385,30 @@ void main() {
             );
             await tester.pumpAndSettle();
             expect(tester.takeException(), isNull);
+            if (!knownTime) {
+              expectUnknownContract(_analysis(knownTime: false));
+              expect(find.text('คำทำนายอดีต'), findsNothing);
+              expect(find.text('คำทำนายปัจจุบัน — อายุ 44 ปี'), findsNothing);
+              expect(find.text('ช่วงชีวิตถัดไป'), findsNothing);
+              expect(find.text('อดีตของคุณ'), findsNothing);
+              expect(find.text('ช่วงปัจจุบัน'), findsNothing);
+              expect(find.text('จังหวะชีวิตระยะต่อไป'), findsNothing);
+              expect(find.text('เรื่องสำคัญของช่วงนี้'), findsNothing);
+              for (final heading in or5rTitles) {
+                expect(find.text(heading), findsOneWidget);
+              }
+              expect(find.text(or5rOmission), findsOneWidget);
+              expect(
+                find.byKey(const Key('thai_annual_infographic_save')),
+                findsNothing,
+              );
+              expect(find.byKey(key), findsNothing);
+              expect(document.infographic, isNull);
+              await tester.pumpWidget(const SizedBox.shrink());
+              await tester.pumpAndSettle();
+              expect(tester.takeException(), isNull);
+              continue;
+            }
             expect(
               find.byKey(const Key('thai_annual_infographic_save')),
               findsOneWidget,

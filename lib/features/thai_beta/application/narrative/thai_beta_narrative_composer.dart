@@ -7,6 +7,7 @@ import 'package:knowme/features/astrology/thai/mirror/presentation/models/thai_m
 import 'package:knowme/features/astrology/thai/mirror/presentation/prediction/prediction_section_model.dart';
 import 'package:knowme/features/astrology/thai/mirror/presentation/timeline/thai_mirror_life_timeline_state.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_analysis.dart';
+import 'package:knowme/features/astrology/thai/mirror/presentation/thai_mirror_consumer_presenter.dart';
 
 import 'thai_beta_curated_narrative_block.dart';
 import 'thai_beta_narrative_context.dart';
@@ -33,6 +34,14 @@ class ThaiBetaNarrativeResult {
 /// Deterministic narrative quality layer for Thai Beta screen + export parity.
 abstract final class ThaiBetaNarrativeComposer {
   static ThaiBetaNarrativeResult compose(ThaiBetaAnalysis analysis) {
+    if (!analysis.input.hasBirthTime) {
+      return ThaiBetaNarrativeResult(
+        view: ThaiMirrorConsumerPresenter.unknownTimeView(
+          civilBirthDate: analysis.input.birthDate,
+        ),
+        trace: const ThaiBetaNarrativeTrace(),
+      );
+    }
     final source = analysis.consumerViewState;
     if (source == null) {
       return ThaiBetaNarrativeResult(

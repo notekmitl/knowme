@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-09-07",
+  "status": "OWNER_CONTRACT_CORRECTED_RUNTIME_IMPLEMENTATION_AUTHORIZED_NOT_PRODUCT_ACCEPTANCE",
+  "baseHead": "5882fef14a0a6c145f02b3b475d5937565f5aada",
+  "conflict": {
+    "fixtures": ["known-00:03", "known-00:35"],
+    "predictiveInputsEquivalent": true,
+    "context": "mahabhut2537.rem0.saturday",
+    "currentAge": 44,
+    "periodSelector": "mahabhut2537.rem0.saturday.venus.42_62",
+    "typedMaterialCount": 12,
+    "typedMaterialsEquivalent": true,
+    "rawForecastSha256": "292AEA14829A29935A0B877E8A536A6557DAB43ACD68BAE535E091B7D7CD7669",
+    "formerContradiction": "equivalent predictive inputs were required to emit different exact runtime oracles"
+  },
+  "correctedContract": {
+    "activeRuntimeOracle": "Candidate 0023",
+    "sameSignatureSamePredictiveSections": true,
+    "identityAndProvenanceRemainInputDerived": true,
+    "forbiddenPredictiveSelectors": ["birthDate", "birthHour", "birthMinute", "province", "gender", "ascendantDegree", "pinnedAsOf"],
+    "unknownTime": "fail-closed"
+  },
+  "candidate0011": {
+    "status": "IMMUTABLE_HISTORICAL_OWNER_ACCEPTED_CONTENT_ORACLE_NON_RUNTIME",
+    "readerBlockSha256": "6AA94C7A01555310C5189FAAF711597057C5DF2F102246A0DF3946DAB2B62A1E",
+    "acceptanceRevoked": false
+  },
+  "candidate0023": {
+    "status": "ACTIVE_RUNTIME_CONTENT_TARGET_FOR_SIGNATURE",
+    "pinned0035FullReaderCopySha256": "FDA1DA8917CD5ADCA4650AECF87414DCFCDEE7F13019DF0794ECF76DFD91E7F2"
+  },
+  "authorization": {"implementation": true, "productAcceptance": false, "merge": false, "deploy": false}
+}

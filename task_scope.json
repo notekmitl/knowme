@@ -1,19 +1,43 @@
 {
   "schema_version": 1,
-  "task_id": "thai-unknown-time-input-copy-accuracy-v1",
-  "expected_branch": "codex/thai-unknown-time-input-copy-accuracy-v1",
+  "task_id": "pr115-or10r-r1-infographic-semantics-package-repair",
+  "expected_branch": "codex/thai-predictive-narrative-v2-runtime-v2",
   "expected_worktree": "C:/Users/USER/Documents/Knowme/pr107-release-main",
-  "base_ref": "e094c789ec4e0dcd24d9b79a01c3bbd569f1c70c",
+  "base_ref": "1f5da4b03ae62729e8e6f7eac888de2784007eb2",
   "allowed_files": [
-    "task.md",
-    "TASK_RESULT.md",
     "task_scope.json",
+    "TASK_RESULT.md",
+    "task.md",
     "docs/CURRENT_STATUS.md",
     "docs/HANDOFF.md",
     "docs/ROADMAP.md",
     "docs/THAI_REPORT_READER_EXPERIENCE_V2.md",
-    "lib/features/thai_beta/presentation/pages/thai_beta_input_page.dart",
-    "test/validation/thai_beta/thai_beta_unknown_time_input_copy_test.dart"
+    "docs/PR115_OR10_CONTRACT_CONFLICT_TRUTH_CORRECTION.md",
+    "docs/PR115_OR10_CONTRACT_CONFLICT_TRUTH_CORRECTION.json",
+    "docs/PREDICTIVE_SIGNATURE_OUTPUT_CONTRACT_V1.md",
+    "docs/PREDICTIVE_RUNTIME_V2_GENERALIZATION_AUDIT.json",
+    "docs/PREDICTIVE_RUNTIME_V2_GENERALIZATION_AUDIT.md",
+    "docs/PR115_OR10R_VALIDATION.json",
+    "docs/PR115_OR10R_R1_BEFORE_EVIDENCE.json",
+    "docs/PR115_OR10R_R1_VISUAL_REVIEW.json",
+    "docs/PR115_OR10R_R1_VALIDATION.json",
+    "docs/PR115_OR10R_R1_OWNER_REVIEW.md",
+    "lib/features/thai_beta/application/narrative/predictive_runtime_v2.dart",
+    "lib/features/thai_beta/application/narrative/predictive_runtime_v2_catalog.g.dart",
+    "lib/features/thai_beta/application/thai_beta_report_export_document.dart",
+    "test/evidence/fixtures/or5r_known_baseline.json",
+    "test/evidence/predictive_runtime_v2_foundation.test.mjs",
+    "test/evidence/predictive_runtime_v2_or1_evidence_test.dart",
+    "test/evidence/predictive_runtime_v2_or5_actual_input_export_test.dart",
+    "test/evidence/pr115_or10r_predictive_signature.test.mjs",
+    "test/validation/thai_beta/narrative/thai_predictive_runtime_v2_test.dart",
+    "test/validation/thai_beta/thai_beta_report_export_test.dart",
+    "test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart",
+    "test/validation/thai_beta/thai_report_vnext_artifact_generation_test.dart",
+    "tool/build_predictive_runtime_v2_audit.mjs",
+    "tool/generate_predictive_runtime_v2_catalog.mjs",
+    "tool/or5r_actual_pdf_gate.py",
+    "tool/pr115_or10r_validation.ps1"
   ],
   "allowed_globs": [],
   "forbidden_files": [
@@ -33,7 +57,9 @@
     "**/failures/**",
     "**/__pycache__/**",
     "**/*.pyc",
-    "**/*.pdf"
+    "**/*.pdf",
+    "**/*.png",
+    "**/*.zip"
   ],
   "forbidden_text_patterns": [
     "OPENAI_API_KEY",
@@ -43,15 +69,16 @@
     "round_[0-9]+_review\\.json"
   ],
   "focused_tests": [
-    "flutter test --no-pub --concurrency=1 test/validation/thai_beta/thai_beta_unknown_time_input_copy_test.dart test/validation/thai_beta/live_asof/thai_beta_date_aware_contract_test.dart",
-    "flutter test --no-pub --concurrency=1 test/validation/thai_beta/live_asof/thai_beta_canonical_text_contract_test.dart test/validation/thai_beta/core_reading/thai_birth_profile_core_reading_test.dart",
-    "flutter test --no-pub --concurrency=1 test/validation/thai_beta/narrative/thai_beta_narrative_v15_r4_acceptance_test.dart test/validation/thai_beta/narrative/thai_beta_narrative_v15_r5_acceptance_test.dart test/validation/thai_beta/narrative/thai_beta_narrative_v15_r6_reader_quality_test.dart test/validation/thai_beta/narrative/thai_consumer_narrative_voice_v1_test.dart",
-    "flutter test --no-pub --concurrency=1 test/validation/thai_beta/thai_report_experience_infographic_vnext_test.dart test/validation/thai_beta/thai_beta_report_export_test.dart test/validation/thai_beta/thai_report_vnext_artifact_generation_test.dart",
-    "flutter test --no-pub --concurrency=1 test/validation/thai_beta/thai_beta_screenshot_mode_test.dart test/validation/thai_mirror_qa_harness/screenshot_regression_test.dart"
+    "node tool/generate_predictive_runtime_v2_catalog.mjs --check",
+    "node tool/build_predictive_runtime_v2_audit.mjs",
+    "node --test test/evidence/predictive_runtime_v2_foundation.test.mjs test/evidence/pr115_or10r_predictive_signature.test.mjs",
+    "flutter test --no-pub --concurrency=1 test/validation/thai_beta/narrative/thai_predictive_runtime_v2_test.dart test/validation/thai_beta/narrative/thai_beta_input_fixture_separation_test.dart test/evidence/predictive_runtime_v2_or5_actual_input_export_test.dart",
+    "flutter test --no-pub --concurrency=1 test/validation/thai_beta/narrative/ test/validation/thai_beta/thai_beta_report_export_test.dart test/validation/thai_beta/thai_report_experience_infographic_vnext_test.dart test/validation/thai_beta/thai_report_vnext_artifact_generation_test.dart",
+    "flutter test --no-pub --concurrency=1 test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart"
   ],
   "full_test_policy": "required",
   "full_test_command": "flutter test --no-pub --concurrency=1 test/validation/thai_beta/ test/validation/thai/ test/validation/birth_normalization/ test/thai_foundation_engine_test.dart test/validation/thai_mirror_qa_harness/story_coverage_validation_test.dart test/validation/thai_mirror_qa_harness/screenshot_regression_test.dart",
   "analyze_command": "flutter analyze --no-pub --no-fatal-warnings --no-fatal-infos",
-  "commit_message_regex": "^(fix\\(thai-beta\\): .{10,72}|docs: .{10,72})$",
+  "commit_message_regex": "^(fix\\(thai-beta\\): .{10,72}|test\\(thai-beta\\): .{10,72}|docs: .{10,72})$",
   "require_clean_tree_after_commit": true
 }

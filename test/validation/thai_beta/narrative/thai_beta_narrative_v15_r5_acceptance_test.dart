@@ -1,3 +1,4 @@
+import '../../../evidence/or5r_unknown_contract.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:knowme/features/thai_beta/application/narrative/thai_beta_narrative_composer.dart';
 import 'package:knowme/features/thai_beta/application/narrative/thai_beta_past_reflection.dart';
@@ -62,6 +63,10 @@ void main() {
     const boundary =
         'ส่วนนี้ใช้ตั้งคำถามกับความทรงจำจริง ไม่ใช่ข้อสรุปว่าเหตุการณ์ใดเคยเกิดขึ้น';
     for (final entry in analyses.entries) {
+      if (!entry.value.input.hasBirthTime) {
+        expectUnknownContract(entry.value);
+        continue;
+      }
       final view = ThaiBetaNarrativeComposer.narrativeView(entry.value);
       final fullText = ThaiBetaReportExportDocument.fromAnalysis(
         entry.value,
@@ -95,6 +100,10 @@ void main() {
 
   test('Thai-aware gate separates theme and question pairs within reports', () {
     for (final entry in analyses.entries) {
+      if (!entry.value.input.hasBirthTime) {
+        expectUnknownContract(entry.value);
+        continue;
+      }
       final past = ThaiBetaNarrativeComposer.narrativeView(
         entry.value,
       ).lifeTimeline!.periods.where((period) => period.isPast).toList();
@@ -175,35 +184,42 @@ void main() {
     }
   });
 
-  test(
-    'Unknown uses observable framing and has no unsupported present state',
-    () {
-      final text = ThaiBetaReportExportDocument.fromAnalysis(
-        analyses['owner-unknown']!,
-      ).fullPlainText;
-      expect(
-        text,
+  test('Unknown uses observable framing and has no unsupported present state', () {
+    final text = ThaiBetaReportExportDocument.fromAnalysis(
+      analyses['owner-unknown']!,
+    ).fullPlainText;
+    expectUnknownContract(analyses['owner-unknown']!);
+    expect(
+      text,
+      isNot(
         contains(
           'เมื่อหน้าที่หลายอย่างเริ่มเบียดเวลาพัก ให้ใช้การฟื้นตัวจริงบอกว่าตารางเดิมยังรับไหวหรือไม่',
         ),
-      );
-      expect(
-        text,
+      ),
+    );
+    expect(
+      text,
+      isNot(
         contains('หากช่วงนี้คุณสังเกตว่างานเดิมเริ่มเปลี่ยนไปสู่โจทย์ใหม่'),
-      );
-      for (final unsupported in const [
-        'ด้านพลังชีวิตคุณมีหน้าที่หลายอย่าง จนแทบไม่มีเวลาพัก',
-        'คุณฝืนตัวเองจนสะสมความล้า',
-        'ร่างกายและใจถูกใช้จนสุดแรง',
-        'คุณต้องแบกงานหลายเรื่อง',
-        'งานเดิมกำลังเปลี่ยนแปลงไปสู่โจทย์ใหม่',
-        'แม้รายรับดูดีขึ้น',
-      ]) {
-        expect(text, isNot(contains(unsupported)), reason: unsupported);
-      }
-      expect(text, contains('ไม่ใช่คำบอกจากแพทย์'));
-    },
-  );
+      ),
+    );
+    for (final unsupported in const [
+      'ด้านพลังชีวิตคุณมีหน้าที่หลายอย่าง จนแทบไม่มีเวลาพัก',
+      'คุณฝืนตัวเองจนสะสมความล้า',
+      'ร่างกายและใจถูกใช้จนสุดแรง',
+      'คุณต้องแบกงานหลายเรื่อง',
+      'งานเดิมกำลังเปลี่ยนแปลงไปสู่โจทย์ใหม่',
+      'แม้รายรับดูดีขึ้น',
+    ]) {
+      expect(text, isNot(contains(unsupported)), reason: unsupported);
+    }
+    expect(
+      text,
+      contains(
+        'คำอ่านโหราศาสตร์เป็นมุมมองตามความเชื่อ ไม่ใช่ข้อยืนยันเหตุการณ์ในชีวิต',
+      ),
+    );
+  });
 }
 
 ThaiBetaAnalysis _owner({required bool known, int minute = 0}) => _run(

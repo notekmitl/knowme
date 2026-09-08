@@ -38,6 +38,73 @@ import 'timeline/timeline_presenter.dart';
 abstract final class ThaiMirrorConsumerPresenter {
   static const _maxCards = 3;
 
+  /// Unknown has civil-date authority only. No engine-derived theme or period
+  /// is promoted to reader copy, even if legacy internal metadata is populated.
+  static ThaiMirrorConsumerViewState unknownTimeView({
+    DateTime? civilBirthDate,
+  }) {
+    final date = civilBirthDate;
+    const days = [
+      'วันจันทร์',
+      'วันอังคาร',
+      'วันพุธ',
+      'วันพฤหัสบดี',
+      'วันศุกร์',
+      'วันเสาร์',
+      'วันอาทิตย์',
+    ];
+    final civil = date == null
+        ? 'ไม่มีข้อมูลวันเกิด'
+        : 'วันเกิด ${date.year}-${date.month.toString().padLeft(2, '0')}-${date.day.toString().padLeft(2, '0')} ตรงกับ${days[date.weekday - 1]}ตามปฏิทิน';
+    const omission =
+        'ไม่มีเวลาเกิด — รายงานจึงเว้นหัวข้อที่ต้องใช้เวลาเกิด แทนการเดาข้อมูลที่ไม่มี';
+    return ThaiMirrorConsumerViewState(
+      hero: const ThaiMirrorConsumerHeroState(
+        headline: 'ข้อมูลที่ใช้ในรายงาน',
+        summary: omission,
+        tags: [],
+        identitySubtitle:
+            'ไม่มีเวลาเกิด — ภาพรวมข้อมูลวันเกิดตามปฏิทินและข้อจำกัด',
+      ),
+      strengths: const ThaiMirrorInsightSectionState(title: '', cards: []),
+      cautions: const ThaiMirrorInsightSectionState(title: '', cards: []),
+      advice: const ThaiMirrorAdviceState(title: '', body: ''),
+      lifeDashboard: const [],
+      narrativeSections: const [],
+      signatureInsight: const ThaiMirrorSignatureInsightState(
+        eyebrow: '',
+        body: '',
+        signature: '',
+      ),
+      reflectionSummary: const ThaiMirrorReflectionSummaryState(
+        title: '',
+        intro: '',
+        points: [],
+      ),
+      closingMessage: const ThaiMirrorClosingMessageState(
+        eyebrow: '',
+        message: '',
+        signature: '',
+      ),
+      sourceTransparency: ThaiMirrorSourceTransparencyState(
+        dataUsed: civil,
+        calculation:
+            'ใช้เฉพาะวันเกิดตามปฏิทิน ไม่ใช้เวลาโดยประมาณเพื่อคำนวณวันทางโหราศาสตร์ ลัคนา หรือเรือน',
+        meaning:
+            'ข้อมูลยังไม่เพียงพอสำหรับสรุปบุคลิก ช่วงชีวิต หรือคำทำนายที่ต้องใช้เวลาเกิด',
+      ),
+      birthDataConfidence: const ThaiMirrorBirthDataConfidenceState(
+        isComplete: false,
+        title: '',
+        body: '',
+      ),
+      secretTip: '',
+      disclaimers: const [
+        'คำอ่านโหราศาสตร์เป็นมุมมองตามความเชื่อ ไม่ใช่ข้อยืนยันเหตุการณ์ในชีวิต',
+      ],
+    );
+  }
+
   /// [lifePeriods] (when available) powers the V8 Life Timeline. It is engine
   /// *evidence* produced by [LifePeriodEngine] from the canonical birth profile
   /// upstream — the presenter never receives a raw birth date, so birth-profile
@@ -53,6 +120,9 @@ abstract final class ThaiMirrorConsumerPresenter {
     ThaiCanonEvidenceIndex? canonIndex,
     DateTime? asOf,
   }) {
+    if (birthData?.hasBirthTime == false || profile?.hasBirthTime == false) {
+      return unknownTimeView(civilBirthDate: birthData?.dateOnly);
+    }
     final topThemeIds = result.topThemes
         .map((theme) => theme.themeId)
         .toList(growable: false);

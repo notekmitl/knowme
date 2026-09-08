@@ -1,0 +1,1559 @@
+{
+  "schema": "pr115-or5r-validation/1",
+  "baseline": "8e6d168baf8378068260fbbb39500d5eb4491b37",
+  "fullSuite": {
+    "command": "flutter test --no-pub --concurrency=1 --reporter=json [exact full_test_command paths in task_scope.json]",
+    "log": "build/or5r-pdf-final-full.jsonl",
+    "sha256": "6701d98274dc3acfba36709659b8d6c912475c7681a6b0f405253f9084ad048f",
+    "passed": 1653,
+    "failed": 0,
+    "skipped": 0,
+    "durationMs": 356369,
+    "countReconciliation": "1568 passed + 76 failed before = 1644 visible results. Four containment/validator regressions plus four title-only PDF regressions; two previously setup-blocked tests execute, replacing one failed setUpAll result: 1644 + 8 + 2 - 1 = 1653. No original test declaration was removed."
+  },
+  "dedicated": {
+    "passed": 11,
+    "failed": 0,
+    "log": "build/or5r-pdf-final-containment.log",
+    "sha256": "24cb4e881c97815af58b53fae0ec8527bdc9310167e0f5f490bf4d476f04443e"
+  },
+  "migratedDirect": {
+    "passed": 374,
+    "failed": 0,
+    "files": 34,
+    "log": "build/or5r-pdf-final-migrated.log",
+    "sha256": "2be6b11daf539d1cb869ea4c0e9975c25c1539e980fa5598ce97f1592356ff38"
+  },
+  "focused": {
+    "passed": 56,
+    "failed": 0,
+    "log": "build/or5r-pdf-final-focused-1.log",
+    "sha256": "97be8300f7d75484f7b05da1500b553180d7214d7d4e238fae27890560508829"
+  },
+  "focusedPdfExport": {
+    "passed": 58,
+    "failed": 0,
+    "log": "build/or5r-pdf-final-focused-0.log",
+    "sha256": "1572d75731ec2fc974f26cc68758a817d458f9bf1c3ef46712255c88ce41a3f3"
+  },
+  "actualPdfRegression": {
+    "tests": 4,
+    "positive": {
+      "pdfSha256": "72e8e0abcb41bddb23a4153cde5682758a573d07ccbc32341d0ac3496b922359",
+      "pages": 4,
+      "requiredHeadingCount": 1,
+      "missingHeadings": 0,
+      "extraHeadings": 0,
+      "duplicateHeadings": 0,
+      "sectionOrderMismatch": 0,
+      "paragraphMismatch": 0,
+      "normalizedFullPdfEqualsCompleteExpectedInventory": true,
+      "method": "pypdf extracts actual PDF streams; NFKD/whitespace normalization and explicit page footer removal only; no Thai glyph deletion, inferred text, or render-text accumulator",
+      "pass": true,
+      "rasterExitCode": 0,
+      "rastersCreated": 4
+    },
+    "negative": {
+      "pdfSha256": "f9116081ade58d6d215ddb2e6b581ac6c51a427950cb339fec5f0d140d583122",
+      "pages": 4,
+      "requiredHeadingCount": 0,
+      "missingHeadings": 10,
+      "extraHeadings": 0,
+      "duplicateHeadings": 0,
+      "sectionOrderMismatch": 17,
+      "paragraphMismatch": 32,
+      "normalizedFullPdfEqualsCompleteExpectedInventory": false,
+      "method": "pypdf extracts actual PDF streams; NFKD/whitespace normalization and explicit page footer removal only; no Thai glyph deletion, inferred text, or render-text accumulator",
+      "pass": false,
+      "rasterExitCode": 0,
+      "rastersCreated": 4,
+      "negativeControlRejected": true
+    }
+  },
+  "nodeOracle": {
+    "passed": 2,
+    "failed": 0,
+    "log": "build/or5r-pdf-final-focused-2.log",
+    "sha256": "69d264fd8d44b867a2de89fa298c1bdcc83405c585fce11ca2d09ca1183826da"
+  },
+  "analyzer": {
+    "baselineDiagnostics": 298,
+    "currentDiagnostics": 298,
+    "newDiagnostics": 0,
+    "removedDiagnostics": 0,
+    "baselineLog": "build/or5r-baseline-analyzer.log",
+    "baselineSha256": "c389fc8056c58da692e0ec87d7b30d5c7c5a3fce11222c7d83b3f13dcc51021f",
+    "currentLog": "build/or5r-pdf-final-analyzer.log",
+    "currentSha256": "151b71fb96f617a04cb9682b2783a276a37d795bcc0fa1945c997e912c3cd1de",
+    "method": "Baseline freshly analyzed from git archive of immutable baseline, offline dependency resolution. Archive and before-migration source backups were moved outside analyzed checkout after detecting accidental nested-source analysis. No analyzer rules/exclusions were changed."
+  },
+  "originalFailures": 76,
+  "resolvedFailures": 76,
+  "unclassified": 0,
+  "duplicateAccounting": 0,
+  "supplementalInfrastructure": [
+    {
+      "linkedFailure": "F037",
+      "defect": "Empty phase/motif matched every character boundary",
+      "repair": "Empty labels count zero, all other quality gates continue",
+      "negativeControls": "Real phase 4>3, C0 and rejected R6 prose; exact Unknown oracle rejects six body mutations plus missing chapter kind"
+    },
+    {
+      "linkedFailure": "F010/F014",
+      "defect": "Shared VM/browser manifest must not depend on flutter_test",
+      "repair": "Pure independent civil oracle separated from Flutter assertion adapter; VM exact-contract checks preserved",
+      "browserCompilation": "Required in artifact tooling validation"
+    },
+    {
+      "defect": "Copied audit snapshots beneath build were picked up as project source",
+      "repair": "Moved only created snapshots outside checkout; preserved contents; reran identical analyzer command",
+      "result": "298/298 exact diagnostic multiset; no exclusions or configuration edits"
+    }
+  ],
+  "resolved": [
+    {
+      "id": "F001",
+      "classification": "STALE_UNKNOWN_CONTRACT",
+      "source_test_file": "test/validation/thai_beta/core_reading/thai_beta_readability_acceptance_test.dart",
+      "original_test": "eight deterministic Web and rendered PDF reports pass readability",
+      "current_test": "eight deterministic Web and rendered PDF reports pass readability",
+      "changed_files": [
+        "test/validation/thai_beta/core_reading/thai_beta_readability_acceptance_test.dart"
+      ],
+      "final_result": "PASS",
+      "event": {
+        "testID": 3,
+        "result": "success",
+        "skipped": false,
+        "hidden": false,
+        "type": "testDone",
+        "time": 2026
+      }
+    },
+    {
+      "id": "F002",
+      "classification": "STALE_UNKNOWN_CONTRACT",
+      "source_test_file": "test/validation/thai_beta/core_reading/thai_birth_profile_core_reading_test.dart",
+      "original_test": "unsupported no-time topics are disclosed after Timeline",
+      "current_test": "Unknown topics are explicitly omitted without a synthetic Timeline",
+      "changed_files": [
+        "test/validation/thai_beta/core_reading/thai_birth_profile_core_reading_test.dart"
+      ],
+      "final_result": "PASS",
+      "event": {
+        "testID": 32,
+        "result": "success",
+        "skipped": false,
+        "hidden": false,
+        "type": "testDone",
+        "time": 3546
+      }
+    },
+    {
+      "id": "F003",
+      "classification": "STALE_UNKNOWN_CONTRACT",
+      "source_test_file": "test/validation/thai_beta/core_reading/thai_birth_profile_core_reading_test.dart",
+      "original_test": "PDF appends the same omissions as the final report section",
+      "current_test": "PDF final section uses exact civil-only omissions, without legacy body",
+      "changed_files": [
+        "test/validation/thai_beta/core_reading/thai_birth_profile_core_reading_test.dart"
+      ],
+      "final_result": "PASS",
+      "event": {
+        "testID": 36,
+        "result": "success",
+        "skipped": false,
+        "hidden": false,
+        "type": "testDone",
+        "time": 3993
+      }
+    },
+    {
+      "id": "F004",
+      "classification": "STALE_UNKNOWN_CONTRACT",
+      "source_test_file": "test/validation/thai_beta/life_map/v124/thai_life_map_v124_accuracy_audit_test.dart",
+      "original_test": "V1.2.4 full audit every chart has exactly 8 periods (≥160 total)",
+      "current_test": "V1.2.4 full audit Known charts have 8 periods; Unknown timeline is omitted, not generated",
+      "changed_files": [
+        "test/validation/thai_beta/life_map/v124/thai_life_map_v124_accuracy_audit_test.dart"
+      ],
+      "final_result": "PASS",
+      "event": {
+        "testID": 89,
+        "result": "success",
+        "skipped": false,
+        "hidden": false,
+        "type": "testDone",
+        "time": 8164
+      }
+    },
+    {
+      "id": "F005",
+      "classification": "STALE_UNKNOWN_CONTRACT",
+      "source_test_file": "test/validation/thai_beta/life_map/v124/thai_life_map_v124_accuracy_audit_test.dart",
+      "original_test": "V1.2.4 full audit PDF export includes timeline narrative but not Mahabhut nested fields",
+      "current_test": "V1.2.4 full audit PDF export includes timeline narrative but not Mahabhut nested fields",
+      "changed_files": [
+        "test/validation/thai_beta/life_map/v124/thai_life_map_v124_accuracy_audit_test.dart"
+      ],
+      "final_result": "PASS",
+      "event": {
+        "testID": 96,
+        "result": "success",
+        "skipped": false,
+        "hidden": false,
+        "type": "testDone",
+        "time": 8283
+      }
+    },
+    {
+      "id": "F006",
+      "classification": "RUNTIME_REGRESSION",
+      "source_test_file": "test/validation/thai_beta/life_map/v132/thai_life_map_v132_copy_hierarchy_test.dart",
+      "original_test": "Life Map V1.3.2 hierarchy and language incomplete birth data limitation lives on hero metadata",
+      "current_test": "Life Map V1.3.2 hierarchy and language incomplete birth data limitation lives on hero metadata",
+      "changed_files": [
+        "lib/features/astrology/thai/mirror/presentation/thai_mirror_consumer_presenter.dart"
+      ],
+      "final_result": "PASS",
+      "event": {
+        "testID": 254,
+        "result": "success",
+        "skipped": false,
+        "hidden": false,
+        "type": "testDone",
+        "time": 29658
+      }
+    },
+    {
+      "id": "F007",
+      "classification": "RUNTIME_REGRESSION",
+      "source_test_file": "test/validation/thai_beta/life_map/v132/thai_life_map_v132_product_qa_artifact_test.dart",
+      "original_test": "write V1.3.2 product QA artifact",
+      "current_test": "write V1.3.2 product QA artifact",
+      "changed_files": [
+        "lib/features/astrology/thai/mirror/presentation/thai_mirror_consumer_presenter.dart"
+      ],
+      "final_result": "PASS",
+      "event": {
+        "testID": 262,
+        "result": "success",
+        "skipped": false,
+        "hidden": false,
+        "type": "testDone",
+        "time": 31011
+      }
+    },
+    {
+      "id": "F008",
+      "classification": "RUNTIME_REGRESSION",
+      "source_test_file": "test/validation/thai_beta/life_map/v133/thai_life_map_v133_holistic_domains_test.dart",
+      "original_test": "V1.3.3 opening holistic hero incomplete birth time keeps limitation on subtitle",
+      "current_test": "V1.3.3 opening holistic hero incomplete birth time keeps limitation on subtitle",
+      "changed_files": [
+        "lib/features/astrology/thai/mirror/presentation/thai_mirror_consumer_presenter.dart"
+      ],
+      "final_result": "PASS",
+      "event": {
+        "testID": 268,
+        "result": "success",
+        "skipped": false,
+        "hidden": false,
+        "type": "testDone",
+        "time": 31654
+      }
+    },
+    {
+      "id": "F009",
+      "classification": "RUNTIME_REGRESSION",
+      "source_test_file": "test/validation/thai_beta/life_map/v134/thai_life_map_v134_narrative_quality_test.dart",
+      "original_test": "V1.3.4 overview no-birth-time still works",
+      "current_test": "V1.3.4 overview no-birth-time still works",
+      "changed_files": [
+        "lib/features/astrology/thai/mirror/presentation/thai_mirror_consumer_presenter.dart"
+      ],
+      "final_result": "PASS",
+      "event": {
+        "testID": 289,
+        "result": "success",
+        "skipped": false,
+        "hidden": false,
+        "type": "testDone",
+        "time": 33602
+      }
+    },
+    {
+      "id": "F010",
+      "classification": "STALE_UNKNOWN_CONTRACT",
+      "source_test_file": "test/validation/thai_beta/life_map/v135/thai_life_map_v135_evidence_detail_test.dart",
+      "original_test": "no birth time still builds report without lagna houses",
+      "current_test": "no birth time still builds report without lagna houses",
+      "changed_files": [
+        "test/validation/thai_beta/life_map/v135/thai_life_map_v135_evidence_detail_test.dart"
+      ],
+      "final_result": "PASS",
+      "event": {
+        "testID": 319,
+        "result": "success",
+        "skipped": false,
+        "hidden": false,
+        "type": "testDone",
+        "time": 35265
+      }
+    },
+    {
+      "id": "F011",
+      "classification": "STALE_UNKNOWN_CONTRACT",
+      "source_test_file": "test/validation/thai_beta/life_map/v135/thai_life_map_v135_product_qa_artifact_test.dart",
+      "original_test": "writes V1.3.5 product QA artifact with full evidence text",
+      "current_test": "writes V1.3.5 product QA artifact with full evidence text",
+      "changed_files": [
+        "test/validation/thai_beta/life_map/v135/thai_life_map_v135_product_qa_artifact_test.dart"
+      ],
+      "final_result": "PASS",
+      "event": {
+        "testID": 327,
+        "result": "success",
+        "skipped": false,
+        "hidden": false,
+        "type": "testDone",
+        "time": 35860
+      }
+    },
+    {
+      "id": "F012",
+      "classification": "STALE_UNKNOWN_CONTRACT",
+      "source_test_file": "test/validation/thai_beta/live_asof/thai_beta_copy_normalization_scope_test.dart",
+      "original_test": "(setUpAll)",
+      "current_test": "(setUpAll)",
+      "changed_files": [
+        "test/validation/thai_beta/live_asof/thai_beta_copy_normalization_scope_test.dart"
+      ],
+      "final_result": "PASS",
+      "event": {
+        "testID": 364,
+        "result": "success",
+        "skipped": false,
+        "hidden": true,
+        "type": "testDone",
+        "time": 58363
+      }
+    },
+    {
+      "id": "F013",
+      "classification": "STALE_UNKNOWN_CONTRACT",
+      "source_test_file": "test/validation/thai_beta/live_asof/thai_beta_copy_semantic_safety_test.dart",
+      "original_test": "300-case reader-visible output matches the accepted baseline",
+      "current_test": "300-case reader-visible output matches the accepted baseline",
+      "changed_files": [
+        "test/validation/thai_beta/live_asof/thai_beta_copy_semantic_safety_test.dart"
+      ],
+      "final_result": "PASS",
+      "event": {
+        "testID": 371,
+        "result": "success",
+        "skipped": false,
+        "hidden": false,
+        "type": "testDone",
+        "time": 81599
+      }
+    },
+    {
+      "id": "F014",
+      "classification": "STALE_UNKNOWN_CONTRACT",
+      "source_test_file": "test/validation/thai_beta/live_asof/thai_beta_copy_semantic_safety_test.dart",
+      "original_test": "all 19 formerly misclassified omission sources remain non-empty",
+      "current_test": "all 19 formerly misclassified omission sources remain non-empty",
+      "changed_files": [
+        "test/validation/thai_beta/live_asof/thai_beta_copy_semantic_safety_test.dart"
+      ],
+      "final_result": "PASS",
+      "event": {
+        "testID": 372,
+        "result": "success",
+        "skipped": false,
+        "hidden": false,
+        "type": "testDone",
+        "time": 81756
+      }
+    },
+    {
+      "id": "F015",
+      "classification": "STALE_UNKNOWN_CONTRACT",
+      "source_test_file": "test/validation/thai_beta/live_asof/thai_beta_copy_semantic_safety_test.dart",
+      "original_test": "owner-unknown remains exact R7.1 canonical and deterministic",
+      "current_test": "owner-unknown remains exact R7.1 canonical and deterministic",
+      "changed_files": [
+        "test/validation/thai_beta/live_asof/thai_beta_copy_semantic_safety_test.dart"
+      ],
+      "final_result": "PASS",
+      "event": {
+        "testID": 373,
+        "result": "success",
+        "skipped": false,
+        "hidden": false,
+        "type": "testDone",
+        "time": 81763
+      }
+    },
+    {
+      "id": "F016",
+      "classification": "STALE_UNKNOWN_CONTRACT",
+      "source_test_file": "test/validation/thai_beta/live_asof/thai_beta_cross_runtime_300_vm_test.dart",
+      "original_test": "writes exact deterministic 300-profile and canonical manifest",
+      "current_test": "writes exact deterministic 300-profile and canonical manifest",
+      "changed_files": [
+        "test/validation/thai_beta/live_asof/thai_beta_cross_runtime_300_vm_test.dart"
+      ],
+      "final_result": "PASS",
+      "event": {
+        "testID": 378,
+        "result": "success",
+        "skipped": false,
+        "hidden": false,
+        "type": "testDone",
+        "time": 101733
+      }
+    },
+    {
+      "id": "F017",
+      "classification": "STALE_UNKNOWN_CONTRACT",
+      "source_test_file": "test/validation/thai_beta/live_asof/thai_beta_date_aware_contract_test.dart",
+      "original_test": "V1.5 date-aware release contract same session start changes only date-aware result at a boundary",
+      "current_test": "V1.5 date-aware release contract same session start changes only date-aware result at a boundary",
+      "changed_files": [
+        "test/validation/thai_beta/live_asof/thai_beta_date_aware_contract_test.dart"
+      ],
+      "final_result": "PASS",
+      "event": {
+        "testID": 390,
+        "result": "success",
+        "skipped": false,
+        "hidden": false,
+        "type": "testDone",
+        "time": 103153
+      }
+    },
+    {
+      "id": "F018",
+      "classification": "STALE_UNKNOWN_CONTRACT",
+      "source_test_file": "test/validation/thai_beta/live_asof/thai_beta_live_oracle_parity_test.dart",
+      "original_test": "frozen and live-date oracle parity are exact 5/5",
+      "current_test": "frozen and live-date oracle parity are exact 5/5",
+      "changed_files": [
+        "test/validation/thai_beta/live_asof/thai_beta_live_oracle_parity_test.dart"
+      ],
+      "final_result": "PASS",
+      "event": {
+        "testID": 401,
+        "result": "success",
+        "skipped": false,
+        "hidden": false,
+        "type": "testDone",
+        "time": 107367
+      }
+    },
+    {
+      "id": "F019",
+      "classification": "STALE_UNKNOWN_CONTRACT",
+      "source_test_file": "test/validation/thai_beta/narrative/thai_beta_narrative_v111_test.dart",
+      "original_test": "Confidence Consistency V1.1.1 composed no-time report traces effective confidence ≤ 0.5",
+      "current_test": "Confidence Consistency V1.1.1 composed no-time report traces effective confidence ≤ 0.5",
+      "changed_files": [
+        "test/validation/thai_beta/narrative/thai_beta_narrative_v111_test.dart"
+      ],
+      "final_result": "PASS",
+      "event": {
+        "testID": 509,
+        "result": "success",
+        "skipped": false,
+        "hidden": false,
+        "type": "testDone",
+        "time": 114719
+      }
+    },
+    {
+      "id": "F020",
+      "classification": "STALE_UNKNOWN_CONTRACT",
+      "source_test_file": "test/validation/thai_beta/narrative/thai_beta_narrative_v11_test.dart",
+      "original_test": "Hero V1.1 no-time hero uses cautious language",
+      "current_test": "Hero V1.1 no-time hero uses cautious language",
+      "changed_files": [
+        "test/validation/thai_beta/narrative/thai_beta_narrative_v11_test.dart"
+      ],
+      "final_result": "PASS",
+      "event": {
+        "testID": 536,
+        "result": "success",
+        "skipped": false,
+        "hidden": false,
+        "type": "testDone",
+        "time": 115674
+      }
+    },
+    {
+      "id": "F021",
+      "classification": "RUNTIME_REGRESSION",
+      "source_test_file": "test/validation/thai_beta/narrative/thai_beta_narrative_v12_acceptance_test.dart",
+      "original_test": "V1.2 Personal Relevance acceptance V12-3 no birth time: limited core + no deep motive",
+      "current_test": "V1.2 Personal Relevance acceptance V12-3 no birth time: limited core + no deep motive",
+      "changed_files": [
+        "lib/features/astrology/thai/mirror/presentation/thai_mirror_consumer_presenter.dart"
+      ],
+      "final_result": "PASS",
+      "event": {
+        "testID": 554,
+        "result": "success",
+        "skipped": false,
+        "hidden": false,
+        "type": "testDone",
+        "time": 116536
+      }
+    },
+    {
+      "id": "F022",
+      "classification": "STALE_UNKNOWN_CONTRACT",
+      "source_test_file": "test/validation/thai_beta/narrative/thai_beta_narrative_v15_claim_planning_test.dart",
+      "original_test": "V1.5 assigns all forecast domains to every horizon (Unknown)",
+      "current_test": "V1.5 assigns all forecast domains to every horizon (Unknown)",
+      "changed_files": [
+        "test/validation/thai_beta/narrative/thai_beta_narrative_v15_claim_planning_test.dart"
+      ],
+      "final_result": "PASS",
+      "event": {
+        "testID": 577,
+        "result": "success",
+        "skipped": false,
+        "hidden": false,
+        "type": "testDone",
+        "time": 118198
+      }
+    },
+    {
+      "id": "F023",
+      "classification": "STALE_UNKNOWN_CONTRACT",
+      "source_test_file": "test/validation/thai_beta/narrative/thai_beta_narrative_v15_r3_report_composer_test.dart",
+      "original_test": "R4 replaces the rejected R3 hook and keeps clean consumer prose",
+      "current_test": "R4 replaces the rejected R3 hook and keeps clean consumer prose",
+      "changed_files": [
+        "test/validation/thai_beta/narrative/thai_beta_narrative_v15_r3_report_composer_test.dart"
+      ],
+      "final_result": "PASS",
+      "event": {
+        "testID": 581,
+        "result": "success",
+        "skipped": false,
+        "hidden": false,
+        "type": "testDone",
+        "time": 118978
+      }
+    },
+    {
+      "id": "F024",
+      "classification": "STALE_UNKNOWN_CONTRACT",
+      "source_test_file": "test/validation/thai_beta/narrative/thai_beta_narrative_v15_r3_report_composer_test.dart",
+      "original_test": "R6 assigns decision, checkpoint, and outcome to separate horizons",
+      "current_test": "R6 assigns decision, checkpoint, and outcome to separate horizons",
+      "changed_files": [
+        "test/validation/thai_beta/narrative/thai_beta_narrative_v15_r3_report_composer_test.dart"
+      ],
+      "final_result": "PASS",
+      "event": {
+        "testID": 582,
+        "result": "success",
+        "skipped": false,
+        "hidden": false,
+        "type": "testDone",
+        "time": 119078
+      }
+    },
+    {
+      "id": "F025",
+      "classification": "STALE_UNKNOWN_CONTRACT",
+      "source_test_file": "test/validation/thai_beta/narrative/thai_beta_narrative_v15_r3_report_composer_test.dart",
+      "original_test": "R4 materially different fixtures keep strong-body exact reuse below R3",
+      "current_test": "R4 materially different fixtures keep strong-body exact reuse below R3",
+      "changed_files": [
+        "test/validation/thai_beta/narrative/thai_beta_narrative_v15_r3_report_composer_test.dart"
+      ],
+      "final_result": "PASS",
+      "event": {
+        "testID": 583,
+        "result": "success",
+        "skipped": false,
+        "hidden": false,
+        "type": "testDone",
+        "time": 119135
+      }
+    },
+    {
+      "id": "F026",
+      "classification": "STALE_UNKNOWN_CONTRACT",
+      "source_test_file": "test/validation/thai_beta/narrative/thai_beta_narrative_v15_r4_acceptance_test.dart",
+      "original_test": "all rendered forecasts cover 4x3 and each horizon adds a new kind",
+      "current_test": "all rendered forecasts cover 4x3 and each horizon adds a new kind",
+      "changed_files": [
+        "test/validation/thai_beta/narrative/thai_beta_narrative_v15_r4_acceptance_test.dart"
+      ],
+      "final_result": "PASS",
+      "event": {
+        "testID": 589,
+        "result": "success",
+        "skipped": false,
+        "hidden": false,
+        "type": "testDone",
+        "time": 119978
+      }
+    },
+    {
+      "id": "F027",
+      "classification": "STALE_UNKNOWN_CONTRACT",
+      "source_test_file": "test/validation/thai_beta/narrative/thai_beta_narrative_v15_r4_acceptance_test.dart",
+      "original_test": "Unknown-time boundary is report-level and never repeated per domain",
+      "current_test": "Unknown-time boundary is report-level and never repeated per domain",
+      "changed_files": [
+        "test/validation/thai_beta/narrative/thai_beta_narrative_v15_r4_acceptance_test.dart"
+      ],
+      "final_result": "PASS",
+      "event": {
+        "testID": 590,
+        "result": "success",
+        "skipped": false,
+        "hidden": false,
+        "type": "testDone",
+        "time": 119980
+      }
+    },
+    {
+      "id": "F028",
+      "classification": "STALE_UNKNOWN_CONTRACT",
+      "source_test_file": "test/validation/thai_beta/narrative/thai_beta_narrative_v15_r4_acceptance_test.dart",
+      "original_test": "past is one disclaimer plus distinct theme and reflection per period",
+      "current_test": "past is one disclaimer plus distinct theme and reflection per period",
+      "changed_files": [
+        "test/validation/thai_beta/narrative/thai_beta_narrative_v15_r4_acceptance_test.dart"
+      ],
+      "final_result": "PASS",
+      "event": {
+        "testID": 591,
+        "result": "success",
+        "skipped": false,
+        "hidden": false,
+        "type": "testDone",
+        "time": 120105
+      }
+    },
+    {
+      "id": "F029",
+      "classification": "STALE_UNKNOWN_CONTRACT",
+      "source_test_file": "test/validation/thai_beta/narrative/thai_beta_narrative_v15_r4_acceptance_test.dart",
+      "original_test": "consumer prose has no rejected patterns or repeated long templates",
+      "current_test": "consumer prose has no rejected patterns or repeated long templates",
+      "changed_files": [
+        "test/validation/thai_beta/narrative/thai_beta_narrative_v15_r4_acceptance_test.dart"
+      ],
+      "final_result": "PASS",
+      "event": {
+        "testID": 593,
+        "result": "success",
+        "skipped": false,
+        "hidden": false,
+        "type": "testDone",
+        "time": 120279
+      }
+    },
+    {
+      "id": "F030",
+      "classification": "STALE_UNKNOWN_CONTRACT",
+      "source_test_file": "test/validation/thai_beta/narrative/thai_beta_narrative_v15_r5_acceptance_test.dart",
+      "original_test": "past reflections are age-appropriate and evidence-bounded once",
+      "current_test": "past reflections are age-appropriate and evidence-bounded once",
+      "changed_files": [
+        "test/validation/thai_beta/narrative/thai_beta_narrative_v15_r5_acceptance_test.dart"
+      ],
+      "final_result": "PASS",
+      "event": {
+        "testID": 600,
+        "result": "success",
+        "skipped": false,
+        "hidden": false,
+        "type": "testDone",
+        "time": 121075
+      }
+    },
+    {
+      "id": "F031",
+      "classification": "STALE_UNKNOWN_CONTRACT",
+      "source_test_file": "test/validation/thai_beta/narrative/thai_beta_narrative_v15_r5_acceptance_test.dart",
+      "original_test": "Thai-aware gate separates theme and question pairs within reports",
+      "current_test": "Thai-aware gate separates theme and question pairs within reports",
+      "changed_files": [
+        "test/validation/thai_beta/narrative/thai_beta_narrative_v15_r5_acceptance_test.dart"
+      ],
+      "final_result": "PASS",
+      "event": {
+        "testID": 601,
+        "result": "success",
+        "skipped": false,
+        "hidden": false,
+        "type": "testDone",
+        "time": 121169
+      }
+    },
+    {
+      "id": "F032",
+      "classification": "STALE_UNKNOWN_CONTRACT",
+      "source_test_file": "test/validation/thai_beta/narrative/thai_beta_narrative_v15_r5_acceptance_test.dart",
+      "original_test": "Unknown uses observable framing and has no unsupported present state",
+      "current_test": "Unknown uses observable framing and has no unsupported present state",
+      "changed_files": [
+        "test/validation/thai_beta/narrative/thai_beta_narrative_v15_r5_acceptance_test.dart"
+      ],
+      "final_result": "PASS",
+      "event": {
+        "testID": 603,
+        "result": "success",
+        "skipped": false,
+        "hidden": false,
+        "type": "testDone",
+        "time": 121174
+      }
+    },
+    {
+      "id": "F033",
+      "classification": "STALE_UNKNOWN_CONTRACT",
+      "source_test_file": "test/validation/thai_beta/narrative/thai_beta_narrative_v15_r6_reader_quality_test.dart",
+      "original_test": "forecast clauses have no exact, skeleton, or >=.78 reuse",
+      "current_test": "forecast clauses have no exact, skeleton, or >=.78 reuse",
+      "changed_files": [
+        "test/validation/thai_beta/narrative/thai_beta_narrative_v15_r6_reader_quality_test.dart"
+      ],
+      "final_result": "PASS",
+      "event": {
+        "testID": 610,
+        "result": "success",
+        "skipped": false,
+        "hidden": false,
+        "type": "testDone",
+        "time": 121903
+      }
+    },
+    {
+      "id": "F034",
+      "classification": "STALE_UNKNOWN_CONTRACT",
+      "source_test_file": "test/validation/thai_beta/narrative/thai_beta_narrative_v15_r6_reader_quality_test.dart",
+      "original_test": "exact forecast reuse is measured without a zero-reuse gate",
+      "current_test": "exact forecast reuse is measured without a zero-reuse gate",
+      "changed_files": [
+        "test/validation/thai_beta/narrative/thai_beta_narrative_v15_r6_reader_quality_test.dart"
+      ],
+      "final_result": "PASS",
+      "event": {
+        "testID": 611,
+        "result": "success",
+        "skipped": false,
+        "hidden": false,
+        "type": "testDone",
+        "time": 121949
+      }
+    },
+    {
+      "id": "F035",
+      "classification": "STALE_UNKNOWN_CONTRACT",
+      "source_test_file": "test/validation/thai_beta/narrative/thai_beta_narrative_v15_r6_reader_quality_test.dart",
+      "original_test": "Known explains chart evidence naturally; Unknown remains fail closed",
+      "current_test": "Known explains chart evidence naturally; Unknown remains fail closed",
+      "changed_files": [
+        "test/validation/thai_beta/narrative/thai_beta_narrative_v15_r6_reader_quality_test.dart"
+      ],
+      "final_result": "PASS",
+      "event": {
+        "testID": 612,
+        "result": "success",
+        "skipped": false,
+        "hidden": false,
+        "type": "testDone",
+        "time": 121970
+      }
+    },
+    {
+      "id": "F036",
+      "classification": "STALE_UNKNOWN_CONTRACT",
+      "source_test_file": "test/validation/thai_beta/narrative/thai_beta_narrative_v15_r6_reader_quality_test.dart",
+      "original_test": "R5 repeated reader-facing clauses are absent from owner reports",
+      "current_test": "R5 repeated reader-facing clauses are absent from owner reports",
+      "changed_files": [
+        "test/validation/thai_beta/narrative/thai_beta_narrative_v15_r6_reader_quality_test.dart"
+      ],
+      "final_result": "PASS",
+      "event": {
+        "testID": 613,
+        "result": "success",
+        "skipped": false,
+        "hidden": false,
+        "type": "testDone",
+        "time": 122057
+      }
+    },
+    {
+      "id": "F037",
+      "classification": "STALE_UNKNOWN_CONTRACT",
+      "source_test_file": "test/validation/thai_beta/narrative/thai_beta_narrative_v15_r7_reader_quality_test.dart",
+      "original_test": "R7 reports pass literal, prose, domain, and encoding gates",
+      "current_test": "R7 reports pass literal, prose, domain, and encoding gates",
+      "changed_files": [
+        "test/validation/thai_beta/narrative/thai_beta_narrative_v15_r7_reader_quality_test.dart"
+      ],
+      "final_result": "PASS",
+      "event": {
+        "testID": 621,
+        "result": "success",
+        "skipped": false,
+        "hidden": false,
+        "type": "testDone",
+        "time": 122938
+      }
+    },
+    {
+      "id": "F038",
+      "classification": "TEST_INFRASTRUCTURE_DEFECT",
+      "source_test_file": "test/validation/thai_beta/narrative/thai_beta_narrative_v15_r7_reader_quality_test.dart",
+      "original_test": "factual anchors stay fixed and Unknown remains fail closed",
+      "current_test": "factual anchors stay fixed and Unknown remains fail closed",
+      "changed_files": [
+        "test/validation/thai_beta/narrative/thai_beta_narrative_v15_r7_reader_quality_test.dart"
+      ],
+      "final_result": "PASS",
+      "event": {
+        "testID": 622,
+        "result": "success",
+        "skipped": false,
+        "hidden": false,
+        "type": "testDone",
+        "time": 122981
+      }
+    },
+    {
+      "id": "F039",
+      "classification": "STALE_UNKNOWN_CONTRACT",
+      "source_test_file": "test/validation/thai_beta/narrative/thai_beta_narrative_v15_r7_reader_quality_test.dart",
+      "original_test": "exact reuse is accepted only for the same material signature",
+      "current_test": "exact reuse is accepted only for the same material signature",
+      "changed_files": [
+        "test/validation/thai_beta/narrative/thai_beta_narrative_v15_r7_reader_quality_test.dart"
+      ],
+      "final_result": "PASS",
+      "event": {
+        "testID": 623,
+        "result": "success",
+        "skipped": false,
+        "hidden": false,
+        "type": "testDone",
+        "time": 123026
+      }
+    },
+    {
+      "id": "F040",
+      "classification": "RUNTIME_REGRESSION",
+      "source_test_file": "test/validation/thai_beta/narrative/thai_beta_report_v121_acceptance_test.dart",
+      "original_test": "V1.2.1 presentation acceptance V121-17 no-time policy unchanged",
+      "current_test": "V1.2.1 presentation acceptance V121-17 no-time policy unchanged",
+      "changed_files": [
+        "lib/features/astrology/thai/mirror/presentation/thai_mirror_consumer_presenter.dart"
+      ],
+      "final_result": "PASS",
+      "event": {
+        "testID": 668,
+        "result": "success",
+        "skipped": false,
+        "hidden": false,
+        "type": "testDone",
+        "time": 126643
+      }
+    },
+    {
+      "id": "F041",
+      "classification": "STALE_UNKNOWN_CONTRACT",
+      "source_test_file": "test/validation/thai_beta/narrative/thai_consumer_narrative_voice_v1_test.dart",
+      "original_test": "v1.2 gate catches V1.1 clause reuse and enforces content budgets",
+      "current_test": "v1.2 gate catches V1.1 clause reuse and enforces content budgets",
+      "changed_files": [
+        "test/validation/thai_beta/narrative/thai_consumer_narrative_voice_v1_test.dart"
+      ],
+      "final_result": "PASS",
+      "event": {
+        "testID": 707,
+        "result": "success",
+        "skipped": false,
+        "hidden": false,
+        "type": "testDone",
+        "time": 130415
+      }
+    },
+    {
+      "id": "F042",
+      "classification": "STALE_UNKNOWN_CONTRACT",
+      "source_test_file": "test/validation/thai_beta/narrative/thai_consumer_narrative_voice_v1_test.dart",
+      "original_test": "future claims respond to known-time versus unknown-time evidence",
+      "current_test": "future claims respond to known-time versus unknown-time evidence",
+      "changed_files": [
+        "test/validation/thai_beta/narrative/thai_consumer_narrative_voice_v1_test.dart"
+      ],
+      "final_result": "PASS",
+      "event": {
+        "testID": 711,
+        "result": "success",
+        "skipped": false,
+        "hidden": false,
+        "type": "testDone",
+        "time": 130680
+      }
+    },
+    {
+      "id": "F043",
+      "classification": "STALE_UNKNOWN_CONTRACT",
+      "source_test_file": "test/validation/thai_beta/narrative/thai_consumer_narrative_voice_v1_test.dart",
+      "original_test": "typed fingerprint uses real availability and one transition authority",
+      "current_test": "typed fingerprint uses real availability and one transition authority",
+      "changed_files": [
+        "test/validation/thai_beta/narrative/thai_consumer_narrative_voice_v1_test.dart"
+      ],
+      "final_result": "PASS",
+      "event": {
+        "testID": 712,
+        "result": "success",
+        "skipped": false,
+        "hidden": false,
+        "type": "testDone",
+        "time": 130694
+      }
+    },
+    {
+      "id": "F044",
+      "classification": "STALE_UNKNOWN_CONTRACT",
+      "source_test_file": "test/validation/thai_beta/narrative/thai_consumer_narrative_voice_v1_test.dart",
+      "original_test": "uncertainty disclosure is separate and cannot satisfy the gate",
+      "current_test": "uncertainty disclosure is separate and cannot satisfy the gate",
+      "changed_files": [
+        "test/validation/thai_beta/narrative/thai_consumer_narrative_voice_v1_test.dart"
+      ],
+      "final_result": "PASS",
+      "event": {
+        "testID": 714,
+        "result": "success",
+        "skipped": false,
+        "hidden": false,
+        "type": "testDone",
+        "time": 130699
+      }
+    },
+    {
+      "id": "F045",
+      "classification": "STALE_UNKNOWN_CONTRACT",
+      "source_test_file": "test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart",
+      "original_test": "synthetic matrix invokes cross-mode material sensitivity",
+      "current_test": "synthetic matrix separates 900 Known materials from 75 omitted Unknown forecasts",
+      "changed_files": [
+        "test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart"
+      ],
+      "final_result": "PASS",
+      "event": {
+        "testID": 748,
+        "result": "success",
+        "skipped": false,
+        "hidden": false,
+        "type": "testDone",
+        "time": 175502
+      }
+    },
+    {
+      "id": "F046",
+      "classification": "STALE_UNKNOWN_CONTRACT",
+      "source_test_file": "test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart",
+      "original_test": "all 300 cases pass structured, narrative, omission and safety contracts",
+      "current_test": "all 300 cases pass structured, narrative, omission and safety contracts",
+      "changed_files": [
+        "test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart"
+      ],
+      "final_result": "PASS",
+      "event": {
+        "testID": 749,
+        "result": "success",
+        "skipped": false,
+        "hidden": false,
+        "type": "testDone",
+        "time": 190347
+      }
+    },
+    {
+      "id": "F047",
+      "classification": "STALE_UNKNOWN_CONTRACT",
+      "source_test_file": "test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart",
+      "original_test": "20 representative cases produce real PDFs with Web semantic parity",
+      "current_test": "20 representative cases produce real PDFs with Web semantic parity",
+      "changed_files": [
+        "test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart"
+      ],
+      "final_result": "PASS",
+      "event": {
+        "testID": 752,
+        "result": "success",
+        "skipped": false,
+        "hidden": false,
+        "type": "testDone",
+        "time": 195433
+      }
+    },
+    {
+      "id": "F048",
+      "classification": "STALE_UNKNOWN_CONTRACT",
+      "source_test_file": "test/validation/thai_beta/thai_beta_report_export_test.dart",
+      "original_test": "ThaiBetaReportExportDocument PR106-OR1 candidate copy removes rejected system-like Thai",
+      "current_test": "ThaiBetaReportExportDocument PR106-OR1 candidate copy removes rejected system-like Thai",
+      "changed_files": [
+        "test/validation/thai_beta/thai_beta_report_export_test.dart"
+      ],
+      "final_result": "PASS",
+      "event": {
+        "testID": 858,
+        "result": "success",
+        "skipped": false,
+        "hidden": false,
+        "type": "testDone",
+        "time": 207739
+      }
+    },
+    {
+      "id": "F049",
+      "classification": "STALE_UNKNOWN_CONTRACT",
+      "source_test_file": "test/validation/thai_beta/thai_beta_report_export_test.dart",
+      "original_test": "ThaiBetaReportExportDocument PR106-OR2 Unknown copy is natural and fail-closed on every field",
+      "current_test": "ThaiBetaReportExportDocument PR106-OR2 Unknown copy is natural and fail-closed on every field",
+      "changed_files": [
+        "test/validation/thai_beta/thai_beta_report_export_test.dart"
+      ],
+      "final_result": "PASS",
+      "event": {
+        "testID": 859,
+        "result": "success",
+        "skipped": false,
+        "hidden": false,
+        "type": "testDone",
+        "time": 207743
+      }
+    },
+    {
+      "id": "F050",
+      "classification": "STALE_UNKNOWN_CONTRACT",
+      "source_test_file": "test/validation/thai_beta/thai_beta_report_export_test.dart",
+      "original_test": "ThaiBetaReportExportDocument PR106-OR3 final editorial copy is natural across Known and Unknown",
+      "current_test": "ThaiBetaReportExportDocument PR106-OR3 final editorial copy is natural across Known and Unknown",
+      "changed_files": [
+        "test/validation/thai_beta/thai_beta_report_export_test.dart"
+      ],
+      "final_result": "PASS",
+      "event": {
+        "testID": 860,
+        "result": "success",
+        "skipped": false,
+        "hidden": false,
+        "type": "testDone",
+        "time": 207786
+      }
+    },
+    {
+      "id": "F051",
+      "classification": "STALE_UNKNOWN_CONTRACT",
+      "source_test_file": "test/validation/thai_beta/thai_beta_report_export_test.dart",
+      "original_test": "ThaiBetaReportExportDocument PR107-OR3 removes stale report voice and repeated Unknown limits",
+      "current_test": "ThaiBetaReportExportDocument PR107-OR3 removes stale report voice and repeated Unknown limits",
+      "changed_files": [
+        "test/validation/thai_beta/thai_beta_report_export_test.dart"
+      ],
+      "final_result": "PASS",
+      "event": {
+        "testID": 861,
+        "result": "success",
+        "skipped": false,
+        "hidden": false,
+        "type": "testDone",
+        "time": 207825
+      }
+    },
+    {
+      "id": "F052",
+      "classification": "STALE_UNKNOWN_CONTRACT",
+      "source_test_file": "test/validation/thai_beta/thai_beta_report_export_test.dart",
+      "original_test": "ThaiBetaReportExportDocument unknown-time web and PDF omit assumed clock and sunrise claims",
+      "current_test": "ThaiBetaReportExportDocument unknown-time web and PDF omit assumed clock and sunrise claims",
+      "changed_files": [
+        "test/validation/thai_beta/thai_beta_report_export_test.dart"
+      ],
+      "final_result": "PASS",
+      "event": {
+        "testID": 863,
+        "result": "success",
+        "skipped": false,
+        "hidden": false,
+        "type": "testDone",
+        "time": 207864
+      }
+    },
+    {
+      "id": "F053",
+      "classification": "STALE_UNKNOWN_CONTRACT",
+      "source_test_file": "test/validation/thai_beta/thai_beta_report_export_test.dart",
+      "original_test": "Real PDF exporter path regression chaptered report fixtures stay at measured 6/6 pages",
+      "current_test": "Real PDF exporter path regression chaptered report fixtures stay at measured Known 6 / Unknown 1 pages",
+      "changed_files": [
+        "test/validation/thai_beta/thai_beta_report_export_test.dart"
+      ],
+      "final_result": "PASS",
+      "event": {
+        "testID": 869,
+        "result": "success",
+        "skipped": false,
+        "hidden": false,
+        "type": "testDone",
+        "time": 208135
+      }
+    },
+    {
+      "id": "F054",
+      "classification": "STALE_UNKNOWN_CONTRACT",
+      "source_test_file": "test/validation/thai_beta/thai_beta_report_export_test.dart",
+      "original_test": "Real PDF exporter path regression Poppler raster keeps ink inside printable margins",
+      "current_test": "Real PDF exporter path regression Poppler raster keeps ink inside printable margins",
+      "changed_files": [
+        "test/validation/thai_beta/thai_beta_report_export_test.dart"
+      ],
+      "final_result": "PASS",
+      "event": {
+        "testID": 873,
+        "result": "success",
+        "skipped": false,
+        "hidden": false,
+        "type": "testDone",
+        "time": 208925
+      }
+    },
+    {
+      "id": "F055",
+      "classification": "STALE_UNKNOWN_CONTRACT",
+      "source_test_file": "test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart",
+      "original_test": "300-profile copy ledger is complete and structural semantics are unchanged",
+      "current_test": "300-profile copy ledger is complete and structural semantics are unchanged",
+      "changed_files": [
+        "test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart"
+      ],
+      "final_result": "PASS",
+      "event": {
+        "testID": 1010,
+        "result": "success",
+        "skipped": false,
+        "hidden": false,
+        "type": "testDone",
+        "time": 244473
+      }
+    },
+    {
+      "id": "F056",
+      "classification": "RUNTIME_REGRESSION",
+      "source_test_file": "test/validation/thai_beta/thai_report_experience_infographic_vnext_test.dart",
+      "original_test": "shared report presentation model four reader chapters appear once and in a stable order",
+      "current_test": "shared report presentation model four reader chapters appear once and in a stable order",
+      "changed_files": [
+        "lib/features/thai_beta/application/thai_beta_report_export_document.dart"
+      ],
+      "final_result": "PASS",
+      "event": {
+        "testID": 1018,
+        "result": "success",
+        "skipped": false,
+        "hidden": false,
+        "type": "testDone",
+        "time": 245825
+      }
+    },
+    {
+      "id": "F057",
+      "classification": "STALE_UNKNOWN_CONTRACT",
+      "source_test_file": "test/validation/thai_beta/thai_report_experience_infographic_vnext_test.dart",
+      "original_test": "shared report presentation model Known and Unknown place the image after its 12-month narrative",
+      "current_test": "shared report presentation model Known places image after narrative; Unknown omits both",
+      "changed_files": [
+        "test/validation/thai_beta/thai_report_experience_infographic_vnext_test.dart"
+      ],
+      "final_result": "PASS",
+      "event": {
+        "testID": 1019,
+        "result": "success",
+        "skipped": false,
+        "hidden": false,
+        "type": "testDone",
+        "time": 245867
+      }
+    },
+    {
+      "id": "F058",
+      "classification": "STALE_UNKNOWN_CONTRACT",
+      "source_test_file": "test/validation/thai_beta/thai_report_experience_infographic_vnext_test.dart",
+      "original_test": "rolling 12-month infographic evidence contract uses four evidence-backed domains and fails closed on month timeline",
+      "current_test": "rolling 12-month infographic evidence contract uses four evidence-backed domains and fails closed on month timeline",
+      "changed_files": [
+        "test/validation/thai_beta/thai_report_experience_infographic_vnext_test.dart"
+      ],
+      "final_result": "PASS",
+      "event": {
+        "testID": 1022,
+        "result": "success",
+        "skipped": false,
+        "hidden": false,
+        "type": "testDone",
+        "time": 245982
+      }
+    },
+    {
+      "id": "F059",
+      "classification": "STALE_UNKNOWN_CONTRACT",
+      "source_test_file": "test/validation/thai_beta/thai_report_experience_infographic_vnext_test.dart",
+      "original_test": "rolling 12-month infographic evidence contract mobile 360.0 renders and exports deterministic 1080x1920 PNG",
+      "current_test": "rolling 12-month infographic evidence contract mobile 360.0 renders and exports deterministic 1080x1920 PNG",
+      "changed_files": [
+        "test/validation/thai_beta/thai_report_experience_infographic_vnext_test.dart"
+      ],
+      "final_result": "PASS",
+      "event": {
+        "testID": 1023,
+        "result": "success",
+        "skipped": false,
+        "hidden": false,
+        "type": "testDone",
+        "time": 246872
+      }
+    },
+    {
+      "id": "F060",
+      "classification": "STALE_UNKNOWN_CONTRACT",
+      "source_test_file": "test/validation/thai_beta/thai_report_experience_infographic_vnext_test.dart",
+      "original_test": "rolling 12-month infographic evidence contract mobile 390.0 renders and exports deterministic 1080x1920 PNG",
+      "current_test": "rolling 12-month infographic evidence contract mobile 390.0 renders and exports deterministic 1080x1920 PNG",
+      "changed_files": [
+        "test/validation/thai_beta/thai_report_experience_infographic_vnext_test.dart"
+      ],
+      "final_result": "PASS",
+      "event": {
+        "testID": 1025,
+        "result": "success",
+        "skipped": false,
+        "hidden": false,
+        "type": "testDone",
+        "time": 247410
+      }
+    },
+    {
+      "id": "F061",
+      "classification": "STALE_UNKNOWN_CONTRACT",
+      "source_test_file": "test/validation/thai_beta/thai_report_vnext_cross_runtime_vm_test.dart",
+      "original_test": "writes deterministic VM shared-report manifest",
+      "current_test": "writes deterministic VM shared-report manifest",
+      "changed_files": [
+        "tool/thai_report_vnext_cross_runtime_manifest.dart"
+      ],
+      "final_result": "PASS",
+      "event": {
+        "testID": 1036,
+        "result": "success",
+        "skipped": false,
+        "hidden": false,
+        "type": "testDone",
+        "time": 249955
+      }
+    },
+    {
+      "id": "F062",
+      "classification": "STALE_UNKNOWN_CONTRACT",
+      "source_test_file": "test/validation/thai/thai_archetype_context_metadata_test.dart",
+      "original_test": "Canon evidence integration (resolved metadata path) 9-fixture aggregate counts unchanged",
+      "current_test": "Canon evidence integration (resolved metadata path) 9-fixture aggregate counts unchanged",
+      "changed_files": [
+        "test/validation/thai/thai_archetype_context_metadata_test.dart"
+      ],
+      "final_result": "PASS",
+      "event": {
+        "testID": 1051,
+        "result": "success",
+        "skipped": false,
+        "hidden": false,
+        "type": "testDone",
+        "time": 250609
+      }
+    },
+    {
+      "id": "F063",
+      "classification": "STALE_UNKNOWN_CONTRACT",
+      "source_test_file": "test/validation/thai/thai_engine_life_period_rise_fall_metadata_completion_test.dart",
+      "original_test": "Blocker chain and trace 9-fixture aggregate counts and partial blocker",
+      "current_test": "Blocker chain and trace 9-fixture aggregate counts and partial blocker",
+      "changed_files": [
+        "test/validation/thai/thai_engine_life_period_rise_fall_metadata_completion_test.dart"
+      ],
+      "final_result": "PASS",
+      "event": {
+        "testID": 1590,
+        "result": "success",
+        "skipped": false,
+        "hidden": false,
+        "type": "testDone",
+        "time": 266537
+      }
+    },
+    {
+      "id": "F064",
+      "classification": "STALE_UNKNOWN_CONTRACT",
+      "source_test_file": "test/validation/thai/thai_engine_life_period_rise_fall_metadata_rerun_test.dart",
+      "original_test": "Rise/fall re-run trace runtime status count equals position metadata count",
+      "current_test": "Rise/fall re-run trace runtime status count equals position metadata count",
+      "changed_files": [
+        "test/validation/thai/thai_engine_life_period_rise_fall_metadata_rerun_test.dart"
+      ],
+      "final_result": "PASS",
+      "event": {
+        "testID": 1603,
+        "result": "success",
+        "skipped": false,
+        "hidden": false,
+        "type": "testDone",
+        "time": 267361
+      }
+    },
+    {
+      "id": "F065",
+      "classification": "STALE_UNKNOWN_CONTRACT",
+      "source_test_file": "test/validation/thai/thai_engine_life_period_rise_fall_metadata_rerun_test.dart",
+      "original_test": "Rise/fall re-run trace status source breakdown sums to runtime count",
+      "current_test": "Rise/fall re-run trace status source breakdown sums to runtime count",
+      "changed_files": [
+        "test/validation/thai/thai_engine_life_period_rise_fall_metadata_rerun_test.dart"
+      ],
+      "final_result": "PASS",
+      "event": {
+        "testID": 1604,
+        "result": "success",
+        "skipped": false,
+        "hidden": false,
+        "type": "testDone",
+        "time": 267422
+      }
+    },
+    {
+      "id": "F066",
+      "classification": "STALE_UNKNOWN_CONTRACT",
+      "source_test_file": "test/validation/thai/thai_engine_life_period_rise_fall_metadata_rerun_test.dart",
+      "original_test": "ThaiLifePeriodRiseFallResolver re-run Canon-derived marker fallback remains separate",
+      "current_test": "ThaiLifePeriodRiseFallResolver re-run Canon-derived marker fallback remains separate",
+      "changed_files": [
+        "test/validation/thai/thai_engine_life_period_rise_fall_metadata_rerun_test.dart"
+      ],
+      "final_result": "PASS",
+      "event": {
+        "testID": 1611,
+        "result": "success",
+        "skipped": false,
+        "hidden": false,
+        "type": "testDone",
+        "time": 267602
+      }
+    },
+    {
+      "id": "F067",
+      "classification": "STALE_UNKNOWN_CONTRACT",
+      "source_test_file": "test/validation/thai/thai_engine_life_period_rise_fall_metadata_test.dart",
+      "original_test": "Canon evidence integration (runtime metadata path) 9-fixture aggregate counts",
+      "current_test": "Canon evidence integration (runtime metadata path) 9-fixture aggregate counts",
+      "changed_files": [
+        "test/validation/thai/thai_engine_life_period_rise_fall_metadata_test.dart"
+      ],
+      "final_result": "PASS",
+      "event": {
+        "testID": 1630,
+        "result": "success",
+        "skipped": false,
+        "hidden": false,
+        "type": "testDone",
+        "time": 268344
+      }
+    },
+    {
+      "id": "F068",
+      "classification": "STALE_UNKNOWN_CONTRACT",
+      "source_test_file": "test/validation/thai/thai_engine_life_period_rise_fall_metadata_test.dart",
+      "original_test": "Canon evidence integration (runtime metadata path) canon-derived fallback still attaches for periods without runtime",
+      "current_test": "Canon evidence integration (runtime metadata path) canon-derived fallback still attaches for periods without runtime",
+      "changed_files": [
+        "test/validation/thai/thai_engine_life_period_rise_fall_metadata_test.dart"
+      ],
+      "final_result": "PASS",
+      "event": {
+        "testID": 1631,
+        "result": "success",
+        "skipped": false,
+        "hidden": false,
+        "type": "testDone",
+        "time": 268405
+      }
+    },
+    {
+      "id": "F069",
+      "classification": "STALE_UNKNOWN_CONTRACT",
+      "source_test_file": "test/validation/thai/thai_internal_evidence_qa_pass_test.dart",
+      "original_test": "Runtime metadata audit aggregate runtime status counts match baseline",
+      "current_test": "Runtime metadata audit aggregate runtime status separates omitted Unknown timeline",
+      "changed_files": [
+        "test/validation/thai/thai_internal_evidence_qa_pass_test.dart"
+      ],
+      "final_result": "PASS",
+      "event": {
+        "testID": 1719,
+        "result": "success",
+        "skipped": false,
+        "hidden": false,
+        "type": "testDone",
+        "time": 271512
+      }
+    },
+    {
+      "id": "F070",
+      "classification": "STALE_UNKNOWN_CONTRACT",
+      "source_test_file": "test/validation/thai/thai_life_period_position_metadata_completion_test.dart",
+      "original_test": "Blocker chain and trace 9-fixture aggregate counts and partial blocker",
+      "current_test": "Blocker chain and trace 9-fixture aggregate counts and partial blocker",
+      "changed_files": [
+        "test/validation/thai/thai_life_period_position_metadata_completion_test.dart"
+      ],
+      "final_result": "PASS",
+      "event": {
+        "testID": 1811,
+        "result": "success",
+        "skipped": false,
+        "hidden": false,
+        "type": "testDone",
+        "time": 275212
+      }
+    },
+    {
+      "id": "F071",
+      "classification": "STALE_UNKNOWN_CONTRACT",
+      "source_test_file": "test/validation/thai/thai_life_period_position_metadata_test.dart",
+      "original_test": "Canon evidence integration (position metadata path) 9-fixture aggregate counts",
+      "current_test": "Canon evidence integration (position metadata path) 9-fixture aggregate counts",
+      "changed_files": [
+        "test/validation/thai/thai_life_period_position_metadata_test.dart"
+      ],
+      "final_result": "PASS",
+      "event": {
+        "testID": 1832,
+        "result": "success",
+        "skipped": false,
+        "hidden": false,
+        "type": "testDone",
+        "time": 276006
+      }
+    },
+    {
+      "id": "F072",
+      "classification": "STALE_UNKNOWN_CONTRACT",
+      "source_test_file": "test/validation/thai/thai_life_period_position_strategy_correction_test.dart",
+      "original_test": "ThaiLifePeriodArchetypePlanetPositionResolver every produced metadata has Canon provenance",
+      "current_test": "ThaiLifePeriodArchetypePlanetPositionResolver every produced metadata has Canon provenance",
+      "changed_files": [
+        "test/validation/thai/thai_life_period_position_strategy_correction_test.dart"
+      ],
+      "final_result": "PASS",
+      "event": {
+        "testID": 1855,
+        "result": "success",
+        "skipped": false,
+        "hidden": false,
+        "type": "testDone",
+        "time": 276802
+      }
+    },
+    {
+      "id": "F073",
+      "classification": "STALE_UNKNOWN_CONTRACT",
+      "source_test_file": "test/validation/thai/thai_life_period_position_strategy_correction_test.dart",
+      "original_test": "Trace and downstream 9-fixture aggregate counts documented",
+      "current_test": "Trace and downstream 9-fixture aggregate counts documented",
+      "changed_files": [
+        "test/validation/thai/thai_life_period_position_strategy_correction_test.dart"
+      ],
+      "final_result": "PASS",
+      "event": {
+        "testID": 1857,
+        "result": "success",
+        "skipped": false,
+        "hidden": false,
+        "type": "testDone",
+        "time": 276864
+      }
+    },
+    {
+      "id": "F074",
+      "classification": "STALE_UNKNOWN_CONTRACT",
+      "source_test_file": "test/validation/thai/thai_period_context_normalization_test.dart",
+      "original_test": "Trace and downstream 9-fixture aggregate counts documented",
+      "current_test": "Trace and downstream 9-fixture aggregate counts documented",
+      "changed_files": [
+        "test/validation/thai/thai_period_context_normalization_test.dart"
+      ],
+      "final_result": "PASS",
+      "event": {
+        "testID": 1925,
+        "result": "success",
+        "skipped": false,
+        "hidden": false,
+        "type": "testDone",
+        "time": 279062
+      }
+    },
+    {
+      "id": "F075",
+      "classification": "STALE_UNKNOWN_CONTRACT",
+      "source_test_file": "test/thai_foundation_engine_test.dart",
+      "original_test": "MyanmarSevenEngine emits warning when lunar date is unverified",
+      "current_test": "MyanmarSevenEngine omits exact-time lunar lookup when time authority is unavailable",
+      "changed_files": [
+        "test/thai_foundation_engine_test.dart"
+      ],
+      "final_result": "PASS",
+      "event": {
+        "testID": 2554,
+        "result": "success",
+        "skipped": false,
+        "hidden": false,
+        "type": "testDone",
+        "time": 308541
+      }
+    },
+    {
+      "id": "F076",
+      "classification": "STALE_UNKNOWN_CONTRACT",
+      "source_test_file": "test/thai_foundation_engine_test.dart",
+      "original_test": "ThaiFoundationEngine date-only profile omits lagna and emits warning",
+      "current_test": "ThaiFoundationEngine date-only profile omits lagna and emits warning",
+      "changed_files": [
+        "test/thai_foundation_engine_test.dart"
+      ],
+      "final_result": "PASS",
+      "event": {
+        "testID": 2559,
+        "result": "success",
+        "skipped": false,
+        "hidden": false,
+        "type": "testDone",
+        "time": 308546
+      }
+    }
+  ]
+}

@@ -1,3 +1,4 @@
+import '../../../../evidence/or5r_unknown_contract.dart';
 import 'dart:io';
 
 import 'package:flutter_test/flutter_test.dart';
@@ -30,7 +31,8 @@ void main() {
     final report = ThaiLifeMapV124AuditRunner.renderMarkdown(summary);
     // ignore: avoid_print
     print(report);
-    final out = File('docs/THAI_LIFE_MAP_V124_ACCURACY_AUDIT.md');
+    final out = File('build/or5r/v124_accuracy_audit.md')
+      ..parent.createSync(recursive: true);
     out.writeAsStringSync(report);
   });
 
@@ -64,16 +66,37 @@ void main() {
   });
 
   group('V1.2.4 full audit', () {
-    test('every chart has exactly 8 periods (≥160 total)', () {
-      expect(summary.periodCount, greaterThanOrEqualTo(160));
-      for (final chart in summary.charts) {
-        expect(
-          chart.periods,
-          hasLength(8),
-          reason: '${chart.fixture.id} period count',
-        );
-      }
-    });
+    test(
+      'Known charts have 8 periods; Unknown timeline is omitted, not generated',
+      () {
+        final known = summary.charts
+            .where((c) => c.fixture.input.hasBirthTime)
+            .toList();
+        final unknown = summary.charts
+            .where((c) => !c.fixture.input.hasBirthTime)
+            .toList();
+        expect(known, hasLength(19));
+        expect(unknown, hasLength(3));
+        expect(summary.periodCount, 19 * 8);
+        for (final chart in summary.charts) {
+          if (!chart.fixture.input.hasBirthTime) {
+            expect(chart.success, isTrue);
+            expect(chart.periods, isEmpty);
+            expect(chart.startPlanet, isNull);
+            expect(chart.anomalies, isEmpty);
+            expectUnknownContract(
+              ThaiBetaAnalysisRunner.run(chart.fixture.input),
+            );
+            continue;
+          }
+          expect(
+            chart.periods,
+            hasLength(8),
+            reason: '${chart.fixture.id} period count',
+          );
+        }
+      },
+    );
 
     test('no chart is all-unknown from missing Canon index / data-flow', () {
       for (final chart in summary.charts) {
@@ -125,11 +148,7 @@ void main() {
       for (final chart in summary.charts) {
         for (final a in chart.anomalies) {
           final blocked = blocking.any((b) => a.startsWith(b) || a == b);
-          expect(
-            blocked,
-            isFalse,
-            reason: '${chart.fixture.id}: $a',
-          );
+          expect(blocked, isFalse, reason: '${chart.fixture.id}: $a');
         }
       }
     });
@@ -182,25 +201,38 @@ void main() {
       expect(first.startPlanet, isNot(second.startPlanet));
     });
 
-    test('PDF export includes timeline narrative but not Mahabhut nested fields',
-        () {
-      expect(
-        summary.charts.every((c) => c.exportIncludesLifeTimeline),
-        isTrue,
-      );
-      expect(
-        summary.charts.every((c) => !c.exportIncludesMahabhut),
-        isTrue,
-        reason: 'Mahabhut/sub/taksa remain N/A in export document',
-      );
-    });
+    test(
+      'PDF export includes timeline narrative but not Mahabhut nested fields',
+      () {
+        expect(
+          summary.charts
+              .where((c) => c.fixture.input.hasBirthTime)
+              .every((c) => c.exportIncludesLifeTimeline),
+          isTrue,
+        );
+        expect(
+          summary.charts.every((c) => !c.exportIncludesMahabhut),
+          isTrue,
+          reason: 'Mahabhut/sub/taksa remain N/A in export document',
+        );
+        for (final chart in summary.charts.where(
+          (c) => !c.fixture.input.hasBirthTime,
+        )) {
+          expect(chart.exportIncludesLifeTimeline, isFalse);
+          expect(chart.periods, isEmpty);
+        }
+      },
+    );
 
-    test('Public Evidence Badge stays invited_beta; anonymous has no rights', () {
-      expect(ThaiEvidenceBadgeActivation.configuredState, 'invited_beta');
-      const anonymous = ThaiBetaEvidenceBadgeAudience.anonymous();
-      expect(anonymous.isInvitedBetaTester, isFalse);
-      expect(anonymous.isInternalTester, isFalse);
-    });
+    test(
+      'Public Evidence Badge stays invited_beta; anonymous has no rights',
+      () {
+        expect(ThaiEvidenceBadgeActivation.configuredState, 'invited_beta');
+        const anonymous = ThaiBetaEvidenceBadgeAudience.anonymous();
+        expect(anonymous.isInvitedBetaTester, isFalse);
+        expect(anonymous.isInternalTester, isFalse);
+      },
+    );
   });
 
   group('Resolver semantics (not inventing)', () {

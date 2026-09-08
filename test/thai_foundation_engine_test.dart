@@ -130,12 +130,7 @@ void main() {
     });
 
     test('GC-05 sinsaehwang 4/04/2515 02:00 — verified lunar lookup', () {
-      final birth = _bangkokBirth(
-        year: 1972,
-        month: 4,
-        day: 4,
-        hour: 2,
-      );
+      final birth = _bangkokBirth(year: 1972, month: 4, day: 4, hour: 2);
 
       final resolution = ThaiLunarCalendar.resolve(birth);
       expect(resolution.isResolved, isTrue);
@@ -225,20 +220,14 @@ void main() {
   group('ThaiMonthBaseTable', () {
     test('lunar month 10 reduces to base 3', () {
       expect(ThaiMonthBaseTable.monthBaseFromLunarMonth(10), 3);
-      expect(
-        ThaiMonthBaseTable.rowFromLunarMonth(10),
-        [3, 4, 5, 6, 7, 1, 2],
-      );
+      expect(ThaiMonthBaseTable.rowFromLunarMonth(10), [3, 4, 5, 6, 7, 1, 2]);
     });
   });
 
   group('ThaiZodiacYear', () {
     test('zodiac year 12 reduces to base 5', () {
       expect(ThaiZodiacYear.yearBaseFromZodiacIndex(12), 5);
-      expect(
-        ThaiZodiacYear.rowFromZodiacIndex(12),
-        [5, 6, 7, 1, 2, 3, 4],
-      );
+      expect(ThaiZodiacYear.rowFromZodiacIndex(12), [5, 6, 7, 1, 2, 3, 4]);
     });
   });
 
@@ -269,17 +258,26 @@ void main() {
       expect(result.row4Sum, [8, 11, 14, 10, 13, 16, 12]);
     });
 
-    test('emits warning when lunar date is unverified', () {
-      final result = MyanmarSevenEngine.calculate(
-        _bangkokBirth(year: 1985, month: 3, day: 17, hasBirthTime: false),
-      );
+    test(
+      'omits exact-time lunar lookup when time authority is unavailable',
+      () {
+        final result = MyanmarSevenEngine.calculate(
+          _bangkokBirth(year: 1985, month: 3, day: 17, hasBirthTime: false),
+        );
 
-      expect(result.myanmarKeys, isEmpty);
-      expect(
-        result.warnings.any((w) => w.code == 'LUNAR_DATE_UNVERIFIED'),
-        isTrue,
-      );
-    });
+        expect(result.myanmarKeys, isEmpty);
+        expect(
+          result.warnings.any(
+            (w) => w.code == 'LUNAR_TIME_AUTHORITY_UNAVAILABLE',
+          ),
+          isTrue,
+        );
+        expect(
+          result.warnings.any((w) => w.code == 'LUNAR_DATE_UNVERIFIED'),
+          isFalse,
+        );
+      },
+    );
   });
 
   group('MahabhutaEngine', () {
@@ -317,10 +315,19 @@ void main() {
       expect(profile.lagnaKey, isNull);
       expect(profile.lagnaLordKey, isNull);
       expect(profile.myanmarKeys, isEmpty);
-      expect(profile.warnings.any((w) => w.code == 'MISSING_BIRTH_TIME'), isTrue);
+      expect(
+        profile.warnings.any((w) => w.code == 'MISSING_BIRTH_TIME'),
+        isTrue,
+      );
+      expect(
+        profile.warnings.any(
+          (w) => w.code == 'LUNAR_TIME_AUTHORITY_UNAVAILABLE',
+        ),
+        isTrue,
+      );
       expect(
         profile.warnings.any((w) => w.code == 'LUNAR_DATE_UNVERIFIED'),
-        isTrue,
+        isFalse,
       );
     });
   });

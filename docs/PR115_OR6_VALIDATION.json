@@ -1,0 +1,93 @@
+{
+  "schema": "pr115-or6-validation/1",
+  "recordedAt": "2026-09-07",
+  "baseHead": "9067f541d8f718735f931af7afc3dd1f5726138a",
+  "scope": "content/evidence/validator/docs-only",
+  "freshExtraction": {
+    "runs": 2,
+    "testsPerRun": 2,
+    "passedPerRun": 2,
+    "failedPerRun": 0,
+    "deterministicRelevantRawFixtures": 2,
+    "mismatches": 0,
+    "status": "PASS"
+  },
+  "neutralAuthorityV2AndExistingEvidenceOracles": {
+    "tests": 33,
+    "passed": 33,
+    "failed": 0,
+    "status": "PASS_AS_ENGINEERING_AUDIT_ONLY"
+  },
+  "candidate0020SchemaEquivalenceAndContentAudit": {
+    "tests": 12,
+    "passed": 12,
+    "failed": 0,
+    "pastEquivalenceNegativeControlsRejected": 3,
+    "contentCounterMutationControlsDetected": 7,
+    "status": "PASS"
+  },
+  "candidate0011Regression": {
+    "exact": true,
+    "sha256": "6AA94C7A01555310C5189FAAF711597057C5DF2F102246A0DF3946DAB2B62A1E",
+    "status": "PASS_UNCHANGED"
+  },
+  "candidate0020": {
+    "predictionParagraphs": 12,
+    "classification": "PROPOSED_OWNER_TEMPLATE",
+    "ownerAccepted": false,
+    "implemented": false,
+    "fullReaderCopySha256": "8BBA1056E1DBCFF6DA0E21CF54CD0B86C57CCE49DEE461A6B9DED1ED2983689A",
+    "auditStatus": "AI_MACHINE_CONTENT_AUDIT_READY_PENDING_OWNER_COPY_REVIEW",
+    "auditCounters": {
+      "chronology_errors": 0,
+      "missing_required_periods": 0,
+      "future_tense_in_past": 0,
+      "past_reflection_questions": 0,
+      "personality_inside_prediction": 0,
+      "advice_inside_prediction": 0,
+      "methodological_language": 0,
+      "ambiguous_template_language": 0,
+      "contradictory_direction": 0,
+      "semantic_duplicate_pairs": 0,
+      "duplicate_semantic_owner": 0,
+      "unsupported_claims": 0,
+      "missing_bindings": 1,
+      "certainty_downgrade": 0,
+      "new_unmapped_claims": 0
+    },
+    "allowedNonzero": {
+      "counter": "missing_bindings",
+      "value": 1,
+      "reason": "The unbound next-period claim and its heading are omitted completely; no filler prediction is emitted."
+    }
+  },
+  "commands": [
+    "powershell -ExecutionPolicy Bypass -File tool/pr115_or6_validation.ps1 -Extract",
+    "node tool/pr115_or6_content_candidate.mjs",
+    "node --test --test-reporter=tap test/evidence/pr115_or6_content_candidate.test.mjs",
+    "git diff --check"
+  ],
+  "repositoryGates": {
+    "gitDiffCheck": "PASS",
+    "preCommit": "PASS",
+    "postCommit": "PASS_CONTENT_EVIDENCE_COMMIT_EF4256C4993A7514F1427CF0374A200A66776F8E"
+  },
+  "notRerun": {
+    "fullFlutterSuite": "NOT RERUN — no Dart/runtime/Flutter-test delta",
+    "analyzer": "NOT RERUN — no Dart/runtime/Flutter-test delta"
+  },
+  "notCreated": [
+    "Web captures",
+    "PDF",
+    "infographic",
+    "Owner Review ZIP"
+  ],
+  "protectedDelta": {
+    "dartRuntimeUiGeneratorExportPdf": 0,
+    "flutterTests": 0,
+    "candidate0011": 0,
+    "productAcceptance": 0,
+    "firebaseProduction": 0
+  },
+  "ownerStatus": "PENDING OWNER COPY REVIEW"
+}

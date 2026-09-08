@@ -1,0 +1,42 @@
+{
+  "schema": "pr115-or6-owner-content-decision/1",
+  "recordedDate": "2026-09-07",
+  "timeZone": "Asia/Bangkok",
+  "pr": 115,
+  "inputHead": "9067f541d8f718735f931af7afc3dd1f5726138a",
+  "neutralAuthorityValidatorV2": "ACCEPTED_AS_ENGINEERING_AUDIT_MECHANISM",
+  "actual0035CurrentCopy": "OWNER_REJECTED_AS_PRODUCT_CONTENT",
+  "reviewRequiredClaims": {
+    "count": 8,
+    "supported": false,
+    "accepted": false,
+    "currentWording": "REJECTED",
+    "resolvedComponentsMayBoundNewProposal": true
+  },
+  "forbiddenInCandidate": [
+    "UNSUPPORTED_SEMANTIC_EXPANSION",
+    "UNSUPPORTED_MISSING_COMPONENT"
+  ],
+  "ownerFindings": [
+    "chronology",
+    "natural_language",
+    "decisiveness",
+    "semantic_ownership",
+    "repetition"
+  ],
+  "candidate0011": {
+    "fixture": "00:03",
+    "byteExact": true,
+    "allowedUse": ["style_oracle", "order_oracle"],
+    "authorityTransfersTo0035": false
+  },
+  "technicalPassesRetained": {
+    "unknownContainment": true,
+    "dedicatedPdfRepair": true
+  },
+  "implementationAuthorized": false,
+  "ownerAcceptanceClaimed": false,
+  "prStateRequired": "OPEN_DRAFT",
+  "merged": false,
+  "deployed": false
+}

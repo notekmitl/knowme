@@ -302,8 +302,10 @@ abstract final class ThaiBetaReaderQualityAudit {
     final prose = units.toList(growable: false);
     final combined = prose.map((unit) => unit.text).join('\n');
     final failures = <String>[];
-    final motifCount = motif.allMatches(combined).length;
-    final phaseCount = phase.allMatches(combined).length;
+    // An omitted Unknown phase/motif is not a phrase occurring between every
+    // character. All prose, encoding, domain and repetition checks still run.
+    final motifCount = motif.isEmpty ? 0 : motif.allMatches(combined).length;
+    final phaseCount = phase.isEmpty ? 0 : phase.allMatches(combined).length;
     if (motifCount > motifLimit) {
       failures.add('MOTIF_FREQUENCY:$motifCount>$motifLimit:$motif');
     }

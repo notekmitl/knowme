@@ -1,0 +1,100 @@
+{
+  "schema": "pr115-or7-validation/1",
+  "recordedAt": "2026-09-07",
+  "baseHead": "1a94b0b02acae5a7890297288088cac92d92168b",
+  "scope": "content/evidence/validator/docs-only",
+  "freshExtraction": {
+    "runs": 2,
+    "testsPerRun": 2,
+    "passedPerRun": 2,
+    "failedPerRun": 0,
+    "deterministicRelevantRawFixtures": 2,
+    "mismatches": 0,
+    "status": "PASS"
+  },
+  "neutralAuthorityV2AndExistingEvidenceOracles": {
+    "tests": 33,
+    "passed": 33,
+    "failed": 0,
+    "status": "PASS_AS_ENGINEERING_AUDIT_ONLY"
+  },
+  "candidate0020SchemaEquivalenceAndContentAudit": {
+    "tests": 12,
+    "passed": 12,
+    "failed": 0,
+    "pastEquivalenceNegativeControlsRejected": 3,
+    "status": "PASS_AS_SCHEMA_AND_EQUIVALENCE_EVIDENCE_ONLY"
+  },
+  "candidate0021ContentEvidence": {
+    "tests": 16,
+    "passed": 16,
+    "failed": 0,
+    "predictionClaims": 11,
+    "omittedClaims": 2,
+    "pairwiseSemanticOwnership": {
+      "expected": 55,
+      "checked": 55,
+      "duplicatePairs": 0
+    },
+    "mutationControlsDetected": 8,
+    "fullReaderCopySha256": "230FDCC5A6746D056E1125BAEF5161473058436106D96705D5702B3C7869BA24",
+    "status": "PASS_AS_ENGINEERING_AUDIT_ONLY_PENDING_OWNER_COPY_REVIEW"
+  },
+  "candidate0021AuditCounters": {
+    "generic_outcome_phrases": 0,
+    "vague_pressure_phrases": 0,
+    "lexical_overuse": 0,
+    "cross_section_semantic_repetition": 0,
+    "psychology_prediction_leakage": 0,
+    "psychology_advice_leakage": 0,
+    "repeated_domain_headings": 0,
+    "summary_without_new_function": 0
+  },
+  "candidate0020OwnerRejectDetection": {
+    "generic_outcome_phrases": 6,
+    "vague_pressure_phrases": 4,
+    "lexical_overuse": 3,
+    "cross_section_semantic_repetition": 15,
+    "psychology_prediction_leakage": 3,
+    "psychology_advice_leakage": 4,
+    "repeated_domain_headings": 4,
+    "summary_without_new_function": 1,
+    "status": "PASS_REAL_FAILURES_DETECTED"
+  },
+  "candidate0011Regression": {
+    "exact": true,
+    "sha256": "6AA94C7A01555310C5189FAAF711597057C5DF2F102246A0DF3946DAB2B62A1E",
+    "status": "PASS_UNCHANGED"
+  },
+  "commands": [
+    "powershell -ExecutionPolicy Bypass -File tool/pr115_or7_validation.ps1 -Extract",
+    "node tool/pr115_or7_content_candidate.mjs",
+    "node --test --test-reporter=tap test/evidence/pr115_or7_content_candidate.test.mjs",
+    "git diff --check"
+  ],
+  "repositoryGates": {
+    "gitDiffCheck": "PASS",
+    "preCommit": "PASS",
+    "postCommit": "PASS_CONTENT_EVIDENCE_COMMIT_A500D6ADE0F252A70537C2A337381ECE16E119B5"
+  },
+  "notRerun": {
+    "fullFlutterSuite": "NOT RERUN — no Dart/runtime/Flutter-test delta",
+    "analyzer": "NOT RERUN — no Dart/runtime/Flutter-test delta"
+  },
+  "notCreated": [
+    "Web captures",
+    "PDF",
+    "infographic",
+    "Owner Review ZIP"
+  ],
+  "protectedDelta": {
+    "dartRuntimeUiGeneratorExportPdf": 0,
+    "flutterTests": 0,
+    "candidate0011": 0,
+    "candidate0020HistoricalFiles": 0,
+    "productAcceptance": 0,
+    "firebaseProduction": 0
+  },
+  "contentEvidenceCommit": "a500d6ade0f252a70537c2a337381ece16e119b5",
+  "ownerStatus": "CANDIDATE 0020 OWNER-REJECTED — CANDIDATE 0021 PENDING OWNER COPY REVIEW"
+}

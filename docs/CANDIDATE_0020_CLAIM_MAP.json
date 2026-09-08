@@ -1,0 +1,588 @@
+{
+  "schema": "candidate-0020-actual-0035/1",
+  "fixture": {
+    "sex": "male",
+    "birthDate": "1982-06-06",
+    "birthTime": "00:35",
+    "province": "Chiang Mai",
+    "asOf": "2026-08-29",
+    "timeZone": "Asia/Bangkok",
+    "ascendant": "Aquarius 19°19′"
+  },
+  "status": "PROPOSED_OWNER_COPY_PENDING_REVIEW",
+  "implemented": false,
+  "accepted": false,
+  "predictionClaims": [
+    {
+      "claimId": "C20-A35-OVERVIEW-01",
+      "semanticOwner": "overview",
+      "section": "ภาพรวมเส้นทางชีวิต",
+      "timeScope": "0-62",
+      "context": "mahabhut2537.rem0.saturday",
+      "period": "0-62",
+      "domain": "life_path",
+      "horizon": "overview",
+      "direction": "down_then_up",
+      "evidenceRefs": [
+        "selector.mahabhut2537.rem0.saturday.saturn.0_10",
+        "selector.mahabhut2537.rem0.saturday.jupiter.11_29",
+        "selector.mahabhut2537.rem0.saturday.rahu.30_41",
+        "selector.mahabhut2537.rem0.saturday.venus.42_62",
+        "source.T0003-SRC-0-10-FAMILY-CONSTRAINT",
+        "source.T0003-SRC-11-62-RISING-BLOCK",
+        "source.T0003-SRC-42-62-WORK",
+        "source.T0003-SRC-42-62-FINANCE",
+        "source.T0003-SRC-42-62-SUPPORT"
+      ],
+      "sourceBoundMeaning": "วัย 0–10 มีข้อจำกัดด้านครอบครัว; อายุ 11–62 เป็นทิศทางขาขึ้น; อายุ 42–62 มีงาน เงิน และแรงสนับสนุนตามแหล่งข้อมูลเดิม",
+      "proposedReaderWording": "ชีวิตวัยเด็กมีข้อจำกัดจากครอบครัว หลังอายุ 11 ปี จังหวะชีวิตดีขึ้น และตั้งแต่อายุ 42 ปี งาน เงิน และแรงสนับสนุนเป็นเรื่องเด่นของชีวิต",
+      "classification": "PROPOSED_OWNER_TEMPLATE",
+      "origin": "REVIEW_REQUIRED_REWRITE",
+      "semanticAtoms": [
+        "life-chronology-arc"
+      ],
+      "accepted": false,
+      "supportedByOwner": false,
+      "noSemanticExpansion": true
+    },
+    {
+      "claimId": "C20-A35-PAST-0-10-01",
+      "semanticOwner": "past-0-10",
+      "section": "อายุ 0–10 ปี",
+      "timeScope": "0-10",
+      "context": "mahabhut2537.rem0.saturday",
+      "period": "0-10",
+      "domain": "family_constraints",
+      "horizon": "past-life-period",
+      "direction": "dueng_tok",
+      "evidenceRefs": [
+        "selector.mahabhut2537.rem0.saturday.saturn.0_10",
+        "source.T0003-SRC-0-10-FAMILY-CONSTRAINT",
+        "canon.mahabhut.p28.saturn_owns_family"
+      ],
+      "sourceBoundMeaning": "แหล่งข้อมูลระบุข้อจำกัดด้านสุขภาพ การงาน และการเงินของพ่อแม่ ซึ่งทำให้มีเวลาดูแลใกล้ชิดน้อยลงในวัย 0–10",
+      "proposedReaderWording": "ในวัย 0–10 ปี ข้อจำกัดด้านสุขภาพ การงาน และการเงินของครอบครัวทำให้ผู้ใหญ่มีเวลาดูแลใกล้ชิดน้อยลง ชีวิตช่วงนั้นจึงอยู่ภายใต้เงื่อนไขของบ้านเป็นหลัก",
+      "classification": "PROPOSED_OWNER_TEMPLATE",
+      "origin": "PAST_EQUIVALENT_SOURCE_PERIOD_PROPOSAL",
+      "semanticAtoms": [
+        "past-family-constraints"
+      ],
+      "accepted": false,
+      "supportedByOwner": false,
+      "noSemanticExpansion": true
+    },
+    {
+      "claimId": "C20-A35-PAST-11-29-01",
+      "semanticOwner": "past-11-29",
+      "section": "อายุ 11–29 ปี",
+      "timeScope": "11-29",
+      "context": "mahabhut2537.rem0.saturday",
+      "period": "11-29",
+      "domain": "learning_and_career",
+      "horizon": "past-life-period",
+      "direction": "dueng_khuen",
+      "evidenceRefs": [
+        "selector.mahabhut2537.rem0.saturday.jupiter.11_29",
+        "source.T0003-SRC-11-62-RISING-BLOCK",
+        "canon.mahabhut.p220.jupiter_owns_learning",
+        "canon.mahabhut.p220.jupiter_owns_career"
+      ],
+      "sourceBoundMeaning": "ช่วง 11–29 อยู่ในแนวโน้มขาขึ้น 11–62; ดาวพฤหัส/อายุ/ราชาเชื่อมกับการเรียนและการสร้างทางงานตาม Canon โดยไม่มีเหตุการณ์เฉพาะ",
+      "proposedReaderWording": "ช่วงอายุ 11–29 ปี ชีวิตเดินหน้าไปในทางที่ดีขึ้น การเรียนและการสร้างทางงานเป็นแกนสำคัญของช่วงนั้น",
+      "classification": "PROPOSED_OWNER_TEMPLATE",
+      "origin": "PAST_EQUIVALENT_SOURCE_PERIOD_PROPOSAL",
+      "semanticAtoms": [
+        "past-learning-career"
+      ],
+      "accepted": false,
+      "supportedByOwner": false,
+      "noSemanticExpansion": true
+    },
+    {
+      "claimId": "C20-A35-PAST-30-41-01",
+      "semanticOwner": "past-30-41",
+      "section": "อายุ 30–41 ปี",
+      "timeScope": "30-41",
+      "context": "mahabhut2537.rem0.saturday",
+      "period": "30-41",
+      "domain": "career_and_authority",
+      "horizon": "past-life-period",
+      "direction": "dueng_khuen",
+      "evidenceRefs": [
+        "selector.mahabhut2537.rem0.saturday.rahu.30_41",
+        "source.T0003-SRC-11-62-RISING-BLOCK",
+        "source.T0003-SRC-30-41-PLACEMENT",
+        "canon.mahabhut.p39.det_owns_career"
+      ],
+      "sourceBoundMeaning": "ช่วง 30–41 อยู่ในแนวโน้มขาขึ้น; ราหู/เดช/อธิบดีวางแกนที่งาน อำนาจตัดสินใจ และความรับผิดชอบ โดยไม่ระบุการเปลี่ยนงานเฉพาะ",
+      "proposedReaderWording": "ช่วงอายุ 30–41 ปี ชีวิตยังเดินหน้าไปในทางที่ดี งาน อำนาจตัดสินใจ และความรับผิดชอบเข้ามามีบทบาทมากขึ้น",
+      "classification": "PROPOSED_OWNER_TEMPLATE",
+      "origin": "REVIEW_REQUIRED_REWRITE",
+      "semanticAtoms": [
+        "past-career-authority"
+      ],
+      "accepted": false,
+      "supportedByOwner": false,
+      "noSemanticExpansion": true
+    },
+    {
+      "claimId": "C20-A35-CURRENT-01",
+      "semanticOwner": "current",
+      "section": "คำทำนายปัจจุบัน — อายุ 44 ปี",
+      "timeScope": "42-62",
+      "context": "mahabhut2537.rem0.saturday",
+      "period": "42-62",
+      "domain": "life_path",
+      "horizon": "current",
+      "direction": "dueng_khuen",
+      "evidenceRefs": [
+        "selector.mahabhut2537.rem0.saturday.venus.42_62",
+        "source.T0003-SRC-42-62-FLOW"
+      ],
+      "sourceBoundMeaning": "อายุ 44 อยู่ภายในช่วง 42–62; แหล่งข้อมูลรองรับทิศทางที่การทำ การพูด และการคิดเดินได้ราบรื่น โดยไม่ใช่ช่วงเปลี่ยนผ่าน",
+      "proposedReaderWording": "ตอนนี้อายุ 44 ปี อยู่ในช่วง 42–62 ปี ซึ่งการทำงาน การสื่อสาร และการตัดสินใจราบรื่นขึ้น",
+      "classification": "PROPOSED_OWNER_TEMPLATE",
+      "origin": "NARROWED_SUPPORTED_MEANING_AFTER_EXPANSION_REJECTION",
+      "semanticAtoms": [
+        "current-flow"
+      ],
+      "accepted": false,
+      "supportedByOwner": false,
+      "noSemanticExpansion": true
+    },
+    {
+      "claimId": "C20-A35-WORK-01",
+      "semanticOwner": "work",
+      "section": "การงาน",
+      "timeScope": "42-62",
+      "context": "mahabhut2537.rem0.saturday",
+      "period": "42-62",
+      "domain": "career",
+      "horizon": "current",
+      "direction": "strong_primary_pressure_secondary",
+      "evidenceRefs": [
+        "selector.mahabhut2537.rem0.saturday.venus.42_62",
+        "source.T0003-SRC-42-62-WORK",
+        "typed.current.career"
+      ],
+      "sourceBoundMeaning": "แหล่งข้อมูลรองรับทางทำงาน; typed material ให้ career=strong และ pressure เป็นความเสี่ยงรอง ไม่มีตำแหน่งงานหรือนายจ้างเฉพาะ",
+      "proposedReaderWording": "เรื่องงานเดินหน้าเป็นหลัก มีงานให้ทำและมีจังหวะขยับต่อ ภาระงานยังกดเวลา แต่จังหวะงานไม่หยุดนิ่ง",
+      "classification": "PROPOSED_OWNER_TEMPLATE",
+      "origin": "REVIEW_REQUIRED_REWRITE",
+      "semanticAtoms": [
+        "current-work"
+      ],
+      "accepted": false,
+      "supportedByOwner": false,
+      "noSemanticExpansion": true
+    },
+    {
+      "claimId": "C20-A35-FINANCE-01",
+      "semanticOwner": "finance",
+      "section": "การเงิน",
+      "timeScope": "42-62",
+      "context": "mahabhut2537.rem0.saturday",
+      "period": "42-62",
+      "domain": "finance",
+      "horizon": "current",
+      "direction": "strong_primary_pressure_secondary",
+      "evidenceRefs": [
+        "selector.mahabhut2537.rem0.saturday.venus.42_62",
+        "source.T0003-SRC-42-62-FINANCE",
+        "canon.mahabhut.p39.sri_owns_finance",
+        "typed.current.finance"
+      ],
+      "sourceBoundMeaning": "แหล่งข้อมูลรองรับการมีเงินใช้และโชคลาภ; typed material ให้ finance=strong และ pressure เป็นความเสี่ยงรอง โดยไม่มีจำนวนหรือวันเฉพาะ",
+      "proposedReaderWording": "เรื่องเงินดีขึ้นเป็นหลัก มีเงินหมุนใช้และมีโชคลาภ แรงกดด้านเงินยังมีอยู่ แต่ความคล่องตัวทางการเงินเพิ่มขึ้น",
+      "classification": "PROPOSED_OWNER_TEMPLATE",
+      "origin": "REVIEW_REQUIRED_REWRITE",
+      "semanticAtoms": [
+        "current-finance"
+      ],
+      "accepted": false,
+      "supportedByOwner": false,
+      "noSemanticExpansion": true
+    },
+    {
+      "claimId": "C20-A35-RELATIONSHIP-01",
+      "semanticOwner": "relationship",
+      "section": "ความรักและความสัมพันธ์",
+      "timeScope": "42-62",
+      "context": "mahabhut2537.rem0.saturday",
+      "period": "42-62",
+      "domain": "relationship",
+      "horizon": "current",
+      "direction": "strong_primary_pressure_secondary",
+      "evidenceRefs": [
+        "selector.mahabhut2537.rem0.saturday.venus.42_62",
+        "canon.mahabhut.p16.venus_owns_relationship_male",
+        "canon.mahabhut.p28.venus_owns_relationship",
+        "typed.current.relationship"
+      ],
+      "sourceBoundMeaning": "Canon เชื่อมดาวศุกร์กับความสัมพันธ์สำหรับชาย; typed material ให้ relationship=strong และ pressure เป็นความเสี่ยงรอง โดยไม่มีเหตุการณ์หรือบุคคลเฉพาะ",
+      "proposedReaderWording": "ความสัมพันธ์อยู่ในทางที่ดีขึ้น แม้ยังมีแรงกดดัน แต่เรื่องนี้ยังเดินหน้าต่อ",
+      "classification": "PROPOSED_OWNER_TEMPLATE",
+      "origin": "REVIEW_REQUIRED_REWRITE",
+      "semanticAtoms": [
+        "current-relationship"
+      ],
+      "accepted": false,
+      "supportedByOwner": false,
+      "noSemanticExpansion": true
+    },
+    {
+      "claimId": "C20-A35-HEALTH-01",
+      "semanticOwner": "health",
+      "section": "สุขภาพ",
+      "timeScope": "42-62",
+      "context": "mahabhut2537.rem0.saturday",
+      "period": "42-62",
+      "domain": "health",
+      "horizon": "current",
+      "direction": "strong_primary_pressure_secondary",
+      "evidenceRefs": [
+        "selector.mahabhut2537.rem0.saturday.venus.42_62",
+        "canon.mahabhut.p35.venus_relates_attribute_disease_ความเจ็บป่วยอันเนื่องมาจากร่างกายไม่ได้รับการพักผ่อน",
+        "typed.current.health"
+      ],
+      "sourceBoundMeaning": "Canon ระบุความเจ็บป่วยจากการพักไม่พอ; typed material ให้ health=strong และ pressure เป็นความเสี่ยงรอง ไม่รองรับโรคเฉพาะหรือการวินิจฉัย",
+      "proposedReaderWording": "สุขภาพโดยรวมแข็งแรงขึ้นและรองรับกิจวัตรได้ การพักไม่พอยังเป็นจุดที่กดพลังลง",
+      "classification": "PROPOSED_OWNER_TEMPLATE",
+      "origin": "REVIEW_REQUIRED_REWRITE",
+      "semanticAtoms": [
+        "current-health"
+      ],
+      "accepted": false,
+      "supportedByOwner": false,
+      "noSemanticExpansion": true
+    },
+    {
+      "claimId": "C20-A35-SUPPORT-01",
+      "semanticOwner": "support",
+      "section": "โชคลาภและแรงสนับสนุน",
+      "timeScope": "42-62",
+      "context": "mahabhut2537.rem0.saturday",
+      "period": "42-62",
+      "domain": "support",
+      "horizon": "current",
+      "direction": "dueng_khuen",
+      "evidenceRefs": [
+        "selector.mahabhut2537.rem0.saturday.venus.42_62",
+        "source.T0003-SRC-42-62-SUPPORT",
+        "source.T0003-SRC-42-62-WORK",
+        "source.T0003-SRC-42-62-FINANCE"
+      ],
+      "sourceBoundMeaning": "แหล่งข้อมูลระบุแรงสนับสนุนจากครู ผู้มีประสบการณ์ เพื่อน และเครือข่าย พร้อมทางด้านงาน เงิน และโชคลาภ โดยไม่ระบุบุคคล",
+      "proposedReaderWording": "แรงสนับสนุนมาจากครู ผู้มีประสบการณ์ เพื่อน และคนในเครือข่าย ช่วยเปิดทางให้งานและการเงินเดินต่อได้",
+      "classification": "PROPOSED_OWNER_TEMPLATE",
+      "origin": "REVIEW_REQUIRED_REWRITE",
+      "semanticAtoms": [
+        "current-support"
+      ],
+      "accepted": false,
+      "supportedByOwner": false,
+      "noSemanticExpansion": true
+    },
+    {
+      "claimId": "C20-A35-HORIZON-01",
+      "semanticOwner": "rolling12",
+      "section": "คำทำนาย 12 เดือนข้างหน้า",
+      "timeScope": "2026-08-29/2027-08-28",
+      "context": "mahabhut2537.rem0.saturday",
+      "period": "2026-08-29/2027-08-28",
+      "domain": "career_and_finance",
+      "horizon": "next12Months",
+      "direction": "strong_primary_pressure_secondary",
+      "evidenceRefs": [
+        "selector.mahabhut2537.rem0.saturday.venus.42_62",
+        "source.T0003-SRC-42-62-WORK",
+        "source.T0003-SRC-42-62-FINANCE",
+        "typed.next12Months.career",
+        "typed.next12Months.finance",
+        "timing.rolling-12-month-label"
+      ],
+      "sourceBoundMeaning": "ช่วงวันที่มาจาก rolling asOf; typed materials ให้งานและเงิน=strong โดย pressure เป็นความเสี่ยงรอง; แหล่งข้อมูล 42–62 รองรับงาน เงิน และโชคลาภ",
+      "proposedReaderWording": "ระหว่างวันที่ 29 สิงหาคม 2569 ถึง 28 สิงหาคม 2570 งานและเงินเป็นสองเรื่องที่เดินหน้า มีงานให้ทำต่อและเงินคล่องขึ้น ภาระงานกับแรงกดด้านเงินยังมีอยู่ แต่จังหวะ 12 เดือนนี้ยังเดินไปข้างหน้า",
+      "classification": "PROPOSED_OWNER_TEMPLATE",
+      "origin": "REVIEW_REQUIRED_REWRITE",
+      "semanticAtoms": [
+        "rolling12-work-finance"
+      ],
+      "accepted": false,
+      "supportedByOwner": false,
+      "noSemanticExpansion": true
+    },
+    {
+      "claimId": "C20-A35-SUMMARY-01",
+      "semanticOwner": "summary",
+      "section": "สรุปคำทำนาย",
+      "timeScope": "42-62|2026-08-29/2027-08-28",
+      "context": "mahabhut2537.rem0.saturday",
+      "period": "42-62|2026-08-29/2027-08-28",
+      "domain": "life_path",
+      "horizon": "summary",
+      "direction": "positive_primary",
+      "evidenceRefs": [
+        "C20-A35-CURRENT-01",
+        "C20-A35-WORK-01",
+        "C20-A35-FINANCE-01",
+        "C20-A35-SUPPORT-01",
+        "C20-A35-HORIZON-01"
+      ],
+      "sourceBoundMeaning": "ย่อเฉพาะผลของ claims ปัจจุบันและ 12 เดือนที่ map แล้ว ไม่เพิ่มช่วงชีวิตถัดไปหรือเหตุการณ์ใหม่",
+      "proposedReaderWording": "ช่วงนี้เด่นเรื่องงานที่เดินหน้า เงินที่คล่องขึ้น และแรงสนับสนุนจากคนรอบตัว รอบ 12 เดือนข้างหน้ายังเดินไปในทางเดียวกัน",
+      "classification": "PROPOSED_OWNER_TEMPLATE",
+      "origin": "PROPOSED_SUMMARY_FROM_MAPPED_CLAIMS",
+      "semanticAtoms": [
+        "current-horizon-summary"
+      ],
+      "accepted": false,
+      "supportedByOwner": false,
+      "noSemanticExpansion": true
+    }
+  ],
+  "omissions": [
+    {
+      "claimId": "C20-A35-NEXT-OMIT-01",
+      "semanticOwner": "next",
+      "section": "ช่วงชีวิตถัดไป — อายุ 63–79 ปี",
+      "timeScope": "63-79",
+      "classification": "OMIT_UNSUPPORTED_MISSING_COMPONENT",
+      "actualSourceWording": "เมื่อเข้าสู่อายุ 63–79 ปี ฐานงานและทรัพย์สินที่สะสมไว้จะเริ่มต่อยอด หน้าที่และอำนาจรับผิดชอบจะชัดขึ้น ในช่วงชีวิตถัดไป ความสัมพันธ์ที่รองรับภาระใหม่ไม่ได้จะเปลี่ยนระยะหรือยุติบทบาทเดิม เมื่อบทบาทใหม่เริ่มขึ้น ข้อตกลงที่ไม่ตรงกันจะทำให้จังหวะด้านความสัมพันธ์สะดุด รอยต่อของช่วงชีวิตจะทำให้ด้านความสัมพันธ์เปลี่ยนก่อนจังหวะใหม่ลงตัว",
+      "reason": "Neutral V2 found no resolved domain-to-template binding for the quiet-relationship change/termination proposition. Mercury placement is not an event. The unsupported paragraph and heading are absent from Candidate reader copy; no filler replaces them.",
+      "evidenceRefs": [
+        "selector.mahabhut2537.rem0.saturday.mercury.63_79",
+        "canon.mahabhut.p28.mercury_owns_family",
+        "canon.mahabhut.p33.mercury_relates_attribute_profession_นักพูด"
+      ]
+    }
+  ],
+  "advice": "จัดลำดับงานและภาระที่รับไว้ให้ชัด เก็บส่วนของรายรับไว้เป็นเงินสำรอง และรักษาเวลาพักให้สม่ำเสมอ",
+  "disclaimer": "คำทำนายนี้เป็นการตีความตามหลักโหราศาสตร์และความเชื่อ ใช้ประกอบการพิจารณาร่วมกับข้อเท็จจริงก่อนตัดสินใจเรื่องสำคัญ",
+  "sections": [
+    {
+      "kind": "profile",
+      "title": "ข้อมูลดวง",
+      "paragraphs": [
+        "เกิดวันที่ 6 มิถุนายน 2525 เวลา 00:35 น. จังหวัดเชียงใหม่",
+        "เพศชาย · วันทางโหราศาสตร์เป็นวันเสาร์",
+        "ลัคนาราศีกุมภ์ 19°19′"
+      ]
+    },
+    {
+      "kind": "prediction",
+      "title": "ภาพรวมเส้นทางชีวิต",
+      "paragraphs": [
+        "ชีวิตวัยเด็กมีข้อจำกัดจากครอบครัว หลังอายุ 11 ปี จังหวะชีวิตดีขึ้น และตั้งแต่อายุ 42 ปี งาน เงิน และแรงสนับสนุนเป็นเรื่องเด่นของชีวิต"
+      ]
+    },
+    {
+      "kind": "heading",
+      "title": "คำทำนายอดีต",
+      "paragraphs": []
+    },
+    {
+      "kind": "prediction",
+      "title": "อายุ 0–10 ปี",
+      "paragraphs": [
+        "ในวัย 0–10 ปี ข้อจำกัดด้านสุขภาพ การงาน และการเงินของครอบครัวทำให้ผู้ใหญ่มีเวลาดูแลใกล้ชิดน้อยลง ชีวิตช่วงนั้นจึงอยู่ภายใต้เงื่อนไขของบ้านเป็นหลัก"
+      ],
+      "claimId": "C20-A35-PAST-0-10-01"
+    },
+    {
+      "kind": "prediction",
+      "title": "อายุ 11–29 ปี",
+      "paragraphs": [
+        "ช่วงอายุ 11–29 ปี ชีวิตเดินหน้าไปในทางที่ดีขึ้น การเรียนและการสร้างทางงานเป็นแกนสำคัญของช่วงนั้น"
+      ],
+      "claimId": "C20-A35-PAST-11-29-01"
+    },
+    {
+      "kind": "prediction",
+      "title": "อายุ 30–41 ปี",
+      "paragraphs": [
+        "ช่วงอายุ 30–41 ปี ชีวิตยังเดินหน้าไปในทางที่ดี งาน อำนาจตัดสินใจ และความรับผิดชอบเข้ามามีบทบาทมากขึ้น"
+      ],
+      "claimId": "C20-A35-PAST-30-41-01"
+    },
+    {
+      "kind": "prediction",
+      "title": "คำทำนายปัจจุบัน — อายุ 44 ปี",
+      "paragraphs": [
+        "ตอนนี้อายุ 44 ปี อยู่ในช่วง 42–62 ปี ซึ่งการทำงาน การสื่อสาร และการตัดสินใจราบรื่นขึ้น"
+      ],
+      "claimId": "C20-A35-CURRENT-01"
+    },
+    {
+      "kind": "prediction",
+      "title": "การงาน",
+      "paragraphs": [
+        "เรื่องงานเดินหน้าเป็นหลัก มีงานให้ทำและมีจังหวะขยับต่อ ภาระงานยังกดเวลา แต่จังหวะงานไม่หยุดนิ่ง"
+      ],
+      "claimId": "C20-A35-WORK-01"
+    },
+    {
+      "kind": "prediction",
+      "title": "การเงิน",
+      "paragraphs": [
+        "เรื่องเงินดีขึ้นเป็นหลัก มีเงินหมุนใช้และมีโชคลาภ แรงกดด้านเงินยังมีอยู่ แต่ความคล่องตัวทางการเงินเพิ่มขึ้น"
+      ],
+      "claimId": "C20-A35-FINANCE-01"
+    },
+    {
+      "kind": "prediction",
+      "title": "ความรักและความสัมพันธ์",
+      "paragraphs": [
+        "ความสัมพันธ์อยู่ในทางที่ดีขึ้น แม้ยังมีแรงกดดัน แต่เรื่องนี้ยังเดินหน้าต่อ"
+      ],
+      "claimId": "C20-A35-RELATIONSHIP-01"
+    },
+    {
+      "kind": "prediction",
+      "title": "สุขภาพ",
+      "paragraphs": [
+        "สุขภาพโดยรวมแข็งแรงขึ้นและรองรับกิจวัตรได้ การพักไม่พอยังเป็นจุดที่กดพลังลง"
+      ],
+      "claimId": "C20-A35-HEALTH-01"
+    },
+    {
+      "kind": "prediction",
+      "title": "โชคลาภและแรงสนับสนุน",
+      "paragraphs": [
+        "แรงสนับสนุนมาจากครู ผู้มีประสบการณ์ เพื่อน และคนในเครือข่าย ช่วยเปิดทางให้งานและการเงินเดินต่อได้"
+      ],
+      "claimId": "C20-A35-SUPPORT-01"
+    },
+    {
+      "kind": "prediction",
+      "title": "คำทำนาย 12 เดือนข้างหน้า",
+      "paragraphs": [
+        "ระหว่างวันที่ 29 สิงหาคม 2569 ถึง 28 สิงหาคม 2570 งานและเงินเป็นสองเรื่องที่เดินหน้า มีงานให้ทำต่อและเงินคล่องขึ้น ภาระงานกับแรงกดด้านเงินยังมีอยู่ แต่จังหวะ 12 เดือนนี้ยังเดินไปข้างหน้า"
+      ],
+      "claimId": "C20-A35-HORIZON-01"
+    },
+    {
+      "kind": "prediction",
+      "title": "สรุปคำทำนาย",
+      "paragraphs": [
+        "ช่วงนี้เด่นเรื่องงานที่เดินหน้า เงินที่คล่องขึ้น และแรงสนับสนุนจากคนรอบตัว รอบ 12 เดือนข้างหน้ายังเดินไปในทางเดียวกัน"
+      ],
+      "claimId": "C20-A35-SUMMARY-01"
+    },
+    {
+      "kind": "advice",
+      "title": "คำแนะนำ",
+      "paragraphs": [
+        "จัดลำดับงานและภาระที่รับไว้ให้ชัด เก็บส่วนของรายรับไว้เป็นเงินสำรอง และรักษาเวลาพักให้สม่ำเสมอ"
+      ]
+    },
+    {
+      "kind": "disclaimer",
+      "title": "ข้อจำกัด",
+      "paragraphs": [
+        "คำทำนายนี้เป็นการตีความตามหลักโหราศาสตร์และความเชื่อ ใช้ประกอบการพิจารณาร่วมกับข้อเท็จจริงก่อนตัดสินใจเรื่องสำคัญ",
+        "ข้อความด้านสุขภาพใช้เพื่อการทบทวนทั่วไป ไม่ใช่การวินิจฉัยโรคหรือคำแนะนำทางการแพทย์"
+      ]
+    },
+    {
+      "kind": "separation",
+      "title": "พื้นดวงและมุมมองด้านจิตวิทยา",
+      "paragraphs": [
+        "เนื้อหาต่อไปนี้แยกจากคำทำนาย และไม่นับเป็นคำทำนาย"
+      ]
+    },
+    {
+      "kind": "foundation",
+      "title": "ดวงจากวันเกิดของคุณ",
+      "paragraphs": [
+        "คำอ่านพื้นดวงและจังหวะชีวิตจากวัน เวลา และสถานที่เกิด"
+      ]
+    },
+    {
+      "kind": "foundation",
+      "title": "งานจะเดินหน้าได้ เมื่อทุกฝ่ายเข้าใจตรงกันและทำตามที่คุยไว้",
+      "paragraphs": [
+        "ความอดทนช่วยให้คุณรับมือกับเรื่องยากได้ดี แต่ถ้ารับงานเพิ่ม คุณอาจมีเวลาให้คนรอบตัวน้อยลง ก่อนตัดสินใจ ลองดูว่าคุณยังมีเวลาอธิบายงานให้ทุกคนเข้าใจตรงกันหรือไม่"
+      ]
+    },
+    {
+      "kind": "foundation",
+      "title": "สรุปตัวคุณแบบตรง ๆ",
+      "paragraphs": [
+        "คุณเป็นคนคิดเป็นระบบ และมักทำได้ดีเมื่อรู้ว่าขั้นต่อไปต้องทำอะไร คุณยังมีความอดทนและค่อย ๆ สร้างสิ่งต่าง ๆ ให้มั่นคง จึงเป็นคนที่คนอื่นพึ่งพาได้ แต่ช่วงนี้ต้องระวังการทำแบบเดิมต่อไปเพียงเพราะเคยได้ผล ควรถามตัวเองเป็นระยะว่าวิธีนั้นยังเหมาะอยู่หรือไม่"
+      ]
+    },
+    {
+      "kind": "foundation",
+      "title": "การงาน",
+      "paragraphs": [
+        "เรื่องงาน คุณเด่นที่กล้าลงมือและรับมือกับเรื่องเร่งด่วนได้ดี ถ้าต้องรับผิดชอบมากขึ้น คุณก็ควรมีสิทธิ์ตัดสินใจมากขึ้นด้วย ไม่ใช่มีแต่งานเพิ่มขึ้นอย่างเดียว"
+      ]
+    },
+    {
+      "kind": "foundation",
+      "title": "การเงิน",
+      "paragraphs": [
+        "เรื่องเงิน คุณมั่นคงขึ้นเมื่อมองระยะยาว ใช้ความรู้ และค่อย ๆ ขยายแผน อย่าดูเพียงว่าเก็บเงินได้มากแค่ไหน แต่ให้ดูว่าเงินสำรองช่วยให้คุณมีทางเลือกมากพอหรือยัง"
+      ]
+    },
+    {
+      "kind": "foundation",
+      "title": "ความรักและความสัมพันธ์",
+      "paragraphs": [
+        "คุณไว้ใจความสัมพันธ์ได้มากขึ้นเมื่อคุยกันชัด รู้ว่าใครรับผิดชอบอะไร และต่างฝ่ายยังมีพื้นที่ตัดสินใจของตัวเอง"
+      ]
+    },
+    {
+      "kind": "foundation",
+      "title": "สุขภาพและพลังชีวิต",
+      "paragraphs": [
+        "เรื่องสุขภาพ ให้สังเกตว่าหลังพักแล้วใช้เวลานานขึ้นกว่าจะกลับมามีแรงหรือไม่ อย่าตัดสินจากวันที่เหนื่อยเพียงวันเดียว"
+      ]
+    },
+    {
+      "kind": "foundation",
+      "title": "คำชี้หลักจากพื้นดวง",
+      "paragraphs": [
+        "สิ่งสำคัญตอนนี้ไม่ใช่รับงานเพิ่ม แต่คือเลือกสิ่งที่คุ้มกับเวลาและแรงที่มี จัดตารางงานและเวลาพักแบบที่ทำตามได้จริง แล้วลองใช้สักระยะ จากนั้นค่อยดูว่าอะไรควรทำต่อและอะไรควรตัดออก"
+      ]
+    },
+    {
+      "kind": "separation",
+      "title": "ที่มาและวิธีอ่าน",
+      "paragraphs": [
+        "ข้อมูลและหลักที่ใช้ประกอบรายงาน แยกจากคำทำนาย"
+      ]
+    },
+    {
+      "kind": "provenance",
+      "title": "รายงานนี้ดูจากอะไร",
+      "paragraphs": [
+        "ข้อมูลวัน เวลา และสถานที่เกิด",
+        "วิธีนับวันทางโหราศาสตร์ไทย",
+        "วันเกิดตามสูติบัตรยังเป็นวันที่ 1982-06-06 ตามเดิม ส่วนการอ่านตามหลักโหราศาสตร์ไทยใช้วันเสาร์ (วันที่ 1982-06-05) เป็นวันทางโหราศาสตร์",
+        "เวลาเกิดอยู่ก่อนพระอาทิตย์ขึ้นเวลา 05:46 จึงใช้วันก่อนหน้าตามกฎที่นับวันใหม่เมื่อพระอาทิตย์ขึ้น โดยไม่เปลี่ยนวันเกิดตามสูติบัตร",
+        "ลัคนา (ภาพบุคลิกตั้งต้นที่คำนวณจากนาฬิกาเกิดและพิกัดจังหวัด) อยู่ที่ราศีกุมภ์",
+        "รายงานเลือกเรื่องที่เกี่ยวกับชีวิตคุณชัดที่สุดขึ้นมาก่อน จากนั้นจึงอธิบายสิ่งที่ควรระวังและใช้ตัดสินใจ",
+        "โครงสร้างดวงหลัก",
+        "วันทางโหราศาสตร์: วันเสาร์ — เวลาเกิดอยู่ก่อนพระอาทิตย์ขึ้น จึงใช้วันก่อนหน้าเป็นวันทางโหราศาสตร์",
+        "ลัคนา: ราศีกุมภ์ 19°19′ — ไปได้ดีเมื่อชีวิตมีระบบและรู้ว่าต้องทำอะไรต่อ",
+        "เจ้าเรือนลัคนา: ดาวเสาร์ — ใช้ประกอบการอ่านวิธีคิดและตัดสินใจจากลัคนา",
+        "เรือนการงาน: ราศีพิจิก · เจ้าเรือนดาวอังคาร — ตำแหน่งคู่นี้ใช้ประกอบการอ่านเรื่องงานและวิธีสร้างผลงาน",
+        "เรือนการเงิน: ราศีมีน · เจ้าเรือนดาวพฤหัสบดี — ตำแหน่งนี้ใช้ประกอบการอ่านเรื่องเงินและวิธีรักษาความมั่นคง",
+        "เรือนความสัมพันธ์: ราศีสิงห์ · เจ้าเรือนดาวอาทิตย์ — เรือนนี้ใช้ประกอบการอ่านเรื่องความสัมพันธ์และการสร้างความไว้ใจ",
+        "เรือนสุขภาวะ: ราศีกรกฎ · เจ้าเรือนดาวจันทร์ — หลักฐานชุดนี้ใช้ประกอบการอ่านเรื่องกิจวัตร การพัก และการฟื้นตัว",
+        "ความหมายและข้อจำกัดของผลลัพธ์"
+      ]
+    },
+    {
+      "kind": "provenance",
+      "title": "ที่มาของผลวิเคราะห์",
+      "paragraphs": [
+        "ใช้วัน เดือน ปีเกิด เวลาเกิด และจังหวัดที่เกิดจากโปรไฟล์ของคุณ",
+        "นำข้อมูลวันเกิดของคุณมาประมวลผลตามหลักดวงไทย แล้วแปลงเป็นภาษาที่อ่านเข้าใจง่าย โดยไม่แสดงรายละเอียดเชิงเทคนิค"
+      ]
+    }
+  ],
+  "fullReaderCopy": "ข้อมูลดวง\nเกิดวันที่ 6 มิถุนายน 2525 เวลา 00:35 น. จังหวัดเชียงใหม่\nเพศชาย · วันทางโหราศาสตร์เป็นวันเสาร์\nลัคนาราศีกุมภ์ 19°19′\n\nภาพรวมเส้นทางชีวิต\nชีวิตวัยเด็กมีข้อจำกัดจากครอบครัว หลังอายุ 11 ปี จังหวะชีวิตดีขึ้น และตั้งแต่อายุ 42 ปี งาน เงิน และแรงสนับสนุนเป็นเรื่องเด่นของชีวิต\n\nคำทำนายอดีต\n\nอายุ 0–10 ปี\nในวัย 0–10 ปี ข้อจำกัดด้านสุขภาพ การงาน และการเงินของครอบครัวทำให้ผู้ใหญ่มีเวลาดูแลใกล้ชิดน้อยลง ชีวิตช่วงนั้นจึงอยู่ภายใต้เงื่อนไขของบ้านเป็นหลัก\n\nอายุ 11–29 ปี\nช่วงอายุ 11–29 ปี ชีวิตเดินหน้าไปในทางที่ดีขึ้น การเรียนและการสร้างทางงานเป็นแกนสำคัญของช่วงนั้น\n\nอายุ 30–41 ปี\nช่วงอายุ 30–41 ปี ชีวิตยังเดินหน้าไปในทางที่ดี งาน อำนาจตัดสินใจ และความรับผิดชอบเข้ามามีบทบาทมากขึ้น\n\nคำทำนายปัจจุบัน — อายุ 44 ปี\nตอนนี้อายุ 44 ปี อยู่ในช่วง 42–62 ปี ซึ่งการทำงาน การสื่อสาร และการตัดสินใจราบรื่นขึ้น\n\nการงาน\nเรื่องงานเดินหน้าเป็นหลัก มีงานให้ทำและมีจังหวะขยับต่อ ภาระงานยังกดเวลา แต่จังหวะงานไม่หยุดนิ่ง\n\nการเงิน\nเรื่องเงินดีขึ้นเป็นหลัก มีเงินหมุนใช้และมีโชคลาภ แรงกดด้านเงินยังมีอยู่ แต่ความคล่องตัวทางการเงินเพิ่มขึ้น\n\nความรักและความสัมพันธ์\nความสัมพันธ์อยู่ในทางที่ดีขึ้น แม้ยังมีแรงกดดัน แต่เรื่องนี้ยังเดินหน้าต่อ\n\nสุขภาพ\nสุขภาพโดยรวมแข็งแรงขึ้นและรองรับกิจวัตรได้ การพักไม่พอยังเป็นจุดที่กดพลังลง\n\nโชคลาภและแรงสนับสนุน\nแรงสนับสนุนมาจากครู ผู้มีประสบการณ์ เพื่อน และคนในเครือข่าย ช่วยเปิดทางให้งานและการเงินเดินต่อได้\n\nคำทำนาย 12 เดือนข้างหน้า\nระหว่างวันที่ 29 สิงหาคม 2569 ถึง 28 สิงหาคม 2570 งานและเงินเป็นสองเรื่องที่เดินหน้า มีงานให้ทำต่อและเงินคล่องขึ้น ภาระงานกับแรงกดด้านเงินยังมีอยู่ แต่จังหวะ 12 เดือนนี้ยังเดินไปข้างหน้า\n\nสรุปคำทำนาย\nช่วงนี้เด่นเรื่องงานที่เดินหน้า เงินที่คล่องขึ้น และแรงสนับสนุนจากคนรอบตัว รอบ 12 เดือนข้างหน้ายังเดินไปในทางเดียวกัน\n\nคำแนะนำ\nจัดลำดับงานและภาระที่รับไว้ให้ชัด เก็บส่วนของรายรับไว้เป็นเงินสำรอง และรักษาเวลาพักให้สม่ำเสมอ\n\nข้อจำกัด\nคำทำนายนี้เป็นการตีความตามหลักโหราศาสตร์และความเชื่อ ใช้ประกอบการพิจารณาร่วมกับข้อเท็จจริงก่อนตัดสินใจเรื่องสำคัญ\nข้อความด้านสุขภาพใช้เพื่อการทบทวนทั่วไป ไม่ใช่การวินิจฉัยโรคหรือคำแนะนำทางการแพทย์\n\nพื้นดวงและมุมมองด้านจิตวิทยา\nเนื้อหาต่อไปนี้แยกจากคำทำนาย และไม่นับเป็นคำทำนาย\n\nดวงจากวันเกิดของคุณ\nคำอ่านพื้นดวงและจังหวะชีวิตจากวัน เวลา และสถานที่เกิด\n\nงานจะเดินหน้าได้ เมื่อทุกฝ่ายเข้าใจตรงกันและทำตามที่คุยไว้\nความอดทนช่วยให้คุณรับมือกับเรื่องยากได้ดี แต่ถ้ารับงานเพิ่ม คุณอาจมีเวลาให้คนรอบตัวน้อยลง ก่อนตัดสินใจ ลองดูว่าคุณยังมีเวลาอธิบายงานให้ทุกคนเข้าใจตรงกันหรือไม่\n\nสรุปตัวคุณแบบตรง ๆ\nคุณเป็นคนคิดเป็นระบบ และมักทำได้ดีเมื่อรู้ว่าขั้นต่อไปต้องทำอะไร คุณยังมีความอดทนและค่อย ๆ สร้างสิ่งต่าง ๆ ให้มั่นคง จึงเป็นคนที่คนอื่นพึ่งพาได้ แต่ช่วงนี้ต้องระวังการทำแบบเดิมต่อไปเพียงเพราะเคยได้ผล ควรถามตัวเองเป็นระยะว่าวิธีนั้นยังเหมาะอยู่หรือไม่\n\nการงาน\nเรื่องงาน คุณเด่นที่กล้าลงมือและรับมือกับเรื่องเร่งด่วนได้ดี ถ้าต้องรับผิดชอบมากขึ้น คุณก็ควรมีสิทธิ์ตัดสินใจมากขึ้นด้วย ไม่ใช่มีแต่งานเพิ่มขึ้นอย่างเดียว\n\nการเงิน\nเรื่องเงิน คุณมั่นคงขึ้นเมื่อมองระยะยาว ใช้ความรู้ และค่อย ๆ ขยายแผน อย่าดูเพียงว่าเก็บเงินได้มากแค่ไหน แต่ให้ดูว่าเงินสำรองช่วยให้คุณมีทางเลือกมากพอหรือยัง\n\nความรักและความสัมพันธ์\nคุณไว้ใจความสัมพันธ์ได้มากขึ้นเมื่อคุยกันชัด รู้ว่าใครรับผิดชอบอะไร และต่างฝ่ายยังมีพื้นที่ตัดสินใจของตัวเอง\n\nสุขภาพและพลังชีวิต\nเรื่องสุขภาพ ให้สังเกตว่าหลังพักแล้วใช้เวลานานขึ้นกว่าจะกลับมามีแรงหรือไม่ อย่าตัดสินจากวันที่เหนื่อยเพียงวันเดียว\n\nคำชี้หลักจากพื้นดวง\nสิ่งสำคัญตอนนี้ไม่ใช่รับงานเพิ่ม แต่คือเลือกสิ่งที่คุ้มกับเวลาและแรงที่มี จัดตารางงานและเวลาพักแบบที่ทำตามได้จริง แล้วลองใช้สักระยะ จากนั้นค่อยดูว่าอะไรควรทำต่อและอะไรควรตัดออก\n\nที่มาและวิธีอ่าน\nข้อมูลและหลักที่ใช้ประกอบรายงาน แยกจากคำทำนาย\n\nรายงานนี้ดูจากอะไร\nข้อมูลวัน เวลา และสถานที่เกิด\nวิธีนับวันทางโหราศาสตร์ไทย\nวันเกิดตามสูติบัตรยังเป็นวันที่ 1982-06-06 ตามเดิม ส่วนการอ่านตามหลักโหราศาสตร์ไทยใช้วันเสาร์ (วันที่ 1982-06-05) เป็นวันทางโหราศาสตร์\nเวลาเกิดอยู่ก่อนพระอาทิตย์ขึ้นเวลา 05:46 จึงใช้วันก่อนหน้าตามกฎที่นับวันใหม่เมื่อพระอาทิตย์ขึ้น โดยไม่เปลี่ยนวันเกิดตามสูติบัตร\nลัคนา (ภาพบุคลิกตั้งต้นที่คำนวณจากนาฬิกาเกิดและพิกัดจังหวัด) อยู่ที่ราศีกุมภ์\nรายงานเลือกเรื่องที่เกี่ยวกับชีวิตคุณชัดที่สุดขึ้นมาก่อน จากนั้นจึงอธิบายสิ่งที่ควรระวังและใช้ตัดสินใจ\nโครงสร้างดวงหลัก\nวันทางโหราศาสตร์: วันเสาร์ — เวลาเกิดอยู่ก่อนพระอาทิตย์ขึ้น จึงใช้วันก่อนหน้าเป็นวันทางโหราศาสตร์\nลัคนา: ราศีกุมภ์ 19°19′ — ไปได้ดีเมื่อชีวิตมีระบบและรู้ว่าต้องทำอะไรต่อ\nเจ้าเรือนลัคนา: ดาวเสาร์ — ใช้ประกอบการอ่านวิธีคิดและตัดสินใจจากลัคนา\nเรือนการงาน: ราศีพิจิก · เจ้าเรือนดาวอังคาร — ตำแหน่งคู่นี้ใช้ประกอบการอ่านเรื่องงานและวิธีสร้างผลงาน\nเรือนการเงิน: ราศีมีน · เจ้าเรือนดาวพฤหัสบดี — ตำแหน่งนี้ใช้ประกอบการอ่านเรื่องเงินและวิธีรักษาความมั่นคง\nเรือนความสัมพันธ์: ราศีสิงห์ · เจ้าเรือนดาวอาทิตย์ — เรือนนี้ใช้ประกอบการอ่านเรื่องความสัมพันธ์และการสร้างความไว้ใจ\nเรือนสุขภาวะ: ราศีกรกฎ · เจ้าเรือนดาวจันทร์ — หลักฐานชุดนี้ใช้ประกอบการอ่านเรื่องกิจวัตร การพัก และการฟื้นตัว\nความหมายและข้อจำกัดของผลลัพธ์\n\nที่มาของผลวิเคราะห์\nใช้วัน เดือน ปีเกิด เวลาเกิด และจังหวัดที่เกิดจากโปรไฟล์ของคุณ\nนำข้อมูลวันเกิดของคุณมาประมวลผลตามหลักดวงไทย แล้วแปลงเป็นภาษาที่อ่านเข้าใจง่าย โดยไม่แสดงรายละเอียดเชิงเทคนิค"
+}

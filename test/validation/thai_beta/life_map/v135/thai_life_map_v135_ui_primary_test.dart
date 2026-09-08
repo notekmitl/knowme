@@ -40,14 +40,18 @@ void main() {
     await tester.pump(const Duration(milliseconds: 50));
   }
 
-  void expectAcceptedHumanReadableReport() {
+  void expectAcceptedHumanReadablePredictiveReport() {
     expect(
       find.byKey(const Key('thai_birth_profile_core_reading')),
       findsOneWidget,
     );
-    expect(find.text('อดีตของคุณ'), findsOneWidget);
-    expect(find.text('ช่วงปัจจุบัน'), findsOneWidget);
-    expect(find.text('จังหวะชีวิตระยะต่อไป'), findsOneWidget);
+    expect(find.text('คำทำนายอดีต'), findsOneWidget);
+    expect(find.text('อดีตของคุณ'), findsNothing);
+    expect(find.text('คำทำนายปัจจุบัน — อายุ 44 ปี'), findsOneWidget);
+    expect(find.text('ช่วงปัจจุบัน'), findsNothing);
+    expect(find.text('ช่วงชีวิตถัดไป — อายุ 47–65 ปี'), findsOneWidget);
+    expect(find.text('เรื่องสำคัญของช่วงนี้'), findsNothing);
+    expect(find.text('จังหวะชีวิตระยะต่อไป'), findsNothing);
   }
 
   void expectDetailedEvidenceReportAbsent() {
@@ -83,16 +87,20 @@ void main() {
 
       await pumpReport(tester);
 
-      expectAcceptedHumanReadableReport();
+      expectAcceptedHumanReadablePredictiveReport();
       expectDetailedEvidenceReportAbsent();
 
       expect(
         find.text(ThaiMirrorLifeTimelineSection.expandDetailsLabel),
         findsNothing,
       );
-      expect(find.text('อดีตของคุณ'), findsOneWidget);
-      expect(find.text('ช่วงปัจจุบัน'), findsOneWidget);
-      expect(find.text('จังหวะชีวิตระยะต่อไป'), findsOneWidget);
+      expect(find.text('คำทำนายอดีต'), findsOneWidget);
+      expect(find.text('อดีตของคุณ'), findsNothing);
+      expect(find.text('คำทำนายปัจจุบัน — อายุ 44 ปี'), findsOneWidget);
+      expect(find.text('ช่วงปัจจุบัน'), findsNothing);
+      expect(find.text('ช่วงชีวิตถัดไป — อายุ 47–65 ปี'), findsOneWidget);
+      expect(find.text('เรื่องสำคัญของช่วงนี้'), findsNothing);
+      expect(find.text('จังหวะชีวิตระยะต่อไป'), findsNothing);
       expect(tester.takeException(), isNull);
     },
   );
@@ -102,7 +110,7 @@ void main() {
   ) async {
     await pumpReport(tester, size: const Size(1440, 3200));
 
-    expectAcceptedHumanReadableReport();
+    expectAcceptedHumanReadablePredictiveReport();
     expectDetailedEvidenceReportAbsent();
     expect(tester.takeException(), isNull);
   });
@@ -116,7 +124,7 @@ void main() {
       flag: ThaiEvidenceBadgeFeatureFlagState.invitedBeta,
     );
     expect(find.byType(ThaiBetaEvidenceBadgePanel), findsNothing);
-    expectAcceptedHumanReadableReport();
+    expectAcceptedHumanReadablePredictiveReport();
     expectDetailedEvidenceReportAbsent();
   });
 
@@ -128,7 +136,7 @@ void main() {
       userId: 'user-not-invited',
     );
     expect(find.byType(ThaiBetaEvidenceBadgePanel), findsNothing);
-    expectAcceptedHumanReadableReport();
+    expectAcceptedHumanReadablePredictiveReport();
     expectDetailedEvidenceReportAbsent();
   });
 
@@ -142,7 +150,7 @@ void main() {
       userId: 'admin-not-invited',
     );
     expect(find.byType(ThaiBetaEvidenceBadgePanel), findsNothing);
-    expectAcceptedHumanReadableReport();
+    expectAcceptedHumanReadablePredictiveReport();
     expectDetailedEvidenceReportAbsent();
   });
 
@@ -155,7 +163,7 @@ void main() {
       flag: ThaiEvidenceBadgeFeatureFlagState.invitedBeta,
       userId: 'invited-user-1',
     );
-    expectAcceptedHumanReadableReport();
+    expectAcceptedHumanReadablePredictiveReport();
     expectDetailedEvidenceReportAbsent();
     expect(tester.takeException(), isNull);
   });

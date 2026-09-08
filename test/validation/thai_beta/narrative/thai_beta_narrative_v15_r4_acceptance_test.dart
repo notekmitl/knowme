@@ -1,3 +1,4 @@
+import '../../../evidence/or5r_unknown_contract.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:knowme/features/thai_beta/application/core_reading/thai_birth_profile_core_reading.dart';
 import 'package:knowme/features/thai_beta/application/narrative/thai_beta_narrative_composer.dart';
@@ -84,6 +85,10 @@ void main() {
 
   test('all rendered forecasts cover 4x3 and each horizon adds a new kind', () {
     for (final entry in analyses.entries) {
+      if (!entry.value.input.hasBirthTime) {
+        expectUnknownContract(entry.value);
+        continue;
+      }
       final view = ThaiBetaNarrativeComposer.narrativeView(entry.value);
       final text = ThaiBetaReportExportDocument.fromAnalysis(
         entry.value,
@@ -115,28 +120,10 @@ void main() {
       final text = ThaiBetaReportExportDocument.fromAnalysis(
         analysis,
       ).fullPlainText;
-      final boundary = view
-          .futurePrediction!
-          .windows
-          .first
-          .domains
-          .first
-          .uncertaintyDisclosure;
-      expect(boundary, isNotEmpty);
-      expect(boundary.allMatches(text), hasLength(1));
-      for (final domain in view.futurePrediction!.windows.expand(
-        (window) => window.domains,
-      )) {
-        expect(
-          domain.body,
-          isNot(matches(RegExp(r'ไม่มีเวลาเกิด|ลัคนา|เรือน|ดาว'))),
-          reason: domain.title,
-        );
-        expect(
-          domain.body,
-          isNot(contains('และต้องยืนยันจากสิ่งที่เกิดซ้ำเพราะไม่มีเวลาเกิด')),
-        );
-      }
+      expectUnknownContract(analysis);
+      expect(view.futurePrediction, isNull);
+      expect(or5rOmission.allMatches(text), hasLength(1));
+      expect(view.narrativeSections, isEmpty);
       expect(view.hero.headline, isNot(plans['owner-known-0035']!.headline));
     },
   );
@@ -145,6 +132,10 @@ void main() {
     'past is one disclaimer plus distinct theme and reflection per period',
     () {
       for (final entry in analyses.entries) {
+        if (!entry.value.input.hasBirthTime) {
+          expectUnknownContract(entry.value);
+          continue;
+        }
         final view = ThaiBetaNarrativeComposer.narrativeView(entry.value);
         final text = ThaiBetaReportExportDocument.fromAnalysis(
           entry.value,
@@ -226,6 +217,10 @@ void main() {
         expect(text, isNot(contains(';')), reason: entry.key);
         for (final phrase in forbidden) {
           expect(text, isNot(contains(phrase)), reason: '${entry.key}:$phrase');
+        }
+        if (!entry.value.input.hasBirthTime) {
+          expectUnknownContract(entry.value);
+          continue;
         }
         final bodies = view.futurePrediction!.windows
             .expand((window) => window.domains)

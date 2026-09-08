@@ -1,3 +1,4 @@
+import '../../../evidence/or5r_unknown_contract.dart';
 import 'dart:convert';
 import 'dart:io';
 
@@ -30,17 +31,22 @@ void main() {
       );
       final frozenDocument = ThaiBetaReportExportDocument.fromAnalysis(frozen);
       final frozenPdf = await ThaiBetaReportPdfExporter.build(frozenDocument);
-      expectCanonicalFixtureText(
-        pipelineText: frozenDocument.fullPlainText,
-        fixturePath: '$_acceptedRoot/${entry.key}-web-text.txt',
-        reason: '${entry.key} frozen Web',
-      );
-      expectCanonicalFixtureText(
-        pipelineText: frozenPdf.plainText,
-        fixturePath: '$_acceptedRoot/${entry.key}-pdf-text.txt',
-        reason: '${entry.key} frozen PDF',
-      );
-
+      if (entry.value.hasBirthTime) {
+        expectCanonicalFixtureText(
+          pipelineText: frozenDocument.fullPlainText,
+          fixturePath: '$_acceptedRoot/${entry.key}-web-text.txt',
+          reason: '${entry.key} frozen Web',
+        );
+        expectCanonicalFixtureText(
+          pipelineText: frozenPdf.plainText,
+          fixturePath: '$_acceptedRoot/${entry.key}-pdf-text.txt',
+          reason: '${entry.key} frozen PDF',
+        );
+      } else {
+        expectUnknownContract(frozen);
+        expect(frozenDocument.fullPlainText, expectedUnknownText(entry.value));
+        expect(frozenPdf.plainText, expectedUnknownText(entry.value));
+      }
       final liveFirst = ThaiBetaAnalysisRunner.run(
         entry.value,
         startedAt: DateTime(2026, 8, 16, 16, 15),
@@ -57,6 +63,10 @@ void main() {
         liveSecond,
       );
 
+      if (!entry.value.hasBirthTime) {
+        expectUnknownContract(liveFirst);
+        expectUnknownContract(liveSecond);
+      }
       expect(liveFirst.reportHash, liveSecond.reportHash);
       expect(liveDocument.fullPlainText, repeatedDocument.fullPlainText);
       expect(liveDocument.fullPlainText, livePdf.plainText);
@@ -79,8 +89,9 @@ void main() {
         'fixture': entry.key,
         'frozenAsOf': _frozenAsOf.toIso8601String(),
         'liveAsOf': _liveAsOf.toIso8601String(),
-        'frozenExactWeb': true,
-        'frozenExactPdf': true,
+        'frozenExactWeb': entry.value.hasBirthTime ? true : null,
+        'frozenExactPdf': entry.value.hasBirthTime ? true : null,
+        'unknownOmissionContractExact': entry.value.hasBirthTime ? null : true,
         'liveWebPdfExact': true,
         'liveRepeatExact': true,
         'reportHash': liveFirst.reportHash,

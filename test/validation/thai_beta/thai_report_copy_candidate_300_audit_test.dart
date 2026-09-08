@@ -1,3 +1,4 @@
+import '../../evidence/or5r_unknown_contract.dart';
 import 'dart:convert';
 import 'dart:io';
 
@@ -20,6 +21,8 @@ void main() {
       final infographicProfiles = <Map<String, Object?>>[];
       final copyQualityViolations = <String>[];
       final changedProfiles = <String>{};
+      var runtimeKnownInfographics = 0;
+      var runtimeUnknownInfographics = 0;
       final cases = ThaiBetaSyntheticMatrix.build();
       expect(cases, hasLength(300));
 
@@ -30,8 +33,115 @@ void main() {
           asOf: DateTime.parse(_referenceDate),
         );
         expect(analysis.isSuccess, isTrue, reason: profile.id);
+        final runtimeDocument = ThaiBetaReportExportDocument.candidate(
+          analysis,
+        );
+        final runtimePlan = runtimeDocument.predictiveRuntimeV2!;
+        expect(runtimePlan.fixtureSpecificBranches, 0, reason: profile.id);
+        expect(
+          runtimePlan.ownerAcceptedGoldenOverrideApplied,
+          0,
+          reason: profile.id,
+        );
+        if (!profile.input.hasBirthTime) {
+          expect(runtimeDocument.infographic, isNull, reason: profile.id);
+          runtimeUnknownInfographics++;
+        } else {
+          final runtimeGraphic = runtimeDocument.infographic;
+          expect(runtimeGraphic, isNotNull, reason: profile.id);
+          expect(runtimePlan.omissionReason, isEmpty, reason: profile.id);
+          final infographic = runtimeGraphic!;
+          expect(infographic.categories, hasLength(4), reason: profile.id);
+          final boundOwners = <String, String>{
+            'theme': 'rolling12',
+            'category-work': 'work',
+            'category-finance': 'finance',
+            'category-relationship': 'relationship',
+            'category-health': 'health',
+            'opportunity': 'support',
+            'caution': 'health',
+            'primaryAdvice': 'advice',
+            'disclaimer': 'disclosure',
+          };
+          final infographicText = <String, String>{
+            'theme': infographic.theme,
+            'category-work': infographic.categories[0].summary,
+            'category-finance': infographic.categories[1].summary,
+            'category-relationship': infographic.categories[2].summary,
+            'category-health': infographic.categories[3].summary,
+            'opportunity': infographic.opportunity,
+            'caution': infographic.caution,
+            'primaryAdvice': infographic.primaryAdvice,
+            'disclaimer': infographic.disclaimer,
+          };
+          for (final entry in boundOwners.entries) {
+            final decision = runtimePlan.claimForOwner(entry.value);
+            expect(decision, isNotNull, reason: '${profile.id}/${entry.key}');
+            expect(
+              decision!.rule.hasCompletePredictiveChain,
+              isTrue,
+              reason: '${profile.id}/${entry.key}',
+            );
+            final expected = entry.value == 'disclosure'
+                ? decision.text
+                : entry.value == 'rolling12'
+                ? decision.infographicText.replaceFirst(
+                    RegExp(
+                      r'^ระหว่างวันที่\s+\d+\s+\S+\s+\d+\s+ถึง\s+\d+\s+\S+\s+\d+\s*',
+                    ),
+                    '',
+                  )
+                : decision.infographicText;
+            expect(
+              infographicText[entry.key],
+              expected,
+              reason: '${profile.id}/${entry.key}',
+            );
+          }
+          for (final text in <String>[
+            infographic.overview,
+            ...infographicText.values,
+          ]) {
+            for (final rejected in const [
+              'เว้นหัวข้อที่ต้องใช้เวลาเกิด',
+              'ไม่มีเวลาเกิด',
+              'ข้อมูลไม่เพียงพอ',
+            ]) {
+              expect(
+                text.contains(rejected),
+                isFalse,
+                reason: '${profile.id}: $rejected',
+              );
+            }
+          }
+          expect(
+            runtimePlan.emittedClaims.any(
+              (decision) =>
+                  <String>[
+                    decision.rule.id,
+                    decision.rule.semanticOwner,
+                    ...decision.rule.evidenceRefs,
+                    ...decision.rule.sourceComponents,
+                  ].any(
+                    (value) => RegExp(
+                      r'unknown|omission|fallback',
+                      caseSensitive: false,
+                    ).hasMatch(value),
+                  ),
+            ),
+            isFalse,
+            reason: profile.id,
+          );
+          runtimeKnownInfographics++;
+        }
         final before = ThaiBetaReportExportDocument.beforeReaderCopy(analysis);
-        final after = ThaiBetaReportExportDocument.candidate(analysis);
+        // This ledger is the accepted PR108 copy-only transform audit. Keep it
+        // pinned to that projection now that candidate() additionally applies
+        // the independently audited Predictive Runtime V2 plan.
+        final after = ThaiBetaReportExportDocument.fromAnalysis(
+          analysis,
+          applyReaderCopy: true,
+        );
         final methodologyChapterIndex = after.sections.indexWhere(
           (section) => section.title == 'ส่วนที่ 4 · ที่มาและข้อจำกัด',
         );
@@ -71,8 +181,14 @@ void main() {
             .skip(methodologyChapterIndex)
             .expand((section) => <String>[section.title, ...section.paragraphs])
             .join('\n');
-        expect(methodologyText, contains('รายงานนี้ดูจากอะไร'));
-        expect(methodologyText, contains('ที่มาของผลวิเคราะห์'));
+        if (profile.input.hasBirthTime) {
+          expect(methodologyText, contains('รายงานนี้ดูจากอะไร'));
+          expect(methodologyText, contains('ที่มาของผลวิเคราะห์'));
+        } else {
+          expectUnknownContract(analysis);
+          expect(before.fullPlainText, expectedUnknownText(profile.input));
+          expect(after.fullPlainText, expectedUnknownText(profile.input));
+        }
         if (profile.input.hasBirthTime) {
           expect(methodologyText, contains('โครงสร้างดวงหลัก'));
           expect(methodologyText, contains('ลัคนา:'));
@@ -195,6 +311,7 @@ void main() {
         final afterContentSections = after.sections
             .where(
               (section) =>
+                  !profile.input.hasBirthTime ||
                   section.kind != ThaiBetaReportExportSectionKind.chapter,
             )
             .toList(growable: false);
@@ -279,6 +396,17 @@ void main() {
               semanticKey: _coreSemanticKey(left.title, paragraphIndex),
             );
           }
+        }
+        if (!profile.input.hasBirthTime) {
+          expect(before.infographic, isNull);
+          expect(after.infographic, isNull);
+          infographicProfiles.add({
+            'profileId': profile.id,
+            'birthTimeMode': 'Unknown',
+            'status': 'omitted-not-applicable:no-birth-time',
+            'generatedPredictionCount': 0,
+          });
+          continue;
         }
         final beforeGraphic = before.infographic!;
         final afterGraphic = after.infographic!;
@@ -411,13 +539,6 @@ void main() {
             '${profile.id}: transition reserve was not relocated exactly once',
           );
         }
-        if (!profile.input.hasBirthTime &&
-            afterGraphic.disclaimer !=
-                'ไม่มีเวลาเกิด — รายงานจึงเว้นหัวข้อที่ต้องใช้เวลาเกิด') {
-          copyQualityViolations.add(
-            '${profile.id}: Unknown fail-closed omission boundary is inconsistent',
-          );
-        }
         if (afterGraphic.theme.contains('พฤติกรรมหลังข้อตกลง') ||
             afterGraphic.theme.contains('ใช้ขอบเขตหน้าที่') ||
             afterGraphic.primaryAdvice.contains(
@@ -458,6 +579,18 @@ void main() {
       expect(rows.every((row) => row['omission'] == false), isTrue);
       expect(rows.every((row) => row['addition'] == false), isTrue);
       expect(copyQualityViolations, isEmpty);
+      expect(
+        infographicProfiles.where((row) => row['birthTimeMode'] == 'Known'),
+        hasLength(225),
+      );
+      expect(
+        infographicProfiles.where(
+          (row) => row['status'] == 'omitted-not-applicable:no-birth-time',
+        ),
+        hasLength(75),
+      );
+      expect(runtimeKnownInfographics, 225);
+      expect(runtimeUnknownInfographics, 75);
 
       final output = Platform.environment['KNOWME_COPY_LEDGER_OUTPUT'];
       if (output != null && output.isNotEmpty) {
@@ -471,6 +604,10 @@ void main() {
             .where((row) => row['intendedBasisRemoval'] != true)
             .toList();
         final payload = <String, Object?>{
+          'comparisonScope':
+              'Current OR5R beforeReaderCopy versus readerCopy transform; not a pre-OR5R runtime baseline comparison',
+          'generatedKnownInfographics': 225,
+          'omittedUnknownInfographics': 75,
           'profiles_checked': cases.length,
           'knownProfiles': cases.where((c) => c.input.hasBirthTime).length,
           'unknownProfiles': cases.where((c) => !c.input.hasBirthTime).length,

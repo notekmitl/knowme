@@ -1,0 +1,76 @@
+{
+  "schema": "candidate-0020-content-truth-correction/1",
+  "recordedAt": "2026-09-07",
+  "candidate": "Candidate 0020 actual 00:35",
+  "candidateHead": "ef4256c4993a7514f1427cf0374a200a66776f8e",
+  "finalStatus": "OWNER_REJECTED_PRODUCT_CONTENT",
+  "implemented": false,
+  "oldAuditMutated": false,
+  "ownerDecision": {
+    "chronologicalStructureAccepted": true,
+    "pastPeriodEquivalenceAccepted": true,
+    "unsupportedNextPeriodOmissionAccepted": true,
+    "currentPredictiveWordingAccepted": false,
+    "machineAuditTruthful": false,
+    "schemaOrTestPassEqualsContentPass": false
+  },
+  "lexicalCountsInPredictionParagraphs": {
+    "เดินหน้า": 6,
+    "ดีขึ้น": 4,
+    "แรงกด": 3
+  },
+  "crossSectionSemanticRepetition": [
+    {
+      "meaning": "งานเป็นผลเด่น",
+      "owners": ["overview", "work", "rolling12", "summary"]
+    },
+    {
+      "meaning": "เงินดีขึ้นหรือคล่องขึ้น",
+      "owners": ["overview", "finance", "rolling12", "summary"]
+    },
+    {
+      "meaning": "แรงสนับสนุนเป็นผลเด่น",
+      "owners": ["overview", "support", "summary"]
+    }
+  ],
+  "broadTemplateFindings": [
+    {
+      "owner": "relationship",
+      "exactSpan": "ความสัมพันธ์อยู่ในทางที่ดีขึ้น แม้ยังมีแรงกดดัน แต่เรื่องนี้ยังเดินหน้าต่อ",
+      "reason": "ไม่ได้บอกว่าความสัมพันธ์เปลี่ยนอย่างไรหรือแรงต้านกระทบผลหลักอย่างไร"
+    },
+    {
+      "owner": "health",
+      "exactSpan": "สุขภาพโดยรวมแข็งแรงขึ้นและรองรับกิจวัตรได้ การพักไม่พอยังเป็นจุดที่กดพลังลง",
+      "reason": "คำว่าโดยรวมและกดพลังยังเป็นผลกว้างที่ตรวจความหมายเฉพาะไม่ได้"
+    }
+  ],
+  "psychologyLeakage": {
+    "predictionSpans": [
+      "งานจะเดินหน้าได้ เมื่อทุกฝ่ายเข้าใจตรงกันและทำตามที่คุยไว้",
+      "แต่ช่วงนี้ต้องระวังการทำแบบเดิมต่อไปเพียงเพราะเคยได้ผล"
+    ],
+    "adviceSpans": [
+      "ก่อนตัดสินใจ ลองดูว่าคุณยังมีเวลาอธิบายงานให้ทุกคนเข้าใจตรงกันหรือไม่",
+      "ควรถามตัวเองเป็นระยะว่าวิธีนั้นยังเหมาะอยู่หรือไม่"
+    ],
+    "repeatedDomainHeadings": [
+      "การงาน",
+      "การเงิน",
+      "ความรักและความสัมพันธ์",
+      "สุขภาพและพลังชีวิต"
+    ]
+  },
+  "correctedCounters": {
+    "ambiguous_template_language": "NONZERO",
+    "semantic_duplicate_pairs": "NONZERO"
+  },
+  "provenance": {
+    "rejectedCandidate": "docs/CANDIDATE_0020_ACTUAL_0035_FULL_READER_COPY.md",
+    "rejectedClaimMap": "docs/CANDIDATE_0020_CLAIM_MAP.json",
+    "supersededMachineAudit": "docs/CANDIDATE_0020_CONTENT_AUDIT.json",
+    "ownerDecision": "PR115 OR7 owner instruction dated 2026-09-07",
+    "immutableBaseHead": "1a94b0b02acae5a7890297288088cac92d92168b"
+  },
+  "boundary": "This correction supersedes Candidate 0020 content-audit conclusions without editing the historical Candidate, claim map, or audit files."
+}

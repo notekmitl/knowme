@@ -1,0 +1,108 @@
+{
+  "schema": "pr115-or8-validation/1",
+  "recordedAt": "2026-09-07",
+  "baseHead": "c726216f91359dd27eb3eed591d272bc76c66c9e",
+  "scope": "targeted-copy/evidence/validator/docs-only",
+  "freshExtraction": {
+    "runs": 2,
+    "testsPerRun": 2,
+    "passedPerRun": 2,
+    "failedPerRun": 0,
+    "mismatches": 0,
+    "status": "PASS"
+  },
+  "neutralAuthorityV2AndExistingEvidenceOracles": {
+    "tests": 33,
+    "passed": 33,
+    "failed": 0,
+    "status": "PASS_AS_ENGINEERING_AUDIT_ONLY"
+  },
+  "candidate0020SchemaAndPastEquivalence": {
+    "tests": 12,
+    "passed": 12,
+    "failed": 0,
+    "pastEquivalenceNegativeControlsRejected": 3,
+    "status": "PASS_AS_HISTORICAL_SCHEMA_AND_EQUIVALENCE_EVIDENCE_ONLY"
+  },
+  "candidate0021ContentEvidence": {
+    "tests": 16,
+    "passed": 16,
+    "failed": 0,
+    "status": "PASS_AS_HISTORICAL_ENGINEERING_EVIDENCE_ONLY_OWNER_WORDING_REJECTED"
+  },
+  "candidate0022ExactCopyEvidence": {
+    "tests": 15,
+    "passed": 15,
+    "failed": 0,
+    "predictionClaims": 11,
+    "clauseChecks": 27,
+    "supportedClauseChecks": 21,
+    "blockedExactSpans": 6,
+    "overallStatus": "BLOCKED_EXACT_SPAN",
+    "pairwiseSemanticOwnership": {
+      "checked": 55,
+      "duplicates": 0
+    },
+    "mutationControlsDetected": 8,
+    "fullReaderCopySha256": "853AC9AA7F00BE7A3CC7736E530311D8B371EA67F2766205FDC368EFB7117E5A",
+    "status": "PASS_AS_TRUTHFUL_BLOCKING_EVIDENCE_NOT_CONTENT_PASS"
+  },
+  "candidate0022AuditCounters": {
+    "conditional_prediction_fallback": 0,
+    "cross_horizon_semantic_repetition": 0,
+    "reader_perceived_repetition": 2,
+    "generic_positive_then_risk_formula": 0,
+    "unsupported_causal_link": 6,
+    "unnatural_thai_phrase": 0,
+    "advice_disguised_as_prediction": 0,
+    "personality_disguised_as_prediction": 0
+  },
+  "candidate0021NegativeControlCounters": {
+    "conditional_prediction_fallback": 2,
+    "cross_horizon_semantic_repetition": 2,
+    "reader_perceived_repetition": 2,
+    "generic_positive_then_risk_formula": 3,
+    "unsupported_causal_link": 0,
+    "unnatural_thai_phrase": 1,
+    "advice_disguised_as_prediction": 0,
+    "personality_disguised_as_prediction": 0
+  },
+  "candidate0011Regression": {
+    "exact": true,
+    "sha256": "6AA94C7A01555310C5189FAAF711597057C5DF2F102246A0DF3946DAB2B62A1E",
+    "status": "PASS_UNCHANGED"
+  },
+  "commands": [
+    "powershell -ExecutionPolicy Bypass -File tool/pr115_or8_validation.ps1 -Extract",
+    "node tool/pr115_or8_content_candidate.mjs",
+    "node --test --test-reporter=tap test/evidence/pr115_or8_content_candidate.test.mjs",
+    "git diff --check"
+  ],
+  "repositoryGates": {
+    "gitDiffCheck": "PASS",
+    "preCommit": "PASS",
+    "postCommit": "PASS_CONTENT_EVIDENCE_COMMIT_5C3405AC8FD46D9B146287E2A1F3311A842FBEC0"
+  },
+  "notRerun": {
+    "fullFlutterSuite": "NOT RERUN — no Dart/runtime/Flutter-test delta",
+    "analyzer": "NOT RERUN — no Dart/runtime/Flutter-test delta"
+  },
+  "notCreated": [
+    "Web captures",
+    "PDF",
+    "infographic",
+    "Owner Review ZIP"
+  ],
+  "protectedDelta": {
+    "dartRuntimeUiGeneratorExportPdf": 0,
+    "flutterTests": 0,
+    "candidate0011": 0,
+    "candidate0020HistoricalFiles": 0,
+    "candidate0021HistoricalFiles": 0,
+    "generatedProductArtifacts": 0,
+    "productAcceptance": 0,
+    "firebaseProduction": 0
+  },
+  "contentEvidenceCommit": "5c3405ac8fd46d9b146287e2a1f3311a842fbec0",
+  "ownerStatus": "CANDIDATE 0022 BLOCKED BY EXACT EVIDENCE GAP"
+}

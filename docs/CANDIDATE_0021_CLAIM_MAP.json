@@ -1,0 +1,687 @@
+{
+  "schema": "candidate-0021-actual-0035/1",
+  "fixture": {
+    "sex": "male",
+    "birthDate": "1982-06-06",
+    "birthTime": "00:35",
+    "province": "Chiang Mai",
+    "asOf": "2026-08-29",
+    "timeZone": "Asia/Bangkok",
+    "ascendant": "Aquarius 19°19′"
+  },
+  "status": "PROPOSED_OWNER_COPY_PENDING_REVIEW",
+  "implemented": false,
+  "accepted": false,
+  "sourceArchitectureChanged": false,
+  "sourceCandidate": "Candidate 0020 OWNER_REJECTED_PRODUCT_CONTENT",
+  "predictionClaims": [
+    {
+      "claimId": "C21-A35-OVERVIEW-01",
+      "sourceClaimId": "C20-A35-OVERVIEW-01",
+      "semanticOwner": "overview",
+      "section": "ภาพรวมเส้นทางชีวิต",
+      "timeScope": "0-62",
+      "context": "mahabhut2537.rem0.saturday",
+      "period": "0-62",
+      "domain": "life_path",
+      "horizon": "overview",
+      "direction": "down_then_up",
+      "evidenceRefs": [
+        "selector.mahabhut2537.rem0.saturday.saturn.0_10",
+        "selector.mahabhut2537.rem0.saturday.jupiter.11_29",
+        "selector.mahabhut2537.rem0.saturday.rahu.30_41",
+        "selector.mahabhut2537.rem0.saturday.venus.42_62",
+        "source.T0003-SRC-0-10-FAMILY-CONSTRAINT",
+        "source.T0003-SRC-11-62-RISING-BLOCK",
+        "source.T0003-SRC-42-62-WORK",
+        "source.T0003-SRC-42-62-FINANCE",
+        "source.T0003-SRC-42-62-SUPPORT"
+      ],
+      "sourceBoundMeaning": "วัย 0–10 มีข้อจำกัดด้านครอบครัว; อายุ 11–62 เป็นทิศทางขาขึ้น; อายุ 42–62 มีงาน เงิน และแรงสนับสนุนตามแหล่งข้อมูลเดิม",
+      "semanticSummary": "เส้นชีวิตเริ่มด้วยข้อจำกัดครอบครัว ก่อนเปลี่ยนเป็นขาขึ้นตั้งแต่อายุ 11 จนถึงปัจจุบัน",
+      "proposedReaderWording": "วัยเด็กของคุณถูกปัญหาในครอบครัวจำกัดอยู่มาก แต่ตั้งแต่อายุ 11 ปี เส้นชีวิตเปลี่ยนเป็นขาขึ้นและต่อเนื่องมาถึงตอนนี้",
+      "interpretationOwnerMustApprove": "Owner must approve that “วัยเด็กของคุณถูกปัญหาในครอบครัวจำกัดอยู่มาก แต่ตั้งแต่อายุ 11 ปี เส้นชีวิตเปลี่ยนเป็นขาขึ้นและต่อเนื่องมาถึงตอนนี้” stays within: วัย 0–10 มีข้อจำกัดด้านครอบครัว; อายุ 11–62 เป็นทิศทางขาขึ้น; อายุ 42–62 มีงาน เงิน และแรงสนับสนุนตามแหล่งข้อมูลเดิม",
+      "exactUnsupportedMeanings": [
+        "งาน เงิน หรือแรงสนับสนุนเป็นเรื่องเด่นในภาพรวม",
+        "เหตุการณ์เฉพาะหลังอายุ 11"
+      ],
+      "duplicationOwner": "ภาพรวมเป็นเจ้าของเฉพาะเส้นชีวิต ไม่เป็นเจ้าของผลรายด้าน",
+      "meaningAtoms": [
+        "life-arc-childhood-constraint-to-rising-adulthood"
+      ],
+      "classification": "PROPOSED_OWNER_TEMPLATE",
+      "accepted": false,
+      "implemented": false,
+      "noSemanticExpansion": true
+    },
+    {
+      "claimId": "C21-A35-PAST-0-10-01",
+      "sourceClaimId": "C20-A35-PAST-0-10-01",
+      "semanticOwner": "past-0-10",
+      "section": "อายุ 0–10 ปี",
+      "timeScope": "0-10",
+      "context": "mahabhut2537.rem0.saturday",
+      "period": "0-10",
+      "domain": "family_constraints",
+      "horizon": "past-life-period",
+      "direction": "dueng_tok",
+      "evidenceRefs": [
+        "selector.mahabhut2537.rem0.saturday.saturn.0_10",
+        "source.T0003-SRC-0-10-FAMILY-CONSTRAINT",
+        "canon.mahabhut.p28.saturn_owns_family"
+      ],
+      "sourceBoundMeaning": "แหล่งข้อมูลระบุข้อจำกัดด้านสุขภาพ การงาน และการเงินของพ่อแม่ ซึ่งทำให้มีเวลาดูแลใกล้ชิดน้อยลงในวัย 0–10",
+      "semanticSummary": "ปัญหาสุขภาพ งาน และเงินของพ่อแม่ทำให้การดูแลใกล้ชิดลดลงในวัย 0–10",
+      "proposedReaderWording": "ช่วงอายุ 0–10 ปี สุขภาพที่อ่อนแอ การงานที่ย่ำแย่ และการเงินที่ติดขัดของพ่อแม่ทำให้คุณได้รับการดูแลใกล้ชิดน้อยลง",
+      "interpretationOwnerMustApprove": "Owner must approve that “ช่วงอายุ 0–10 ปี สุขภาพที่อ่อนแอ การงานที่ย่ำแย่ และการเงินที่ติดขัดของพ่อแม่ทำให้คุณได้รับการดูแลใกล้ชิดน้อยลง” stays within: แหล่งข้อมูลระบุข้อจำกัดด้านสุขภาพ การงาน และการเงินของพ่อแม่ ซึ่งทำให้มีเวลาดูแลใกล้ชิดน้อยลงในวัย 0–10",
+      "exactUnsupportedMeanings": [
+        "โรคเฉพาะ",
+        "พ่อหรือแม่คนใดคนหนึ่ง",
+        "จำนวนเงิน",
+        "ผลกระทบถาวรต่อเด็ก"
+      ],
+      "duplicationOwner": "ย่อหน้านี้เป็นเจ้าของเหตุการณ์ครอบครัววัย 0–10 เพียงจุดเดียว",
+      "meaningAtoms": [
+        "past-0-10-parent-constraints-limited-close-care"
+      ],
+      "classification": "PROPOSED_OWNER_TEMPLATE",
+      "accepted": false,
+      "implemented": false,
+      "noSemanticExpansion": true
+    },
+    {
+      "claimId": "C21-A35-PAST-11-29-01",
+      "sourceClaimId": "C20-A35-PAST-11-29-01",
+      "semanticOwner": "past-11-29",
+      "section": "อายุ 11–29 ปี",
+      "timeScope": "11-29",
+      "context": "mahabhut2537.rem0.saturday",
+      "period": "11-29",
+      "domain": "learning_and_career",
+      "horizon": "past-life-period",
+      "direction": "dueng_khuen",
+      "evidenceRefs": [
+        "selector.mahabhut2537.rem0.saturday.jupiter.11_29",
+        "source.T0003-SRC-11-62-RISING-BLOCK",
+        "canon.mahabhut.p220.jupiter_owns_learning",
+        "canon.mahabhut.p220.jupiter_owns_career"
+      ],
+      "sourceBoundMeaning": "ช่วง 11–29 อยู่ในแนวโน้มขาขึ้น 11–62; ดาวพฤหัส/อายุ/ราชาเชื่อมกับการเรียนและการสร้างทางงานตาม Canon โดยไม่มีเหตุการณ์เฉพาะ",
+      "semanticSummary": "ชีวิตวัย 11–29 เป็นขาขึ้น โดยการเรียนและการเริ่มสร้างทางงานให้ผลดี",
+      "proposedReaderWording": "ช่วงอายุ 11–29 ปี ชีวิตเปลี่ยนเป็นขาขึ้น คุณได้ผลดีจากการเรียนและเริ่มสร้างเส้นทางงานของตัวเอง",
+      "interpretationOwnerMustApprove": "Owner must approve that “ช่วงอายุ 11–29 ปี ชีวิตเปลี่ยนเป็นขาขึ้น คุณได้ผลดีจากการเรียนและเริ่มสร้างเส้นทางงานของตัวเอง” stays within: ช่วง 11–29 อยู่ในแนวโน้มขาขึ้น 11–62; ดาวพฤหัส/อายุ/ราชาเชื่อมกับการเรียนและการสร้างทางงานตาม Canon โดยไม่มีเหตุการณ์เฉพาะ",
+      "exactUnsupportedMeanings": [
+        "การเลื่อนตำแหน่ง",
+        "งานหรือนายจ้างเฉพาะ",
+        "เหตุการณ์ความสัมพันธ์หรือสุขภาพ"
+      ],
+      "duplicationOwner": "ย่อหน้านี้เป็นเจ้าของผลการเรียนและการเริ่มสร้างทางงานในวัย 11–29",
+      "meaningAtoms": [
+        "past-11-29-learning-and-career-start-benefit"
+      ],
+      "classification": "PROPOSED_OWNER_TEMPLATE",
+      "accepted": false,
+      "implemented": false,
+      "noSemanticExpansion": true
+    },
+    {
+      "claimId": "C21-A35-PAST-30-41-01",
+      "sourceClaimId": "C20-A35-PAST-30-41-01",
+      "semanticOwner": "past-30-41",
+      "section": "อายุ 30–41 ปี",
+      "timeScope": "30-41",
+      "context": "mahabhut2537.rem0.saturday",
+      "period": "30-41",
+      "domain": "career_and_authority",
+      "horizon": "past-life-period",
+      "direction": "dueng_khuen",
+      "evidenceRefs": [
+        "selector.mahabhut2537.rem0.saturday.rahu.30_41",
+        "source.T0003-SRC-11-62-RISING-BLOCK",
+        "source.T0003-SRC-30-41-PLACEMENT",
+        "canon.mahabhut.p39.det_owns_career"
+      ],
+      "sourceBoundMeaning": "ช่วง 30–41 อยู่ในแนวโน้มขาขึ้น; ราหู/เดช/อธิบดีวางแกนที่งาน อำนาจตัดสินใจ และความรับผิดชอบ โดยไม่ระบุการเปลี่ยนงานเฉพาะ",
+      "semanticSummary": "ชีวิตวัย 30–41 ยังเป็นขาขึ้น พร้อมความรับผิดชอบงานและการตัดสินใจที่เพิ่มขึ้น",
+      "proposedReaderWording": "ช่วงอายุ 30–41 ปี ชีวิตยังอยู่ในขาขึ้น คุณรับผิดชอบงานมากขึ้นและต้องตัดสินใจเรื่องสำคัญด้วยตัวเองมากกว่าเดิม",
+      "interpretationOwnerMustApprove": "Owner must approve that “ช่วงอายุ 30–41 ปี ชีวิตยังอยู่ในขาขึ้น คุณรับผิดชอบงานมากขึ้นและต้องตัดสินใจเรื่องสำคัญด้วยตัวเองมากกว่าเดิม” stays within: ช่วง 30–41 อยู่ในแนวโน้มขาขึ้น; ราหู/เดช/อธิบดีวางแกนที่งาน อำนาจตัดสินใจ และความรับผิดชอบ โดยไม่ระบุการเปลี่ยนงานเฉพาะ",
+      "exactUnsupportedMeanings": [
+        "ตำแหน่งงานเฉพาะ",
+        "การเปลี่ยนงาน",
+        "อำนาจเหนือบุคคลใด"
+      ],
+      "duplicationOwner": "ย่อหน้านี้เป็นเจ้าของความรับผิดชอบและการตัดสินใจของวัย 30–41",
+      "meaningAtoms": [
+        "past-30-41-work-responsibility-and-decision-weight"
+      ],
+      "classification": "PROPOSED_OWNER_TEMPLATE",
+      "accepted": false,
+      "implemented": false,
+      "noSemanticExpansion": true
+    },
+    {
+      "claimId": "C21-A35-CURRENT-01",
+      "sourceClaimId": "C20-A35-CURRENT-01",
+      "semanticOwner": "current",
+      "section": "คำทำนายปัจจุบัน — อายุ 44 ปี",
+      "timeScope": "42-62",
+      "context": "mahabhut2537.rem0.saturday",
+      "period": "42-62",
+      "domain": "life_path",
+      "horizon": "current",
+      "direction": "dueng_khuen",
+      "evidenceRefs": [
+        "selector.mahabhut2537.rem0.saturday.venus.42_62",
+        "source.T0003-SRC-42-62-FLOW"
+      ],
+      "sourceBoundMeaning": "อายุ 44 อยู่ภายในช่วง 42–62; แหล่งข้อมูลรองรับทิศทางที่การทำ การพูด และการคิดเดินได้ราบรื่น โดยไม่ใช่ช่วงเปลี่ยนผ่าน",
+      "semanticSummary": "การลงมือทำ การสื่อสาร และการตัดสินใจในปัจจุบันติดขัดน้อยลง",
+      "proposedReaderWording": "ตอนนี้สิ่งที่คุณลงมือทำ การสื่อสารกับคนอื่น และการตัดสินใจติดขัดน้อยลง จึงจัดการเรื่องตรงหน้าได้คล่องกว่าเดิม",
+      "interpretationOwnerMustApprove": "Owner must approve that “ตอนนี้สิ่งที่คุณลงมือทำ การสื่อสารกับคนอื่น และการตัดสินใจติดขัดน้อยลง จึงจัดการเรื่องตรงหน้าได้คล่องกว่าเดิม” stays within: อายุ 44 อยู่ภายในช่วง 42–62; แหล่งข้อมูลรองรับทิศทางที่การทำ การพูด และการคิดเดินได้ราบรื่น โดยไม่ใช่ช่วงเปลี่ยนผ่าน",
+      "exactUnsupportedMeanings": [
+        "ช่วงเปลี่ยนผ่าน",
+        "ผลลัพธ์ที่รับประกัน",
+        "การตัดสินใจเฉพาะเรื่อง"
+      ],
+      "duplicationOwner": "ย่อหน้าปัจจุบันเป็นเจ้าของความคล่องของการทำ พูด และคิด ไม่สรุปงานหรือเงิน",
+      "meaningAtoms": [
+        "current-action-communication-decision-smoothness"
+      ],
+      "classification": "PROPOSED_OWNER_TEMPLATE",
+      "accepted": false,
+      "implemented": false,
+      "noSemanticExpansion": true
+    },
+    {
+      "claimId": "C21-A35-WORK-01",
+      "sourceClaimId": "C20-A35-WORK-01",
+      "semanticOwner": "work",
+      "section": "การงาน",
+      "timeScope": "42-62",
+      "context": "mahabhut2537.rem0.saturday",
+      "period": "42-62",
+      "domain": "career",
+      "horizon": "current",
+      "direction": "strong_primary_pressure_secondary",
+      "evidenceRefs": [
+        "selector.mahabhut2537.rem0.saturday.venus.42_62",
+        "source.T0003-SRC-42-62-WORK",
+        "typed.current.career"
+      ],
+      "sourceBoundMeaning": "แหล่งข้อมูลรองรับทางทำงาน; typed material ให้ career=strong และ pressure เป็นความเสี่ยงรอง ไม่มีตำแหน่งงานหรือนายจ้างเฉพาะ",
+      "semanticSummary": "มีงานทำต่อเนื่อง แต่ภาระเกินกำลังเบียดเวลาและคุณภาพงานหลัก",
+      "proposedReaderWording": "คุณมีงานทำต่อเนื่องและรับผิดชอบงานหลักได้เต็มที่ ภาระที่รับมากเกินไปจะเบียดเวลาของงานหลักและทำให้คุณภาพลดลง",
+      "interpretationOwnerMustApprove": "Owner must approve that “คุณมีงานทำต่อเนื่องและรับผิดชอบงานหลักได้เต็มที่ ภาระที่รับมากเกินไปจะเบียดเวลาของงานหลักและทำให้คุณภาพลดลง” stays within: แหล่งข้อมูลรองรับทางทำงาน; typed material ให้ career=strong และ pressure เป็นความเสี่ยงรอง ไม่มีตำแหน่งงานหรือนายจ้างเฉพาะ",
+      "exactUnsupportedMeanings": [
+        "การเลื่อนตำแหน่ง",
+        "นายจ้างหรืองานเฉพาะ",
+        "วันที่เกิดเหตุ"
+      ],
+      "duplicationOwner": "ย่อหน้านี้เป็นเจ้าของสภาพงานปัจจุบัน; การขยายขอบเขตงานในปีถัดไปเป็นของ rolling12",
+      "meaningAtoms": [
+        "current-work-availability",
+        "current-work-load-reduces-core-quality"
+      ],
+      "classification": "PROPOSED_OWNER_TEMPLATE",
+      "accepted": false,
+      "implemented": false,
+      "noSemanticExpansion": true
+    },
+    {
+      "claimId": "C21-A35-FINANCE-01",
+      "sourceClaimId": "C20-A35-FINANCE-01",
+      "semanticOwner": "finance",
+      "section": "การเงิน",
+      "timeScope": "42-62",
+      "context": "mahabhut2537.rem0.saturday",
+      "period": "42-62",
+      "domain": "finance",
+      "horizon": "current",
+      "direction": "strong_primary_pressure_secondary",
+      "evidenceRefs": [
+        "selector.mahabhut2537.rem0.saturday.venus.42_62",
+        "source.T0003-SRC-42-62-FINANCE",
+        "canon.mahabhut.p39.sri_owns_finance",
+        "typed.current.finance"
+      ],
+      "sourceBoundMeaning": "แหล่งข้อมูลรองรับการมีเงินใช้และโชคลาภ; typed material ให้ finance=strong และ pressure เป็นความเสี่ยงรอง โดยไม่มีจำนวนหรือวันเฉพาะ",
+      "semanticSummary": "มีเงินใช้และโชคลาภ แต่รายจ่ายระยะยาวลดเงินที่พร้อมใช้กับแผนใหม่",
+      "proposedReaderWording": "คุณมีเงินใช้และมีโชคลาภ เงินพร้อมใช้ทำให้ตัดสินใจเรื่องรายจ่ายได้คล่องขึ้น แต่รายจ่ายระยะยาวจะลดเงินที่เหลือสำหรับแผนใหม่",
+      "interpretationOwnerMustApprove": "Owner must approve that “คุณมีเงินใช้และมีโชคลาภ เงินพร้อมใช้ทำให้ตัดสินใจเรื่องรายจ่ายได้คล่องขึ้น แต่รายจ่ายระยะยาวจะลดเงินที่เหลือสำหรับแผนใหม่” stays within: แหล่งข้อมูลรองรับการมีเงินใช้และโชคลาภ; typed material ให้ finance=strong และ pressure เป็นความเสี่ยงรอง โดยไม่มีจำนวนหรือวันเฉพาะ",
+      "exactUnsupportedMeanings": [
+        "จำนวนเงิน",
+        "ขนาดโชคลาภ",
+        "วันที่ได้เงิน",
+        "รายได้จากงานเฉพาะ"
+      ],
+      "duplicationOwner": "ย่อหน้านี้เป็นเจ้าของฐานเงินปัจจุบัน; การเปลี่ยนรายรับและรายจ่ายในปีถัดไปเป็นของ rolling12",
+      "meaningAtoms": [
+        "current-money-available-and-luck",
+        "current-long-expense-limits-options"
+      ],
+      "classification": "PROPOSED_OWNER_TEMPLATE",
+      "accepted": false,
+      "implemented": false,
+      "noSemanticExpansion": true
+    },
+    {
+      "claimId": "C21-A35-RELATIONSHIP-01",
+      "sourceClaimId": "C20-A35-RELATIONSHIP-01",
+      "semanticOwner": "relationship",
+      "section": "ความรักและความสัมพันธ์",
+      "timeScope": "42-62",
+      "context": "mahabhut2537.rem0.saturday",
+      "period": "42-62",
+      "domain": "relationship",
+      "horizon": "current",
+      "direction": "strong_primary_pressure_secondary",
+      "evidenceRefs": [
+        "selector.mahabhut2537.rem0.saturday.venus.42_62",
+        "canon.mahabhut.p16.venus_owns_relationship_male",
+        "canon.mahabhut.p28.venus_owns_relationship",
+        "typed.current.relationship"
+      ],
+      "sourceBoundMeaning": "Canon เชื่อมดาวศุกร์กับความสัมพันธ์สำหรับชาย; typed material ให้ relationship=strong และ pressure เป็นความเสี่ยงรอง โดยไม่มีเหตุการณ์หรือบุคคลเฉพาะ",
+      "semanticSummary": "การทำตามข้อตกลงทำให้ความสัมพันธ์แน่นแฟ้น; ความคาดหวังไม่ตรงกันชะลอข้อผูกพัน",
+      "proposedReaderWording": "ความสัมพันธ์จะแน่นแฟ้นขึ้นเมื่อคำพูดและการกระทำของทั้งสองฝ่ายตรงกัน หากความคาดหวังยังไม่ตรงกัน การเพิ่มข้อผูกพันจะช้าลง",
+      "interpretationOwnerMustApprove": "Owner must approve that “ความสัมพันธ์จะแน่นแฟ้นขึ้นเมื่อคำพูดและการกระทำของทั้งสองฝ่ายตรงกัน หากความคาดหวังยังไม่ตรงกัน การเพิ่มข้อผูกพันจะช้าลง” stays within: Canon เชื่อมดาวศุกร์กับความสัมพันธ์สำหรับชาย; typed material ให้ relationship=strong และ pressure เป็นความเสี่ยงรอง โดยไม่มีเหตุการณ์หรือบุคคลเฉพาะ",
+      "exactUnsupportedMeanings": [
+        "บุคคลเฉพาะ",
+        "การแต่งงาน",
+        "การเลิกรา",
+        "วันที่เกิดเหตุ"
+      ],
+      "duplicationOwner": "ย่อหน้านี้เป็นเจ้าของผลต่อความสัมพันธ์และไม่อธิบายงานหรือเงิน",
+      "meaningAtoms": [
+        "current-relationship-agreement-strengthens",
+        "current-expectation-mismatch-delays-commitment"
+      ],
+      "classification": "PROPOSED_OWNER_TEMPLATE",
+      "accepted": false,
+      "implemented": false,
+      "noSemanticExpansion": true
+    },
+    {
+      "claimId": "C21-A35-HEALTH-01",
+      "sourceClaimId": "C20-A35-HEALTH-01",
+      "semanticOwner": "health",
+      "section": "สุขภาพ",
+      "timeScope": "42-62",
+      "context": "mahabhut2537.rem0.saturday",
+      "period": "42-62",
+      "domain": "health",
+      "horizon": "current",
+      "direction": "strong_primary_pressure_secondary",
+      "evidenceRefs": [
+        "selector.mahabhut2537.rem0.saturday.venus.42_62",
+        "canon.mahabhut.p35.venus_relates_attribute_disease_ความเจ็บป่วยอันเนื่องมาจากร่างกายไม่ได้รับการพักผ่อน",
+        "typed.current.health"
+      ],
+      "sourceBoundMeaning": "Canon ระบุความเจ็บป่วยจากการพักไม่พอ; typed material ให้ health=strong และ pressure เป็นความเสี่ยงรอง ไม่รองรับโรคเฉพาะหรือการวินิจฉัย",
+      "semanticSummary": "กำลังรองรับกิจวัตร แต่การพักไม่พอทำให้ฟื้นช้าและเหลือแรงน้อยลง",
+      "proposedReaderWording": "กำลังของคุณยังรองรับกิจวัตรได้ แต่เมื่อพักไม่พอ ร่างกายจะใช้เวลาฟื้นนานขึ้นและเหลือแรงสำหรับกิจกรรมถัดไปน้อยลง",
+      "interpretationOwnerMustApprove": "Owner must approve that “กำลังของคุณยังรองรับกิจวัตรได้ แต่เมื่อพักไม่พอ ร่างกายจะใช้เวลาฟื้นนานขึ้นและเหลือแรงสำหรับกิจกรรมถัดไปน้อยลง” stays within: Canon ระบุความเจ็บป่วยจากการพักไม่พอ; typed material ให้ health=strong และ pressure เป็นความเสี่ยงรอง ไม่รองรับโรคเฉพาะหรือการวินิจฉัย",
+      "exactUnsupportedMeanings": [
+        "ชื่อโรค",
+        "การวินิจฉัย",
+        "การรักษา",
+        "เหตุการณ์สุขภาพเฉพาะ"
+      ],
+      "duplicationOwner": "ย่อหน้านี้เป็นเจ้าของกำลังและผลของการพัก ไม่ให้คำแนะนำทางการแพทย์",
+      "meaningAtoms": [
+        "current-stamina-supports-routine",
+        "current-insufficient-rest-slows-recovery"
+      ],
+      "classification": "PROPOSED_OWNER_TEMPLATE",
+      "accepted": false,
+      "implemented": false,
+      "noSemanticExpansion": true
+    },
+    {
+      "claimId": "C21-A35-SUPPORT-01",
+      "sourceClaimId": "C20-A35-SUPPORT-01",
+      "semanticOwner": "support",
+      "section": "โชคลาภและแรงสนับสนุน",
+      "timeScope": "42-62",
+      "context": "mahabhut2537.rem0.saturday",
+      "period": "42-62",
+      "domain": "support",
+      "horizon": "current",
+      "direction": "dueng_khuen",
+      "evidenceRefs": [
+        "selector.mahabhut2537.rem0.saturday.venus.42_62",
+        "source.T0003-SRC-42-62-SUPPORT",
+        "source.T0003-SRC-42-62-WORK",
+        "source.T0003-SRC-42-62-FINANCE"
+      ],
+      "sourceBoundMeaning": "แหล่งข้อมูลระบุแรงสนับสนุนจากครู ผู้มีประสบการณ์ เพื่อน และเครือข่าย พร้อมทางด้านงาน เงิน และโชคลาภ โดยไม่ระบุบุคคล",
+      "semanticSummary": "ครู ผู้มีประสบการณ์ เพื่อน และเครือข่ายให้ความช่วยเหลือ",
+      "proposedReaderWording": "ครู ผู้มีประสบการณ์ เพื่อน และคนในเครือข่ายจะให้ความช่วยเหลือคุณ",
+      "interpretationOwnerMustApprove": "Owner must approve that “ครู ผู้มีประสบการณ์ เพื่อน และคนในเครือข่ายจะให้ความช่วยเหลือคุณ” stays within: แหล่งข้อมูลระบุแรงสนับสนุนจากครู ผู้มีประสบการณ์ เพื่อน และเครือข่าย พร้อมทางด้านงาน เงิน และโชคลาภ โดยไม่ระบุบุคคล",
+      "exactUnsupportedMeanings": [
+        "ชื่อบุคคล",
+        "ผู้สนับสนุนที่รับประกันผล",
+        "ความสัมพันธ์เชิงรัก"
+      ],
+      "duplicationOwner": "ย่อหน้านี้เป็นเจ้าของแหล่งความช่วยเหลือเพียงจุดเดียว",
+      "meaningAtoms": [
+        "current-support-from-teachers-peers-network"
+      ],
+      "classification": "PROPOSED_OWNER_TEMPLATE",
+      "accepted": false,
+      "implemented": false,
+      "noSemanticExpansion": true
+    },
+    {
+      "claimId": "C21-A35-HORIZON-01",
+      "sourceClaimId": "C20-A35-HORIZON-01",
+      "semanticOwner": "rolling12",
+      "section": "คำทำนาย 12 เดือนข้างหน้า",
+      "timeScope": "2026-08-29/2027-08-28",
+      "context": "mahabhut2537.rem0.saturday",
+      "period": "2026-08-29/2027-08-28",
+      "domain": "career_and_finance",
+      "horizon": "next12Months",
+      "direction": "strong_primary_pressure_secondary",
+      "evidenceRefs": [
+        "selector.mahabhut2537.rem0.saturday.venus.42_62",
+        "source.T0003-SRC-42-62-WORK",
+        "source.T0003-SRC-42-62-FINANCE",
+        "typed.next12Months.career",
+        "typed.next12Months.finance",
+        "timing.rolling-12-month-label"
+      ],
+      "sourceBoundMeaning": "ช่วงวันที่มาจาก rolling asOf; typed materials ให้งานและเงิน=strong โดย pressure เป็นความเสี่ยงรอง; แหล่งข้อมูล 42–62 รองรับงาน เงิน และโชคลาภ",
+      "semanticSummary": "ในกรอบวันที่ ขอบเขตงานและรายรับเพิ่ม; อำนาจตัดสินใจและรายจ่ายกำหนดคุณภาพงานกับเงินพร้อมใช้",
+      "proposedReaderWording": "ระหว่างวันที่ 29 สิงหาคม 2569 ถึง 28 สิงหาคม 2570 ขอบเขตงานที่คุณรับผิดชอบจะกว้างขึ้น และรายรับจะเพิ่มขึ้น หากอำนาจตัดสินใจไม่เพิ่มตามงาน คุณภาพงานหลักจะลดลง ส่วนเงินพร้อมใช้จะไม่เพิ่มตามรายรับหากรายจ่ายประจำโตตาม",
+      "interpretationOwnerMustApprove": "Owner must approve that “ระหว่างวันที่ 29 สิงหาคม 2569 ถึง 28 สิงหาคม 2570 ขอบเขตงานที่คุณรับผิดชอบจะกว้างขึ้น และรายรับจะเพิ่มขึ้น หากอำนาจตัดสินใจไม่เพิ่มตามงาน คุณภาพงานหลักจะลดลง ส่วนเงินพร้อมใช้จะไม่เพิ่มตามรายรับหากรายจ่ายประจำโตตาม” stays within: ช่วงวันที่มาจาก rolling asOf; typed materials ให้งานและเงิน=strong โดย pressure เป็นความเสี่ยงรอง; แหล่งข้อมูล 42–62 รองรับงาน เงิน และโชคลาภ",
+      "exactUnsupportedMeanings": [
+        "เดือนดีหรือเดือนเสีย",
+        "เหตุการณ์รายเดือน",
+        "จำนวนรายรับ",
+        "ตำแหน่งงาน",
+        "จุดทบทวนกลางปี"
+      ],
+      "duplicationOwner": "ย่อหน้านี้เป็นเจ้าของการเปลี่ยนแปลงภายในกรอบวันที่ ไม่ย้ำสถานะปัจจุบัน",
+      "meaningAtoms": [
+        "rolling12-work-scope-expands",
+        "rolling12-income-and-recurring-cost-rise",
+        "rolling12-decision-authority-quality-effect",
+        "rolling12-expense-cash-effect"
+      ],
+      "classification": "PROPOSED_OWNER_TEMPLATE",
+      "accepted": false,
+      "implemented": false,
+      "noSemanticExpansion": true
+    }
+  ],
+  "predictionOmissions": [
+    {
+      "claimId": "C21-A35-NEXT-OMIT-01",
+      "semanticOwner": "next",
+      "section": "ช่วงชีวิตถัดไป — อายุ 63–79 ปี",
+      "classification": "OMIT_UNSUPPORTED_MISSING_COMPONENT",
+      "sourceCandidate": "เมื่อเข้าสู่อายุ 63–79 ปี ฐานงานและทรัพย์สินที่สะสมไว้จะเริ่มต่อยอด หน้าที่และอำนาจรับผิดชอบจะชัดขึ้น ในช่วงชีวิตถัดไป ความสัมพันธ์ที่รองรับภาระใหม่ไม่ได้จะเปลี่ยนระยะหรือยุติบทบาทเดิม เมื่อบทบาทใหม่เริ่มขึ้น ข้อตกลงที่ไม่ตรงกันจะทำให้จังหวะด้านความสัมพันธ์สะดุด รอยต่อของช่วงชีวิตจะทำให้ด้านความสัมพันธ์เปลี่ยนก่อนจังหวะใหม่ลงตัว",
+      "reason": "Owner accepts the OR6 omission: no resolved relationship domain-to-template binding exists, so neither heading nor filler appears."
+    },
+    {
+      "claimId": "C21-A35-SUMMARY-OMIT-01",
+      "semanticOwner": "summary",
+      "section": "สรุปคำทำนาย",
+      "classification": "OMIT_NO_NEW_SEMANTIC_FUNCTION",
+      "sourceCandidate": "ช่วงนี้เด่นเรื่องงานที่เดินหน้า เงินที่คล่องขึ้น และแรงสนับสนุนจากคนรอบตัว รอบ 12 เดือนข้างหน้ายังเดินไปในทางเดียวกัน",
+      "reason": "A summary would only repeat work, money and support already owned elsewhere; it is omitted rather than adding or duplicating a claim."
+    }
+  ],
+  "psychology": {
+    "paragraph": "คุณคิดเป็นระบบและทำได้ดีเมื่อรู้ว่าขั้นต่อไปต้องทำอะไร ความอดทนช่วยให้คุณค่อย ๆ สร้างสิ่งต่าง ๆ ให้มั่นคง จึงเป็นคนที่คนอื่นพึ่งพาได้",
+    "omissions": [
+      {
+        "title": "ดวงจากวันเกิดของคุณ",
+        "fullOriginalParagraphs": [
+          "คำอ่านพื้นดวงและจังหวะชีวิตจากวัน เวลา และสถานที่เกิด"
+        ],
+        "retained": [],
+        "omitted": true,
+        "reason": "Omit prediction/advice or repeated domain packaging from psychology; do not carry the legacy section into Candidate 0021."
+      },
+      {
+        "title": "งานจะเดินหน้าได้ เมื่อทุกฝ่ายเข้าใจตรงกันและทำตามที่คุยไว้",
+        "fullOriginalParagraphs": [
+          "ความอดทนช่วยให้คุณรับมือกับเรื่องยากได้ดี แต่ถ้ารับงานเพิ่ม คุณอาจมีเวลาให้คนรอบตัวน้อยลง ก่อนตัดสินใจ ลองดูว่าคุณยังมีเวลาอธิบายงานให้ทุกคนเข้าใจตรงกันหรือไม่"
+        ],
+        "retained": [],
+        "omitted": true,
+        "reason": "Omit prediction/advice or repeated domain packaging from psychology; do not carry the legacy section into Candidate 0021."
+      },
+      {
+        "title": "สรุปตัวคุณแบบตรง ๆ",
+        "fullOriginalParagraphs": [
+          "คุณเป็นคนคิดเป็นระบบ และมักทำได้ดีเมื่อรู้ว่าขั้นต่อไปต้องทำอะไร คุณยังมีความอดทนและค่อย ๆ สร้างสิ่งต่าง ๆ ให้มั่นคง จึงเป็นคนที่คนอื่นพึ่งพาได้ แต่ช่วงนี้ต้องระวังการทำแบบเดิมต่อไปเพียงเพราะเคยได้ผล ควรถามตัวเองเป็นระยะว่าวิธีนั้นยังเหมาะอยู่หรือไม่"
+        ],
+        "retained": [
+          "คุณคิดเป็นระบบและทำได้ดีเมื่อรู้ว่าขั้นต่อไปต้องทำอะไร ความอดทนช่วยให้คุณค่อย ๆ สร้างสิ่งต่าง ๆ ให้มั่นคง จึงเป็นคนที่คนอื่นพึ่งพาได้"
+        ],
+        "omitted": true,
+        "reason": "Retain only the timeless personality sentences; omit the time-bound warning and self-review advice."
+      },
+      {
+        "title": "การงาน",
+        "fullOriginalParagraphs": [
+          "เรื่องงาน คุณเด่นที่กล้าลงมือและรับมือกับเรื่องเร่งด่วนได้ดี ถ้าต้องรับผิดชอบมากขึ้น คุณก็ควรมีสิทธิ์ตัดสินใจมากขึ้นด้วย ไม่ใช่มีแต่งานเพิ่มขึ้นอย่างเดียว"
+        ],
+        "retained": [],
+        "omitted": true,
+        "reason": "Omit prediction/advice or repeated domain packaging from psychology; do not carry the legacy section into Candidate 0021."
+      },
+      {
+        "title": "การเงิน",
+        "fullOriginalParagraphs": [
+          "เรื่องเงิน คุณมั่นคงขึ้นเมื่อมองระยะยาว ใช้ความรู้ และค่อย ๆ ขยายแผน อย่าดูเพียงว่าเก็บเงินได้มากแค่ไหน แต่ให้ดูว่าเงินสำรองช่วยให้คุณมีทางเลือกมากพอหรือยัง"
+        ],
+        "retained": [],
+        "omitted": true,
+        "reason": "Omit prediction/advice or repeated domain packaging from psychology; do not carry the legacy section into Candidate 0021."
+      },
+      {
+        "title": "ความรักและความสัมพันธ์",
+        "fullOriginalParagraphs": [
+          "คุณไว้ใจความสัมพันธ์ได้มากขึ้นเมื่อคุยกันชัด รู้ว่าใครรับผิดชอบอะไร และต่างฝ่ายยังมีพื้นที่ตัดสินใจของตัวเอง"
+        ],
+        "retained": [],
+        "omitted": true,
+        "reason": "Omit prediction/advice or repeated domain packaging from psychology; do not carry the legacy section into Candidate 0021."
+      },
+      {
+        "title": "สุขภาพและพลังชีวิต",
+        "fullOriginalParagraphs": [
+          "เรื่องสุขภาพ ให้สังเกตว่าหลังพักแล้วใช้เวลานานขึ้นกว่าจะกลับมามีแรงหรือไม่ อย่าตัดสินจากวันที่เหนื่อยเพียงวันเดียว"
+        ],
+        "retained": [],
+        "omitted": true,
+        "reason": "Omit prediction/advice or repeated domain packaging from psychology; do not carry the legacy section into Candidate 0021."
+      },
+      {
+        "title": "คำชี้หลักจากพื้นดวง",
+        "fullOriginalParagraphs": [
+          "สิ่งสำคัญตอนนี้ไม่ใช่รับงานเพิ่ม แต่คือเลือกสิ่งที่คุ้มกับเวลาและแรงที่มี จัดตารางงานและเวลาพักแบบที่ทำตามได้จริง แล้วลองใช้สักระยะ จากนั้นค่อยดูว่าอะไรควรทำต่อและอะไรควรตัดออก"
+        ],
+        "retained": [],
+        "omitted": true,
+        "reason": "Omit prediction/advice or repeated domain packaging from psychology; do not carry the legacy section into Candidate 0021."
+      }
+    ]
+  },
+  "advice": "กำหนดขอบเขตงานที่รับเพิ่ม ตรวจเงินคงเหลือหลังรายจ่ายจำเป็นก่อนขยายแผน และกันเวลาพักไว้ให้ร่างกายฟื้นแรง",
+  "disclaimer": "คำทำนายนี้เป็นการตีความตามหลักโหราศาสตร์และความเชื่อ ใช้ประกอบการพิจารณาร่วมกับข้อเท็จจริงก่อนตัดสินใจเรื่องสำคัญ",
+  "sections": [
+    {
+      "kind": "profile",
+      "title": "ข้อมูลดวง",
+      "paragraphs": [
+        "เกิดวันที่ 6 มิถุนายน 2525 เวลา 00:35 น. จังหวัดเชียงใหม่",
+        "เพศชาย · วันทางโหราศาสตร์เป็นวันเสาร์",
+        "ลัคนาราศีกุมภ์ 19°19′"
+      ]
+    },
+    {
+      "kind": "prediction",
+      "title": "ภาพรวมเส้นทางชีวิต",
+      "paragraphs": [
+        "วัยเด็กของคุณถูกปัญหาในครอบครัวจำกัดอยู่มาก แต่ตั้งแต่อายุ 11 ปี เส้นชีวิตเปลี่ยนเป็นขาขึ้นและต่อเนื่องมาถึงตอนนี้"
+      ],
+      "claimId": "C21-A35-OVERVIEW-01"
+    },
+    {
+      "kind": "heading",
+      "title": "คำทำนายอดีต",
+      "paragraphs": []
+    },
+    {
+      "kind": "prediction",
+      "title": "อายุ 0–10 ปี",
+      "paragraphs": [
+        "ช่วงอายุ 0–10 ปี สุขภาพที่อ่อนแอ การงานที่ย่ำแย่ และการเงินที่ติดขัดของพ่อแม่ทำให้คุณได้รับการดูแลใกล้ชิดน้อยลง"
+      ],
+      "claimId": "C21-A35-PAST-0-10-01"
+    },
+    {
+      "kind": "prediction",
+      "title": "อายุ 11–29 ปี",
+      "paragraphs": [
+        "ช่วงอายุ 11–29 ปี ชีวิตเปลี่ยนเป็นขาขึ้น คุณได้ผลดีจากการเรียนและเริ่มสร้างเส้นทางงานของตัวเอง"
+      ],
+      "claimId": "C21-A35-PAST-11-29-01"
+    },
+    {
+      "kind": "prediction",
+      "title": "อายุ 30–41 ปี",
+      "paragraphs": [
+        "ช่วงอายุ 30–41 ปี ชีวิตยังอยู่ในขาขึ้น คุณรับผิดชอบงานมากขึ้นและต้องตัดสินใจเรื่องสำคัญด้วยตัวเองมากกว่าเดิม"
+      ],
+      "claimId": "C21-A35-PAST-30-41-01"
+    },
+    {
+      "kind": "prediction",
+      "title": "คำทำนายปัจจุบัน — อายุ 44 ปี",
+      "paragraphs": [
+        "ตอนนี้สิ่งที่คุณลงมือทำ การสื่อสารกับคนอื่น และการตัดสินใจติดขัดน้อยลง จึงจัดการเรื่องตรงหน้าได้คล่องกว่าเดิม"
+      ],
+      "claimId": "C21-A35-CURRENT-01"
+    },
+    {
+      "kind": "prediction",
+      "title": "การงาน",
+      "paragraphs": [
+        "คุณมีงานทำต่อเนื่องและรับผิดชอบงานหลักได้เต็มที่ ภาระที่รับมากเกินไปจะเบียดเวลาของงานหลักและทำให้คุณภาพลดลง"
+      ],
+      "claimId": "C21-A35-WORK-01"
+    },
+    {
+      "kind": "prediction",
+      "title": "การเงิน",
+      "paragraphs": [
+        "คุณมีเงินใช้และมีโชคลาภ เงินพร้อมใช้ทำให้ตัดสินใจเรื่องรายจ่ายได้คล่องขึ้น แต่รายจ่ายระยะยาวจะลดเงินที่เหลือสำหรับแผนใหม่"
+      ],
+      "claimId": "C21-A35-FINANCE-01"
+    },
+    {
+      "kind": "prediction",
+      "title": "ความรักและความสัมพันธ์",
+      "paragraphs": [
+        "ความสัมพันธ์จะแน่นแฟ้นขึ้นเมื่อคำพูดและการกระทำของทั้งสองฝ่ายตรงกัน หากความคาดหวังยังไม่ตรงกัน การเพิ่มข้อผูกพันจะช้าลง"
+      ],
+      "claimId": "C21-A35-RELATIONSHIP-01"
+    },
+    {
+      "kind": "prediction",
+      "title": "สุขภาพ",
+      "paragraphs": [
+        "กำลังของคุณยังรองรับกิจวัตรได้ แต่เมื่อพักไม่พอ ร่างกายจะใช้เวลาฟื้นนานขึ้นและเหลือแรงสำหรับกิจกรรมถัดไปน้อยลง"
+      ],
+      "claimId": "C21-A35-HEALTH-01"
+    },
+    {
+      "kind": "prediction",
+      "title": "โชคลาภและแรงสนับสนุน",
+      "paragraphs": [
+        "ครู ผู้มีประสบการณ์ เพื่อน และคนในเครือข่ายจะให้ความช่วยเหลือคุณ"
+      ],
+      "claimId": "C21-A35-SUPPORT-01"
+    },
+    {
+      "kind": "prediction",
+      "title": "คำทำนาย 12 เดือนข้างหน้า",
+      "paragraphs": [
+        "ระหว่างวันที่ 29 สิงหาคม 2569 ถึง 28 สิงหาคม 2570 ขอบเขตงานที่คุณรับผิดชอบจะกว้างขึ้น และรายรับจะเพิ่มขึ้น หากอำนาจตัดสินใจไม่เพิ่มตามงาน คุณภาพงานหลักจะลดลง ส่วนเงินพร้อมใช้จะไม่เพิ่มตามรายรับหากรายจ่ายประจำโตตาม"
+      ],
+      "claimId": "C21-A35-HORIZON-01"
+    },
+    {
+      "kind": "advice",
+      "title": "คำแนะนำ",
+      "paragraphs": [
+        "กำหนดขอบเขตงานที่รับเพิ่ม ตรวจเงินคงเหลือหลังรายจ่ายจำเป็นก่อนขยายแผน และกันเวลาพักไว้ให้ร่างกายฟื้นแรง"
+      ]
+    },
+    {
+      "kind": "disclaimer",
+      "title": "ข้อจำกัด",
+      "paragraphs": [
+        "คำทำนายนี้เป็นการตีความตามหลักโหราศาสตร์และความเชื่อ ใช้ประกอบการพิจารณาร่วมกับข้อเท็จจริงก่อนตัดสินใจเรื่องสำคัญ",
+        "ข้อความด้านสุขภาพใช้เพื่อการทบทวนทั่วไป ไม่ใช่การวินิจฉัยโรคหรือคำแนะนำทางการแพทย์"
+      ]
+    },
+    {
+      "kind": "separation",
+      "title": "พื้นดวงและมุมมองด้านจิตวิทยา",
+      "paragraphs": [
+        "เนื้อหาต่อไปนี้กล่าวถึงลักษณะพื้นฐานเท่านั้น แยกจากคำทำนายและคำแนะนำ"
+      ]
+    },
+    {
+      "kind": "psychology",
+      "title": "ลักษณะพื้นฐาน",
+      "paragraphs": [
+        "คุณคิดเป็นระบบและทำได้ดีเมื่อรู้ว่าขั้นต่อไปต้องทำอะไร ความอดทนช่วยให้คุณค่อย ๆ สร้างสิ่งต่าง ๆ ให้มั่นคง จึงเป็นคนที่คนอื่นพึ่งพาได้"
+      ]
+    },
+    {
+      "kind": "separation",
+      "title": "ที่มาและวิธีอ่าน",
+      "paragraphs": [
+        "ข้อมูลและหลักที่ใช้ประกอบรายงาน แยกจากคำทำนาย"
+      ]
+    },
+    {
+      "kind": "provenance",
+      "title": "รายงานนี้ดูจากอะไร",
+      "paragraphs": [
+        "ข้อมูลวัน เวลา และสถานที่เกิด",
+        "วิธีนับวันทางโหราศาสตร์ไทย",
+        "วันเกิดตามสูติบัตรยังเป็นวันที่ 1982-06-06 ตามเดิม ส่วนการอ่านตามหลักโหราศาสตร์ไทยใช้วันเสาร์ (วันที่ 1982-06-05) เป็นวันทางโหราศาสตร์",
+        "เวลาเกิดอยู่ก่อนพระอาทิตย์ขึ้นเวลา 05:46 จึงใช้วันก่อนหน้าตามกฎที่นับวันใหม่เมื่อพระอาทิตย์ขึ้น โดยไม่เปลี่ยนวันเกิดตามสูติบัตร",
+        "ลัคนา (ภาพบุคลิกตั้งต้นที่คำนวณจากนาฬิกาเกิดและพิกัดจังหวัด) อยู่ที่ราศีกุมภ์",
+        "รายงานเลือกเรื่องที่เกี่ยวกับชีวิตคุณชัดที่สุดขึ้นมาก่อน จากนั้นจึงอธิบายสิ่งที่ควรระวังและใช้ตัดสินใจ",
+        "โครงสร้างดวงหลัก",
+        "วันทางโหราศาสตร์: วันเสาร์ — เวลาเกิดอยู่ก่อนพระอาทิตย์ขึ้น จึงใช้วันก่อนหน้าเป็นวันทางโหราศาสตร์",
+        "ลัคนา: ราศีกุมภ์ 19°19′ — ไปได้ดีเมื่อชีวิตมีระบบและรู้ว่าต้องทำอะไรต่อ",
+        "เจ้าเรือนลัคนา: ดาวเสาร์ — ใช้ประกอบการอ่านวิธีคิดและตัดสินใจจากลัคนา",
+        "เรือนการงาน: ราศีพิจิก · เจ้าเรือนดาวอังคาร — ตำแหน่งคู่นี้ใช้ประกอบการอ่านเรื่องงานและวิธีสร้างผลงาน",
+        "เรือนการเงิน: ราศีมีน · เจ้าเรือนดาวพฤหัสบดี — ตำแหน่งนี้ใช้ประกอบการอ่านเรื่องเงินและวิธีรักษาความมั่นคง",
+        "เรือนความสัมพันธ์: ราศีสิงห์ · เจ้าเรือนดาวอาทิตย์ — เรือนนี้ใช้ประกอบการอ่านเรื่องความสัมพันธ์และการสร้างความไว้ใจ",
+        "เรือนสุขภาวะ: ราศีกรกฎ · เจ้าเรือนดาวจันทร์ — หลักฐานชุดนี้ใช้ประกอบการอ่านเรื่องกิจวัตร การพัก และการฟื้นตัว",
+        "ความหมายและข้อจำกัดของผลลัพธ์"
+      ]
+    },
+    {
+      "kind": "provenance",
+      "title": "ที่มาของผลวิเคราะห์",
+      "paragraphs": [
+        "ใช้วัน เดือน ปีเกิด เวลาเกิด และจังหวัดที่เกิดจากโปรไฟล์ของคุณ",
+        "นำข้อมูลวันเกิดของคุณมาประมวลผลตามหลักดวงไทย แล้วแปลงเป็นภาษาที่อ่านเข้าใจง่าย โดยไม่แสดงรายละเอียดเชิงเทคนิค"
+      ]
+    }
+  ],
+  "fullReaderCopy": "ข้อมูลดวง\nเกิดวันที่ 6 มิถุนายน 2525 เวลา 00:35 น. จังหวัดเชียงใหม่\nเพศชาย · วันทางโหราศาสตร์เป็นวันเสาร์\nลัคนาราศีกุมภ์ 19°19′\n\nภาพรวมเส้นทางชีวิต\nวัยเด็กของคุณถูกปัญหาในครอบครัวจำกัดอยู่มาก แต่ตั้งแต่อายุ 11 ปี เส้นชีวิตเปลี่ยนเป็นขาขึ้นและต่อเนื่องมาถึงตอนนี้\n\nคำทำนายอดีต\n\nอายุ 0–10 ปี\nช่วงอายุ 0–10 ปี สุขภาพที่อ่อนแอ การงานที่ย่ำแย่ และการเงินที่ติดขัดของพ่อแม่ทำให้คุณได้รับการดูแลใกล้ชิดน้อยลง\n\nอายุ 11–29 ปี\nช่วงอายุ 11–29 ปี ชีวิตเปลี่ยนเป็นขาขึ้น คุณได้ผลดีจากการเรียนและเริ่มสร้างเส้นทางงานของตัวเอง\n\nอายุ 30–41 ปี\nช่วงอายุ 30–41 ปี ชีวิตยังอยู่ในขาขึ้น คุณรับผิดชอบงานมากขึ้นและต้องตัดสินใจเรื่องสำคัญด้วยตัวเองมากกว่าเดิม\n\nคำทำนายปัจจุบัน — อายุ 44 ปี\nตอนนี้สิ่งที่คุณลงมือทำ การสื่อสารกับคนอื่น และการตัดสินใจติดขัดน้อยลง จึงจัดการเรื่องตรงหน้าได้คล่องกว่าเดิม\n\nการงาน\nคุณมีงานทำต่อเนื่องและรับผิดชอบงานหลักได้เต็มที่ ภาระที่รับมากเกินไปจะเบียดเวลาของงานหลักและทำให้คุณภาพลดลง\n\nการเงิน\nคุณมีเงินใช้และมีโชคลาภ เงินพร้อมใช้ทำให้ตัดสินใจเรื่องรายจ่ายได้คล่องขึ้น แต่รายจ่ายระยะยาวจะลดเงินที่เหลือสำหรับแผนใหม่\n\nความรักและความสัมพันธ์\nความสัมพันธ์จะแน่นแฟ้นขึ้นเมื่อคำพูดและการกระทำของทั้งสองฝ่ายตรงกัน หากความคาดหวังยังไม่ตรงกัน การเพิ่มข้อผูกพันจะช้าลง\n\nสุขภาพ\nกำลังของคุณยังรองรับกิจวัตรได้ แต่เมื่อพักไม่พอ ร่างกายจะใช้เวลาฟื้นนานขึ้นและเหลือแรงสำหรับกิจกรรมถัดไปน้อยลง\n\nโชคลาภและแรงสนับสนุน\nครู ผู้มีประสบการณ์ เพื่อน และคนในเครือข่ายจะให้ความช่วยเหลือคุณ\n\nคำทำนาย 12 เดือนข้างหน้า\nระหว่างวันที่ 29 สิงหาคม 2569 ถึง 28 สิงหาคม 2570 ขอบเขตงานที่คุณรับผิดชอบจะกว้างขึ้น และรายรับจะเพิ่มขึ้น หากอำนาจตัดสินใจไม่เพิ่มตามงาน คุณภาพงานหลักจะลดลง ส่วนเงินพร้อมใช้จะไม่เพิ่มตามรายรับหากรายจ่ายประจำโตตาม\n\nคำแนะนำ\nกำหนดขอบเขตงานที่รับเพิ่ม ตรวจเงินคงเหลือหลังรายจ่ายจำเป็นก่อนขยายแผน และกันเวลาพักไว้ให้ร่างกายฟื้นแรง\n\nข้อจำกัด\nคำทำนายนี้เป็นการตีความตามหลักโหราศาสตร์และความเชื่อ ใช้ประกอบการพิจารณาร่วมกับข้อเท็จจริงก่อนตัดสินใจเรื่องสำคัญ\nข้อความด้านสุขภาพใช้เพื่อการทบทวนทั่วไป ไม่ใช่การวินิจฉัยโรคหรือคำแนะนำทางการแพทย์\n\nพื้นดวงและมุมมองด้านจิตวิทยา\nเนื้อหาต่อไปนี้กล่าวถึงลักษณะพื้นฐานเท่านั้น แยกจากคำทำนายและคำแนะนำ\n\nลักษณะพื้นฐาน\nคุณคิดเป็นระบบและทำได้ดีเมื่อรู้ว่าขั้นต่อไปต้องทำอะไร ความอดทนช่วยให้คุณค่อย ๆ สร้างสิ่งต่าง ๆ ให้มั่นคง จึงเป็นคนที่คนอื่นพึ่งพาได้\n\nที่มาและวิธีอ่าน\nข้อมูลและหลักที่ใช้ประกอบรายงาน แยกจากคำทำนาย\n\nรายงานนี้ดูจากอะไร\nข้อมูลวัน เวลา และสถานที่เกิด\nวิธีนับวันทางโหราศาสตร์ไทย\nวันเกิดตามสูติบัตรยังเป็นวันที่ 1982-06-06 ตามเดิม ส่วนการอ่านตามหลักโหราศาสตร์ไทยใช้วันเสาร์ (วันที่ 1982-06-05) เป็นวันทางโหราศาสตร์\nเวลาเกิดอยู่ก่อนพระอาทิตย์ขึ้นเวลา 05:46 จึงใช้วันก่อนหน้าตามกฎที่นับวันใหม่เมื่อพระอาทิตย์ขึ้น โดยไม่เปลี่ยนวันเกิดตามสูติบัตร\nลัคนา (ภาพบุคลิกตั้งต้นที่คำนวณจากนาฬิกาเกิดและพิกัดจังหวัด) อยู่ที่ราศีกุมภ์\nรายงานเลือกเรื่องที่เกี่ยวกับชีวิตคุณชัดที่สุดขึ้นมาก่อน จากนั้นจึงอธิบายสิ่งที่ควรระวังและใช้ตัดสินใจ\nโครงสร้างดวงหลัก\nวันทางโหราศาสตร์: วันเสาร์ — เวลาเกิดอยู่ก่อนพระอาทิตย์ขึ้น จึงใช้วันก่อนหน้าเป็นวันทางโหราศาสตร์\nลัคนา: ราศีกุมภ์ 19°19′ — ไปได้ดีเมื่อชีวิตมีระบบและรู้ว่าต้องทำอะไรต่อ\nเจ้าเรือนลัคนา: ดาวเสาร์ — ใช้ประกอบการอ่านวิธีคิดและตัดสินใจจากลัคนา\nเรือนการงาน: ราศีพิจิก · เจ้าเรือนดาวอังคาร — ตำแหน่งคู่นี้ใช้ประกอบการอ่านเรื่องงานและวิธีสร้างผลงาน\nเรือนการเงิน: ราศีมีน · เจ้าเรือนดาวพฤหัสบดี — ตำแหน่งนี้ใช้ประกอบการอ่านเรื่องเงินและวิธีรักษาความมั่นคง\nเรือนความสัมพันธ์: ราศีสิงห์ · เจ้าเรือนดาวอาทิตย์ — เรือนนี้ใช้ประกอบการอ่านเรื่องความสัมพันธ์และการสร้างความไว้ใจ\nเรือนสุขภาวะ: ราศีกรกฎ · เจ้าเรือนดาวจันทร์ — หลักฐานชุดนี้ใช้ประกอบการอ่านเรื่องกิจวัตร การพัก และการฟื้นตัว\nความหมายและข้อจำกัดของผลลัพธ์\n\nที่มาของผลวิเคราะห์\nใช้วัน เดือน ปีเกิด เวลาเกิด และจังหวัดที่เกิดจากโปรไฟล์ของคุณ\nนำข้อมูลวันเกิดของคุณมาประมวลผลตามหลักดวงไทย แล้วแปลงเป็นภาษาที่อ่านเข้าใจง่าย โดยไม่แสดงรายละเอียดเชิงเทคนิค"
+}

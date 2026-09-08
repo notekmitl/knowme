@@ -1,0 +1,4970 @@
+{
+  "counters": {
+    "past_section_body_age_mismatch": 0,
+    "past_body_source_period_mismatch": 0,
+    "current_heading_body_age_mismatch": 0,
+    "current_age_period_applicability_error": 0,
+    "next_heading_body_age_mismatch": 0,
+    "frozen_literal_age_component": 0,
+    "missing_completed_past_period": 0,
+    "chronology_overlap_or_gap": 0
+  },
+  "details": [],
+  "inspected": [
+    {
+      "ref": "F4E9A9661F1DD0AD/claims/0",
+      "owner": "past",
+      "section": [
+        1,
+        19
+      ],
+      "body": [
+        1,
+        19
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem4.thursday",
+        "matrixApplicationId": "mahabhut2537.rem4.thursday.jupiter.0_19",
+        "planet": "jupiter",
+        "taksaRole": "boriwan",
+        "mahabhutHouse": "puti",
+        "periodStatus": "dueng_tok",
+        "ageStart": 0,
+        "ageEnd": 19,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem4.thursday.jupiter.0_19",
+        "selectorAuthority": "selector.mahabhut2537.rem4.thursday.jupiter.0_19",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      "displayPolicy": "source age 0 is displayed as age 1; full source row retained"
+    },
+    {
+      "ref": "F4E9A9661F1DD0AD/claims/1",
+      "owner": "past",
+      "section": [
+        20,
+        31
+      ],
+      "body": [
+        20,
+        31
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem4.thursday",
+        "matrixApplicationId": "mahabhut2537.rem4.thursday.rahu.20_31",
+        "planet": "rahu",
+        "taksaRole": "ayu",
+        "mahabhutHouse": "phangkha",
+        "periodStatus": "dueng_tok",
+        "ageStart": 20,
+        "ageEnd": 31,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem4.thursday.rahu.20_31",
+        "selectorAuthority": "selector.mahabhut2537.rem4.thursday.rahu.20_31",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      "displayPolicy": "source age 0 is displayed as age 1; full source row retained"
+    },
+    {
+      "ref": "F4E9A9661F1DD0AD/claims/2",
+      "owner": "past",
+      "section": [
+        32,
+        52
+      ],
+      "body": [
+        32,
+        52
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem4.thursday",
+        "matrixApplicationId": "mahabhut2537.rem4.thursday.venus.32_52",
+        "planet": "venus",
+        "taksaRole": "det",
+        "mahabhutHouse": "khumsap",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 32,
+        "ageEnd": 52,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem4.thursday.venus.32_52",
+        "selectorAuthority": "selector.mahabhut2537.rem4.thursday.venus.32_52",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      "displayPolicy": "source age 0 is displayed as age 1; full source row retained"
+    },
+    {
+      "ref": "F4E9A9661F1DD0AD/claims/3",
+      "owner": "past",
+      "section": [
+        53,
+        58
+      ],
+      "body": [
+        53,
+        58
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem4.thursday",
+        "matrixApplicationId": "mahabhut2537.rem4.thursday.sun.53_58",
+        "planet": "sun",
+        "taksaRole": "sri",
+        "mahabhutHouse": "athibodi",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 53,
+        "ageEnd": 58,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem4.thursday.sun.53_58",
+        "selectorAuthority": "selector.mahabhut2537.rem4.thursday.sun.53_58",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      "displayPolicy": "source age 0 is displayed as age 1; full source row retained"
+    },
+    {
+      "ref": "F4E9A9661F1DD0AD/claims/4",
+      "owner": "past",
+      "section": [
+        59,
+        73
+      ],
+      "body": [
+        59,
+        73
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem4.thursday",
+        "matrixApplicationId": "mahabhut2537.rem4.thursday.moon.59_73",
+        "planet": "moon",
+        "taksaRole": "mula",
+        "mahabhutHouse": "racha",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 59,
+        "ageEnd": 73,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem4.thursday.moon.59_73",
+        "selectorAuthority": "selector.mahabhut2537.rem4.thursday.moon.59_73",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      "displayPolicy": "source age 0 is displayed as age 1; full source row retained"
+    },
+    {
+      "ref": "F4E9A9661F1DD0AD/claims/5",
+      "owner": "current",
+      "currentAge": 74,
+      "heading": 74,
+      "body": 74,
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem4.thursday",
+        "matrixApplicationId": "mahabhut2537.rem4.thursday.mars.74_81",
+        "planet": "mars",
+        "taksaRole": "utsaha",
+        "mahabhutHouse": "thongchai",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 74,
+        "ageEnd": 81,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem4.thursday.mars.74_81",
+        "selectorAuthority": "selector.mahabhut2537.rem4.thursday.mars.74_81",
+        "rawHeuristicPromotedToPrediction": false
+      }
+    },
+    {
+      "ref": "F4E9A9661F1DD0AD/claims/6",
+      "owner": "next",
+      "section": [
+        82,
+        98
+      ],
+      "body": [
+        82,
+        98
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem4.thursday",
+        "matrixApplicationId": "mahabhut2537.rem4.thursday.mercury.82_98",
+        "planet": "mercury",
+        "taksaRole": "montri",
+        "mahabhutHouse": "phangkha",
+        "periodStatus": "dueng_tok",
+        "ageStart": 82,
+        "ageEnd": 98,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem4.thursday.mercury.82_98",
+        "selectorAuthority": "selector.mahabhut2537.rem4.thursday.mercury.82_98",
+        "rawHeuristicPromotedToPrediction": false
+      }
+    },
+    {
+      "ref": "537A2002845A69C6/claims/0",
+      "owner": "past",
+      "section": [
+        1,
+        21
+      ],
+      "body": [
+        1,
+        21
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem6.friday",
+        "matrixApplicationId": "mahabhut2537.rem6.friday.venus.0_21",
+        "planet": "venus",
+        "taksaRole": "boriwan",
+        "mahabhutHouse": "phangkha",
+        "periodStatus": "dueng_tok",
+        "ageStart": 0,
+        "ageEnd": 21,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem6.friday.venus.0_21",
+        "selectorAuthority": "selector.mahabhut2537.rem6.friday.venus.0_21",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      "displayPolicy": "source age 0 is displayed as age 1; full source row retained"
+    },
+    {
+      "ref": "537A2002845A69C6/claims/1",
+      "owner": "past",
+      "section": [
+        22,
+        27
+      ],
+      "body": [
+        22,
+        27
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem6.friday",
+        "matrixApplicationId": "mahabhut2537.rem6.friday.sun.22_27",
+        "planet": "sun",
+        "taksaRole": "ayu",
+        "mahabhutHouse": "khumsap",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 22,
+        "ageEnd": 27,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem6.friday.sun.22_27",
+        "selectorAuthority": "selector.mahabhut2537.rem6.friday.sun.22_27",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      "displayPolicy": "source age 0 is displayed as age 1; full source row retained"
+    },
+    {
+      "ref": "537A2002845A69C6/claims/2",
+      "owner": "past",
+      "section": [
+        28,
+        42
+      ],
+      "body": [
+        28,
+        42
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem6.friday",
+        "matrixApplicationId": "mahabhut2537.rem6.friday.moon.28_42",
+        "planet": "moon",
+        "taksaRole": "det",
+        "mahabhutHouse": "marana",
+        "periodStatus": "dueng_tok",
+        "ageStart": 28,
+        "ageEnd": 42,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem6.friday.moon.28_42",
+        "selectorAuthority": "selector.mahabhut2537.rem6.friday.moon.28_42",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      "displayPolicy": "source age 0 is displayed as age 1; full source row retained"
+    },
+    {
+      "ref": "537A2002845A69C6/claims/3",
+      "owner": "past",
+      "section": [
+        43,
+        50
+      ],
+      "body": [
+        43,
+        50
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem6.friday",
+        "matrixApplicationId": "mahabhut2537.rem6.friday.mars.43_50",
+        "planet": "mars",
+        "taksaRole": "sri",
+        "mahabhutHouse": "athibodi",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 43,
+        "ageEnd": 50,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem6.friday.mars.43_50",
+        "selectorAuthority": "selector.mahabhut2537.rem6.friday.mars.43_50",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      "displayPolicy": "source age 0 is displayed as age 1; full source row retained"
+    },
+    {
+      "ref": "537A2002845A69C6/claims/4",
+      "owner": "current",
+      "currentAge": 65,
+      "heading": 65,
+      "body": 65,
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem6.friday",
+        "matrixApplicationId": "mahabhut2537.rem6.friday.mercury.51_67",
+        "planet": "mercury",
+        "taksaRole": "mula",
+        "mahabhutHouse": "racha",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 51,
+        "ageEnd": 67,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem6.friday.mercury.51_67",
+        "selectorAuthority": "selector.mahabhut2537.rem6.friday.mercury.51_67",
+        "rawHeuristicPromotedToPrediction": false
+      }
+    },
+    {
+      "ref": "537A2002845A69C6/claims/5",
+      "owner": "next",
+      "section": [
+        68,
+        77
+      ],
+      "body": [
+        68,
+        77
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem6.friday",
+        "matrixApplicationId": "mahabhut2537.rem6.friday.saturn.68_77",
+        "planet": "saturn",
+        "taksaRole": "utsaha",
+        "mahabhutHouse": "puti",
+        "periodStatus": "dueng_tok",
+        "ageStart": 68,
+        "ageEnd": 77,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem6.friday.saturn.68_77",
+        "selectorAuthority": "selector.mahabhut2537.rem6.friday.saturn.68_77",
+        "rawHeuristicPromotedToPrediction": false
+      }
+    },
+    {
+      "ref": "86CC9F7380D978ED/claims/0",
+      "owner": "past",
+      "section": [
+        1,
+        8
+      ],
+      "body": [
+        1,
+        8
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem3.tuesday",
+        "matrixApplicationId": "mahabhut2537.rem3.tuesday.mars.0_8",
+        "planet": "mars",
+        "taksaRole": "boriwan",
+        "mahabhutHouse": "phangkha",
+        "periodStatus": "dueng_tok",
+        "ageStart": 0,
+        "ageEnd": 8,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem3.tuesday.mars.0_8",
+        "selectorAuthority": "selector.mahabhut2537.rem3.tuesday.mars.0_8",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      "displayPolicy": "source age 0 is displayed as age 1; full source row retained"
+    },
+    {
+      "ref": "86CC9F7380D978ED/claims/1",
+      "owner": "past",
+      "section": [
+        9,
+        25
+      ],
+      "body": [
+        9,
+        25
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem3.tuesday",
+        "matrixApplicationId": "mahabhut2537.rem3.tuesday.mercury.9_25",
+        "planet": "mercury",
+        "taksaRole": "ayu",
+        "mahabhutHouse": "puti",
+        "periodStatus": "dueng_tok",
+        "ageStart": 9,
+        "ageEnd": 25,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem3.tuesday.mercury.9_25",
+        "selectorAuthority": "selector.mahabhut2537.rem3.tuesday.mercury.9_25",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      "displayPolicy": "source age 0 is displayed as age 1; full source row retained"
+    },
+    {
+      "ref": "86CC9F7380D978ED/claims/2",
+      "owner": "past",
+      "section": [
+        26,
+        35
+      ],
+      "body": [
+        26,
+        35
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem3.tuesday",
+        "matrixApplicationId": "mahabhut2537.rem3.tuesday.saturn.26_35",
+        "planet": "saturn",
+        "taksaRole": "det",
+        "mahabhutHouse": "athibodi",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 26,
+        "ageEnd": 35,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem3.tuesday.saturn.26_35",
+        "selectorAuthority": "selector.mahabhut2537.rem3.tuesday.saturn.26_35",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      "displayPolicy": "source age 0 is displayed as age 1; full source row retained"
+    },
+    {
+      "ref": "86CC9F7380D978ED/claims/3",
+      "owner": "current",
+      "currentAge": 54,
+      "heading": 54,
+      "body": 54,
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem3.tuesday",
+        "matrixApplicationId": "mahabhut2537.rem3.tuesday.jupiter.36_54",
+        "planet": "jupiter",
+        "taksaRole": "sri",
+        "mahabhutHouse": "khumsap",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 36,
+        "ageEnd": 54,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem3.tuesday.jupiter.36_54",
+        "selectorAuthority": "selector.mahabhut2537.rem3.tuesday.jupiter.36_54",
+        "rawHeuristicPromotedToPrediction": false
+      }
+    },
+    {
+      "ref": "86CC9F7380D978ED/claims/4",
+      "owner": "next",
+      "section": [
+        55,
+        66
+      ],
+      "body": [
+        55,
+        66
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem3.tuesday",
+        "matrixApplicationId": "mahabhut2537.rem3.tuesday.rahu.55_66",
+        "planet": "rahu",
+        "taksaRole": "mula",
+        "mahabhutHouse": "puti",
+        "periodStatus": "dueng_tok",
+        "ageStart": 55,
+        "ageEnd": 66,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem3.tuesday.rahu.55_66",
+        "selectorAuthority": "selector.mahabhut2537.rem3.tuesday.rahu.55_66",
+        "rawHeuristicPromotedToPrediction": false
+      }
+    },
+    {
+      "ref": "5A1DF41FAA640A9A/claims/0",
+      "owner": "past",
+      "section": [
+        1,
+        17
+      ],
+      "body": [
+        1,
+        17
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem3.wednesday",
+        "matrixApplicationId": "mahabhut2537.rem3.wednesday.mercury.0_17",
+        "planet": "mercury",
+        "taksaRole": "boriwan",
+        "mahabhutHouse": "puti",
+        "periodStatus": "dueng_tok",
+        "ageStart": 0,
+        "ageEnd": 17,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem3.wednesday.mercury.0_17",
+        "selectorAuthority": "selector.mahabhut2537.rem3.wednesday.mercury.0_17",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      "displayPolicy": "source age 0 is displayed as age 1; full source row retained"
+    },
+    {
+      "ref": "5A1DF41FAA640A9A/claims/1",
+      "owner": "past",
+      "section": [
+        18,
+        27
+      ],
+      "body": [
+        18,
+        27
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem3.wednesday",
+        "matrixApplicationId": "mahabhut2537.rem3.wednesday.saturn.18_27",
+        "planet": "saturn",
+        "taksaRole": "ayu",
+        "mahabhutHouse": "athibodi",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 18,
+        "ageEnd": 27,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem3.wednesday.saturn.18_27",
+        "selectorAuthority": "selector.mahabhut2537.rem3.wednesday.saturn.18_27",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      "displayPolicy": "source age 0 is displayed as age 1; full source row retained"
+    },
+    {
+      "ref": "5A1DF41FAA640A9A/claims/2",
+      "owner": "past",
+      "section": [
+        28,
+        46
+      ],
+      "body": [
+        28,
+        46
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem3.wednesday",
+        "matrixApplicationId": "mahabhut2537.rem3.wednesday.jupiter.28_46",
+        "planet": "jupiter",
+        "taksaRole": "det",
+        "mahabhutHouse": "khumsap",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 28,
+        "ageEnd": 46,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem3.wednesday.jupiter.28_46",
+        "selectorAuthority": "selector.mahabhut2537.rem3.wednesday.jupiter.28_46",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      "displayPolicy": "source age 0 is displayed as age 1; full source row retained"
+    },
+    {
+      "ref": "5A1DF41FAA640A9A/claims/3",
+      "owner": "current",
+      "currentAge": 54,
+      "heading": 54,
+      "body": 54,
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem3.wednesday",
+        "matrixApplicationId": "mahabhut2537.rem3.wednesday.rahu.47_58",
+        "planet": "rahu",
+        "taksaRole": "sri",
+        "mahabhutHouse": "puti",
+        "periodStatus": "dueng_tok",
+        "ageStart": 47,
+        "ageEnd": 58,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem3.wednesday.rahu.47_58",
+        "selectorAuthority": "selector.mahabhut2537.rem3.wednesday.rahu.47_58",
+        "rawHeuristicPromotedToPrediction": false
+      }
+    },
+    {
+      "ref": "5A1DF41FAA640A9A/claims/4",
+      "owner": "next",
+      "section": [
+        59,
+        79
+      ],
+      "body": [
+        59,
+        79
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem3.wednesday",
+        "matrixApplicationId": "mahabhut2537.rem3.wednesday.venus.59_79",
+        "planet": "venus",
+        "taksaRole": "mula",
+        "mahabhutHouse": "marana",
+        "periodStatus": "dueng_tok",
+        "ageStart": 59,
+        "ageEnd": 79,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem3.wednesday.venus.59_79",
+        "selectorAuthority": "selector.mahabhut2537.rem3.wednesday.venus.59_79",
+        "rawHeuristicPromotedToPrediction": false
+      }
+    },
+    {
+      "ref": "554CC1EA004225F6/claims/0",
+      "owner": "past",
+      "section": [
+        1,
+        15
+      ],
+      "body": [
+        1,
+        15
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem1.monday",
+        "matrixApplicationId": "mahabhut2537.rem1.monday.moon.0_15",
+        "planet": "moon",
+        "taksaRole": "boriwan",
+        "mahabhutHouse": "puti",
+        "periodStatus": "dueng_tok",
+        "ageStart": 0,
+        "ageEnd": 15,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem1.monday.moon.0_15",
+        "selectorAuthority": "selector.mahabhut2537.rem1.monday.moon.0_15",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      "displayPolicy": "source age 0 is displayed as age 1; full source row retained"
+    },
+    {
+      "ref": "554CC1EA004225F6/claims/1",
+      "owner": "past",
+      "section": [
+        16,
+        23
+      ],
+      "body": [
+        16,
+        23
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem1.monday",
+        "matrixApplicationId": "mahabhut2537.rem1.monday.mars.16_23",
+        "planet": "mars",
+        "taksaRole": "ayu",
+        "mahabhutHouse": "khumsap",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 16,
+        "ageEnd": 23,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem1.monday.mars.16_23",
+        "selectorAuthority": "selector.mahabhut2537.rem1.monday.mars.16_23",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      "displayPolicy": "source age 0 is displayed as age 1; full source row retained"
+    },
+    {
+      "ref": "554CC1EA004225F6/claims/2",
+      "owner": "current",
+      "currentAge": 36,
+      "heading": 36,
+      "body": 36,
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem1.monday",
+        "matrixApplicationId": "mahabhut2537.rem1.monday.mercury.24_40",
+        "planet": "mercury",
+        "taksaRole": "det",
+        "mahabhutHouse": "marana",
+        "periodStatus": "dueng_tok",
+        "ageStart": 24,
+        "ageEnd": 40,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem1.monday.mercury.24_40",
+        "selectorAuthority": "selector.mahabhut2537.rem1.monday.mercury.24_40",
+        "rawHeuristicPromotedToPrediction": false
+      }
+    },
+    {
+      "ref": "554CC1EA004225F6/claims/3",
+      "owner": "next",
+      "section": [
+        41,
+        59
+      ],
+      "body": [
+        41,
+        59
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem1.monday",
+        "matrixApplicationId": "mahabhut2537.rem1.monday.jupiter.41_59",
+        "planet": "jupiter",
+        "taksaRole": "sri",
+        "mahabhutHouse": "athibodi",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 41,
+        "ageEnd": 59,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem1.monday.jupiter.41_59",
+        "selectorAuthority": "selector.mahabhut2537.rem1.monday.jupiter.41_59",
+        "rawHeuristicPromotedToPrediction": false
+      }
+    },
+    {
+      "ref": "B3247F51E7C01CE9/claims/0",
+      "owner": "past",
+      "section": [
+        1,
+        21
+      ],
+      "body": [
+        1,
+        21
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem3.friday",
+        "matrixApplicationId": "mahabhut2537.rem3.friday.venus.0_21",
+        "planet": "venus",
+        "taksaRole": "boriwan",
+        "mahabhutHouse": "marana",
+        "periodStatus": "dueng_tok",
+        "ageStart": 0,
+        "ageEnd": 21,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem3.friday.venus.0_21",
+        "selectorAuthority": "selector.mahabhut2537.rem3.friday.venus.0_21",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      "displayPolicy": "source age 0 is displayed as age 1; full source row retained"
+    },
+    {
+      "ref": "B3247F51E7C01CE9/claims/1",
+      "owner": "current",
+      "currentAge": 26,
+      "heading": 26,
+      "body": 26,
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem3.friday",
+        "matrixApplicationId": "mahabhut2537.rem3.friday.sun.22_27",
+        "planet": "sun",
+        "taksaRole": "ayu",
+        "mahabhutHouse": "racha",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 22,
+        "ageEnd": 27,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem3.friday.sun.22_27",
+        "selectorAuthority": "selector.mahabhut2537.rem3.friday.sun.22_27",
+        "rawHeuristicPromotedToPrediction": false
+      }
+    },
+    {
+      "ref": "B3247F51E7C01CE9/claims/2",
+      "owner": "next",
+      "section": [
+        28,
+        42
+      ],
+      "body": [
+        28,
+        42
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem3.friday",
+        "matrixApplicationId": "mahabhut2537.rem3.friday.moon.28_42",
+        "planet": "moon",
+        "taksaRole": "det",
+        "mahabhutHouse": "thongchai",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 28,
+        "ageEnd": 42,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem3.friday.moon.28_42",
+        "selectorAuthority": "selector.mahabhut2537.rem3.friday.moon.28_42",
+        "rawHeuristicPromotedToPrediction": false
+      }
+    },
+    {
+      "ref": "948FCB6ED66C1E1A/claims/0",
+      "owner": "past",
+      "section": [
+        1,
+        10
+      ],
+      "body": [
+        1,
+        10
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem3.saturday",
+        "matrixApplicationId": "mahabhut2537.rem3.saturday.saturn.0_10",
+        "planet": "saturn",
+        "taksaRole": "boriwan",
+        "mahabhutHouse": "athibodi",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 0,
+        "ageEnd": 10,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem3.saturday.saturn.0_10",
+        "selectorAuthority": "selector.mahabhut2537.rem3.saturday.saturn.0_10",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      "displayPolicy": "source age 0 is displayed as age 1; full source row retained"
+    },
+    {
+      "ref": "948FCB6ED66C1E1A/claims/1",
+      "owner": "current",
+      "currentAge": 26,
+      "heading": 26,
+      "body": 26,
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem3.saturday",
+        "matrixApplicationId": "mahabhut2537.rem3.saturday.jupiter.11_29",
+        "planet": "jupiter",
+        "taksaRole": "ayu",
+        "mahabhutHouse": "khumsap",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 11,
+        "ageEnd": 29,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem3.saturday.jupiter.11_29",
+        "selectorAuthority": "selector.mahabhut2537.rem3.saturday.jupiter.11_29",
+        "rawHeuristicPromotedToPrediction": false
+      }
+    },
+    {
+      "ref": "948FCB6ED66C1E1A/claims/2",
+      "owner": "next",
+      "section": [
+        30,
+        41
+      ],
+      "body": [
+        30,
+        41
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem3.saturday",
+        "matrixApplicationId": "mahabhut2537.rem3.saturday.rahu.30_41",
+        "planet": "rahu",
+        "taksaRole": "det",
+        "mahabhutHouse": "puti",
+        "periodStatus": "dueng_tok",
+        "ageStart": 30,
+        "ageEnd": 41,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem3.saturday.rahu.30_41",
+        "selectorAuthority": "selector.mahabhut2537.rem3.saturday.rahu.30_41",
+        "rawHeuristicPromotedToPrediction": false
+      }
+    },
+    {
+      "ref": "2C7F87275FE21BA3/claims/0",
+      "owner": "past",
+      "section": [
+        1,
+        6
+      ],
+      "body": [
+        1,
+        6
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem0.sunday",
+        "matrixApplicationId": "mahabhut2537.rem0.sunday.sun.0_6",
+        "planet": "sun",
+        "taksaRole": "boriwan",
+        "mahabhutHouse": "puti",
+        "periodStatus": "dueng_tok",
+        "ageStart": 0,
+        "ageEnd": 6,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem0.sunday.sun.0_6",
+        "selectorAuthority": "selector.mahabhut2537.rem0.sunday.sun.0_6",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      "displayPolicy": "source age 0 is displayed as age 1; full source row retained"
+    },
+    {
+      "ref": "2C7F87275FE21BA3/claims/1",
+      "owner": "past",
+      "section": [
+        7,
+        21
+      ],
+      "body": [
+        7,
+        21
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem0.sunday",
+        "matrixApplicationId": "mahabhut2537.rem0.sunday.moon.7_21",
+        "planet": "moon",
+        "taksaRole": "ayu",
+        "mahabhutHouse": "khumsap",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 7,
+        "ageEnd": 21,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem0.sunday.moon.7_21",
+        "selectorAuthority": "selector.mahabhut2537.rem0.sunday.moon.7_21",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      "displayPolicy": "source age 0 is displayed as age 1; full source row retained"
+    },
+    {
+      "ref": "2C7F87275FE21BA3/claims/2",
+      "owner": "current",
+      "currentAge": 22,
+      "heading": 22,
+      "body": 22,
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem0.sunday",
+        "matrixApplicationId": "mahabhut2537.rem0.sunday.mars.22_29",
+        "planet": "mars",
+        "taksaRole": "det",
+        "mahabhutHouse": "marana",
+        "periodStatus": "dueng_tok",
+        "ageStart": 22,
+        "ageEnd": 29,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem0.sunday.mars.22_29",
+        "selectorAuthority": "selector.mahabhut2537.rem0.sunday.mars.22_29",
+        "rawHeuristicPromotedToPrediction": false
+      }
+    },
+    {
+      "ref": "2C7F87275FE21BA3/claims/3",
+      "owner": "next",
+      "section": [
+        30,
+        46
+      ],
+      "body": [
+        30,
+        46
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem0.sunday",
+        "matrixApplicationId": "mahabhut2537.rem0.sunday.mercury.30_46",
+        "planet": "mercury",
+        "taksaRole": "sri",
+        "mahabhutHouse": "athibodi",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 30,
+        "ageEnd": 46,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem0.sunday.mercury.30_46",
+        "selectorAuthority": "selector.mahabhut2537.rem0.sunday.mercury.30_46",
+        "rawHeuristicPromotedToPrediction": false
+      }
+    },
+    {
+      "ref": "BEF703D37CDCB546/claims/0",
+      "owner": "past",
+      "section": [
+        1,
+        8
+      ],
+      "body": [
+        1,
+        8
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem5.tuesday",
+        "matrixApplicationId": "mahabhut2537.rem5.tuesday.mars.0_8",
+        "planet": "mars",
+        "taksaRole": "boriwan",
+        "mahabhutHouse": "racha",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 0,
+        "ageEnd": 8,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem5.tuesday.mars.0_8",
+        "selectorAuthority": "selector.mahabhut2537.rem5.tuesday.mars.0_8",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      "displayPolicy": "source age 0 is displayed as age 1; full source row retained"
+    },
+    {
+      "ref": "BEF703D37CDCB546/claims/1",
+      "owner": "current",
+      "currentAge": 17,
+      "heading": 17,
+      "body": 17,
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem5.tuesday",
+        "matrixApplicationId": "mahabhut2537.rem5.tuesday.mercury.9_25",
+        "planet": "mercury",
+        "taksaRole": "ayu",
+        "mahabhutHouse": "thongchai",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 9,
+        "ageEnd": 25,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem5.tuesday.mercury.9_25",
+        "selectorAuthority": "selector.mahabhut2537.rem5.tuesday.mercury.9_25",
+        "rawHeuristicPromotedToPrediction": false
+      }
+    },
+    {
+      "ref": "BEF703D37CDCB546/claims/2",
+      "owner": "next",
+      "section": [
+        26,
+        35
+      ],
+      "body": [
+        26,
+        35
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem5.tuesday",
+        "matrixApplicationId": "mahabhut2537.rem5.tuesday.saturn.26_35",
+        "planet": "saturn",
+        "taksaRole": "det",
+        "mahabhutHouse": "khumsap",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 26,
+        "ageEnd": 35,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem5.tuesday.saturn.26_35",
+        "selectorAuthority": "selector.mahabhut2537.rem5.tuesday.saturn.26_35",
+        "rawHeuristicPromotedToPrediction": false
+      }
+    },
+    {
+      "ref": "B073F24952A77E3A/claims/0",
+      "owner": "current",
+      "currentAge": 17,
+      "heading": 17,
+      "body": 17,
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem5.wednesday",
+        "matrixApplicationId": "mahabhut2537.rem5.wednesday.mercury.0_17",
+        "planet": "mercury",
+        "taksaRole": "boriwan",
+        "mahabhutHouse": "thongchai",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 0,
+        "ageEnd": 17,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem5.wednesday.mercury.0_17",
+        "selectorAuthority": "selector.mahabhut2537.rem5.wednesday.mercury.0_17",
+        "rawHeuristicPromotedToPrediction": false
+      }
+    },
+    {
+      "ref": "B073F24952A77E3A/claims/1",
+      "owner": "next",
+      "section": [
+        18,
+        27
+      ],
+      "body": [
+        18,
+        27
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem5.wednesday",
+        "matrixApplicationId": "mahabhut2537.rem5.wednesday.saturn.18_27",
+        "planet": "saturn",
+        "taksaRole": "ayu",
+        "mahabhutHouse": "khumsap",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 18,
+        "ageEnd": 27,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem5.wednesday.saturn.18_27",
+        "selectorAuthority": "selector.mahabhut2537.rem5.wednesday.saturn.18_27",
+        "rawHeuristicPromotedToPrediction": false
+      }
+    },
+    {
+      "ref": "E06FD5160D811F51/claims/0",
+      "owner": "current",
+      "currentAge": 10,
+      "heading": 10,
+      "body": 10,
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem6.saturday",
+        "matrixApplicationId": "mahabhut2537.rem6.saturday.saturn.0_10",
+        "planet": "saturn",
+        "taksaRole": "boriwan",
+        "mahabhutHouse": "puti",
+        "periodStatus": "dueng_tok",
+        "ageStart": 0,
+        "ageEnd": 10,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem6.saturday.saturn.0_10",
+        "selectorAuthority": "selector.mahabhut2537.rem6.saturday.saturn.0_10",
+        "rawHeuristicPromotedToPrediction": false
+      }
+    },
+    {
+      "ref": "E06FD5160D811F51/claims/1",
+      "owner": "next",
+      "section": [
+        11,
+        29
+      ],
+      "body": [
+        11,
+        29
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem6.saturday",
+        "matrixApplicationId": "mahabhut2537.rem6.saturday.jupiter.11_29",
+        "planet": "jupiter",
+        "taksaRole": "ayu",
+        "mahabhutHouse": "thongchai",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 11,
+        "ageEnd": 29,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem6.saturday.jupiter.11_29",
+        "selectorAuthority": "selector.mahabhut2537.rem6.saturday.jupiter.11_29",
+        "rawHeuristicPromotedToPrediction": false
+      }
+    },
+    {
+      "ref": "3055C51BDE527C8C/claims/0",
+      "owner": "current",
+      "currentAge": 6,
+      "heading": 6,
+      "body": 6,
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem2.friday",
+        "matrixApplicationId": "mahabhut2537.rem2.friday.venus.0_21",
+        "planet": "venus",
+        "taksaRole": "boriwan",
+        "mahabhutHouse": "athibodi",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 0,
+        "ageEnd": 21,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem2.friday.venus.0_21",
+        "selectorAuthority": "selector.mahabhut2537.rem2.friday.venus.0_21",
+        "rawHeuristicPromotedToPrediction": false
+      }
+    },
+    {
+      "ref": "3055C51BDE527C8C/claims/1",
+      "owner": "next",
+      "section": [
+        22,
+        27
+      ],
+      "body": [
+        22,
+        27
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem2.friday",
+        "matrixApplicationId": "mahabhut2537.rem2.friday.sun.22_27",
+        "planet": "sun",
+        "taksaRole": "ayu",
+        "mahabhutHouse": "thongchai",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 22,
+        "ageEnd": 27,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem2.friday.sun.22_27",
+        "selectorAuthority": "selector.mahabhut2537.rem2.friday.sun.22_27",
+        "rawHeuristicPromotedToPrediction": false
+      }
+    },
+    {
+      "ref": "C2ACEA2F73D584E5/claims/0",
+      "owner": "current",
+      "currentAge": 2,
+      "heading": 2,
+      "body": 2,
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem6.thursday",
+        "matrixApplicationId": "mahabhut2537.rem6.thursday.jupiter.0_19",
+        "planet": "jupiter",
+        "taksaRole": "boriwan",
+        "mahabhutHouse": "thongchai",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 0,
+        "ageEnd": 19,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem6.thursday.jupiter.0_19",
+        "selectorAuthority": "selector.mahabhut2537.rem6.thursday.jupiter.0_19",
+        "rawHeuristicPromotedToPrediction": false
+      }
+    },
+    {
+      "ref": "C2ACEA2F73D584E5/claims/1",
+      "owner": "next",
+      "section": [
+        20,
+        31
+      ],
+      "body": [
+        20,
+        31
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem6.thursday",
+        "matrixApplicationId": "mahabhut2537.rem6.thursday.rahu.20_31",
+        "planet": "rahu",
+        "taksaRole": "ayu",
+        "mahabhutHouse": "racha",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 20,
+        "ageEnd": 31,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem6.thursday.rahu.20_31",
+        "selectorAuthority": "selector.mahabhut2537.rem6.thursday.rahu.20_31",
+        "rawHeuristicPromotedToPrediction": false
+      }
+    },
+    {
+      "ref": "7EFC0FBBD34B1B7C/claims/0",
+      "owner": "current",
+      "currentAge": 0,
+      "heading": 0,
+      "body": 0,
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem1.wednesday",
+        "matrixApplicationId": "mahabhut2537.rem1.wednesday.mercury.0_17",
+        "planet": "mercury",
+        "taksaRole": "boriwan",
+        "mahabhutHouse": "marana",
+        "periodStatus": "dueng_tok",
+        "ageStart": 0,
+        "ageEnd": 17,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem1.wednesday.mercury.0_17",
+        "selectorAuthority": "selector.mahabhut2537.rem1.wednesday.mercury.0_17",
+        "rawHeuristicPromotedToPrediction": false
+      }
+    },
+    {
+      "ref": "7EFC0FBBD34B1B7C/claims/1",
+      "owner": "next",
+      "section": [
+        18,
+        27
+      ],
+      "body": [
+        18,
+        27
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem1.wednesday",
+        "matrixApplicationId": "mahabhut2537.rem1.wednesday.saturn.18_27",
+        "planet": "saturn",
+        "taksaRole": "ayu",
+        "mahabhutHouse": "thongchai",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 18,
+        "ageEnd": 27,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem1.wednesday.saturn.18_27",
+        "selectorAuthority": "selector.mahabhut2537.rem1.wednesday.saturn.18_27",
+        "rawHeuristicPromotedToPrediction": false
+      }
+    },
+    {
+      "ref": "0BC0ED27C466B27C/claims/0",
+      "owner": "past",
+      "section": [
+        1,
+        15
+      ],
+      "body": [
+        1,
+        15
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem3.monday",
+        "matrixApplicationId": "mahabhut2537.rem3.monday.moon.0_15",
+        "planet": "moon",
+        "taksaRole": "boriwan",
+        "mahabhutHouse": "thongchai",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 0,
+        "ageEnd": 15,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem3.monday.moon.0_15",
+        "selectorAuthority": "selector.mahabhut2537.rem3.monday.moon.0_15",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      "displayPolicy": "source age 0 is displayed as age 1; full source row retained"
+    },
+    {
+      "ref": "0BC0ED27C466B27C/claims/1",
+      "owner": "past",
+      "section": [
+        16,
+        23
+      ],
+      "body": [
+        16,
+        23
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem3.monday",
+        "matrixApplicationId": "mahabhut2537.rem3.monday.mars.16_23",
+        "planet": "mars",
+        "taksaRole": "ayu",
+        "mahabhutHouse": "phangkha",
+        "periodStatus": "dueng_tok",
+        "ageStart": 16,
+        "ageEnd": 23,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem3.monday.mars.16_23",
+        "selectorAuthority": "selector.mahabhut2537.rem3.monday.mars.16_23",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      "displayPolicy": "source age 0 is displayed as age 1; full source row retained"
+    },
+    {
+      "ref": "0BC0ED27C466B27C/claims/2",
+      "owner": "past",
+      "section": [
+        24,
+        40
+      ],
+      "body": [
+        24,
+        40
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem3.monday",
+        "matrixApplicationId": "mahabhut2537.rem3.monday.mercury.24_40",
+        "planet": "mercury",
+        "taksaRole": "det",
+        "mahabhutHouse": "puti",
+        "periodStatus": "dueng_tok",
+        "ageStart": 24,
+        "ageEnd": 40,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem3.monday.mercury.24_40",
+        "selectorAuthority": "selector.mahabhut2537.rem3.monday.mercury.24_40",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      "displayPolicy": "source age 0 is displayed as age 1; full source row retained"
+    },
+    {
+      "ref": "0BC0ED27C466B27C/claims/3",
+      "owner": "past",
+      "section": [
+        41,
+        59
+      ],
+      "body": [
+        41,
+        59
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem3.monday",
+        "matrixApplicationId": "mahabhut2537.rem3.monday.jupiter.41_59",
+        "planet": "jupiter",
+        "taksaRole": "sri",
+        "mahabhutHouse": "khumsap",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 41,
+        "ageEnd": 59,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem3.monday.jupiter.41_59",
+        "selectorAuthority": "selector.mahabhut2537.rem3.monday.jupiter.41_59",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      "displayPolicy": "source age 0 is displayed as age 1; full source row retained"
+    },
+    {
+      "ref": "0BC0ED27C466B27C/claims/4",
+      "owner": "current",
+      "currentAge": 61,
+      "heading": 61,
+      "body": 61,
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem3.monday",
+        "matrixApplicationId": "mahabhut2537.rem3.monday.venus.60_80",
+        "planet": "venus",
+        "taksaRole": "mula",
+        "mahabhutHouse": "marana",
+        "periodStatus": "dueng_tok",
+        "ageStart": 60,
+        "ageEnd": 80,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem3.monday.venus.60_80",
+        "selectorAuthority": "selector.mahabhut2537.rem3.monday.venus.60_80",
+        "rawHeuristicPromotedToPrediction": false
+      }
+    },
+    {
+      "ref": "0BC0ED27C466B27C/claims/5",
+      "owner": "next",
+      "section": [
+        81,
+        90
+      ],
+      "body": [
+        81,
+        90
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem3.monday",
+        "matrixApplicationId": "mahabhut2537.rem3.monday.saturn.81_90",
+        "planet": "saturn",
+        "taksaRole": "utsaha",
+        "mahabhutHouse": "athibodi",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 81,
+        "ageEnd": 90,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem3.monday.saturn.81_90",
+        "selectorAuthority": "selector.mahabhut2537.rem3.monday.saturn.81_90",
+        "rawHeuristicPromotedToPrediction": false
+      }
+    },
+    {
+      "ref": "37331D3DAFE20EFF/claims/0",
+      "owner": "past",
+      "section": [
+        1,
+        15
+      ],
+      "body": [
+        1,
+        15
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem2.monday",
+        "matrixApplicationId": "mahabhut2537.rem2.monday.moon.0_15",
+        "planet": "moon",
+        "taksaRole": "boriwan",
+        "mahabhutHouse": "phangkha",
+        "periodStatus": "dueng_tok",
+        "ageStart": 0,
+        "ageEnd": 15,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem2.monday.moon.0_15",
+        "selectorAuthority": "selector.mahabhut2537.rem2.monday.moon.0_15",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      "displayPolicy": "source age 0 is displayed as age 1; full source row retained"
+    },
+    {
+      "ref": "37331D3DAFE20EFF/claims/1",
+      "owner": "past",
+      "section": [
+        16,
+        23
+      ],
+      "body": [
+        16,
+        23
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem2.monday",
+        "matrixApplicationId": "mahabhut2537.rem2.monday.mars.16_23",
+        "planet": "mars",
+        "taksaRole": "ayu",
+        "mahabhutHouse": "puti",
+        "periodStatus": "dueng_tok",
+        "ageStart": 16,
+        "ageEnd": 23,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem2.monday.mars.16_23",
+        "selectorAuthority": "selector.mahabhut2537.rem2.monday.mars.16_23",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      "displayPolicy": "source age 0 is displayed as age 1; full source row retained"
+    },
+    {
+      "ref": "37331D3DAFE20EFF/claims/2",
+      "owner": "current",
+      "currentAge": 28,
+      "heading": 28,
+      "body": 28,
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem2.monday",
+        "matrixApplicationId": "mahabhut2537.rem2.monday.mercury.24_40",
+        "planet": "mercury",
+        "taksaRole": "det",
+        "mahabhutHouse": "khumsap",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 24,
+        "ageEnd": 40,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem2.monday.mercury.24_40",
+        "selectorAuthority": "selector.mahabhut2537.rem2.monday.mercury.24_40",
+        "rawHeuristicPromotedToPrediction": false
+      }
+    },
+    {
+      "ref": "37331D3DAFE20EFF/claims/3",
+      "owner": "next",
+      "section": [
+        41,
+        59
+      ],
+      "body": [
+        41,
+        59
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem2.monday",
+        "matrixApplicationId": "mahabhut2537.rem2.monday.jupiter.41_59",
+        "planet": "jupiter",
+        "taksaRole": "sri",
+        "mahabhutHouse": "marana",
+        "periodStatus": "dueng_tok",
+        "ageStart": 41,
+        "ageEnd": 59,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem2.monday.jupiter.41_59",
+        "selectorAuthority": "selector.mahabhut2537.rem2.monday.jupiter.41_59",
+        "rawHeuristicPromotedToPrediction": false
+      }
+    },
+    {
+      "ref": "1A95960BCE532D35/claims/0",
+      "owner": "past",
+      "section": [
+        1,
+        10
+      ],
+      "body": [
+        1,
+        10
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem0.saturday",
+        "matrixApplicationId": "mahabhut2537.rem0.saturday.saturn.0_10",
+        "planet": "saturn",
+        "taksaRole": "boriwan",
+        "mahabhutHouse": "phangkha",
+        "periodStatus": "dueng_tok",
+        "ageStart": 0,
+        "ageEnd": 10,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem0.saturday.saturn.0_10",
+        "selectorAuthority": "selector.mahabhut2537.rem0.saturday.saturn.0_10",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      "displayPolicy": "source age 0 is displayed as age 1; full source row retained"
+    },
+    {
+      "ref": "1A95960BCE532D35/claims/1",
+      "owner": "past",
+      "section": [
+        11,
+        29
+      ],
+      "body": [
+        11,
+        29
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem0.saturday",
+        "matrixApplicationId": "mahabhut2537.rem0.saturday.jupiter.11_29",
+        "planet": "jupiter",
+        "taksaRole": "ayu",
+        "mahabhutHouse": "racha",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 11,
+        "ageEnd": 29,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem0.saturday.jupiter.11_29",
+        "selectorAuthority": "selector.mahabhut2537.rem0.saturday.jupiter.11_29",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      "displayPolicy": "source age 0 is displayed as age 1; full source row retained"
+    },
+    {
+      "ref": "1A95960BCE532D35/claims/2",
+      "owner": "current",
+      "currentAge": 30,
+      "heading": 30,
+      "body": 30,
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem0.saturday",
+        "matrixApplicationId": "mahabhut2537.rem0.saturday.rahu.30_41",
+        "planet": "rahu",
+        "taksaRole": "det",
+        "mahabhutHouse": "athibodi",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 30,
+        "ageEnd": 41,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem0.saturday.rahu.30_41",
+        "selectorAuthority": "selector.mahabhut2537.rem0.saturday.rahu.30_41",
+        "rawHeuristicPromotedToPrediction": false
+      }
+    },
+    {
+      "ref": "1A95960BCE532D35/claims/3",
+      "owner": "next",
+      "section": [
+        42,
+        62
+      ],
+      "body": [
+        42,
+        62
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem0.saturday",
+        "matrixApplicationId": "mahabhut2537.rem0.saturday.venus.42_62",
+        "planet": "venus",
+        "taksaRole": "sri",
+        "mahabhutHouse": "thongchai",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 42,
+        "ageEnd": 62,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem0.saturday.venus.42_62",
+        "selectorAuthority": "selector.mahabhut2537.rem0.saturday.venus.42_62",
+        "rawHeuristicPromotedToPrediction": false
+      }
+    },
+    {
+      "ref": "6802AA3BABFD09A4/claims/0",
+      "owner": "past",
+      "section": [
+        1,
+        19
+      ],
+      "body": [
+        1,
+        19
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem3.thursday",
+        "matrixApplicationId": "mahabhut2537.rem3.thursday.jupiter.0_19",
+        "planet": "jupiter",
+        "taksaRole": "boriwan",
+        "mahabhutHouse": "khumsap",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 0,
+        "ageEnd": 19,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem3.thursday.jupiter.0_19",
+        "selectorAuthority": "selector.mahabhut2537.rem3.thursday.jupiter.0_19",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      "displayPolicy": "source age 0 is displayed as age 1; full source row retained"
+    },
+    {
+      "ref": "6802AA3BABFD09A4/claims/1",
+      "owner": "past",
+      "section": [
+        20,
+        31
+      ],
+      "body": [
+        20,
+        31
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem3.thursday",
+        "matrixApplicationId": "mahabhut2537.rem3.thursday.rahu.20_31",
+        "planet": "rahu",
+        "taksaRole": "ayu",
+        "mahabhutHouse": "puti",
+        "periodStatus": "dueng_tok",
+        "ageStart": 20,
+        "ageEnd": 31,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem3.thursday.rahu.20_31",
+        "selectorAuthority": "selector.mahabhut2537.rem3.thursday.rahu.20_31",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      "displayPolicy": "source age 0 is displayed as age 1; full source row retained"
+    },
+    {
+      "ref": "6802AA3BABFD09A4/claims/2",
+      "owner": "past",
+      "section": [
+        32,
+        52
+      ],
+      "body": [
+        32,
+        52
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem3.thursday",
+        "matrixApplicationId": "mahabhut2537.rem3.thursday.venus.32_52",
+        "planet": "venus",
+        "taksaRole": "det",
+        "mahabhutHouse": "marana",
+        "periodStatus": "dueng_tok",
+        "ageStart": 32,
+        "ageEnd": 52,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem3.thursday.venus.32_52",
+        "selectorAuthority": "selector.mahabhut2537.rem3.thursday.venus.32_52",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      "displayPolicy": "source age 0 is displayed as age 1; full source row retained"
+    },
+    {
+      "ref": "6802AA3BABFD09A4/claims/3",
+      "owner": "past",
+      "section": [
+        53,
+        58
+      ],
+      "body": [
+        53,
+        58
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem3.thursday",
+        "matrixApplicationId": "mahabhut2537.rem3.thursday.sun.53_58",
+        "planet": "sun",
+        "taksaRole": "sri",
+        "mahabhutHouse": "racha",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 53,
+        "ageEnd": 58,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem3.thursday.sun.53_58",
+        "selectorAuthority": "selector.mahabhut2537.rem3.thursday.sun.53_58",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      "displayPolicy": "source age 0 is displayed as age 1; full source row retained"
+    },
+    {
+      "ref": "6802AA3BABFD09A4/claims/4",
+      "owner": "current",
+      "currentAge": 68,
+      "heading": 68,
+      "body": 68,
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem3.thursday",
+        "matrixApplicationId": "mahabhut2537.rem3.thursday.moon.59_73",
+        "planet": "moon",
+        "taksaRole": "mula",
+        "mahabhutHouse": "thongchai",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 59,
+        "ageEnd": 73,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem3.thursday.moon.59_73",
+        "selectorAuthority": "selector.mahabhut2537.rem3.thursday.moon.59_73",
+        "rawHeuristicPromotedToPrediction": false
+      }
+    },
+    {
+      "ref": "6802AA3BABFD09A4/claims/5",
+      "owner": "next",
+      "section": [
+        74,
+        81
+      ],
+      "body": [
+        74,
+        81
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem3.thursday",
+        "matrixApplicationId": "mahabhut2537.rem3.thursday.mars.74_81",
+        "planet": "mars",
+        "taksaRole": "utsaha",
+        "mahabhutHouse": "phangkha",
+        "periodStatus": "dueng_tok",
+        "ageStart": 74,
+        "ageEnd": 81,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem3.thursday.mars.74_81",
+        "selectorAuthority": "selector.mahabhut2537.rem3.thursday.mars.74_81",
+        "rawHeuristicPromotedToPrediction": false
+      }
+    },
+    {
+      "ref": "9C8AB65EDA2BC83F/claims/0",
+      "owner": "past",
+      "section": [
+        1,
+        10
+      ],
+      "body": [
+        1,
+        10
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem5.saturday",
+        "matrixApplicationId": "mahabhut2537.rem5.saturday.saturn.0_10",
+        "planet": "saturn",
+        "taksaRole": "boriwan",
+        "mahabhutHouse": "khumsap",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 0,
+        "ageEnd": 10,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem5.saturday.saturn.0_10",
+        "selectorAuthority": "selector.mahabhut2537.rem5.saturday.saturn.0_10",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      "displayPolicy": "source age 0 is displayed as age 1; full source row retained"
+    },
+    {
+      "ref": "9C8AB65EDA2BC83F/claims/1",
+      "owner": "past",
+      "section": [
+        11,
+        29
+      ],
+      "body": [
+        11,
+        29
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem5.saturday",
+        "matrixApplicationId": "mahabhut2537.rem5.saturday.jupiter.11_29",
+        "planet": "jupiter",
+        "taksaRole": "ayu",
+        "mahabhutHouse": "phangkha",
+        "periodStatus": "dueng_tok",
+        "ageStart": 11,
+        "ageEnd": 29,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem5.saturday.jupiter.11_29",
+        "selectorAuthority": "selector.mahabhut2537.rem5.saturday.jupiter.11_29",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      "displayPolicy": "source age 0 is displayed as age 1; full source row retained"
+    },
+    {
+      "ref": "9C8AB65EDA2BC83F/claims/2",
+      "owner": "current",
+      "currentAge": 31,
+      "heading": 31,
+      "body": 31,
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem5.saturday",
+        "matrixApplicationId": "mahabhut2537.rem5.saturday.rahu.30_41",
+        "planet": "rahu",
+        "taksaRole": "det",
+        "mahabhutHouse": "thongchai",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 30,
+        "ageEnd": 41,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem5.saturday.rahu.30_41",
+        "selectorAuthority": "selector.mahabhut2537.rem5.saturday.rahu.30_41",
+        "rawHeuristicPromotedToPrediction": false
+      }
+    },
+    {
+      "ref": "9C8AB65EDA2BC83F/claims/3",
+      "owner": "next",
+      "section": [
+        42,
+        62
+      ],
+      "body": [
+        42,
+        62
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem5.saturday",
+        "matrixApplicationId": "mahabhut2537.rem5.saturday.venus.42_62",
+        "planet": "venus",
+        "taksaRole": "sri",
+        "mahabhutHouse": "puti",
+        "periodStatus": "dueng_tok",
+        "ageStart": 42,
+        "ageEnd": 62,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem5.saturday.venus.42_62",
+        "selectorAuthority": "selector.mahabhut2537.rem5.saturday.venus.42_62",
+        "rawHeuristicPromotedToPrediction": false
+      }
+    },
+    {
+      "ref": "BD1DC186347A2E6A/claims/0",
+      "owner": "past",
+      "section": [
+        1,
+        21
+      ],
+      "body": [
+        1,
+        21
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem5.friday",
+        "matrixApplicationId": "mahabhut2537.rem5.friday.venus.0_21",
+        "planet": "venus",
+        "taksaRole": "boriwan",
+        "mahabhutHouse": "puti",
+        "periodStatus": "dueng_tok",
+        "ageStart": 0,
+        "ageEnd": 21,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem5.friday.venus.0_21",
+        "selectorAuthority": "selector.mahabhut2537.rem5.friday.venus.0_21",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      "displayPolicy": "source age 0 is displayed as age 1; full source row retained"
+    },
+    {
+      "ref": "BD1DC186347A2E6A/claims/1",
+      "owner": "past",
+      "section": [
+        22,
+        27
+      ],
+      "body": [
+        22,
+        27
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem5.friday",
+        "matrixApplicationId": "mahabhut2537.rem5.friday.sun.22_27",
+        "planet": "sun",
+        "taksaRole": "ayu",
+        "mahabhutHouse": "marana",
+        "periodStatus": "dueng_tok",
+        "ageStart": 22,
+        "ageEnd": 27,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem5.friday.sun.22_27",
+        "selectorAuthority": "selector.mahabhut2537.rem5.friday.sun.22_27",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      "displayPolicy": "source age 0 is displayed as age 1; full source row retained"
+    },
+    {
+      "ref": "BD1DC186347A2E6A/claims/2",
+      "owner": "past",
+      "section": [
+        28,
+        42
+      ],
+      "body": [
+        28,
+        42
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem5.friday",
+        "matrixApplicationId": "mahabhut2537.rem5.friday.moon.28_42",
+        "planet": "moon",
+        "taksaRole": "det",
+        "mahabhutHouse": "athibodi",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 28,
+        "ageEnd": 42,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem5.friday.moon.28_42",
+        "selectorAuthority": "selector.mahabhut2537.rem5.friday.moon.28_42",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      "displayPolicy": "source age 0 is displayed as age 1; full source row retained"
+    },
+    {
+      "ref": "BD1DC186347A2E6A/claims/3",
+      "owner": "past",
+      "section": [
+        43,
+        50
+      ],
+      "body": [
+        43,
+        50
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem5.friday",
+        "matrixApplicationId": "mahabhut2537.rem5.friday.mars.43_50",
+        "planet": "mars",
+        "taksaRole": "sri",
+        "mahabhutHouse": "racha",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 43,
+        "ageEnd": 50,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem5.friday.mars.43_50",
+        "selectorAuthority": "selector.mahabhut2537.rem5.friday.mars.43_50",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      "displayPolicy": "source age 0 is displayed as age 1; full source row retained"
+    },
+    {
+      "ref": "BD1DC186347A2E6A/claims/4",
+      "owner": "past",
+      "section": [
+        51,
+        67
+      ],
+      "body": [
+        51,
+        67
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem5.friday",
+        "matrixApplicationId": "mahabhut2537.rem5.friday.mercury.51_67",
+        "planet": "mercury",
+        "taksaRole": "mula",
+        "mahabhutHouse": "thongchai",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 51,
+        "ageEnd": 67,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem5.friday.mercury.51_67",
+        "selectorAuthority": "selector.mahabhut2537.rem5.friday.mercury.51_67",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      "displayPolicy": "source age 0 is displayed as age 1; full source row retained"
+    },
+    {
+      "ref": "BD1DC186347A2E6A/claims/5",
+      "owner": "current",
+      "currentAge": 73,
+      "heading": 73,
+      "body": 73,
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem5.friday",
+        "matrixApplicationId": "mahabhut2537.rem5.friday.saturn.68_77",
+        "planet": "saturn",
+        "taksaRole": "utsaha",
+        "mahabhutHouse": "khumsap",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 68,
+        "ageEnd": 77,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem5.friday.saturn.68_77",
+        "selectorAuthority": "selector.mahabhut2537.rem5.friday.saturn.68_77",
+        "rawHeuristicPromotedToPrediction": false
+      }
+    },
+    {
+      "ref": "BD1DC186347A2E6A/claims/6",
+      "owner": "next",
+      "section": [
+        78,
+        96
+      ],
+      "body": [
+        78,
+        96
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem5.friday",
+        "matrixApplicationId": "mahabhut2537.rem5.friday.jupiter.78_96",
+        "planet": "jupiter",
+        "taksaRole": "montri",
+        "mahabhutHouse": "phangkha",
+        "periodStatus": "dueng_tok",
+        "ageStart": 78,
+        "ageEnd": 96,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem5.friday.jupiter.78_96",
+        "selectorAuthority": "selector.mahabhut2537.rem5.friday.jupiter.78_96",
+        "rawHeuristicPromotedToPrediction": false
+      }
+    },
+    {
+      "ref": "C88EF9B0FD2666CB/claims/0",
+      "owner": "current",
+      "currentAge": 1,
+      "heading": 1,
+      "body": 1,
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem1.thursday",
+        "matrixApplicationId": "mahabhut2537.rem1.thursday.jupiter.0_19",
+        "planet": "jupiter",
+        "taksaRole": "boriwan",
+        "mahabhutHouse": "athibodi",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 0,
+        "ageEnd": 19,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem1.thursday.jupiter.0_19",
+        "selectorAuthority": "selector.mahabhut2537.rem1.thursday.jupiter.0_19",
+        "rawHeuristicPromotedToPrediction": false
+      }
+    },
+    {
+      "ref": "C88EF9B0FD2666CB/claims/1",
+      "owner": "next",
+      "section": [
+        20,
+        31
+      ],
+      "body": [
+        20,
+        31
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem1.thursday",
+        "matrixApplicationId": "mahabhut2537.rem1.thursday.rahu.20_31",
+        "planet": "rahu",
+        "taksaRole": "ayu",
+        "mahabhutHouse": "marana",
+        "periodStatus": "dueng_tok",
+        "ageStart": 20,
+        "ageEnd": 31,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem1.thursday.rahu.20_31",
+        "selectorAuthority": "selector.mahabhut2537.rem1.thursday.rahu.20_31",
+        "rawHeuristicPromotedToPrediction": false
+      }
+    },
+    {
+      "ref": "7DC5147D9E527D14/claims/0",
+      "owner": "past",
+      "section": [
+        1,
+        10
+      ],
+      "body": [
+        1,
+        10
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem2.saturday",
+        "matrixApplicationId": "mahabhut2537.rem2.saturday.saturn.0_10",
+        "planet": "saturn",
+        "taksaRole": "boriwan",
+        "mahabhutHouse": "racha",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 0,
+        "ageEnd": 10,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem2.saturday.saturn.0_10",
+        "selectorAuthority": "selector.mahabhut2537.rem2.saturday.saturn.0_10",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      "displayPolicy": "source age 0 is displayed as age 1; full source row retained"
+    },
+    {
+      "ref": "7DC5147D9E527D14/claims/1",
+      "owner": "past",
+      "section": [
+        11,
+        29
+      ],
+      "body": [
+        11,
+        29
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem2.saturday",
+        "matrixApplicationId": "mahabhut2537.rem2.saturday.jupiter.11_29",
+        "planet": "jupiter",
+        "taksaRole": "ayu",
+        "mahabhutHouse": "marana",
+        "periodStatus": "dueng_tok",
+        "ageStart": 11,
+        "ageEnd": 29,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem2.saturday.jupiter.11_29",
+        "selectorAuthority": "selector.mahabhut2537.rem2.saturday.jupiter.11_29",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      "displayPolicy": "source age 0 is displayed as age 1; full source row retained"
+    },
+    {
+      "ref": "7DC5147D9E527D14/claims/2",
+      "owner": "past",
+      "section": [
+        30,
+        41
+      ],
+      "body": [
+        30,
+        41
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem2.saturday",
+        "matrixApplicationId": "mahabhut2537.rem2.saturday.rahu.30_41",
+        "planet": "rahu",
+        "taksaRole": "det",
+        "mahabhutHouse": "khumsap",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 30,
+        "ageEnd": 41,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem2.saturday.rahu.30_41",
+        "selectorAuthority": "selector.mahabhut2537.rem2.saturday.rahu.30_41",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      "displayPolicy": "source age 0 is displayed as age 1; full source row retained"
+    },
+    {
+      "ref": "7DC5147D9E527D14/claims/3",
+      "owner": "current",
+      "currentAge": 42,
+      "heading": 42,
+      "body": 42,
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem2.saturday",
+        "matrixApplicationId": "mahabhut2537.rem2.saturday.venus.42_62",
+        "planet": "venus",
+        "taksaRole": "sri",
+        "mahabhutHouse": "athibodi",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 42,
+        "ageEnd": 62,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem2.saturday.venus.42_62",
+        "selectorAuthority": "selector.mahabhut2537.rem2.saturday.venus.42_62",
+        "rawHeuristicPromotedToPrediction": false
+      }
+    },
+    {
+      "ref": "7DC5147D9E527D14/claims/4",
+      "owner": "next",
+      "section": [
+        63,
+        79
+      ],
+      "body": [
+        63,
+        79
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem2.saturday",
+        "matrixApplicationId": "mahabhut2537.rem2.saturday.mercury.63_79",
+        "planet": "mercury",
+        "taksaRole": "mula",
+        "mahabhutHouse": "khumsap",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 63,
+        "ageEnd": 79,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem2.saturday.mercury.63_79",
+        "selectorAuthority": "selector.mahabhut2537.rem2.saturday.mercury.63_79",
+        "rawHeuristicPromotedToPrediction": false
+      }
+    },
+    {
+      "ref": "26FAB3D8AFC48B9F/claims/0",
+      "owner": "current",
+      "currentAge": 4,
+      "heading": 4,
+      "body": 4,
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem4.wednesday",
+        "matrixApplicationId": "mahabhut2537.rem4.wednesday.mercury.0_17",
+        "planet": "mercury",
+        "taksaRole": "boriwan",
+        "mahabhutHouse": "phangkha",
+        "periodStatus": "dueng_tok",
+        "ageStart": 0,
+        "ageEnd": 17,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem4.wednesday.mercury.0_17",
+        "selectorAuthority": "selector.mahabhut2537.rem4.wednesday.mercury.0_17",
+        "rawHeuristicPromotedToPrediction": false
+      }
+    },
+    {
+      "ref": "26FAB3D8AFC48B9F/claims/1",
+      "owner": "next",
+      "section": [
+        18,
+        27
+      ],
+      "body": [
+        18,
+        27
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem4.wednesday",
+        "matrixApplicationId": "mahabhut2537.rem4.wednesday.saturn.18_27",
+        "planet": "saturn",
+        "taksaRole": "ayu",
+        "mahabhutHouse": "marana",
+        "periodStatus": "dueng_tok",
+        "ageStart": 18,
+        "ageEnd": 27,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem4.wednesday.saturn.18_27",
+        "selectorAuthority": "selector.mahabhut2537.rem4.wednesday.saturn.18_27",
+        "rawHeuristicPromotedToPrediction": false
+      }
+    },
+    {
+      "ref": "F4EF1CC23CA6592E/claims/0",
+      "owner": "past",
+      "section": [
+        1,
+        8
+      ],
+      "body": [
+        1,
+        8
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem6.tuesday",
+        "matrixApplicationId": "mahabhut2537.rem6.tuesday.mars.0_8",
+        "planet": "mars",
+        "taksaRole": "boriwan",
+        "mahabhutHouse": "athibodi",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 0,
+        "ageEnd": 8,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem6.tuesday.mars.0_8",
+        "selectorAuthority": "selector.mahabhut2537.rem6.tuesday.mars.0_8",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      "displayPolicy": "source age 0 is displayed as age 1; full source row retained"
+    },
+    {
+      "ref": "F4EF1CC23CA6592E/claims/1",
+      "owner": "current",
+      "currentAge": 9,
+      "heading": 9,
+      "body": 9,
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem6.tuesday",
+        "matrixApplicationId": "mahabhut2537.rem6.tuesday.mercury.9_25",
+        "planet": "mercury",
+        "taksaRole": "ayu",
+        "mahabhutHouse": "racha",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 9,
+        "ageEnd": 25,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem6.tuesday.mercury.9_25",
+        "selectorAuthority": "selector.mahabhut2537.rem6.tuesday.mercury.9_25",
+        "rawHeuristicPromotedToPrediction": false
+      }
+    },
+    {
+      "ref": "F4EF1CC23CA6592E/claims/2",
+      "owner": "next",
+      "section": [
+        26,
+        35
+      ],
+      "body": [
+        26,
+        35
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem6.tuesday",
+        "matrixApplicationId": "mahabhut2537.rem6.tuesday.saturn.26_35",
+        "planet": "saturn",
+        "taksaRole": "det",
+        "mahabhutHouse": "puti",
+        "periodStatus": "dueng_tok",
+        "ageStart": 26,
+        "ageEnd": 35,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem6.tuesday.saturn.26_35",
+        "selectorAuthority": "selector.mahabhut2537.rem6.tuesday.saturn.26_35",
+        "rawHeuristicPromotedToPrediction": false
+      }
+    },
+    {
+      "ref": "07662A460E6E70D4/claims/0",
+      "owner": "past",
+      "section": [
+        1,
+        10
+      ],
+      "body": [
+        1,
+        10
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem1.saturday",
+        "matrixApplicationId": "mahabhut2537.rem1.saturday.saturn.0_10",
+        "planet": "saturn",
+        "taksaRole": "boriwan",
+        "mahabhutHouse": "thongchai",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 0,
+        "ageEnd": 10,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem1.saturday.saturn.0_10",
+        "selectorAuthority": "selector.mahabhut2537.rem1.saturday.saturn.0_10",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      "displayPolicy": "source age 0 is displayed as age 1; full source row retained"
+    },
+    {
+      "ref": "07662A460E6E70D4/claims/1",
+      "owner": "past",
+      "section": [
+        11,
+        29
+      ],
+      "body": [
+        11,
+        29
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem1.saturday",
+        "matrixApplicationId": "mahabhut2537.rem1.saturday.jupiter.11_29",
+        "planet": "jupiter",
+        "taksaRole": "ayu",
+        "mahabhutHouse": "athibodi",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 11,
+        "ageEnd": 29,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem1.saturday.jupiter.11_29",
+        "selectorAuthority": "selector.mahabhut2537.rem1.saturday.jupiter.11_29",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      "displayPolicy": "source age 0 is displayed as age 1; full source row retained"
+    },
+    {
+      "ref": "07662A460E6E70D4/claims/2",
+      "owner": "past",
+      "section": [
+        30,
+        41
+      ],
+      "body": [
+        30,
+        41
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem1.saturday",
+        "matrixApplicationId": "mahabhut2537.rem1.saturday.rahu.30_41",
+        "planet": "rahu",
+        "taksaRole": "det",
+        "mahabhutHouse": "marana",
+        "periodStatus": "dueng_tok",
+        "ageStart": 30,
+        "ageEnd": 41,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem1.saturday.rahu.30_41",
+        "selectorAuthority": "selector.mahabhut2537.rem1.saturday.rahu.30_41",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      "displayPolicy": "source age 0 is displayed as age 1; full source row retained"
+    },
+    {
+      "ref": "07662A460E6E70D4/claims/3",
+      "owner": "current",
+      "currentAge": 50,
+      "heading": 50,
+      "body": 50,
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem1.saturday",
+        "matrixApplicationId": "mahabhut2537.rem1.saturday.venus.42_62",
+        "planet": "venus",
+        "taksaRole": "sri",
+        "mahabhutHouse": "racha",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 42,
+        "ageEnd": 62,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem1.saturday.venus.42_62",
+        "selectorAuthority": "selector.mahabhut2537.rem1.saturday.venus.42_62",
+        "rawHeuristicPromotedToPrediction": false
+      }
+    },
+    {
+      "ref": "07662A460E6E70D4/claims/4",
+      "owner": "next",
+      "section": [
+        63,
+        79
+      ],
+      "body": [
+        63,
+        79
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem1.saturday",
+        "matrixApplicationId": "mahabhut2537.rem1.saturday.mercury.63_79",
+        "planet": "mercury",
+        "taksaRole": "mula",
+        "mahabhutHouse": "marana",
+        "periodStatus": "dueng_tok",
+        "ageStart": 63,
+        "ageEnd": 79,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem1.saturday.mercury.63_79",
+        "selectorAuthority": "selector.mahabhut2537.rem1.saturday.mercury.63_79",
+        "rawHeuristicPromotedToPrediction": false
+      }
+    },
+    {
+      "ref": "A35D4905FF860E0A/claims/0",
+      "owner": "past",
+      "section": [
+        1,
+        15
+      ],
+      "body": [
+        1,
+        15
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem6.monday",
+        "matrixApplicationId": "mahabhut2537.rem6.monday.moon.0_15",
+        "planet": "moon",
+        "taksaRole": "boriwan",
+        "mahabhutHouse": "marana",
+        "periodStatus": "dueng_tok",
+        "ageStart": 0,
+        "ageEnd": 15,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem6.monday.moon.0_15",
+        "selectorAuthority": "selector.mahabhut2537.rem6.monday.moon.0_15",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      "displayPolicy": "source age 0 is displayed as age 1; full source row retained"
+    },
+    {
+      "ref": "A35D4905FF860E0A/claims/1",
+      "owner": "past",
+      "section": [
+        16,
+        23
+      ],
+      "body": [
+        16,
+        23
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem6.monday",
+        "matrixApplicationId": "mahabhut2537.rem6.monday.mars.16_23",
+        "planet": "mars",
+        "taksaRole": "ayu",
+        "mahabhutHouse": "athibodi",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 16,
+        "ageEnd": 23,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem6.monday.mars.16_23",
+        "selectorAuthority": "selector.mahabhut2537.rem6.monday.mars.16_23",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      "displayPolicy": "source age 0 is displayed as age 1; full source row retained"
+    },
+    {
+      "ref": "A35D4905FF860E0A/claims/2",
+      "owner": "past",
+      "section": [
+        24,
+        40
+      ],
+      "body": [
+        24,
+        40
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem6.monday",
+        "matrixApplicationId": "mahabhut2537.rem6.monday.mercury.24_40",
+        "planet": "mercury",
+        "taksaRole": "det",
+        "mahabhutHouse": "racha",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 24,
+        "ageEnd": 40,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem6.monday.mercury.24_40",
+        "selectorAuthority": "selector.mahabhut2537.rem6.monday.mercury.24_40",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      "displayPolicy": "source age 0 is displayed as age 1; full source row retained"
+    },
+    {
+      "ref": "A35D4905FF860E0A/claims/3",
+      "owner": "current",
+      "currentAge": 52,
+      "heading": 52,
+      "body": 52,
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem6.monday",
+        "matrixApplicationId": "mahabhut2537.rem6.monday.jupiter.41_59",
+        "planet": "jupiter",
+        "taksaRole": "sri",
+        "mahabhutHouse": "thongchai",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 41,
+        "ageEnd": 59,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem6.monday.jupiter.41_59",
+        "selectorAuthority": "selector.mahabhut2537.rem6.monday.jupiter.41_59",
+        "rawHeuristicPromotedToPrediction": false
+      }
+    },
+    {
+      "ref": "A35D4905FF860E0A/claims/4",
+      "owner": "next",
+      "section": [
+        60,
+        80
+      ],
+      "body": [
+        60,
+        80
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem6.monday",
+        "matrixApplicationId": "mahabhut2537.rem6.monday.venus.60_80",
+        "planet": "venus",
+        "taksaRole": "mula",
+        "mahabhutHouse": "phangkha",
+        "periodStatus": "dueng_tok",
+        "ageStart": 60,
+        "ageEnd": 80,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem6.monday.venus.60_80",
+        "selectorAuthority": "selector.mahabhut2537.rem6.monday.venus.60_80",
+        "rawHeuristicPromotedToPrediction": false
+      }
+    },
+    {
+      "ref": "29B2B80E84C25461/claims/0",
+      "owner": "past",
+      "section": [
+        1,
+        10
+      ],
+      "body": [
+        1,
+        10
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem4.saturday",
+        "matrixApplicationId": "mahabhut2537.rem4.saturday.saturn.0_10",
+        "planet": "saturn",
+        "taksaRole": "boriwan",
+        "mahabhutHouse": "marana",
+        "periodStatus": "dueng_tok",
+        "ageStart": 0,
+        "ageEnd": 10,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem4.saturday.saturn.0_10",
+        "selectorAuthority": "selector.mahabhut2537.rem4.saturday.saturn.0_10",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      "displayPolicy": "source age 0 is displayed as age 1; full source row retained"
+    },
+    {
+      "ref": "29B2B80E84C25461/claims/1",
+      "owner": "past",
+      "section": [
+        11,
+        29
+      ],
+      "body": [
+        11,
+        29
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem4.saturday",
+        "matrixApplicationId": "mahabhut2537.rem4.saturday.jupiter.11_29",
+        "planet": "jupiter",
+        "taksaRole": "ayu",
+        "mahabhutHouse": "puti",
+        "periodStatus": "dueng_tok",
+        "ageStart": 11,
+        "ageEnd": 29,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem4.saturday.jupiter.11_29",
+        "selectorAuthority": "selector.mahabhut2537.rem4.saturday.jupiter.11_29",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      "displayPolicy": "source age 0 is displayed as age 1; full source row retained"
+    },
+    {
+      "ref": "29B2B80E84C25461/claims/2",
+      "owner": "past",
+      "section": [
+        30,
+        41
+      ],
+      "body": [
+        30,
+        41
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem4.saturday",
+        "matrixApplicationId": "mahabhut2537.rem4.saturday.rahu.30_41",
+        "planet": "rahu",
+        "taksaRole": "det",
+        "mahabhutHouse": "phangkha",
+        "periodStatus": "dueng_tok",
+        "ageStart": 30,
+        "ageEnd": 41,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem4.saturday.rahu.30_41",
+        "selectorAuthority": "selector.mahabhut2537.rem4.saturday.rahu.30_41",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      "displayPolicy": "source age 0 is displayed as age 1; full source row retained"
+    },
+    {
+      "ref": "29B2B80E84C25461/claims/3",
+      "owner": "current",
+      "currentAge": 54,
+      "heading": 54,
+      "body": 54,
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem4.saturday",
+        "matrixApplicationId": "mahabhut2537.rem4.saturday.venus.42_62",
+        "planet": "venus",
+        "taksaRole": "sri",
+        "mahabhutHouse": "khumsap",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 42,
+        "ageEnd": 62,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem4.saturday.venus.42_62",
+        "selectorAuthority": "selector.mahabhut2537.rem4.saturday.venus.42_62",
+        "rawHeuristicPromotedToPrediction": false
+      }
+    },
+    {
+      "ref": "29B2B80E84C25461/claims/4",
+      "owner": "next",
+      "section": [
+        63,
+        79
+      ],
+      "body": [
+        63,
+        79
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem4.saturday",
+        "matrixApplicationId": "mahabhut2537.rem4.saturday.mercury.63_79",
+        "planet": "mercury",
+        "taksaRole": "mula",
+        "mahabhutHouse": "phangkha",
+        "periodStatus": "dueng_tok",
+        "ageStart": 63,
+        "ageEnd": 79,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem4.saturday.mercury.63_79",
+        "selectorAuthority": "selector.mahabhut2537.rem4.saturday.mercury.63_79",
+        "rawHeuristicPromotedToPrediction": false
+      }
+    },
+    {
+      "ref": "48DDCF5F6C6783AA/claims/0",
+      "owner": "past",
+      "section": [
+        1,
+        6
+      ],
+      "body": [
+        1,
+        6
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem6.sunday",
+        "matrixApplicationId": "mahabhut2537.rem6.sunday.sun.0_6",
+        "planet": "sun",
+        "taksaRole": "boriwan",
+        "mahabhutHouse": "khumsap",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 0,
+        "ageEnd": 6,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem6.sunday.sun.0_6",
+        "selectorAuthority": "selector.mahabhut2537.rem6.sunday.sun.0_6",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      "displayPolicy": "source age 0 is displayed as age 1; full source row retained"
+    },
+    {
+      "ref": "48DDCF5F6C6783AA/claims/1",
+      "owner": "current",
+      "currentAge": 16,
+      "heading": 16,
+      "body": 16,
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem6.sunday",
+        "matrixApplicationId": "mahabhut2537.rem6.sunday.moon.7_21",
+        "planet": "moon",
+        "taksaRole": "ayu",
+        "mahabhutHouse": "marana",
+        "periodStatus": "dueng_tok",
+        "ageStart": 7,
+        "ageEnd": 21,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem6.sunday.moon.7_21",
+        "selectorAuthority": "selector.mahabhut2537.rem6.sunday.moon.7_21",
+        "rawHeuristicPromotedToPrediction": false
+      }
+    },
+    {
+      "ref": "48DDCF5F6C6783AA/claims/2",
+      "owner": "next",
+      "section": [
+        22,
+        29
+      ],
+      "body": [
+        22,
+        29
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem6.sunday",
+        "matrixApplicationId": "mahabhut2537.rem6.sunday.mars.22_29",
+        "planet": "mars",
+        "taksaRole": "det",
+        "mahabhutHouse": "athibodi",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 22,
+        "ageEnd": 29,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem6.sunday.mars.22_29",
+        "selectorAuthority": "selector.mahabhut2537.rem6.sunday.mars.22_29",
+        "rawHeuristicPromotedToPrediction": false
+      }
+    },
+    {
+      "ref": "8FEB8FF2ABC3D1C5/claims/0",
+      "owner": "past",
+      "section": [
+        1,
+        8
+      ],
+      "body": [
+        1,
+        8
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem1.tuesday",
+        "matrixApplicationId": "mahabhut2537.rem1.tuesday.mars.0_8",
+        "planet": "mars",
+        "taksaRole": "boriwan",
+        "mahabhutHouse": "khumsap",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 0,
+        "ageEnd": 8,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem1.tuesday.mars.0_8",
+        "selectorAuthority": "selector.mahabhut2537.rem1.tuesday.mars.0_8",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      "displayPolicy": "source age 0 is displayed as age 1; full source row retained"
+    },
+    {
+      "ref": "8FEB8FF2ABC3D1C5/claims/1",
+      "owner": "current",
+      "currentAge": 21,
+      "heading": 21,
+      "body": 21,
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem1.tuesday",
+        "matrixApplicationId": "mahabhut2537.rem1.tuesday.mercury.9_25",
+        "planet": "mercury",
+        "taksaRole": "ayu",
+        "mahabhutHouse": "marana",
+        "periodStatus": "dueng_tok",
+        "ageStart": 9,
+        "ageEnd": 25,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem1.tuesday.mercury.9_25",
+        "selectorAuthority": "selector.mahabhut2537.rem1.tuesday.mercury.9_25",
+        "rawHeuristicPromotedToPrediction": false
+      }
+    },
+    {
+      "ref": "8FEB8FF2ABC3D1C5/claims/2",
+      "owner": "next",
+      "section": [
+        26,
+        35
+      ],
+      "body": [
+        26,
+        35
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem1.tuesday",
+        "matrixApplicationId": "mahabhut2537.rem1.tuesday.saturn.26_35",
+        "planet": "saturn",
+        "taksaRole": "det",
+        "mahabhutHouse": "thongchai",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 26,
+        "ageEnd": 35,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem1.tuesday.saturn.26_35",
+        "selectorAuthority": "selector.mahabhut2537.rem1.tuesday.saturn.26_35",
+        "rawHeuristicPromotedToPrediction": false
+      }
+    },
+    {
+      "ref": "5FEE85EA250246C8/claims/0",
+      "owner": "past",
+      "section": [
+        1,
+        15
+      ],
+      "body": [
+        1,
+        15
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem5.monday",
+        "matrixApplicationId": "mahabhut2537.rem5.monday.moon.0_15",
+        "planet": "moon",
+        "taksaRole": "boriwan",
+        "mahabhutHouse": "athibodi",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 0,
+        "ageEnd": 15,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem5.monday.moon.0_15",
+        "selectorAuthority": "selector.mahabhut2537.rem5.monday.moon.0_15",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      "displayPolicy": "source age 0 is displayed as age 1; full source row retained"
+    },
+    {
+      "ref": "5FEE85EA250246C8/claims/1",
+      "owner": "past",
+      "section": [
+        16,
+        23
+      ],
+      "body": [
+        16,
+        23
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem5.monday",
+        "matrixApplicationId": "mahabhut2537.rem5.monday.mars.16_23",
+        "planet": "mars",
+        "taksaRole": "ayu",
+        "mahabhutHouse": "racha",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 16,
+        "ageEnd": 23,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem5.monday.mars.16_23",
+        "selectorAuthority": "selector.mahabhut2537.rem5.monday.mars.16_23",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      "displayPolicy": "source age 0 is displayed as age 1; full source row retained"
+    },
+    {
+      "ref": "5FEE85EA250246C8/claims/2",
+      "owner": "current",
+      "currentAge": 25,
+      "heading": 25,
+      "body": 25,
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem5.monday",
+        "matrixApplicationId": "mahabhut2537.rem5.monday.mercury.24_40",
+        "planet": "mercury",
+        "taksaRole": "det",
+        "mahabhutHouse": "thongchai",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 24,
+        "ageEnd": 40,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem5.monday.mercury.24_40",
+        "selectorAuthority": "selector.mahabhut2537.rem5.monday.mercury.24_40",
+        "rawHeuristicPromotedToPrediction": false
+      }
+    },
+    {
+      "ref": "5FEE85EA250246C8/claims/3",
+      "owner": "next",
+      "section": [
+        41,
+        59
+      ],
+      "body": [
+        41,
+        59
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem5.monday",
+        "matrixApplicationId": "mahabhut2537.rem5.monday.jupiter.41_59",
+        "planet": "jupiter",
+        "taksaRole": "sri",
+        "mahabhutHouse": "phangkha",
+        "periodStatus": "dueng_tok",
+        "ageStart": 41,
+        "ageEnd": 59,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem5.monday.jupiter.41_59",
+        "selectorAuthority": "selector.mahabhut2537.rem5.monday.jupiter.41_59",
+        "rawHeuristicPromotedToPrediction": false
+      }
+    },
+    {
+      "ref": "13F1DE19E8764F8D/claims/0",
+      "owner": "past",
+      "section": [
+        1,
+        17
+      ],
+      "body": [
+        1,
+        17
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem6.wednesday",
+        "matrixApplicationId": "mahabhut2537.rem6.wednesday.mercury.0_17",
+        "planet": "mercury",
+        "taksaRole": "boriwan",
+        "mahabhutHouse": "racha",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 0,
+        "ageEnd": 17,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem6.wednesday.mercury.0_17",
+        "selectorAuthority": "selector.mahabhut2537.rem6.wednesday.mercury.0_17",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      "displayPolicy": "source age 0 is displayed as age 1; full source row retained"
+    },
+    {
+      "ref": "13F1DE19E8764F8D/claims/1",
+      "owner": "past",
+      "section": [
+        18,
+        27
+      ],
+      "body": [
+        18,
+        27
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem6.wednesday",
+        "matrixApplicationId": "mahabhut2537.rem6.wednesday.saturn.18_27",
+        "planet": "saturn",
+        "taksaRole": "ayu",
+        "mahabhutHouse": "puti",
+        "periodStatus": "dueng_tok",
+        "ageStart": 18,
+        "ageEnd": 27,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem6.wednesday.saturn.18_27",
+        "selectorAuthority": "selector.mahabhut2537.rem6.wednesday.saturn.18_27",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      "displayPolicy": "source age 0 is displayed as age 1; full source row retained"
+    },
+    {
+      "ref": "13F1DE19E8764F8D/claims/2",
+      "owner": "past",
+      "section": [
+        28,
+        46
+      ],
+      "body": [
+        28,
+        46
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem6.wednesday",
+        "matrixApplicationId": "mahabhut2537.rem6.wednesday.jupiter.28_46",
+        "planet": "jupiter",
+        "taksaRole": "det",
+        "mahabhutHouse": "thongchai",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 28,
+        "ageEnd": 46,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem6.wednesday.jupiter.28_46",
+        "selectorAuthority": "selector.mahabhut2537.rem6.wednesday.jupiter.28_46",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      "displayPolicy": "source age 0 is displayed as age 1; full source row retained"
+    },
+    {
+      "ref": "13F1DE19E8764F8D/claims/3",
+      "owner": "past",
+      "section": [
+        47,
+        58
+      ],
+      "body": [
+        47,
+        58
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem6.wednesday",
+        "matrixApplicationId": "mahabhut2537.rem6.wednesday.rahu.47_58",
+        "planet": "rahu",
+        "taksaRole": "sri",
+        "mahabhutHouse": "racha",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 47,
+        "ageEnd": 58,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem6.wednesday.rahu.47_58",
+        "selectorAuthority": "selector.mahabhut2537.rem6.wednesday.rahu.47_58",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      "displayPolicy": "source age 0 is displayed as age 1; full source row retained"
+    },
+    {
+      "ref": "13F1DE19E8764F8D/claims/4",
+      "owner": "current",
+      "currentAge": 66,
+      "heading": 66,
+      "body": 66,
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem6.wednesday",
+        "matrixApplicationId": "mahabhut2537.rem6.wednesday.venus.59_79",
+        "planet": "venus",
+        "taksaRole": "mula",
+        "mahabhutHouse": "phangkha",
+        "periodStatus": "dueng_tok",
+        "ageStart": 59,
+        "ageEnd": 79,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem6.wednesday.venus.59_79",
+        "selectorAuthority": "selector.mahabhut2537.rem6.wednesday.venus.59_79",
+        "rawHeuristicPromotedToPrediction": false
+      }
+    },
+    {
+      "ref": "13F1DE19E8764F8D/claims/5",
+      "owner": "next",
+      "section": [
+        80,
+        85
+      ],
+      "body": [
+        80,
+        85
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem6.wednesday",
+        "matrixApplicationId": "mahabhut2537.rem6.wednesday.sun.80_85",
+        "planet": "sun",
+        "taksaRole": "utsaha",
+        "mahabhutHouse": "khumsap",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 80,
+        "ageEnd": 85,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem6.wednesday.sun.80_85",
+        "selectorAuthority": "selector.mahabhut2537.rem6.wednesday.sun.80_85",
+        "rawHeuristicPromotedToPrediction": false
+      }
+    },
+    {
+      "ref": "4624BF0FEA42DEE8/claims/0",
+      "owner": "past",
+      "section": [
+        1,
+        6
+      ],
+      "body": [
+        1,
+        6
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem2.sunday",
+        "matrixApplicationId": "mahabhut2537.rem2.sunday.sun.0_6",
+        "planet": "sun",
+        "taksaRole": "boriwan",
+        "mahabhutHouse": "thongchai",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 0,
+        "ageEnd": 6,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem2.sunday.sun.0_6",
+        "selectorAuthority": "selector.mahabhut2537.rem2.sunday.sun.0_6",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      "displayPolicy": "source age 0 is displayed as age 1; full source row retained"
+    },
+    {
+      "ref": "4624BF0FEA42DEE8/claims/1",
+      "owner": "past",
+      "section": [
+        7,
+        21
+      ],
+      "body": [
+        7,
+        21
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem2.sunday",
+        "matrixApplicationId": "mahabhut2537.rem2.sunday.moon.7_21",
+        "planet": "moon",
+        "taksaRole": "ayu",
+        "mahabhutHouse": "phangkha",
+        "periodStatus": "dueng_tok",
+        "ageStart": 7,
+        "ageEnd": 21,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem2.sunday.moon.7_21",
+        "selectorAuthority": "selector.mahabhut2537.rem2.sunday.moon.7_21",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      "displayPolicy": "source age 0 is displayed as age 1; full source row retained"
+    },
+    {
+      "ref": "4624BF0FEA42DEE8/claims/2",
+      "owner": "past",
+      "section": [
+        22,
+        29
+      ],
+      "body": [
+        22,
+        29
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem2.sunday",
+        "matrixApplicationId": "mahabhut2537.rem2.sunday.mars.22_29",
+        "planet": "mars",
+        "taksaRole": "det",
+        "mahabhutHouse": "puti",
+        "periodStatus": "dueng_tok",
+        "ageStart": 22,
+        "ageEnd": 29,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem2.sunday.mars.22_29",
+        "selectorAuthority": "selector.mahabhut2537.rem2.sunday.mars.22_29",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      "displayPolicy": "source age 0 is displayed as age 1; full source row retained"
+    },
+    {
+      "ref": "4624BF0FEA42DEE8/claims/3",
+      "owner": "past",
+      "section": [
+        30,
+        46
+      ],
+      "body": [
+        30,
+        46
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem2.sunday",
+        "matrixApplicationId": "mahabhut2537.rem2.sunday.mercury.30_46",
+        "planet": "mercury",
+        "taksaRole": "sri",
+        "mahabhutHouse": "khumsap",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 30,
+        "ageEnd": 46,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem2.sunday.mercury.30_46",
+        "selectorAuthority": "selector.mahabhut2537.rem2.sunday.mercury.30_46",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      "displayPolicy": "source age 0 is displayed as age 1; full source row retained"
+    },
+    {
+      "ref": "4624BF0FEA42DEE8/claims/4",
+      "owner": "past",
+      "section": [
+        47,
+        65
+      ],
+      "body": [
+        47,
+        65
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem2.sunday",
+        "matrixApplicationId": "mahabhut2537.rem2.sunday.jupiter.47_65",
+        "planet": "jupiter",
+        "taksaRole": "mula",
+        "mahabhutHouse": "marana",
+        "periodStatus": "dueng_tok",
+        "ageStart": 47,
+        "ageEnd": 65,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem2.sunday.jupiter.47_65",
+        "selectorAuthority": "selector.mahabhut2537.rem2.sunday.jupiter.47_65",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      "displayPolicy": "source age 0 is displayed as age 1; full source row retained"
+    },
+    {
+      "ref": "4624BF0FEA42DEE8/claims/5",
+      "owner": "current",
+      "currentAge": 69,
+      "heading": 69,
+      "body": 69,
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem2.sunday",
+        "matrixApplicationId": "mahabhut2537.rem2.sunday.venus.66_86",
+        "planet": "venus",
+        "taksaRole": "utsaha",
+        "mahabhutHouse": "athibodi",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 66,
+        "ageEnd": 86,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem2.sunday.venus.66_86",
+        "selectorAuthority": "selector.mahabhut2537.rem2.sunday.venus.66_86",
+        "rawHeuristicPromotedToPrediction": false
+      }
+    },
+    {
+      "ref": "4624BF0FEA42DEE8/claims/6",
+      "owner": "next",
+      "section": [
+        87,
+        96
+      ],
+      "body": [
+        87,
+        96
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem2.sunday",
+        "matrixApplicationId": "mahabhut2537.rem2.sunday.saturn.87_96",
+        "planet": "saturn",
+        "taksaRole": "montri",
+        "mahabhutHouse": "racha",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 87,
+        "ageEnd": 96,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem2.sunday.saturn.87_96",
+        "selectorAuthority": "selector.mahabhut2537.rem2.sunday.saturn.87_96",
+        "rawHeuristicPromotedToPrediction": false
+      }
+    },
+    {
+      "ref": "8E5C718D1AB4AFB8/claims/0",
+      "owner": "past",
+      "section": [
+        1,
+        15
+      ],
+      "body": [
+        1,
+        15
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem0.monday",
+        "matrixApplicationId": "mahabhut2537.rem0.monday.moon.0_15",
+        "planet": "moon",
+        "taksaRole": "boriwan",
+        "mahabhutHouse": "khumsap",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 0,
+        "ageEnd": 15,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem0.monday.moon.0_15",
+        "selectorAuthority": "selector.mahabhut2537.rem0.monday.moon.0_15",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      "displayPolicy": "source age 0 is displayed as age 1; full source row retained"
+    },
+    {
+      "ref": "8E5C718D1AB4AFB8/claims/1",
+      "owner": "past",
+      "section": [
+        16,
+        23
+      ],
+      "body": [
+        16,
+        23
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem0.monday",
+        "matrixApplicationId": "mahabhut2537.rem0.monday.mars.16_23",
+        "planet": "mars",
+        "taksaRole": "ayu",
+        "mahabhutHouse": "marana",
+        "periodStatus": "dueng_tok",
+        "ageStart": 16,
+        "ageEnd": 23,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem0.monday.mars.16_23",
+        "selectorAuthority": "selector.mahabhut2537.rem0.monday.mars.16_23",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      "displayPolicy": "source age 0 is displayed as age 1; full source row retained"
+    },
+    {
+      "ref": "8E5C718D1AB4AFB8/claims/2",
+      "owner": "current",
+      "currentAge": 37,
+      "heading": 37,
+      "body": 37,
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem0.monday",
+        "matrixApplicationId": "mahabhut2537.rem0.monday.mercury.24_40",
+        "planet": "mercury",
+        "taksaRole": "det",
+        "mahabhutHouse": "athibodi",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 24,
+        "ageEnd": 40,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem0.monday.mercury.24_40",
+        "selectorAuthority": "selector.mahabhut2537.rem0.monday.mercury.24_40",
+        "rawHeuristicPromotedToPrediction": false
+      }
+    },
+    {
+      "ref": "8E5C718D1AB4AFB8/claims/3",
+      "owner": "next",
+      "section": [
+        41,
+        59
+      ],
+      "body": [
+        41,
+        59
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem0.monday",
+        "matrixApplicationId": "mahabhut2537.rem0.monday.jupiter.41_59",
+        "planet": "jupiter",
+        "taksaRole": "sri",
+        "mahabhutHouse": "racha",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 41,
+        "ageEnd": 59,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem0.monday.jupiter.41_59",
+        "selectorAuthority": "selector.mahabhut2537.rem0.monday.jupiter.41_59",
+        "rawHeuristicPromotedToPrediction": false
+      }
+    },
+    {
+      "ref": "12918408F485796B/claims/0",
+      "owner": "past",
+      "section": [
+        1,
+        6
+      ],
+      "body": [
+        1,
+        6
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem3.sunday",
+        "matrixApplicationId": "mahabhut2537.rem3.sunday.sun.0_6",
+        "planet": "sun",
+        "taksaRole": "boriwan",
+        "mahabhutHouse": "racha",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 0,
+        "ageEnd": 6,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem3.sunday.sun.0_6",
+        "selectorAuthority": "selector.mahabhut2537.rem3.sunday.sun.0_6",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      "displayPolicy": "source age 0 is displayed as age 1; full source row retained"
+    },
+    {
+      "ref": "12918408F485796B/claims/1",
+      "owner": "past",
+      "section": [
+        7,
+        21
+      ],
+      "body": [
+        7,
+        21
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem3.sunday",
+        "matrixApplicationId": "mahabhut2537.rem3.sunday.moon.7_21",
+        "planet": "moon",
+        "taksaRole": "ayu",
+        "mahabhutHouse": "thongchai",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 7,
+        "ageEnd": 21,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem3.sunday.moon.7_21",
+        "selectorAuthority": "selector.mahabhut2537.rem3.sunday.moon.7_21",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      "displayPolicy": "source age 0 is displayed as age 1; full source row retained"
+    },
+    {
+      "ref": "12918408F485796B/claims/2",
+      "owner": "past",
+      "section": [
+        22,
+        29
+      ],
+      "body": [
+        22,
+        29
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem3.sunday",
+        "matrixApplicationId": "mahabhut2537.rem3.sunday.mars.22_29",
+        "planet": "mars",
+        "taksaRole": "det",
+        "mahabhutHouse": "phangkha",
+        "periodStatus": "dueng_tok",
+        "ageStart": 22,
+        "ageEnd": 29,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem3.sunday.mars.22_29",
+        "selectorAuthority": "selector.mahabhut2537.rem3.sunday.mars.22_29",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      "displayPolicy": "source age 0 is displayed as age 1; full source row retained"
+    },
+    {
+      "ref": "12918408F485796B/claims/3",
+      "owner": "past",
+      "section": [
+        30,
+        46
+      ],
+      "body": [
+        30,
+        46
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem3.sunday",
+        "matrixApplicationId": "mahabhut2537.rem3.sunday.mercury.30_46",
+        "planet": "mercury",
+        "taksaRole": "sri",
+        "mahabhutHouse": "puti",
+        "periodStatus": "dueng_tok",
+        "ageStart": 30,
+        "ageEnd": 46,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem3.sunday.mercury.30_46",
+        "selectorAuthority": "selector.mahabhut2537.rem3.sunday.mercury.30_46",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      "displayPolicy": "source age 0 is displayed as age 1; full source row retained"
+    },
+    {
+      "ref": "12918408F485796B/claims/4",
+      "owner": "past",
+      "section": [
+        47,
+        65
+      ],
+      "body": [
+        47,
+        65
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem3.sunday",
+        "matrixApplicationId": "mahabhut2537.rem3.sunday.jupiter.47_65",
+        "planet": "jupiter",
+        "taksaRole": "mula",
+        "mahabhutHouse": "khumsap",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 47,
+        "ageEnd": 65,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem3.sunday.jupiter.47_65",
+        "selectorAuthority": "selector.mahabhut2537.rem3.sunday.jupiter.47_65",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      "displayPolicy": "source age 0 is displayed as age 1; full source row retained"
+    },
+    {
+      "ref": "12918408F485796B/claims/5",
+      "owner": "current",
+      "currentAge": 76,
+      "heading": 76,
+      "body": 76,
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem3.sunday",
+        "matrixApplicationId": "mahabhut2537.rem3.sunday.venus.66_86",
+        "planet": "venus",
+        "taksaRole": "utsaha",
+        "mahabhutHouse": "marana",
+        "periodStatus": "dueng_tok",
+        "ageStart": 66,
+        "ageEnd": 86,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem3.sunday.venus.66_86",
+        "selectorAuthority": "selector.mahabhut2537.rem3.sunday.venus.66_86",
+        "rawHeuristicPromotedToPrediction": false
+      }
+    },
+    {
+      "ref": "12918408F485796B/claims/6",
+      "owner": "next",
+      "section": [
+        87,
+        96
+      ],
+      "body": [
+        87,
+        96
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem3.sunday",
+        "matrixApplicationId": "mahabhut2537.rem3.sunday.saturn.87_96",
+        "planet": "saturn",
+        "taksaRole": "montri",
+        "mahabhutHouse": "athibodi",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 87,
+        "ageEnd": 96,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem3.sunday.saturn.87_96",
+        "selectorAuthority": "selector.mahabhut2537.rem3.sunday.saturn.87_96",
+        "rawHeuristicPromotedToPrediction": false
+      }
+    },
+    {
+      "ref": "E5BCE47514E4F3DD/claims/0",
+      "owner": "current",
+      "currentAge": 3,
+      "heading": 3,
+      "body": 3,
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem5.sunday",
+        "matrixApplicationId": "mahabhut2537.rem5.sunday.sun.0_6",
+        "planet": "sun",
+        "taksaRole": "boriwan",
+        "mahabhutHouse": "marana",
+        "periodStatus": "dueng_tok",
+        "ageStart": 0,
+        "ageEnd": 6,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem5.sunday.sun.0_6",
+        "selectorAuthority": "selector.mahabhut2537.rem5.sunday.sun.0_6",
+        "rawHeuristicPromotedToPrediction": false
+      }
+    },
+    {
+      "ref": "E5BCE47514E4F3DD/claims/1",
+      "owner": "next",
+      "section": [
+        7,
+        21
+      ],
+      "body": [
+        7,
+        21
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem5.sunday",
+        "matrixApplicationId": "mahabhut2537.rem5.sunday.moon.7_21",
+        "planet": "moon",
+        "taksaRole": "ayu",
+        "mahabhutHouse": "athibodi",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 7,
+        "ageEnd": 21,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem5.sunday.moon.7_21",
+        "selectorAuthority": "selector.mahabhut2537.rem5.sunday.moon.7_21",
+        "rawHeuristicPromotedToPrediction": false
+      }
+    },
+    {
+      "ref": "AD45B83FAB28F266/claims/0",
+      "owner": "current",
+      "currentAge": 8,
+      "heading": 8,
+      "body": 8,
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem0.wednesday",
+        "matrixApplicationId": "mahabhut2537.rem0.wednesday.mercury.0_17",
+        "planet": "mercury",
+        "taksaRole": "boriwan",
+        "mahabhutHouse": "athibodi",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 0,
+        "ageEnd": 17,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem0.wednesday.mercury.0_17",
+        "selectorAuthority": "selector.mahabhut2537.rem0.wednesday.mercury.0_17",
+        "rawHeuristicPromotedToPrediction": false
+      }
+    },
+    {
+      "ref": "AD45B83FAB28F266/claims/1",
+      "owner": "next",
+      "section": [
+        18,
+        27
+      ],
+      "body": [
+        18,
+        27
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem0.wednesday",
+        "matrixApplicationId": "mahabhut2537.rem0.wednesday.saturn.18_27",
+        "planet": "saturn",
+        "taksaRole": "ayu",
+        "mahabhutHouse": "phangkha",
+        "periodStatus": "dueng_tok",
+        "ageStart": 18,
+        "ageEnd": 27,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem0.wednesday.saturn.18_27",
+        "selectorAuthority": "selector.mahabhut2537.rem0.wednesday.saturn.18_27",
+        "rawHeuristicPromotedToPrediction": false
+      }
+    },
+    {
+      "ref": "164B33D0EFB55C21/claims/0",
+      "owner": "current",
+      "currentAge": 10,
+      "heading": 10,
+      "body": 10,
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem5.thursday",
+        "matrixApplicationId": "mahabhut2537.rem5.thursday.jupiter.0_19",
+        "planet": "jupiter",
+        "taksaRole": "boriwan",
+        "mahabhutHouse": "phangkha",
+        "periodStatus": "dueng_tok",
+        "ageStart": 0,
+        "ageEnd": 19,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem5.thursday.jupiter.0_19",
+        "selectorAuthority": "selector.mahabhut2537.rem5.thursday.jupiter.0_19",
+        "rawHeuristicPromotedToPrediction": false
+      }
+    },
+    {
+      "ref": "164B33D0EFB55C21/claims/1",
+      "owner": "next",
+      "section": [
+        20,
+        31
+      ],
+      "body": [
+        20,
+        31
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem5.thursday",
+        "matrixApplicationId": "mahabhut2537.rem5.thursday.rahu.20_31",
+        "planet": "rahu",
+        "taksaRole": "ayu",
+        "mahabhutHouse": "thongchai",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 20,
+        "ageEnd": 31,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem5.thursday.rahu.20_31",
+        "selectorAuthority": "selector.mahabhut2537.rem5.thursday.rahu.20_31",
+        "rawHeuristicPromotedToPrediction": false
+      }
+    },
+    {
+      "ref": "D7C10BC1F215380D/claims/0",
+      "owner": "past",
+      "section": [
+        1,
+        6
+      ],
+      "body": [
+        1,
+        6
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem4.sunday",
+        "matrixApplicationId": "mahabhut2537.rem4.sunday.sun.0_6",
+        "planet": "sun",
+        "taksaRole": "boriwan",
+        "mahabhutHouse": "athibodi",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 0,
+        "ageEnd": 6,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem4.sunday.sun.0_6",
+        "selectorAuthority": "selector.mahabhut2537.rem4.sunday.sun.0_6",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      "displayPolicy": "source age 0 is displayed as age 1; full source row retained"
+    },
+    {
+      "ref": "D7C10BC1F215380D/claims/1",
+      "owner": "current",
+      "currentAge": 12,
+      "heading": 12,
+      "body": 12,
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem4.sunday",
+        "matrixApplicationId": "mahabhut2537.rem4.sunday.moon.7_21",
+        "planet": "moon",
+        "taksaRole": "ayu",
+        "mahabhutHouse": "racha",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 7,
+        "ageEnd": 21,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem4.sunday.moon.7_21",
+        "selectorAuthority": "selector.mahabhut2537.rem4.sunday.moon.7_21",
+        "rawHeuristicPromotedToPrediction": false
+      }
+    },
+    {
+      "ref": "D7C10BC1F215380D/claims/2",
+      "owner": "next",
+      "section": [
+        22,
+        29
+      ],
+      "body": [
+        22,
+        29
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem4.sunday",
+        "matrixApplicationId": "mahabhut2537.rem4.sunday.mars.22_29",
+        "planet": "mars",
+        "taksaRole": "det",
+        "mahabhutHouse": "thongchai",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 22,
+        "ageEnd": 29,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem4.sunday.mars.22_29",
+        "selectorAuthority": "selector.mahabhut2537.rem4.sunday.mars.22_29",
+        "rawHeuristicPromotedToPrediction": false
+      }
+    },
+    {
+      "ref": "11C15A8C962D73DB/claims/0",
+      "owner": "past",
+      "section": [
+        1,
+        15
+      ],
+      "body": [
+        1,
+        15
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem4.monday",
+        "matrixApplicationId": "mahabhut2537.rem4.monday.moon.0_15",
+        "planet": "moon",
+        "taksaRole": "boriwan",
+        "mahabhutHouse": "racha",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 0,
+        "ageEnd": 15,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem4.monday.moon.0_15",
+        "selectorAuthority": "selector.mahabhut2537.rem4.monday.moon.0_15",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      "displayPolicy": "source age 0 is displayed as age 1; full source row retained"
+    },
+    {
+      "ref": "11C15A8C962D73DB/claims/1",
+      "owner": "past",
+      "section": [
+        16,
+        23
+      ],
+      "body": [
+        16,
+        23
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem4.monday",
+        "matrixApplicationId": "mahabhut2537.rem4.monday.mars.16_23",
+        "planet": "mars",
+        "taksaRole": "ayu",
+        "mahabhutHouse": "thongchai",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 16,
+        "ageEnd": 23,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem4.monday.mars.16_23",
+        "selectorAuthority": "selector.mahabhut2537.rem4.monday.mars.16_23",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      "displayPolicy": "source age 0 is displayed as age 1; full source row retained"
+    },
+    {
+      "ref": "11C15A8C962D73DB/claims/2",
+      "owner": "past",
+      "section": [
+        24,
+        40
+      ],
+      "body": [
+        24,
+        40
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem4.monday",
+        "matrixApplicationId": "mahabhut2537.rem4.monday.mercury.24_40",
+        "planet": "mercury",
+        "taksaRole": "det",
+        "mahabhutHouse": "phangkha",
+        "periodStatus": "dueng_tok",
+        "ageStart": 24,
+        "ageEnd": 40,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem4.monday.mercury.24_40",
+        "selectorAuthority": "selector.mahabhut2537.rem4.monday.mercury.24_40",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      "displayPolicy": "source age 0 is displayed as age 1; full source row retained"
+    },
+    {
+      "ref": "11C15A8C962D73DB/claims/3",
+      "owner": "past",
+      "section": [
+        41,
+        59
+      ],
+      "body": [
+        41,
+        59
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem4.monday",
+        "matrixApplicationId": "mahabhut2537.rem4.monday.jupiter.41_59",
+        "planet": "jupiter",
+        "taksaRole": "sri",
+        "mahabhutHouse": "puti",
+        "periodStatus": "dueng_tok",
+        "ageStart": 41,
+        "ageEnd": 59,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem4.monday.jupiter.41_59",
+        "selectorAuthority": "selector.mahabhut2537.rem4.monday.jupiter.41_59",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      "displayPolicy": "source age 0 is displayed as age 1; full source row retained"
+    },
+    {
+      "ref": "11C15A8C962D73DB/claims/4",
+      "owner": "current",
+      "currentAge": 61,
+      "heading": 61,
+      "body": 61,
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem4.monday",
+        "matrixApplicationId": "mahabhut2537.rem4.monday.venus.60_80",
+        "planet": "venus",
+        "taksaRole": "mula",
+        "mahabhutHouse": "khumsap",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 60,
+        "ageEnd": 80,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem4.monday.venus.60_80",
+        "selectorAuthority": "selector.mahabhut2537.rem4.monday.venus.60_80",
+        "rawHeuristicPromotedToPrediction": false
+      }
+    },
+    {
+      "ref": "11C15A8C962D73DB/claims/5",
+      "owner": "next",
+      "section": [
+        81,
+        90
+      ],
+      "body": [
+        81,
+        90
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem4.monday",
+        "matrixApplicationId": "mahabhut2537.rem4.monday.saturn.81_90",
+        "planet": "saturn",
+        "taksaRole": "utsaha",
+        "mahabhutHouse": "marana",
+        "periodStatus": "dueng_tok",
+        "ageStart": 81,
+        "ageEnd": 90,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem4.monday.saturn.81_90",
+        "selectorAuthority": "selector.mahabhut2537.rem4.monday.saturn.81_90",
+        "rawHeuristicPromotedToPrediction": false
+      }
+    },
+    {
+      "ref": "C552BE9B833A012B/claims/0",
+      "owner": "past",
+      "section": [
+        1,
+        21
+      ],
+      "body": [
+        1,
+        21
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem0.friday",
+        "matrixApplicationId": "mahabhut2537.rem0.friday.venus.0_21",
+        "planet": "venus",
+        "taksaRole": "boriwan",
+        "mahabhutHouse": "thongchai",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 0,
+        "ageEnd": 21,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem0.friday.venus.0_21",
+        "selectorAuthority": "selector.mahabhut2537.rem0.friday.venus.0_21",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      "displayPolicy": "source age 0 is displayed as age 1; full source row retained"
+    },
+    {
+      "ref": "C552BE9B833A012B/claims/1",
+      "owner": "past",
+      "section": [
+        22,
+        27
+      ],
+      "body": [
+        22,
+        27
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem0.friday",
+        "matrixApplicationId": "mahabhut2537.rem0.friday.sun.22_27",
+        "planet": "sun",
+        "taksaRole": "ayu",
+        "mahabhutHouse": "puti",
+        "periodStatus": "dueng_tok",
+        "ageStart": 22,
+        "ageEnd": 27,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem0.friday.sun.22_27",
+        "selectorAuthority": "selector.mahabhut2537.rem0.friday.sun.22_27",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      "displayPolicy": "source age 0 is displayed as age 1; full source row retained"
+    },
+    {
+      "ref": "C552BE9B833A012B/claims/2",
+      "owner": "past",
+      "section": [
+        28,
+        42
+      ],
+      "body": [
+        28,
+        42
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem0.friday",
+        "matrixApplicationId": "mahabhut2537.rem0.friday.moon.28_42",
+        "planet": "moon",
+        "taksaRole": "det",
+        "mahabhutHouse": "khumsap",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 28,
+        "ageEnd": 42,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem0.friday.moon.28_42",
+        "selectorAuthority": "selector.mahabhut2537.rem0.friday.moon.28_42",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      "displayPolicy": "source age 0 is displayed as age 1; full source row retained"
+    },
+    {
+      "ref": "C552BE9B833A012B/claims/3",
+      "owner": "past",
+      "section": [
+        43,
+        50
+      ],
+      "body": [
+        43,
+        50
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem0.friday",
+        "matrixApplicationId": "mahabhut2537.rem0.friday.mars.43_50",
+        "planet": "mars",
+        "taksaRole": "sri",
+        "mahabhutHouse": "marana",
+        "periodStatus": "dueng_tok",
+        "ageStart": 43,
+        "ageEnd": 50,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem0.friday.mars.43_50",
+        "selectorAuthority": "selector.mahabhut2537.rem0.friday.mars.43_50",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      "displayPolicy": "source age 0 is displayed as age 1; full source row retained"
+    },
+    {
+      "ref": "C552BE9B833A012B/claims/4",
+      "owner": "current",
+      "currentAge": 64,
+      "heading": 64,
+      "body": 64,
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem0.friday",
+        "matrixApplicationId": "mahabhut2537.rem0.friday.mercury.51_67",
+        "planet": "mercury",
+        "taksaRole": "mula",
+        "mahabhutHouse": "athibodi",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 51,
+        "ageEnd": 67,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem0.friday.mercury.51_67",
+        "selectorAuthority": "selector.mahabhut2537.rem0.friday.mercury.51_67",
+        "rawHeuristicPromotedToPrediction": false
+      }
+    },
+    {
+      "ref": "C552BE9B833A012B/claims/5",
+      "owner": "next",
+      "section": [
+        68,
+        77
+      ],
+      "body": [
+        68,
+        77
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem0.friday",
+        "matrixApplicationId": "mahabhut2537.rem0.friday.saturn.68_77",
+        "planet": "saturn",
+        "taksaRole": "utsaha",
+        "mahabhutHouse": "phangkha",
+        "periodStatus": "dueng_tok",
+        "ageStart": 68,
+        "ageEnd": 77,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem0.friday.saturn.68_77",
+        "selectorAuthority": "selector.mahabhut2537.rem0.friday.saturn.68_77",
+        "rawHeuristicPromotedToPrediction": false
+      }
+    },
+    {
+      "ref": "14CEEF6E6570E70E/claims/0",
+      "owner": "past",
+      "section": [
+        1,
+        6
+      ],
+      "body": [
+        1,
+        6
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem1.sunday",
+        "matrixApplicationId": "mahabhut2537.rem1.sunday.sun.0_6",
+        "planet": "sun",
+        "taksaRole": "boriwan",
+        "mahabhutHouse": "phangkha",
+        "periodStatus": "dueng_tok",
+        "ageStart": 0,
+        "ageEnd": 6,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem1.sunday.sun.0_6",
+        "selectorAuthority": "selector.mahabhut2537.rem1.sunday.sun.0_6",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      "displayPolicy": "source age 0 is displayed as age 1; full source row retained"
+    },
+    {
+      "ref": "14CEEF6E6570E70E/claims/1",
+      "owner": "past",
+      "section": [
+        7,
+        21
+      ],
+      "body": [
+        7,
+        21
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem1.sunday",
+        "matrixApplicationId": "mahabhut2537.rem1.sunday.moon.7_21",
+        "planet": "moon",
+        "taksaRole": "ayu",
+        "mahabhutHouse": "puti",
+        "periodStatus": "dueng_tok",
+        "ageStart": 7,
+        "ageEnd": 21,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem1.sunday.moon.7_21",
+        "selectorAuthority": "selector.mahabhut2537.rem1.sunday.moon.7_21",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      "displayPolicy": "source age 0 is displayed as age 1; full source row retained"
+    },
+    {
+      "ref": "14CEEF6E6570E70E/claims/2",
+      "owner": "past",
+      "section": [
+        22,
+        29
+      ],
+      "body": [
+        22,
+        29
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem1.sunday",
+        "matrixApplicationId": "mahabhut2537.rem1.sunday.mars.22_29",
+        "planet": "mars",
+        "taksaRole": "det",
+        "mahabhutHouse": "khumsap",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 22,
+        "ageEnd": 29,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem1.sunday.mars.22_29",
+        "selectorAuthority": "selector.mahabhut2537.rem1.sunday.mars.22_29",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      "displayPolicy": "source age 0 is displayed as age 1; full source row retained"
+    },
+    {
+      "ref": "14CEEF6E6570E70E/claims/3",
+      "owner": "current",
+      "currentAge": 36,
+      "heading": 36,
+      "body": 36,
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem1.sunday",
+        "matrixApplicationId": "mahabhut2537.rem1.sunday.mercury.30_46",
+        "planet": "mercury",
+        "taksaRole": "sri",
+        "mahabhutHouse": "marana",
+        "periodStatus": "dueng_tok",
+        "ageStart": 30,
+        "ageEnd": 46,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem1.sunday.mercury.30_46",
+        "selectorAuthority": "selector.mahabhut2537.rem1.sunday.mercury.30_46",
+        "rawHeuristicPromotedToPrediction": false
+      }
+    },
+    {
+      "ref": "14CEEF6E6570E70E/claims/4",
+      "owner": "next",
+      "section": [
+        47,
+        65
+      ],
+      "body": [
+        47,
+        65
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem1.sunday",
+        "matrixApplicationId": "mahabhut2537.rem1.sunday.jupiter.47_65",
+        "planet": "jupiter",
+        "taksaRole": "mula",
+        "mahabhutHouse": "athibodi",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 47,
+        "ageEnd": 65,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem1.sunday.jupiter.47_65",
+        "selectorAuthority": "selector.mahabhut2537.rem1.sunday.jupiter.47_65",
+        "rawHeuristicPromotedToPrediction": false
+      }
+    },
+    {
+      "ref": "C9456BE6ADD0897D/claims/0",
+      "owner": "past",
+      "section": [
+        1,
+        8
+      ],
+      "body": [
+        1,
+        8
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem0.tuesday",
+        "matrixApplicationId": "mahabhut2537.rem0.tuesday.mars.0_8",
+        "planet": "mars",
+        "taksaRole": "boriwan",
+        "mahabhutHouse": "marana",
+        "periodStatus": "dueng_tok",
+        "ageStart": 0,
+        "ageEnd": 8,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem0.tuesday.mars.0_8",
+        "selectorAuthority": "selector.mahabhut2537.rem0.tuesday.mars.0_8",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      "displayPolicy": "source age 0 is displayed as age 1; full source row retained"
+    },
+    {
+      "ref": "C9456BE6ADD0897D/claims/1",
+      "owner": "current",
+      "currentAge": 9,
+      "heading": 9,
+      "body": 9,
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem0.tuesday",
+        "matrixApplicationId": "mahabhut2537.rem0.tuesday.mercury.9_25",
+        "planet": "mercury",
+        "taksaRole": "ayu",
+        "mahabhutHouse": "athibodi",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 9,
+        "ageEnd": 25,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem0.tuesday.mercury.9_25",
+        "selectorAuthority": "selector.mahabhut2537.rem0.tuesday.mercury.9_25",
+        "rawHeuristicPromotedToPrediction": false
+      }
+    },
+    {
+      "ref": "C9456BE6ADD0897D/claims/2",
+      "owner": "next",
+      "section": [
+        26,
+        35
+      ],
+      "body": [
+        26,
+        35
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem0.tuesday",
+        "matrixApplicationId": "mahabhut2537.rem0.tuesday.saturn.26_35",
+        "planet": "saturn",
+        "taksaRole": "det",
+        "mahabhutHouse": "phangkha",
+        "periodStatus": "dueng_tok",
+        "ageStart": 26,
+        "ageEnd": 35,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem0.tuesday.saturn.26_35",
+        "selectorAuthority": "selector.mahabhut2537.rem0.tuesday.saturn.26_35",
+        "rawHeuristicPromotedToPrediction": false
+      }
+    },
+    {
+      "ref": "A4BC10437FDD0F5A/claims/0",
+      "owner": "past",
+      "section": [
+        1,
+        19
+      ],
+      "body": [
+        1,
+        19
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem0.thursday",
+        "matrixApplicationId": "mahabhut2537.rem0.thursday.jupiter.0_19",
+        "planet": "jupiter",
+        "taksaRole": "boriwan",
+        "mahabhutHouse": "racha",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 0,
+        "ageEnd": 19,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem0.thursday.jupiter.0_19",
+        "selectorAuthority": "selector.mahabhut2537.rem0.thursday.jupiter.0_19",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      "displayPolicy": "source age 0 is displayed as age 1; full source row retained"
+    },
+    {
+      "ref": "A4BC10437FDD0F5A/claims/1",
+      "owner": "past",
+      "section": [
+        20,
+        31
+      ],
+      "body": [
+        20,
+        31
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem0.thursday",
+        "matrixApplicationId": "mahabhut2537.rem0.thursday.rahu.20_31",
+        "planet": "rahu",
+        "taksaRole": "ayu",
+        "mahabhutHouse": "athibodi",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 20,
+        "ageEnd": 31,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem0.thursday.rahu.20_31",
+        "selectorAuthority": "selector.mahabhut2537.rem0.thursday.rahu.20_31",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      "displayPolicy": "source age 0 is displayed as age 1; full source row retained"
+    },
+    {
+      "ref": "A4BC10437FDD0F5A/claims/2",
+      "owner": "past",
+      "section": [
+        32,
+        52
+      ],
+      "body": [
+        32,
+        52
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem0.thursday",
+        "matrixApplicationId": "mahabhut2537.rem0.thursday.venus.32_52",
+        "planet": "venus",
+        "taksaRole": "det",
+        "mahabhutHouse": "thongchai",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 32,
+        "ageEnd": 52,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem0.thursday.venus.32_52",
+        "selectorAuthority": "selector.mahabhut2537.rem0.thursday.venus.32_52",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      "displayPolicy": "source age 0 is displayed as age 1; full source row retained"
+    },
+    {
+      "ref": "A4BC10437FDD0F5A/claims/3",
+      "owner": "current",
+      "currentAge": 58,
+      "heading": 58,
+      "body": 58,
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem0.thursday",
+        "matrixApplicationId": "mahabhut2537.rem0.thursday.sun.53_58",
+        "planet": "sun",
+        "taksaRole": "sri",
+        "mahabhutHouse": "puti",
+        "periodStatus": "dueng_tok",
+        "ageStart": 53,
+        "ageEnd": 58,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem0.thursday.sun.53_58",
+        "selectorAuthority": "selector.mahabhut2537.rem0.thursday.sun.53_58",
+        "rawHeuristicPromotedToPrediction": false
+      }
+    },
+    {
+      "ref": "A4BC10437FDD0F5A/claims/4",
+      "owner": "next",
+      "section": [
+        59,
+        73
+      ],
+      "body": [
+        59,
+        73
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem0.thursday",
+        "matrixApplicationId": "mahabhut2537.rem0.thursday.moon.59_73",
+        "planet": "moon",
+        "taksaRole": "mula",
+        "mahabhutHouse": "khumsap",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 59,
+        "ageEnd": 73,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem0.thursday.moon.59_73",
+        "selectorAuthority": "selector.mahabhut2537.rem0.thursday.moon.59_73",
+        "rawHeuristicPromotedToPrediction": false
+      }
+    },
+    {
+      "ref": "43CAB74562A81820/claims/0",
+      "owner": "past",
+      "section": [
+        1,
+        8
+      ],
+      "body": [
+        1,
+        8
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem2.tuesday",
+        "matrixApplicationId": "mahabhut2537.rem2.tuesday.mars.0_8",
+        "planet": "mars",
+        "taksaRole": "boriwan",
+        "mahabhutHouse": "puti",
+        "periodStatus": "dueng_tok",
+        "ageStart": 0,
+        "ageEnd": 8,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem2.tuesday.mars.0_8",
+        "selectorAuthority": "selector.mahabhut2537.rem2.tuesday.mars.0_8",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      "displayPolicy": "source age 0 is displayed as age 1; full source row retained"
+    },
+    {
+      "ref": "43CAB74562A81820/claims/1",
+      "owner": "current",
+      "currentAge": 21,
+      "heading": 21,
+      "body": 21,
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem2.tuesday",
+        "matrixApplicationId": "mahabhut2537.rem2.tuesday.mercury.9_25",
+        "planet": "mercury",
+        "taksaRole": "ayu",
+        "mahabhutHouse": "khumsap",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 9,
+        "ageEnd": 25,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem2.tuesday.mercury.9_25",
+        "selectorAuthority": "selector.mahabhut2537.rem2.tuesday.mercury.9_25",
+        "rawHeuristicPromotedToPrediction": false
+      }
+    },
+    {
+      "ref": "43CAB74562A81820/claims/2",
+      "owner": "next",
+      "section": [
+        26,
+        35
+      ],
+      "body": [
+        26,
+        35
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem2.tuesday",
+        "matrixApplicationId": "mahabhut2537.rem2.tuesday.saturn.26_35",
+        "planet": "saturn",
+        "taksaRole": "det",
+        "mahabhutHouse": "racha",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 26,
+        "ageEnd": 35,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem2.tuesday.saturn.26_35",
+        "selectorAuthority": "selector.mahabhut2537.rem2.tuesday.saturn.26_35",
+        "rawHeuristicPromotedToPrediction": false
+      }
+    },
+    {
+      "ref": "5D4B0E6B33196850/claims/0",
+      "owner": "past",
+      "section": [
+        1,
+        8
+      ],
+      "body": [
+        1,
+        8
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem4.tuesday",
+        "matrixApplicationId": "mahabhut2537.rem4.tuesday.mars.0_8",
+        "planet": "mars",
+        "taksaRole": "boriwan",
+        "mahabhutHouse": "thongchai",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 0,
+        "ageEnd": 8,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem4.tuesday.mars.0_8",
+        "selectorAuthority": "selector.mahabhut2537.rem4.tuesday.mars.0_8",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      "displayPolicy": "source age 0 is displayed as age 1; full source row retained"
+    },
+    {
+      "ref": "5D4B0E6B33196850/claims/1",
+      "owner": "past",
+      "section": [
+        9,
+        25
+      ],
+      "body": [
+        9,
+        25
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem4.tuesday",
+        "matrixApplicationId": "mahabhut2537.rem4.tuesday.mercury.9_25",
+        "planet": "mercury",
+        "taksaRole": "ayu",
+        "mahabhutHouse": "phangkha",
+        "periodStatus": "dueng_tok",
+        "ageStart": 9,
+        "ageEnd": 25,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem4.tuesday.mercury.9_25",
+        "selectorAuthority": "selector.mahabhut2537.rem4.tuesday.mercury.9_25",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      "displayPolicy": "source age 0 is displayed as age 1; full source row retained"
+    },
+    {
+      "ref": "5D4B0E6B33196850/claims/2",
+      "owner": "current",
+      "currentAge": 33,
+      "heading": 33,
+      "body": 33,
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem4.tuesday",
+        "matrixApplicationId": "mahabhut2537.rem4.tuesday.saturn.26_35",
+        "planet": "saturn",
+        "taksaRole": "det",
+        "mahabhutHouse": "marana",
+        "periodStatus": "dueng_tok",
+        "ageStart": 26,
+        "ageEnd": 35,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem4.tuesday.saturn.26_35",
+        "selectorAuthority": "selector.mahabhut2537.rem4.tuesday.saturn.26_35",
+        "rawHeuristicPromotedToPrediction": false
+      }
+    },
+    {
+      "ref": "5D4B0E6B33196850/claims/3",
+      "owner": "next",
+      "section": [
+        36,
+        54
+      ],
+      "body": [
+        36,
+        54
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem4.tuesday",
+        "matrixApplicationId": "mahabhut2537.rem4.tuesday.jupiter.36_54",
+        "planet": "jupiter",
+        "taksaRole": "sri",
+        "mahabhutHouse": "puti",
+        "periodStatus": "dueng_tok",
+        "ageStart": 36,
+        "ageEnd": 54,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem4.tuesday.jupiter.36_54",
+        "selectorAuthority": "selector.mahabhut2537.rem4.tuesday.jupiter.36_54",
+        "rawHeuristicPromotedToPrediction": false
+      }
+    },
+    {
+      "ref": "BCD9A471968E2D9C/claims/0",
+      "owner": "past",
+      "section": [
+        1,
+        19
+      ],
+      "body": [
+        1,
+        19
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem2.thursday",
+        "matrixApplicationId": "mahabhut2537.rem2.thursday.jupiter.0_19",
+        "planet": "jupiter",
+        "taksaRole": "boriwan",
+        "mahabhutHouse": "marana",
+        "periodStatus": "dueng_tok",
+        "ageStart": 0,
+        "ageEnd": 19,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem2.thursday.jupiter.0_19",
+        "selectorAuthority": "selector.mahabhut2537.rem2.thursday.jupiter.0_19",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      "displayPolicy": "source age 0 is displayed as age 1; full source row retained"
+    },
+    {
+      "ref": "BCD9A471968E2D9C/claims/1",
+      "owner": "past",
+      "section": [
+        20,
+        31
+      ],
+      "body": [
+        20,
+        31
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem2.thursday",
+        "matrixApplicationId": "mahabhut2537.rem2.thursday.rahu.20_31",
+        "planet": "rahu",
+        "taksaRole": "ayu",
+        "mahabhutHouse": "khumsap",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 20,
+        "ageEnd": 31,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem2.thursday.rahu.20_31",
+        "selectorAuthority": "selector.mahabhut2537.rem2.thursday.rahu.20_31",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      "displayPolicy": "source age 0 is displayed as age 1; full source row retained"
+    },
+    {
+      "ref": "BCD9A471968E2D9C/claims/2",
+      "owner": "current",
+      "currentAge": 48,
+      "heading": 48,
+      "body": 48,
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem2.thursday",
+        "matrixApplicationId": "mahabhut2537.rem2.thursday.venus.32_52",
+        "planet": "venus",
+        "taksaRole": "det",
+        "mahabhutHouse": "athibodi",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 32,
+        "ageEnd": 52,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem2.thursday.venus.32_52",
+        "selectorAuthority": "selector.mahabhut2537.rem2.thursday.venus.32_52",
+        "rawHeuristicPromotedToPrediction": false
+      }
+    },
+    {
+      "ref": "BCD9A471968E2D9C/claims/3",
+      "owner": "next",
+      "section": [
+        53,
+        58
+      ],
+      "body": [
+        53,
+        58
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem2.thursday",
+        "matrixApplicationId": "mahabhut2537.rem2.thursday.sun.53_58",
+        "planet": "sun",
+        "taksaRole": "sri",
+        "mahabhutHouse": "thongchai",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 53,
+        "ageEnd": 58,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem2.thursday.sun.53_58",
+        "selectorAuthority": "selector.mahabhut2537.rem2.thursday.sun.53_58",
+        "rawHeuristicPromotedToPrediction": false
+      }
+    },
+    {
+      "ref": "4DFC6FF2CE8AEA72/claims/0",
+      "owner": "past",
+      "section": [
+        1,
+        21
+      ],
+      "body": [
+        1,
+        21
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem1.friday",
+        "matrixApplicationId": "mahabhut2537.rem1.friday.venus.0_21",
+        "planet": "venus",
+        "taksaRole": "boriwan",
+        "mahabhutHouse": "racha",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 0,
+        "ageEnd": 21,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem1.friday.venus.0_21",
+        "selectorAuthority": "selector.mahabhut2537.rem1.friday.venus.0_21",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      "displayPolicy": "source age 0 is displayed as age 1; full source row retained"
+    },
+    {
+      "ref": "4DFC6FF2CE8AEA72/claims/1",
+      "owner": "current",
+      "currentAge": 22,
+      "heading": 22,
+      "body": 22,
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem1.friday",
+        "matrixApplicationId": "mahabhut2537.rem1.friday.sun.22_27",
+        "planet": "sun",
+        "taksaRole": "ayu",
+        "mahabhutHouse": "phangkha",
+        "periodStatus": "dueng_tok",
+        "ageStart": 22,
+        "ageEnd": 27,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem1.friday.sun.22_27",
+        "selectorAuthority": "selector.mahabhut2537.rem1.friday.sun.22_27",
+        "rawHeuristicPromotedToPrediction": false
+      }
+    },
+    {
+      "ref": "4DFC6FF2CE8AEA72/claims/2",
+      "owner": "next",
+      "section": [
+        28,
+        42
+      ],
+      "body": [
+        28,
+        42
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem1.friday",
+        "matrixApplicationId": "mahabhut2537.rem1.friday.moon.28_42",
+        "planet": "moon",
+        "taksaRole": "det",
+        "mahabhutHouse": "puti",
+        "periodStatus": "dueng_tok",
+        "ageStart": 28,
+        "ageEnd": 42,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem1.friday.moon.28_42",
+        "selectorAuthority": "selector.mahabhut2537.rem1.friday.moon.28_42",
+        "rawHeuristicPromotedToPrediction": false
+      }
+    },
+    {
+      "ref": "9FE99BEB8B0437C6/claims/0",
+      "owner": "past",
+      "section": [
+        1,
+        17
+      ],
+      "body": [
+        1,
+        17
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem2.wednesday",
+        "matrixApplicationId": "mahabhut2537.rem2.wednesday.mercury.0_17",
+        "planet": "mercury",
+        "taksaRole": "boriwan",
+        "mahabhutHouse": "khumsap",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 0,
+        "ageEnd": 17,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem2.wednesday.mercury.0_17",
+        "selectorAuthority": "selector.mahabhut2537.rem2.wednesday.mercury.0_17",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      "displayPolicy": "source age 0 is displayed as age 1; full source row retained"
+    },
+    {
+      "ref": "9FE99BEB8B0437C6/claims/1",
+      "owner": "past",
+      "section": [
+        18,
+        27
+      ],
+      "body": [
+        18,
+        27
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem2.wednesday",
+        "matrixApplicationId": "mahabhut2537.rem2.wednesday.saturn.18_27",
+        "planet": "saturn",
+        "taksaRole": "ayu",
+        "mahabhutHouse": "racha",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 18,
+        "ageEnd": 27,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem2.wednesday.saturn.18_27",
+        "selectorAuthority": "selector.mahabhut2537.rem2.wednesday.saturn.18_27",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      "displayPolicy": "source age 0 is displayed as age 1; full source row retained"
+    },
+    {
+      "ref": "9FE99BEB8B0437C6/claims/2",
+      "owner": "current",
+      "currentAge": 42,
+      "heading": 42,
+      "body": 42,
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem2.wednesday",
+        "matrixApplicationId": "mahabhut2537.rem2.wednesday.jupiter.28_46",
+        "planet": "jupiter",
+        "taksaRole": "det",
+        "mahabhutHouse": "marana",
+        "periodStatus": "dueng_tok",
+        "ageStart": 28,
+        "ageEnd": 46,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem2.wednesday.jupiter.28_46",
+        "selectorAuthority": "selector.mahabhut2537.rem2.wednesday.jupiter.28_46",
+        "rawHeuristicPromotedToPrediction": false
+      }
+    },
+    {
+      "ref": "9FE99BEB8B0437C6/claims/3",
+      "owner": "next",
+      "section": [
+        47,
+        58
+      ],
+      "body": [
+        47,
+        58
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem2.wednesday",
+        "matrixApplicationId": "mahabhut2537.rem2.wednesday.rahu.47_58",
+        "planet": "rahu",
+        "taksaRole": "sri",
+        "mahabhutHouse": "khumsap",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 47,
+        "ageEnd": 58,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem2.wednesday.rahu.47_58",
+        "selectorAuthority": "selector.mahabhut2537.rem2.wednesday.rahu.47_58",
+        "rawHeuristicPromotedToPrediction": false
+      }
+    },
+    {
+      "ref": "BA79C8180E6A3FC4/claims/0",
+      "owner": "past",
+      "section": [
+        1,
+        21
+      ],
+      "body": [
+        1,
+        21
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem4.friday",
+        "matrixApplicationId": "mahabhut2537.rem4.friday.venus.0_21",
+        "planet": "venus",
+        "taksaRole": "boriwan",
+        "mahabhutHouse": "khumsap",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 0,
+        "ageEnd": 21,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem4.friday.venus.0_21",
+        "selectorAuthority": "selector.mahabhut2537.rem4.friday.venus.0_21",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      "displayPolicy": "source age 0 is displayed as age 1; full source row retained"
+    },
+    {
+      "ref": "BA79C8180E6A3FC4/claims/1",
+      "owner": "past",
+      "section": [
+        22,
+        27
+      ],
+      "body": [
+        22,
+        27
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem4.friday",
+        "matrixApplicationId": "mahabhut2537.rem4.friday.sun.22_27",
+        "planet": "sun",
+        "taksaRole": "ayu",
+        "mahabhutHouse": "athibodi",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 22,
+        "ageEnd": 27,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem4.friday.sun.22_27",
+        "selectorAuthority": "selector.mahabhut2537.rem4.friday.sun.22_27",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      "displayPolicy": "source age 0 is displayed as age 1; full source row retained"
+    },
+    {
+      "ref": "BA79C8180E6A3FC4/claims/2",
+      "owner": "past",
+      "section": [
+        28,
+        42
+      ],
+      "body": [
+        28,
+        42
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem4.friday",
+        "matrixApplicationId": "mahabhut2537.rem4.friday.moon.28_42",
+        "planet": "moon",
+        "taksaRole": "det",
+        "mahabhutHouse": "racha",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 28,
+        "ageEnd": 42,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem4.friday.moon.28_42",
+        "selectorAuthority": "selector.mahabhut2537.rem4.friday.moon.28_42",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      "displayPolicy": "source age 0 is displayed as age 1; full source row retained"
+    },
+    {
+      "ref": "BA79C8180E6A3FC4/claims/3",
+      "owner": "current",
+      "currentAge": 47,
+      "heading": 47,
+      "body": 47,
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem4.friday",
+        "matrixApplicationId": "mahabhut2537.rem4.friday.mars.43_50",
+        "planet": "mars",
+        "taksaRole": "sri",
+        "mahabhutHouse": "thongchai",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 43,
+        "ageEnd": 50,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem4.friday.mars.43_50",
+        "selectorAuthority": "selector.mahabhut2537.rem4.friday.mars.43_50",
+        "rawHeuristicPromotedToPrediction": false
+      }
+    },
+    {
+      "ref": "BA79C8180E6A3FC4/claims/4",
+      "owner": "next",
+      "section": [
+        51,
+        67
+      ],
+      "body": [
+        51,
+        67
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem4.friday",
+        "matrixApplicationId": "mahabhut2537.rem4.friday.mercury.51_67",
+        "planet": "mercury",
+        "taksaRole": "mula",
+        "mahabhutHouse": "phangkha",
+        "periodStatus": "dueng_tok",
+        "ageStart": 51,
+        "ageEnd": 67,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem4.friday.mercury.51_67",
+        "selectorAuthority": "selector.mahabhut2537.rem4.friday.mercury.51_67",
+        "rawHeuristicPromotedToPrediction": false
+      }
+    },
+    {
+      "ref": "DD047C7797614293/claims/0",
+      "owner": "past",
+      "section": [
+        1,
+        10
+      ],
+      "body": [
+        1,
+        10
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem0.saturday",
+        "matrixApplicationId": "mahabhut2537.rem0.saturday.saturn.0_10",
+        "planet": "saturn",
+        "taksaRole": "boriwan",
+        "mahabhutHouse": "phangkha",
+        "periodStatus": "dueng_tok",
+        "ageStart": 0,
+        "ageEnd": 10,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem0.saturday.saturn.0_10",
+        "selectorAuthority": "selector.mahabhut2537.rem0.saturday.saturn.0_10",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      "displayPolicy": "source age 0 is displayed as age 1; full source row retained"
+    },
+    {
+      "ref": "DD047C7797614293/claims/1",
+      "owner": "past",
+      "section": [
+        11,
+        29
+      ],
+      "body": [
+        11,
+        29
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem0.saturday",
+        "matrixApplicationId": "mahabhut2537.rem0.saturday.jupiter.11_29",
+        "planet": "jupiter",
+        "taksaRole": "ayu",
+        "mahabhutHouse": "racha",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 11,
+        "ageEnd": 29,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem0.saturday.jupiter.11_29",
+        "selectorAuthority": "selector.mahabhut2537.rem0.saturday.jupiter.11_29",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      "displayPolicy": "source age 0 is displayed as age 1; full source row retained"
+    },
+    {
+      "ref": "DD047C7797614293/claims/2",
+      "owner": "past",
+      "section": [
+        30,
+        41
+      ],
+      "body": [
+        30,
+        41
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem0.saturday",
+        "matrixApplicationId": "mahabhut2537.rem0.saturday.rahu.30_41",
+        "planet": "rahu",
+        "taksaRole": "det",
+        "mahabhutHouse": "athibodi",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 30,
+        "ageEnd": 41,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem0.saturday.rahu.30_41",
+        "selectorAuthority": "selector.mahabhut2537.rem0.saturday.rahu.30_41",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      "displayPolicy": "source age 0 is displayed as age 1; full source row retained"
+    },
+    {
+      "ref": "DD047C7797614293/claims/3",
+      "owner": "current",
+      "currentAge": 44,
+      "heading": 44,
+      "body": 44,
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem0.saturday",
+        "matrixApplicationId": "mahabhut2537.rem0.saturday.venus.42_62",
+        "planet": "venus",
+        "taksaRole": "sri",
+        "mahabhutHouse": "thongchai",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 42,
+        "ageEnd": 62,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem0.saturday.venus.42_62",
+        "selectorAuthority": "selector.mahabhut2537.rem0.saturday.venus.42_62",
+        "rawHeuristicPromotedToPrediction": false
+      }
+    },
+    {
+      "ref": "DD047C7797614293/claims/4",
+      "owner": "next",
+      "section": [
+        63,
+        79
+      ],
+      "body": [
+        63,
+        79
+      ],
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem0.saturday",
+        "matrixApplicationId": "mahabhut2537.rem0.saturday.mercury.63_79",
+        "planet": "mercury",
+        "taksaRole": "mula",
+        "mahabhutHouse": "athibodi",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 63,
+        "ageEnd": 79,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem0.saturday.mercury.63_79",
+        "selectorAuthority": "selector.mahabhut2537.rem0.saturday.mercury.63_79",
+        "rawHeuristicPromotedToPrediction": false
+      }
+    }
+  ],
+  "interpretation": "Zero invalid emitted claims; not evidence that omitted claims are supported."
+}

@@ -1,0 +1,397 @@
+{
+  "attempt": "full-suite-first-after-runtime-repair",
+  "passed": 1566,
+  "failed": 78,
+  "failures": [
+    {
+      "file": "test/validation/thai_beta/core_reading/thai_beta_readability_acceptance_test.dart",
+      "test": "eight deterministic Web and rendered PDF reports pass readability",
+      "detail": "  Expected: contains 'ดวงจากวันเกิดของคุณ'\n    Actual: 'KnowMe — รายงานโหราไทย\\n'\n              'ไม่ทราบเวลาเกิด — แสดงข้อมูลที่ยืนยันได้และหัวข้อที่เว้นไว้\\n'\n              'ส่วนที่ 1 · พื้นดวงของคุณ\\n'\n              'วันเกิด 1981-06-15 ตรงกับวันจันทร์ตามปฏิทิน\\n'\n              'จังหวัดที่เกิด: กรุงเทพมหานคร\\n'"
+    },
+    {
+      "file": "test/validation/thai_beta/core_reading/thai_birth_profile_core_reading_test.dart",
+      "test": "unsupported no-time topics are disclosed after Timeline",
+      "detail": "  Test failed. See exception logs above.\n  The test description was: unsupported no-time topics are disclosed after Timeline\n  \n00:02 +25 -2: <REPO_ROOT>/test/validation/thai_beta/core_reading/thai_birth_profile_core_reading_test.dart: Thai Mirror default still renders the lifelong report\n00:02 +26 -2: <REPO_ROOT>/test/validation/thai_beta/core_reading/thai_birth_profile_core_reading_test.dart: methodology is collapsed by default and can be expanded\n00:02 +27 -2: <REPO_ROOT>/test/validation/thai_beta/core_reading/thai_birth_profile_core_reading_test.dart: web and PDF use the same Core Reading instance content"
+    },
+    {
+      "file": "test/validation/thai_beta/core_reading/thai_birth_profile_core_reading_test.dart",
+      "test": "PDF appends the same omissions as the final report section",
+      "detail": "  Expected: 'หัวข้อที่ไม่ได้แสดง'\n    Actual: 'ส่วนที่ 4 · ที่มาและข้อจำกัด'\n     Which: is different.\n            Expected: หัวข้อที่ไ ...\n              Actual: ส่วนที่ 4  ...\n                      ^"
+    },
+    {
+      "file": "test/validation/thai_beta/life_map/v124/thai_life_map_v124_accuracy_audit_test.dart",
+      "test": "V1.2.4 full audit every chart has exactly 8 periods (≥160 total)",
+      "detail": "  Expected: a value greater than or equal to <160>\n    Actual: <152>\n     Which: is not a value greater than or equal to <160>\n  \n  package:matcher                                                                           expect\n  package:flutter_test/src/widget_tester.dart 473:18                                        expect"
+    },
+    {
+      "file": "test/validation/thai_beta/life_map/v124/thai_life_map_v124_accuracy_audit_test.dart",
+      "test": "V1.2.4 full audit PDF export includes timeline narrative but not Mahabhut nested fields",
+      "detail": "  Expected: true\n    Actual: <false>\n  \n  package:matcher                                                                            expect\n  package:flutter_test/src/widget_tester.dart 473:18                                         expect\n  test\\validation\\thai_beta\\life_map\\v124\\thai_life_map_v124_accuracy_audit_test.dart 187:7  main.<fn>.<fn>"
+    },
+    {
+      "file": "test/validation/thai_beta/life_map/v132/thai_life_map_v132_copy_hierarchy_test.dart",
+      "test": "Life Map V1.3.2 hierarchy and language incomplete birth data limitation lives on hero metadata",
+      "detail": "  Expected: empty\n    Actual: 'ไม่ทราบเวลาเกิด'\n  \n  package:matcher                                                                           expect\n  package:flutter_test/src/widget_tester.dart 473:18                                        expect\n  test\\validation\\thai_beta\\life_map\\v132\\thai_life_map_v132_copy_hierarchy_test.dart 86:7  main.<fn>.<fn>"
+    },
+    {
+      "file": "test/validation/thai_beta/life_map/v132/thai_life_map_v132_product_qa_artifact_test.dart",
+      "test": "write V1.3.2 product QA artifact",
+      "detail": "  Expected: contains 'ไม่มีเวลาเกิด'\n    Actual: 'ข้อมูลวันเกิดและข้อจำกัด'\n     Which: does not contain 'ไม่มีเวลาเกิด'\n  \n  package:matcher                                                                                expect\n  package:flutter_test/src/widget_tester.dart 473:18                                             expect"
+    },
+    {
+      "file": "test/validation/thai_beta/life_map/v133/thai_life_map_v133_holistic_domains_test.dart",
+      "test": "V1.3.3 opening holistic hero incomplete birth time keeps limitation on subtitle",
+      "detail": "  Expected: contains 'ไม่มีเวลาเกิด'\n    Actual: 'ข้อมูลวันเกิดและข้อจำกัด'\n     Which: does not contain 'ไม่มีเวลาเกิด'\n  \n  package:matcher                                                                              expect\n  package:flutter_test/src/widget_tester.dart 473:18                                           expect"
+    },
+    {
+      "file": "test/validation/thai_beta/life_map/v134/thai_life_map_v134_narrative_quality_test.dart",
+      "test": "V1.3.4 overview no-birth-time still works",
+      "detail": "  Expected: contains 'ไม่มีเวลาเกิด'\n    Actual: 'ข้อมูลวันเกิดและข้อจำกัด'\n     Which: does not contain 'ไม่มีเวลาเกิด'\n  \n  package:matcher                                                                              expect\n  package:flutter_test/src/widget_tester.dart 473:18                                           expect"
+    },
+    {
+      "file": "test/validation/thai_beta/life_map/v135/thai_life_map_v135_evidence_detail_test.dart",
+      "test": "no birth time still builds report without lagna houses",
+      "detail": "  Null check operator used on a null value\n  test\\validation\\thai_beta\\life_map\\v135\\thai_life_map_v135_evidence_detail_test.dart 185:60  main.<fn>\n  \n00:33 +171 -10: <REPO_ROOT>/test/validation/thai_beta/life_map/v135/thai_life_map_v135_evidence_detail_test.dart: advice appears once at end only\n00:33 +172 -10: <REPO_ROOT>/test/validation/thai_beta/life_map/v135/thai_life_map_v135_evidence_detail_test.dart: Wednesday daytime fixture still succeeds\n00:33 +173 -10: <REPO_ROOT>/test/validation/thai_beta/life_map/v135/thai_life_map_v135_evidence_detail_test.dart: evidence rule version is v135.1"
+    },
+    {
+      "file": "test/validation/thai_beta/life_map/v135/thai_life_map_v135_product_qa_artifact_test.dart",
+      "test": "writes V1.3.5 product QA artifact with full evidence text",
+      "detail": "  Null check operator used on a null value\n  test\\validation\\thai_beta\\life_map\\v135\\thai_life_map_v135_product_qa_artifact_test.dart 32:55   main.<fn>.dump\n  test\\validation\\thai_beta\\life_map\\v135\\thai_life_map_v135_product_qa_artifact_test.dart 116:17  main.<fn>\n  \n00:34 +175 -11: loading <REPO_ROOT>/test/validation/thai_beta/life_map/v135/thai_life_map_v135_ui_primary_test.dart\n00:34 +175 -11: <REPO_ROOT>/test/validation/thai_beta/life_map/v135/thai_life_map_v135_ui_primary_test.dart: accepted Life Map remains primary when detailedReport model exists"
+    },
+    {
+      "file": "test/validation/thai_beta/live_asof/thai_beta_copy_normalization_scope_test.dart",
+      "test": "(setUpAll)",
+      "detail": "  Null check operator used on a null value\n  test\\validation\\thai_beta\\live_asof\\thai_beta_cross_runtime_manifest.dart 111:59        _caseManifest\n  test\\validation\\thai_beta\\live_asof\\thai_beta_cross_runtime_manifest.dart 49:17         buildCrossRuntimeManifest\n  test\\validation\\thai_beta\\live_asof\\thai_beta_copy_normalization_scope_test.dart 28:21  main.<fn>\n  \n00:37 +197 -12: <REPO_ROOT>/test/validation/thai_beta/live_asof/thai_beta_copy_normalization_scope_test.dart: (tearDownAll)"
+    },
+    {
+      "file": "test/validation/thai_beta/live_asof/thai_beta_copy_semantic_safety_test.dart",
+      "test": "300-case reader-visible output matches the accepted baseline",
+      "detail": "  Null check operator used on a null value\n  test\\validation\\thai_beta\\live_asof\\thai_beta_cross_runtime_manifest.dart 111:59    _caseManifest\n  test\\validation\\thai_beta\\live_asof\\thai_beta_cross_runtime_manifest.dart 49:17     buildCrossRuntimeManifest\n  test\\validation\\thai_beta\\live_asof\\thai_beta_copy_semantic_safety_test.dart 27:29  main.<fn>\n  \n00:38 +197 -13: <REPO_ROOT>/test/validation/thai_beta/live_asof/thai_beta_copy_semantic_safety_test.dart: all 19 formerly misclassified omission sources remain non-empty"
+    },
+    {
+      "file": "test/validation/thai_beta/live_asof/thai_beta_copy_semantic_safety_test.dart",
+      "test": "all 19 formerly misclassified omission sources remain non-empty",
+      "detail": "  Null check operator used on a null value\n  test\\validation\\thai_beta\\live_asof\\thai_beta_copy_semantic_safety_test.dart 239:63  main.<fn>\n  \n00:38 +197 -14: <REPO_ROOT>/test/validation/thai_beta/live_asof/thai_beta_copy_semantic_safety_test.dart: owner-unknown remains exact R7.1 canonical and deterministic\n00:38 +197 -15: <REPO_ROOT>/test/validation/thai_beta/live_asof/thai_beta_copy_semantic_safety_test.dart: owner-unknown remains exact R7.1 canonical and deterministic [E]\n  Expected: 'KnowMe — รายงานโหราไทย\\n'"
+    },
+    {
+      "file": "test/validation/thai_beta/live_asof/thai_beta_copy_semantic_safety_test.dart",
+      "test": "owner-unknown remains exact R7.1 canonical and deterministic",
+      "detail": "  Expected: 'KnowMe — รายงานโหราไทย\\n'\n              'รายงานฉบับสำหรับอ่านและบันทึกส่วนตัว\\n'\n              'ดวงจากวันเกิดของคุณ\\n'\n              'คำอ่านจากวันและสถานที่เกิด พร้อมบอกตรง ๆ ว่าหัวข้อใดต้องตัดออกเมื่อไม่มีเวลาเกิด\\n'\n              'ให้สิ่งที่เกิดซ้ำจริงนำทาง ก่อนขยับงาน\\n'\n              'ในช่วงนี้ จุดแข็งของคุณคือความสามารถในการทำความคิดให้คนอื่นเข้าใจ จึงควรดูว่างานให้ผลแบบเดิมอย่างสม่ำเสมอหรือไม่ ความสัมพันธ์ช่วยบอกว่าทางเลือกนั้นกินพื้นที่ชีวิตมากเกินไปหรือยัง หากเหตุการณ์เพิ่งเกิดครั้งเดียว อย่าเพิ่งใช้เป็นเหตุผลรับข้อผูกพันเพิ่ม คำถามคือ งานที่กำลังขยายยังเหลือเวลาและความชัดให้คนที่เกี่ยวข้องหรือไม่\\n'"
+    },
+    {
+      "file": "test/validation/thai_beta/live_asof/thai_beta_cross_runtime_300_vm_test.dart",
+      "test": "writes exact deterministic 300-profile and canonical manifest",
+      "detail": "  Null check operator used on a null value\n  test\\validation\\thai_beta\\live_asof\\thai_beta_cross_runtime_manifest.dart 111:59    _caseManifest\n  test\\validation\\thai_beta\\live_asof\\thai_beta_cross_runtime_manifest.dart 49:17     buildCrossRuntimeManifest\n  test\\validation\\thai_beta\\live_asof\\thai_beta_cross_runtime_300_vm_test.dart 15:30  main.<fn>\n  \n00:39 +198 -16: loading <REPO_ROOT>/test/validation/thai_beta/live_asof/thai_beta_cross_runtime_seed_test.dart"
+    },
+    {
+      "file": "test/validation/thai_beta/live_asof/thai_beta_date_aware_contract_test.dart",
+      "test": "V1.5 date-aware release contract same session start changes only date-aware result at a boundary",
+      "detail": "  Null check operator used on a null value\n  test\\validation\\thai_beta\\live_asof\\thai_beta_date_aware_contract_test.dart 95:51  main.<fn>.<fn>\n  \n00:41 +202 -17: <REPO_ROOT>/test/validation/thai_beta/live_asof/thai_beta_date_aware_contract_test.dart: V1.5 date-aware release contract Web and PDF export reuse one resolved asOf without rerun\n00:41 +203 -17: <REPO_ROOT>/test/validation/thai_beta/live_asof/thai_beta_date_aware_contract_test.dart: V1.5 date-aware release contract legacy-compatible stable hash preserves accepted VM identity\n00:41 +204 -17: <REPO_ROOT>/test/validation/thai_beta/live_asof/thai_beta_date_aware_contract_test.dart: V1.5 date-aware release contract form opened earlier uses the one submit instant as asOf"
+    },
+    {
+      "file": "test/validation/thai_beta/live_asof/thai_beta_live_oracle_parity_test.dart",
+      "test": "frozen and live-date oracle parity are exact 5/5",
+      "detail": "  Expected: 'KnowMe — รายงานโหราไทย\\n'\n              'รายงานฉบับสำหรับอ่านและบันทึกส่วนตัว\\n'\n              'ดวงจากวันเกิดของคุณ\\n'\n              'คำอ่านจากวันและสถานที่เกิด พร้อมบอกตรง ๆ ว่าหัวข้อใดต้องตัดออกเมื่อไม่มีเวลาเกิด\\n'\n              'ให้สิ่งที่เกิดซ้ำจริงนำทาง ก่อนขยับงาน\\n'\n              'ในช่วงนี้ จุดแข็งของคุณคือความสามารถในการทำความคิดให้คนอื่นเข้าใจ จึงควรดูว่างานให้ผลแบบเดิมอย่างสม่ำเสมอหรือไม่ ความสัมพันธ์ช่วยบอกว่าทางเลือกนั้นกินพื้นที่ชีวิตมากเกินไปหรือยัง หากเหตุการณ์เพิ่งเกิดครั้งเดียว อย่าเพิ่งใช้เป็นเหตุผลรับข้อผูกพันเพิ่ม คำถามคือ งานที่กำลังขยายยังเหลือเวลาและความชัดให้คนที่เกี่ยวข้องหรือไม่\\n'"
+    },
+    {
+      "file": "test/validation/thai_beta/narrative/thai_beta_input_fixture_separation_test.dart",
+      "test": "unknown time remains fail-closed and never substitutes noon",
+      "detail": "  Expected: not contains 'วันทางโหราศาสตร์'\n    Actual: 'KnowMe — รายงานโหราไทย\\n'\n              'ไม่ทราบเวลาเกิด — แสดงข้อมูลที่ยืนยันได้และหัวข้อที่เว้นไว้\\n'\n              'ส่วนที่ 1 · พื้นดวงของคุณ\\n'\n              'วันเกิด 1982-06-06 ตรงกับวันอาทิตย์ตามปฏิทิน\\n'\n              'จังหวัดที่เกิด: เชียงใหม่\\n'"
+    },
+    {
+      "file": "test/validation/thai_beta/narrative/thai_beta_narrative_v111_test.dart",
+      "test": "Confidence Consistency V1.1.1 composed no-time report traces effective confidence ≤ 0.5",
+      "detail": "  Expected: non-empty\n    Actual: WhereIterable<ThaiBetaNarrativeTraceEntry>:[]\n  \n  package:matcher                                                               expect\n  package:flutter_test/src/widget_tester.dart 473:18                            expect\n  test\\validation\\thai_beta\\narrative\\thai_beta_narrative_v111_test.dart 139:7  main.<fn>.<fn>"
+    },
+    {
+      "file": "test/validation/thai_beta/narrative/thai_beta_narrative_v11_test.dart",
+      "test": "Hero V1.1 no-time hero uses cautious language",
+      "detail": "  Bad state: No element\n  dart:collection                                                               ListBase.firstWhere\n  test\\validation\\thai_beta\\narrative\\thai_beta_narrative_v11_test.dart 292:30  main.<fn>.<fn>\n  \n00:53 +288 -21: <REPO_ROOT>/test/validation/thai_beta/narrative/thai_beta_narrative_v11_test.dart: Hero V1.1 hero tension requires distinct supported traits\n00:53 +289 -21: <REPO_ROOT>/test/validation/thai_beta/narrative/thai_beta_narrative_v11_test.dart: Domain correctness V1.1 all domains convert signals to domain behavior"
+    },
+    {
+      "file": "test/validation/thai_beta/narrative/thai_beta_narrative_v12_acceptance_test.dart",
+      "test": "V1.2 Personal Relevance acceptance V12-3 no birth time: limited core + no deep motive",
+      "detail": "  Expected: contains 'ไม่มีเวลาเกิด'\n    Actual: 'ข้อมูลวันเกิดและข้อจำกัด'\n     Which: does not contain 'ไม่มีเวลาเกิด'\n  \n  package:matcher                                                                        expect\n  package:flutter_test/src/widget_tester.dart 473:18                                     expect"
+    },
+    {
+      "file": "test/validation/thai_beta/narrative/thai_beta_narrative_v15_claim_planning_test.dart",
+      "test": "V1.5 assigns all forecast domains to every horizon (Unknown)",
+      "detail": "  Null check operator used on a null value\n  test\\validation\\thai_beta\\narrative\\thai_beta_narrative_v15_claim_planning_test.dart 71:46  main.<fn>\n  \n00:56 +313 -23: loading <REPO_ROOT>/test/validation/thai_beta/narrative/thai_beta_narrative_v15_r3_report_composer_test.dart\n00:56 +313 -23: <REPO_ROOT>/test/validation/thai_beta/narrative/thai_beta_narrative_v15_r3_report_composer_test.dart: R4 replaces the rejected R3 hook and keeps clean consumer prose\n00:56 +313 -24: <REPO_ROOT>/test/validation/thai_beta/narrative/thai_beta_narrative_v15_r3_report_composer_test.dart: R4 replaces the rejected R3 hook and keeps clean consumer prose [E]"
+    },
+    {
+      "file": "test/validation/thai_beta/narrative/thai_beta_narrative_v15_r3_report_composer_test.dart",
+      "test": "R4 replaces the rejected R3 hook and keeps clean consumer prose",
+      "detail": "  Expected: contains 'คำถาม'\n    Actual: 'ไม่มีเวลาเกิด — รายงานจึงเว้นหัวข้อที่ต้องใช้เวลาเกิด แทนการเดาข้อมูลที่ไม่มี'\n     Which: does not contain 'คำถาม'\n  owner-unknown\n  \n  package:matcher                                                                                expect"
+    },
+    {
+      "file": "test/validation/thai_beta/narrative/thai_beta_narrative_v15_r3_report_composer_test.dart",
+      "test": "R6 assigns decision, checkpoint, and outcome to separate horizons",
+      "detail": "  Null check operator used on a null value\n  test\\validation\\thai_beta\\narrative\\thai_beta_narrative_v15_r3_report_composer_test.dart 75:25  main.<fn>\n  \n00:56 +313 -25: <REPO_ROOT>/test/validation/thai_beta/narrative/thai_beta_narrative_v15_r3_report_composer_test.dart: R4 materially different fixtures keep strong-body exact reuse below R3\n00:56 +313 -26: <REPO_ROOT>/test/validation/thai_beta/narrative/thai_beta_narrative_v15_r3_report_composer_test.dart: R4 materially different fixtures keep strong-body exact reuse below R3 [E]\n  Null check operator used on a null value"
+    },
+    {
+      "file": "test/validation/thai_beta/narrative/thai_beta_narrative_v15_r3_report_composer_test.dart",
+      "test": "R4 materially different fixtures keep strong-body exact reuse below R3",
+      "detail": "  Null check operator used on a null value\n  test\\validation\\thai_beta\\narrative\\thai_beta_narrative_v15_r3_report_composer_test.dart 121:27  main.<fn>\n  \n00:56 +313 -26: loading <REPO_ROOT>/test/validation/thai_beta/narrative/thai_beta_narrative_v15_r4_acceptance_test.dart\n00:57 +313 -26: <REPO_ROOT>/test/validation/thai_beta/narrative/thai_beta_narrative_v15_r4_acceptance_test.dart: (setUpAll)\n00:57 +313 -26: <REPO_ROOT>/test/validation/thai_beta/narrative/thai_beta_narrative_v15_r4_acceptance_test.dart: materially different reports have distinct hook headline and body"
+    },
+    {
+      "file": "test/validation/thai_beta/narrative/thai_beta_narrative_v15_r4_acceptance_test.dart",
+      "test": "all rendered forecasts cover 4x3 and each horizon adds a new kind",
+      "detail": "  Null check operator used on a null value\n  test\\validation\\thai_beta\\narrative\\thai_beta_narrative_v15_r4_acceptance_test.dart 91:44  main.<fn>\n  \n00:57 +314 -27: <REPO_ROOT>/test/validation/thai_beta/narrative/thai_beta_narrative_v15_r4_acceptance_test.dart: Unknown-time boundary is report-level and never repeated per domain\n00:57 +314 -28: <REPO_ROOT>/test/validation/thai_beta/narrative/thai_beta_narrative_v15_r4_acceptance_test.dart: Unknown-time boundary is report-level and never repeated per domain [E]\n  Null check operator used on a null value"
+    },
+    {
+      "file": "test/validation/thai_beta/narrative/thai_beta_narrative_v15_r4_acceptance_test.dart",
+      "test": "Unknown-time boundary is report-level and never repeated per domain",
+      "detail": "  Null check operator used on a null value\n  test\\validation\\thai_beta\\narrative\\thai_beta_narrative_v15_r4_acceptance_test.dart 119:28  main.<fn>\n  \n00:57 +314 -28: <REPO_ROOT>/test/validation/thai_beta/narrative/thai_beta_narrative_v15_r4_acceptance_test.dart: past is one disclaimer plus distinct theme and reflection per period\n00:57 +314 -29: <REPO_ROOT>/test/validation/thai_beta/narrative/thai_beta_narrative_v15_r4_acceptance_test.dart: past is one disclaimer plus distinct theme and reflection per period [E]\n  Expected: an object with length of <1>"
+    },
+    {
+      "file": "test/validation/thai_beta/narrative/thai_beta_narrative_v15_r4_acceptance_test.dart",
+      "test": "past is one disclaimer plus distinct theme and reflection per period",
+      "detail": "  Expected: an object with length of <1>\n    Actual: _StringAllMatchesIterable:[]\n     Which: has length of <0>\n  owner-unknown\n  \n  package:matcher                                                                            expect"
+    },
+    {
+      "file": "test/validation/thai_beta/narrative/thai_beta_narrative_v15_r4_acceptance_test.dart",
+      "test": "consumer prose has no rejected patterns or repeated long templates",
+      "detail": "  Null check operator used on a null value\n  test\\validation\\thai_beta\\narrative\\thai_beta_narrative_v15_r4_acceptance_test.dart 230:45  main.<fn>\n  \n00:57 +315 -30: <REPO_ROOT>/test/validation/thai_beta/narrative/thai_beta_narrative_v15_r4_acceptance_test.dart: (tearDownAll)\n00:57 +315 -30: loading <REPO_ROOT>/test/validation/thai_beta/narrative/thai_beta_narrative_v15_r5_acceptance_test.dart\n00:58 +315 -30: <REPO_ROOT>/test/validation/thai_beta/narrative/thai_beta_narrative_v15_r5_acceptance_test.dart: (setUpAll)"
+    },
+    {
+      "file": "test/validation/thai_beta/narrative/thai_beta_narrative_v15_r5_acceptance_test.dart",
+      "test": "past reflections are age-appropriate and evidence-bounded once",
+      "detail": "  Expected: an object with length of <1>\n    Actual: _StringAllMatchesIterable:[]\n     Which: has length of <0>\n  owner-unknown\n  \n  package:matcher                                                                           expect"
+    },
+    {
+      "file": "test/validation/thai_beta/narrative/thai_beta_narrative_v15_r5_acceptance_test.dart",
+      "test": "Thai-aware gate separates theme and question pairs within reports",
+      "detail": "  Null check operator used on a null value\n  test\\validation\\thai_beta\\narrative\\thai_beta_narrative_v15_r5_acceptance_test.dart 100:21  main.<fn>\n  \n00:58 +316 -32: <REPO_ROOT>/test/validation/thai_beta/narrative/thai_beta_narrative_v15_r5_acceptance_test.dart: R4 template-substitution negatives are detected by the new gate\n00:58 +317 -32: <REPO_ROOT>/test/validation/thai_beta/narrative/thai_beta_narrative_v15_r5_acceptance_test.dart: Unknown uses observable framing and has no unsupported present state\n00:58 +317 -33: <REPO_ROOT>/test/validation/thai_beta/narrative/thai_beta_narrative_v15_r5_acceptance_test.dart: Unknown uses observable framing and has no unsupported present state [E]"
+    },
+    {
+      "file": "test/validation/thai_beta/narrative/thai_beta_narrative_v15_r5_acceptance_test.dart",
+      "test": "Unknown uses observable framing and has no unsupported present state",
+      "detail": "  Expected: contains 'เมื่อหน้าที่หลายอย่างเริ่มเบียดเวลาพัก ให้ใช้การฟื้นตัวจริงบอกว่าตารางเดิมยังรับไหวหรือไม่'\n    Actual: 'KnowMe — รายงานโหราไทย\\n'\n              'ไม่ทราบเวลาเกิด — แสดงข้อมูลที่ยืนยันได้และหัวข้อที่เว้นไว้\\n'\n              'ส่วนที่ 1 · พื้นดวงของคุณ\\n'\n              'วันเกิด 1982-06-06 ตรงกับวันอาทิตย์ตามปฏิทิน\\n'\n              'จังหวัดที่เกิด: เชียงใหม่\\n'"
+    },
+    {
+      "file": "test/validation/thai_beta/narrative/thai_beta_narrative_v15_r6_reader_quality_test.dart",
+      "test": "forecast clauses have no exact, skeleton, or >=.78 reuse",
+      "detail": "  Null check operator used on a null value\n  test\\validation\\thai_beta\\narrative\\thai_beta_narrative_v15_r6_reader_quality_test.dart 90:44  main.<fn>\n  \n00:59 +318 -34: <REPO_ROOT>/test/validation/thai_beta/narrative/thai_beta_narrative_v15_r6_reader_quality_test.dart: exact forecast reuse is measured without a zero-reuse gate\n00:59 +318 -35: <REPO_ROOT>/test/validation/thai_beta/narrative/thai_beta_narrative_v15_r6_reader_quality_test.dart: exact forecast reuse is measured without a zero-reuse gate [E]\n  Null check operator used on a null value"
+    },
+    {
+      "file": "test/validation/thai_beta/narrative/thai_beta_narrative_v15_r6_reader_quality_test.dart",
+      "test": "exact forecast reuse is measured without a zero-reuse gate",
+      "detail": "  Null check operator used on a null value\n  test\\validation\\thai_beta\\narrative\\thai_beta_narrative_v15_r6_reader_quality_test.dart 146:47  main.<fn>\n  \n00:59 +318 -35: <REPO_ROOT>/test/validation/thai_beta/narrative/thai_beta_narrative_v15_r6_reader_quality_test.dart: Known explains chart evidence naturally; Unknown remains fail closed\n00:59 +318 -36: <REPO_ROOT>/test/validation/thai_beta/narrative/thai_beta_narrative_v15_r6_reader_quality_test.dart: Known explains chart evidence naturally; Unknown remains fail closed [E]\n  Expected: contains 'หากช่วงนี้คุณสังเกตว่า'"
+    },
+    {
+      "file": "test/validation/thai_beta/narrative/thai_beta_narrative_v15_r6_reader_quality_test.dart",
+      "test": "Known explains chart evidence naturally; Unknown remains fail closed",
+      "detail": "  Expected: contains 'หากช่วงนี้คุณสังเกตว่า'\n    Actual: 'KnowMe — รายงานโหราไทย\\n'\n              'ไม่ทราบเวลาเกิด — แสดงข้อมูลที่ยืนยันได้และหัวข้อที่เว้นไว้\\n'\n              'ส่วนที่ 1 · พื้นดวงของคุณ\\n'\n              'วันเกิด 1982-06-06 ตรงกับวันอาทิตย์ตามปฏิทิน\\n'\n              'จังหวัดที่เกิด: เชียงใหม่\\n'"
+    },
+    {
+      "file": "test/validation/thai_beta/narrative/thai_beta_narrative_v15_r6_reader_quality_test.dart",
+      "test": "R5 repeated reader-facing clauses are absent from owner reports",
+      "detail": "  Null check operator used on a null value\n  test\\validation\\thai_beta\\narrative\\thai_beta_narrative_v15_r6_reader_quality_test.dart 204:25  main.<fn>\n  \n00:59 +318 -37: <REPO_ROOT>/test/validation/thai_beta/narrative/thai_beta_narrative_v15_r6_reader_quality_test.dart: (tearDownAll)\n00:59 +318 -37: loading <REPO_ROOT>/test/validation/thai_beta/narrative/thai_beta_narrative_v15_r7_reader_quality_test.dart\n00:59 +318 -37: <REPO_ROOT>/test/validation/thai_beta/narrative/thai_beta_narrative_v15_r7_reader_quality_test.dart: (setUpAll)"
+    },
+    {
+      "file": "test/validation/thai_beta/narrative/thai_beta_narrative_v15_r7_reader_quality_test.dart",
+      "test": "R7 reports pass literal, prose, domain, and encoding gates",
+      "detail": "  Null check operator used on a null value\n  test\\validation\\thai_beta\\narrative\\thai_beta_narrative_v15_r7_reader_quality_test.dart 131:51  main.<fn>\n  \n01:00 +320 -38: <REPO_ROOT>/test/validation/thai_beta/narrative/thai_beta_narrative_v15_r7_reader_quality_test.dart: factual anchors stay fixed and Unknown remains fail closed\n01:00 +320 -39: <REPO_ROOT>/test/validation/thai_beta/narrative/thai_beta_narrative_v15_r7_reader_quality_test.dart: factual anchors stay fixed and Unknown remains fail closed [E]\n  Expected: not contains 'ลัคนา'"
+    },
+    {
+      "file": "test/validation/thai_beta/narrative/thai_beta_narrative_v15_r7_reader_quality_test.dart",
+      "test": "factual anchors stay fixed and Unknown remains fail closed",
+      "detail": "  Expected: not contains 'ลัคนา'\n    Actual: 'KnowMe — รายงานโหราไทย\\n'\n              'ไม่ทราบเวลาเกิด — แสดงข้อมูลที่ยืนยันได้และหัวข้อที่เว้นไว้\\n'\n              'ส่วนที่ 1 · พื้นดวงของคุณ\\n'\n              'วันเกิด 1982-06-06 ตรงกับวันอาทิตย์ตามปฏิทิน\\n'\n              'จังหวัดที่เกิด: เชียงใหม่\\n'"
+    },
+    {
+      "file": "test/validation/thai_beta/narrative/thai_beta_narrative_v15_r7_reader_quality_test.dart",
+      "test": "exact reuse is accepted only for the same material signature",
+      "detail": "  Null check operator used on a null value\n  test\\validation\\thai_beta\\narrative\\thai_beta_narrative_v15_r7_reader_quality_test.dart 182:25  main.<fn>\n  \n01:00 +320 -40: <REPO_ROOT>/test/validation/thai_beta/narrative/thai_beta_narrative_v15_r7_reader_quality_test.dart: (tearDownAll)\n01:00 +320 -40: loading <REPO_ROOT>/test/validation/thai_beta/narrative/thai_beta_past_future_narrative_v3_test.dart\n01:01 +320 -40: <REPO_ROOT>/test/validation/thai_beta/narrative/thai_beta_past_future_narrative_v3_test.dart: Thai Beta Past-to-Future Narrative V3 supported periods have domains and unsupported late ages fail closed"
+    },
+    {
+      "file": "test/validation/thai_beta/narrative/thai_beta_report_v121_acceptance_test.dart",
+      "test": "V1.2.1 presentation acceptance V121-17 no-time policy unchanged",
+      "detail": "  Expected: contains 'ไม่มีเวลาเกิด'\n    Actual: 'ข้อมูลวันเกิดและข้อจำกัด'\n     Which: does not contain 'ไม่มีเวลาเกิด'\n  \n  package:matcher                                                                       expect\n  package:flutter_test/src/widget_tester.dart 473:18                                    expect"
+    },
+    {
+      "file": "test/validation/thai_beta/narrative/thai_consumer_narrative_voice_v1_test.dart",
+      "test": "v1.2 gate catches V1.1 clause reuse and enforces content budgets",
+      "detail": "  Null check operator used on a null value\n  test\\validation\\thai_beta\\narrative\\thai_consumer_narrative_voice_v1_test.dart 214:25  main.<fn>\n  \n01:07 +366 -42: <REPO_ROOT>/test/validation/thai_beta/narrative/thai_consumer_narrative_voice_v1_test.dart: cross-horizon gate removes time boilerplate and compares each field\n01:07 +367 -42: <REPO_ROOT>/test/validation/thai_beta/narrative/thai_consumer_narrative_voice_v1_test.dart: forecast windows keep distinct semantic roles and isolated risk\n01:07 +368 -42: <REPO_ROOT>/test/validation/thai_beta/narrative/thai_consumer_narrative_voice_v1_test.dart: R3 removes rejected biography-like past claims"
+    },
+    {
+      "file": "test/validation/thai_beta/narrative/thai_consumer_narrative_voice_v1_test.dart",
+      "test": "future claims respond to known-time versus unknown-time evidence",
+      "detail": "  Null check operator used on a null value\n  test\\validation\\thai_beta\\narrative\\thai_consumer_narrative_voice_v1_test.dart 404:30  main.<fn>.predictiveBlocks\n  test\\validation\\thai_beta\\narrative\\thai_consumer_narrative_voice_v1_test.dart 434:30  main.<fn>.<fn>\n  dart:core                                                                              Iterable.toList\n  test\\validation\\thai_beta\\narrative\\thai_consumer_narrative_voice_v1_test.dart 435:10  main.<fn>\n  "
+    },
+    {
+      "file": "test/validation/thai_beta/narrative/thai_consumer_narrative_voice_v1_test.dart",
+      "test": "typed fingerprint uses real availability and one transition authority",
+      "detail": "  Null check operator used on a null value\n  test\\validation\\thai_beta\\narrative\\thai_consumer_narrative_voice_v1_test.dart 516:25  main.<fn>\n  \n01:08 +369 -44: <REPO_ROOT>/test/validation/thai_beta/narrative/thai_consumer_narrative_voice_v1_test.dart: matrix rejects band risk availability transition and vacuous passes\n01:08 +370 -44: <REPO_ROOT>/test/validation/thai_beta/narrative/thai_consumer_narrative_voice_v1_test.dart: uncertainty disclosure is separate and cannot satisfy the gate\n01:08 +370 -45: <REPO_ROOT>/test/validation/thai_beta/narrative/thai_consumer_narrative_voice_v1_test.dart: uncertainty disclosure is separate and cannot satisfy the gate [E]"
+    },
+    {
+      "file": "test/validation/thai_beta/narrative/thai_consumer_narrative_voice_v1_test.dart",
+      "test": "uncertainty disclosure is separate and cannot satisfy the gate",
+      "detail": "  Null check operator used on a null value\n  test\\validation\\thai_beta\\narrative\\thai_consumer_narrative_voice_v1_test.dart 630:23  main.<fn>\n  \n01:08 +370 -45: <REPO_ROOT>/test/validation/thai_beta/narrative/thai_consumer_narrative_voice_v1_test.dart: profile-aware pairing is order independent and fails identity defects\n01:08 +371 -45: <REPO_ROOT>/test/validation/thai_beta/narrative/thai_consumer_narrative_voice_v1_test.dart: selective action follows decision intent without appending every risk\n01:08 +372 -45: <REPO_ROOT>/test/validation/thai_beta/narrative/thai_consumer_narrative_voice_v1_test.dart: typed coherence gate rejects foreign and generic risk responses"
+    },
+    {
+      "file": "test/validation/thai_beta/narrative/thai_predictive_runtime_v2_test.dart",
+      "test": "fail-closed selection and shared surfaces Unknown emits no Known claim or time-dependent chart copy",
+      "detail": "  Expected: not null\n    Actual: <null>\n  \n  package:matcher                                                                 expect\n  package:flutter_test/src/widget_tester.dart 473:18                              expect\n  test\\validation\\thai_beta\\narrative\\thai_predictive_runtime_v2_test.dart 159:7  main.<fn>.<fn>"
+    },
+    {
+      "file": "test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart",
+      "test": "synthetic matrix invokes cross-mode material sensitivity",
+      "detail": "  Null check operator used on a null value\n  test\\validation\\thai_beta\\synthetic_audit\\thai_beta_synthetic_audit_300_test.dart 86:34  main.<fn>.blocks\n  test\\validation\\thai_beta\\synthetic_audit\\thai_beta_synthetic_audit_300_test.dart 93:31  main.<fn>\n  \n01:53 +393 -47: <REPO_ROOT>/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: all 300 cases pass structured, narrative, omission and safety contracts\n{\"seed\":20260803,\"cases\":300,\"knownTime\":225,\"unknownTime\":75,\"omittedDomainCases\":75,\"knownTimeOmissions\":{},\"identicalFullReports\":0,\"uniqueFullReports\":300,\"identicalNarrativeReports\":75,\"uniqueNarrativeReports\":226,\"duplicateNarrativeCases\":[[\"S003\",\"S007\",\"S011\",\"S015\",\"S019\",\"S023\",\"S027\",\"S031\",\"S035\",\"S039\",\"S043\",\"S047\",\"S051\",\"S055\",\"S059\",\"S063\",\"S067\",\"S071\",\"S075\",\"S079\",\"S083\",\"S087\",\"S091\",\"S095\",\"S099\",\"S103\",\"S107\",\"S111\",\"S115\",\"S119\",\"S123\",\"S127\",\"S131\",\"S135\",\"S139\",\"S143\",\"S147\",\"S151\",\"S155\",\"S159\",\"S163\",\"S167\",\"S171\",\"S175\",\"S179\",\"S183\",\"S187\",\"S191\",\"S195\",\"S199\",\"S203\",\"S207\",\"S211\",\"S215\",\"S219\",\"S223\",\"S227\",\"S231\",\"S235\",\"S239\",\"S243\",\"S247\",\"S251\",\"S255\",\"S259\",\"S263\",\"S267\",\"S271\",\"S275\",\"S279\",\"S283\",\"S287\",\"S291\",\"S295\",\"S299\"]],\"uniqueParagraphs\":489,\"topParagraphFrequencies\":[{\"count\":300,\"source\":\"methodology/methodology:top-themes\"},{\"count\":225,\"source\":\"wellbeing/disclosure:medical\"},{\"count\":75,\"source\":\"methodology/methodology:no-birth-time\"},{\"count\":48,\"source\":\"closing/computed:closing-priority-action\"},{\"count\":46,\"source\":\"work/computed:house:10:analysis\"},{\"count\":46,\"source\":\"money/computed:house:2:analysis\"},{\"count\":46,\"source\":\"relationships/computed:house:7:analysis\"},{\"count\":46,\"source\":\"wellbeing/computed:house:6:analysis\"},{\"count\":46,\"source\":\"methodology/methodology:lagna-inputs\"},{\"count\":40,\"source\":\"work/computed:house:10:analysis\"}]}"
+    },
+    {
+      "file": "test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart",
+      "test": "all 300 cases pass structured, narrative, omission and safety contracts",
+      "detail": "  Expected: <0>\n    Actual: <75>\n  Different material inputs must remain distinct in consumer narrative, independent of metadata and methodology\n  \n  package:matcher                                                                          expect\n  package:flutter_test/src/widget_tester.dart 473:18                                       expect"
+    },
+    {
+      "file": "test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart",
+      "test": "20 representative cases produce real PDFs with Web semantic parity",
+      "detail": "  Expected: contains 'คำชี้หลักจากพื้นดวง'\n    Actual: 'KnowMe — รายงานโหราไทย\\n'\n              'ไม่ทราบเวลาเกิด — แสดงข้อมูลที่ยืนยันได้และหัวข้อที่เว้นไว้\\n'\n              'ส่วนที่ 1 · พื้นดวงของคุณ\\n'\n              'วันเกิด 1961-01-01 ตรงกับวันอาทิตย์ตามปฏิทิน\\n'\n              'จังหวัดที่เกิด: ขอนแก่น\\n'"
+    },
+    {
+      "file": "test/validation/thai_beta/thai_beta_report_export_test.dart",
+      "test": "ThaiBetaReportExportDocument PR106-OR1 candidate copy removes rejected system-like Thai",
+      "detail": "  Expected: (contains 'ทำตามสิ่งที่คุยกันไว้ได้จริง' or contains 'ทำตามที่คุยกันไว้ได้จริง' or contains 'คนที่พร้อมเดินต่อจะแสดงความรับผิดชอบให้เห็น')\n    Actual: 'KnowMe — รายงานโหราไทย\\n'\n              'ไม่ทราบเวลาเกิด — แสดงข้อมูลที่ยืนยันได้และหัวข้อที่เว้นไว้\\n'\n              'ส่วนที่ 1 · พื้นดวงของคุณ\\n'\n              'วันเกิด 1982-06-06 ตรงกับวันอาทิตย์ตามปฏิทิน\\n'\n              'จังหวัดที่เกิด: เชียงใหม่\\n'"
+    },
+    {
+      "file": "test/validation/thai_beta/thai_beta_report_export_test.dart",
+      "test": "ThaiBetaReportExportDocument PR106-OR2 Unknown copy is natural and fail-closed on every field",
+      "detail": "  Expected: contains 'ส่วนหัวข้อที่ต้องใช้เวลาเกิดจะไม่แสดง'\n    Actual: 'KnowMe — รายงานโหราไทย\\n'\n              'ไม่ทราบเวลาเกิด — แสดงข้อมูลที่ยืนยันได้และหัวข้อที่เว้นไว้\\n'\n              'ส่วนที่ 1 · พื้นดวงของคุณ\\n'\n              'วันเกิด 1982-06-06 ตรงกับวันอาทิตย์ตามปฏิทิน\\n'\n              'จังหวัดที่เกิด: เชียงใหม่\\n'"
+    },
+    {
+      "file": "test/validation/thai_beta/thai_beta_report_export_test.dart",
+      "test": "ThaiBetaReportExportDocument PR106-OR3 final editorial copy is natural across Known and Unknown",
+      "detail": "  Expected: contains 'แยกเงินสำหรับลองสิ่งใหม่ออกจากค่าใช้จ่ายประจำ'\n    Actual: 'KnowMe — รายงานโหราไทย\\n'\n              'ไม่ทราบเวลาเกิด — แสดงข้อมูลที่ยืนยันได้และหัวข้อที่เว้นไว้\\n'\n              'ส่วนที่ 1 · พื้นดวงของคุณ\\n'\n              'วันเกิด 1982-06-06 ตรงกับวันอาทิตย์ตามปฏิทิน\\n'\n              'จังหวัดที่เกิด: เชียงใหม่\\n'"
+    },
+    {
+      "file": "test/validation/thai_beta/thai_beta_report_export_test.dart",
+      "test": "ThaiBetaReportExportDocument PR107-OR3 removes stale report voice and repeated Unknown limits",
+      "detail": "  Expected: contains 'เพราะไม่มีเวลาเกิด รายงานจึงบอกไม่ได้ว่าเหตุการณ์จะเกิดเมื่อไร'\n    Actual: 'KnowMe — รายงานโหราไทย\\n'\n              'ไม่ทราบเวลาเกิด — แสดงข้อมูลที่ยืนยันได้และหัวข้อที่เว้นไว้\\n'\n              'ส่วนที่ 1 · พื้นดวงของคุณ\\n'\n              'วันเกิด 1982-06-06 ตรงกับวันอาทิตย์ตามปฏิทิน\\n'\n              'จังหวัดที่เกิด: เชียงใหม่\\n'"
+    },
+    {
+      "file": "test/validation/thai_beta/thai_beta_report_export_test.dart",
+      "test": "ThaiBetaReportExportDocument unknown-time web and PDF omit assumed clock and sunrise claims",
+      "detail": "  Null check operator used on a null value\n  test\\validation\\thai_beta\\thai_beta_report_export_test.dart 549:25  main.<fn>.<fn>\n  \n02:22 +453 -54: <REPO_ROOT>/test/validation/thai_beta/thai_beta_report_export_test.dart: ThaiBetaReportExportDocument Thai Beta omits repeated past and future domain claims\n02:22 +454 -54: <REPO_ROOT>/test/validation/thai_beta/thai_beta_report_export_test.dart: ThaiBetaReportExportDocument PDF polish removes duplicate neighbour prefixes and zero timing\n02:22 +455 -54: <REPO_ROOT>/test/validation/thai_beta/thai_beta_report_export_test.dart: ThaiBetaReportExportDocument export prefers full insight bodies over UI ellipsis truncations"
+    },
+    {
+      "file": "test/validation/thai_beta/thai_beta_report_export_test.dart",
+      "test": "Real PDF exporter path regression chaptered report fixtures stay at measured 6/6 pages",
+      "detail": "  Expected: <6>\n    Actual: <1>\n  Unknown-time\n  \n  package:matcher                                                    expect\n  package:flutter_test/src/widget_tester.dart 473:18                 expect"
+    },
+    {
+      "file": "test/validation/thai_beta/thai_beta_report_export_test.dart",
+      "test": "Real PDF exporter path regression Poppler raster keeps ink inside printable margins",
+      "detail": "  Expected: <6>\n    Actual: <1>\n  unknown real-export PDF page-count regression (1 pages)\n  \n  package:matcher                                                     expect\n  package:flutter_test/src/widget_tester.dart 473:18                  expect"
+    },
+    {
+      "file": "test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart",
+      "test": "300-profile copy ledger is complete and structural semantics are unchanged",
+      "detail": "  Expected: contains 'รายงานนี้ดูจากอะไร'\n    Actual: 'ส่วนที่ 4 · ที่มาและข้อจำกัด\\n'\n              'ใช้เฉพาะวันเกิดตามปฏิทิน ไม่ใช้เวลาโดยประมาณเพื่อคำนวณวันทางโหราศาสตร์ ลัคนา หรือเรือน\\n'\n              'ข้อมูลยังไม่เพียงพอสำหรับสรุปบุคลิก ช่วงชีวิต หรือคำทำนายที่ต้องใช้เวลาเกิด\\n'\n              'หัวข้อที่เว้นไว้: ลัคนา เรือน องศา บุคลิกจากพื้นดวง และคำทำนายการงาน การเงิน ความสัมพันธ์ สุขภาพ\\n'\n              'คำอ่านโหราศาสตร์เป็นมุมมองตามความเชื่อ ไม่ใช่ข้อยืนยันเหตุการณ์ในชีวิต'"
+    },
+    {
+      "file": "test/validation/thai_beta/thai_report_experience_infographic_vnext_test.dart",
+      "test": "shared report presentation model four reader chapters appear once and in a stable order",
+      "detail": "  Expected: [\n              'ส่วนที่ 1 · พื้นดวงของคุณ',\n              'ส่วนที่ 2 · จังหวะชีวิตที่ผ่านมาและปัจจุบัน',\n              'ส่วนที่ 3 · แนวโน้มข้างหน้า',\n              'ส่วนที่ 4 · ที่มาและข้อจำกัด'\n            ]"
+    },
+    {
+      "file": "test/validation/thai_beta/thai_report_experience_infographic_vnext_test.dart",
+      "test": "shared report presentation model Known and Unknown place the image after its 12-month narrative",
+      "detail": "  Expected: 'แนวโน้ม 12 เดือนข้างหน้า'\n    Actual: 'ส่วนที่ 4 · ที่มาและข้อจำกัด'\n     Which: is different.\n            Expected: แนวโน้ม 12 ...\n              Actual: ส่วนที่ 4  ...\n                      ^"
+    },
+    {
+      "file": "test/validation/thai_beta/thai_report_experience_infographic_vnext_test.dart",
+      "test": "rolling 12-month infographic evidence contract uses four evidence-backed domains and fails closed on month timeline",
+      "detail": "  Null check operator used on a null value\n  test\\validation\\thai_beta\\thai_report_experience_infographic_vnext_test.dart 317:24  main.<fn>.<fn>\n  \n02:36 +551 -60: <REPO_ROOT>/test/validation/thai_beta/thai_report_experience_infographic_vnext_test.dart: rolling 12-month infographic evidence contract mobile 360.0 renders and exports deterministic 1080x1920 PNG\n══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════\nThe following TestFailure was thrown running a test:"
+    },
+    {
+      "file": "test/validation/thai_beta/thai_report_experience_infographic_vnext_test.dart",
+      "test": "rolling 12-month infographic evidence contract mobile 360.0 renders and exports deterministic 1080x1920 PNG",
+      "detail": "  Test failed. See exception logs above.\n  The test description was: mobile 360.0 renders and exports deterministic 1080x1920 PNG\n  \n02:37 +551 -61: <REPO_ROOT>/test/validation/thai_beta/thai_report_experience_infographic_vnext_test.dart: rolling 12-month infographic evidence contract regression 1972 fits mobile 360.0 without overflow\n02:37 +552 -61: <REPO_ROOT>/test/validation/thai_beta/thai_report_experience_infographic_vnext_test.dart: rolling 12-month infographic evidence contract mobile 390.0 renders and exports deterministic 1080x1920 PNG\n══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════"
+    },
+    {
+      "file": "test/validation/thai_beta/thai_report_experience_infographic_vnext_test.dart",
+      "test": "rolling 12-month infographic evidence contract mobile 390.0 renders and exports deterministic 1080x1920 PNG",
+      "detail": "  Test failed. See exception logs above.\n  The test description was: mobile 390.0 renders and exports deterministic 1080x1920 PNG\n  \n02:38 +552 -62: <REPO_ROOT>/test/validation/thai_beta/thai_report_experience_infographic_vnext_test.dart: rolling 12-month infographic evidence contract regression 1972 fits mobile 390.0 without overflow\n02:38 +553 -62: loading <REPO_ROOT>/test/validation/thai_beta/thai_report_vnext_artifact_generation_test.dart\n02:38 +553 -62: <REPO_ROOT>/test/validation/thai_beta/thai_report_vnext_artifact_generation_test.dart: browser print resets the fixed Flutter host before pagination"
+    },
+    {
+      "file": "test/validation/thai_beta/thai_report_vnext_cross_runtime_vm_test.dart",
+      "test": "writes deterministic VM shared-report manifest",
+      "detail": "  Null check operator used on a null value\n  tool\\thai_report_vnext_cross_runtime_manifest.dart 36:38                     _case\n  tool\\thai_report_vnext_cross_runtime_manifest.dart 10:40                     buildThaiReportVnextCrossRuntimeManifest\n  tool\\thai_report_vnext_cross_runtime_manifest.dart 17:15                     encodeThaiReportVnextCrossRuntimeManifest\n  test\\validation\\thai_beta\\thai_report_vnext_cross_runtime_vm_test.dart 9:19  main.<fn>\n  "
+    },
+    {
+      "file": "test/validation/thai/thai_archetype_context_metadata_test.dart",
+      "test": "Canon evidence integration (resolved metadata path) 9-fixture aggregate counts unchanged",
+      "detail": "  Expected: <56>\n    Actual: <48>\n  \n  package:matcher                                                       expect\n  package:flutter_test/src/widget_tester.dart 473:18                    expect\n  test\\validation\\thai\\thai_archetype_context_metadata_test.dart 152:7  main.<fn>.<fn>"
+    },
+    {
+      "file": "test/validation/thai/thai_engine_life_period_rise_fall_metadata_completion_test.dart",
+      "test": "Blocker chain and trace 9-fixture aggregate counts and partial blocker",
+      "detail": "  Expected: null\n    Actual: 'NO_LIFE_TIMELINE'\n  \n  package:matcher                                                                              expect\n  package:flutter_test/src/widget_tester.dart 473:18                                           expect\n  test\\validation\\thai\\thai_engine_life_period_rise_fall_metadata_completion_test.dart 217:11  main.<fn>.<fn>"
+    },
+    {
+      "file": "test/validation/thai/thai_engine_life_period_rise_fall_metadata_rerun_test.dart",
+      "test": "Rise/fall re-run trace runtime status count equals position metadata count",
+      "detail": "  Expected: <56>\n    Actual: <48>\n  \n  package:matcher                                                                       expect\n  package:flutter_test/src/widget_tester.dart 473:18                                    expect\n  test\\validation\\thai\\thai_engine_life_period_rise_fall_metadata_rerun_test.dart 39:7  main.<fn>.<fn>"
+    },
+    {
+      "file": "test/validation/thai/thai_engine_life_period_rise_fall_metadata_rerun_test.dart",
+      "test": "Rise/fall re-run trace status source breakdown sums to runtime count",
+      "detail": "  Expected: <7>\n    Actual: <6>\n  \n  package:matcher                                                                       expect\n  package:flutter_test/src/widget_tester.dart 473:18                                    expect\n  test\\validation\\thai\\thai_engine_life_period_rise_fall_metadata_rerun_test.dart 61:7  main.<fn>.<fn>"
+    },
+    {
+      "file": "test/validation/thai/thai_engine_life_period_rise_fall_metadata_rerun_test.dart",
+      "test": "ThaiLifePeriodRiseFallResolver re-run Canon-derived marker fallback remains separate",
+      "detail": "  Expected: a value greater than <0>\n    Actual: <0>\n     Which: is not a value greater than <0>\n  \n  package:matcher                                                                        expect\n  package:flutter_test/src/widget_tester.dart 473:18                                     expect"
+    },
+    {
+      "file": "test/validation/thai/thai_engine_life_period_rise_fall_metadata_test.dart",
+      "test": "Canon evidence integration (runtime metadata path) 9-fixture aggregate counts",
+      "detail": "  Expected: <56>\n    Actual: <48>\n  \n  package:matcher                                                                  expect\n  package:flutter_test/src/widget_tester.dart 473:18                               expect\n  test\\validation\\thai\\thai_engine_life_period_rise_fall_metadata_test.dart 136:7  main.<fn>.<fn>"
+    },
+    {
+      "file": "test/validation/thai/thai_engine_life_period_rise_fall_metadata_test.dart",
+      "test": "Canon evidence integration (runtime metadata path) canon-derived fallback still attaches for periods without runtime",
+      "detail": "  Expected: <56>\n    Actual: <48>\n  \n  package:matcher                                                                  expect\n  package:flutter_test/src/widget_tester.dart 473:18                               expect\n  test\\validation\\thai\\thai_engine_life_period_rise_fall_metadata_test.dart 148:7  main.<fn>.<fn>"
+    },
+    {
+      "file": "test/validation/thai/thai_internal_evidence_qa_pass_test.dart",
+      "test": "Runtime metadata audit aggregate runtime status counts match baseline",
+      "detail": "  Expected: <56>\n    Actual: <48>\n  \n  package:matcher                                                      expect\n  package:flutter_test/src/widget_tester.dart 473:18                   expect\n  test\\validation\\thai\\thai_internal_evidence_qa_pass_test.dart 362:7  main.<fn>.<fn>"
+    },
+    {
+      "file": "test/validation/thai/thai_life_period_position_metadata_completion_test.dart",
+      "test": "Blocker chain and trace 9-fixture aggregate counts and partial blocker",
+      "detail": "  Expected: <8>\n    Actual: <7>\n  \n  package:matcher                                                                     expect\n  package:flutter_test/src/widget_tester.dart 473:18                                  expect\n  test\\validation\\thai\\thai_life_period_position_metadata_completion_test.dart 311:7  main.<fn>.<fn>"
+    },
+    {
+      "file": "test/validation/thai/thai_life_period_position_metadata_test.dart",
+      "test": "Canon evidence integration (position metadata path) 9-fixture aggregate counts",
+      "detail": "  Expected: <56>\n    Actual: <48>\n  \n  package:matcher                                                          expect\n  package:flutter_test/src/widget_tester.dart 473:18                       expect\n  test\\validation\\thai\\thai_life_period_position_metadata_test.dart 190:7  main.<fn>.<fn>"
+    },
+    {
+      "file": "test/validation/thai/thai_life_period_position_strategy_correction_test.dart",
+      "test": "ThaiLifePeriodArchetypePlanetPositionResolver every produced metadata has Canon provenance",
+      "detail": "  Expected: non-empty\n    Actual: []\n  \n  package:matcher                                                                     expect\n  package:flutter_test/src/widget_tester.dart 473:18                                  expect\n  test\\validation\\thai\\thai_life_period_position_strategy_correction_test.dart 332:9  main.<fn>.<fn>"
+    },
+    {
+      "file": "test/validation/thai/thai_life_period_position_strategy_correction_test.dart",
+      "test": "Trace and downstream 9-fixture aggregate counts documented",
+      "detail": "  Expected: <8>\n    Actual: <7>\n  \n  package:matcher                                                                     expect\n  package:flutter_test/src/widget_tester.dart 473:18                                  expect\n  test\\validation\\thai\\thai_life_period_position_strategy_correction_test.dart 372:7  main.<fn>.<fn>"
+    },
+    {
+      "file": "test/validation/thai/thai_period_context_normalization_test.dart",
+      "test": "Trace and downstream 9-fixture aggregate counts documented",
+      "detail": "  Expected: a value greater than or equal to <8>\n    Actual: <7>\n     Which: is not a value greater than or equal to <8>\n  \n  package:matcher                                                         expect\n  package:flutter_test/src/widget_tester.dart 473:18                      expect"
+    },
+    {
+      "file": "test/thai_foundation_engine_test.dart",
+      "test": "MyanmarSevenEngine emits warning when lunar date is unverified",
+      "detail": "  Expected: true\n    Actual: <false>\n  \n  package:matcher                                     expect\n  package:flutter_test/src/widget_tester.dart 473:18  expect\n  test\\thai_foundation_engine_test.dart 278:7         main.<fn>.<fn>"
+    },
+    {
+      "file": "test/thai_foundation_engine_test.dart",
+      "test": "ThaiFoundationEngine date-only profile omits lagna and emits warning",
+      "detail": "  Expected: true\n    Actual: <false>\n  \n  package:matcher                                     expect\n  package:flutter_test/src/widget_tester.dart 473:18  expect\n  test\\thai_foundation_engine_test.dart 321:7         main.<fn>.<fn>"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "schema": "predictive-runtime-v2-or10r-generalization-audit/1",
+  "status": "PASS_PR115_OR10R_SIGNATURE_RUNTIME",
+  "evidenceSource": "build/or10r-runtime-evidence",
+  "activeTarget": {
+    "context": "mahabhut2537.rem0.saturday",
+    "age": 44,
+    "period": "mahabhut2537.rem0.saturday.venus.42_62",
+    "typedMaterials": 12,
+    "rawForecastSha256": "292AEA14829A29935A0B877E8A536A6557DAB43ACD68BAE535E091B7D7CD7669",
+    "candidate0023FullReaderCopySha256": "FDA1DA8917CD5ADCA4650AECF87414DCFCDEE7F13019DF0794ECF76DFD91E7F2"
+  },
+  "historicalOracle": {
+    "candidate0011Sha256": "6AA94C7A01555310C5189FAAF711597057C5DF2F102246A0DF3946DAB2B62A1E",
+    "productionRuntimeOracle": false
+  },
+  "counts": {
+    "profiles": 300,
+    "knownProfilesWithCompleteV2Report": 225,
+    "knownProfilesUsingBaselineFallback": 0,
+    "unknownProfilesFailClosed": 75,
+    "unknownPlaceholderVariants": 225,
+    "unknownPlaceholderMismatch": 0,
+    "contextsWithCompleteContent": 49,
+    "periodsMapped": 392,
+    "periodsUnmapped": 0,
+    "claimLevelBindings": 2925,
+    "minimumEmittedPredictions": 10,
+    "medianEmittedPredictions": 10,
+    "maximumEmittedPredictions": 10,
+    "uniquePredictiveSignatures": 220,
+    "uniqueGeneratedPredictiveBodies": 220,
+    "sameSignatureBodyMismatch": 0,
+    "unsupportedClaims": 0,
+    "fixtureSpecificBranches": 0,
+    "goldenOverrideApplications": 0,
+    "unexpectedFixtureSpecificBranches": 0,
+    "fixtureReferenceLeakage": 0,
+    "evidenceBindingMismatches": 0,
+    "knownToUnknownLeakage": 0,
+    "genericFallback": 0,
+    "duplicateSemanticOwner": 0,
+    "staleCandidate0011RuntimePath": 0,
+    "candidate0022RejectedPhraseHits": 0,
+    "conditionalPredictionFallback": 0,
+    "unsupportedCausalLink": 0,
+    "readerPerceivedRepetition": 0,
+    "adviceLeakage": 0,
+    "personalityLeakage": 0
+  },
+  "negativeControls": {
+    "actualInputTampering": 10,
+    "prohibitedSelectorMutants": 7
+  },
+  "verifierErrors": []
+}

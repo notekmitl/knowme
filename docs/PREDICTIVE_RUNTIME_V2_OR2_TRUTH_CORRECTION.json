@@ -1,0 +1,860 @@
+{
+  "version": 1,
+  "status": "ENGINEERING_COVERAGE_PASS_PRODUCT_CONTENT_FAIL",
+  "ownerAcceptance": "NOT_GRANTED",
+  "ownerHumanReview": "PENDING",
+  "productContentStatus": "NO_GO",
+  "sourceFiles": {
+    "readerCopy": "docs/PREDICTIVE_RUNTIME_V2_49_CONTEXT_READER_COPY.json",
+    "ownerReuse": "docs/PREDICTIVE_RUNTIME_V2_OWNER_REUSE_AUDIT.json",
+    "previousMachineAudit": "docs/PREDICTIVE_RUNTIME_V2_CONTENT_QUALITY_AUDIT.json"
+  },
+  "counts": {
+    "contexts": 49,
+    "pastFutureTenseMismatchContexts": 39,
+    "unresolvedWorkDirectionConflictContexts": 43,
+    "currentDomainTo12MonthClauseDuplicate": 98,
+    "currentDomainToNextClauseDuplicate": 33,
+    "healthAndRestPhraseOccurrences": 47
+  },
+  "ownerReportedComparison": {
+    "pastFutureTenseMismatchContexts": {
+      "ownerReported": 39,
+      "actual": 39
+    },
+    "unresolvedWorkDirectionConflictContexts": {
+      "ownerReported": 43,
+      "actual": 43
+    },
+    "currentDomainTo12MonthClauseDuplicate": {
+      "ownerReported": 98,
+      "actual": 98
+    },
+    "currentDomainToNextClauseDuplicate": {
+      "ownerReported": 33,
+      "actual": 33
+    },
+    "healthAndRestPhraseOccurrences": {
+      "ownerReported": 46,
+      "actual": 47,
+      "reason": "Raw reader-claim scan finds 34 health-owner and 13 rolling-12 occurrences."
+    }
+  },
+  "ownerReuse": {
+    "work": {
+      "distinctParagraphs": 6,
+      "mostReusedParagraph": "งานในช่วงปัจจุบันจะเดินหน้า หน้าที่และการมองเห็นผลงานจะเพิ่มขึ้นจากงานที่ส่งมอบต่อเนื่อง ในช่วงเดียวกัน ภาระงานหลักจะเบียดเวลาและทำให้จังหวะด้านงานเดินช้าลง",
+      "mostReusedCount": 29
+    },
+    "finance": {
+      "distinctParagraphs": 5,
+      "mostReusedParagraph": "รายรับในช่วงปัจจุบันจะขยายตามงานและหน้าที่ที่เพิ่มขึ้น เงินส่วนเกินจะเริ่มสร้างฐานที่มั่นคงกว่าเดิม ในช่วงเดียวกัน ภาระเงินจะจำกัดทางเลือกใหม่ด้านการเงิน",
+      "mostReusedCount": 26
+    },
+    "relationship": {
+      "distinctParagraphs": 6,
+      "mostReusedParagraph": "ความสัมพันธ์ในช่วงปัจจุบันจะค่อย ๆ เปลี่ยนระดับ การพูดเงื่อนไขตรงกันจะทำให้สถานะชัดขึ้น ในช่วงเดียวกัน ข้อตกลงที่ไม่ตรงกันจะทำให้จังหวะด้านความสัมพันธ์สะดุด",
+      "mostReusedCount": 17
+    },
+    "health": {
+      "distinctParagraphs": 6,
+      "mostReusedParagraph": "พลังในช่วงปัจจุบันจะรองรับกิจกรรมได้ดีขึ้น การฟื้นตัวหลังวันหนักจะกลับมาเร็วและสม่ำเสมอ ในช่วงเดียวกัน การพักไม่พอจะลดแรงที่ใช้ประคองด้านสุขภาพและการพัก",
+      "mostReusedCount": 19
+    }
+  },
+  "duplicateLedger": [
+    {
+      "contextId": "mahabhut2537.rem4.thursday",
+      "sourceOwner": "work",
+      "targetOwner": "rolling12",
+      "clause": "ภาระงานหลักจะเบียดเวลาและทำให้จังหวะด้านงานเดินช้าลง"
+    },
+    {
+      "contextId": "mahabhut2537.rem4.thursday",
+      "sourceOwner": "finance",
+      "targetOwner": "rolling12",
+      "clause": "ภาระเงินจะจำกัดทางเลือกใหม่ด้านการเงิน"
+    },
+    {
+      "contextId": "mahabhut2537.rem4.thursday",
+      "sourceOwner": "relationship",
+      "targetOwner": "next",
+      "clause": "ข้อตกลงที่ไม่ตรงกันจะทำให้จังหวะด้านความสัมพันธ์สะดุด"
+    },
+    {
+      "contextId": "mahabhut2537.rem6.friday",
+      "sourceOwner": "work",
+      "targetOwner": "rolling12",
+      "clause": "ภาระงานหลักจะเบียดเวลาและทำให้จังหวะด้านงานเดินช้าลง"
+    },
+    {
+      "contextId": "mahabhut2537.rem6.friday",
+      "sourceOwner": "finance",
+      "targetOwner": "rolling12",
+      "clause": "ภาระเงินจะจำกัดทางเลือกใหม่ด้านการเงิน"
+    },
+    {
+      "contextId": "mahabhut2537.rem6.friday",
+      "sourceOwner": "relationship",
+      "targetOwner": "next",
+      "clause": "ข้อตกลงที่ไม่ตรงกันจะทำให้จังหวะด้านความสัมพันธ์สะดุด"
+    },
+    {
+      "contextId": "mahabhut2537.rem3.tuesday",
+      "sourceOwner": "relationship",
+      "targetOwner": "rolling12",
+      "clause": "ข้อตกลงที่ไม่ตรงกันจะทำให้จังหวะด้านความสัมพันธ์สะดุด"
+    },
+    {
+      "contextId": "mahabhut2537.rem3.tuesday",
+      "sourceOwner": "relationship",
+      "targetOwner": "next",
+      "clause": "ข้อตกลงที่ไม่ตรงกันจะทำให้จังหวะด้านความสัมพันธ์สะดุด"
+    },
+    {
+      "contextId": "mahabhut2537.rem3.tuesday",
+      "sourceOwner": "health",
+      "targetOwner": "rolling12",
+      "clause": "การพักไม่พอจะลดแรงที่ใช้ประคองด้านสุขภาพและการพัก"
+    },
+    {
+      "contextId": "mahabhut2537.rem3.wednesday",
+      "sourceOwner": "work",
+      "targetOwner": "rolling12",
+      "clause": "ภาระงานหลักจะเบียดเวลาและทำให้จังหวะด้านงานเดินช้าลง"
+    },
+    {
+      "contextId": "mahabhut2537.rem3.wednesday",
+      "sourceOwner": "relationship",
+      "targetOwner": "rolling12",
+      "clause": "ข้อตกลงที่ไม่ตรงกันจะทำให้จังหวะด้านความสัมพันธ์สะดุด"
+    },
+    {
+      "contextId": "mahabhut2537.rem3.wednesday",
+      "sourceOwner": "relationship",
+      "targetOwner": "next",
+      "clause": "ข้อตกลงที่ไม่ตรงกันจะทำให้จังหวะด้านความสัมพันธ์สะดุด"
+    },
+    {
+      "contextId": "mahabhut2537.rem1.monday",
+      "sourceOwner": "relationship",
+      "targetOwner": "rolling12",
+      "clause": "ข้อตกลงที่ไม่ตรงกันจะทำให้จังหวะด้านความสัมพันธ์สะดุด"
+    },
+    {
+      "contextId": "mahabhut2537.rem1.monday",
+      "sourceOwner": "relationship",
+      "targetOwner": "next",
+      "clause": "ข้อตกลงที่ไม่ตรงกันจะทำให้จังหวะด้านความสัมพันธ์สะดุด"
+    },
+    {
+      "contextId": "mahabhut2537.rem1.monday",
+      "sourceOwner": "health",
+      "targetOwner": "rolling12",
+      "clause": "การพักไม่พอจะลดแรงที่ใช้ประคองด้านสุขภาพและการพัก"
+    },
+    {
+      "contextId": "mahabhut2537.rem3.friday",
+      "sourceOwner": "work",
+      "targetOwner": "next",
+      "clause": "ภาระงานหลักจะเบียดเวลาและทำให้จังหวะด้านงานเดินช้าลง"
+    },
+    {
+      "contextId": "mahabhut2537.rem3.friday",
+      "sourceOwner": "finance",
+      "targetOwner": "rolling12",
+      "clause": "ภาระเงินจะจำกัดทางเลือกใหม่ด้านการเงิน"
+    },
+    {
+      "contextId": "mahabhut2537.rem3.friday",
+      "sourceOwner": "relationship",
+      "targetOwner": "rolling12",
+      "clause": "ข้อตกลงที่ไม่ตรงกันจะทำให้จังหวะด้านความสัมพันธ์สะดุด"
+    },
+    {
+      "contextId": "mahabhut2537.rem3.saturday",
+      "sourceOwner": "relationship",
+      "targetOwner": "rolling12",
+      "clause": "ข้อตกลงที่ไม่ตรงกันจะทำให้จังหวะด้านความสัมพันธ์สะดุด"
+    },
+    {
+      "contextId": "mahabhut2537.rem3.saturday",
+      "sourceOwner": "relationship",
+      "targetOwner": "next",
+      "clause": "ข้อตกลงที่ไม่ตรงกันจะทำให้จังหวะด้านความสัมพันธ์สะดุด"
+    },
+    {
+      "contextId": "mahabhut2537.rem3.saturday",
+      "sourceOwner": "health",
+      "targetOwner": "rolling12",
+      "clause": "การพักไม่พอจะลดแรงที่ใช้ประคองด้านสุขภาพและการพัก"
+    },
+    {
+      "contextId": "mahabhut2537.rem0.sunday",
+      "sourceOwner": "work",
+      "targetOwner": "rolling12",
+      "clause": "ภาระงานหลักจะเบียดเวลาและทำให้จังหวะด้านงานเดินช้าลง"
+    },
+    {
+      "contextId": "mahabhut2537.rem0.sunday",
+      "sourceOwner": "finance",
+      "targetOwner": "rolling12",
+      "clause": "ภาระเงินจะจำกัดทางเลือกใหม่ด้านการเงิน"
+    },
+    {
+      "contextId": "mahabhut2537.rem0.sunday",
+      "sourceOwner": "relationship",
+      "targetOwner": "next",
+      "clause": "ข้อตกลงที่ไม่ตรงกันจะทำให้จังหวะด้านความสัมพันธ์สะดุด"
+    },
+    {
+      "contextId": "mahabhut2537.rem5.tuesday",
+      "sourceOwner": "work",
+      "targetOwner": "rolling12",
+      "clause": "ตารางเรียนและกิจกรรมที่แน่นจะทำให้ด้านการเรียนและหน้าที่เดินช้าลง"
+    },
+    {
+      "contextId": "mahabhut2537.rem5.tuesday",
+      "sourceOwner": "finance",
+      "targetOwner": "rolling12",
+      "clause": "ค่าใช้จ่ายจำเป็นจะจำกัดทางเลือกใหม่ด้านการเงิน"
+    },
+    {
+      "contextId": "mahabhut2537.rem5.wednesday",
+      "sourceOwner": "work",
+      "targetOwner": "rolling12",
+      "clause": "ตารางเรียนและกิจกรรมที่แน่นจะทำให้ด้านการเรียนและหน้าที่เดินช้าลง"
+    },
+    {
+      "contextId": "mahabhut2537.rem5.wednesday",
+      "sourceOwner": "finance",
+      "targetOwner": "rolling12",
+      "clause": "ค่าใช้จ่ายจำเป็นจะจำกัดทางเลือกใหม่ด้านการเงิน"
+    },
+    {
+      "contextId": "mahabhut2537.rem6.saturday",
+      "sourceOwner": "work",
+      "targetOwner": "rolling12",
+      "clause": "ตารางเรียนและกิจกรรมที่แน่นจะทำให้ด้านการเรียนและหน้าที่เดินช้าลง"
+    },
+    {
+      "contextId": "mahabhut2537.rem6.saturday",
+      "sourceOwner": "finance",
+      "targetOwner": "rolling12",
+      "clause": "ค่าใช้จ่ายจำเป็นจะจำกัดทางเลือกใหม่ด้านการเงิน"
+    },
+    {
+      "contextId": "mahabhut2537.rem2.friday",
+      "sourceOwner": "work",
+      "targetOwner": "rolling12",
+      "clause": "ตารางเรียนและกิจกรรมที่แน่นจะทำให้ด้านการเรียนและหน้าที่เดินช้าลง"
+    },
+    {
+      "contextId": "mahabhut2537.rem2.friday",
+      "sourceOwner": "finance",
+      "targetOwner": "rolling12",
+      "clause": "ค่าใช้จ่ายจำเป็นจะจำกัดทางเลือกใหม่ด้านการเงิน"
+    },
+    {
+      "contextId": "mahabhut2537.rem6.thursday",
+      "sourceOwner": "work",
+      "targetOwner": "rolling12",
+      "clause": "กิจวัตรที่ชนกันจะทำให้ด้านพัฒนาการและกิจวัตรเดินช้าลง"
+    },
+    {
+      "contextId": "mahabhut2537.rem6.thursday",
+      "sourceOwner": "finance",
+      "targetOwner": "rolling12",
+      "clause": "ค่าใช้จ่ายจำเป็นจะจำกัดทางเลือกด้านทรัพยากรและของใช้"
+    },
+    {
+      "contextId": "mahabhut2537.rem1.wednesday",
+      "sourceOwner": "work",
+      "targetOwner": "rolling12",
+      "clause": "กิจวัตรที่ชนกันจะทำให้ด้านพัฒนาการและกิจวัตรเดินช้าลง"
+    },
+    {
+      "contextId": "mahabhut2537.rem1.wednesday",
+      "sourceOwner": "finance",
+      "targetOwner": "rolling12",
+      "clause": "ค่าใช้จ่ายจำเป็นจะจำกัดทางเลือกด้านทรัพยากรและของใช้"
+    },
+    {
+      "contextId": "mahabhut2537.rem3.monday",
+      "sourceOwner": "work",
+      "targetOwner": "rolling12",
+      "clause": "ภาระงานหลักจะเบียดเวลาและทำให้จังหวะด้านงานเดินช้าลง"
+    },
+    {
+      "contextId": "mahabhut2537.rem3.monday",
+      "sourceOwner": "finance",
+      "targetOwner": "rolling12",
+      "clause": "ภาระเงินจะจำกัดทางเลือกใหม่ด้านการเงิน"
+    },
+    {
+      "contextId": "mahabhut2537.rem3.monday",
+      "sourceOwner": "relationship",
+      "targetOwner": "next",
+      "clause": "ข้อตกลงที่ไม่ตรงกันจะทำให้จังหวะด้านความสัมพันธ์สะดุด"
+    },
+    {
+      "contextId": "mahabhut2537.rem2.monday",
+      "sourceOwner": "work",
+      "targetOwner": "rolling12",
+      "clause": "ภาระงานหลักจะเบียดเวลาและทำให้จังหวะด้านงานเดินช้าลง"
+    },
+    {
+      "contextId": "mahabhut2537.rem2.monday",
+      "sourceOwner": "relationship",
+      "targetOwner": "rolling12",
+      "clause": "ข้อตกลงที่ไม่ตรงกันจะทำให้จังหวะด้านความสัมพันธ์สะดุด"
+    },
+    {
+      "contextId": "mahabhut2537.rem2.monday",
+      "sourceOwner": "relationship",
+      "targetOwner": "next",
+      "clause": "ข้อตกลงที่ไม่ตรงกันจะทำให้จังหวะด้านความสัมพันธ์สะดุด"
+    },
+    {
+      "contextId": "mahabhut2537.rem0.saturday",
+      "sourceOwner": "work",
+      "targetOwner": "next",
+      "clause": "ภาระงานหลักจะเบียดเวลาและทำให้จังหวะด้านงานเดินช้าลง"
+    },
+    {
+      "contextId": "mahabhut2537.rem0.saturday",
+      "sourceOwner": "relationship",
+      "targetOwner": "rolling12",
+      "clause": "ข้อตกลงที่ไม่ตรงกันจะทำให้จังหวะด้านความสัมพันธ์สะดุด"
+    },
+    {
+      "contextId": "mahabhut2537.rem0.saturday",
+      "sourceOwner": "health",
+      "targetOwner": "rolling12",
+      "clause": "การพักไม่พอจะลดแรงที่ใช้ประคองด้านสุขภาพและการพัก"
+    },
+    {
+      "contextId": "mahabhut2537.rem3.thursday",
+      "sourceOwner": "work",
+      "targetOwner": "rolling12",
+      "clause": "ภาระงานหลักจะเบียดเวลาและทำให้จังหวะด้านงานเดินช้าลง"
+    },
+    {
+      "contextId": "mahabhut2537.rem3.thursday",
+      "sourceOwner": "work",
+      "targetOwner": "next",
+      "clause": "ภาระงานหลักจะเบียดเวลาและทำให้จังหวะด้านงานเดินช้าลง"
+    },
+    {
+      "contextId": "mahabhut2537.rem3.thursday",
+      "sourceOwner": "finance",
+      "targetOwner": "rolling12",
+      "clause": "ภาระเงินจะจำกัดทางเลือกใหม่ด้านการเงิน"
+    },
+    {
+      "contextId": "mahabhut2537.rem5.saturday",
+      "sourceOwner": "work",
+      "targetOwner": "next",
+      "clause": "ภาระงานหลักจะเบียดเวลาและทำให้จังหวะด้านงานเดินช้าลง"
+    },
+    {
+      "contextId": "mahabhut2537.rem5.saturday",
+      "sourceOwner": "relationship",
+      "targetOwner": "rolling12",
+      "clause": "ข้อตกลงที่ไม่ตรงกันจะทำให้จังหวะด้านความสัมพันธ์สะดุด"
+    },
+    {
+      "contextId": "mahabhut2537.rem5.saturday",
+      "sourceOwner": "health",
+      "targetOwner": "rolling12",
+      "clause": "การพักไม่พอจะลดแรงที่ใช้ประคองด้านสุขภาพและการพัก"
+    },
+    {
+      "contextId": "mahabhut2537.rem5.friday",
+      "sourceOwner": "work",
+      "targetOwner": "next",
+      "clause": "ภาระงานหลักจะเบียดเวลาและทำให้จังหวะด้านงานเดินช้าลง"
+    },
+    {
+      "contextId": "mahabhut2537.rem5.friday",
+      "sourceOwner": "relationship",
+      "targetOwner": "rolling12",
+      "clause": "ข้อตกลงที่ไม่ตรงกันจะทำให้จังหวะด้านความสัมพันธ์สะดุด"
+    },
+    {
+      "contextId": "mahabhut2537.rem5.friday",
+      "sourceOwner": "health",
+      "targetOwner": "rolling12",
+      "clause": "การพักไม่พอจะลดแรงที่ใช้ประคองด้านสุขภาพและการพัก"
+    },
+    {
+      "contextId": "mahabhut2537.rem1.thursday",
+      "sourceOwner": "work",
+      "targetOwner": "rolling12",
+      "clause": "กิจวัตรที่ชนกันจะทำให้ด้านพัฒนาการและกิจวัตรเดินช้าลง"
+    },
+    {
+      "contextId": "mahabhut2537.rem1.thursday",
+      "sourceOwner": "finance",
+      "targetOwner": "rolling12",
+      "clause": "ค่าใช้จ่ายจำเป็นจะจำกัดทางเลือกด้านทรัพยากรและของใช้"
+    },
+    {
+      "contextId": "mahabhut2537.rem2.saturday",
+      "sourceOwner": "work",
+      "targetOwner": "rolling12",
+      "clause": "ภาระงานหลักจะเบียดเวลาและทำให้จังหวะด้านงานเดินช้าลง"
+    },
+    {
+      "contextId": "mahabhut2537.rem2.saturday",
+      "sourceOwner": "finance",
+      "targetOwner": "rolling12",
+      "clause": "ภาระเงินจะจำกัดทางเลือกใหม่ด้านการเงิน"
+    },
+    {
+      "contextId": "mahabhut2537.rem2.saturday",
+      "sourceOwner": "relationship",
+      "targetOwner": "next",
+      "clause": "ข้อตกลงที่ไม่ตรงกันจะทำให้จังหวะด้านความสัมพันธ์สะดุด"
+    },
+    {
+      "contextId": "mahabhut2537.rem4.wednesday",
+      "sourceOwner": "work",
+      "targetOwner": "rolling12",
+      "clause": "ตารางเรียนและกิจกรรมที่แน่นจะทำให้ด้านการเรียนและหน้าที่เดินช้าลง"
+    },
+    {
+      "contextId": "mahabhut2537.rem4.wednesday",
+      "sourceOwner": "finance",
+      "targetOwner": "rolling12",
+      "clause": "ค่าใช้จ่ายจำเป็นจะจำกัดทางเลือกใหม่ด้านการเงิน"
+    },
+    {
+      "contextId": "mahabhut2537.rem6.tuesday",
+      "sourceOwner": "work",
+      "targetOwner": "rolling12",
+      "clause": "ตารางเรียนและกิจกรรมที่แน่นจะทำให้ด้านการเรียนและหน้าที่เดินช้าลง"
+    },
+    {
+      "contextId": "mahabhut2537.rem6.tuesday",
+      "sourceOwner": "finance",
+      "targetOwner": "rolling12",
+      "clause": "ค่าใช้จ่ายจำเป็นจะจำกัดทางเลือกใหม่ด้านการเงิน"
+    },
+    {
+      "contextId": "mahabhut2537.rem1.saturday",
+      "sourceOwner": "work",
+      "targetOwner": "rolling12",
+      "clause": "ภาระงานหลักจะเบียดเวลาและทำให้จังหวะด้านงานเดินช้าลง"
+    },
+    {
+      "contextId": "mahabhut2537.rem1.saturday",
+      "sourceOwner": "finance",
+      "targetOwner": "rolling12",
+      "clause": "ภาระเงินจะจำกัดทางเลือกใหม่ด้านการเงิน"
+    },
+    {
+      "contextId": "mahabhut2537.rem1.saturday",
+      "sourceOwner": "relationship",
+      "targetOwner": "next",
+      "clause": "ข้อตกลงที่ไม่ตรงกันจะทำให้จังหวะด้านความสัมพันธ์สะดุด"
+    },
+    {
+      "contextId": "mahabhut2537.rem6.monday",
+      "sourceOwner": "relationship",
+      "targetOwner": "rolling12",
+      "clause": "ข้อตกลงที่ไม่ตรงกันจะทำให้จังหวะด้านความสัมพันธ์สะดุด"
+    },
+    {
+      "contextId": "mahabhut2537.rem6.monday",
+      "sourceOwner": "relationship",
+      "targetOwner": "next",
+      "clause": "ข้อตกลงที่ไม่ตรงกันจะทำให้จังหวะด้านความสัมพันธ์สะดุด"
+    },
+    {
+      "contextId": "mahabhut2537.rem6.monday",
+      "sourceOwner": "health",
+      "targetOwner": "rolling12",
+      "clause": "การพักไม่พอจะลดแรงที่ใช้ประคองด้านสุขภาพและการพัก"
+    },
+    {
+      "contextId": "mahabhut2537.rem4.saturday",
+      "sourceOwner": "work",
+      "targetOwner": "rolling12",
+      "clause": "ภาระงานหลักจะเบียดเวลาและทำให้จังหวะด้านงานเดินช้าลง"
+    },
+    {
+      "contextId": "mahabhut2537.rem4.saturday",
+      "sourceOwner": "finance",
+      "targetOwner": "rolling12",
+      "clause": "ภาระเงินจะจำกัดทางเลือกใหม่ด้านการเงิน"
+    },
+    {
+      "contextId": "mahabhut2537.rem4.saturday",
+      "sourceOwner": "relationship",
+      "targetOwner": "next",
+      "clause": "ข้อตกลงที่ไม่ตรงกันจะทำให้จังหวะด้านความสัมพันธ์สะดุด"
+    },
+    {
+      "contextId": "mahabhut2537.rem6.sunday",
+      "sourceOwner": "work",
+      "targetOwner": "rolling12",
+      "clause": "ตารางเรียนและกิจกรรมที่แน่นจะทำให้ด้านการเรียนและหน้าที่เดินช้าลง"
+    },
+    {
+      "contextId": "mahabhut2537.rem6.sunday",
+      "sourceOwner": "finance",
+      "targetOwner": "rolling12",
+      "clause": "ค่าใช้จ่ายจำเป็นจะจำกัดทางเลือกใหม่ด้านการเงิน"
+    },
+    {
+      "contextId": "mahabhut2537.rem1.tuesday",
+      "sourceOwner": "work",
+      "targetOwner": "rolling12",
+      "clause": "ภาระงานหลักจะเบียดเวลาและทำให้จังหวะด้านงานเดินช้าลง"
+    },
+    {
+      "contextId": "mahabhut2537.rem1.tuesday",
+      "sourceOwner": "finance",
+      "targetOwner": "rolling12",
+      "clause": "ภาระเงินจะจำกัดทางเลือกใหม่ด้านการเงิน"
+    },
+    {
+      "contextId": "mahabhut2537.rem1.tuesday",
+      "sourceOwner": "relationship",
+      "targetOwner": "next",
+      "clause": "ข้อตกลงที่ไม่ตรงกันจะทำให้จังหวะด้านความสัมพันธ์สะดุด"
+    },
+    {
+      "contextId": "mahabhut2537.rem5.monday",
+      "sourceOwner": "relationship",
+      "targetOwner": "rolling12",
+      "clause": "ข้อตกลงที่ไม่ตรงกันจะทำให้จังหวะด้านความสัมพันธ์สะดุด"
+    },
+    {
+      "contextId": "mahabhut2537.rem5.monday",
+      "sourceOwner": "relationship",
+      "targetOwner": "next",
+      "clause": "ข้อตกลงที่ไม่ตรงกันจะทำให้จังหวะด้านความสัมพันธ์สะดุด"
+    },
+    {
+      "contextId": "mahabhut2537.rem5.monday",
+      "sourceOwner": "health",
+      "targetOwner": "rolling12",
+      "clause": "การพักไม่พอจะลดแรงที่ใช้ประคองด้านสุขภาพและการพัก"
+    },
+    {
+      "contextId": "mahabhut2537.rem6.wednesday",
+      "sourceOwner": "work",
+      "targetOwner": "rolling12",
+      "clause": "ภาระงานหลักจะเบียดเวลาและทำให้จังหวะด้านงานเดินช้าลง"
+    },
+    {
+      "contextId": "mahabhut2537.rem6.wednesday",
+      "sourceOwner": "finance",
+      "targetOwner": "rolling12",
+      "clause": "ภาระเงินจะจำกัดทางเลือกใหม่ด้านการเงิน"
+    },
+    {
+      "contextId": "mahabhut2537.rem6.wednesday",
+      "sourceOwner": "relationship",
+      "targetOwner": "next",
+      "clause": "ข้อตกลงที่ไม่ตรงกันจะทำให้จังหวะด้านความสัมพันธ์สะดุด"
+    },
+    {
+      "contextId": "mahabhut2537.rem2.sunday",
+      "sourceOwner": "work",
+      "targetOwner": "rolling12",
+      "clause": "ภาระงานหลักจะเบียดเวลาและทำให้จังหวะด้านงานเดินช้าลง"
+    },
+    {
+      "contextId": "mahabhut2537.rem2.sunday",
+      "sourceOwner": "finance",
+      "targetOwner": "rolling12",
+      "clause": "ภาระเงินจะจำกัดทางเลือกใหม่ด้านการเงิน"
+    },
+    {
+      "contextId": "mahabhut2537.rem2.sunday",
+      "sourceOwner": "relationship",
+      "targetOwner": "next",
+      "clause": "ข้อตกลงที่ไม่ตรงกันจะทำให้จังหวะด้านความสัมพันธ์สะดุด"
+    },
+    {
+      "contextId": "mahabhut2537.rem0.monday",
+      "sourceOwner": "relationship",
+      "targetOwner": "rolling12",
+      "clause": "ข้อตกลงที่ไม่ตรงกันจะทำให้จังหวะด้านความสัมพันธ์สะดุด"
+    },
+    {
+      "contextId": "mahabhut2537.rem0.monday",
+      "sourceOwner": "relationship",
+      "targetOwner": "next",
+      "clause": "ข้อตกลงที่ไม่ตรงกันจะทำให้จังหวะด้านความสัมพันธ์สะดุด"
+    },
+    {
+      "contextId": "mahabhut2537.rem0.monday",
+      "sourceOwner": "health",
+      "targetOwner": "rolling12",
+      "clause": "การพักไม่พอจะลดแรงที่ใช้ประคองด้านสุขภาพและการพัก"
+    },
+    {
+      "contextId": "mahabhut2537.rem3.sunday",
+      "sourceOwner": "work",
+      "targetOwner": "next",
+      "clause": "ภาระงานหลักจะเบียดเวลาและทำให้จังหวะด้านงานเดินช้าลง"
+    },
+    {
+      "contextId": "mahabhut2537.rem3.sunday",
+      "sourceOwner": "finance",
+      "targetOwner": "rolling12",
+      "clause": "ภาระเงินจะจำกัดทางเลือกใหม่ด้านการเงิน"
+    },
+    {
+      "contextId": "mahabhut2537.rem3.sunday",
+      "sourceOwner": "relationship",
+      "targetOwner": "rolling12",
+      "clause": "ข้อตกลงที่ไม่ตรงกันจะทำให้จังหวะด้านความสัมพันธ์สะดุด"
+    },
+    {
+      "contextId": "mahabhut2537.rem5.sunday",
+      "sourceOwner": "work",
+      "targetOwner": "rolling12",
+      "clause": "กิจวัตรที่ชนกันจะทำให้ด้านพัฒนาการและกิจวัตรเดินช้าลง"
+    },
+    {
+      "contextId": "mahabhut2537.rem5.sunday",
+      "sourceOwner": "finance",
+      "targetOwner": "rolling12",
+      "clause": "ค่าใช้จ่ายจำเป็นจะจำกัดทางเลือกด้านทรัพยากรและของใช้"
+    },
+    {
+      "contextId": "mahabhut2537.rem0.wednesday",
+      "sourceOwner": "relationship",
+      "targetOwner": "rolling12",
+      "clause": "ข้อตกลงกับคนรอบตัวที่ไม่ตรงกันจะทำให้ด้านความสัมพันธ์สะดุด"
+    },
+    {
+      "contextId": "mahabhut2537.rem0.wednesday",
+      "sourceOwner": "health",
+      "targetOwner": "rolling12",
+      "clause": "การพักไม่พอจะลดแรงที่ใช้ประคองด้านกำลังและการพัก"
+    },
+    {
+      "contextId": "mahabhut2537.rem5.thursday",
+      "sourceOwner": "work",
+      "targetOwner": "rolling12",
+      "clause": "ตารางเรียนและกิจกรรมที่แน่นจะทำให้ด้านการเรียนและหน้าที่เดินช้าลง"
+    },
+    {
+      "contextId": "mahabhut2537.rem5.thursday",
+      "sourceOwner": "finance",
+      "targetOwner": "rolling12",
+      "clause": "ค่าใช้จ่ายจำเป็นจะจำกัดทางเลือกใหม่ด้านการเงิน"
+    },
+    {
+      "contextId": "mahabhut2537.rem4.sunday",
+      "sourceOwner": "work",
+      "targetOwner": "rolling12",
+      "clause": "ตารางเรียนและกิจกรรมที่แน่นจะทำให้ด้านการเรียนและหน้าที่เดินช้าลง"
+    },
+    {
+      "contextId": "mahabhut2537.rem4.sunday",
+      "sourceOwner": "finance",
+      "targetOwner": "rolling12",
+      "clause": "ค่าใช้จ่ายจำเป็นจะจำกัดทางเลือกใหม่ด้านการเงิน"
+    },
+    {
+      "contextId": "mahabhut2537.rem4.monday",
+      "sourceOwner": "work",
+      "targetOwner": "rolling12",
+      "clause": "ภาระงานหลักจะเบียดเวลาและทำให้จังหวะด้านงานเดินช้าลง"
+    },
+    {
+      "contextId": "mahabhut2537.rem4.monday",
+      "sourceOwner": "finance",
+      "targetOwner": "rolling12",
+      "clause": "ภาระเงินจะจำกัดทางเลือกใหม่ด้านการเงิน"
+    },
+    {
+      "contextId": "mahabhut2537.rem4.monday",
+      "sourceOwner": "relationship",
+      "targetOwner": "next",
+      "clause": "ข้อตกลงที่ไม่ตรงกันจะทำให้จังหวะด้านความสัมพันธ์สะดุด"
+    },
+    {
+      "contextId": "mahabhut2537.rem0.friday",
+      "sourceOwner": "work",
+      "targetOwner": "rolling12",
+      "clause": "ภาระงานหลักจะเบียดเวลาและทำให้จังหวะด้านงานเดินช้าลง"
+    },
+    {
+      "contextId": "mahabhut2537.rem0.friday",
+      "sourceOwner": "finance",
+      "targetOwner": "rolling12",
+      "clause": "ภาระเงินจะจำกัดทางเลือกใหม่ด้านการเงิน"
+    },
+    {
+      "contextId": "mahabhut2537.rem0.friday",
+      "sourceOwner": "relationship",
+      "targetOwner": "next",
+      "clause": "ข้อตกลงที่ไม่ตรงกันจะทำให้จังหวะด้านความสัมพันธ์สะดุด"
+    },
+    {
+      "contextId": "mahabhut2537.rem1.sunday",
+      "sourceOwner": "work",
+      "targetOwner": "rolling12",
+      "clause": "ภาระงานหลักจะเบียดเวลาและทำให้จังหวะด้านงานเดินช้าลง"
+    },
+    {
+      "contextId": "mahabhut2537.rem1.sunday",
+      "sourceOwner": "finance",
+      "targetOwner": "rolling12",
+      "clause": "ภาระเงินจะจำกัดทางเลือกใหม่ด้านการเงิน"
+    },
+    {
+      "contextId": "mahabhut2537.rem1.sunday",
+      "sourceOwner": "relationship",
+      "targetOwner": "next",
+      "clause": "ข้อตกลงที่ไม่ตรงกันจะทำให้จังหวะด้านความสัมพันธ์สะดุด"
+    },
+    {
+      "contextId": "mahabhut2537.rem0.tuesday",
+      "sourceOwner": "relationship",
+      "targetOwner": "rolling12",
+      "clause": "ข้อตกลงกับคนรอบตัวที่ไม่ตรงกันจะทำให้ด้านความสัมพันธ์สะดุด"
+    },
+    {
+      "contextId": "mahabhut2537.rem0.tuesday",
+      "sourceOwner": "health",
+      "targetOwner": "rolling12",
+      "clause": "การพักไม่พอจะลดแรงที่ใช้ประคองด้านกำลังและการพัก"
+    },
+    {
+      "contextId": "mahabhut2537.rem0.thursday",
+      "sourceOwner": "work",
+      "targetOwner": "rolling12",
+      "clause": "ภาระงานหลักจะเบียดเวลาและทำให้จังหวะด้านงานเดินช้าลง"
+    },
+    {
+      "contextId": "mahabhut2537.rem0.thursday",
+      "sourceOwner": "work",
+      "targetOwner": "next",
+      "clause": "ภาระงานหลักจะเบียดเวลาและทำให้จังหวะด้านงานเดินช้าลง"
+    },
+    {
+      "contextId": "mahabhut2537.rem0.thursday",
+      "sourceOwner": "finance",
+      "targetOwner": "rolling12",
+      "clause": "ภาระเงินจะจำกัดทางเลือกใหม่ด้านการเงิน"
+    },
+    {
+      "contextId": "mahabhut2537.rem2.tuesday",
+      "sourceOwner": "relationship",
+      "targetOwner": "rolling12",
+      "clause": "ข้อตกลงที่ไม่ตรงกันจะทำให้จังหวะด้านความสัมพันธ์สะดุด"
+    },
+    {
+      "contextId": "mahabhut2537.rem2.tuesday",
+      "sourceOwner": "relationship",
+      "targetOwner": "next",
+      "clause": "ข้อตกลงที่ไม่ตรงกันจะทำให้จังหวะด้านความสัมพันธ์สะดุด"
+    },
+    {
+      "contextId": "mahabhut2537.rem2.tuesday",
+      "sourceOwner": "health",
+      "targetOwner": "rolling12",
+      "clause": "การพักไม่พอจะลดแรงที่ใช้ประคองด้านสุขภาพและการพัก"
+    },
+    {
+      "contextId": "mahabhut2537.rem4.tuesday",
+      "sourceOwner": "relationship",
+      "targetOwner": "rolling12",
+      "clause": "ข้อตกลงที่ไม่ตรงกันจะทำให้จังหวะด้านความสัมพันธ์สะดุด"
+    },
+    {
+      "contextId": "mahabhut2537.rem4.tuesday",
+      "sourceOwner": "health",
+      "targetOwner": "rolling12",
+      "clause": "การพักไม่พอจะลดแรงที่ใช้ประคองด้านสุขภาพและการพัก"
+    },
+    {
+      "contextId": "mahabhut2537.rem2.thursday",
+      "sourceOwner": "work",
+      "targetOwner": "rolling12",
+      "clause": "ภาระงานหลักจะเบียดเวลาและทำให้จังหวะด้านงานเดินช้าลง"
+    },
+    {
+      "contextId": "mahabhut2537.rem2.thursday",
+      "sourceOwner": "work",
+      "targetOwner": "next",
+      "clause": "ภาระงานหลักจะเบียดเวลาและทำให้จังหวะด้านงานเดินช้าลง"
+    },
+    {
+      "contextId": "mahabhut2537.rem2.thursday",
+      "sourceOwner": "finance",
+      "targetOwner": "rolling12",
+      "clause": "ภาระเงินจะจำกัดทางเลือกใหม่ด้านการเงิน"
+    },
+    {
+      "contextId": "mahabhut2537.rem1.friday",
+      "sourceOwner": "work",
+      "targetOwner": "next",
+      "clause": "ภาระงานหลักจะเบียดเวลาและทำให้จังหวะด้านงานเดินช้าลง"
+    },
+    {
+      "contextId": "mahabhut2537.rem1.friday",
+      "sourceOwner": "relationship",
+      "targetOwner": "rolling12",
+      "clause": "ข้อตกลงที่ไม่ตรงกันจะทำให้จังหวะด้านความสัมพันธ์สะดุด"
+    },
+    {
+      "contextId": "mahabhut2537.rem1.friday",
+      "sourceOwner": "health",
+      "targetOwner": "rolling12",
+      "clause": "การพักไม่พอจะลดแรงที่ใช้ประคองด้านสุขภาพและการพัก"
+    },
+    {
+      "contextId": "mahabhut2537.rem2.wednesday",
+      "sourceOwner": "work",
+      "targetOwner": "rolling12",
+      "clause": "ภาระงานหลักจะเบียดเวลาและทำให้จังหวะด้านงานเดินช้าลง"
+    },
+    {
+      "contextId": "mahabhut2537.rem2.wednesday",
+      "sourceOwner": "finance",
+      "targetOwner": "rolling12",
+      "clause": "ภาระเงินจะจำกัดทางเลือกใหม่ด้านการเงิน"
+    },
+    {
+      "contextId": "mahabhut2537.rem2.wednesday",
+      "sourceOwner": "relationship",
+      "targetOwner": "next",
+      "clause": "ข้อตกลงที่ไม่ตรงกันจะทำให้จังหวะด้านความสัมพันธ์สะดุด"
+    },
+    {
+      "contextId": "mahabhut2537.rem4.friday",
+      "sourceOwner": "finance",
+      "targetOwner": "rolling12",
+      "clause": "ภาระเงินจะจำกัดทางเลือกใหม่ด้านการเงิน"
+    },
+    {
+      "contextId": "mahabhut2537.rem4.friday",
+      "sourceOwner": "relationship",
+      "targetOwner": "rolling12",
+      "clause": "ข้อตกลงที่ไม่ตรงกันจะทำให้จังหวะด้านความสัมพันธ์สะดุด"
+    },
+    {
+      "contextId": "mahabhut2537.rem4.friday",
+      "sourceOwner": "relationship",
+      "targetOwner": "next",
+      "clause": "ข้อตกลงที่ไม่ตรงกันจะทำให้จังหวะด้านความสัมพันธ์สะดุด"
+    }
+  ],
+  "previousAuditTruthCorrection": {
+    "generatedFromMachineCounters": true,
+    "provesHumanReading": false,
+    "historicalStatus": "PASS_PREDICTIVE_RUNTIME_V2_OR2_EDITORIAL_AND_EVIDENCE",
+    "correctedClassification": "MACHINE_CONTENT_AUDIT",
+    "correctedResult": "NO_GO"
+  }
+}

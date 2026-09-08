@@ -1,3 +1,4 @@
+import '../../../evidence/or5r_unknown_projection.dart';
 import 'dart:convert';
 
 import 'package:crypto/crypto.dart';
@@ -41,6 +42,7 @@ Future<Map<String, Object?>> buildCrossRuntimeManifest({
   final caseRows = <Map<String, Object?>>[];
   final reportHashes = <String>{};
   final narrativeHashes = <String>{};
+  final knownNarrativeHashes = <String>{};
   var known = 0;
   var unknown = 0;
   var unknownOmissionPass = 0;
@@ -52,6 +54,7 @@ Future<Map<String, Object?>> buildCrossRuntimeManifest({
     narrativeHashes.add(row['narrativeOnlySha256']! as String);
     if (row['birthTimeMode'] == 'known') {
       known++;
+      knownNarrativeHashes.add(row['narrativeOnlySha256']! as String);
     } else {
       unknown++;
       final omission = row['unknownOmission']! as Map<String, Object?>;
@@ -79,6 +82,8 @@ Future<Map<String, Object?>> buildCrossRuntimeManifest({
       'unknownOmissionPass': unknownOmissionPass,
       'uniqueReports': reportHashes.length,
       'uniqueNarratives': narrativeHashes.length,
+      'uniqueKnownNarratives': knownNarrativeHashes.length,
+      'unknownOmittedReports': unknownOmissionPass,
     },
     'cases': caseRows,
     'canonical': canonical,
@@ -108,7 +113,10 @@ Map<String, Object?> _caseManifest(ThaiBetaSyntheticCase syntheticCase) {
   final canonicalSiderealAscendant = ThaiBetaCanonicalDegree.fromDegrees(
     rawSiderealAscendant,
   );
-  final lifePeriods = analysis.pipelineResult!.lifePeriods!;
+  final lifePeriods = analysis.pipelineResult!.lifePeriods;
+  if (!input.hasBirthTime && !_unknownFailClosed(analysis)) {
+    throw StateError('Unknown civil projection or omission contract failed');
+  }
   final presenter = _presenterSeed(analysis);
   final evidenceProfile = ThaiMirrorEvidenceComposer.profileFor(
     (presenter['orderedThemeIds']! as List<Object?>).cast<String>(),
@@ -154,25 +162,27 @@ Map<String, Object?> _caseManifest(ThaiBetaSyntheticCase syntheticCase) {
         {'id': theme.themeId, 'score': theme.score.toStringAsFixed(9)},
     ],
   };
-  final lifeRecord = <String, Object?>{
-    'currentAge': lifePeriods.currentAge,
-    'currentIndex': lifePeriods.currentIndex,
-    'startPlanet': lifePeriods.startPlanet.name,
-    'periods': [
-      for (final period in lifePeriods.periods)
-        {
-          'index': period.index,
-          'planet': period.planet.name,
-          'startAge': period.startAge,
-          'endAge': period.endAge,
-          'strength': period.strength,
-          'isCurrent': period.isCurrent,
-          'isPast': period.isPast,
-          'progress': period.progress.toStringAsFixed(9),
-          'remainingYears': period.remainingYears,
-        },
-    ],
-  };
+  final lifeRecord = lifePeriods == null
+      ? null
+      : <String, Object?>{
+          'currentAge': lifePeriods.currentAge,
+          'currentIndex': lifePeriods.currentIndex,
+          'startPlanet': lifePeriods.startPlanet.name,
+          'periods': [
+            for (final period in lifePeriods.periods)
+              {
+                'index': period.index,
+                'planet': period.planet.name,
+                'startAge': period.startAge,
+                'endAge': period.endAge,
+                'strength': period.strength,
+                'isCurrent': period.isCurrent,
+                'isPast': period.isPast,
+                'progress': period.progress.toStringAsFixed(9),
+                'remainingYears': period.remainingYears,
+              },
+          ],
+        };
   final periodScores = <Map<String, Object?>>[
     for (
       var index = 0;
@@ -237,9 +247,7 @@ Map<String, Object?> _caseManifest(ThaiBetaSyntheticCase syntheticCase) {
       'canonicalSiderealAscendantUnits': canonicalSiderealAscendant,
       'canonicalSiderealAscendantFixed': canonicalSiderealAscendant == null
           ? null
-          : ThaiBetaCanonicalDegree.fixedDecimal(
-              canonicalSiderealAscendant,
-            ),
+          : ThaiBetaCanonicalDegree.fixedDecimal(canonicalSiderealAscendant),
       'displayedDegree': _lagnaDegree(analysis),
       'lagnaKey': profile.lagnaKey,
       'lagnaLordKey': profile.lagnaLordKey,
@@ -254,6 +262,16 @@ Map<String, Object?> _caseManifest(ThaiBetaSyntheticCase syntheticCase) {
     'criticalSectionHashes': {
       for (final entry in critical.entries) entry.key: _shaJson(entry.value),
     },
+    'unknownContractExact': input.hasBirthTime
+        ? null
+        : document.fullPlainText == expectedUnknownText(input),
+    'unknownPredictionCount': input.hasBirthTime
+        ? null
+        : (view.futurePrediction?.windows.fold<int>(
+                0,
+                (n, w) => n + w.domains.length,
+              ) ??
+              0),
     'unknownOmission': {
       'applicable': !input.hasBirthTime,
       'pass': failClosed,
@@ -347,7 +365,16 @@ Future<Map<String, Object?>> _canonicalManifest(
     'liveAsOf': liveFirst.asOf.toIso8601String(),
     'acceptedFrozenSha256': acceptedFrozenCanonicalHashes[id],
     'frozenCanonicalSha256': frozenHash,
-    'frozenAcceptedExact': frozenHash == acceptedFrozenCanonicalHashes[id],
+    'birthTimeMode': input.hasBirthTime ? 'known' : 'unknown',
+    'frozenAcceptedExact': input.hasBirthTime
+        ? frozenHash == acceptedFrozenCanonicalHashes[id]
+        : null,
+    'unknownContractExact': input.hasBirthTime
+        ? null
+        : frozenDocument.fullPlainText == expectedUnknownText(input) &&
+              liveDocument.fullPlainText == expectedUnknownText(input) &&
+              _unknownFailClosed(frozen) &&
+              _unknownFailClosed(liveFirst),
     'frozenWebPdfExact': frozenDocument.fullPlainText == frozenPdf.plainText,
     'liveCanonicalSha256': liveHash,
     'liveWebPdfExact': liveDocument.fullPlainText == livePdf.plainText,
@@ -564,6 +591,17 @@ String _lagnaDegree(ThaiBetaAnalysis analysis) {
 
 bool _unknownFailClosed(ThaiBetaAnalysis analysis) {
   if (analysis.input.hasBirthTime) return true;
+  if (analysis.pipelineResult?.lifePeriods != null ||
+      analysis.consumerViewState?.lifeTimeline != null ||
+      analysis.consumerViewState?.futurePrediction != null ||
+      analysis.profile?.lagnaKey != null ||
+      analysis.profile?.siderealAscendantDeg != null) {
+    return false;
+  }
+  if (ThaiBetaReportExportDocument.fromAnalysis(analysis).fullPlainText !=
+      expectedUnknownText(analysis.input)) {
+    return false;
+  }
   final reading = ThaiBirthProfileCoreReading.fromAnalysis(analysis);
   final domains = reading.sections.map((section) => section.domain).toSet();
   return !domains.contains(ThaiBirthProfileCoreDomain.work) &&

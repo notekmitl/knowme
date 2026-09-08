@@ -1,3 +1,4 @@
+import '../../../evidence/or5r_unknown_contract.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:knowme/features/thai_beta/application/core_reading/thai_birth_profile_core_reading.dart';
 import 'package:knowme/features/thai_beta/application/narrative/thai_beta_curated_block_selector.dart';
@@ -189,7 +190,9 @@ void main() {
         for (final item in view.lifeDashboard) {
           if (item.suggestedAction.trim().isEmpty) continue;
           expect(
-            ThaiBetaNarrativeForbidden.isValidAdvicePhrase(item.suggestedAction),
+            ThaiBetaNarrativeForbidden.isValidAdvicePhrase(
+              item.suggestedAction,
+            ),
             isTrue,
             reason: item.suggestedAction,
           );
@@ -228,7 +231,9 @@ void main() {
       final expandedKeys = <String>{};
       for (final card in view.strengths.cards) {
         if (card.expandedBody == null) continue;
-        final key = ThaiBetaNarrativeFormatting.normalizedKey(card.expandedBody!);
+        final key = ThaiBetaNarrativeFormatting.normalizedKey(
+          card.expandedBody!,
+        );
         expect(expandedKeys.contains(key), isFalse, reason: card.title);
         expandedKeys.add(key);
       }
@@ -259,7 +264,9 @@ void main() {
         final firstSummary = hero.summary.split(RegExp(r'\n\n+')).first.trim();
         expect(
           ThaiBetaNarrativeFormatting.normalizedKey(hero.headline),
-          isNot(equals(ThaiBetaNarrativeFormatting.normalizedKey(firstSummary))),
+          isNot(
+            equals(ThaiBetaNarrativeFormatting.normalizedKey(firstSummary)),
+          ),
         );
       }
     });
@@ -268,7 +275,9 @@ void main() {
       final summary = ThaiBetaNarrativeComposer.compose(
         ThaiBetaNarrativeFixtures.fixtureA(),
       ).view.hero.summary;
-      final parts = summary.split(RegExp(r'\n\n+')).where((p) => p.trim().isNotEmpty);
+      final parts = summary
+          .split(RegExp(r'\n\n+'))
+          .where((p) => p.trim().isNotEmpty);
       expect(parts.length, inInclusiveRange(3, 6));
     });
 
@@ -288,10 +297,8 @@ void main() {
         ThaiBetaNarrativeFixtures.fixtureB(),
         consumerView: result.view,
       );
-      expect(
-        result.trace.entries.firstWhere((e) => e.sectionId == 'hero').blockId,
-        'hero_no_time_cautious_v1',
-      );
+      expect(result.trace.entries.where((e) => e.sectionId == 'hero'), isEmpty);
+      expectUnknownContract(ThaiBetaNarrativeFixtures.fixtureB());
       expect(core.title, 'ดวงจากวันเกิดของคุณ');
       expect(core.subtitle, contains('ไม่มีเวลาเกิด'));
       expect(
@@ -304,7 +311,9 @@ void main() {
       final result = ThaiBetaNarrativeComposer.compose(
         ThaiBetaNarrativeFixtures.fixtureC(),
       );
-      final heroTrace = result.trace.entries.where((e) => e.sectionId == 'hero');
+      final heroTrace = result.trace.entries.where(
+        (e) => e.sectionId == 'hero',
+      );
       expect(heroTrace, isNotEmpty);
       expect(heroTrace.first.blockId, isNotNull);
     });
@@ -317,7 +326,8 @@ void main() {
       ).view;
       for (final domain in ThaiBetaLifeDomain.values) {
         final item = view.lifeDashboard.firstWhere(
-          (i) => i.label == domain.labelTh ||
+          (i) =>
+              i.label == domain.labelTh ||
               (domain == ThaiBetaLifeDomain.luck && i.label == 'โชคและโอกาส'),
         );
         expect(
@@ -376,7 +386,9 @@ void main() {
         isTrue,
       );
       expect(
-        entries.any((e) => e.sectionId.startsWith('strength_') && e.blockId != null),
+        entries.any(
+          (e) => e.sectionId.startsWith('strength_') && e.blockId != null,
+        ),
         isTrue,
       );
       expect(
@@ -384,11 +396,19 @@ void main() {
         isTrue,
       );
       expect(
-        entries.where((e) => e.sectionId.startsWith('dashboard_') && e.blockId != null).length,
+        entries
+            .where(
+              (e) => e.sectionId.startsWith('dashboard_') && e.blockId != null,
+            )
+            .length,
         greaterThanOrEqualTo(5),
       );
       expect(
-        entries.where((e) => e.sectionId.startsWith('narrative_') && e.blockId != null).length,
+        entries
+            .where(
+              (e) => e.sectionId.startsWith('narrative_') && e.blockId != null,
+            )
+            .length,
         greaterThanOrEqualTo(5),
       );
 

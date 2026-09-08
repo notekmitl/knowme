@@ -1,3 +1,4 @@
+import '../../../evidence/or5r_unknown_contract.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:knowme/features/thai_beta/application/core_reading/thai_birth_profile_core_reading.dart';
 import 'package:knowme/features/thai_beta/application/narrative/thai_beta_clause_repetition_audit.dart';
@@ -83,6 +84,10 @@ void main() {
 
   test('forecast clauses have no exact, skeleton, or >=.78 reuse', () {
     for (final entry in analyses.entries) {
+      if (!entry.value.input.hasBirthTime) {
+        expectUnknownContract(entry.value);
+        continue;
+      }
       final view = ThaiBetaNarrativeComposer.narrativeView(entry.value);
       final units = <ThaiBetaNarrativeAuditUnit>[];
       for (
@@ -141,6 +146,10 @@ void main() {
   test('exact forecast reuse is measured without a zero-reuse gate', () {
     final groups = <String, List<(String, String)>>{};
     for (final entry in analyses.entries) {
+      if (!entry.value.input.hasBirthTime) {
+        expectUnknownContract(entry.value);
+        continue;
+      }
       final identity = plans[entry.key]!.materialIdentity;
       final view = ThaiBetaNarrativeComposer.narrativeView(entry.value);
       for (final body in view.futurePrediction!.windows.expand(
@@ -182,7 +191,8 @@ void main() {
       expect(unknown, isNot(contains('เรือนการงานที่')));
       expect(unknown, isNot(contains('เจ้าเรือนลัคนา')));
       expect(unknown, isNot(contains('วันทางโหราศาสตร์:')));
-      expect(unknown, contains('หากช่วงนี้คุณสังเกตว่า'));
+      expect(unknown, isNot(contains('หากช่วงนี้คุณสังเกตว่า')));
+      expectUnknownContract(analyses['owner-unknown']!);
     },
   );
 
@@ -198,6 +208,10 @@ void main() {
       ).fullPlainText;
       for (final phrase in rejected) {
         expect(text, isNot(contains(phrase)), reason: '$fixture:$phrase');
+      }
+      if (!analyses[fixture]!.input.hasBirthTime) {
+        expectUnknownContract(analyses[fixture]!);
+        continue;
       }
       final windows = ThaiBetaNarrativeComposer.narrativeView(
         analyses[fixture]!,

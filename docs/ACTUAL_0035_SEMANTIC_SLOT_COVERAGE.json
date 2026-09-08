@@ -1,0 +1,275 @@
+{
+  "schema": "actual-0035-semantic-slots/2",
+  "provenance": {
+    "runtimeSourceBase": "8325e04275d7cb58447abbf9b5dd1ff12acda2d8",
+    "rawPath": "build/or5r-neutral-v2-run1/OR5_ACTUAL_0035_RUNTIME_EVIDENCE.json",
+    "rawSha256": "307B8DBFEF75FD572BCB9AC1F57C1F7335214C525533A79FA66EE4FBC075AABE",
+    "input": {
+      "firstName": "Acceptance",
+      "lastName": "Fixture",
+      "birthDate": "1982-06-06",
+      "birthHour": 0,
+      "birthMinute": 35,
+      "birthTimeUnknown": false,
+      "province": "เชียงใหม่",
+      "provinceKey": "chiang mai",
+      "gender": "ชาย"
+    },
+    "asOf": "2026-08-29T00:00:00.000",
+    "timeZone": "Asia/Bangkok",
+    "contextId": "mahabhut2537.rem0.saturday",
+    "currentAge": 44,
+    "fullTextPath": "test/evidence/fixtures/or5r_known_baseline.json",
+    "fullTextPointer": "/35/publicExportText",
+    "baselineSha256": "801146E816024B85574F71FBCFB64D8D6335B85AD572300051378F760DB3AA88",
+    "fullTextSha256": "3F2277326AB23FB5703607F5B1557E0C08077E0A0F7A2665125F91AE9D4060BA",
+    "sections": 29,
+    "method": "The existing extraction test executes publicBoundary for fresh 00:03 and 00:35, asserting exact deep equality with this preserved baseline, including full export text/sections/snapshot/decisions. Both independent runs passed. Full text is copied from that freshly revalidated baseline, not claimed to be a field in the raw extraction JSON.",
+    "freshnessTest": "test/evidence/predictive_runtime_v2_or5_actual_input_export_test.dart: OR5 actual raw extraction precedes golden override and preserves input",
+    "determinism": {
+      "comparisons": [
+        {
+          "name": "OR5_ACTUAL_0035_RUNTIME_EVIDENCE.json",
+          "firstSha256": "307B8DBFEF75FD572BCB9AC1F57C1F7335214C525533A79FA66EE4FBC075AABE",
+          "secondSha256": "307B8DBFEF75FD572BCB9AC1F57C1F7335214C525533A79FA66EE4FBC075AABE"
+        },
+        {
+          "name": "OR5_RAW_0003_20260829.json",
+          "firstSha256": "9A84E49BEC45F89434B3D3368CCD7EC2DE0265946435FA1EE7DFF4B56966767D",
+          "secondSha256": "9A84E49BEC45F89434B3D3368CCD7EC2DE0265946435FA1EE7DFF4B56966767D"
+        },
+        {
+          "name": "OR5_RAW_0003_20260807.json",
+          "firstSha256": "3EE36E8B6BFB46B244CB977C90C1DD79B3FAAE489F4FC246A5FC9A50772E5319",
+          "secondSha256": "3EE36E8B6BFB46B244CB977C90C1DD79B3FAAE489F4FC246A5FC9A50772E5319"
+        },
+        {
+          "name": "OR5_UNKNOWN_RUNTIME_EVIDENCE.json",
+          "firstSha256": "8F6343C7F7205E930DAFCFDBF38E3A3702743B914893FCC7AD8FEF8726CE28C9",
+          "secondSha256": "8F6343C7F7205E930DAFCFDBF38E3A3702743B914893FCC7AD8FEF8726CE28C9"
+        }
+      ],
+      "pairs": 4,
+      "mismatches": 0
+    }
+  },
+  "totals": {
+    "required": 15,
+    "applicable": 15,
+    "emitted": 13,
+    "supported": 2,
+    "predictionSupported": 0,
+    "nonPredictiveProvenanceSupported": 2,
+    "missing": 2,
+    "duplicate": 0
+  },
+  "method": "One slot per actual completed engine period, then requested current/domain/future/composition slots. Engine first period is 0–10; the accepted golden reader labels it 1–10. This audit preserves the actual engine range and does not impose golden paragraph count. Non-predictive provenance support is separate from prediction authority.",
+  "slots": [
+    {
+      "id": "overview",
+      "label": "ภาพรวมชีวิต",
+      "required": true,
+      "applicable": true,
+      "emitted": 1,
+      "supported": false,
+      "missing": false,
+      "duplicate": 0,
+      "claimIds": [
+        "PRV2-mahabhut2537-rem0-saturday-OVERVIEW-01"
+      ],
+      "supportMeaning": "Whole prediction authority classification"
+    },
+    {
+      "id": "past:0-10",
+      "label": "อดีต 0–10",
+      "required": true,
+      "applicable": true,
+      "emitted": 0,
+      "supported": false,
+      "missing": true,
+      "duplicate": 0,
+      "claimIds": [],
+      "supportMeaning": "Whole prediction authority classification"
+    },
+    {
+      "id": "past:11-29",
+      "label": "อดีต 11–29",
+      "required": true,
+      "applicable": true,
+      "emitted": 0,
+      "supported": false,
+      "missing": true,
+      "duplicate": 0,
+      "claimIds": [],
+      "supportMeaning": "Whole prediction authority classification"
+    },
+    {
+      "id": "past:30-41",
+      "label": "อดีต 30–41",
+      "required": true,
+      "applicable": true,
+      "emitted": 1,
+      "supported": false,
+      "missing": false,
+      "duplicate": 0,
+      "claimIds": [
+        "PRV2-mahabhut2537-rem0-saturday-PAST-01"
+      ],
+      "supportMeaning": "Whole prediction authority classification"
+    },
+    {
+      "id": "current",
+      "label": "ปัจจุบัน",
+      "required": true,
+      "applicable": true,
+      "emitted": 1,
+      "supported": false,
+      "missing": false,
+      "duplicate": 0,
+      "claimIds": [
+        "PRV2-mahabhut2537-rem0-saturday-CURRENT-01"
+      ],
+      "supportMeaning": "Whole prediction authority classification"
+    },
+    {
+      "id": "work",
+      "label": "การงาน",
+      "required": true,
+      "applicable": true,
+      "emitted": 1,
+      "supported": false,
+      "missing": false,
+      "duplicate": 0,
+      "claimIds": [
+        "PRV2-mahabhut2537-rem0-saturday-WORK-01"
+      ],
+      "supportMeaning": "Whole prediction authority classification"
+    },
+    {
+      "id": "finance",
+      "label": "การเงิน",
+      "required": true,
+      "applicable": true,
+      "emitted": 1,
+      "supported": false,
+      "missing": false,
+      "duplicate": 0,
+      "claimIds": [
+        "PRV2-mahabhut2537-rem0-saturday-FINANCE-01"
+      ],
+      "supportMeaning": "Whole prediction authority classification"
+    },
+    {
+      "id": "relationship",
+      "label": "ความสัมพันธ์",
+      "required": true,
+      "applicable": true,
+      "emitted": 1,
+      "supported": false,
+      "missing": false,
+      "duplicate": 0,
+      "claimIds": [
+        "PRV2-mahabhut2537-rem0-saturday-RELATIONSHIP-01"
+      ],
+      "supportMeaning": "Whole prediction authority classification"
+    },
+    {
+      "id": "health",
+      "label": "สุขภาพ",
+      "required": true,
+      "applicable": true,
+      "emitted": 1,
+      "supported": false,
+      "missing": false,
+      "duplicate": 0,
+      "claimIds": [
+        "PRV2-mahabhut2537-rem0-saturday-HEALTH-01"
+      ],
+      "supportMeaning": "Whole prediction authority classification"
+    },
+    {
+      "id": "support",
+      "label": "โชคลาภ/แรงสนับสนุน",
+      "required": true,
+      "applicable": true,
+      "emitted": 1,
+      "supported": false,
+      "missing": false,
+      "duplicate": 0,
+      "claimIds": [
+        "PRV2-mahabhut2537-rem0-saturday-SUPPORT-01"
+      ],
+      "supportMeaning": "Whole prediction authority classification"
+    },
+    {
+      "id": "rolling12",
+      "label": "12 เดือนข้างหน้า",
+      "required": true,
+      "applicable": true,
+      "emitted": 1,
+      "supported": false,
+      "missing": false,
+      "duplicate": 0,
+      "claimIds": [
+        "PRV2-mahabhut2537-rem0-saturday-HORIZON-01"
+      ],
+      "supportMeaning": "Whole prediction authority classification"
+    },
+    {
+      "id": "next",
+      "label": "ช่วงชีวิตถัดไป",
+      "required": true,
+      "applicable": true,
+      "emitted": 1,
+      "supported": false,
+      "missing": false,
+      "duplicate": 0,
+      "claimIds": [
+        "PRV2-mahabhut2537-rem0-saturday-NEXT-01"
+      ],
+      "supportMeaning": "Whole prediction authority classification"
+    },
+    {
+      "id": "summary",
+      "label": "สรุป",
+      "required": true,
+      "applicable": true,
+      "emitted": 1,
+      "supported": false,
+      "missing": false,
+      "duplicate": 0,
+      "claimIds": [
+        "PRV2-mahabhut2537-rem0-saturday-SUMMARY-01"
+      ],
+      "supportMeaning": "Propagates parent prediction support, not a new independent authority"
+    },
+    {
+      "id": "advice",
+      "label": "คำแนะนำ",
+      "required": true,
+      "applicable": true,
+      "emitted": 1,
+      "supported": true,
+      "missing": false,
+      "duplicate": 0,
+      "claimIds": [
+        "PRV2-mahabhut2537-rem0-saturday-ADVICE-01"
+      ],
+      "supportMeaning": "Non-predictive composition provenance only; not predictive authority or language acceptance"
+    },
+    {
+      "id": "disclosure",
+      "label": "ข้อจำกัด",
+      "required": true,
+      "applicable": true,
+      "emitted": 1,
+      "supported": true,
+      "missing": false,
+      "duplicate": 0,
+      "claimIds": [
+        "PRV2-mahabhut2537-rem0-saturday-DISCLOSURE-01"
+      ],
+      "supportMeaning": "Non-predictive composition provenance only; not predictive authority or language acceptance"
+    }
+  ]
+}

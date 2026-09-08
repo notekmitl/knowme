@@ -1,3 +1,4 @@
+import '../../evidence/or5r_unknown_contract.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:knowme/features/astrology/thai/core/life_period/life_period_engine.dart';
 import 'package:knowme/features/astrology/thai/core/life_period/life_period_status_metadata.dart';
@@ -22,6 +23,7 @@ void main() {
       final audit = await ThaiCanonEvidenceAlignmentRunner.run(
         repository: repository,
       );
+      expectCanonTimePartition(audit.fixtureResults);
 
       var withPosition = 0;
       var withRuntime = 0;
@@ -36,14 +38,15 @@ void main() {
         );
       }
 
-      expect(withPosition, 56);
-      expect(withRuntime, 56);
+      expect(withPosition, 48);
+      expect(withRuntime, 48);
     });
 
     test('status source breakdown sums to runtime count', () async {
       final audit = await ThaiCanonEvidenceAlignmentRunner.run(
         repository: repository,
       );
+      expectCanonTimePartition(audit.fixtureResults);
 
       var exact = 0;
       var archetype = 0;
@@ -58,14 +61,15 @@ void main() {
       }
 
       expect(exact + archetype, runtime);
-      expect(exact, 7);
-      expect(archetype, 49);
+      expect(exact, 6);
+      expect(archetype, 42);
     });
 
     test('remaining 21 periods explicitly classified', () async {
       final audit = await ThaiCanonEvidenceAlignmentRunner.run(
         repository: repository,
       );
+      expectCanonTimePartition(audit.fixtureResults);
 
       var withoutRuntime = 0;
       var breakdown = 0;
@@ -120,34 +124,37 @@ void main() {
       );
     });
 
-    test('eighth QA period resolves from current archetype+planet evidence', () {
-      final pipeline = ThaiMirrorPipeline.generate(
-        ThaiMirrorPipeline.sampleQaBirthData(),
-      );
-      final archetype = ThaiArchetypeContextResolver.resolve(
-        remainderMetadata: ThaiRemainderMetadataResolver.resolve(
-          profile: pipeline.profile,
-          birthData: pipeline.birthData,
-        ),
-        canonIndex: repository.index,
-      ).metadata!;
-      final period = pipeline.lifePeriods!.periods[7];
-
-      final position = ThaiLifePeriodArchetypePlanetPositionResolver.resolve(
-        period: period,
-        archetypeMetadata: archetype,
-        canonIndex: repository.index,
-      );
-      expect(position, isNotNull);
-      expect(
-        ThaiLifePeriodRiseFallResolver.resolve(
-          period: period,
-          positionMetadata: position,
+    test(
+      'eighth QA period resolves from current archetype+planet evidence',
+      () {
+        final pipeline = ThaiMirrorPipeline.generate(
+          ThaiMirrorPipeline.sampleQaBirthData(),
+        );
+        final archetype = ThaiArchetypeContextResolver.resolve(
+          remainderMetadata: ThaiRemainderMetadataResolver.resolve(
+            profile: pipeline.profile,
+            birthData: pipeline.birthData,
+          ),
           canonIndex: repository.index,
-        ),
-        isNotNull,
-      );
-    });
+        ).metadata!;
+        final period = pipeline.lifePeriods!.periods[7];
+
+        final position = ThaiLifePeriodArchetypePlanetPositionResolver.resolve(
+          period: period,
+          archetypeMetadata: archetype,
+          canonIndex: repository.index,
+        );
+        expect(position, isNotNull);
+        expect(
+          ThaiLifePeriodRiseFallResolver.resolve(
+            period: period,
+            positionMetadata: position,
+            canonIndex: repository.index,
+          ),
+          isNotNull,
+        );
+      },
+    );
 
     test('ดวงนักวิชาการ Jupiter conflict remains unresolved', () {
       final archetype = ThaiArchetypeContextMetadata(
@@ -189,40 +196,45 @@ void main() {
       );
     });
 
-    test('periodStatus evidence attaches for runtime periods with p17 provenance',
-        () async {
-      final audit = await ThaiCanonEvidenceAlignmentRunner.run(
-        repository: repository,
-      );
+    test(
+      'periodStatus evidence attaches for runtime periods with p17 provenance',
+      () async {
+        final audit = await ThaiCanonEvidenceAlignmentRunner.run(
+          repository: repository,
+        );
+        expectCanonTimePartition(audit.fixtureResults);
 
-      for (final result in audit.fixtureResults) {
-        final runtimeAttachments = result.bundle.attachments.where(
-          (a) =>
-              a.evidenceType == ThaiCanonEvidenceType.periodStatusStructural &&
-              !a.signalId.contains(':periodStatus:canonDerived:'),
-        );
-        expect(
-          runtimeAttachments.length,
-          greaterThanOrEqualTo(
-            result.bundle.trace.lifePeriodsWithRuntimeStatus.length,
-          ),
-        );
-        for (final attachment in runtimeAttachments) {
-          expect(attachment.userFacingAllowed, isFalse);
-          expect(attachment.internalOnly, isTrue);
-          expect(
-            attachment.signalId.contains('ดวงขึ้น') ||
-                attachment.signalId.contains('ดวงตก'),
-            isTrue,
+        for (final result in audit.fixtureResults) {
+          final runtimeAttachments = result.bundle.attachments.where(
+            (a) =>
+                a.evidenceType ==
+                    ThaiCanonEvidenceType.periodStatusStructural &&
+                !a.signalId.contains(':periodStatus:canonDerived:'),
           );
+          expect(
+            runtimeAttachments.length,
+            greaterThanOrEqualTo(
+              result.bundle.trace.lifePeriodsWithRuntimeStatus.length,
+            ),
+          );
+          for (final attachment in runtimeAttachments) {
+            expect(attachment.userFacingAllowed, isFalse);
+            expect(attachment.internalOnly, isTrue);
+            expect(
+              attachment.signalId.contains('ดวงขึ้น') ||
+                  attachment.signalId.contains('ดวงตก'),
+              isTrue,
+            );
+          }
         }
-      }
-    });
+      },
+    );
 
     test('Canon-derived marker fallback remains separate', () async {
       final audit = await ThaiCanonEvidenceAlignmentRunner.run(
         repository: repository,
       );
+      expectCanonTimePartition(audit.fixtureResults);
 
       for (final result in audit.fixtureResults) {
         final trace = result.bundle.trace;
@@ -246,7 +258,12 @@ void main() {
             isFalse,
           );
         }
-        expect(runtime.length + derived.length, greaterThan(0));
+        if (result.fixture.birthData.hasBirthTime) {
+          expect(runtime.length + derived.length, greaterThan(0));
+        } else {
+          expectOmittedCanonTimeline(result);
+          expect(runtime.length + derived.length, 0);
+        }
       }
     });
   });
@@ -256,8 +273,9 @@ void main() {
       final pipeline = ThaiMirrorPipeline.generate(
         ThaiMirrorPipeline.sampleQaBirthData(),
       );
-      final before =
-          ThaiReportCanonEvidenceEnricher.userFacingFingerprint(pipeline);
+      final before = ThaiReportCanonEvidenceEnricher.userFacingFingerprint(
+        pipeline,
+      );
       await ThaiReportCanonEvidenceEnricher.enrich(
         pipeline,
         repository: repository,

@@ -107,8 +107,17 @@ List<String> _boundedPdfParagraphs(String paragraph) {
   return chunks.isEmpty ? [paragraph] : chunks;
 }
 
-List<_PdfSemanticBlock> _semanticBlocks(List<String> paragraphs) {
-  if (paragraphs.isEmpty) return const [];
+List<_PdfSemanticBlock> _semanticBlocks(
+  List<String> paragraphs, {
+  required String sectionTitle,
+}) {
+  // A canonical title is content even without a body. Keep it in the same
+  // atomic rendering path; never synthesize a paragraph or an empty widget.
+  if (paragraphs.isEmpty) {
+    return sectionTitle.trim().isEmpty
+        ? const []
+        : const [_PdfSemanticBlock(paragraphs: [])];
+  }
   final blocks = <_PdfSemanticBlock>[];
   final preamble = <String>[];
   String? heading;
@@ -151,9 +160,9 @@ class ThaiBetaPdfRenderResult {
 
   final Uint8List bytes;
 
-  /// Exact text written into PDF widgets (Unicode source of the PDF content).
-  /// Custom font embedding prevents reliable raw-byte Thai extraction, so
-  /// regression tests assert on this render text from the same exporter path.
+  /// Canonical text prepared for rendering, not proof that widgets were painted.
+  /// Rendering/parity regressions must inspect [bytes] or their actual rasters;
+  /// this accumulator can still contain a title that a widget path omits.
   final String plainText;
 
   final ThaiBetaReportExportDocument document;
@@ -191,7 +200,10 @@ abstract final class ThaiBetaReportPdfExporter {
   static List<String> debugPaginationUnitsForTest(
     ThaiBetaReportExportSection section,
   ) {
-    final blocks = _semanticBlocks(section.paragraphs);
+    final blocks = _semanticBlocks(
+      section.paragraphs,
+      sectionTitle: section.title,
+    );
     return [
       for (var i = 0; i < blocks.length; i++)
         [
@@ -529,7 +541,10 @@ abstract final class ThaiBetaReportPdfExporter {
               continue;
             }
 
-            final blocks = _semanticBlocks(section.paragraphs);
+            final blocks = _semanticBlocks(
+              section.paragraphs,
+              sectionTitle: section.title,
+            );
             for (var blockIndex = 0; blockIndex < blocks.length; blockIndex++) {
               final block = blocks[blockIndex];
               final renderParagraphs = block.paragraphs

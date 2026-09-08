@@ -1,0 +1,245 @@
+{
+  "schema": "candidate-0022-content-audit/1",
+  "status": "BLOCKED_BY_EXACT_EVIDENCE_GAP",
+  "ownerContentPass": false,
+  "implemented": false,
+  "passes": [
+    {
+      "pass": 1,
+      "focus": [
+        "sequence",
+        "continuous reading",
+        "predictive directness",
+        "outcome clarity",
+        "certainty"
+      ],
+      "complete": true
+    },
+    {
+      "pass": 2,
+      "focus": [
+        "natural spoken Thai",
+        "lexical and semantic repetition",
+        "formula construction",
+        "internal conflict",
+        "leakage",
+        "unsupported content"
+      ],
+      "complete": true
+    }
+  ],
+  "priorOr7Counters": {
+    "generic_outcome_phrases": 0,
+    "vague_pressure_phrases": 0,
+    "lexical_overuse": 0,
+    "cross_section_semantic_repetition": 0,
+    "psychology_prediction_leakage": 0,
+    "psychology_advice_leakage": 0,
+    "repeated_domain_headings": 0,
+    "summary_without_new_function": 0
+  },
+  "counters": {
+    "conditional_prediction_fallback": 0,
+    "cross_horizon_semantic_repetition": 0,
+    "reader_perceived_repetition": 2,
+    "generic_positive_then_risk_formula": 0,
+    "unsupported_causal_link": 6,
+    "unnatural_thai_phrase": 0,
+    "advice_disguised_as_prediction": 0,
+    "personality_disguised_as_prediction": 0
+  },
+  "evidence": {
+    "conditional_prediction_fallback": [],
+    "cross_horizon_semantic_repetition": [],
+    "reader_perceived_repetition": [
+      {
+        "kind": "support-work",
+        "leftOwner": "support",
+        "rightOwner": "work",
+        "leftExact": "ครู ผู้มีประสบการณ์ เพื่อน และคนในเครือข่ายจะเข้ามาช่วย ทำให้งานและเรื่องเงินคล่องขึ้น",
+        "rightExact": "งานมีเข้ามาต่อเนื่องและคุณยังรับผิดชอบงานหลักได้เต็มที่",
+        "reason": "The support paragraph repeats a work outcome readers already meet in the work section."
+      },
+      {
+        "kind": "support-finance",
+        "leftOwner": "support",
+        "rightOwner": "finance",
+        "leftExact": "ครู ผู้มีประสบการณ์ เพื่อน และคนในเครือข่ายจะเข้ามาช่วย ทำให้งานและเรื่องเงินคล่องขึ้น",
+        "rightExact": "คุณมีเงินใช้และมีโชคลาภ เรื่องเงินในช่วงนี้คล่องตัวขึ้น",
+        "reason": "The support paragraph repeats a money outcome readers already meet in the finance section."
+      }
+    ],
+    "generic_positive_then_risk_formula": [],
+    "unsupported_causal_link": [
+      {
+        "owner": "past-11-29",
+        "exactSpan": "การเรียนให้ผลดีและเปิดทางให้คุณเริ่มสร้างเส้นทางงานของตัวเอง",
+        "missingComponent": "An explicit learning-causes-career-start relation; the existing chain co-locates learning and career but does not make one cause the other."
+      },
+      {
+        "owner": "relationship",
+        "exactSpan": "การเพิ่มข้อผูกพันจะช้ากว่าที่คิด เพราะความคาดหวังของทั้งสองฝ่ายยังไม่ตรงกันทั้งหมด",
+        "missingComponent": "A definite present mismatch, a definite delay, and “slower than expected”; the component only records mismatch as a possible secondary pressure."
+      },
+      {
+        "owner": "support",
+        "exactSpan": "ทำให้งานและเรื่องเงินคล่องขึ้น",
+        "missingComponent": "A support-causes-work-and-finance outcome binding; the source has separate support, work, and money clauses but no causal link between them."
+      },
+      {
+        "owner": "rolling12",
+        "exactSpan": "รายรับจะเพิ่มตามงาน",
+        "missingComponent": "An explicit work-causes-income relation; the chain supports both expansion and increased income but does not bind income causally to work."
+      },
+      {
+        "owner": "rolling12",
+        "exactSpan": "ภาระที่เพิ่มเร็วกว่าสิทธิ์ตัดสินใจจะทำให้งานบางส่วนช้าลง",
+        "missingComponent": "A relative growth-rate premise and slowdown outcome; the existing career component instead binds insufficient authority to reduced primary-work quality."
+      },
+      {
+        "owner": "rolling12",
+        "exactSpan": "รายจ่ายประจำที่โตตามรายรับจะทำให้เงินเหลือเก็บเพิ่มไม่ทันรายรับ",
+        "missingComponent": "Definite expense growth and a savings-lag outcome; the component only supports this as a conditional risk to available cash."
+      }
+    ],
+    "unnatural_thai_phrase": [],
+    "advice_disguised_as_prediction": [],
+    "personality_disguised_as_prediction": []
+  },
+  "candidate0021NegativeControl": {
+    "counters": {
+      "conditional_prediction_fallback": 2,
+      "cross_horizon_semantic_repetition": 2,
+      "reader_perceived_repetition": 2,
+      "generic_positive_then_risk_formula": 3,
+      "unsupported_causal_link": 0,
+      "unnatural_thai_phrase": 1,
+      "advice_disguised_as_prediction": 0,
+      "personality_disguised_as_prediction": 0
+    },
+    "evidence": {
+      "conditional_prediction_fallback": [
+        {
+          "owner": "relationship",
+          "exactSpan": "ความสัมพันธ์จะแน่นแฟ้นขึ้นเมื่อคำพูดและการกระทำของทั้งสองฝ่ายตรงกัน หากความคาดหวังยังไม่ตรงกัน การเพิ่มข้อผูกพันจะช้าลง",
+          "reason": "Uses a conditional fallback inside prediction wording."
+        },
+        {
+          "owner": "rolling12",
+          "exactSpan": "ระหว่างวันที่ 29 สิงหาคม 2569 ถึง 28 สิงหาคม 2570 ขอบเขตงานที่คุณรับผิดชอบจะกว้างขึ้น และรายรับจะเพิ่มขึ้น หากอำนาจตัดสินใจไม่เพิ่มตามงาน คุณภาพงานหลักจะลดลง ส่วนเงินพร้อมใช้จะไม่เพิ่มตามรายรับหากรายจ่ายประจำโตตาม",
+          "reason": "Uses a conditional fallback inside prediction wording."
+        }
+      ],
+      "cross_horizon_semantic_repetition": [
+        {
+          "kind": "work-risk",
+          "leftOwner": "work",
+          "rightOwner": "rolling12",
+          "leftExact": "คุณมีงานทำต่อเนื่องและรับผิดชอบงานหลักได้เต็มที่ ภาระที่รับมากเกินไปจะเบียดเวลาของงานหลักและทำให้คุณภาพลดลง",
+          "rightExact": "ระหว่างวันที่ 29 สิงหาคม 2569 ถึง 28 สิงหาคม 2570 ขอบเขตงานที่คุณรับผิดชอบจะกว้างขึ้น และรายรับจะเพิ่มขึ้น หากอำนาจตัดสินใจไม่เพิ่มตามงาน คุณภาพงานหลักจะลดลง ส่วนเงินพร้อมใช้จะไม่เพิ่มตามรายรับหากรายจ่ายประจำโตตาม",
+          "reason": "Current work risk is repeated in the rolling-12 paragraph."
+        },
+        {
+          "kind": "finance-risk",
+          "leftOwner": "finance",
+          "rightOwner": "rolling12",
+          "leftExact": "คุณมีเงินใช้และมีโชคลาภ เงินพร้อมใช้ทำให้ตัดสินใจเรื่องรายจ่ายได้คล่องขึ้น แต่รายจ่ายระยะยาวจะลดเงินที่เหลือสำหรับแผนใหม่",
+          "rightExact": "ระหว่างวันที่ 29 สิงหาคม 2569 ถึง 28 สิงหาคม 2570 ขอบเขตงานที่คุณรับผิดชอบจะกว้างขึ้น และรายรับจะเพิ่มขึ้น หากอำนาจตัดสินใจไม่เพิ่มตามงาน คุณภาพงานหลักจะลดลง ส่วนเงินพร้อมใช้จะไม่เพิ่มตามรายรับหากรายจ่ายประจำโตตาม",
+          "reason": "Current finance expense risk is repeated in the rolling-12 paragraph."
+        }
+      ],
+      "reader_perceived_repetition": [
+        {
+          "kind": "work-risk",
+          "leftOwner": "work",
+          "rightOwner": "rolling12",
+          "leftExact": "คุณมีงานทำต่อเนื่องและรับผิดชอบงานหลักได้เต็มที่ ภาระที่รับมากเกินไปจะเบียดเวลาของงานหลักและทำให้คุณภาพลดลง",
+          "rightExact": "ระหว่างวันที่ 29 สิงหาคม 2569 ถึง 28 สิงหาคม 2570 ขอบเขตงานที่คุณรับผิดชอบจะกว้างขึ้น และรายรับจะเพิ่มขึ้น หากอำนาจตัดสินใจไม่เพิ่มตามงาน คุณภาพงานหลักจะลดลง ส่วนเงินพร้อมใช้จะไม่เพิ่มตามรายรับหากรายจ่ายประจำโตตาม",
+          "reason": "Current work risk is repeated in the rolling-12 paragraph."
+        },
+        {
+          "kind": "finance-risk",
+          "leftOwner": "finance",
+          "rightOwner": "rolling12",
+          "leftExact": "คุณมีเงินใช้และมีโชคลาภ เงินพร้อมใช้ทำให้ตัดสินใจเรื่องรายจ่ายได้คล่องขึ้น แต่รายจ่ายระยะยาวจะลดเงินที่เหลือสำหรับแผนใหม่",
+          "rightExact": "ระหว่างวันที่ 29 สิงหาคม 2569 ถึง 28 สิงหาคม 2570 ขอบเขตงานที่คุณรับผิดชอบจะกว้างขึ้น และรายรับจะเพิ่มขึ้น หากอำนาจตัดสินใจไม่เพิ่มตามงาน คุณภาพงานหลักจะลดลง ส่วนเงินพร้อมใช้จะไม่เพิ่มตามรายรับหากรายจ่ายประจำโตตาม",
+          "reason": "Current finance expense risk is repeated in the rolling-12 paragraph."
+        }
+      ],
+      "generic_positive_then_risk_formula": [
+        {
+          "owner": "work",
+          "exactSpan": "คุณมีงานทำต่อเนื่องและรับผิดชอบงานหลักได้เต็มที่ ภาระที่รับมากเกินไปจะเบียดเวลาของงานหลักและทำให้คุณภาพลดลง",
+          "reason": "Uses the repeated positive-result then generic-risk construction rejected in Candidate 0021."
+        },
+        {
+          "owner": "finance",
+          "exactSpan": "คุณมีเงินใช้และมีโชคลาภ เงินพร้อมใช้ทำให้ตัดสินใจเรื่องรายจ่ายได้คล่องขึ้น แต่รายจ่ายระยะยาวจะลดเงินที่เหลือสำหรับแผนใหม่",
+          "reason": "Uses the repeated positive-result then generic-risk construction rejected in Candidate 0021."
+        },
+        {
+          "owner": "relationship",
+          "exactSpan": "ความสัมพันธ์จะแน่นแฟ้นขึ้นเมื่อคำพูดและการกระทำของทั้งสองฝ่ายตรงกัน หากความคาดหวังยังไม่ตรงกัน การเพิ่มข้อผูกพันจะช้าลง",
+          "reason": "Uses the repeated positive-result then generic-risk construction rejected in Candidate 0021."
+        }
+      ],
+      "unsupported_causal_link": [],
+      "unnatural_thai_phrase": [
+        {
+          "owner": "overview",
+          "exactSpan": "วัยเด็กของคุณถูกปัญหาในครอบครัวจำกัดอยู่มาก",
+          "reason": "Unnatural passive stacking in Thai."
+        }
+      ],
+      "advice_disguised_as_prediction": [],
+      "personality_disguised_as_prediction": []
+    }
+  },
+  "mutationControls": [
+    {
+      "counter": "conditional_prediction_fallback",
+      "detected": true,
+      "observedValue": 1
+    },
+    {
+      "counter": "cross_horizon_semantic_repetition",
+      "detected": true,
+      "observedValue": 1
+    },
+    {
+      "counter": "reader_perceived_repetition",
+      "detected": true,
+      "observedValue": 2
+    },
+    {
+      "counter": "generic_positive_then_risk_formula",
+      "detected": true,
+      "observedValue": 1
+    },
+    {
+      "counter": "unsupported_causal_link",
+      "detected": true,
+      "observedValue": 7
+    },
+    {
+      "counter": "unnatural_thai_phrase",
+      "detected": true,
+      "observedValue": 1
+    },
+    {
+      "counter": "advice_disguised_as_prediction",
+      "detected": true,
+      "observedValue": 1
+    },
+    {
+      "counter": "personality_disguised_as_prediction",
+      "detected": true,
+      "observedValue": 1
+    }
+  ],
+  "pairwiseChecks": 55,
+  "pairwiseSemanticDuplicates": 0,
+  "exactEvidenceBlockedCount": 6,
+  "note": "Machine results do not confer Owner Content Acceptance. Nonzero evidence and reader-perceived findings keep Candidate 0022 blocked.",
+  "fullCandidateReaderCopy": "ข้อมูลดวง\nเกิดวันที่ 6 มิถุนายน 2525 เวลา 00:35 น. จังหวัดเชียงใหม่\nเพศชาย · วันทางโหราศาสตร์เป็นวันเสาร์\nลัคนาราศีกุมภ์ 19°19′\n\nภาพรวมเส้นทางชีวิต\nวัย 0–10 ปีเป็นช่วงที่ชีวิตติดขัดจากปัญหาในครอบครัว หลังอายุ 11 ปี ชีวิตเปลี่ยนเป็นขาขึ้นและดีขึ้นต่อเนื่องมาถึงปัจจุบัน\n\nคำทำนายอดีต\n\nอายุ 0–10 ปี\nช่วงอายุ 0–10 ปี พ่อแม่มีปัญหาสุขภาพ งานไม่ราบรื่น และเงินติดขัด จึงดูแลคุณได้ไม่เต็มที่\n\nอายุ 11–29 ปี\nช่วงอายุ 11–29 ปี ชีวิตดีขึ้นจากวัยเด็ก การเรียนให้ผลดีและเปิดทางให้คุณเริ่มสร้างเส้นทางงานของตัวเอง\n\nอายุ 30–41 ปี\nช่วงอายุ 30–41 ปี งานและความรับผิดชอบเพิ่มขึ้น คุณต้องตัดสินใจเรื่องสำคัญด้วยตัวเองมากกว่าเดิม\n\nคำทำนายปัจจุบัน — อายุ 44 ปี\nตอนนี้การลงมือทำ การพูดคุย และการตัดสินใจคล่องกว่าช่วงก่อน\n\nการงาน\nงานมีเข้ามาต่อเนื่องและคุณยังรับผิดชอบงานหลักได้เต็มที่\n\nการเงิน\nคุณมีเงินใช้และมีโชคลาภ เรื่องเงินในช่วงนี้คล่องตัวขึ้น\n\nความรักและความสัมพันธ์\nความสัมพันธ์ที่สำคัญจะแน่นแฟ้นขึ้น แต่การเพิ่มข้อผูกพันจะช้ากว่าที่คิด เพราะความคาดหวังของทั้งสองฝ่ายยังไม่ตรงกันทั้งหมด\n\nสุขภาพ\nกำลังโดยรวมยังดี แต่ช่วงที่พักไม่พอ ร่างกายจะฟื้นช้าลงและทำกิจกรรมต่อเนื่องได้ลดลง\n\nโชคลาภและแรงสนับสนุน\nครู ผู้มีประสบการณ์ เพื่อน และคนในเครือข่ายจะเข้ามาช่วย ทำให้งานและเรื่องเงินคล่องขึ้น\n\nคำทำนาย 12 เดือนข้างหน้า\nระหว่างวันที่ 29 สิงหาคม 2569 ถึง 28 สิงหาคม 2570 งานที่รับผิดชอบจะขยายและรายรับจะเพิ่มตามงาน ภาระที่เพิ่มเร็วกว่าสิทธิ์ตัดสินใจจะทำให้งานบางส่วนช้าลง ส่วนรายจ่ายประจำที่โตตามรายรับจะทำให้เงินเหลือเก็บเพิ่มไม่ทันรายรับ\n\nคำแนะนำ\nกำหนดขอบเขตงานที่รับเพิ่ม ตรวจเงินคงเหลือหลังรายจ่ายจำเป็นก่อนขยายแผน และกันเวลาพักไว้ให้ร่างกายฟื้นแรง\n\nข้อจำกัด\nคำทำนายนี้เป็นการตีความตามหลักโหราศาสตร์และความเชื่อ ใช้ประกอบการพิจารณาร่วมกับข้อเท็จจริงก่อนตัดสินใจเรื่องสำคัญ\nข้อความด้านสุขภาพใช้เพื่อการทบทวนทั่วไป ไม่ใช่การวินิจฉัยโรคหรือคำแนะนำทางการแพทย์\n\nพื้นดวงและมุมมองด้านจิตวิทยา\nเนื้อหาต่อไปนี้กล่าวถึงลักษณะพื้นฐานเท่านั้น แยกจากคำทำนายและคำแนะนำ\n\nลักษณะพื้นฐาน\nคุณคิดเป็นระบบและทำได้ดีเมื่อรู้ว่าขั้นต่อไปต้องทำอะไร ความอดทนช่วยให้คุณค่อย ๆ สร้างสิ่งต่าง ๆ ให้มั่นคง จึงเป็นคนที่คนอื่นพึ่งพาได้\n\nที่มาและวิธีอ่าน\nข้อมูลและหลักที่ใช้ประกอบรายงาน แยกจากคำทำนาย\n\nรายงานนี้ดูจากอะไร\nข้อมูลวัน เวลา และสถานที่เกิด\nวิธีนับวันทางโหราศาสตร์ไทย\nวันเกิดตามสูติบัตรยังเป็นวันที่ 1982-06-06 ตามเดิม ส่วนการอ่านตามหลักโหราศาสตร์ไทยใช้วันเสาร์ (วันที่ 1982-06-05) เป็นวันทางโหราศาสตร์\nเวลาเกิดอยู่ก่อนพระอาทิตย์ขึ้นเวลา 05:46 จึงใช้วันก่อนหน้าตามกฎที่นับวันใหม่เมื่อพระอาทิตย์ขึ้น โดยไม่เปลี่ยนวันเกิดตามสูติบัตร\nลัคนา (ภาพบุคลิกตั้งต้นที่คำนวณจากนาฬิกาเกิดและพิกัดจังหวัด) อยู่ที่ราศีกุมภ์\nรายงานเลือกเรื่องที่เกี่ยวกับชีวิตคุณชัดที่สุดขึ้นมาก่อน จากนั้นจึงอธิบายสิ่งที่ควรระวังและใช้ตัดสินใจ\nโครงสร้างดวงหลัก\nวันทางโหราศาสตร์: วันเสาร์ — เวลาเกิดอยู่ก่อนพระอาทิตย์ขึ้น จึงใช้วันก่อนหน้าเป็นวันทางโหราศาสตร์\nลัคนา: ราศีกุมภ์ 19°19′ — ไปได้ดีเมื่อชีวิตมีระบบและรู้ว่าต้องทำอะไรต่อ\nเจ้าเรือนลัคนา: ดาวเสาร์ — ใช้ประกอบการอ่านวิธีคิดและตัดสินใจจากลัคนา\nเรือนการงาน: ราศีพิจิก · เจ้าเรือนดาวอังคาร — ตำแหน่งคู่นี้ใช้ประกอบการอ่านเรื่องงานและวิธีสร้างผลงาน\nเรือนการเงิน: ราศีมีน · เจ้าเรือนดาวพฤหัสบดี — ตำแหน่งนี้ใช้ประกอบการอ่านเรื่องเงินและวิธีรักษาความมั่นคง\nเรือนความสัมพันธ์: ราศีสิงห์ · เจ้าเรือนดาวอาทิตย์ — เรือนนี้ใช้ประกอบการอ่านเรื่องความสัมพันธ์และการสร้างความไว้ใจ\nเรือนสุขภาวะ: ราศีกรกฎ · เจ้าเรือนดาวจันทร์ — หลักฐานชุดนี้ใช้ประกอบการอ่านเรื่องกิจวัตร การพัก และการฟื้นตัว\nความหมายและข้อจำกัดของผลลัพธ์\n\nที่มาของผลวิเคราะห์\nใช้วัน เดือน ปีเกิด เวลาเกิด และจังหวัดที่เกิดจากโปรไฟล์ของคุณ\nนำข้อมูลวันเกิดของคุณมาประมวลผลตามหลักดวงไทย แล้วแปลงเป็นภาษาที่อ่านเข้าใจง่าย โดยไม่แสดงรายละเอียดเชิงเทคนิค"
+}

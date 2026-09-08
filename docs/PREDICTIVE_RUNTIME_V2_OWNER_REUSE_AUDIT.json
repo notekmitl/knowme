@@ -1,0 +1,4437 @@
+{
+  "summary": {
+    "semanticOwners": 13,
+    "evidenceMismatchedReuse": 0
+  },
+  "owners": {
+    "overview": {
+      "distinctParagraphCount": 40,
+      "mostReusedParagraph": "ชีวิตกำลังเข้าสู่รอบขยายผล งานที่ทำต่อเนื่องจะเปลี่ยนเป็นบทบาทและฐานรายรับที่ชัดขึ้น ผลงานและการยอมรับจะทำให้เป้าหมายระยะยาวเห็นผลชัดขึ้น งานจะเดินหน้าและหน้าที่จะเพิ่มขึ้น ขณะที่ฐานรายรับจะขยายตามงาน",
+      "reuseCount": 2,
+      "contexts": [
+        "mahabhut2537.rem4.friday",
+        "mahabhut2537.rem6.monday"
+      ],
+      "evidenceFingerprints": [
+        "status=dueng_khuen|role=sri|house=thongchai"
+      ],
+      "mismatchedEvidenceReuseCount": 0,
+      "mismatchedEvidenceReuse": [],
+      "paragraphs": [
+        {
+          "text": "ชีวิตกำลังเข้าสู่รอบขยายผล งานที่ทำต่อเนื่องจะเปลี่ยนเป็นบทบาทและฐานรายรับที่ชัดขึ้น ผลงานและการยอมรับจะทำให้เป้าหมายระยะยาวเห็นผลชัดขึ้น งานจะเดินหน้าและหน้าที่จะเพิ่มขึ้น ขณะที่ฐานรายรับจะขยายตามงาน",
+          "reuseCount": 2,
+          "contexts": [
+            "mahabhut2537.rem4.friday",
+            "mahabhut2537.rem6.monday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_khuen|role=sri|house=thongchai"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem4.friday.mars.43_50",
+            "selector.mahabhut2537.rem6.monday.jupiter.41_59"
+          ]
+        },
+        {
+          "text": "ชีวิตกำลังเข้าสู่รอบขยายผล งานที่ทำต่อเนื่องจะเปลี่ยนเป็นบทบาทและฐานรายรับที่ชัดขึ้น ผลงานและการยอมรับจะทำให้ทรัพยากรและฐานการเงินขยายขึ้น งานจะเดินหน้าและหน้าที่จะเพิ่มขึ้น ขณะที่ฐานรายรับจะขยายตามงาน",
+          "reuseCount": 2,
+          "contexts": [
+            "mahabhut2537.rem3.tuesday",
+            "mahabhut2537.rem4.saturday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_khuen|role=sri|house=khumsap"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem3.tuesday.jupiter.36_54",
+            "selector.mahabhut2537.rem4.saturday.venus.42_62"
+          ]
+        },
+        {
+          "text": "ชีวิตกำลังอยู่ในรอบจัดระเบียบของเดิม เรื่องค้างจะได้ข้อสรุปก่อนบทบาทและฐานรายรับเริ่มขยับ อำนาจตัดสินใจจะทำให้สิ่งที่หมดบทบาทต้องยุติลง งานจะเดินหน้าและหน้าที่จะเพิ่มขึ้น ขณะที่ฐานรายรับจะขยายตามงาน",
+          "reuseCount": 2,
+          "contexts": [
+            "mahabhut2537.rem0.sunday",
+            "mahabhut2537.rem1.monday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_tok|role=det|house=marana"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem0.sunday.mars.22_29",
+            "selector.mahabhut2537.rem1.monday.mercury.24_40"
+          ]
+        },
+        {
+          "text": "ชีวิตในวัยนี้กำลังเปิดกว้างขึ้นผ่านการเรียน กิจวัตร และคนรอบตัว คนรอบตัวจะทำให้หน้าที่และกติกาชัดขึ้น การเรียนและหน้าที่จะขยับตามสิ่งที่ทำต่อเนื่อง",
+          "reuseCount": 2,
+          "contexts": [
+            "mahabhut2537.rem0.wednesday",
+            "mahabhut2537.rem2.friday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_khuen|role=boriwan|house=athibodi"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem0.wednesday.mercury.0_17",
+            "selector.mahabhut2537.rem2.friday.venus.0_21"
+          ]
+        },
+        {
+          "text": "ชีวิตในวัยนี้กำลังปรับตัวกับข้อจำกัด กิจวัตร และความเปลี่ยนแปลงรอบตัว คนรอบตัวจะทำให้สิ่งที่หมดบทบาทต้องยุติลง พัฒนาการและกิจวัตรจะขยับตามความสม่ำเสมอของการดูแล",
+          "reuseCount": 2,
+          "contexts": [
+            "mahabhut2537.rem1.wednesday",
+            "mahabhut2537.rem5.sunday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_tok|role=boriwan|house=marana"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem1.wednesday.mercury.0_17",
+            "selector.mahabhut2537.rem5.sunday.sun.0_6"
+          ]
+        },
+        {
+          "text": "ชีวิตกำลังเข้าสู่รอบขยายผล งานที่ทำต่อเนื่องจะเปลี่ยนเป็นบทบาทและฐานรายรับที่ชัดขึ้น อำนาจตัดสินใจจะทำให้หน้าที่และอำนาจรับผิดชอบขยายขึ้น งานจะเดินหน้าและหน้าที่จะเพิ่มขึ้น ขณะที่ฐานรายรับจะขยายตามงาน",
+          "reuseCount": 2,
+          "contexts": [
+            "mahabhut2537.rem0.monday",
+            "mahabhut2537.rem0.saturday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_khuen|role=det|house=athibodi"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem0.monday.mercury.24_40",
+            "selector.mahabhut2537.rem0.saturday.rahu.30_41"
+          ]
+        },
+        {
+          "text": "ชีวิตกำลังเข้าสู่รอบขยายผล งานที่ทำต่อเนื่องจะเปลี่ยนเป็นบทบาทและฐานรายรับที่ชัดขึ้น อำนาจตัดสินใจจะทำให้เป้าหมายระยะยาวเห็นผลชัดขึ้น งานจะเดินหน้าและหน้าที่จะเพิ่มขึ้น ขณะที่ฐานรายรับจะขยายตามงาน",
+          "reuseCount": 2,
+          "contexts": [
+            "mahabhut2537.rem5.monday",
+            "mahabhut2537.rem5.saturday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_khuen|role=det|house=thongchai"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem5.monday.mercury.24_40",
+            "selector.mahabhut2537.rem5.saturday.rahu.30_41"
+          ]
+        },
+        {
+          "text": "ชีวิตในวัยนี้กำลังปรับตัวกับข้อจำกัด กิจวัตร และความเปลี่ยนแปลงรอบตัว คนรอบตัวจะทำให้โครงสร้างและขอบเขตเดิมต้องปรับใหม่ การเรียนและหน้าที่จะขยับตามสิ่งที่ทำต่อเนื่อง",
+          "reuseCount": 2,
+          "contexts": [
+            "mahabhut2537.rem4.wednesday",
+            "mahabhut2537.rem5.thursday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_tok|role=boriwan|house=phangkha"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem4.wednesday.mercury.0_17",
+            "selector.mahabhut2537.rem5.thursday.jupiter.0_19"
+          ]
+        },
+        {
+          "text": "ชีวิตในวัยนี้กำลังเปิดกว้างขึ้นผ่านการเรียน กิจวัตร และคนรอบตัว กำลังและกิจวัตรจะทำให้บทบาทที่คนอื่นมองเห็นชัดขึ้น การเรียนและหน้าที่จะขยับตามสิ่งที่ทำต่อเนื่อง",
+          "reuseCount": 2,
+          "contexts": [
+            "mahabhut2537.rem4.sunday",
+            "mahabhut2537.rem6.tuesday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_khuen|role=ayu|house=racha"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem4.sunday.moon.7_21",
+            "selector.mahabhut2537.rem6.tuesday.mercury.9_25"
+          ]
+        },
+        {
+          "text": "ชีวิตกำลังอยู่ในรอบจัดระเบียบของเดิม เรื่องค้างจะได้ข้อสรุปก่อนบทบาทและฐานรายรับเริ่มขยับ ฐานงานและทรัพย์สินเดิมจะทำให้สิ่งที่หมดบทบาทต้องยุติลง งานจะเดินหน้าและหน้าที่จะเพิ่มขึ้น ขณะที่ฐานรายรับจะขยายตามงาน",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem3.monday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_tok|role=mula|house=marana"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem3.monday.venus.60_80"
+          ]
+        },
+        {
+          "text": "ชีวิตกำลังอยู่ในรอบจัดระเบียบของเดิม เรื่องค้างจะได้ข้อสรุปก่อนบทบาทและฐานรายรับเริ่มขยับ ผลงานและการยอมรับจะทำให้รอบเดิมต้องปิดก่อนเริ่มจังหวะใหม่ งานจะชะลอระหว่างจัดภาระและข้อจำกัดเดิม ขณะที่กระแสเงินจะค่อย ๆ นิ่งขึ้น",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem3.wednesday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_tok|role=sri|house=puti"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem3.wednesday.rahu.47_58"
+          ]
+        },
+        {
+          "text": "ชีวิตในวัยนี้กำลังเปิดกว้างขึ้นผ่านการเรียน กิจวัตร และคนรอบตัว คนรอบตัวจะทำให้เป้าหมายที่ทำต่อเนื่องเห็นผลชัดขึ้น พัฒนาการและกิจวัตรจะขยับตามความสม่ำเสมอของการดูแล",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem6.thursday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_khuen|role=boriwan|house=thongchai"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem6.thursday.jupiter.0_19"
+          ]
+        },
+        {
+          "text": "ชีวิตกำลังเข้าสู่รอบขยายผล งานที่ทำต่อเนื่องจะเปลี่ยนเป็นบทบาทและฐานรายรับที่ชัดขึ้น ฐานงานและทรัพย์สินเดิมจะทำให้สถานะและบทบาทภายนอกเด่นขึ้น งานจะเดินหน้าและหน้าที่จะเพิ่มขึ้น ขณะที่ฐานรายรับจะขยายตามงาน",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem6.friday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_khuen|role=mula|house=racha"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem6.friday.mercury.51_67"
+          ]
+        },
+        {
+          "text": "ชีวิตกำลังเข้าสู่รอบขยายผล งานที่ทำต่อเนื่องจะเปลี่ยนเป็นบทบาทและฐานรายรับที่ชัดขึ้น งานที่ลงแรงต่อเนื่องจะทำให้เป้าหมายระยะยาวเห็นผลชัดขึ้น งานจะเดินหน้าและหน้าที่จะเพิ่มขึ้น ขณะที่ฐานรายรับจะขยายตามงาน",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem4.thursday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_khuen|role=utsaha|house=thongchai"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem4.thursday.mars.74_81"
+          ]
+        },
+        {
+          "text": "ชีวิตกำลังเข้าสู่รอบขยายผล งานที่ทำต่อเนื่องจะเปลี่ยนเป็นบทบาทและฐานรายรับที่ชัดขึ้น อำนาจตัดสินใจจะทำให้ทรัพยากรและฐานการเงินขยายขึ้น งานจะเดินหน้าและหน้าที่จะเพิ่มขึ้น ขณะที่ฐานรายรับจะขยายตามงาน",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem2.monday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_khuen|role=det|house=khumsap"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem2.monday.mercury.24_40"
+          ]
+        },
+        {
+          "text": "ชีวิตกำลังเข้าสู่รอบขยายผล งานที่ทำต่อเนื่องจะเปลี่ยนเป็นบทบาทและฐานรายรับที่ชัดขึ้น กำลังและจังหวะชีวิตจะทำให้สถานะและบทบาทภายนอกเด่นขึ้น งานจะเดินหน้าและหน้าที่จะเพิ่มขึ้น ขณะที่กระแสเงินจะค่อย ๆ นิ่งขึ้น",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem3.friday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_khuen|role=ayu|house=racha"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem3.friday.sun.22_27"
+          ]
+        },
+        {
+          "text": "ชีวิตกำลังเข้าสู่รอบขยายผล งานที่ทำต่อเนื่องจะเปลี่ยนเป็นบทบาทและฐานรายรับที่ชัดขึ้น ฐานงานและทรัพย์สินเดิมจะทำให้เป้าหมายระยะยาวเห็นผลชัดขึ้น งานจะขยับทีละขั้นผ่านเรื่องหลักที่ปิดจบ ขณะที่กระแสเงินจะค่อย ๆ นิ่งขึ้น",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem3.thursday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_khuen|role=mula|house=thongchai"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem3.thursday.moon.59_73"
+          ]
+        },
+        {
+          "text": "ชีวิตกำลังเข้าสู่รอบขยายผล งานที่ทำต่อเนื่องจะเปลี่ยนเป็นบทบาทและฐานรายรับที่ชัดขึ้น กำลังและจังหวะชีวิตจะทำให้ทรัพยากรและฐานการเงินขยายขึ้น งานจะเดินหน้าและหน้าที่จะเพิ่มขึ้น ขณะที่กระแสเงินจะค่อย ๆ นิ่งขึ้น",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem3.saturday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_khuen|role=ayu|house=khumsap"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem3.saturday.jupiter.11_29"
+          ]
+        },
+        {
+          "text": "ชีวิตกำลังเข้าสู่รอบขยายผล งานที่ทำต่อเนื่องจะเปลี่ยนเป็นบทบาทและฐานรายรับที่ชัดขึ้น งานที่ลงแรงต่อเนื่องจะทำให้ทรัพยากรและฐานการเงินขยายขึ้น งานจะเดินหน้าและหน้าที่จะเพิ่มขึ้น ขณะที่ฐานรายรับจะขยายตามงาน",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem5.friday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_khuen|role=utsaha|house=khumsap"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem5.friday.saturn.68_77"
+          ]
+        },
+        {
+          "text": "ชีวิตในวัยนี้กำลังเปิดกว้างขึ้นผ่านการเรียน กิจวัตร และคนรอบตัว คนรอบตัวจะทำให้หน้าที่และกติกาชัดขึ้น พัฒนาการและกิจวัตรจะขยับตามความสม่ำเสมอของการดูแล",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem1.thursday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_khuen|role=boriwan|house=athibodi"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem1.thursday.jupiter.0_19"
+          ]
+        },
+        {
+          "text": "ชีวิตกำลังเข้าสู่รอบขยายผล งานที่ทำต่อเนื่องจะเปลี่ยนเป็นบทบาทและฐานรายรับที่ชัดขึ้น ผลงานและการยอมรับจะทำให้หน้าที่และอำนาจรับผิดชอบขยายขึ้น งานจะเดินหน้าและหน้าที่จะเพิ่มขึ้น ขณะที่ฐานรายรับจะขยายตามงาน",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem2.saturday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_khuen|role=sri|house=athibodi"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem2.saturday.venus.42_62"
+          ]
+        },
+        {
+          "text": "ชีวิตในวัยนี้กำลังเปิดกว้างขึ้นผ่านการเรียน กิจวัตร และคนรอบตัว กำลังและกิจวัตรจะทำให้เป้าหมายที่ทำต่อเนื่องเห็นผลชัดขึ้น การเรียนและหน้าที่จะขยับตามสิ่งที่ทำต่อเนื่อง",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem5.tuesday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_khuen|role=ayu|house=thongchai"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem5.tuesday.mercury.9_25"
+          ]
+        },
+        {
+          "text": "ชีวิตในวัยนี้กำลังเปิดกว้างขึ้นผ่านการเรียน กิจวัตร และคนรอบตัว คนรอบตัวจะทำให้เป้าหมายที่ทำต่อเนื่องเห็นผลชัดขึ้น การเรียนและหน้าที่จะขยับตามสิ่งที่ทำต่อเนื่อง",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem5.wednesday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_khuen|role=boriwan|house=thongchai"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem5.wednesday.mercury.0_17"
+          ]
+        },
+        {
+          "text": "ชีวิตกำลังเข้าสู่รอบขยายผล งานที่ทำต่อเนื่องจะเปลี่ยนเป็นบทบาทและฐานรายรับที่ชัดขึ้น ผลงานและการยอมรับจะทำให้สถานะและบทบาทภายนอกเด่นขึ้น งานจะเดินหน้าและหน้าที่จะเพิ่มขึ้น ขณะที่ฐานรายรับจะขยายตามงาน",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem1.saturday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_khuen|role=sri|house=racha"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem1.saturday.venus.42_62"
+          ]
+        },
+        {
+          "text": "ชีวิตในวัยนี้กำลังปรับตัวกับข้อจำกัด กิจวัตร และความเปลี่ยนแปลงรอบตัว คนรอบตัวจะทำให้รอบเดิมต้องปิดก่อนเริ่มจังหวะใหม่ การเรียนและหน้าที่จะขยับตามสิ่งที่ทำต่อเนื่อง",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem6.saturday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_tok|role=boriwan|house=puti"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem6.saturday.saturn.0_10"
+          ]
+        },
+        {
+          "text": "ชีวิตกำลังอยู่ในรอบจัดระเบียบของเดิม เรื่องค้างจะได้ข้อสรุปก่อนบทบาทและฐานรายรับเริ่มขยับ อำนาจตัดสินใจจะทำให้สิ่งที่หมดบทบาทต้องยุติลง งานจะขยับทีละขั้นผ่านเรื่องหลักที่ปิดจบ ขณะที่กระแสเงินจะค่อย ๆ นิ่งขึ้น",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem2.wednesday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_tok|role=det|house=marana"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem2.wednesday.jupiter.28_46"
+          ]
+        },
+        {
+          "text": "ชีวิตกำลังอยู่ในรอบจัดระเบียบของเดิม เรื่องค้างจะได้ข้อสรุปก่อนบทบาทและฐานรายรับเริ่มขยับ กำลังและจังหวะชีวิตจะทำให้สิ่งที่หมดบทบาทต้องยุติลง งานจะเดินหน้าและหน้าที่จะเพิ่มขึ้น ขณะที่ฐานรายรับจะขยายตามงาน",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem1.tuesday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_tok|role=ayu|house=marana"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem1.tuesday.mercury.9_25"
+          ]
+        },
+        {
+          "text": "ชีวิตกำลังอยู่ในรอบจัดระเบียบของเดิม เรื่องค้างจะได้ข้อสรุปก่อนบทบาทและฐานรายรับเริ่มขยับ ฐานงานและทรัพย์สินเดิมจะทำให้โครงสร้างและขอบเขตเดิมต้องปรับใหม่ งานจะเดินหน้าและหน้าที่จะเพิ่มขึ้น ขณะที่ฐานรายรับจะขยายตามงาน",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem6.wednesday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_tok|role=mula|house=phangkha"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem6.wednesday.venus.59_79"
+          ]
+        },
+        {
+          "text": "ชีวิตกำลังเข้าสู่รอบขยายผล งานที่ทำต่อเนื่องจะเปลี่ยนเป็นบทบาทและฐานรายรับที่ชัดขึ้น งานที่ลงแรงต่อเนื่องจะทำให้หน้าที่และอำนาจรับผิดชอบขยายขึ้น งานจะเดินหน้าและหน้าที่จะเพิ่มขึ้น ขณะที่ฐานรายรับจะขยายตามงาน",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem2.sunday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_khuen|role=utsaha|house=athibodi"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem2.sunday.venus.66_86"
+          ]
+        },
+        {
+          "text": "ชีวิตกำลังอยู่ในรอบจัดระเบียบของเดิม เรื่องค้างจะได้ข้อสรุปก่อนบทบาทและฐานรายรับเริ่มขยับ งานที่ลงแรงต่อเนื่องจะทำให้สิ่งที่หมดบทบาทต้องยุติลง งานจะเดินหน้าและหน้าที่จะเพิ่มขึ้น ขณะที่กระแสเงินจะค่อย ๆ นิ่งขึ้น",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem3.sunday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_tok|role=utsaha|house=marana"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem3.sunday.venus.66_86"
+          ]
+        },
+        {
+          "text": "ชีวิตกำลังเข้าสู่รอบขยายผล งานที่ทำต่อเนื่องจะเปลี่ยนเป็นบทบาทและฐานรายรับที่ชัดขึ้น ฐานงานและทรัพย์สินเดิมจะทำให้ทรัพยากรและฐานการเงินขยายขึ้น งานจะเดินหน้าและหน้าที่จะเพิ่มขึ้น ขณะที่ฐานรายรับจะขยายตามงาน",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem4.monday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_khuen|role=mula|house=khumsap"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem4.monday.venus.60_80"
+          ]
+        },
+        {
+          "text": "ชีวิตกำลังเข้าสู่รอบขยายผล งานที่ทำต่อเนื่องจะเปลี่ยนเป็นบทบาทและฐานรายรับที่ชัดขึ้น ฐานงานและทรัพย์สินเดิมจะทำให้หน้าที่และอำนาจรับผิดชอบขยายขึ้น งานจะเดินหน้าและหน้าที่จะเพิ่มขึ้น ขณะที่ฐานรายรับจะขยายตามงาน",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem0.friday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_khuen|role=mula|house=athibodi"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem0.friday.mercury.51_67"
+          ]
+        },
+        {
+          "text": "ชีวิตกำลังอยู่ในรอบจัดระเบียบของเดิม เรื่องค้างจะได้ข้อสรุปก่อนบทบาทและฐานรายรับเริ่มขยับ ผลงานและการยอมรับจะทำให้สิ่งที่หมดบทบาทต้องยุติลง งานจะเดินหน้าและหน้าที่จะเพิ่มขึ้น ขณะที่ฐานรายรับจะขยายตามงาน",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem1.sunday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_tok|role=sri|house=marana"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem1.sunday.mercury.30_46"
+          ]
+        },
+        {
+          "text": "ชีวิตในวัยนี้กำลังเปิดกว้างขึ้นผ่านการเรียน กิจวัตร และคนรอบตัว กำลังและกิจวัตรจะทำให้หน้าที่และกติกาชัดขึ้น การเรียนและหน้าที่จะขยับตามสิ่งที่ทำต่อเนื่อง",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem0.tuesday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_khuen|role=ayu|house=athibodi"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem0.tuesday.mercury.9_25"
+          ]
+        },
+        {
+          "text": "ชีวิตกำลังอยู่ในรอบจัดระเบียบของเดิม เรื่องค้างจะได้ข้อสรุปก่อนบทบาทและฐานรายรับเริ่มขยับ ผลงานและการยอมรับจะทำให้รอบเดิมต้องปิดก่อนเริ่มจังหวะใหม่ งานจะเดินหน้าและหน้าที่จะเพิ่มขึ้น ขณะที่ฐานรายรับจะขยายตามงาน",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem0.thursday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_tok|role=sri|house=puti"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem0.thursday.sun.53_58"
+          ]
+        },
+        {
+          "text": "ชีวิตกำลังเข้าสู่รอบขยายผล งานที่ทำต่อเนื่องจะเปลี่ยนเป็นบทบาทและฐานรายรับที่ชัดขึ้น กำลังและจังหวะชีวิตจะทำให้ทรัพยากรและฐานการเงินขยายขึ้น งานจะเดินหน้าและหน้าที่จะเพิ่มขึ้น ขณะที่ฐานรายรับจะขยายตามงาน",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem2.tuesday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_khuen|role=ayu|house=khumsap"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem2.tuesday.mercury.9_25"
+          ]
+        },
+        {
+          "text": "ชีวิตกำลังอยู่ในรอบจัดระเบียบของเดิม เรื่องค้างจะได้ข้อสรุปก่อนบทบาทและฐานรายรับเริ่มขยับ อำนาจตัดสินใจจะทำให้สิ่งที่หมดบทบาทต้องยุติลง งานจะเดินหน้าและหน้าที่จะเพิ่มขึ้น ขณะที่กระแสเงินจะค่อย ๆ นิ่งขึ้น",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem4.tuesday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_tok|role=det|house=marana"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem4.tuesday.saturn.26_35"
+          ]
+        },
+        {
+          "text": "ชีวิตกำลังเข้าสู่รอบขยายผล งานที่ทำต่อเนื่องจะเปลี่ยนเป็นบทบาทและฐานรายรับที่ชัดขึ้น อำนาจตัดสินใจจะทำให้หน้าที่และอำนาจรับผิดชอบขยายขึ้น งานจะขยับทีละขั้นผ่านเรื่องหลักที่ปิดจบ ขณะที่ฐานรายรับจะขยายตามงาน",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem2.thursday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_khuen|role=det|house=athibodi"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem2.thursday.venus.32_52"
+          ]
+        },
+        {
+          "text": "ชีวิตกำลังอยู่ในรอบจัดระเบียบของเดิม เรื่องค้างจะได้ข้อสรุปก่อนบทบาทและฐานรายรับเริ่มขยับ กำลังและจังหวะชีวิตจะทำให้โครงสร้างและขอบเขตเดิมต้องปรับใหม่ งานจะขยับทีละขั้นผ่านเรื่องหลักที่ปิดจบ ขณะที่กระแสเงินจะค่อย ๆ นิ่งขึ้น",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem1.friday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_tok|role=ayu|house=phangkha"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem1.friday.sun.22_27"
+          ]
+        },
+        {
+          "text": "ชีวิตในวัยนี้กำลังปรับตัวกับข้อจำกัด กิจวัตร และความเปลี่ยนแปลงรอบตัว กำลังและกิจวัตรจะทำให้สิ่งที่หมดบทบาทต้องยุติลง การเรียนและหน้าที่จะขยับตามสิ่งที่ทำต่อเนื่อง",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem6.sunday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_tok|role=ayu|house=marana"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem6.sunday.moon.7_21"
+          ]
+        }
+      ]
+    },
+    "past": {
+      "distinctParagraphCount": 44,
+      "mostReusedParagraph": "ตั้งแต่วัยเริ่มต้นถึงก่อนช่วงปัจจุบัน วงคนรอบตัวค่อย ๆ กว้างขึ้น หน้าที่ใหม่ทำให้ความรับผิดชอบชัดขึ้น",
+      "reuseCount": 3,
+      "contexts": [
+        "mahabhut2537.rem0.wednesday",
+        "mahabhut2537.rem1.thursday",
+        "mahabhut2537.rem2.friday"
+      ],
+      "evidenceFingerprints": [
+        "status=dueng_khuen|role=boriwan|house=athibodi"
+      ],
+      "mismatchedEvidenceReuseCount": 0,
+      "mismatchedEvidenceReuse": [],
+      "paragraphs": [
+        {
+          "text": "ตั้งแต่วัยเริ่มต้นถึงก่อนช่วงปัจจุบัน วงคนรอบตัวค่อย ๆ กว้างขึ้น หน้าที่ใหม่ทำให้ความรับผิดชอบชัดขึ้น",
+          "reuseCount": 3,
+          "contexts": [
+            "mahabhut2537.rem0.wednesday",
+            "mahabhut2537.rem1.thursday",
+            "mahabhut2537.rem2.friday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_khuen|role=boriwan|house=athibodi"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem0.wednesday.mercury.0_17",
+            "selector.mahabhut2537.rem1.thursday.jupiter.0_19",
+            "selector.mahabhut2537.rem2.friday.venus.0_21"
+          ]
+        },
+        {
+          "text": "ตั้งแต่วัยเริ่มต้นถึงก่อนช่วงปัจจุบัน คนรอบตัวและวิธีอยู่ร่วมกันเปลี่ยนไป ขอบเขตที่บ้านหรือโรงเรียนเปลี่ยนไป",
+          "reuseCount": 2,
+          "contexts": [
+            "mahabhut2537.rem4.wednesday",
+            "mahabhut2537.rem5.thursday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_tok|role=boriwan|house=phangkha"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem4.wednesday.mercury.0_17",
+            "selector.mahabhut2537.rem5.thursday.jupiter.0_19"
+          ]
+        },
+        {
+          "text": "ตั้งแต่วัยเริ่มต้นถึงก่อนช่วงปัจจุบัน วงคนรอบตัวค่อย ๆ กว้างขึ้น เป้าหมายที่ทำต่อเนื่องเริ่มเห็นผลชัด",
+          "reuseCount": 2,
+          "contexts": [
+            "mahabhut2537.rem5.wednesday",
+            "mahabhut2537.rem6.thursday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_khuen|role=boriwan|house=thongchai"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem5.wednesday.mercury.0_17",
+            "selector.mahabhut2537.rem6.thursday.jupiter.0_19"
+          ]
+        },
+        {
+          "text": "ตั้งแต่วัยเริ่มต้นถึงก่อนช่วงปัจจุบัน คนรอบตัวและวิธีอยู่ร่วมกันเปลี่ยนไป กิจวัตรบางอย่างจบลงและถูกแทนด้วยแบบใหม่",
+          "reuseCount": 2,
+          "contexts": [
+            "mahabhut2537.rem1.wednesday",
+            "mahabhut2537.rem5.sunday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_tok|role=boriwan|house=marana"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem1.wednesday.mercury.0_17",
+            "selector.mahabhut2537.rem5.sunday.sun.0_6"
+          ]
+        },
+        {
+          "text": "ช่วงอายุ 16–23 ปี กำลังที่ขึ้นลงจะทำให้ภาระและตารางชีวิตต้องจัดใหม่ รอบเดิมจะปิดลงพร้อมการเริ่มจังหวะชีวิตแบบใหม่",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem2.monday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_tok|role=ayu|house=puti"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem2.monday.mars.16_23"
+          ]
+        },
+        {
+          "text": "ช่วงอายุ 0–21 ปี ทีมและคนรอบตัวจะเปลี่ยนหน้าที่หรือเว้นระยะจากเดิม สิ่งที่หมดบทบาทจะยุติลงและเปิดพื้นที่ให้รูปแบบใหม่",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem3.friday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_tok|role=boriwan|house=marana"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem3.friday.venus.0_21"
+          ]
+        },
+        {
+          "text": "ช่วงอายุ 0–10 ปี เพื่อน ครอบครัว และคนรอบตัวจะช่วยให้โลกกว้างขึ้น หน้าที่ใหม่จะทำให้ความรับผิดชอบชัดขึ้น",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem3.saturday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_khuen|role=boriwan|house=athibodi"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem3.saturday.saturn.0_10"
+          ]
+        },
+        {
+          "text": "ช่วงอายุ 7–21 ปี กำลังและกิจวัตรที่ต่อเนื่องจะรองรับภาระได้มากขึ้น ทรัพยากรและฐานการเงินจะขยายตามผลที่เกิดขึ้น",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem0.sunday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_khuen|role=ayu|house=khumsap"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem0.sunday.moon.7_21"
+          ]
+        },
+        {
+          "text": "ช่วงอายุ 0–8 ปี เพื่อน ครอบครัว และคนรอบตัวจะช่วยให้โลกกว้างขึ้น บทบาทที่คนอื่นมองเห็นจะชัดขึ้นจากผลงานและความรับผิดชอบ",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem5.tuesday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_khuen|role=boriwan|house=racha"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem5.tuesday.mars.0_8"
+          ]
+        },
+        {
+          "text": "ช่วงอายุ 43–50 ปี ผลตอบแทนและการยอมรับจากผลงานเดิมจะชัดขึ้น หน้าที่และอำนาจรับผิดชอบจะชัดขึ้น",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem6.friday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_khuen|role=sri|house=athibodi"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem6.friday.mars.43_50"
+          ]
+        },
+        {
+          "text": "ตั้งแต่วัยเริ่มต้นถึงก่อนช่วงปัจจุบัน คนรอบตัวและวิธีอยู่ร่วมกันเปลี่ยนไป กิจวัตรเดิมปิดลงพร้อมการเริ่มรูปแบบใหม่",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem6.saturday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_tok|role=boriwan|house=puti"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem6.saturday.saturn.0_10"
+          ]
+        },
+        {
+          "text": "ช่วงอายุ 26–35 ปี อำนาจตัดสินใจและความรับผิดชอบจะเพิ่มขึ้น หน้าที่และอำนาจรับผิดชอบจะชัดขึ้น",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem3.tuesday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_khuen|role=det|house=athibodi"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem3.tuesday.saturn.26_35"
+          ]
+        },
+        {
+          "text": "ช่วงอายุ 28–46 ปี อำนาจตัดสินใจและความรับผิดชอบจะเพิ่มขึ้น ทรัพยากรและฐานการเงินจะขยายตามผลที่เกิดขึ้น",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem3.wednesday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_khuen|role=det|house=khumsap"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem3.wednesday.jupiter.28_46"
+          ]
+        },
+        {
+          "text": "ช่วงอายุ 41–59 ปี ผลตอบแทนและการยอมรับจากผลงานเดิมจะชัดขึ้น ทรัพยากรและฐานการเงินจะขยายตามผลที่เกิดขึ้น",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem3.monday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_khuen|role=sri|house=khumsap"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem3.monday.jupiter.41_59"
+          ]
+        },
+        {
+          "text": "ช่วงอายุ 59–73 ปี ฐานงานและทรัพย์สินที่สะสมไว้จะเริ่มต่อยอด สถานะและบทบาทที่คนอื่นมองเห็นจะเด่นขึ้น",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem4.thursday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_khuen|role=mula|house=racha"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem4.thursday.moon.59_73"
+          ]
+        },
+        {
+          "text": "ช่วงอายุ 11–29 ปี กำลังและกิจวัตรที่ต่อเนื่องจะรองรับภาระได้มากขึ้น สถานะและบทบาทที่คนอื่นมองเห็นจะเด่นขึ้น",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem0.saturday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_khuen|role=ayu|house=racha"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem0.saturday.jupiter.11_29"
+          ]
+        },
+        {
+          "text": "ช่วงอายุ 53–58 ปี ผลตอบแทนและการยอมรับจากผลงานเดิมจะชัดขึ้น สถานะและบทบาทที่คนอื่นมองเห็นจะเด่นขึ้น",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem3.thursday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_khuen|role=sri|house=racha"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem3.thursday.sun.53_58"
+          ]
+        },
+        {
+          "text": "ช่วงอายุ 11–29 ปี กำลังที่ขึ้นลงจะทำให้ภาระและตารางชีวิตต้องจัดใหม่ โครงสร้างและขอบเขตเดิมจะเปลี่ยนเพื่อรองรับภาระจริง",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem5.saturday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_tok|role=ayu|house=phangkha"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem5.saturday.jupiter.11_29"
+          ]
+        },
+        {
+          "text": "ช่วงอายุ 51–67 ปี ฐานงานและทรัพย์สินที่สะสมไว้จะเริ่มต่อยอด เป้าหมายระยะยาวจะเห็นผลและต่อยอดได้ชัดขึ้น",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem5.friday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_khuen|role=mula|house=thongchai"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem5.friday.mercury.51_67"
+          ]
+        },
+        {
+          "text": "ช่วงอายุ 30–41 ปี อำนาจตัดสินใจและความรับผิดชอบจะเพิ่มขึ้น ทรัพยากรและฐานการเงินจะขยายตามผลที่เกิดขึ้น",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem2.saturday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_khuen|role=det|house=khumsap"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem2.saturday.rahu.30_41"
+          ]
+        },
+        {
+          "text": "ช่วงอายุ 16–23 ปี กำลังและกิจวัตรที่ต่อเนื่องจะรองรับภาระได้มากขึ้น ทรัพยากรและฐานการเงินจะขยายตามผลที่เกิดขึ้น",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem1.monday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_khuen|role=ayu|house=khumsap"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem1.monday.mars.16_23"
+          ]
+        },
+        {
+          "text": "ช่วงอายุ 0–8 ปี เพื่อน ครอบครัว และคนรอบตัวจะช่วยให้โลกกว้างขึ้น หน้าที่ใหม่จะทำให้ความรับผิดชอบชัดขึ้น",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem6.tuesday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_khuen|role=boriwan|house=athibodi"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem6.tuesday.mars.0_8"
+          ]
+        },
+        {
+          "text": "ช่วงอายุ 30–41 ปี ขอบเขตการตัดสินใจจะถูกบีบให้เหลือเฉพาะเรื่องสำคัญ สิ่งที่หมดบทบาทจะยุติลงและเปิดพื้นที่ให้รูปแบบใหม่",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem1.saturday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_tok|role=det|house=marana"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem1.saturday.rahu.30_41"
+          ]
+        },
+        {
+          "text": "ช่วงอายุ 24–40 ปี อำนาจตัดสินใจและความรับผิดชอบจะเพิ่มขึ้น สถานะและบทบาทที่คนอื่นมองเห็นจะเด่นขึ้น",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem6.monday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_khuen|role=det|house=racha"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem6.monday.mercury.24_40"
+          ]
+        },
+        {
+          "text": "ช่วงอายุ 30–41 ปี ขอบเขตการตัดสินใจจะถูกบีบให้เหลือเฉพาะเรื่องสำคัญ โครงสร้างและขอบเขตเดิมจะเปลี่ยนเพื่อรองรับภาระจริง",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem4.saturday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_tok|role=det|house=phangkha"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem4.saturday.rahu.30_41"
+          ]
+        },
+        {
+          "text": "ช่วงอายุ 0–6 ปี เพื่อน ครอบครัว และคนรอบตัวจะช่วยให้โลกกว้างขึ้น การดูแลเงิน ของใช้ และทรัพยากรจะเป็นระบบขึ้น",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem6.sunday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_khuen|role=boriwan|house=khumsap"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem6.sunday.sun.0_6"
+          ]
+        },
+        {
+          "text": "ช่วงอายุ 0–8 ปี เพื่อน ครอบครัว และคนรอบตัวจะช่วยให้โลกกว้างขึ้น การดูแลเงิน ของใช้ และทรัพยากรจะเป็นระบบขึ้น",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem1.tuesday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_khuen|role=boriwan|house=khumsap"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem1.tuesday.mars.0_8"
+          ]
+        },
+        {
+          "text": "ช่วงอายุ 16–23 ปี กำลังและกิจวัตรที่ต่อเนื่องจะรองรับภาระได้มากขึ้น สถานะและบทบาทที่คนอื่นมองเห็นจะเด่นขึ้น",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem5.monday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_khuen|role=ayu|house=racha"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem5.monday.mars.16_23"
+          ]
+        },
+        {
+          "text": "ช่วงอายุ 28–42 ปี อำนาจตัดสินใจและความรับผิดชอบจะเพิ่มขึ้น สถานะและบทบาทที่คนอื่นมองเห็นจะเด่นขึ้น",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem4.friday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_khuen|role=det|house=racha"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem4.friday.moon.28_42"
+          ]
+        },
+        {
+          "text": "ช่วงอายุ 47–65 ปี ฐานงานและทรัพย์สินเดิมจะถูกตรวจและลดส่วนที่ไม่สร้างผล สิ่งที่หมดบทบาทจะยุติลงและเปิดพื้นที่ให้รูปแบบใหม่",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem2.sunday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_tok|role=mula|house=marana"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem2.sunday.jupiter.47_65"
+          ]
+        },
+        {
+          "text": "ช่วงอายุ 16–23 ปี กำลังที่ขึ้นลงจะทำให้ภาระและตารางชีวิตต้องจัดใหม่ สิ่งที่หมดบทบาทจะยุติลงและเปิดพื้นที่ให้รูปแบบใหม่",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem0.monday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_tok|role=ayu|house=marana"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem0.monday.mars.16_23"
+          ]
+        },
+        {
+          "text": "ช่วงอายุ 47–65 ปี ฐานงานและทรัพย์สินที่สะสมไว้จะเริ่มต่อยอด ทรัพยากรและฐานการเงินจะขยายตามผลที่เกิดขึ้น",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem3.sunday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_khuen|role=mula|house=khumsap"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem3.sunday.jupiter.47_65"
+          ]
+        },
+        {
+          "text": "ช่วงอายุ 0–6 ปี เพื่อน ครอบครัว และคนรอบตัวจะช่วยให้โลกกว้างขึ้น หน้าที่ใหม่จะทำให้ความรับผิดชอบชัดขึ้น",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem4.sunday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_khuen|role=boriwan|house=athibodi"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem4.sunday.sun.0_6"
+          ]
+        },
+        {
+          "text": "ช่วงอายุ 41–59 ปี ผลตอบแทนที่ไม่สมดุลกับภาระจะถูกนำมาจัดใหม่ รอบเดิมจะปิดลงพร้อมการเริ่มจังหวะชีวิตแบบใหม่",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem4.monday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_tok|role=sri|house=puti"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem4.monday.jupiter.41_59"
+          ]
+        },
+        {
+          "text": "ช่วงอายุ 43–50 ปี ผลตอบแทนที่ไม่สมดุลกับภาระจะถูกนำมาจัดใหม่ สิ่งที่หมดบทบาทจะยุติลงและเปิดพื้นที่ให้รูปแบบใหม่",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem0.friday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_tok|role=sri|house=marana"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem0.friday.mars.43_50"
+          ]
+        },
+        {
+          "text": "ช่วงอายุ 22–29 ปี อำนาจตัดสินใจและความรับผิดชอบจะเพิ่มขึ้น ทรัพยากรและฐานการเงินจะขยายตามผลที่เกิดขึ้น",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem1.sunday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_khuen|role=det|house=khumsap"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem1.sunday.mars.22_29"
+          ]
+        },
+        {
+          "text": "ช่วงอายุ 0–8 ปี ความเปลี่ยนแปลงของคนรอบตัวจะทำให้ต้องปรับวิธีอยู่ร่วมกัน กิจวัตรหรือความเคยชินบางอย่างจะจบลงและถูกแทนด้วยแบบใหม่",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem0.tuesday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_tok|role=boriwan|house=marana"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem0.tuesday.mars.0_8"
+          ]
+        },
+        {
+          "text": "ช่วงอายุ 32–52 ปี อำนาจตัดสินใจและความรับผิดชอบจะเพิ่มขึ้น เป้าหมายระยะยาวจะเห็นผลและต่อยอดได้ชัดขึ้น",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem0.thursday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_khuen|role=det|house=thongchai"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem0.thursday.venus.32_52"
+          ]
+        },
+        {
+          "text": "ช่วงอายุ 0–8 ปี ความเปลี่ยนแปลงของคนรอบตัวจะทำให้ต้องปรับวิธีอยู่ร่วมกัน รอบเดิมจะปิดลงพร้อมการเริ่มสภาพแวดล้อมหรือกิจวัตรใหม่",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem2.tuesday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_tok|role=boriwan|house=puti"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem2.tuesday.mars.0_8"
+          ]
+        },
+        {
+          "text": "ช่วงอายุ 9–25 ปี กำลังที่ขึ้นลงจะทำให้ภาระและตารางชีวิตต้องจัดใหม่ โครงสร้างและขอบเขตเดิมจะเปลี่ยนเพื่อรองรับภาระจริง",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem4.tuesday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_tok|role=ayu|house=phangkha"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem4.tuesday.mercury.9_25"
+          ]
+        },
+        {
+          "text": "ช่วงอายุ 20–31 ปี กำลังและกิจวัตรที่ต่อเนื่องจะรองรับภาระได้มากขึ้น ทรัพยากรและฐานการเงินจะขยายตามผลที่เกิดขึ้น",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem2.thursday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_khuen|role=ayu|house=khumsap"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem2.thursday.rahu.20_31"
+          ]
+        },
+        {
+          "text": "ช่วงอายุ 0–21 ปี ทีมและคนรอบตัวจะเข้ามาช่วยขยายบทบาท สถานะและบทบาทที่คนอื่นมองเห็นจะเด่นขึ้น",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem1.friday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_khuen|role=boriwan|house=racha"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem1.friday.venus.0_21"
+          ]
+        },
+        {
+          "text": "ช่วงอายุ 18–27 ปี กำลังและกิจวัตรที่ต่อเนื่องจะรองรับภาระได้มากขึ้น สถานะและบทบาทที่คนอื่นมองเห็นจะเด่นขึ้น",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem2.wednesday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_khuen|role=ayu|house=racha"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem2.wednesday.saturn.18_27"
+          ]
+        },
+        {
+          "text": "ช่วงอายุ 47–58 ปี ผลตอบแทนและการยอมรับจากผลงานเดิมจะชัดขึ้น สถานะและบทบาทที่คนอื่นมองเห็นจะเด่นขึ้น",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem6.wednesday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_khuen|role=sri|house=racha"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem6.wednesday.rahu.47_58"
+          ]
+        }
+      ]
+    },
+    "current": {
+      "distinctParagraphCount": 48,
+      "mostReusedParagraph": "อายุ 54 ปีเป็นช่วงเปลี่ยนผ่านของหน้าที่ ฐานชีวิต และเรื่องที่ต้องรับผิดชอบ ผลตอบแทนและการยอมรับจากผลงานเดิมจะชัดขึ้น ทรัพยากรและฐานการเงินจะขยายตามผลที่เกิดขึ้น",
+      "reuseCount": 2,
+      "contexts": [
+        "mahabhut2537.rem3.tuesday",
+        "mahabhut2537.rem4.saturday"
+      ],
+      "evidenceFingerprints": [
+        "status=dueng_khuen|role=sri|house=khumsap"
+      ],
+      "mismatchedEvidenceReuseCount": 0,
+      "mismatchedEvidenceReuse": [],
+      "paragraphs": [
+        {
+          "text": "อายุ 54 ปีเป็นช่วงเปลี่ยนผ่านของหน้าที่ ฐานชีวิต และเรื่องที่ต้องรับผิดชอบ ผลตอบแทนและการยอมรับจากผลงานเดิมจะชัดขึ้น ทรัพยากรและฐานการเงินจะขยายตามผลที่เกิดขึ้น",
+          "reuseCount": 2,
+          "contexts": [
+            "mahabhut2537.rem3.tuesday",
+            "mahabhut2537.rem4.saturday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_khuen|role=sri|house=khumsap"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem3.tuesday.jupiter.36_54",
+            "selector.mahabhut2537.rem4.saturday.venus.42_62"
+          ]
+        },
+        {
+          "text": "อายุ 28 ปีเป็นช่วงเปลี่ยนผ่านของหน้าที่ ฐานชีวิต และเรื่องที่ต้องรับผิดชอบ อำนาจตัดสินใจและความรับผิดชอบจะเพิ่มขึ้น ทรัพยากรและฐานการเงินจะขยายตามผลที่เกิดขึ้น",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem2.monday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_khuen|role=det|house=khumsap"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem2.monday.mercury.24_40"
+          ]
+        },
+        {
+          "text": "อายุ 65 ปีเป็นช่วงเปลี่ยนผ่านของหน้าที่ ฐานชีวิต และเรื่องที่ต้องรับผิดชอบ ฐานงานและทรัพย์สินที่สะสมไว้จะเริ่มต่อยอด สถานะและบทบาทที่คนอื่นมองเห็นจะเด่นขึ้น",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem6.friday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_khuen|role=mula|house=racha"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem6.friday.mercury.51_67"
+          ]
+        },
+        {
+          "text": "อายุ 54 ปีเป็นช่วงเปลี่ยนผ่านของหน้าที่ ฐานชีวิต และเรื่องที่ต้องรับผิดชอบ ผลตอบแทนที่ไม่สมดุลกับภาระจะถูกนำมาจัดใหม่ รอบเดิมจะปิดลงพร้อมการเริ่มจังหวะชีวิตแบบใหม่",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem3.wednesday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_tok|role=sri|house=puti"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem3.wednesday.rahu.47_58"
+          ]
+        },
+        {
+          "text": "อายุ 36 ปีเป็นช่วงเปลี่ยนผ่านของหน้าที่ ฐานชีวิต และเรื่องที่ต้องรับผิดชอบ ขอบเขตการตัดสินใจจะถูกบีบให้เหลือเฉพาะเรื่องสำคัญ สิ่งที่หมดบทบาทจะยุติลงและเปิดพื้นที่ให้รูปแบบใหม่",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem1.monday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_tok|role=det|house=marana"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem1.monday.mercury.24_40"
+          ]
+        },
+        {
+          "text": "อายุ 26 ปีเป็นช่วงเปลี่ยนผ่านของหน้าที่ ฐานชีวิต และเรื่องที่ต้องรับผิดชอบ กำลังและกิจวัตรที่ต่อเนื่องจะรองรับภาระได้มากขึ้น สถานะและบทบาทที่คนอื่นมองเห็นจะเด่นขึ้น",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem3.friday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_khuen|role=ayu|house=racha"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem3.friday.sun.22_27"
+          ]
+        },
+        {
+          "text": "อายุ 26 ปีเป็นช่วงเปลี่ยนผ่านของหน้าที่ ฐานชีวิต และเรื่องที่ต้องรับผิดชอบ กำลังและกิจวัตรที่ต่อเนื่องจะรองรับภาระได้มากขึ้น ทรัพยากรและฐานการเงินจะขยายตามผลที่เกิดขึ้น",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem3.saturday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_khuen|role=ayu|house=khumsap"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem3.saturday.jupiter.11_29"
+          ]
+        },
+        {
+          "text": "อายุ 22 ปีเป็นช่วงเปลี่ยนผ่านของหน้าที่ ฐานชีวิต และเรื่องที่ต้องรับผิดชอบ ขอบเขตการตัดสินใจจะถูกบีบให้เหลือเฉพาะเรื่องสำคัญ สิ่งที่หมดบทบาทจะยุติลงและเปิดพื้นที่ให้รูปแบบใหม่",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem0.sunday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_tok|role=det|house=marana"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem0.sunday.mars.22_29"
+          ]
+        },
+        {
+          "text": "วัย 17 ปีเป็นช่วงเปลี่ยนผ่านของการเรียน กิจวัตร และความสัมพันธ์รอบตัว กำลังและกิจวัตรที่สม่ำเสมอจะช่วยให้รับหน้าที่ได้มากขึ้น เป้าหมายที่ทำต่อเนื่องจะเริ่มเห็นผลชัด",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem5.tuesday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_khuen|role=ayu|house=thongchai"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem5.tuesday.mercury.9_25"
+          ]
+        },
+        {
+          "text": "วัย 17 ปีเป็นช่วงเปลี่ยนผ่านของการเรียน กิจวัตร และความสัมพันธ์รอบตัว เพื่อน ครอบครัว และคนรอบตัวจะช่วยให้โลกกว้างขึ้น เป้าหมายที่ทำต่อเนื่องจะเริ่มเห็นผลชัด",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem5.wednesday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_khuen|role=boriwan|house=thongchai"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem5.wednesday.mercury.0_17"
+          ]
+        },
+        {
+          "text": "วัย 10 ปีเป็นช่วงเปลี่ยนผ่านของการเรียน กิจวัตร และความสัมพันธ์รอบตัว ความเปลี่ยนแปลงของคนรอบตัวจะทำให้ต้องปรับวิธีอยู่ร่วมกัน รอบเดิมจะปิดลงพร้อมการเริ่มสภาพแวดล้อมหรือกิจวัตรใหม่",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem6.saturday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_tok|role=boriwan|house=puti"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem6.saturday.saturn.0_10"
+          ]
+        },
+        {
+          "text": "วัย 6 ปีเป็นช่วงเปลี่ยนผ่านของการเรียน กิจวัตร และความสัมพันธ์รอบตัว เพื่อน ครอบครัว และคนรอบตัวจะช่วยให้โลกกว้างขึ้น หน้าที่ใหม่จะทำให้ความรับผิดชอบชัดขึ้น",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem2.friday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_khuen|role=boriwan|house=athibodi"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem2.friday.venus.0_21"
+          ]
+        },
+        {
+          "text": "วัย 2 ปีเป็นช่วงเปลี่ยนผ่านของกิจวัตร พัฒนาการ และความสัมพันธ์กับผู้ดูแล เพื่อน ครอบครัว และคนรอบตัวจะช่วยให้โลกกว้างขึ้น เป้าหมายที่ทำต่อเนื่องจะเริ่มเห็นผลชัด",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem6.thursday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_khuen|role=boriwan|house=thongchai"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem6.thursday.jupiter.0_19"
+          ]
+        },
+        {
+          "text": "วัยแรกเกิดเป็นช่วงเปลี่ยนผ่านของกิจวัตรและความสัมพันธ์กับผู้ดูแล ความเปลี่ยนแปลงของคนรอบตัวจะทำให้ต้องปรับวิธีอยู่ร่วมกัน กิจวัตรหรือความเคยชินบางอย่างจะจบลงและถูกแทนด้วยแบบใหม่",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem1.wednesday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_tok|role=boriwan|house=marana"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem1.wednesday.mercury.0_17"
+          ]
+        },
+        {
+          "text": "อายุ 61 ปีเป็นช่วงเปลี่ยนผ่านของหน้าที่ ฐานชีวิต และเรื่องที่ต้องรับผิดชอบ ฐานงานและทรัพย์สินเดิมจะถูกตรวจและลดส่วนที่ไม่สร้างผล สิ่งที่หมดบทบาทจะยุติลงและเปิดพื้นที่ให้รูปแบบใหม่",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem3.monday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_tok|role=mula|house=marana"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem3.monday.venus.60_80"
+          ]
+        },
+        {
+          "text": "อายุ 74 ปีเป็นช่วงเปลี่ยนผ่านของหน้าที่ ฐานชีวิต และเรื่องที่ต้องรับผิดชอบ งานที่ลงแรงต่อเนื่องจะเริ่มให้ผลเป็นรูปธรรม เป้าหมายระยะยาวจะเห็นผลและต่อยอดได้ชัดขึ้น",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem4.thursday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_khuen|role=utsaha|house=thongchai"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem4.thursday.mars.74_81"
+          ]
+        },
+        {
+          "text": "อายุ 30 ปีเป็นช่วงเปลี่ยนผ่านของหน้าที่ ฐานชีวิต และเรื่องที่ต้องรับผิดชอบ อำนาจตัดสินใจและความรับผิดชอบจะเพิ่มขึ้น หน้าที่และอำนาจรับผิดชอบจะชัดขึ้น",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem0.saturday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_khuen|role=det|house=athibodi"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem0.saturday.rahu.30_41"
+          ]
+        },
+        {
+          "text": "อายุ 68 ปีเป็นช่วงเปลี่ยนผ่านของหน้าที่ ฐานชีวิต และเรื่องที่ต้องรับผิดชอบ ฐานงานและทรัพย์สินที่สะสมไว้จะเริ่มต่อยอด เป้าหมายระยะยาวจะเห็นผลและต่อยอดได้ชัดขึ้น",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem3.thursday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_khuen|role=mula|house=thongchai"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem3.thursday.moon.59_73"
+          ]
+        },
+        {
+          "text": "อายุ 31 ปีเป็นช่วงเปลี่ยนผ่านของหน้าที่ ฐานชีวิต และเรื่องที่ต้องรับผิดชอบ อำนาจตัดสินใจและความรับผิดชอบจะเพิ่มขึ้น เป้าหมายระยะยาวจะเห็นผลและต่อยอดได้ชัดขึ้น",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem5.saturday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_khuen|role=det|house=thongchai"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem5.saturday.rahu.30_41"
+          ]
+        },
+        {
+          "text": "อายุ 73 ปีเป็นช่วงเปลี่ยนผ่านของหน้าที่ ฐานชีวิต และเรื่องที่ต้องรับผิดชอบ งานที่ลงแรงต่อเนื่องจะเริ่มให้ผลเป็นรูปธรรม ทรัพยากรและฐานการเงินจะขยายตามผลที่เกิดขึ้น",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem5.friday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_khuen|role=utsaha|house=khumsap"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem5.friday.saturn.68_77"
+          ]
+        },
+        {
+          "text": "วัย 1 ปีเป็นช่วงเปลี่ยนผ่านของกิจวัตร พัฒนาการ และความสัมพันธ์กับผู้ดูแล เพื่อน ครอบครัว และคนรอบตัวจะช่วยให้โลกกว้างขึ้น หน้าที่ใหม่จะทำให้ความรับผิดชอบชัดขึ้น",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem1.thursday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_khuen|role=boriwan|house=athibodi"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem1.thursday.jupiter.0_19"
+          ]
+        },
+        {
+          "text": "อายุ 42 ปีเป็นช่วงเปลี่ยนผ่านของหน้าที่ ฐานชีวิต และเรื่องที่ต้องรับผิดชอบ ผลตอบแทนและการยอมรับจากผลงานเดิมจะชัดขึ้น หน้าที่และอำนาจรับผิดชอบจะชัดขึ้น",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem2.saturday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_khuen|role=sri|house=athibodi"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem2.saturday.venus.42_62"
+          ]
+        },
+        {
+          "text": "วัย 4 ปีเป็นช่วงเปลี่ยนผ่านของการเรียน กิจวัตร และความสัมพันธ์รอบตัว ความเปลี่ยนแปลงของคนรอบตัวจะทำให้ต้องปรับวิธีอยู่ร่วมกัน ขอบเขตที่บ้านหรือโรงเรียนจะเปลี่ยนและต้องปรับตัวตาม",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem4.wednesday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_tok|role=boriwan|house=phangkha"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem4.wednesday.mercury.0_17"
+          ]
+        },
+        {
+          "text": "วัย 9 ปีเป็นช่วงเปลี่ยนผ่านของการเรียน กิจวัตร และความสัมพันธ์รอบตัว กำลังและกิจวัตรที่สม่ำเสมอจะช่วยให้รับหน้าที่ได้มากขึ้น บทบาทที่คนอื่นมองเห็นจะชัดขึ้นจากผลงานและความรับผิดชอบ",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem6.tuesday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_khuen|role=ayu|house=racha"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem6.tuesday.mercury.9_25"
+          ]
+        },
+        {
+          "text": "อายุ 50 ปีเป็นช่วงเปลี่ยนผ่านของหน้าที่ ฐานชีวิต และเรื่องที่ต้องรับผิดชอบ ผลตอบแทนและการยอมรับจากผลงานเดิมจะชัดขึ้น สถานะและบทบาทที่คนอื่นมองเห็นจะเด่นขึ้น",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem1.saturday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_khuen|role=sri|house=racha"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem1.saturday.venus.42_62"
+          ]
+        },
+        {
+          "text": "อายุ 52 ปีเป็นช่วงเปลี่ยนผ่านของหน้าที่ ฐานชีวิต และเรื่องที่ต้องรับผิดชอบ ผลตอบแทนและการยอมรับจากผลงานเดิมจะชัดขึ้น เป้าหมายระยะยาวจะเห็นผลและต่อยอดได้ชัดขึ้น",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem6.monday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_khuen|role=sri|house=thongchai"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem6.monday.jupiter.41_59"
+          ]
+        },
+        {
+          "text": "วัย 16 ปีเป็นช่วงเปลี่ยนผ่านของการเรียน กิจวัตร และความสัมพันธ์รอบตัว กำลังที่ขึ้นลงจะทำให้ตารางเรียนและกิจกรรมต้องจัดใหม่ กิจวัตรหรือความเคยชินบางอย่างจะจบลงและถูกแทนด้วยแบบใหม่",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem6.sunday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_tok|role=ayu|house=marana"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem6.sunday.moon.7_21"
+          ]
+        },
+        {
+          "text": "อายุ 21 ปีเป็นช่วงเปลี่ยนผ่านของหน้าที่ ฐานชีวิต และเรื่องที่ต้องรับผิดชอบ กำลังที่ขึ้นลงจะทำให้ภาระและตารางชีวิตต้องจัดใหม่ สิ่งที่หมดบทบาทจะยุติลงและเปิดพื้นที่ให้รูปแบบใหม่",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem1.tuesday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_tok|role=ayu|house=marana"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem1.tuesday.mercury.9_25"
+          ]
+        },
+        {
+          "text": "อายุ 25 ปีเป็นช่วงเปลี่ยนผ่านของหน้าที่ ฐานชีวิต และเรื่องที่ต้องรับผิดชอบ อำนาจตัดสินใจและความรับผิดชอบจะเพิ่มขึ้น เป้าหมายระยะยาวจะเห็นผลและต่อยอดได้ชัดขึ้น",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem5.monday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_khuen|role=det|house=thongchai"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem5.monday.mercury.24_40"
+          ]
+        },
+        {
+          "text": "อายุ 66 ปีเป็นช่วงเปลี่ยนผ่านของหน้าที่ ฐานชีวิต และเรื่องที่ต้องรับผิดชอบ ฐานงานและทรัพย์สินเดิมจะถูกตรวจและลดส่วนที่ไม่สร้างผล โครงสร้างและขอบเขตเดิมจะเปลี่ยนเพื่อรองรับภาระจริง",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem6.wednesday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_tok|role=mula|house=phangkha"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem6.wednesday.venus.59_79"
+          ]
+        },
+        {
+          "text": "อายุ 69 ปีเป็นช่วงเปลี่ยนผ่านของหน้าที่ ฐานชีวิต และเรื่องที่ต้องรับผิดชอบ งานที่ลงแรงต่อเนื่องจะเริ่มให้ผลเป็นรูปธรรม หน้าที่และอำนาจรับผิดชอบจะชัดขึ้น",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem2.sunday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_khuen|role=utsaha|house=athibodi"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem2.sunday.venus.66_86"
+          ]
+        },
+        {
+          "text": "อายุ 47 ปีเป็นช่วงเปลี่ยนผ่านของหน้าที่ ฐานชีวิต และเรื่องที่ต้องรับผิดชอบ ผลตอบแทนและการยอมรับจากผลงานเดิมจะชัดขึ้น เป้าหมายระยะยาวจะเห็นผลและต่อยอดได้ชัดขึ้น",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem4.friday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_khuen|role=sri|house=thongchai"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem4.friday.mars.43_50"
+          ]
+        },
+        {
+          "text": "อายุ 76 ปีเป็นช่วงเปลี่ยนผ่านของหน้าที่ ฐานชีวิต และเรื่องที่ต้องรับผิดชอบ งานที่ใช้แรงมากเกินผลตอบแทนจะลดบทบาทลง สิ่งที่หมดบทบาทจะยุติลงและเปิดพื้นที่ให้รูปแบบใหม่",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem3.sunday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_tok|role=utsaha|house=marana"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem3.sunday.venus.66_86"
+          ]
+        },
+        {
+          "text": "วัย 3 ปีเป็นช่วงเปลี่ยนผ่านของกิจวัตร พัฒนาการ และความสัมพันธ์กับผู้ดูแล ความเปลี่ยนแปลงของคนรอบตัวจะทำให้ต้องปรับวิธีอยู่ร่วมกัน กิจวัตรหรือความเคยชินบางอย่างจะจบลงและถูกแทนด้วยแบบใหม่",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem5.sunday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_tok|role=boriwan|house=marana"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem5.sunday.sun.0_6"
+          ]
+        },
+        {
+          "text": "วัย 8 ปีเป็นช่วงเปลี่ยนผ่านของการเรียน กิจวัตร และความสัมพันธ์รอบตัว เพื่อน ครอบครัว และคนรอบตัวจะช่วยให้โลกกว้างขึ้น หน้าที่ใหม่จะทำให้ความรับผิดชอบชัดขึ้น",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem0.wednesday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_khuen|role=boriwan|house=athibodi"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem0.wednesday.mercury.0_17"
+          ]
+        },
+        {
+          "text": "วัย 10 ปีเป็นช่วงเปลี่ยนผ่านของการเรียน กิจวัตร และความสัมพันธ์รอบตัว ความเปลี่ยนแปลงของคนรอบตัวจะทำให้ต้องปรับวิธีอยู่ร่วมกัน ขอบเขตที่บ้านหรือโรงเรียนจะเปลี่ยนและต้องปรับตัวตาม",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem5.thursday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_tok|role=boriwan|house=phangkha"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem5.thursday.jupiter.0_19"
+          ]
+        },
+        {
+          "text": "วัย 12 ปีเป็นช่วงเปลี่ยนผ่านของการเรียน กิจวัตร และความสัมพันธ์รอบตัว กำลังและกิจวัตรที่สม่ำเสมอจะช่วยให้รับหน้าที่ได้มากขึ้น บทบาทที่คนอื่นมองเห็นจะชัดขึ้นจากผลงานและความรับผิดชอบ",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem4.sunday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_khuen|role=ayu|house=racha"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem4.sunday.moon.7_21"
+          ]
+        },
+        {
+          "text": "อายุ 61 ปีเป็นช่วงเปลี่ยนผ่านของหน้าที่ ฐานชีวิต และเรื่องที่ต้องรับผิดชอบ ฐานงานและทรัพย์สินที่สะสมไว้จะเริ่มต่อยอด ทรัพยากรและฐานการเงินจะขยายตามผลที่เกิดขึ้น",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem4.monday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_khuen|role=mula|house=khumsap"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem4.monday.venus.60_80"
+          ]
+        },
+        {
+          "text": "อายุ 64 ปีเป็นช่วงเปลี่ยนผ่านของหน้าที่ ฐานชีวิต และเรื่องที่ต้องรับผิดชอบ ฐานงานและทรัพย์สินที่สะสมไว้จะเริ่มต่อยอด หน้าที่และอำนาจรับผิดชอบจะชัดขึ้น",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem0.friday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_khuen|role=mula|house=athibodi"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem0.friday.mercury.51_67"
+          ]
+        },
+        {
+          "text": "อายุ 36 ปีเป็นช่วงเปลี่ยนผ่านของหน้าที่ ฐานชีวิต และเรื่องที่ต้องรับผิดชอบ ผลตอบแทนที่ไม่สมดุลกับภาระจะถูกนำมาจัดใหม่ สิ่งที่หมดบทบาทจะยุติลงและเปิดพื้นที่ให้รูปแบบใหม่",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem1.sunday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_tok|role=sri|house=marana"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem1.sunday.mercury.30_46"
+          ]
+        },
+        {
+          "text": "วัย 9 ปีเป็นช่วงเปลี่ยนผ่านของการเรียน กิจวัตร และความสัมพันธ์รอบตัว กำลังและกิจวัตรที่สม่ำเสมอจะช่วยให้รับหน้าที่ได้มากขึ้น หน้าที่ใหม่จะทำให้ความรับผิดชอบชัดขึ้น",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem0.tuesday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_khuen|role=ayu|house=athibodi"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem0.tuesday.mercury.9_25"
+          ]
+        },
+        {
+          "text": "อายุ 58 ปีเป็นช่วงเปลี่ยนผ่านของหน้าที่ ฐานชีวิต และเรื่องที่ต้องรับผิดชอบ ผลตอบแทนที่ไม่สมดุลกับภาระจะถูกนำมาจัดใหม่ รอบเดิมจะปิดลงพร้อมการเริ่มจังหวะชีวิตแบบใหม่",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem0.thursday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_tok|role=sri|house=puti"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem0.thursday.sun.53_58"
+          ]
+        },
+        {
+          "text": "อายุ 21 ปีเป็นช่วงเปลี่ยนผ่านของหน้าที่ ฐานชีวิต และเรื่องที่ต้องรับผิดชอบ กำลังและกิจวัตรที่ต่อเนื่องจะรองรับภาระได้มากขึ้น ทรัพยากรและฐานการเงินจะขยายตามผลที่เกิดขึ้น",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem2.tuesday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_khuen|role=ayu|house=khumsap"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem2.tuesday.mercury.9_25"
+          ]
+        },
+        {
+          "text": "อายุ 33 ปีเป็นช่วงเปลี่ยนผ่านของหน้าที่ ฐานชีวิต และเรื่องที่ต้องรับผิดชอบ ขอบเขตการตัดสินใจจะถูกบีบให้เหลือเฉพาะเรื่องสำคัญ สิ่งที่หมดบทบาทจะยุติลงและเปิดพื้นที่ให้รูปแบบใหม่",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem4.tuesday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_tok|role=det|house=marana"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem4.tuesday.saturn.26_35"
+          ]
+        },
+        {
+          "text": "อายุ 48 ปีเป็นช่วงเปลี่ยนผ่านของหน้าที่ ฐานชีวิต และเรื่องที่ต้องรับผิดชอบ อำนาจตัดสินใจและความรับผิดชอบจะเพิ่มขึ้น หน้าที่และอำนาจรับผิดชอบจะชัดขึ้น",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem2.thursday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_khuen|role=det|house=athibodi"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem2.thursday.venus.32_52"
+          ]
+        },
+        {
+          "text": "อายุ 22 ปีเป็นช่วงเปลี่ยนผ่านของหน้าที่ ฐานชีวิต และเรื่องที่ต้องรับผิดชอบ กำลังที่ขึ้นลงจะทำให้ภาระและตารางชีวิตต้องจัดใหม่ โครงสร้างและขอบเขตเดิมจะเปลี่ยนเพื่อรองรับภาระจริง",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem1.friday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_tok|role=ayu|house=phangkha"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem1.friday.sun.22_27"
+          ]
+        },
+        {
+          "text": "อายุ 42 ปีเป็นช่วงเปลี่ยนผ่านของหน้าที่ ฐานชีวิต และเรื่องที่ต้องรับผิดชอบ ขอบเขตการตัดสินใจจะถูกบีบให้เหลือเฉพาะเรื่องสำคัญ สิ่งที่หมดบทบาทจะยุติลงและเปิดพื้นที่ให้รูปแบบใหม่",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem2.wednesday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_tok|role=det|house=marana"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem2.wednesday.jupiter.28_46"
+          ]
+        },
+        {
+          "text": "อายุ 37 ปีเป็นช่วงเปลี่ยนผ่านของหน้าที่ ฐานชีวิต และเรื่องที่ต้องรับผิดชอบ อำนาจตัดสินใจและความรับผิดชอบจะเพิ่มขึ้น หน้าที่และอำนาจรับผิดชอบจะชัดขึ้น",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem0.monday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_khuen|role=det|house=athibodi"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem0.monday.mercury.24_40"
+          ]
+        }
+      ]
+    },
+    "work": {
+      "distinctParagraphCount": 6,
+      "mostReusedParagraph": "งานในช่วงปัจจุบันจะเดินหน้า หน้าที่และการมองเห็นผลงานจะเพิ่มขึ้นจากงานที่ส่งมอบต่อเนื่อง ในช่วงเดียวกัน ภาระงานหลักจะเบียดเวลาและทำให้จังหวะด้านงานเดินช้าลง",
+      "reuseCount": 29,
+      "contexts": [
+        "mahabhut2537.rem0.friday",
+        "mahabhut2537.rem0.monday",
+        "mahabhut2537.rem0.saturday",
+        "mahabhut2537.rem0.sunday",
+        "mahabhut2537.rem0.thursday",
+        "mahabhut2537.rem1.monday",
+        "mahabhut2537.rem1.saturday",
+        "mahabhut2537.rem1.sunday",
+        "mahabhut2537.rem1.tuesday",
+        "mahabhut2537.rem2.monday",
+        "mahabhut2537.rem2.saturday",
+        "mahabhut2537.rem2.sunday",
+        "mahabhut2537.rem2.tuesday",
+        "mahabhut2537.rem3.friday",
+        "mahabhut2537.rem3.monday",
+        "mahabhut2537.rem3.saturday",
+        "mahabhut2537.rem3.sunday",
+        "mahabhut2537.rem3.tuesday",
+        "mahabhut2537.rem4.friday",
+        "mahabhut2537.rem4.monday",
+        "mahabhut2537.rem4.saturday",
+        "mahabhut2537.rem4.thursday",
+        "mahabhut2537.rem4.tuesday",
+        "mahabhut2537.rem5.friday",
+        "mahabhut2537.rem5.monday",
+        "mahabhut2537.rem5.saturday",
+        "mahabhut2537.rem6.friday",
+        "mahabhut2537.rem6.monday",
+        "mahabhut2537.rem6.wednesday"
+      ],
+      "evidenceFingerprints": [
+        "h=current|d=career|b=strong|r=pressure|e=full|t=false|k=prediction.career.current.strong|o=lagna-house-and-life-period-score|td=true"
+      ],
+      "mismatchedEvidenceReuseCount": 0,
+      "mismatchedEvidenceReuse": [],
+      "paragraphs": [
+        {
+          "text": "งานในช่วงปัจจุบันจะเดินหน้า หน้าที่และการมองเห็นผลงานจะเพิ่มขึ้นจากงานที่ส่งมอบต่อเนื่อง ในช่วงเดียวกัน ภาระงานหลักจะเบียดเวลาและทำให้จังหวะด้านงานเดินช้าลง",
+          "reuseCount": 29,
+          "contexts": [
+            "mahabhut2537.rem0.friday",
+            "mahabhut2537.rem0.monday",
+            "mahabhut2537.rem0.saturday",
+            "mahabhut2537.rem0.sunday",
+            "mahabhut2537.rem0.thursday",
+            "mahabhut2537.rem1.monday",
+            "mahabhut2537.rem1.saturday",
+            "mahabhut2537.rem1.sunday",
+            "mahabhut2537.rem1.tuesday",
+            "mahabhut2537.rem2.monday",
+            "mahabhut2537.rem2.saturday",
+            "mahabhut2537.rem2.sunday",
+            "mahabhut2537.rem2.tuesday",
+            "mahabhut2537.rem3.friday",
+            "mahabhut2537.rem3.monday",
+            "mahabhut2537.rem3.saturday",
+            "mahabhut2537.rem3.sunday",
+            "mahabhut2537.rem3.tuesday",
+            "mahabhut2537.rem4.friday",
+            "mahabhut2537.rem4.monday",
+            "mahabhut2537.rem4.saturday",
+            "mahabhut2537.rem4.thursday",
+            "mahabhut2537.rem4.tuesday",
+            "mahabhut2537.rem5.friday",
+            "mahabhut2537.rem5.monday",
+            "mahabhut2537.rem5.saturday",
+            "mahabhut2537.rem6.friday",
+            "mahabhut2537.rem6.monday",
+            "mahabhut2537.rem6.wednesday"
+          ],
+          "evidenceFingerprints": [
+            "h=current|d=career|b=strong|r=pressure|e=full|t=false|k=prediction.career.current.strong|o=lagna-house-and-life-period-score|td=true"
+          ],
+          "evidenceKeys": [
+            "prediction.career.current.strong"
+          ]
+        },
+        {
+          "text": "ในช่วงปัจจุบัน การเรียน หน้าที่ และกิจกรรมหลักจะเดินหน้าและเห็นผลงานชัดขึ้น ในช่วงเดียวกัน ตารางเรียนและกิจกรรมที่แน่นจะทำให้ด้านการเรียนและหน้าที่เดินช้าลง",
+          "reuseCount": 10,
+          "contexts": [
+            "mahabhut2537.rem0.tuesday",
+            "mahabhut2537.rem0.wednesday",
+            "mahabhut2537.rem2.friday",
+            "mahabhut2537.rem4.sunday",
+            "mahabhut2537.rem4.wednesday",
+            "mahabhut2537.rem5.thursday",
+            "mahabhut2537.rem5.tuesday",
+            "mahabhut2537.rem5.wednesday",
+            "mahabhut2537.rem6.saturday",
+            "mahabhut2537.rem6.tuesday"
+          ],
+          "evidenceFingerprints": [
+            "h=current|d=career|b=strong|r=pressure|e=full|t=false|k=prediction.career.current.strong|o=lagna-house-and-life-period-score|td=true"
+          ],
+          "evidenceKeys": [
+            "prediction.career.current.strong"
+          ]
+        },
+        {
+          "text": "ในช่วงปัจจุบัน พัฒนาการและกิจวัตรหลักจะเดินหน้าอย่างสม่ำเสมอ ในช่วงเดียวกัน กิจวัตรที่ชนกันจะทำให้ด้านพัฒนาการและกิจวัตรเดินช้าลง",
+          "reuseCount": 4,
+          "contexts": [
+            "mahabhut2537.rem1.thursday",
+            "mahabhut2537.rem1.wednesday",
+            "mahabhut2537.rem5.sunday",
+            "mahabhut2537.rem6.thursday"
+          ],
+          "evidenceFingerprints": [
+            "h=current|d=career|b=strong|r=pressure|e=full|t=false|k=prediction.career.current.strong|o=lagna-house-and-life-period-score|td=true"
+          ],
+          "evidenceKeys": [
+            "prediction.career.current.strong"
+          ]
+        },
+        {
+          "text": "งานในช่วงปัจจุบันจะขยับทีละขั้น งานหลักที่ปิดได้ตามลำดับจะเปิดบทบาทถัดไป ในช่วงเดียวกัน ภาระงานหลักจะเบียดเวลาและทำให้จังหวะด้านงานเดินช้าลง",
+          "reuseCount": 4,
+          "contexts": [
+            "mahabhut2537.rem1.friday",
+            "mahabhut2537.rem2.thursday",
+            "mahabhut2537.rem2.wednesday",
+            "mahabhut2537.rem3.thursday"
+          ],
+          "evidenceFingerprints": [
+            "h=current|d=career|b=active|r=pressure|e=full|t=false|k=prediction.career.current.active|o=lagna-house-and-life-period-score|td=true"
+          ],
+          "evidenceKeys": [
+            "prediction.career.current.active"
+          ]
+        },
+        {
+          "text": "งานในช่วงปัจจุบันจะชะลอลง ข้อจำกัดเดิมและภาระค้างจะกินพื้นที่ของงานใหม่ ในช่วงเดียวกัน ภาระงานหลักจะเบียดเวลาและทำให้จังหวะด้านงานเดินช้าลง",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem3.wednesday"
+          ],
+          "evidenceFingerprints": [
+            "h=current|d=career|b=quiet|r=pressure|e=full|t=false|k=prediction.career.current.quiet|o=lagna-house-and-life-period-score|td=true"
+          ],
+          "evidenceKeys": [
+            "prediction.career.current.quiet"
+          ]
+        },
+        {
+          "text": "ในช่วงปัจจุบัน การเรียนและหน้าที่จะขยับทีละขั้นตามงานที่ทำเสร็จต่อเนื่อง ในช่วงเดียวกัน ตารางเรียนและกิจกรรมที่แน่นจะทำให้ด้านการเรียนและหน้าที่เดินช้าลง",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem6.sunday"
+          ],
+          "evidenceFingerprints": [
+            "h=current|d=career|b=active|r=pressure|e=full|t=false|k=prediction.career.current.active|o=lagna-house-and-life-period-score|td=true"
+          ],
+          "evidenceKeys": [
+            "prediction.career.current.active"
+          ]
+        }
+      ]
+    },
+    "finance": {
+      "distinctParagraphCount": 5,
+      "mostReusedParagraph": "รายรับในช่วงปัจจุบันจะขยายตามงานและหน้าที่ที่เพิ่มขึ้น เงินส่วนเกินจะเริ่มสร้างฐานที่มั่นคงกว่าเดิม ในช่วงเดียวกัน ภาระเงินจะจำกัดทางเลือกใหม่ด้านการเงิน",
+      "reuseCount": 26,
+      "contexts": [
+        "mahabhut2537.rem0.friday",
+        "mahabhut2537.rem0.monday",
+        "mahabhut2537.rem0.saturday",
+        "mahabhut2537.rem0.sunday",
+        "mahabhut2537.rem0.thursday",
+        "mahabhut2537.rem1.monday",
+        "mahabhut2537.rem1.saturday",
+        "mahabhut2537.rem1.sunday",
+        "mahabhut2537.rem1.tuesday",
+        "mahabhut2537.rem2.monday",
+        "mahabhut2537.rem2.saturday",
+        "mahabhut2537.rem2.sunday",
+        "mahabhut2537.rem2.thursday",
+        "mahabhut2537.rem2.tuesday",
+        "mahabhut2537.rem3.monday",
+        "mahabhut2537.rem3.tuesday",
+        "mahabhut2537.rem4.friday",
+        "mahabhut2537.rem4.monday",
+        "mahabhut2537.rem4.saturday",
+        "mahabhut2537.rem4.thursday",
+        "mahabhut2537.rem5.friday",
+        "mahabhut2537.rem5.monday",
+        "mahabhut2537.rem5.saturday",
+        "mahabhut2537.rem6.friday",
+        "mahabhut2537.rem6.monday",
+        "mahabhut2537.rem6.wednesday"
+      ],
+      "evidenceFingerprints": [
+        "h=current|d=finance|b=strong|r=pressure|e=full|t=false|k=prediction.finance.current.strong|o=lagna-house-and-life-period-score|td=true"
+      ],
+      "mismatchedEvidenceReuseCount": 0,
+      "mismatchedEvidenceReuse": [],
+      "paragraphs": [
+        {
+          "text": "รายรับในช่วงปัจจุบันจะขยายตามงานและหน้าที่ที่เพิ่มขึ้น เงินส่วนเกินจะเริ่มสร้างฐานที่มั่นคงกว่าเดิม ในช่วงเดียวกัน ภาระเงินจะจำกัดทางเลือกใหม่ด้านการเงิน",
+          "reuseCount": 26,
+          "contexts": [
+            "mahabhut2537.rem0.friday",
+            "mahabhut2537.rem0.monday",
+            "mahabhut2537.rem0.saturday",
+            "mahabhut2537.rem0.sunday",
+            "mahabhut2537.rem0.thursday",
+            "mahabhut2537.rem1.monday",
+            "mahabhut2537.rem1.saturday",
+            "mahabhut2537.rem1.sunday",
+            "mahabhut2537.rem1.tuesday",
+            "mahabhut2537.rem2.monday",
+            "mahabhut2537.rem2.saturday",
+            "mahabhut2537.rem2.sunday",
+            "mahabhut2537.rem2.thursday",
+            "mahabhut2537.rem2.tuesday",
+            "mahabhut2537.rem3.monday",
+            "mahabhut2537.rem3.tuesday",
+            "mahabhut2537.rem4.friday",
+            "mahabhut2537.rem4.monday",
+            "mahabhut2537.rem4.saturday",
+            "mahabhut2537.rem4.thursday",
+            "mahabhut2537.rem5.friday",
+            "mahabhut2537.rem5.monday",
+            "mahabhut2537.rem5.saturday",
+            "mahabhut2537.rem6.friday",
+            "mahabhut2537.rem6.monday",
+            "mahabhut2537.rem6.wednesday"
+          ],
+          "evidenceFingerprints": [
+            "h=current|d=finance|b=strong|r=pressure|e=full|t=false|k=prediction.finance.current.strong|o=lagna-house-and-life-period-score|td=true"
+          ],
+          "evidenceKeys": [
+            "prediction.finance.current.strong"
+          ]
+        },
+        {
+          "text": "ในช่วงปัจจุบัน การแบ่งเงินและดูแลของใช้จะเป็นระบบขึ้น เงินที่เก็บไว้จะรองรับเรื่องสำคัญได้มากขึ้น ในช่วงเดียวกัน ค่าใช้จ่ายจำเป็นจะจำกัดทางเลือกใหม่ด้านการเงิน",
+          "reuseCount": 9,
+          "contexts": [
+            "mahabhut2537.rem0.tuesday",
+            "mahabhut2537.rem0.wednesday",
+            "mahabhut2537.rem2.friday",
+            "mahabhut2537.rem4.sunday",
+            "mahabhut2537.rem4.wednesday",
+            "mahabhut2537.rem5.thursday",
+            "mahabhut2537.rem5.tuesday",
+            "mahabhut2537.rem5.wednesday",
+            "mahabhut2537.rem6.tuesday"
+          ],
+          "evidenceFingerprints": [
+            "h=current|d=finance|b=strong|r=pressure|e=full|t=false|k=prediction.finance.current.strong|o=lagna-house-and-life-period-score|td=true"
+          ],
+          "evidenceKeys": [
+            "prediction.finance.current.strong"
+          ]
+        },
+        {
+          "text": "กระแสเงินในช่วงปัจจุบันจะหมุนได้ต่อเนื่องขึ้น รายรับประจำจะค่อย ๆ ลดแรงกดจากค่าใช้จ่ายเดิม ในช่วงเดียวกัน ภาระเงินจะจำกัดทางเลือกใหม่ด้านการเงิน",
+          "reuseCount": 8,
+          "contexts": [
+            "mahabhut2537.rem1.friday",
+            "mahabhut2537.rem2.wednesday",
+            "mahabhut2537.rem3.friday",
+            "mahabhut2537.rem3.saturday",
+            "mahabhut2537.rem3.sunday",
+            "mahabhut2537.rem3.thursday",
+            "mahabhut2537.rem3.wednesday",
+            "mahabhut2537.rem4.tuesday"
+          ],
+          "evidenceFingerprints": [
+            "h=current|d=finance|b=active|r=pressure|e=full|t=false|k=prediction.finance.current.active|o=lagna-house-and-life-period-score|td=true"
+          ],
+          "evidenceKeys": [
+            "prediction.finance.current.active"
+          ]
+        },
+        {
+          "text": "ในช่วงปัจจุบัน ทรัพยากรและของใช้ที่ผู้ดูแลจัดไว้จะรองรับเรื่องจำเป็นได้มากขึ้น ในช่วงเดียวกัน ค่าใช้จ่ายจำเป็นจะจำกัดทางเลือกด้านทรัพยากรและของใช้",
+          "reuseCount": 4,
+          "contexts": [
+            "mahabhut2537.rem1.thursday",
+            "mahabhut2537.rem1.wednesday",
+            "mahabhut2537.rem5.sunday",
+            "mahabhut2537.rem6.thursday"
+          ],
+          "evidenceFingerprints": [
+            "h=current|d=finance|b=strong|r=pressure|e=full|t=false|k=prediction.finance.current.strong|o=lagna-house-and-life-period-score|td=true"
+          ],
+          "evidenceKeys": [
+            "prediction.finance.current.strong"
+          ]
+        },
+        {
+          "text": "ในช่วงปัจจุบัน เงินที่ได้รับจะพอกับเรื่องจำเป็นมากขึ้นเมื่อรายจ่ายประจำเริ่มคงที่ ในช่วงเดียวกัน ค่าใช้จ่ายจำเป็นจะจำกัดทางเลือกใหม่ด้านการเงิน",
+          "reuseCount": 2,
+          "contexts": [
+            "mahabhut2537.rem6.saturday",
+            "mahabhut2537.rem6.sunday"
+          ],
+          "evidenceFingerprints": [
+            "h=current|d=finance|b=active|r=pressure|e=full|t=false|k=prediction.finance.current.active|o=lagna-house-and-life-period-score|td=true"
+          ],
+          "evidenceKeys": [
+            "prediction.finance.current.active"
+          ]
+        }
+      ]
+    },
+    "relationship": {
+      "distinctParagraphCount": 6,
+      "mostReusedParagraph": "ความสัมพันธ์ในช่วงปัจจุบันจะค่อย ๆ เปลี่ยนระดับ การพูดเงื่อนไขตรงกันจะทำให้สถานะชัดขึ้น ในช่วงเดียวกัน ข้อตกลงที่ไม่ตรงกันจะทำให้จังหวะด้านความสัมพันธ์สะดุด",
+      "reuseCount": 17,
+      "contexts": [
+        "mahabhut2537.rem0.friday",
+        "mahabhut2537.rem0.monday",
+        "mahabhut2537.rem0.saturday",
+        "mahabhut2537.rem1.monday",
+        "mahabhut2537.rem1.tuesday",
+        "mahabhut2537.rem2.monday",
+        "mahabhut2537.rem2.sunday",
+        "mahabhut2537.rem2.tuesday",
+        "mahabhut2537.rem3.friday",
+        "mahabhut2537.rem3.saturday",
+        "mahabhut2537.rem3.sunday",
+        "mahabhut2537.rem4.friday",
+        "mahabhut2537.rem4.tuesday",
+        "mahabhut2537.rem5.friday",
+        "mahabhut2537.rem5.monday",
+        "mahabhut2537.rem5.saturday",
+        "mahabhut2537.rem6.monday"
+      ],
+      "evidenceFingerprints": [
+        "h=current|d=relationship|b=active|r=pressure|e=full|t=false|k=prediction.relationship.current.active|o=lagna-house-and-life-period-score|td=true"
+      ],
+      "mismatchedEvidenceReuseCount": 0,
+      "mismatchedEvidenceReuse": [],
+      "paragraphs": [
+        {
+          "text": "ความสัมพันธ์ในช่วงปัจจุบันจะค่อย ๆ เปลี่ยนระดับ การพูดเงื่อนไขตรงกันจะทำให้สถานะชัดขึ้น ในช่วงเดียวกัน ข้อตกลงที่ไม่ตรงกันจะทำให้จังหวะด้านความสัมพันธ์สะดุด",
+          "reuseCount": 17,
+          "contexts": [
+            "mahabhut2537.rem0.friday",
+            "mahabhut2537.rem0.monday",
+            "mahabhut2537.rem0.saturday",
+            "mahabhut2537.rem1.monday",
+            "mahabhut2537.rem1.tuesday",
+            "mahabhut2537.rem2.monday",
+            "mahabhut2537.rem2.sunday",
+            "mahabhut2537.rem2.tuesday",
+            "mahabhut2537.rem3.friday",
+            "mahabhut2537.rem3.saturday",
+            "mahabhut2537.rem3.sunday",
+            "mahabhut2537.rem4.friday",
+            "mahabhut2537.rem4.tuesday",
+            "mahabhut2537.rem5.friday",
+            "mahabhut2537.rem5.monday",
+            "mahabhut2537.rem5.saturday",
+            "mahabhut2537.rem6.monday"
+          ],
+          "evidenceFingerprints": [
+            "h=current|d=relationship|b=active|r=pressure|e=full|t=false|k=prediction.relationship.current.active|o=lagna-house-and-life-period-score|td=true"
+          ],
+          "evidenceKeys": [
+            "prediction.relationship.current.active"
+          ]
+        },
+        {
+          "text": "ความสัมพันธ์ในช่วงปัจจุบันจะชัดขึ้นจากการกระทำที่สม่ำเสมอ ข้อตกลงที่ค้างอยู่จะได้ข้อสรุป ในช่วงเดียวกัน ข้อตกลงที่ไม่ตรงกันจะทำให้จังหวะด้านความสัมพันธ์สะดุด",
+          "reuseCount": 16,
+          "contexts": [
+            "mahabhut2537.rem0.sunday",
+            "mahabhut2537.rem0.thursday",
+            "mahabhut2537.rem1.saturday",
+            "mahabhut2537.rem1.sunday",
+            "mahabhut2537.rem2.saturday",
+            "mahabhut2537.rem2.thursday",
+            "mahabhut2537.rem2.wednesday",
+            "mahabhut2537.rem3.monday",
+            "mahabhut2537.rem3.thursday",
+            "mahabhut2537.rem3.tuesday",
+            "mahabhut2537.rem3.wednesday",
+            "mahabhut2537.rem4.monday",
+            "mahabhut2537.rem4.saturday",
+            "mahabhut2537.rem4.thursday",
+            "mahabhut2537.rem6.friday",
+            "mahabhut2537.rem6.wednesday"
+          ],
+          "evidenceFingerprints": [
+            "h=current|d=relationship|b=strong|r=pressure|e=full|t=false|k=prediction.relationship.current.strong|o=lagna-house-and-life-period-score|td=true"
+          ],
+          "evidenceKeys": [
+            "prediction.relationship.current.strong"
+          ]
+        },
+        {
+          "text": "ในช่วงปัจจุบัน ความสัมพันธ์กับครอบครัวและเพื่อนจะมั่นคงขึ้นจากข้อตกลงที่ทำได้จริง ในช่วงเดียวกัน ข้อตกลงกับคนรอบตัวที่ไม่ตรงกันจะทำให้ด้านความสัมพันธ์สะดุด",
+          "reuseCount": 8,
+          "contexts": [
+            "mahabhut2537.rem2.friday",
+            "mahabhut2537.rem4.sunday",
+            "mahabhut2537.rem4.wednesday",
+            "mahabhut2537.rem5.thursday",
+            "mahabhut2537.rem5.tuesday",
+            "mahabhut2537.rem5.wednesday",
+            "mahabhut2537.rem6.sunday",
+            "mahabhut2537.rem6.tuesday"
+          ],
+          "evidenceFingerprints": [
+            "h=current|d=relationship|b=strong|r=pressure|e=full|t=false|k=prediction.relationship.current.strong|o=lagna-house-and-life-period-score|td=true"
+          ],
+          "evidenceKeys": [
+            "prediction.relationship.current.strong"
+          ]
+        },
+        {
+          "text": "ในช่วงปัจจุบัน ความสัมพันธ์กับผู้ดูแลและคนใกล้ชิดจะมั่นคงขึ้นจากกิจวัตรที่สม่ำเสมอ ในช่วงเดียวกัน ข้อตกลงของผู้ดูแลที่ไม่ตรงกันจะทำให้ด้านความสัมพันธ์กับผู้ดูแลสะดุด",
+          "reuseCount": 4,
+          "contexts": [
+            "mahabhut2537.rem1.thursday",
+            "mahabhut2537.rem1.wednesday",
+            "mahabhut2537.rem5.sunday",
+            "mahabhut2537.rem6.thursday"
+          ],
+          "evidenceFingerprints": [
+            "h=current|d=relationship|b=strong|r=pressure|e=full|t=false|k=prediction.relationship.current.strong|o=lagna-house-and-life-period-score|td=true"
+          ],
+          "evidenceKeys": [
+            "prediction.relationship.current.strong"
+          ]
+        },
+        {
+          "text": "ในช่วงปัจจุบัน ความสัมพันธ์กับครอบครัวและเพื่อนจะค่อย ๆ ปรับตามการพูดและทำตามข้อตกลง ในช่วงเดียวกัน ข้อตกลงกับคนรอบตัวที่ไม่ตรงกันจะทำให้ด้านความสัมพันธ์สะดุด",
+          "reuseCount": 3,
+          "contexts": [
+            "mahabhut2537.rem0.tuesday",
+            "mahabhut2537.rem0.wednesday",
+            "mahabhut2537.rem6.saturday"
+          ],
+          "evidenceFingerprints": [
+            "h=current|d=relationship|b=active|r=pressure|e=full|t=false|k=prediction.relationship.current.active|o=lagna-house-and-life-period-score|td=true"
+          ],
+          "evidenceKeys": [
+            "prediction.relationship.current.active"
+          ]
+        },
+        {
+          "text": "ความสัมพันธ์ในช่วงปัจจุบันจะเว้นระยะมากขึ้นเมื่อคำพูดกับการกระทำไม่ตรงกัน เรื่องค้างจะถูกนำกลับมาคุย ในช่วงเดียวกัน ข้อตกลงที่ไม่ตรงกันจะทำให้จังหวะด้านความสัมพันธ์สะดุด",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem1.friday"
+          ],
+          "evidenceFingerprints": [
+            "h=current|d=relationship|b=quiet|r=pressure|e=full|t=false|k=prediction.relationship.current.quiet|o=lagna-house-and-life-period-score|td=true"
+          ],
+          "evidenceKeys": [
+            "prediction.relationship.current.quiet"
+          ]
+        }
+      ]
+    },
+    "health": {
+      "distinctParagraphCount": 6,
+      "mostReusedParagraph": "พลังในช่วงปัจจุบันจะรองรับกิจกรรมได้ดีขึ้น การฟื้นตัวหลังวันหนักจะกลับมาเร็วและสม่ำเสมอ ในช่วงเดียวกัน การพักไม่พอจะลดแรงที่ใช้ประคองด้านสุขภาพและการพัก",
+      "reuseCount": 19,
+      "contexts": [
+        "mahabhut2537.rem0.friday",
+        "mahabhut2537.rem0.sunday",
+        "mahabhut2537.rem0.thursday",
+        "mahabhut2537.rem1.saturday",
+        "mahabhut2537.rem1.sunday",
+        "mahabhut2537.rem1.tuesday",
+        "mahabhut2537.rem2.monday",
+        "mahabhut2537.rem2.saturday",
+        "mahabhut2537.rem2.thursday",
+        "mahabhut2537.rem2.wednesday",
+        "mahabhut2537.rem3.monday",
+        "mahabhut2537.rem3.thursday",
+        "mahabhut2537.rem3.tuesday",
+        "mahabhut2537.rem3.wednesday",
+        "mahabhut2537.rem4.monday",
+        "mahabhut2537.rem4.saturday",
+        "mahabhut2537.rem4.thursday",
+        "mahabhut2537.rem6.friday",
+        "mahabhut2537.rem6.wednesday"
+      ],
+      "evidenceFingerprints": [
+        "h=current|d=health|b=strong|r=pressure|e=full|t=false|k=prediction.health.current.strong|o=lagna-house-and-life-period-score|td=true"
+      ],
+      "mismatchedEvidenceReuseCount": 0,
+      "mismatchedEvidenceReuse": [],
+      "paragraphs": [
+        {
+          "text": "พลังในช่วงปัจจุบันจะรองรับกิจกรรมได้ดีขึ้น การฟื้นตัวหลังวันหนักจะกลับมาเร็วและสม่ำเสมอ ในช่วงเดียวกัน การพักไม่พอจะลดแรงที่ใช้ประคองด้านสุขภาพและการพัก",
+          "reuseCount": 19,
+          "contexts": [
+            "mahabhut2537.rem0.friday",
+            "mahabhut2537.rem0.sunday",
+            "mahabhut2537.rem0.thursday",
+            "mahabhut2537.rem1.saturday",
+            "mahabhut2537.rem1.sunday",
+            "mahabhut2537.rem1.tuesday",
+            "mahabhut2537.rem2.monday",
+            "mahabhut2537.rem2.saturday",
+            "mahabhut2537.rem2.thursday",
+            "mahabhut2537.rem2.wednesday",
+            "mahabhut2537.rem3.monday",
+            "mahabhut2537.rem3.thursday",
+            "mahabhut2537.rem3.tuesday",
+            "mahabhut2537.rem3.wednesday",
+            "mahabhut2537.rem4.monday",
+            "mahabhut2537.rem4.saturday",
+            "mahabhut2537.rem4.thursday",
+            "mahabhut2537.rem6.friday",
+            "mahabhut2537.rem6.wednesday"
+          ],
+          "evidenceFingerprints": [
+            "h=current|d=health|b=strong|r=pressure|e=full|t=false|k=prediction.health.current.strong|o=lagna-house-and-life-period-score|td=true"
+          ],
+          "evidenceKeys": [
+            "prediction.health.current.strong"
+          ]
+        },
+        {
+          "text": "พลังในช่วงปัจจุบันจะขึ้นลงตามภาระ วันที่งานชนกันจะใช้เวลาฟื้นนานกว่าวันปกติ ในช่วงเดียวกัน การพักไม่พอจะลดแรงที่ใช้ประคองด้านสุขภาพและการพัก",
+          "reuseCount": 14,
+          "contexts": [
+            "mahabhut2537.rem0.monday",
+            "mahabhut2537.rem0.saturday",
+            "mahabhut2537.rem1.monday",
+            "mahabhut2537.rem2.sunday",
+            "mahabhut2537.rem2.tuesday",
+            "mahabhut2537.rem3.friday",
+            "mahabhut2537.rem3.saturday",
+            "mahabhut2537.rem3.sunday",
+            "mahabhut2537.rem4.friday",
+            "mahabhut2537.rem4.tuesday",
+            "mahabhut2537.rem5.friday",
+            "mahabhut2537.rem5.monday",
+            "mahabhut2537.rem5.saturday",
+            "mahabhut2537.rem6.monday"
+          ],
+          "evidenceFingerprints": [
+            "h=current|d=health|b=active|r=pressure|e=full|t=false|k=prediction.health.current.active|o=lagna-house-and-life-period-score|td=true"
+          ],
+          "evidenceKeys": [
+            "prediction.health.current.active"
+          ]
+        },
+        {
+          "text": "ในช่วงปัจจุบัน กำลังในแต่ละวันจะคงที่ขึ้นและกลับมามีแรงเร็วหลังเรียนหรือทำกิจกรรมหนัก ในช่วงเดียวกัน การพักไม่พอจะลดแรงที่ใช้ประคองด้านกำลังและการพัก",
+          "reuseCount": 8,
+          "contexts": [
+            "mahabhut2537.rem2.friday",
+            "mahabhut2537.rem4.sunday",
+            "mahabhut2537.rem4.wednesday",
+            "mahabhut2537.rem5.thursday",
+            "mahabhut2537.rem5.tuesday",
+            "mahabhut2537.rem5.wednesday",
+            "mahabhut2537.rem6.sunday",
+            "mahabhut2537.rem6.tuesday"
+          ],
+          "evidenceFingerprints": [
+            "h=current|d=health|b=strong|r=pressure|e=full|t=false|k=prediction.health.current.strong|o=lagna-house-and-life-period-score|td=true"
+          ],
+          "evidenceKeys": [
+            "prediction.health.current.strong"
+          ]
+        },
+        {
+          "text": "ในช่วงปัจจุบัน การนอน การกิน และการฟื้นตัวจะสม่ำเสมอขึ้น ในช่วงเดียวกัน การพักไม่พอจะลดแรงที่ใช้ประคองด้านการนอนและกำลัง",
+          "reuseCount": 4,
+          "contexts": [
+            "mahabhut2537.rem1.thursday",
+            "mahabhut2537.rem1.wednesday",
+            "mahabhut2537.rem5.sunday",
+            "mahabhut2537.rem6.thursday"
+          ],
+          "evidenceFingerprints": [
+            "h=current|d=health|b=strong|r=pressure|e=full|t=false|k=prediction.health.current.strong|o=lagna-house-and-life-period-score|td=true"
+          ],
+          "evidenceKeys": [
+            "prediction.health.current.strong"
+          ]
+        },
+        {
+          "text": "ในช่วงปัจจุบัน กำลังในแต่ละวันจะขึ้นลงตามตารางเรียนและกิจกรรม วันที่หลายเรื่องชนกันจะฟื้นช้าลง ในช่วงเดียวกัน การพักไม่พอจะลดแรงที่ใช้ประคองด้านกำลังและการพัก",
+          "reuseCount": 3,
+          "contexts": [
+            "mahabhut2537.rem0.tuesday",
+            "mahabhut2537.rem0.wednesday",
+            "mahabhut2537.rem6.saturday"
+          ],
+          "evidenceFingerprints": [
+            "h=current|d=health|b=active|r=pressure|e=full|t=false|k=prediction.health.current.active|o=lagna-house-and-life-period-score|td=true"
+          ],
+          "evidenceKeys": [
+            "prediction.health.current.active"
+          ]
+        },
+        {
+          "text": "ความล้าในช่วงปัจจุบันจะสะสมเร็วขึ้น กิจกรรมต่อเนื่องจะลดแรงที่เหลือในวันถัดไป ในช่วงเดียวกัน การพักไม่พอจะลดแรงที่ใช้ประคองด้านสุขภาพและการพัก",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem1.friday"
+          ],
+          "evidenceFingerprints": [
+            "h=current|d=health|b=quiet|r=pressure|e=full|t=false|k=prediction.health.current.quiet|o=lagna-house-and-life-period-score|td=true"
+          ],
+          "evidenceKeys": [
+            "prediction.health.current.quiet"
+          ]
+        }
+      ]
+    },
+    "support": {
+      "distinctParagraphCount": 33,
+      "mostReusedParagraph": "คนที่ร่วมตัดสินใจและรับผิดชอบผลลัพธ์จะช่วยลดแรงของเรื่องค้างและทำให้ปัญหาแยกเป็นส่วนที่จัดการได้ ความช่วยเหลือจะเร่งการปิดเรื่องที่หมดบทบาท",
+      "reuseCount": 4,
+      "contexts": [
+        "mahabhut2537.rem0.sunday",
+        "mahabhut2537.rem1.monday",
+        "mahabhut2537.rem2.wednesday",
+        "mahabhut2537.rem4.tuesday"
+      ],
+      "evidenceFingerprints": [
+        "status=dueng_tok|role=det|house=marana"
+      ],
+      "mismatchedEvidenceReuseCount": 0,
+      "mismatchedEvidenceReuse": [],
+      "paragraphs": [
+        {
+          "text": "คนที่ร่วมตัดสินใจและรับผิดชอบผลลัพธ์จะช่วยลดแรงของเรื่องค้างและทำให้ปัญหาแยกเป็นส่วนที่จัดการได้ ความช่วยเหลือจะเร่งการปิดเรื่องที่หมดบทบาท",
+          "reuseCount": 4,
+          "contexts": [
+            "mahabhut2537.rem0.sunday",
+            "mahabhut2537.rem1.monday",
+            "mahabhut2537.rem2.wednesday",
+            "mahabhut2537.rem4.tuesday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_tok|role=det|house=marana"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem0.sunday.mars.22_29",
+            "selector.mahabhut2537.rem1.monday.mercury.24_40",
+            "selector.mahabhut2537.rem2.wednesday.jupiter.28_46",
+            "selector.mahabhut2537.rem4.tuesday.saturn.26_35"
+          ]
+        },
+        {
+          "text": "ครอบครัว เพื่อน และคนที่อยู่ใกล้ชิดจะเข้ามาช่วยเปิดทางให้เรื่องติดขัดเดินต่อ ความช่วยเหลือจะทำให้หน้าที่และขอบเขตตัดสินใจชัดขึ้น",
+          "reuseCount": 3,
+          "contexts": [
+            "mahabhut2537.rem0.wednesday",
+            "mahabhut2537.rem1.thursday",
+            "mahabhut2537.rem2.friday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_khuen|role=boriwan|house=athibodi"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem0.wednesday.mercury.0_17",
+            "selector.mahabhut2537.rem1.thursday.jupiter.0_19",
+            "selector.mahabhut2537.rem2.friday.venus.0_21"
+          ]
+        },
+        {
+          "text": "คนที่ร่วมตัดสินใจและรับผิดชอบผลลัพธ์จะเข้ามาช่วยเปิดทางให้เรื่องติดขัดเดินต่อ ความช่วยเหลือจะทำให้หน้าที่และขอบเขตตัดสินใจชัดขึ้น",
+          "reuseCount": 3,
+          "contexts": [
+            "mahabhut2537.rem0.monday",
+            "mahabhut2537.rem0.saturday",
+            "mahabhut2537.rem2.thursday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_khuen|role=det|house=athibodi"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem0.monday.mercury.24_40",
+            "selector.mahabhut2537.rem0.saturday.rahu.30_41",
+            "selector.mahabhut2537.rem2.thursday.venus.32_52"
+          ]
+        },
+        {
+          "text": "ผลงานเดิมและชื่อเสียงที่สร้างไว้จะเข้ามาช่วยเปิดทางให้เรื่องติดขัดเดินต่อ ความช่วยเหลือจะลดแรงกดด้านทรัพยากรและค่าใช้จ่าย",
+          "reuseCount": 2,
+          "contexts": [
+            "mahabhut2537.rem3.tuesday",
+            "mahabhut2537.rem4.saturday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_khuen|role=sri|house=khumsap"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem3.tuesday.jupiter.36_54",
+            "selector.mahabhut2537.rem4.saturday.venus.42_62"
+          ]
+        },
+        {
+          "text": "ผลงานเดิมและชื่อเสียงที่สร้างไว้จะช่วยลดแรงของเรื่องค้างและทำให้ปัญหาแยกเป็นส่วนที่จัดการได้ ความช่วยเหลือจะพาเรื่องเก่าจบและเปิดจังหวะใหม่",
+          "reuseCount": 2,
+          "contexts": [
+            "mahabhut2537.rem0.thursday",
+            "mahabhut2537.rem3.wednesday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_tok|role=sri|house=puti"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem0.thursday.sun.53_58",
+            "selector.mahabhut2537.rem3.wednesday.rahu.47_58"
+          ]
+        },
+        {
+          "text": "คนที่ช่วยจัดตารางและแบ่งภาระร่วมกันจะเข้ามาช่วยเปิดทางให้เรื่องติดขัดเดินต่อ ความช่วยเหลือจะลดแรงกดด้านทรัพยากรและค่าใช้จ่าย",
+          "reuseCount": 2,
+          "contexts": [
+            "mahabhut2537.rem2.tuesday",
+            "mahabhut2537.rem3.saturday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_khuen|role=ayu|house=khumsap"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem2.tuesday.mercury.9_25",
+            "selector.mahabhut2537.rem3.saturday.jupiter.11_29"
+          ]
+        },
+        {
+          "text": "ครอบครัว เพื่อน และคนที่อยู่ใกล้ชิดจะเข้ามาช่วยเปิดทางให้เรื่องติดขัดเดินต่อ ความช่วยเหลือจะพาเป้าหมายระยะยาวเข้าใกล้ผลสำเร็จ",
+          "reuseCount": 2,
+          "contexts": [
+            "mahabhut2537.rem5.wednesday",
+            "mahabhut2537.rem6.thursday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_khuen|role=boriwan|house=thongchai"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem5.wednesday.mercury.0_17",
+            "selector.mahabhut2537.rem6.thursday.jupiter.0_19"
+          ]
+        },
+        {
+          "text": "ครอบครัว เพื่อน และคนที่อยู่ใกล้ชิดจะช่วยลดแรงของเรื่องค้างและทำให้ปัญหาแยกเป็นส่วนที่จัดการได้ ความช่วยเหลือจะเร่งการปิดเรื่องที่หมดบทบาท",
+          "reuseCount": 2,
+          "contexts": [
+            "mahabhut2537.rem1.wednesday",
+            "mahabhut2537.rem5.sunday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_tok|role=boriwan|house=marana"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem1.wednesday.mercury.0_17",
+            "selector.mahabhut2537.rem5.sunday.sun.0_6"
+          ]
+        },
+        {
+          "text": "คนที่ร่วมตัดสินใจและรับผิดชอบผลลัพธ์จะเข้ามาช่วยเปิดทางให้เรื่องติดขัดเดินต่อ ความช่วยเหลือจะพาเป้าหมายระยะยาวเข้าใกล้ผลสำเร็จ",
+          "reuseCount": 2,
+          "contexts": [
+            "mahabhut2537.rem5.monday",
+            "mahabhut2537.rem5.saturday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_khuen|role=det|house=thongchai"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem5.monday.mercury.24_40",
+            "selector.mahabhut2537.rem5.saturday.rahu.30_41"
+          ]
+        },
+        {
+          "text": "ครอบครัว เพื่อน และคนที่อยู่ใกล้ชิดจะช่วยลดแรงของเรื่องค้างและทำให้ปัญหาแยกเป็นส่วนที่จัดการได้ ความช่วยเหลือจะทำให้โครงสร้างเดิมปรับได้โดยไม่สะดุด",
+          "reuseCount": 2,
+          "contexts": [
+            "mahabhut2537.rem4.wednesday",
+            "mahabhut2537.rem5.thursday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_tok|role=boriwan|house=phangkha"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem4.wednesday.mercury.0_17",
+            "selector.mahabhut2537.rem5.thursday.jupiter.0_19"
+          ]
+        },
+        {
+          "text": "ผู้ใหญ่ที่ช่วยดูแลกิจวัตรและตารางชีวิตจะเข้ามาช่วยเปิดทางให้เรื่องติดขัดเดินต่อ ความช่วยเหลือจะทำให้บทบาทและการยอมรับชัดขึ้น",
+          "reuseCount": 2,
+          "contexts": [
+            "mahabhut2537.rem4.sunday",
+            "mahabhut2537.rem6.tuesday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_khuen|role=ayu|house=racha"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem4.sunday.moon.7_21",
+            "selector.mahabhut2537.rem6.tuesday.mercury.9_25"
+          ]
+        },
+        {
+          "text": "ผลงานเดิมและชื่อเสียงที่สร้างไว้จะเข้ามาช่วยเปิดทางให้เรื่องติดขัดเดินต่อ ความช่วยเหลือจะพาเป้าหมายระยะยาวเข้าใกล้ผลสำเร็จ",
+          "reuseCount": 2,
+          "contexts": [
+            "mahabhut2537.rem4.friday",
+            "mahabhut2537.rem6.monday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_khuen|role=sri|house=thongchai"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem4.friday.mars.43_50",
+            "selector.mahabhut2537.rem6.monday.jupiter.41_59"
+          ]
+        },
+        {
+          "text": "คนที่ร่วมลงแรงและทำงานต่อเนื่องด้วยกันจะเข้ามาช่วยเปิดทางให้เรื่องติดขัดเดินต่อ ความช่วยเหลือจะพาเป้าหมายระยะยาวเข้าใกล้ผลสำเร็จ",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem4.thursday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_khuen|role=utsaha|house=thongchai"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem4.thursday.mars.74_81"
+          ]
+        },
+        {
+          "text": "คนที่ร่วมดูแลฐานงาน ทรัพยากร และสิ่งที่สะสมไว้จะเข้ามาช่วยเปิดทางให้เรื่องติดขัดเดินต่อ ความช่วยเหลือจะทำให้บทบาทและการยอมรับชัดขึ้น",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem6.friday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_khuen|role=mula|house=racha"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem6.friday.mercury.51_67"
+          ]
+        },
+        {
+          "text": "คนที่ช่วยจัดตารางและแบ่งภาระร่วมกันจะเข้ามาช่วยเปิดทางให้เรื่องติดขัดเดินต่อ ความช่วยเหลือจะทำให้บทบาทและการยอมรับชัดขึ้น",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem3.friday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_khuen|role=ayu|house=racha"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem3.friday.sun.22_27"
+          ]
+        },
+        {
+          "text": "ผู้ใหญ่ที่ช่วยดูแลกิจวัตรและตารางชีวิตจะเข้ามาช่วยเปิดทางให้เรื่องติดขัดเดินต่อ ความช่วยเหลือจะพาเป้าหมายระยะยาวเข้าใกล้ผลสำเร็จ",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem5.tuesday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_khuen|role=ayu|house=thongchai"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem5.tuesday.mercury.9_25"
+          ]
+        },
+        {
+          "text": "ครอบครัว เพื่อน และคนที่อยู่ใกล้ชิดจะช่วยลดแรงของเรื่องค้างและทำให้ปัญหาแยกเป็นส่วนที่จัดการได้ ความช่วยเหลือจะพาเรื่องเก่าจบและเปิดจังหวะใหม่",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem6.saturday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_tok|role=boriwan|house=puti"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem6.saturday.saturn.0_10"
+          ]
+        },
+        {
+          "text": "คนที่ร่วมดูแลฐานงาน ทรัพยากร และสิ่งที่สะสมไว้จะช่วยลดแรงของเรื่องค้างและทำให้ปัญหาแยกเป็นส่วนที่จัดการได้ ความช่วยเหลือจะเร่งการปิดเรื่องที่หมดบทบาท",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem3.monday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_tok|role=mula|house=marana"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem3.monday.venus.60_80"
+          ]
+        },
+        {
+          "text": "คนที่ร่วมตัดสินใจและรับผิดชอบผลลัพธ์จะเข้ามาช่วยเปิดทางให้เรื่องติดขัดเดินต่อ ความช่วยเหลือจะลดแรงกดด้านทรัพยากรและค่าใช้จ่าย",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem2.monday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_khuen|role=det|house=khumsap"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem2.monday.mercury.24_40"
+          ]
+        },
+        {
+          "text": "คนที่ร่วมดูแลฐานงาน ทรัพยากร และสิ่งที่สะสมไว้จะเข้ามาช่วยเปิดทางให้เรื่องติดขัดเดินต่อ ความช่วยเหลือจะพาเป้าหมายระยะยาวเข้าใกล้ผลสำเร็จ",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem3.thursday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_khuen|role=mula|house=thongchai"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem3.thursday.moon.59_73"
+          ]
+        },
+        {
+          "text": "คนที่ร่วมลงแรงและทำงานต่อเนื่องด้วยกันจะเข้ามาช่วยเปิดทางให้เรื่องติดขัดเดินต่อ ความช่วยเหลือจะลดแรงกดด้านทรัพยากรและค่าใช้จ่าย",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem5.friday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_khuen|role=utsaha|house=khumsap"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem5.friday.saturn.68_77"
+          ]
+        },
+        {
+          "text": "ผลงานเดิมและชื่อเสียงที่สร้างไว้จะเข้ามาช่วยเปิดทางให้เรื่องติดขัดเดินต่อ ความช่วยเหลือจะทำให้หน้าที่และขอบเขตตัดสินใจชัดขึ้น",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem2.saturday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_khuen|role=sri|house=athibodi"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem2.saturday.venus.42_62"
+          ]
+        },
+        {
+          "text": "ผลงานเดิมและชื่อเสียงที่สร้างไว้จะเข้ามาช่วยเปิดทางให้เรื่องติดขัดเดินต่อ ความช่วยเหลือจะทำให้บทบาทและการยอมรับชัดขึ้น",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem1.saturday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_khuen|role=sri|house=racha"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem1.saturday.venus.42_62"
+          ]
+        },
+        {
+          "text": "ผู้ใหญ่ที่ช่วยดูแลกิจวัตรและตารางชีวิตจะช่วยลดแรงของเรื่องค้างและทำให้ปัญหาแยกเป็นส่วนที่จัดการได้ ความช่วยเหลือจะเร่งการปิดเรื่องที่หมดบทบาท",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem6.sunday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_tok|role=ayu|house=marana"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem6.sunday.moon.7_21"
+          ]
+        },
+        {
+          "text": "คนที่ช่วยจัดตารางและแบ่งภาระร่วมกันจะช่วยลดแรงของเรื่องค้างและทำให้ปัญหาแยกเป็นส่วนที่จัดการได้ ความช่วยเหลือจะเร่งการปิดเรื่องที่หมดบทบาท",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem1.tuesday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_tok|role=ayu|house=marana"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem1.tuesday.mercury.9_25"
+          ]
+        },
+        {
+          "text": "คนที่ร่วมดูแลฐานงาน ทรัพยากร และสิ่งที่สะสมไว้จะช่วยลดแรงของเรื่องค้างและทำให้ปัญหาแยกเป็นส่วนที่จัดการได้ ความช่วยเหลือจะทำให้โครงสร้างเดิมปรับได้โดยไม่สะดุด",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem6.wednesday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_tok|role=mula|house=phangkha"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem6.wednesday.venus.59_79"
+          ]
+        },
+        {
+          "text": "คนที่ร่วมลงแรงและทำงานต่อเนื่องด้วยกันจะเข้ามาช่วยเปิดทางให้เรื่องติดขัดเดินต่อ ความช่วยเหลือจะทำให้หน้าที่และขอบเขตตัดสินใจชัดขึ้น",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem2.sunday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_khuen|role=utsaha|house=athibodi"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem2.sunday.venus.66_86"
+          ]
+        },
+        {
+          "text": "คนที่ร่วมลงแรงและทำงานต่อเนื่องด้วยกันจะช่วยลดแรงของเรื่องค้างและทำให้ปัญหาแยกเป็นส่วนที่จัดการได้ ความช่วยเหลือจะเร่งการปิดเรื่องที่หมดบทบาท",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem3.sunday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_tok|role=utsaha|house=marana"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem3.sunday.venus.66_86"
+          ]
+        },
+        {
+          "text": "คนที่ร่วมดูแลฐานงาน ทรัพยากร และสิ่งที่สะสมไว้จะเข้ามาช่วยเปิดทางให้เรื่องติดขัดเดินต่อ ความช่วยเหลือจะลดแรงกดด้านทรัพยากรและค่าใช้จ่าย",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem4.monday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_khuen|role=mula|house=khumsap"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem4.monday.venus.60_80"
+          ]
+        },
+        {
+          "text": "คนที่ร่วมดูแลฐานงาน ทรัพยากร และสิ่งที่สะสมไว้จะเข้ามาช่วยเปิดทางให้เรื่องติดขัดเดินต่อ ความช่วยเหลือจะทำให้หน้าที่และขอบเขตตัดสินใจชัดขึ้น",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem0.friday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_khuen|role=mula|house=athibodi"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem0.friday.mercury.51_67"
+          ]
+        },
+        {
+          "text": "ผลงานเดิมและชื่อเสียงที่สร้างไว้จะช่วยลดแรงของเรื่องค้างและทำให้ปัญหาแยกเป็นส่วนที่จัดการได้ ความช่วยเหลือจะเร่งการปิดเรื่องที่หมดบทบาท",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem1.sunday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_tok|role=sri|house=marana"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem1.sunday.mercury.30_46"
+          ]
+        },
+        {
+          "text": "ผู้ใหญ่ที่ช่วยดูแลกิจวัตรและตารางชีวิตจะเข้ามาช่วยเปิดทางให้เรื่องติดขัดเดินต่อ ความช่วยเหลือจะทำให้หน้าที่และขอบเขตตัดสินใจชัดขึ้น",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem0.tuesday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_khuen|role=ayu|house=athibodi"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem0.tuesday.mercury.9_25"
+          ]
+        },
+        {
+          "text": "คนที่ช่วยจัดตารางและแบ่งภาระร่วมกันจะช่วยลดแรงของเรื่องค้างและทำให้ปัญหาแยกเป็นส่วนที่จัดการได้ ความช่วยเหลือจะทำให้โครงสร้างเดิมปรับได้โดยไม่สะดุด",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem1.friday"
+          ],
+          "evidenceFingerprints": [
+            "status=dueng_tok|role=ayu|house=phangkha"
+          ],
+          "evidenceKeys": [
+            "selector.mahabhut2537.rem1.friday.sun.22_27"
+          ]
+        }
+      ]
+    },
+    "rolling12": {
+      "distinctParagraphCount": 17,
+      "mostReusedParagraph": "ระหว่างวันที่ 29 สิงหาคม 2569 ถึง 28 สิงหาคม 2570 ตลอด 12 เดือน งานที่รับผิดชอบจะขยายและผลงานเดิมจะพาไปสู่บทบาทที่มีน้ำหนักมากขึ้น ภายในรอบนี้ ภาระงานหลักจะเบียดเวลาและทำให้จังหวะด้านงานเดินช้าลง ตลอด 12 เดือน รายรับจะเพิ่มตามขนาดงาน ขณะเดียวกันเงินก้อนสำหรับภาระสำคัญจะเข้ามาเป็นระยะ ภายในรอบนี้ ภาระเงินจะจำกัดทางเลือกใหม่ด้านการเงิน",
+      "reuseCount": 13,
+      "contexts": [
+        "mahabhut2537.rem0.friday",
+        "mahabhut2537.rem0.sunday",
+        "mahabhut2537.rem1.saturday",
+        "mahabhut2537.rem1.sunday",
+        "mahabhut2537.rem1.tuesday",
+        "mahabhut2537.rem2.saturday",
+        "mahabhut2537.rem2.sunday",
+        "mahabhut2537.rem3.monday",
+        "mahabhut2537.rem4.monday",
+        "mahabhut2537.rem4.saturday",
+        "mahabhut2537.rem4.thursday",
+        "mahabhut2537.rem6.friday",
+        "mahabhut2537.rem6.wednesday"
+      ],
+      "evidenceFingerprints": [
+        "h=next12Months|d=career|b=strong|r=pressure|e=full|t=false|k=prediction.career.next12Months.strong|o=lagna-house-and-life-period-score|td=true"
+      ],
+      "mismatchedEvidenceReuseCount": 0,
+      "mismatchedEvidenceReuse": [],
+      "paragraphs": [
+        {
+          "text": "ระหว่างวันที่ 29 สิงหาคม 2569 ถึง 28 สิงหาคม 2570 ตลอด 12 เดือน งานที่รับผิดชอบจะขยายและผลงานเดิมจะพาไปสู่บทบาทที่มีน้ำหนักมากขึ้น ภายในรอบนี้ ภาระงานหลักจะเบียดเวลาและทำให้จังหวะด้านงานเดินช้าลง ตลอด 12 เดือน รายรับจะเพิ่มตามขนาดงาน ขณะเดียวกันเงินก้อนสำหรับภาระสำคัญจะเข้ามาเป็นระยะ ภายในรอบนี้ ภาระเงินจะจำกัดทางเลือกใหม่ด้านการเงิน",
+          "reuseCount": 13,
+          "contexts": [
+            "mahabhut2537.rem0.friday",
+            "mahabhut2537.rem0.sunday",
+            "mahabhut2537.rem1.saturday",
+            "mahabhut2537.rem1.sunday",
+            "mahabhut2537.rem1.tuesday",
+            "mahabhut2537.rem2.saturday",
+            "mahabhut2537.rem2.sunday",
+            "mahabhut2537.rem3.monday",
+            "mahabhut2537.rem4.monday",
+            "mahabhut2537.rem4.saturday",
+            "mahabhut2537.rem4.thursday",
+            "mahabhut2537.rem6.friday",
+            "mahabhut2537.rem6.wednesday"
+          ],
+          "evidenceFingerprints": [
+            "h=next12Months|d=career|b=strong|r=pressure|e=full|t=false|k=prediction.career.next12Months.strong|o=lagna-house-and-life-period-score|td=true"
+          ],
+          "evidenceKeys": [
+            "prediction.career.next12Months.strong"
+          ]
+        },
+        {
+          "text": "ระหว่างวันที่ 29 สิงหาคม 2569 ถึง 28 สิงหาคม 2570 ตลอด 12 เดือน ความสัมพันธ์จะค่อย ๆ เปลี่ยนจากการดูใจกันไปสู่การตกลงเวลาและหน้าที่ร่วมกัน ภายในรอบนี้ ข้อตกลงที่ไม่ตรงกันจะทำให้จังหวะด้านความสัมพันธ์สะดุด ตลอด 12 เดือน รอบพักจะเป็นตัวกำหนดปริมาณงาน ช่วงที่ภาระเบาจะคืนแรงได้ชัดกว่าช่วงที่หลายเรื่องชนกัน ภายในรอบนี้ การพักไม่พอจะลดแรงที่ใช้ประคองด้านสุขภาพและการพัก",
+          "reuseCount": 10,
+          "contexts": [
+            "mahabhut2537.rem0.monday",
+            "mahabhut2537.rem0.saturday",
+            "mahabhut2537.rem1.monday",
+            "mahabhut2537.rem2.tuesday",
+            "mahabhut2537.rem3.saturday",
+            "mahabhut2537.rem4.tuesday",
+            "mahabhut2537.rem5.friday",
+            "mahabhut2537.rem5.monday",
+            "mahabhut2537.rem5.saturday",
+            "mahabhut2537.rem6.monday"
+          ],
+          "evidenceFingerprints": [
+            "h=next12Months|d=relationship|b=active|r=pressure|e=full|t=false|k=prediction.relationship.next12Months.active|o=lagna-house-and-life-period-score|td=true"
+          ],
+          "evidenceKeys": [
+            "prediction.relationship.next12Months.active"
+          ]
+        },
+        {
+          "text": "ระหว่างวันที่ 29 สิงหาคม 2569 ถึง 28 สิงหาคม 2570 ตลอด 12 เดือน การเรียน หน้าที่ และกิจกรรมหลักจะเดินหน้าและเห็นผลงานชัดขึ้น ภายในรอบนี้ ตารางเรียนและกิจกรรมที่แน่นจะทำให้ด้านการเรียนและหน้าที่เดินช้าลง ตลอด 12 เดือน การแบ่งเงินและดูแลของใช้จะเป็นระบบขึ้น เงินที่เก็บไว้จะรองรับเรื่องสำคัญได้มากขึ้น ภายในรอบนี้ ค่าใช้จ่ายจำเป็นจะจำกัดทางเลือกใหม่ด้านการเงิน",
+          "reuseCount": 6,
+          "contexts": [
+            "mahabhut2537.rem2.friday",
+            "mahabhut2537.rem4.wednesday",
+            "mahabhut2537.rem5.thursday",
+            "mahabhut2537.rem5.tuesday",
+            "mahabhut2537.rem5.wednesday",
+            "mahabhut2537.rem6.tuesday"
+          ],
+          "evidenceFingerprints": [
+            "h=next12Months|d=career|b=strong|r=pressure|e=full|t=false|k=prediction.career.next12Months.strong|o=lagna-house-and-life-period-score|td=true"
+          ],
+          "evidenceKeys": [
+            "prediction.career.next12Months.strong"
+          ]
+        },
+        {
+          "text": "ระหว่างวันที่ 29 สิงหาคม 2569 ถึง 28 สิงหาคม 2570 ตลอด 12 เดือน พัฒนาการและกิจวัตรหลักจะเดินหน้าอย่างสม่ำเสมอ ภายในรอบนี้ กิจวัตรที่ชนกันจะทำให้ด้านพัฒนาการและกิจวัตรเดินช้าลง ตลอด 12 เดือน ทรัพยากรและของใช้ที่ผู้ดูแลจัดไว้จะรองรับเรื่องจำเป็นได้มากขึ้น ภายในรอบนี้ ค่าใช้จ่ายจำเป็นจะจำกัดทางเลือกด้านทรัพยากรและของใช้",
+          "reuseCount": 4,
+          "contexts": [
+            "mahabhut2537.rem1.thursday",
+            "mahabhut2537.rem1.wednesday",
+            "mahabhut2537.rem5.sunday",
+            "mahabhut2537.rem6.thursday"
+          ],
+          "evidenceFingerprints": [
+            "h=next12Months|d=career|b=strong|r=pressure|e=full|t=false|k=prediction.career.next12Months.strong|o=lagna-house-and-life-period-score|td=true"
+          ],
+          "evidenceKeys": [
+            "prediction.career.next12Months.strong"
+          ]
+        },
+        {
+          "text": "ระหว่างวันที่ 29 สิงหาคม 2569 ถึง 28 สิงหาคม 2570 ตลอด 12 เดือน งานหลักจะค่อย ๆ เปิดทางใหม่ผ่านผลงานที่ปิดจบได้จริงมากกว่าจำนวนงานที่รับ ภายในรอบนี้ ภาระงานหลักจะเบียดเวลาและทำให้จังหวะด้านงานเดินช้าลง ตลอด 12 เดือน กระแสเงินจะนิ่งขึ้นทีละช่วง รายรับที่เกิดซ้ำจะมีน้ำหนักมากกว่าเงินก้อนครั้งเดียว ภายในรอบนี้ ภาระเงินจะจำกัดทางเลือกใหม่ด้านการเงิน",
+          "reuseCount": 2,
+          "contexts": [
+            "mahabhut2537.rem2.wednesday",
+            "mahabhut2537.rem3.thursday"
+          ],
+          "evidenceFingerprints": [
+            "h=next12Months|d=career|b=active|r=pressure|e=full|t=false|k=prediction.career.next12Months.active|o=lagna-house-and-life-period-score|td=true"
+          ],
+          "evidenceKeys": [
+            "prediction.career.next12Months.active"
+          ]
+        },
+        {
+          "text": "ระหว่างวันที่ 29 สิงหาคม 2569 ถึง 28 สิงหาคม 2570 ตลอด 12 เดือน กระแสเงินจะนิ่งขึ้นทีละช่วง รายรับที่เกิดซ้ำจะมีน้ำหนักมากกว่าเงินก้อนครั้งเดียว ภายในรอบนี้ ภาระเงินจะจำกัดทางเลือกใหม่ด้านการเงิน ตลอด 12 เดือน ความสัมพันธ์จะค่อย ๆ เปลี่ยนจากการดูใจกันไปสู่การตกลงเวลาและหน้าที่ร่วมกัน ภายในรอบนี้ ข้อตกลงที่ไม่ตรงกันจะทำให้จังหวะด้านความสัมพันธ์สะดุด",
+          "reuseCount": 2,
+          "contexts": [
+            "mahabhut2537.rem3.sunday",
+            "mahabhut2537.rem4.friday"
+          ],
+          "evidenceFingerprints": [
+            "h=next12Months|d=finance|b=active|r=pressure|e=full|t=false|k=prediction.finance.next12Months.active|o=lagna-house-and-life-period-score|td=true"
+          ],
+          "evidenceKeys": [
+            "prediction.finance.next12Months.active"
+          ]
+        },
+        {
+          "text": "ระหว่างวันที่ 29 สิงหาคม 2569 ถึง 28 สิงหาคม 2570 ตลอด 12 เดือน ความสัมพันธ์กับครอบครัวและเพื่อนจะค่อย ๆ ปรับตามการพูดและทำตามข้อตกลง ภายในรอบนี้ ข้อตกลงกับคนรอบตัวที่ไม่ตรงกันจะทำให้ด้านความสัมพันธ์สะดุด ตลอด 12 เดือน กำลังในแต่ละวันจะขึ้นลงตามตารางเรียนและกิจกรรม วันที่หลายเรื่องชนกันจะฟื้นช้าลง ภายในรอบนี้ การพักไม่พอจะลดแรงที่ใช้ประคองด้านกำลังและการพัก",
+          "reuseCount": 2,
+          "contexts": [
+            "mahabhut2537.rem0.tuesday",
+            "mahabhut2537.rem0.wednesday"
+          ],
+          "evidenceFingerprints": [
+            "h=next12Months|d=relationship|b=active|r=pressure|e=full|t=false|k=prediction.relationship.next12Months.active|o=lagna-house-and-life-period-score|td=true"
+          ],
+          "evidenceKeys": [
+            "prediction.relationship.next12Months.active"
+          ]
+        },
+        {
+          "text": "ระหว่างวันที่ 29 สิงหาคม 2569 ถึง 28 สิงหาคม 2570 ตลอด 12 เดือน ระยะห่างจะชัดขึ้นในความสัมพันธ์ที่รักษาข้อตกลงไม่ได้ และวงสนทนาจะเล็กลงเหลือเรื่องจำเป็น ภายในรอบนี้ ข้อตกลงที่ไม่ตรงกันจะทำให้จังหวะด้านความสัมพันธ์สะดุด จุดเปลี่ยนภายในรอบนี้จะแบ่งจังหวะด้านความสัมพันธ์เป็นสองช่วงก่อนจะคงที่ ตลอด 12 เดือน ความล้าจะกลับมาเป็นรอบเมื่อภาระต่อเนื่อง และเวลาฟื้นจะยาวขึ้นในช่วงงานหนาแน่น ภายในรอบนี้ การพักไม่พอจะลดแรงที่ใช้ประคองด้านสุขภาพและการพัก จุดเปลี่ยนภายในรอบนี้จะแบ่งจังหวะด้านสุขภาพและการพักเป็นสองช่วงก่อนจะคงที่",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem3.tuesday"
+          ],
+          "evidenceFingerprints": [
+            "h=next12Months|d=relationship|b=quiet|r=pressure|e=full|t=true|k=prediction.relationship.next12Months.quiet|o=lagna-house-and-life-period-score|td=true"
+          ],
+          "evidenceKeys": [
+            "prediction.relationship.next12Months.quiet"
+          ]
+        },
+        {
+          "text": "ระหว่างวันที่ 29 สิงหาคม 2569 ถึง 28 สิงหาคม 2570 ตลอด 12 เดือน ความสัมพันธ์จะค่อย ๆ เปลี่ยนจากการดูใจกันไปสู่การตกลงเวลาและหน้าที่ร่วมกัน ภายในรอบนี้ ข้อตกลงที่ไม่ตรงกันจะทำให้จังหวะด้านความสัมพันธ์สะดุด จุดเปลี่ยนภายในรอบนี้จะแบ่งจังหวะด้านความสัมพันธ์เป็นสองช่วงก่อนจะคงที่ ตลอด 12 เดือน งานที่รับผิดชอบจะขยายและผลงานเดิมจะพาไปสู่บทบาทที่มีน้ำหนักมากขึ้น ภายในรอบนี้ ภาระงานหลักจะเบียดเวลาและทำให้จังหวะด้านงานเดินช้าลง จุดเปลี่ยนภายในรอบนี้จะแบ่งจังหวะด้านงานเป็นสองช่วงก่อนจะคงที่",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem3.wednesday"
+          ],
+          "evidenceFingerprints": [
+            "h=next12Months|d=relationship|b=active|r=pressure|e=full|t=true|k=prediction.relationship.next12Months.active|o=lagna-house-and-life-period-score|td=true"
+          ],
+          "evidenceKeys": [
+            "prediction.relationship.next12Months.active"
+          ]
+        },
+        {
+          "text": "ระหว่างวันที่ 29 สิงหาคม 2569 ถึง 28 สิงหาคม 2570 ตลอด 12 เดือน กระแสเงินจะนิ่งขึ้นทีละช่วง รายรับที่เกิดซ้ำจะมีน้ำหนักมากกว่าเงินก้อนครั้งเดียว ภายในรอบนี้ ภาระเงินจะจำกัดทางเลือกใหม่ด้านการเงิน จุดเปลี่ยนภายในรอบนี้จะแบ่งจังหวะด้านการเงินเป็นสองช่วงก่อนจะคงที่ ตลอด 12 เดือน ความสัมพันธ์จะค่อย ๆ เปลี่ยนจากการดูใจกันไปสู่การตกลงเวลาและหน้าที่ร่วมกัน ภายในรอบนี้ ข้อตกลงที่ไม่ตรงกันจะทำให้จังหวะด้านความสัมพันธ์สะดุด จุดเปลี่ยนภายในรอบนี้จะแบ่งจังหวะด้านความสัมพันธ์เป็นสองช่วงก่อนจะคงที่",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem3.friday"
+          ],
+          "evidenceFingerprints": [
+            "h=next12Months|d=finance|b=active|r=pressure|e=full|t=true|k=prediction.finance.next12Months.active|o=lagna-house-and-life-period-score|td=true"
+          ],
+          "evidenceKeys": [
+            "prediction.finance.next12Months.active"
+          ]
+        },
+        {
+          "text": "ระหว่างวันที่ 29 สิงหาคม 2569 ถึง 28 สิงหาคม 2570 ตลอด 12 เดือน การเรียน หน้าที่ และกิจกรรมหลักจะเดินหน้าและเห็นผลงานชัดขึ้น ภายในรอบนี้ ตารางเรียนและกิจกรรมที่แน่นจะทำให้ด้านการเรียนและหน้าที่เดินช้าลง จุดเปลี่ยนภายในรอบนี้จะแบ่งจังหวะด้านการเรียนและหน้าที่เป็นสองช่วงก่อนจะคงที่ ตลอด 12 เดือน การแบ่งเงินและดูแลของใช้จะเป็นระบบขึ้น เงินที่เก็บไว้จะรองรับเรื่องสำคัญได้มากขึ้น ภายในรอบนี้ ค่าใช้จ่ายจำเป็นจะจำกัดทางเลือกใหม่ด้านการเงิน จุดเปลี่ยนภายในรอบนี้จะแบ่งจังหวะด้านการเงินเป็นสองช่วงก่อนจะคงที่",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem6.saturday"
+          ],
+          "evidenceFingerprints": [
+            "h=next12Months|d=career|b=strong|r=pressure|e=full|t=true|k=prediction.career.next12Months.strong|o=lagna-house-and-life-period-score|td=true"
+          ],
+          "evidenceKeys": [
+            "prediction.career.next12Months.strong"
+          ]
+        },
+        {
+          "text": "ระหว่างวันที่ 29 สิงหาคม 2569 ถึง 28 สิงหาคม 2570 ตลอด 12 เดือน ความสัมพันธ์จะค่อย ๆ เปลี่ยนจากการดูใจกันไปสู่การตกลงเวลาและหน้าที่ร่วมกัน ภายในรอบนี้ ข้อตกลงที่ไม่ตรงกันจะทำให้จังหวะด้านความสัมพันธ์สะดุด ตลอด 12 เดือน งานที่รับผิดชอบจะขยายและผลงานเดิมจะพาไปสู่บทบาทที่มีน้ำหนักมากขึ้น ภายในรอบนี้ ภาระงานหลักจะเบียดเวลาและทำให้จังหวะด้านงานเดินช้าลง",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem2.monday"
+          ],
+          "evidenceFingerprints": [
+            "h=next12Months|d=relationship|b=active|r=pressure|e=full|t=false|k=prediction.relationship.next12Months.active|o=lagna-house-and-life-period-score|td=true"
+          ],
+          "evidenceKeys": [
+            "prediction.relationship.next12Months.active"
+          ]
+        },
+        {
+          "text": "ระหว่างวันที่ 29 สิงหาคม 2569 ถึง 28 สิงหาคม 2570 ตลอด 12 เดือน การเรียนและหน้าที่จะขยับทีละขั้นตามงานที่ทำเสร็จต่อเนื่อง ภายในรอบนี้ ตารางเรียนและกิจกรรมที่แน่นจะทำให้ด้านการเรียนและหน้าที่เดินช้าลง ตลอด 12 เดือน เงินที่ได้รับจะพอกับเรื่องจำเป็นมากขึ้นเมื่อรายจ่ายประจำเริ่มคงที่ ภายในรอบนี้ ค่าใช้จ่ายจำเป็นจะจำกัดทางเลือกใหม่ด้านการเงิน",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem6.sunday"
+          ],
+          "evidenceFingerprints": [
+            "h=next12Months|d=career|b=active|r=pressure|e=full|t=false|k=prediction.career.next12Months.active|o=lagna-house-and-life-period-score|td=true"
+          ],
+          "evidenceKeys": [
+            "prediction.career.next12Months.active"
+          ]
+        },
+        {
+          "text": "ระหว่างวันที่ 29 สิงหาคม 2569 ถึง 28 สิงหาคม 2570 ตลอด 12 เดือน การเรียนและหน้าที่จะขยับทีละขั้นตามงานที่ทำเสร็จต่อเนื่อง ภายในรอบนี้ ตารางเรียนและกิจกรรมที่แน่นจะทำให้ด้านการเรียนและหน้าที่เดินช้าลง ตลอด 12 เดือน การแบ่งเงินและดูแลของใช้จะเป็นระบบขึ้น เงินที่เก็บไว้จะรองรับเรื่องสำคัญได้มากขึ้น ภายในรอบนี้ ค่าใช้จ่ายจำเป็นจะจำกัดทางเลือกใหม่ด้านการเงิน",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem4.sunday"
+          ],
+          "evidenceFingerprints": [
+            "h=next12Months|d=career|b=active|r=pressure|e=full|t=false|k=prediction.career.next12Months.active|o=lagna-house-and-life-period-score|td=true"
+          ],
+          "evidenceKeys": [
+            "prediction.career.next12Months.active"
+          ]
+        },
+        {
+          "text": "ระหว่างวันที่ 29 สิงหาคม 2569 ถึง 28 สิงหาคม 2570 ตลอด 12 เดือน งานหลักจะค่อย ๆ เปิดทางใหม่ผ่านผลงานที่ปิดจบได้จริงมากกว่าจำนวนงานที่รับ ภายในรอบนี้ ภาระงานหลักจะเบียดเวลาและทำให้จังหวะด้านงานเดินช้าลง จุดเปลี่ยนภายในรอบนี้จะแบ่งจังหวะด้านงานเป็นสองช่วงก่อนจะคงที่ ตลอด 12 เดือน กระแสเงินจะนิ่งขึ้นทีละช่วง รายรับที่เกิดซ้ำจะมีน้ำหนักมากกว่าเงินก้อนครั้งเดียว ภายในรอบนี้ ภาระเงินจะจำกัดทางเลือกใหม่ด้านการเงิน จุดเปลี่ยนภายในรอบนี้จะแบ่งจังหวะด้านการเงินเป็นสองช่วงก่อนจะคงที่",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem0.thursday"
+          ],
+          "evidenceFingerprints": [
+            "h=next12Months|d=career|b=active|r=pressure|e=full|t=true|k=prediction.career.next12Months.active|o=lagna-house-and-life-period-score|td=true"
+          ],
+          "evidenceKeys": [
+            "prediction.career.next12Months.active"
+          ]
+        },
+        {
+          "text": "ระหว่างวันที่ 29 สิงหาคม 2569 ถึง 28 สิงหาคม 2570 ตลอด 12 เดือน งานหลักจะค่อย ๆ เปิดทางใหม่ผ่านผลงานที่ปิดจบได้จริงมากกว่าจำนวนงานที่รับ ภายในรอบนี้ ภาระงานหลักจะเบียดเวลาและทำให้จังหวะด้านงานเดินช้าลง ตลอด 12 เดือน รายรับจะเพิ่มตามขนาดงาน ขณะเดียวกันเงินก้อนสำหรับภาระสำคัญจะเข้ามาเป็นระยะ ภายในรอบนี้ ภาระเงินจะจำกัดทางเลือกใหม่ด้านการเงิน",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem2.thursday"
+          ],
+          "evidenceFingerprints": [
+            "h=next12Months|d=career|b=active|r=pressure|e=full|t=false|k=prediction.career.next12Months.active|o=lagna-house-and-life-period-score|td=true"
+          ],
+          "evidenceKeys": [
+            "prediction.career.next12Months.active"
+          ]
+        },
+        {
+          "text": "ระหว่างวันที่ 29 สิงหาคม 2569 ถึง 28 สิงหาคม 2570 ตลอด 12 เดือน ระยะห่างจะชัดขึ้นในความสัมพันธ์ที่รักษาข้อตกลงไม่ได้ และวงสนทนาจะเล็กลงเหลือเรื่องจำเป็น ภายในรอบนี้ ข้อตกลงที่ไม่ตรงกันจะทำให้จังหวะด้านความสัมพันธ์สะดุด ตลอด 12 เดือน ความล้าจะกลับมาเป็นรอบเมื่อภาระต่อเนื่อง และเวลาฟื้นจะยาวขึ้นในช่วงงานหนาแน่น ภายในรอบนี้ การพักไม่พอจะลดแรงที่ใช้ประคองด้านสุขภาพและการพัก",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem1.friday"
+          ],
+          "evidenceFingerprints": [
+            "h=next12Months|d=relationship|b=quiet|r=pressure|e=full|t=false|k=prediction.relationship.next12Months.quiet|o=lagna-house-and-life-period-score|td=true"
+          ],
+          "evidenceKeys": [
+            "prediction.relationship.next12Months.quiet"
+          ]
+        }
+      ]
+    },
+    "next": {
+      "distinctParagraphCount": 49,
+      "mostReusedParagraph": "เมื่อเข้าสู่อายุ 42–62 ปี ผลตอบแทนและการยอมรับจากผลงานเดิมจะชัดขึ้น เป้าหมายระยะยาวจะเห็นผลและต่อยอดได้ชัดขึ้น ในช่วงชีวิตถัดไป บทบาทงานจะขยับจากผู้ลงมือไปสู่ผู้วางระบบและกำหนดทิศทาง เมื่อบทบาทใหม่เริ่มขึ้น ภาระงานหลักจะเบียดเวลาและทำให้จังหวะด้านงานเดินช้าลง รอยต่อของช่วงชีวิตจะทำให้ด้านงานเปลี่ยนก่อนจังหวะใหม่ลงตัว",
+      "reuseCount": 1,
+      "contexts": [
+        "mahabhut2537.rem0.saturday"
+      ],
+      "evidenceFingerprints": [
+        "h=nextLifePeriod|d=career|b=strong|r=career|e=full|t=true|k=prediction.career.nextLifePeriod.strong|o=lagna-house-and-life-period-score|td=true"
+      ],
+      "mismatchedEvidenceReuseCount": 0,
+      "mismatchedEvidenceReuse": [],
+      "paragraphs": [
+        {
+          "text": "เมื่อเข้าสู่อายุ 42–62 ปี ผลตอบแทนและการยอมรับจากผลงานเดิมจะชัดขึ้น เป้าหมายระยะยาวจะเห็นผลและต่อยอดได้ชัดขึ้น ในช่วงชีวิตถัดไป บทบาทงานจะขยับจากผู้ลงมือไปสู่ผู้วางระบบและกำหนดทิศทาง เมื่อบทบาทใหม่เริ่มขึ้น ภาระงานหลักจะเบียดเวลาและทำให้จังหวะด้านงานเดินช้าลง รอยต่อของช่วงชีวิตจะทำให้ด้านงานเปลี่ยนก่อนจังหวะใหม่ลงตัว",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem0.saturday"
+          ],
+          "evidenceFingerprints": [
+            "h=nextLifePeriod|d=career|b=strong|r=career|e=full|t=true|k=prediction.career.nextLifePeriod.strong|o=lagna-house-and-life-period-score|td=true"
+          ],
+          "evidenceKeys": [
+            "prediction.career.nextLifePeriod.strong"
+          ]
+        },
+        {
+          "text": "เมื่อเข้าสู่อายุ 68–77 ปี งานที่ใช้แรงมากเกินผลตอบแทนจะลดบทบาทลง รอบเดิมจะปิดลงพร้อมการเริ่มจังหวะชีวิตแบบใหม่ ในช่วงชีวิตถัดไป ความสัมพันธ์จะปรับตามตารางและหน้าที่ใหม่ ข้อตกลงที่ใช้ได้จริงจะกำหนดระยะของแต่ละคน เมื่อบทบาทใหม่เริ่มขึ้น ข้อตกลงที่ไม่ตรงกันจะทำให้จังหวะด้านความสัมพันธ์สะดุด รอยต่อของช่วงชีวิตจะทำให้ด้านความสัมพันธ์เปลี่ยนก่อนจังหวะใหม่ลงตัว",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem6.friday"
+          ],
+          "evidenceFingerprints": [
+            "h=nextLifePeriod|d=relationship|b=active|r=pressure|e=full|t=true|k=prediction.relationship.nextLifePeriod.active|o=lagna-house-and-life-period-score|td=true"
+          ],
+          "evidenceKeys": [
+            "prediction.relationship.nextLifePeriod.active"
+          ]
+        },
+        {
+          "text": "เมื่อเข้าสู่อายุ 55–66 ปี ฐานงานและทรัพย์สินเดิมจะถูกตรวจและลดส่วนที่ไม่สร้างผล รอบเดิมจะปิดลงพร้อมการเริ่มจังหวะชีวิตแบบใหม่ ในช่วงชีวิตถัดไป ความสัมพันธ์ที่รองรับภาระใหม่ไม่ได้จะเปลี่ยนระยะหรือยุติบทบาทเดิม เมื่อบทบาทใหม่เริ่มขึ้น ข้อตกลงที่ไม่ตรงกันจะทำให้จังหวะด้านความสัมพันธ์สะดุด รอยต่อของช่วงชีวิตจะทำให้ด้านความสัมพันธ์เปลี่ยนก่อนจังหวะใหม่ลงตัว",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem3.tuesday"
+          ],
+          "evidenceFingerprints": [
+            "h=nextLifePeriod|d=relationship|b=quiet|r=pressure|e=full|t=true|k=prediction.relationship.nextLifePeriod.quiet|o=lagna-house-and-life-period-score|td=true"
+          ],
+          "evidenceKeys": [
+            "prediction.relationship.nextLifePeriod.quiet"
+          ]
+        },
+        {
+          "text": "เมื่อเข้าสู่อายุ 59–79 ปี ฐานงานและทรัพย์สินเดิมจะถูกตรวจและลดส่วนที่ไม่สร้างผล สิ่งที่หมดบทบาทจะยุติลงและเปิดพื้นที่ให้รูปแบบใหม่ ในช่วงชีวิตถัดไป ความสัมพันธ์จะปรับตามตารางและหน้าที่ใหม่ ข้อตกลงที่ใช้ได้จริงจะกำหนดระยะของแต่ละคน เมื่อบทบาทใหม่เริ่มขึ้น ข้อตกลงที่ไม่ตรงกันจะทำให้จังหวะด้านความสัมพันธ์สะดุด รอยต่อของช่วงชีวิตจะทำให้ด้านความสัมพันธ์เปลี่ยนก่อนจังหวะใหม่ลงตัว",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem3.wednesday"
+          ],
+          "evidenceFingerprints": [
+            "h=nextLifePeriod|d=relationship|b=active|r=pressure|e=full|t=true|k=prediction.relationship.nextLifePeriod.active|o=lagna-house-and-life-period-score|td=true"
+          ],
+          "evidenceKeys": [
+            "prediction.relationship.nextLifePeriod.active"
+          ]
+        },
+        {
+          "text": "เมื่อเข้าสู่อายุ 41–59 ปี ผลตอบแทนและการยอมรับจากผลงานเดิมจะชัดขึ้น หน้าที่และอำนาจรับผิดชอบจะชัดขึ้น ในช่วงชีวิตถัดไป ความสัมพันธ์ที่รองรับภาระใหม่ไม่ได้จะเปลี่ยนระยะหรือยุติบทบาทเดิม เมื่อบทบาทใหม่เริ่มขึ้น ข้อตกลงที่ไม่ตรงกันจะทำให้จังหวะด้านความสัมพันธ์สะดุด รอยต่อของช่วงชีวิตจะทำให้ด้านความสัมพันธ์เปลี่ยนก่อนจังหวะใหม่ลงตัว",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem1.monday"
+          ],
+          "evidenceFingerprints": [
+            "h=nextLifePeriod|d=relationship|b=quiet|r=pressure|e=full|t=true|k=prediction.relationship.nextLifePeriod.quiet|o=lagna-house-and-life-period-score|td=true"
+          ],
+          "evidenceKeys": [
+            "prediction.relationship.nextLifePeriod.quiet"
+          ]
+        },
+        {
+          "text": "เมื่อเข้าสู่อายุ 28–42 ปี อำนาจตัดสินใจและความรับผิดชอบจะเพิ่มขึ้น เป้าหมายระยะยาวจะเห็นผลและต่อยอดได้ชัดขึ้น ในช่วงชีวิตถัดไป งานจะเปลี่ยนผ่านด้วยบทบาททดลองก่อนขยายอำนาจตัดสินใจเต็มรูปแบบ เมื่อบทบาทใหม่เริ่มขึ้น ภาระงานหลักจะเบียดเวลาและทำให้จังหวะด้านงานเดินช้าลง รอยต่อของช่วงชีวิตจะทำให้ด้านงานเปลี่ยนก่อนจังหวะใหม่ลงตัว",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem3.friday"
+          ],
+          "evidenceFingerprints": [
+            "h=nextLifePeriod|d=career|b=active|r=career|e=full|t=true|k=prediction.career.nextLifePeriod.active|o=lagna-house-and-life-period-score|td=true"
+          ],
+          "evidenceKeys": [
+            "prediction.career.nextLifePeriod.active"
+          ]
+        },
+        {
+          "text": "เมื่อเข้าสู่อายุ 30–41 ปี ขอบเขตการตัดสินใจจะถูกบีบให้เหลือเฉพาะเรื่องสำคัญ รอบเดิมจะปิดลงพร้อมการเริ่มจังหวะชีวิตแบบใหม่ ในช่วงชีวิตถัดไป ความสัมพันธ์จะปรับตามตารางและหน้าที่ใหม่ ข้อตกลงที่ใช้ได้จริงจะกำหนดระยะของแต่ละคน เมื่อบทบาทใหม่เริ่มขึ้น ข้อตกลงที่ไม่ตรงกันจะทำให้จังหวะด้านความสัมพันธ์สะดุด รอยต่อของช่วงชีวิตจะทำให้ด้านความสัมพันธ์เปลี่ยนก่อนจังหวะใหม่ลงตัว",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem3.saturday"
+          ],
+          "evidenceFingerprints": [
+            "h=nextLifePeriod|d=relationship|b=active|r=pressure|e=full|t=true|k=prediction.relationship.nextLifePeriod.active|o=lagna-house-and-life-period-score|td=true"
+          ],
+          "evidenceKeys": [
+            "prediction.relationship.nextLifePeriod.active"
+          ]
+        },
+        {
+          "text": "เมื่อเข้าสู่อายุ 30–46 ปี ผลตอบแทนและการยอมรับจากผลงานเดิมจะชัดขึ้น หน้าที่และอำนาจรับผิดชอบจะชัดขึ้น ในช่วงชีวิตถัดไป ความสัมพันธ์จะปรับตามตารางและหน้าที่ใหม่ ข้อตกลงที่ใช้ได้จริงจะกำหนดระยะของแต่ละคน เมื่อบทบาทใหม่เริ่มขึ้น ข้อตกลงที่ไม่ตรงกันจะทำให้จังหวะด้านความสัมพันธ์สะดุด รอยต่อของช่วงชีวิตจะทำให้ด้านความสัมพันธ์เปลี่ยนก่อนจังหวะใหม่ลงตัว",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem0.sunday"
+          ],
+          "evidenceFingerprints": [
+            "h=nextLifePeriod|d=relationship|b=active|r=pressure|e=full|t=true|k=prediction.relationship.nextLifePeriod.active|o=lagna-house-and-life-period-score|td=true"
+          ],
+          "evidenceKeys": [
+            "prediction.relationship.nextLifePeriod.active"
+          ]
+        },
+        {
+          "text": "เมื่อเข้าสู่อายุ 26–35 ปี อำนาจตัดสินใจและความรับผิดชอบจะเพิ่มขึ้น ทรัพยากรและฐานการเงินจะขยายตามผลที่เกิดขึ้น ในช่วงชีวิตถัดไป ความสัมพันธ์ที่รองรับภาระใหม่ไม่ได้จะเปลี่ยนระยะหรือยุติบทบาทเดิม เมื่อบทบาทใหม่เริ่มขึ้น ข้อตกลงที่ไม่ตรงกันจะทำให้จังหวะด้านความสัมพันธ์สะดุด รอยต่อของช่วงชีวิตจะทำให้ด้านความสัมพันธ์เปลี่ยนก่อนจังหวะใหม่ลงตัว",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem5.tuesday"
+          ],
+          "evidenceFingerprints": [
+            "h=nextLifePeriod|d=relationship|b=quiet|r=pressure|e=full|t=true|k=prediction.relationship.nextLifePeriod.quiet|o=lagna-house-and-life-period-score|td=true"
+          ],
+          "evidenceKeys": [
+            "prediction.relationship.nextLifePeriod.quiet"
+          ]
+        },
+        {
+          "text": "เมื่อเข้าสู่อายุ 18–27 ปี กำลังและกิจวัตรที่ต่อเนื่องจะรองรับภาระได้มากขึ้น ทรัพยากรและฐานการเงินจะขยายตามผลที่เกิดขึ้น ในช่วงชีวิตถัดไป ความสัมพันธ์ที่รองรับภาระใหม่ไม่ได้จะเปลี่ยนระยะหรือยุติบทบาทเดิม เมื่อบทบาทใหม่เริ่มขึ้น ข้อตกลงที่ไม่ตรงกันจะทำให้จังหวะด้านความสัมพันธ์สะดุด รอยต่อของช่วงชีวิตจะทำให้ด้านความสัมพันธ์เปลี่ยนก่อนจังหวะใหม่ลงตัว",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem5.wednesday"
+          ],
+          "evidenceFingerprints": [
+            "h=nextLifePeriod|d=relationship|b=quiet|r=pressure|e=full|t=true|k=prediction.relationship.nextLifePeriod.quiet|o=lagna-house-and-life-period-score|td=true"
+          ],
+          "evidenceKeys": [
+            "prediction.relationship.nextLifePeriod.quiet"
+          ]
+        },
+        {
+          "text": "เมื่อเข้าสู่อายุ 11–29 ปี กำลังและกิจวัตรที่สม่ำเสมอจะช่วยให้รับหน้าที่ได้มากขึ้น เป้าหมายที่ทำต่อเนื่องจะเริ่มเห็นผลชัด ในช่วงชีวิตถัดไป การเรียน หน้าที่ และกิจกรรมหลักจะเดินหน้าและเห็นผลงานชัดขึ้น เมื่อบทบาทใหม่เริ่มขึ้น ข้อตกลงกับคนรอบตัวที่ไม่ตรงกันจะทำให้ด้านการเรียนและหน้าที่สะดุด รอยต่อของช่วงชีวิตจะทำให้ด้านการเรียนและหน้าที่เปลี่ยนก่อนจังหวะใหม่ลงตัว",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem6.saturday"
+          ],
+          "evidenceFingerprints": [
+            "h=nextLifePeriod|d=career|b=strong|r=love|e=full|t=true|k=prediction.career.nextLifePeriod.strong|o=lagna-house-and-life-period-score|td=true"
+          ],
+          "evidenceKeys": [
+            "prediction.career.nextLifePeriod.strong"
+          ]
+        },
+        {
+          "text": "เมื่อเข้าสู่อายุ 22–27 ปี กำลังและกิจวัตรที่ต่อเนื่องจะรองรับภาระได้มากขึ้น เป้าหมายระยะยาวจะเห็นผลและต่อยอดได้ชัดขึ้น ในช่วงชีวิตถัดไป ความสัมพันธ์ที่รองรับภาระใหม่ไม่ได้จะเปลี่ยนระยะหรือยุติบทบาทเดิม เมื่อบทบาทใหม่เริ่มขึ้น ข้อตกลงที่ไม่ตรงกันจะทำให้จังหวะด้านความสัมพันธ์สะดุด รอยต่อของช่วงชีวิตจะทำให้ด้านความสัมพันธ์เปลี่ยนก่อนจังหวะใหม่ลงตัว",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem2.friday"
+          ],
+          "evidenceFingerprints": [
+            "h=nextLifePeriod|d=relationship|b=quiet|r=pressure|e=full|t=true|k=prediction.relationship.nextLifePeriod.quiet|o=lagna-house-and-life-period-score|td=true"
+          ],
+          "evidenceKeys": [
+            "prediction.relationship.nextLifePeriod.quiet"
+          ]
+        },
+        {
+          "text": "เมื่อเข้าสู่อายุ 20–31 ปี กำลังและกิจวัตรที่ต่อเนื่องจะรองรับภาระได้มากขึ้น สถานะและบทบาทที่คนอื่นมองเห็นจะเด่นขึ้น ในช่วงชีวิตถัดไป ความสัมพันธ์จะปรับตามตารางและหน้าที่ใหม่ ข้อตกลงที่ใช้ได้จริงจะกำหนดระยะของแต่ละคน เมื่อบทบาทใหม่เริ่มขึ้น ข้อตกลงที่ไม่ตรงกันจะทำให้จังหวะด้านความสัมพันธ์สะดุด รอยต่อของช่วงชีวิตจะทำให้ด้านความสัมพันธ์เปลี่ยนก่อนจังหวะใหม่ลงตัว",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem6.thursday"
+          ],
+          "evidenceFingerprints": [
+            "h=nextLifePeriod|d=relationship|b=active|r=pressure|e=full|t=true|k=prediction.relationship.nextLifePeriod.active|o=lagna-house-and-life-period-score|td=true"
+          ],
+          "evidenceKeys": [
+            "prediction.relationship.nextLifePeriod.active"
+          ]
+        },
+        {
+          "text": "เมื่อเข้าสู่อายุ 18–27 ปี กำลังและกิจวัตรที่ต่อเนื่องจะรองรับภาระได้มากขึ้น เป้าหมายระยะยาวจะเห็นผลและต่อยอดได้ชัดขึ้น ในช่วงชีวิตถัดไป ความสัมพันธ์จะปรับตามตารางและหน้าที่ใหม่ ข้อตกลงที่ใช้ได้จริงจะกำหนดระยะของแต่ละคน เมื่อบทบาทใหม่เริ่มขึ้น ข้อตกลงที่ไม่ตรงกันจะทำให้จังหวะด้านความสัมพันธ์สะดุด รอยต่อของช่วงชีวิตจะทำให้ด้านความสัมพันธ์เปลี่ยนก่อนจังหวะใหม่ลงตัว",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem1.wednesday"
+          ],
+          "evidenceFingerprints": [
+            "h=nextLifePeriod|d=relationship|b=active|r=pressure|e=full|t=true|k=prediction.relationship.nextLifePeriod.active|o=lagna-house-and-life-period-score|td=true"
+          ],
+          "evidenceKeys": [
+            "prediction.relationship.nextLifePeriod.active"
+          ]
+        },
+        {
+          "text": "เมื่อเข้าสู่อายุ 81–90 ปี งานที่ลงแรงต่อเนื่องจะเริ่มให้ผลเป็นรูปธรรม หน้าที่และอำนาจรับผิดชอบจะชัดขึ้น ในช่วงชีวิตถัดไป ความสัมพันธ์ที่รองรับภาระใหม่ไม่ได้จะเปลี่ยนระยะหรือยุติบทบาทเดิม เมื่อบทบาทใหม่เริ่มขึ้น ข้อตกลงที่ไม่ตรงกันจะทำให้จังหวะด้านความสัมพันธ์สะดุด รอยต่อของช่วงชีวิตจะทำให้ด้านความสัมพันธ์เปลี่ยนก่อนจังหวะใหม่ลงตัว",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem3.monday"
+          ],
+          "evidenceFingerprints": [
+            "h=nextLifePeriod|d=relationship|b=quiet|r=pressure|e=full|t=true|k=prediction.relationship.nextLifePeriod.quiet|o=lagna-house-and-life-period-score|td=true"
+          ],
+          "evidenceKeys": [
+            "prediction.relationship.nextLifePeriod.quiet"
+          ]
+        },
+        {
+          "text": "เมื่อเข้าสู่อายุ 41–59 ปี ผลตอบแทนที่ไม่สมดุลกับภาระจะถูกนำมาจัดใหม่ สิ่งที่หมดบทบาทจะยุติลงและเปิดพื้นที่ให้รูปแบบใหม่ ในช่วงชีวิตถัดไป ความสัมพันธ์ที่รองรับภาระใหม่ไม่ได้จะเปลี่ยนระยะหรือยุติบทบาทเดิม เมื่อบทบาทใหม่เริ่มขึ้น ข้อตกลงที่ไม่ตรงกันจะทำให้จังหวะด้านความสัมพันธ์สะดุด รอยต่อของช่วงชีวิตจะทำให้ด้านความสัมพันธ์เปลี่ยนก่อนจังหวะใหม่ลงตัว",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem2.monday"
+          ],
+          "evidenceFingerprints": [
+            "h=nextLifePeriod|d=relationship|b=quiet|r=pressure|e=full|t=true|k=prediction.relationship.nextLifePeriod.quiet|o=lagna-house-and-life-period-score|td=true"
+          ],
+          "evidenceKeys": [
+            "prediction.relationship.nextLifePeriod.quiet"
+          ]
+        },
+        {
+          "text": "เมื่อเข้าสู่อายุ 82–98 ปี ผู้มีประสบการณ์จะเข้ามาช่วยปิดเรื่องที่ติดขัด โครงสร้างและขอบเขตเดิมจะเปลี่ยนเพื่อรองรับภาระจริง ในช่วงชีวิตถัดไป ความสัมพันธ์จะปรับตามตารางและหน้าที่ใหม่ ข้อตกลงที่ใช้ได้จริงจะกำหนดระยะของแต่ละคน เมื่อบทบาทใหม่เริ่มขึ้น ข้อตกลงที่ไม่ตรงกันจะทำให้จังหวะด้านความสัมพันธ์สะดุด รอยต่อของช่วงชีวิตจะทำให้ด้านความสัมพันธ์เปลี่ยนก่อนจังหวะใหม่ลงตัว",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem4.thursday"
+          ],
+          "evidenceFingerprints": [
+            "h=nextLifePeriod|d=relationship|b=active|r=pressure|e=full|t=true|k=prediction.relationship.nextLifePeriod.active|o=lagna-house-and-life-period-score|td=true"
+          ],
+          "evidenceKeys": [
+            "prediction.relationship.nextLifePeriod.active"
+          ]
+        },
+        {
+          "text": "เมื่อเข้าสู่อายุ 74–81 ปี งานที่ใช้แรงมากเกินผลตอบแทนจะลดบทบาทลง โครงสร้างและขอบเขตเดิมจะเปลี่ยนเพื่อรองรับภาระจริง ในช่วงชีวิตถัดไป บทบาทงานจะขยับจากผู้ลงมือไปสู่ผู้วางระบบและกำหนดทิศทาง เมื่อบทบาทใหม่เริ่มขึ้น ภาระงานหลักจะเบียดเวลาและทำให้จังหวะด้านงานเดินช้าลง รอยต่อของช่วงชีวิตจะทำให้ด้านงานเปลี่ยนก่อนจังหวะใหม่ลงตัว",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem3.thursday"
+          ],
+          "evidenceFingerprints": [
+            "h=nextLifePeriod|d=career|b=strong|r=pressure|e=full|t=true|k=prediction.career.nextLifePeriod.strong|o=lagna-house-and-life-period-score|td=true"
+          ],
+          "evidenceKeys": [
+            "prediction.career.nextLifePeriod.strong"
+          ]
+        },
+        {
+          "text": "เมื่อเข้าสู่อายุ 42–62 ปี ผลตอบแทนที่ไม่สมดุลกับภาระจะถูกนำมาจัดใหม่ รอบเดิมจะปิดลงพร้อมการเริ่มจังหวะชีวิตแบบใหม่ ในช่วงชีวิตถัดไป บทบาทงานจะขยับจากผู้ลงมือไปสู่ผู้วางระบบและกำหนดทิศทาง เมื่อบทบาทใหม่เริ่มขึ้น ภาระงานหลักจะเบียดเวลาและทำให้จังหวะด้านงานเดินช้าลง รอยต่อของช่วงชีวิตจะทำให้ด้านงานเปลี่ยนก่อนจังหวะใหม่ลงตัว",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem5.saturday"
+          ],
+          "evidenceFingerprints": [
+            "h=nextLifePeriod|d=career|b=strong|r=career|e=full|t=true|k=prediction.career.nextLifePeriod.strong|o=lagna-house-and-life-period-score|td=true"
+          ],
+          "evidenceKeys": [
+            "prediction.career.nextLifePeriod.strong"
+          ]
+        },
+        {
+          "text": "เมื่อเข้าสู่อายุ 78–96 ปี ผู้มีประสบการณ์จะเข้ามาช่วยปิดเรื่องที่ติดขัด โครงสร้างและขอบเขตเดิมจะเปลี่ยนเพื่อรองรับภาระจริง ในช่วงชีวิตถัดไป งานจะเปลี่ยนผ่านด้วยบทบาททดลองก่อนขยายอำนาจตัดสินใจเต็มรูปแบบ เมื่อบทบาทใหม่เริ่มขึ้น ภาระงานหลักจะเบียดเวลาและทำให้จังหวะด้านงานเดินช้าลง รอยต่อของช่วงชีวิตจะทำให้ด้านงานเปลี่ยนก่อนจังหวะใหม่ลงตัว",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem5.friday"
+          ],
+          "evidenceFingerprints": [
+            "h=nextLifePeriod|d=career|b=active|r=career|e=full|t=true|k=prediction.career.nextLifePeriod.active|o=lagna-house-and-life-period-score|td=true"
+          ],
+          "evidenceKeys": [
+            "prediction.career.nextLifePeriod.active"
+          ]
+        },
+        {
+          "text": "เมื่อเข้าสู่อายุ 20–31 ปี กำลังที่ขึ้นลงจะทำให้ภาระและตารางชีวิตต้องจัดใหม่ สิ่งที่หมดบทบาทจะยุติลงและเปิดพื้นที่ให้รูปแบบใหม่ ในช่วงชีวิตถัดไป ความสัมพันธ์ที่รองรับภาระใหม่ไม่ได้จะเปลี่ยนระยะหรือยุติบทบาทเดิม เมื่อบทบาทใหม่เริ่มขึ้น ข้อตกลงที่ไม่ตรงกันจะทำให้จังหวะด้านความสัมพันธ์สะดุด รอยต่อของช่วงชีวิตจะทำให้ด้านความสัมพันธ์เปลี่ยนก่อนจังหวะใหม่ลงตัว",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem1.thursday"
+          ],
+          "evidenceFingerprints": [
+            "h=nextLifePeriod|d=relationship|b=quiet|r=pressure|e=full|t=true|k=prediction.relationship.nextLifePeriod.quiet|o=lagna-house-and-life-period-score|td=true"
+          ],
+          "evidenceKeys": [
+            "prediction.relationship.nextLifePeriod.quiet"
+          ]
+        },
+        {
+          "text": "เมื่อเข้าสู่อายุ 63–79 ปี ฐานงานและทรัพย์สินที่สะสมไว้จะเริ่มต่อยอด ทรัพยากรและฐานการเงินจะขยายตามผลที่เกิดขึ้น ในช่วงชีวิตถัดไป ความสัมพันธ์ที่รองรับภาระใหม่ไม่ได้จะเปลี่ยนระยะหรือยุติบทบาทเดิม เมื่อบทบาทใหม่เริ่มขึ้น ข้อตกลงที่ไม่ตรงกันจะทำให้จังหวะด้านความสัมพันธ์สะดุด รอยต่อของช่วงชีวิตจะทำให้ด้านความสัมพันธ์เปลี่ยนก่อนจังหวะใหม่ลงตัว",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem2.saturday"
+          ],
+          "evidenceFingerprints": [
+            "h=nextLifePeriod|d=relationship|b=quiet|r=pressure|e=full|t=true|k=prediction.relationship.nextLifePeriod.quiet|o=lagna-house-and-life-period-score|td=true"
+          ],
+          "evidenceKeys": [
+            "prediction.relationship.nextLifePeriod.quiet"
+          ]
+        },
+        {
+          "text": "เมื่อเข้าสู่อายุ 18–27 ปี กำลังที่ขึ้นลงจะทำให้ภาระและตารางชีวิตต้องจัดใหม่ สิ่งที่หมดบทบาทจะยุติลงและเปิดพื้นที่ให้รูปแบบใหม่ ในช่วงชีวิตถัดไป ความสัมพันธ์ที่รองรับภาระใหม่ไม่ได้จะเปลี่ยนระยะหรือยุติบทบาทเดิม เมื่อบทบาทใหม่เริ่มขึ้น ข้อตกลงที่ไม่ตรงกันจะทำให้จังหวะด้านความสัมพันธ์สะดุด รอยต่อของช่วงชีวิตจะทำให้ด้านความสัมพันธ์เปลี่ยนก่อนจังหวะใหม่ลงตัว",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem4.wednesday"
+          ],
+          "evidenceFingerprints": [
+            "h=nextLifePeriod|d=relationship|b=quiet|r=pressure|e=full|t=true|k=prediction.relationship.nextLifePeriod.quiet|o=lagna-house-and-life-period-score|td=true"
+          ],
+          "evidenceKeys": [
+            "prediction.relationship.nextLifePeriod.quiet"
+          ]
+        },
+        {
+          "text": "เมื่อเข้าสู่อายุ 26–35 ปี ขอบเขตการตัดสินใจจะถูกบีบให้เหลือเฉพาะเรื่องสำคัญ รอบเดิมจะปิดลงพร้อมการเริ่มจังหวะชีวิตแบบใหม่ ในช่วงชีวิตถัดไป ความสัมพันธ์ที่รองรับภาระใหม่ไม่ได้จะเปลี่ยนระยะหรือยุติบทบาทเดิม เมื่อบทบาทใหม่เริ่มขึ้น ข้อตกลงที่ไม่ตรงกันจะทำให้จังหวะด้านความสัมพันธ์สะดุด รอยต่อของช่วงชีวิตจะทำให้ด้านความสัมพันธ์เปลี่ยนก่อนจังหวะใหม่ลงตัว",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem6.tuesday"
+          ],
+          "evidenceFingerprints": [
+            "h=nextLifePeriod|d=relationship|b=quiet|r=pressure|e=full|t=true|k=prediction.relationship.nextLifePeriod.quiet|o=lagna-house-and-life-period-score|td=true"
+          ],
+          "evidenceKeys": [
+            "prediction.relationship.nextLifePeriod.quiet"
+          ]
+        },
+        {
+          "text": "เมื่อเข้าสู่อายุ 63–79 ปี ฐานงานและทรัพย์สินเดิมจะถูกตรวจและลดส่วนที่ไม่สร้างผล สิ่งที่หมดบทบาทจะยุติลงและเปิดพื้นที่ให้รูปแบบใหม่ ในช่วงชีวิตถัดไป ความสัมพันธ์จะปรับตามตารางและหน้าที่ใหม่ ข้อตกลงที่ใช้ได้จริงจะกำหนดระยะของแต่ละคน เมื่อบทบาทใหม่เริ่มขึ้น ข้อตกลงที่ไม่ตรงกันจะทำให้จังหวะด้านความสัมพันธ์สะดุด รอยต่อของช่วงชีวิตจะทำให้ด้านความสัมพันธ์เปลี่ยนก่อนจังหวะใหม่ลงตัว",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem1.saturday"
+          ],
+          "evidenceFingerprints": [
+            "h=nextLifePeriod|d=relationship|b=active|r=pressure|e=full|t=true|k=prediction.relationship.nextLifePeriod.active|o=lagna-house-and-life-period-score|td=true"
+          ],
+          "evidenceKeys": [
+            "prediction.relationship.nextLifePeriod.active"
+          ]
+        },
+        {
+          "text": "เมื่อเข้าสู่อายุ 60–80 ปี ฐานงานและทรัพย์สินเดิมจะถูกตรวจและลดส่วนที่ไม่สร้างผล โครงสร้างและขอบเขตเดิมจะเปลี่ยนเพื่อรองรับภาระจริง ในช่วงชีวิตถัดไป ความสัมพันธ์ที่รองรับภาระใหม่ไม่ได้จะเปลี่ยนระยะหรือยุติบทบาทเดิม เมื่อบทบาทใหม่เริ่มขึ้น ข้อตกลงที่ไม่ตรงกันจะทำให้จังหวะด้านความสัมพันธ์สะดุด รอยต่อของช่วงชีวิตจะทำให้ด้านความสัมพันธ์เปลี่ยนก่อนจังหวะใหม่ลงตัว",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem6.monday"
+          ],
+          "evidenceFingerprints": [
+            "h=nextLifePeriod|d=relationship|b=quiet|r=pressure|e=full|t=true|k=prediction.relationship.nextLifePeriod.quiet|o=lagna-house-and-life-period-score|td=true"
+          ],
+          "evidenceKeys": [
+            "prediction.relationship.nextLifePeriod.quiet"
+          ]
+        },
+        {
+          "text": "เมื่อเข้าสู่อายุ 63–79 ปี ฐานงานและทรัพย์สินเดิมจะถูกตรวจและลดส่วนที่ไม่สร้างผล โครงสร้างและขอบเขตเดิมจะเปลี่ยนเพื่อรองรับภาระจริง ในช่วงชีวิตถัดไป ความสัมพันธ์จะปรับตามตารางและหน้าที่ใหม่ ข้อตกลงที่ใช้ได้จริงจะกำหนดระยะของแต่ละคน เมื่อบทบาทใหม่เริ่มขึ้น ข้อตกลงที่ไม่ตรงกันจะทำให้จังหวะด้านความสัมพันธ์สะดุด รอยต่อของช่วงชีวิตจะทำให้ด้านความสัมพันธ์เปลี่ยนก่อนจังหวะใหม่ลงตัว",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem4.saturday"
+          ],
+          "evidenceFingerprints": [
+            "h=nextLifePeriod|d=relationship|b=active|r=pressure|e=full|t=true|k=prediction.relationship.nextLifePeriod.active|o=lagna-house-and-life-period-score|td=true"
+          ],
+          "evidenceKeys": [
+            "prediction.relationship.nextLifePeriod.active"
+          ]
+        },
+        {
+          "text": "เมื่อเข้าสู่อายุ 22–29 ปี อำนาจตัดสินใจและความรับผิดชอบจะเพิ่มขึ้น หน้าที่และอำนาจรับผิดชอบจะชัดขึ้น ในช่วงชีวิตถัดไป บทบาทงานจะขยับจากผู้ลงมือไปสู่ผู้วางระบบและกำหนดทิศทาง เมื่อบทบาทใหม่เริ่มขึ้น ภาระงานหลักจะเบียดเวลาและทำให้จังหวะด้านงานเดินช้าลง รอยต่อของช่วงชีวิตจะทำให้ด้านงานเปลี่ยนก่อนจังหวะใหม่ลงตัว",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem6.sunday"
+          ],
+          "evidenceFingerprints": [
+            "h=nextLifePeriod|d=career|b=strong|r=pressure|e=full|t=true|k=prediction.career.nextLifePeriod.strong|o=lagna-house-and-life-period-score|td=true"
+          ],
+          "evidenceKeys": [
+            "prediction.career.nextLifePeriod.strong"
+          ]
+        },
+        {
+          "text": "เมื่อเข้าสู่อายุ 26–35 ปี อำนาจตัดสินใจและความรับผิดชอบจะเพิ่มขึ้น เป้าหมายระยะยาวจะเห็นผลและต่อยอดได้ชัดขึ้น ในช่วงชีวิตถัดไป ความสัมพันธ์ที่รองรับภาระใหม่ไม่ได้จะเปลี่ยนระยะหรือยุติบทบาทเดิม เมื่อบทบาทใหม่เริ่มขึ้น ข้อตกลงที่ไม่ตรงกันจะทำให้จังหวะด้านความสัมพันธ์สะดุด รอยต่อของช่วงชีวิตจะทำให้ด้านความสัมพันธ์เปลี่ยนก่อนจังหวะใหม่ลงตัว",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem1.tuesday"
+          ],
+          "evidenceFingerprints": [
+            "h=nextLifePeriod|d=relationship|b=quiet|r=pressure|e=full|t=true|k=prediction.relationship.nextLifePeriod.quiet|o=lagna-house-and-life-period-score|td=true"
+          ],
+          "evidenceKeys": [
+            "prediction.relationship.nextLifePeriod.quiet"
+          ]
+        },
+        {
+          "text": "เมื่อเข้าสู่อายุ 41–59 ปี ผลตอบแทนที่ไม่สมดุลกับภาระจะถูกนำมาจัดใหม่ โครงสร้างและขอบเขตเดิมจะเปลี่ยนเพื่อรองรับภาระจริง ในช่วงชีวิตถัดไป ความสัมพันธ์ที่รองรับภาระใหม่ไม่ได้จะเปลี่ยนระยะหรือยุติบทบาทเดิม เมื่อบทบาทใหม่เริ่มขึ้น ข้อตกลงที่ไม่ตรงกันจะทำให้จังหวะด้านความสัมพันธ์สะดุด รอยต่อของช่วงชีวิตจะทำให้ด้านความสัมพันธ์เปลี่ยนก่อนจังหวะใหม่ลงตัว",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem5.monday"
+          ],
+          "evidenceFingerprints": [
+            "h=nextLifePeriod|d=relationship|b=quiet|r=pressure|e=full|t=true|k=prediction.relationship.nextLifePeriod.quiet|o=lagna-house-and-life-period-score|td=true"
+          ],
+          "evidenceKeys": [
+            "prediction.relationship.nextLifePeriod.quiet"
+          ]
+        },
+        {
+          "text": "เมื่อเข้าสู่อายุ 80–85 ปี งานที่ลงแรงต่อเนื่องจะเริ่มให้ผลเป็นรูปธรรม ทรัพยากรและฐานการเงินจะขยายตามผลที่เกิดขึ้น ในช่วงชีวิตถัดไป ความสัมพันธ์ที่รองรับภาระใหม่ไม่ได้จะเปลี่ยนระยะหรือยุติบทบาทเดิม เมื่อบทบาทใหม่เริ่มขึ้น ข้อตกลงที่ไม่ตรงกันจะทำให้จังหวะด้านความสัมพันธ์สะดุด รอยต่อของช่วงชีวิตจะทำให้ด้านความสัมพันธ์เปลี่ยนก่อนจังหวะใหม่ลงตัว",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem6.wednesday"
+          ],
+          "evidenceFingerprints": [
+            "h=nextLifePeriod|d=relationship|b=quiet|r=pressure|e=full|t=true|k=prediction.relationship.nextLifePeriod.quiet|o=lagna-house-and-life-period-score|td=true"
+          ],
+          "evidenceKeys": [
+            "prediction.relationship.nextLifePeriod.quiet"
+          ]
+        },
+        {
+          "text": "เมื่อเข้าสู่อายุ 87–96 ปี ผู้มีประสบการณ์และคนที่เชื่อมือจะเข้ามาเปิดทาง สถานะและบทบาทที่คนอื่นมองเห็นจะเด่นขึ้น ในช่วงชีวิตถัดไป ความสัมพันธ์ที่รองรับภาระใหม่ไม่ได้จะเปลี่ยนระยะหรือยุติบทบาทเดิม เมื่อบทบาทใหม่เริ่มขึ้น ข้อตกลงที่ไม่ตรงกันจะทำให้จังหวะด้านความสัมพันธ์สะดุด รอยต่อของช่วงชีวิตจะทำให้ด้านความสัมพันธ์เปลี่ยนก่อนจังหวะใหม่ลงตัว",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem2.sunday"
+          ],
+          "evidenceFingerprints": [
+            "h=nextLifePeriod|d=relationship|b=quiet|r=pressure|e=full|t=true|k=prediction.relationship.nextLifePeriod.quiet|o=lagna-house-and-life-period-score|td=true"
+          ],
+          "evidenceKeys": [
+            "prediction.relationship.nextLifePeriod.quiet"
+          ]
+        },
+        {
+          "text": "เมื่อเข้าสู่อายุ 51–67 ปี ฐานงานและทรัพย์สินเดิมจะถูกตรวจและลดส่วนที่ไม่สร้างผล โครงสร้างและขอบเขตเดิมจะเปลี่ยนเพื่อรองรับภาระจริง ในช่วงชีวิตถัดไป ความสัมพันธ์จะปรับตามตารางและหน้าที่ใหม่ ข้อตกลงที่ใช้ได้จริงจะกำหนดระยะของแต่ละคน เมื่อบทบาทใหม่เริ่มขึ้น ข้อตกลงที่ไม่ตรงกันจะทำให้จังหวะด้านความสัมพันธ์สะดุด รอยต่อของช่วงชีวิตจะทำให้ด้านความสัมพันธ์เปลี่ยนก่อนจังหวะใหม่ลงตัว",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem4.friday"
+          ],
+          "evidenceFingerprints": [
+            "h=nextLifePeriod|d=relationship|b=active|r=pressure|e=full|t=true|k=prediction.relationship.nextLifePeriod.active|o=lagna-house-and-life-period-score|td=true"
+          ],
+          "evidenceKeys": [
+            "prediction.relationship.nextLifePeriod.active"
+          ]
+        },
+        {
+          "text": "เมื่อเข้าสู่อายุ 87–96 ปี ผู้มีประสบการณ์และคนที่เชื่อมือจะเข้ามาเปิดทาง หน้าที่และอำนาจรับผิดชอบจะชัดขึ้น ในช่วงชีวิตถัดไป บทบาทงานจะขยับจากผู้ลงมือไปสู่ผู้วางระบบและกำหนดทิศทาง เมื่อบทบาทใหม่เริ่มขึ้น ภาระงานหลักจะเบียดเวลาและทำให้จังหวะด้านงานเดินช้าลง รอยต่อของช่วงชีวิตจะทำให้ด้านงานเปลี่ยนก่อนจังหวะใหม่ลงตัว",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem3.sunday"
+          ],
+          "evidenceFingerprints": [
+            "h=nextLifePeriod|d=career|b=strong|r=career|e=full|t=true|k=prediction.career.nextLifePeriod.strong|o=lagna-house-and-life-period-score|td=true"
+          ],
+          "evidenceKeys": [
+            "prediction.career.nextLifePeriod.strong"
+          ]
+        },
+        {
+          "text": "เมื่อเข้าสู่อายุ 7–21 ปี กำลังและกิจวัตรที่สม่ำเสมอจะช่วยให้รับหน้าที่ได้มากขึ้น หน้าที่ใหม่จะทำให้ความรับผิดชอบชัดขึ้น ในช่วงชีวิตถัดไป การเรียนและหน้าที่จะขยับทีละขั้นตามงานที่ทำเสร็จต่อเนื่อง เมื่อบทบาทใหม่เริ่มขึ้น ตารางเรียนและกิจกรรมที่แน่นจะทำให้ด้านการเรียนและหน้าที่เดินช้าลง รอยต่อของช่วงชีวิตจะทำให้ด้านการเรียนและหน้าที่เปลี่ยนก่อนจังหวะใหม่ลงตัว",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem5.sunday"
+          ],
+          "evidenceFingerprints": [
+            "h=nextLifePeriod|d=career|b=active|r=career|e=full|t=true|k=prediction.career.nextLifePeriod.active|o=lagna-house-and-life-period-score|td=true"
+          ],
+          "evidenceKeys": [
+            "prediction.career.nextLifePeriod.active"
+          ]
+        },
+        {
+          "text": "เมื่อเข้าสู่อายุ 18–27 ปี กำลังที่ขึ้นลงจะทำให้ภาระและตารางชีวิตต้องจัดใหม่ โครงสร้างและขอบเขตเดิมจะเปลี่ยนเพื่อรองรับภาระจริง ในช่วงชีวิตถัดไป บทบาทงานจะขยับจากผู้ลงมือไปสู่ผู้วางระบบและกำหนดทิศทาง เมื่อบทบาทใหม่เริ่มขึ้น ภาระงานหลักจะเบียดเวลาและทำให้จังหวะด้านงานเดินช้าลง รอยต่อของช่วงชีวิตจะทำให้ด้านงานเปลี่ยนก่อนจังหวะใหม่ลงตัว",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem0.wednesday"
+          ],
+          "evidenceFingerprints": [
+            "h=nextLifePeriod|d=career|b=strong|r=career|e=full|t=true|k=prediction.career.nextLifePeriod.strong|o=lagna-house-and-life-period-score|td=true"
+          ],
+          "evidenceKeys": [
+            "prediction.career.nextLifePeriod.strong"
+          ]
+        },
+        {
+          "text": "เมื่อเข้าสู่อายุ 20–31 ปี กำลังและกิจวัตรที่ต่อเนื่องจะรองรับภาระได้มากขึ้น เป้าหมายระยะยาวจะเห็นผลและต่อยอดได้ชัดขึ้น ในช่วงชีวิตถัดไป รายรับจะเปลี่ยนตามหน้าที่ใหม่และค่อย ๆ สร้างฐานเงินอีกแบบหนึ่ง เมื่อบทบาทใหม่เริ่มขึ้น ภาระเงินจะจำกัดทางเลือกใหม่ด้านการเงิน รอยต่อของช่วงชีวิตจะทำให้ด้านการเงินเปลี่ยนก่อนจังหวะใหม่ลงตัว",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem5.thursday"
+          ],
+          "evidenceFingerprints": [
+            "h=nextLifePeriod|d=finance|b=active|r=pressure|e=full|t=true|k=prediction.finance.nextLifePeriod.active|o=lagna-house-and-life-period-score|td=true"
+          ],
+          "evidenceKeys": [
+            "prediction.finance.nextLifePeriod.active"
+          ]
+        },
+        {
+          "text": "เมื่อเข้าสู่อายุ 22–29 ปี อำนาจตัดสินใจและความรับผิดชอบจะเพิ่มขึ้น เป้าหมายระยะยาวจะเห็นผลและต่อยอดได้ชัดขึ้น ในช่วงชีวิตถัดไป รายรับจะเปลี่ยนตามหน้าที่ใหม่และค่อย ๆ สร้างฐานเงินอีกแบบหนึ่ง เมื่อบทบาทใหม่เริ่มขึ้น ภาระเงินจะจำกัดทางเลือกใหม่ด้านการเงิน รอยต่อของช่วงชีวิตจะทำให้ด้านการเงินเปลี่ยนก่อนจังหวะใหม่ลงตัว",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem4.sunday"
+          ],
+          "evidenceFingerprints": [
+            "h=nextLifePeriod|d=finance|b=active|r=pressure|e=full|t=true|k=prediction.finance.nextLifePeriod.active|o=lagna-house-and-life-period-score|td=true"
+          ],
+          "evidenceKeys": [
+            "prediction.finance.nextLifePeriod.active"
+          ]
+        },
+        {
+          "text": "เมื่อเข้าสู่อายุ 81–90 ปี งานที่ใช้แรงมากเกินผลตอบแทนจะลดบทบาทลง สิ่งที่หมดบทบาทจะยุติลงและเปิดพื้นที่ให้รูปแบบใหม่ ในช่วงชีวิตถัดไป ความสัมพันธ์ที่รองรับภาระใหม่ไม่ได้จะเปลี่ยนระยะหรือยุติบทบาทเดิม เมื่อบทบาทใหม่เริ่มขึ้น ข้อตกลงที่ไม่ตรงกันจะทำให้จังหวะด้านความสัมพันธ์สะดุด รอยต่อของช่วงชีวิตจะทำให้ด้านความสัมพันธ์เปลี่ยนก่อนจังหวะใหม่ลงตัว",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem4.monday"
+          ],
+          "evidenceFingerprints": [
+            "h=nextLifePeriod|d=relationship|b=quiet|r=pressure|e=full|t=true|k=prediction.relationship.nextLifePeriod.quiet|o=lagna-house-and-life-period-score|td=true"
+          ],
+          "evidenceKeys": [
+            "prediction.relationship.nextLifePeriod.quiet"
+          ]
+        },
+        {
+          "text": "เมื่อเข้าสู่อายุ 68–77 ปี งานที่ใช้แรงมากเกินผลตอบแทนจะลดบทบาทลง โครงสร้างและขอบเขตเดิมจะเปลี่ยนเพื่อรองรับภาระจริง ในช่วงชีวิตถัดไป ความสัมพันธ์ที่รองรับภาระใหม่ไม่ได้จะเปลี่ยนระยะหรือยุติบทบาทเดิม เมื่อบทบาทใหม่เริ่มขึ้น ข้อตกลงที่ไม่ตรงกันจะทำให้จังหวะด้านความสัมพันธ์สะดุด รอยต่อของช่วงชีวิตจะทำให้ด้านความสัมพันธ์เปลี่ยนก่อนจังหวะใหม่ลงตัว",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem0.friday"
+          ],
+          "evidenceFingerprints": [
+            "h=nextLifePeriod|d=relationship|b=quiet|r=pressure|e=full|t=true|k=prediction.relationship.nextLifePeriod.quiet|o=lagna-house-and-life-period-score|td=true"
+          ],
+          "evidenceKeys": [
+            "prediction.relationship.nextLifePeriod.quiet"
+          ]
+        },
+        {
+          "text": "เมื่อเข้าสู่อายุ 47–65 ปี ฐานงานและทรัพย์สินที่สะสมไว้จะเริ่มต่อยอด หน้าที่และอำนาจรับผิดชอบจะชัดขึ้น ในช่วงชีวิตถัดไป ความสัมพันธ์ที่รองรับภาระใหม่ไม่ได้จะเปลี่ยนระยะหรือยุติบทบาทเดิม เมื่อบทบาทใหม่เริ่มขึ้น ข้อตกลงที่ไม่ตรงกันจะทำให้จังหวะด้านความสัมพันธ์สะดุด รอยต่อของช่วงชีวิตจะทำให้ด้านความสัมพันธ์เปลี่ยนก่อนจังหวะใหม่ลงตัว",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem1.sunday"
+          ],
+          "evidenceFingerprints": [
+            "h=nextLifePeriod|d=relationship|b=quiet|r=pressure|e=full|t=true|k=prediction.relationship.nextLifePeriod.quiet|o=lagna-house-and-life-period-score|td=true"
+          ],
+          "evidenceKeys": [
+            "prediction.relationship.nextLifePeriod.quiet"
+          ]
+        },
+        {
+          "text": "เมื่อเข้าสู่อายุ 26–35 ปี ขอบเขตการตัดสินใจจะถูกบีบให้เหลือเฉพาะเรื่องสำคัญ โครงสร้างและขอบเขตเดิมจะเปลี่ยนเพื่อรองรับภาระจริง ในช่วงชีวิตถัดไป ความสัมพันธ์ที่รองรับภาระใหม่ไม่ได้จะเปลี่ยนระยะหรือยุติบทบาทเดิม เมื่อบทบาทใหม่เริ่มขึ้น ข้อตกลงที่ไม่ตรงกันจะทำให้จังหวะด้านความสัมพันธ์สะดุด รอยต่อของช่วงชีวิตจะทำให้ด้านความสัมพันธ์เปลี่ยนก่อนจังหวะใหม่ลงตัว",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem0.tuesday"
+          ],
+          "evidenceFingerprints": [
+            "h=nextLifePeriod|d=relationship|b=quiet|r=pressure|e=full|t=true|k=prediction.relationship.nextLifePeriod.quiet|o=lagna-house-and-life-period-score|td=true"
+          ],
+          "evidenceKeys": [
+            "prediction.relationship.nextLifePeriod.quiet"
+          ]
+        },
+        {
+          "text": "เมื่อเข้าสู่อายุ 59–73 ปี ฐานงานและทรัพย์สินที่สะสมไว้จะเริ่มต่อยอด ทรัพยากรและฐานการเงินจะขยายตามผลที่เกิดขึ้น ในช่วงชีวิตถัดไป งานจะเปลี่ยนผ่านด้วยบทบาททดลองก่อนขยายอำนาจตัดสินใจเต็มรูปแบบ เมื่อบทบาทใหม่เริ่มขึ้น ภาระงานหลักจะเบียดเวลาและทำให้จังหวะด้านงานเดินช้าลง รอยต่อของช่วงชีวิตจะทำให้ด้านงานเปลี่ยนก่อนจังหวะใหม่ลงตัว",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem0.thursday"
+          ],
+          "evidenceFingerprints": [
+            "h=nextLifePeriod|d=career|b=active|r=career|e=full|t=true|k=prediction.career.nextLifePeriod.active|o=lagna-house-and-life-period-score|td=true"
+          ],
+          "evidenceKeys": [
+            "prediction.career.nextLifePeriod.active"
+          ]
+        },
+        {
+          "text": "เมื่อเข้าสู่อายุ 26–35 ปี อำนาจตัดสินใจและความรับผิดชอบจะเพิ่มขึ้น สถานะและบทบาทที่คนอื่นมองเห็นจะเด่นขึ้น ในช่วงชีวิตถัดไป ความสัมพันธ์ที่รองรับภาระใหม่ไม่ได้จะเปลี่ยนระยะหรือยุติบทบาทเดิม เมื่อบทบาทใหม่เริ่มขึ้น ข้อตกลงที่ไม่ตรงกันจะทำให้จังหวะด้านความสัมพันธ์สะดุด รอยต่อของช่วงชีวิตจะทำให้ด้านความสัมพันธ์เปลี่ยนก่อนจังหวะใหม่ลงตัว",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem2.tuesday"
+          ],
+          "evidenceFingerprints": [
+            "h=nextLifePeriod|d=relationship|b=quiet|r=pressure|e=full|t=true|k=prediction.relationship.nextLifePeriod.quiet|o=lagna-house-and-life-period-score|td=true"
+          ],
+          "evidenceKeys": [
+            "prediction.relationship.nextLifePeriod.quiet"
+          ]
+        },
+        {
+          "text": "เมื่อเข้าสู่อายุ 36–54 ปี ผลตอบแทนที่ไม่สมดุลกับภาระจะถูกนำมาจัดใหม่ รอบเดิมจะปิดลงพร้อมการเริ่มจังหวะชีวิตแบบใหม่ ในช่วงชีวิตถัดไป บทบาทงานจะขยับจากผู้ลงมือไปสู่ผู้วางระบบและกำหนดทิศทาง เมื่อบทบาทใหม่เริ่มขึ้น ข้อตกลงที่ไม่ตรงกันจะทำให้จังหวะด้านงานสะดุด รอยต่อของช่วงชีวิตจะทำให้ด้านงานเปลี่ยนก่อนจังหวะใหม่ลงตัว",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem4.tuesday"
+          ],
+          "evidenceFingerprints": [
+            "h=nextLifePeriod|d=career|b=strong|r=love|e=full|t=true|k=prediction.career.nextLifePeriod.strong|o=lagna-house-and-life-period-score|td=true"
+          ],
+          "evidenceKeys": [
+            "prediction.career.nextLifePeriod.strong"
+          ]
+        },
+        {
+          "text": "เมื่อเข้าสู่อายุ 53–58 ปี ผลตอบแทนและการยอมรับจากผลงานเดิมจะชัดขึ้น เป้าหมายระยะยาวจะเห็นผลและต่อยอดได้ชัดขึ้น ในช่วงชีวิตถัดไป บทบาทงานจะขยับจากผู้ลงมือไปสู่ผู้วางระบบและกำหนดทิศทาง เมื่อบทบาทใหม่เริ่มขึ้น ภาระงานหลักจะเบียดเวลาและทำให้จังหวะด้านงานเดินช้าลง รอยต่อของช่วงชีวิตจะทำให้ด้านงานเปลี่ยนก่อนจังหวะใหม่ลงตัว",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem2.thursday"
+          ],
+          "evidenceFingerprints": [
+            "h=nextLifePeriod|d=career|b=strong|r=pressure|e=full|t=true|k=prediction.career.nextLifePeriod.strong|o=lagna-house-and-life-period-score|td=true"
+          ],
+          "evidenceKeys": [
+            "prediction.career.nextLifePeriod.strong"
+          ]
+        },
+        {
+          "text": "เมื่อเข้าสู่อายุ 28–42 ปี ขอบเขตการตัดสินใจจะถูกบีบให้เหลือเฉพาะเรื่องสำคัญ รอบเดิมจะปิดลงพร้อมการเริ่มจังหวะชีวิตแบบใหม่ ในช่วงชีวิตถัดไป งานจะเปลี่ยนผ่านด้วยบทบาททดลองก่อนขยายอำนาจตัดสินใจเต็มรูปแบบ เมื่อบทบาทใหม่เริ่มขึ้น ภาระงานหลักจะเบียดเวลาและทำให้จังหวะด้านงานเดินช้าลง รอยต่อของช่วงชีวิตจะทำให้ด้านงานเปลี่ยนก่อนจังหวะใหม่ลงตัว",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem1.friday"
+          ],
+          "evidenceFingerprints": [
+            "h=nextLifePeriod|d=career|b=active|r=career|e=full|t=true|k=prediction.career.nextLifePeriod.active|o=lagna-house-and-life-period-score|td=true"
+          ],
+          "evidenceKeys": [
+            "prediction.career.nextLifePeriod.active"
+          ]
+        },
+        {
+          "text": "เมื่อเข้าสู่อายุ 47–58 ปี ผลตอบแทนและการยอมรับจากผลงานเดิมจะชัดขึ้น ทรัพยากรและฐานการเงินจะขยายตามผลที่เกิดขึ้น ในช่วงชีวิตถัดไป ความสัมพันธ์จะปรับตามตารางและหน้าที่ใหม่ ข้อตกลงที่ใช้ได้จริงจะกำหนดระยะของแต่ละคน เมื่อบทบาทใหม่เริ่มขึ้น ข้อตกลงที่ไม่ตรงกันจะทำให้จังหวะด้านความสัมพันธ์สะดุด รอยต่อของช่วงชีวิตจะทำให้ด้านความสัมพันธ์เปลี่ยนก่อนจังหวะใหม่ลงตัว",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem2.wednesday"
+          ],
+          "evidenceFingerprints": [
+            "h=nextLifePeriod|d=relationship|b=active|r=pressure|e=full|t=true|k=prediction.relationship.nextLifePeriod.active|o=lagna-house-and-life-period-score|td=true"
+          ],
+          "evidenceKeys": [
+            "prediction.relationship.nextLifePeriod.active"
+          ]
+        },
+        {
+          "text": "เมื่อเข้าสู่อายุ 41–59 ปี ผลตอบแทนและการยอมรับจากผลงานเดิมจะชัดขึ้น สถานะและบทบาทที่คนอื่นมองเห็นจะเด่นขึ้น ในช่วงชีวิตถัดไป ความสัมพันธ์ที่รองรับภาระใหม่ไม่ได้จะเปลี่ยนระยะหรือยุติบทบาทเดิม เมื่อบทบาทใหม่เริ่มขึ้น ข้อตกลงที่ไม่ตรงกันจะทำให้จังหวะด้านความสัมพันธ์สะดุด รอยต่อของช่วงชีวิตจะทำให้ด้านความสัมพันธ์เปลี่ยนก่อนจังหวะใหม่ลงตัว",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem0.monday"
+          ],
+          "evidenceFingerprints": [
+            "h=nextLifePeriod|d=relationship|b=quiet|r=pressure|e=full|t=true|k=prediction.relationship.nextLifePeriod.quiet|o=lagna-house-and-life-period-score|td=true"
+          ],
+          "evidenceKeys": [
+            "prediction.relationship.nextLifePeriod.quiet"
+          ]
+        }
+      ]
+    },
+    "summary": {
+      "distinctParagraphCount": 24,
+      "mostReusedParagraph": "รอบปัจจุบันกำลังขยายผลจากสิ่งที่ทำต่อเนื่อง รอบ 12 เดือนจะเห็นผลผ่านงานควบคู่กับการเงิน ส่วนช่วงชีวิตถัดไปจะย้ายแกนหลักไปที่ความสัมพันธ์",
+      "reuseCount": 8,
+      "contexts": [
+        "mahabhut2537.rem0.friday",
+        "mahabhut2537.rem1.saturday",
+        "mahabhut2537.rem2.saturday",
+        "mahabhut2537.rem2.sunday",
+        "mahabhut2537.rem4.monday",
+        "mahabhut2537.rem4.saturday",
+        "mahabhut2537.rem4.thursday",
+        "mahabhut2537.rem6.friday"
+      ],
+      "evidenceFingerprints": [
+        ""
+      ],
+      "mismatchedEvidenceReuseCount": 0,
+      "mismatchedEvidenceReuse": [],
+      "paragraphs": [
+        {
+          "text": "รอบปัจจุบันกำลังขยายผลจากสิ่งที่ทำต่อเนื่อง รอบ 12 เดือนจะเห็นผลผ่านงานควบคู่กับการเงิน ส่วนช่วงชีวิตถัดไปจะย้ายแกนหลักไปที่ความสัมพันธ์",
+          "reuseCount": 8,
+          "contexts": [
+            "mahabhut2537.rem0.friday",
+            "mahabhut2537.rem1.saturday",
+            "mahabhut2537.rem2.saturday",
+            "mahabhut2537.rem2.sunday",
+            "mahabhut2537.rem4.monday",
+            "mahabhut2537.rem4.saturday",
+            "mahabhut2537.rem4.thursday",
+            "mahabhut2537.rem6.friday"
+          ],
+          "evidenceFingerprints": [
+            ""
+          ],
+          "evidenceKeys": [
+            ""
+          ]
+        },
+        {
+          "text": "รอบปัจจุบันกำลังขยายผลจากสิ่งที่ทำต่อเนื่อง รอบ 12 เดือนจะเห็นผลผ่านความสัมพันธ์ควบคู่กับสุขภาพและการพัก ส่วนช่วงชีวิตถัดไปจะย้ายแกนหลักไปที่ความสัมพันธ์",
+          "reuseCount": 6,
+          "contexts": [
+            "mahabhut2537.rem0.monday",
+            "mahabhut2537.rem2.tuesday",
+            "mahabhut2537.rem3.saturday",
+            "mahabhut2537.rem3.tuesday",
+            "mahabhut2537.rem5.monday",
+            "mahabhut2537.rem6.monday"
+          ],
+          "evidenceFingerprints": [
+            ""
+          ],
+          "evidenceKeys": [
+            ""
+          ]
+        },
+        {
+          "text": "รอบปัจจุบันกำลังปิดภาระเดิมและจัดโครงสร้างใหม่ รอบ 12 เดือนจะเห็นผลผ่านงานควบคู่กับการเงิน ส่วนช่วงชีวิตถัดไปจะย้ายแกนหลักไปที่ความสัมพันธ์",
+          "reuseCount": 6,
+          "contexts": [
+            "mahabhut2537.rem0.sunday",
+            "mahabhut2537.rem1.sunday",
+            "mahabhut2537.rem1.tuesday",
+            "mahabhut2537.rem2.wednesday",
+            "mahabhut2537.rem3.monday",
+            "mahabhut2537.rem6.wednesday"
+          ],
+          "evidenceFingerprints": [
+            ""
+          ],
+          "evidenceKeys": [
+            ""
+          ]
+        },
+        {
+          "text": "รอบปัจจุบันกำลังขยายผลจากสิ่งที่ทำต่อเนื่อง รอบ 12 เดือนจะเห็นผลผ่านการเรียนและหน้าที่ควบคู่กับการเงิน ส่วนช่วงชีวิตถัดไปจะย้ายแกนหลักไปที่ความสัมพันธ์",
+          "reuseCount": 4,
+          "contexts": [
+            "mahabhut2537.rem2.friday",
+            "mahabhut2537.rem5.tuesday",
+            "mahabhut2537.rem5.wednesday",
+            "mahabhut2537.rem6.tuesday"
+          ],
+          "evidenceFingerprints": [
+            ""
+          ],
+          "evidenceKeys": [
+            ""
+          ]
+        },
+        {
+          "text": "รอบปัจจุบันกำลังขยายผลจากสิ่งที่ทำต่อเนื่อง รอบ 12 เดือนจะเห็นผลผ่านความสัมพันธ์ควบคู่กับสุขภาพและการพัก ส่วนช่วงชีวิตถัดไปจะย้ายแกนหลักไปที่งาน",
+          "reuseCount": 3,
+          "contexts": [
+            "mahabhut2537.rem0.saturday",
+            "mahabhut2537.rem5.friday",
+            "mahabhut2537.rem5.saturday"
+          ],
+          "evidenceFingerprints": [
+            ""
+          ],
+          "evidenceKeys": [
+            ""
+          ]
+        },
+        {
+          "text": "รอบปัจจุบันกำลังขยายผลจากสิ่งที่ทำต่อเนื่อง รอบ 12 เดือนจะเห็นผลผ่านพัฒนาการและกิจวัตรควบคู่กับทรัพยากรและของใช้ ส่วนช่วงชีวิตถัดไปจะย้ายแกนหลักไปที่ความสัมพันธ์",
+          "reuseCount": 2,
+          "contexts": [
+            "mahabhut2537.rem1.thursday",
+            "mahabhut2537.rem6.thursday"
+          ],
+          "evidenceFingerprints": [
+            ""
+          ],
+          "evidenceKeys": [
+            ""
+          ]
+        },
+        {
+          "text": "รอบปัจจุบันกำลังขยายผลจากสิ่งที่ทำต่อเนื่อง รอบ 12 เดือนจะเห็นผลผ่านงานควบคู่กับการเงิน ส่วนช่วงชีวิตถัดไปจะย้ายแกนหลักไปที่งาน",
+          "reuseCount": 2,
+          "contexts": [
+            "mahabhut2537.rem2.thursday",
+            "mahabhut2537.rem3.thursday"
+          ],
+          "evidenceFingerprints": [
+            ""
+          ],
+          "evidenceKeys": [
+            ""
+          ]
+        },
+        {
+          "text": "รอบปัจจุบันกำลังปิดภาระเดิมและจัดโครงสร้างใหม่ รอบ 12 เดือนจะเห็นผลผ่านความสัมพันธ์ควบคู่กับสุขภาพและการพัก ส่วนช่วงชีวิตถัดไปจะย้ายแกนหลักไปที่งาน",
+          "reuseCount": 2,
+          "contexts": [
+            "mahabhut2537.rem1.friday",
+            "mahabhut2537.rem4.tuesday"
+          ],
+          "evidenceFingerprints": [
+            ""
+          ],
+          "evidenceKeys": [
+            ""
+          ]
+        },
+        {
+          "text": "รอบปัจจุบันกำลังปิดภาระเดิมและจัดโครงสร้างใหม่ รอบ 12 เดือนจะเห็นผลผ่านความสัมพันธ์ควบคู่กับงาน ส่วนช่วงชีวิตถัดไปจะย้ายแกนหลักไปที่ความสัมพันธ์",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem3.wednesday"
+          ],
+          "evidenceFingerprints": [
+            ""
+          ],
+          "evidenceKeys": [
+            ""
+          ]
+        },
+        {
+          "text": "รอบปัจจุบันกำลังปิดภาระเดิมและจัดโครงสร้างใหม่ รอบ 12 เดือนจะเห็นผลผ่านความสัมพันธ์ควบคู่กับสุขภาพและการพัก ส่วนช่วงชีวิตถัดไปจะย้ายแกนหลักไปที่ความสัมพันธ์",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem1.monday"
+          ],
+          "evidenceFingerprints": [
+            ""
+          ],
+          "evidenceKeys": [
+            ""
+          ]
+        },
+        {
+          "text": "รอบปัจจุบันกำลังขยายผลจากสิ่งที่ทำต่อเนื่อง รอบ 12 เดือนจะเห็นผลผ่านการเงินควบคู่กับความสัมพันธ์ ส่วนช่วงชีวิตถัดไปจะย้ายแกนหลักไปที่งาน",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem3.friday"
+          ],
+          "evidenceFingerprints": [
+            ""
+          ],
+          "evidenceKeys": [
+            ""
+          ]
+        },
+        {
+          "text": "รอบปัจจุบันกำลังปิดภาระเดิมและจัดโครงสร้างใหม่ รอบ 12 เดือนจะเห็นผลผ่านการเรียนและหน้าที่ควบคู่กับการเงิน ส่วนช่วงชีวิตถัดไปจะย้ายแกนหลักไปที่การเรียนและหน้าที่",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem6.saturday"
+          ],
+          "evidenceFingerprints": [
+            ""
+          ],
+          "evidenceKeys": [
+            ""
+          ]
+        },
+        {
+          "text": "รอบปัจจุบันกำลังปิดภาระเดิมและจัดโครงสร้างใหม่ รอบ 12 เดือนจะเห็นผลผ่านพัฒนาการและกิจวัตรควบคู่กับทรัพยากรและของใช้ ส่วนช่วงชีวิตถัดไปจะย้ายแกนหลักไปที่ความสัมพันธ์",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem1.wednesday"
+          ],
+          "evidenceFingerprints": [
+            ""
+          ],
+          "evidenceKeys": [
+            ""
+          ]
+        },
+        {
+          "text": "รอบปัจจุบันกำลังขยายผลจากสิ่งที่ทำต่อเนื่อง รอบ 12 เดือนจะเห็นผลผ่านความสัมพันธ์ควบคู่กับงาน ส่วนช่วงชีวิตถัดไปจะย้ายแกนหลักไปที่ความสัมพันธ์",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem2.monday"
+          ],
+          "evidenceFingerprints": [
+            ""
+          ],
+          "evidenceKeys": [
+            ""
+          ]
+        },
+        {
+          "text": "รอบปัจจุบันกำลังปิดภาระเดิมและจัดโครงสร้างใหม่ รอบ 12 เดือนจะเห็นผลผ่านการเรียนและหน้าที่ควบคู่กับการเงิน ส่วนช่วงชีวิตถัดไปจะย้ายแกนหลักไปที่ความสัมพันธ์",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem4.wednesday"
+          ],
+          "evidenceFingerprints": [
+            ""
+          ],
+          "evidenceKeys": [
+            ""
+          ]
+        },
+        {
+          "text": "รอบปัจจุบันกำลังปิดภาระเดิมและจัดโครงสร้างใหม่ รอบ 12 เดือนจะเห็นผลผ่านการเรียนและหน้าที่ควบคู่กับการเงิน ส่วนช่วงชีวิตถัดไปจะย้ายแกนหลักไปที่งาน",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem6.sunday"
+          ],
+          "evidenceFingerprints": [
+            ""
+          ],
+          "evidenceKeys": [
+            ""
+          ]
+        },
+        {
+          "text": "รอบปัจจุบันกำลังปิดภาระเดิมและจัดโครงสร้างใหม่ รอบ 12 เดือนจะเห็นผลผ่านการเงินควบคู่กับความสัมพันธ์ ส่วนช่วงชีวิตถัดไปจะย้ายแกนหลักไปที่งาน",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem3.sunday"
+          ],
+          "evidenceFingerprints": [
+            ""
+          ],
+          "evidenceKeys": [
+            ""
+          ]
+        },
+        {
+          "text": "รอบปัจจุบันกำลังปิดภาระเดิมและจัดโครงสร้างใหม่ รอบ 12 เดือนจะเห็นผลผ่านพัฒนาการและกิจวัตรควบคู่กับทรัพยากรและของใช้ ส่วนช่วงชีวิตถัดไปจะย้ายแกนหลักไปที่การเรียนและหน้าที่",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem5.sunday"
+          ],
+          "evidenceFingerprints": [
+            ""
+          ],
+          "evidenceKeys": [
+            ""
+          ]
+        },
+        {
+          "text": "รอบปัจจุบันกำลังขยายผลจากสิ่งที่ทำต่อเนื่อง รอบ 12 เดือนจะเห็นผลผ่านความสัมพันธ์ควบคู่กับกำลังและการพัก ส่วนช่วงชีวิตถัดไปจะย้ายแกนหลักไปที่งาน",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem0.wednesday"
+          ],
+          "evidenceFingerprints": [
+            ""
+          ],
+          "evidenceKeys": [
+            ""
+          ]
+        },
+        {
+          "text": "รอบปัจจุบันกำลังปิดภาระเดิมและจัดโครงสร้างใหม่ รอบ 12 เดือนจะเห็นผลผ่านการเรียนและหน้าที่ควบคู่กับการเงิน ส่วนช่วงชีวิตถัดไปจะย้ายแกนหลักไปที่การเงิน",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem5.thursday"
+          ],
+          "evidenceFingerprints": [
+            ""
+          ],
+          "evidenceKeys": [
+            ""
+          ]
+        },
+        {
+          "text": "รอบปัจจุบันกำลังขยายผลจากสิ่งที่ทำต่อเนื่อง รอบ 12 เดือนจะเห็นผลผ่านการเรียนและหน้าที่ควบคู่กับการเงิน ส่วนช่วงชีวิตถัดไปจะย้ายแกนหลักไปที่การเงิน",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem4.sunday"
+          ],
+          "evidenceFingerprints": [
+            ""
+          ],
+          "evidenceKeys": [
+            ""
+          ]
+        },
+        {
+          "text": "รอบปัจจุบันกำลังขยายผลจากสิ่งที่ทำต่อเนื่อง รอบ 12 เดือนจะเห็นผลผ่านความสัมพันธ์ควบคู่กับกำลังและการพัก ส่วนช่วงชีวิตถัดไปจะย้ายแกนหลักไปที่ความสัมพันธ์",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem0.tuesday"
+          ],
+          "evidenceFingerprints": [
+            ""
+          ],
+          "evidenceKeys": [
+            ""
+          ]
+        },
+        {
+          "text": "รอบปัจจุบันกำลังปิดภาระเดิมและจัดโครงสร้างใหม่ รอบ 12 เดือนจะเห็นผลผ่านงานควบคู่กับการเงิน ส่วนช่วงชีวิตถัดไปจะย้ายแกนหลักไปที่งาน",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem0.thursday"
+          ],
+          "evidenceFingerprints": [
+            ""
+          ],
+          "evidenceKeys": [
+            ""
+          ]
+        },
+        {
+          "text": "รอบปัจจุบันกำลังขยายผลจากสิ่งที่ทำต่อเนื่อง รอบ 12 เดือนจะเห็นผลผ่านการเงินควบคู่กับความสัมพันธ์ ส่วนช่วงชีวิตถัดไปจะย้ายแกนหลักไปที่ความสัมพันธ์",
+          "reuseCount": 1,
+          "contexts": [
+            "mahabhut2537.rem4.friday"
+          ],
+          "evidenceFingerprints": [
+            ""
+          ],
+          "evidenceKeys": [
+            ""
+          ]
+        }
+      ]
+    },
+    "advice": {
+      "distinctParagraphCount": 2,
+      "mostReusedParagraph": "ให้ใช้ 12 เดือนข้างหน้าเป็นช่วงวางแผนหลัก แล้วใช้จุดเปลี่ยนชีวิตถัดไปเป็นกรอบเตรียมตัวระยะยาว",
+      "reuseCount": 34,
+      "contexts": [
+        "mahabhut2537.rem0.friday",
+        "mahabhut2537.rem0.monday",
+        "mahabhut2537.rem0.saturday",
+        "mahabhut2537.rem0.sunday",
+        "mahabhut2537.rem0.thursday",
+        "mahabhut2537.rem1.friday",
+        "mahabhut2537.rem1.monday",
+        "mahabhut2537.rem1.saturday",
+        "mahabhut2537.rem1.sunday",
+        "mahabhut2537.rem1.tuesday",
+        "mahabhut2537.rem2.monday",
+        "mahabhut2537.rem2.saturday",
+        "mahabhut2537.rem2.sunday",
+        "mahabhut2537.rem2.thursday",
+        "mahabhut2537.rem2.tuesday",
+        "mahabhut2537.rem2.wednesday",
+        "mahabhut2537.rem3.friday",
+        "mahabhut2537.rem3.monday",
+        "mahabhut2537.rem3.saturday",
+        "mahabhut2537.rem3.sunday",
+        "mahabhut2537.rem3.thursday",
+        "mahabhut2537.rem3.tuesday",
+        "mahabhut2537.rem3.wednesday",
+        "mahabhut2537.rem4.friday",
+        "mahabhut2537.rem4.monday",
+        "mahabhut2537.rem4.saturday",
+        "mahabhut2537.rem4.thursday",
+        "mahabhut2537.rem4.tuesday",
+        "mahabhut2537.rem5.friday",
+        "mahabhut2537.rem5.monday",
+        "mahabhut2537.rem5.saturday",
+        "mahabhut2537.rem6.friday",
+        "mahabhut2537.rem6.monday",
+        "mahabhut2537.rem6.wednesday"
+      ],
+      "evidenceFingerprints": [
+        ""
+      ],
+      "mismatchedEvidenceReuseCount": 0,
+      "mismatchedEvidenceReuse": [],
+      "paragraphs": [
+        {
+          "text": "ให้ใช้ 12 เดือนข้างหน้าเป็นช่วงวางแผนหลัก แล้วใช้จุดเปลี่ยนชีวิตถัดไปเป็นกรอบเตรียมตัวระยะยาว",
+          "reuseCount": 34,
+          "contexts": [
+            "mahabhut2537.rem0.friday",
+            "mahabhut2537.rem0.monday",
+            "mahabhut2537.rem0.saturday",
+            "mahabhut2537.rem0.sunday",
+            "mahabhut2537.rem0.thursday",
+            "mahabhut2537.rem1.friday",
+            "mahabhut2537.rem1.monday",
+            "mahabhut2537.rem1.saturday",
+            "mahabhut2537.rem1.sunday",
+            "mahabhut2537.rem1.tuesday",
+            "mahabhut2537.rem2.monday",
+            "mahabhut2537.rem2.saturday",
+            "mahabhut2537.rem2.sunday",
+            "mahabhut2537.rem2.thursday",
+            "mahabhut2537.rem2.tuesday",
+            "mahabhut2537.rem2.wednesday",
+            "mahabhut2537.rem3.friday",
+            "mahabhut2537.rem3.monday",
+            "mahabhut2537.rem3.saturday",
+            "mahabhut2537.rem3.sunday",
+            "mahabhut2537.rem3.thursday",
+            "mahabhut2537.rem3.tuesday",
+            "mahabhut2537.rem3.wednesday",
+            "mahabhut2537.rem4.friday",
+            "mahabhut2537.rem4.monday",
+            "mahabhut2537.rem4.saturday",
+            "mahabhut2537.rem4.thursday",
+            "mahabhut2537.rem4.tuesday",
+            "mahabhut2537.rem5.friday",
+            "mahabhut2537.rem5.monday",
+            "mahabhut2537.rem5.saturday",
+            "mahabhut2537.rem6.friday",
+            "mahabhut2537.rem6.monday",
+            "mahabhut2537.rem6.wednesday"
+          ],
+          "evidenceFingerprints": [
+            ""
+          ],
+          "evidenceKeys": [
+            ""
+          ]
+        },
+        {
+          "text": "แบ่งเวลาเรียน กิจกรรม และการพักให้ชัด หากเรื่องใดเกินกำลังให้ขอความช่วยเหลือจากผู้ใหญ่ที่ไว้ใจได้",
+          "reuseCount": 15,
+          "contexts": [
+            "mahabhut2537.rem0.tuesday",
+            "mahabhut2537.rem0.wednesday",
+            "mahabhut2537.rem1.thursday",
+            "mahabhut2537.rem1.wednesday",
+            "mahabhut2537.rem2.friday",
+            "mahabhut2537.rem4.sunday",
+            "mahabhut2537.rem4.wednesday",
+            "mahabhut2537.rem5.sunday",
+            "mahabhut2537.rem5.thursday",
+            "mahabhut2537.rem5.tuesday",
+            "mahabhut2537.rem5.wednesday",
+            "mahabhut2537.rem6.saturday",
+            "mahabhut2537.rem6.sunday",
+            "mahabhut2537.rem6.thursday",
+            "mahabhut2537.rem6.tuesday"
+          ],
+          "evidenceFingerprints": [
+            ""
+          ],
+          "evidenceKeys": [
+            ""
+          ]
+        }
+      ]
+    },
+    "disclosure": {
+      "distinctParagraphCount": 1,
+      "mostReusedParagraph": "คำทำนายนี้เป็นมุมมองตามความเชื่อ ใช้ประกอบการทบทวนชีวิตและเทียบกับข้อเท็จจริงก่อนตัดสินใจเรื่องสำคัญ",
+      "reuseCount": 49,
+      "contexts": [
+        "mahabhut2537.rem0.friday",
+        "mahabhut2537.rem0.monday",
+        "mahabhut2537.rem0.saturday",
+        "mahabhut2537.rem0.sunday",
+        "mahabhut2537.rem0.thursday",
+        "mahabhut2537.rem0.tuesday",
+        "mahabhut2537.rem0.wednesday",
+        "mahabhut2537.rem1.friday",
+        "mahabhut2537.rem1.monday",
+        "mahabhut2537.rem1.saturday",
+        "mahabhut2537.rem1.sunday",
+        "mahabhut2537.rem1.thursday",
+        "mahabhut2537.rem1.tuesday",
+        "mahabhut2537.rem1.wednesday",
+        "mahabhut2537.rem2.friday",
+        "mahabhut2537.rem2.monday",
+        "mahabhut2537.rem2.saturday",
+        "mahabhut2537.rem2.sunday",
+        "mahabhut2537.rem2.thursday",
+        "mahabhut2537.rem2.tuesday",
+        "mahabhut2537.rem2.wednesday",
+        "mahabhut2537.rem3.friday",
+        "mahabhut2537.rem3.monday",
+        "mahabhut2537.rem3.saturday",
+        "mahabhut2537.rem3.sunday",
+        "mahabhut2537.rem3.thursday",
+        "mahabhut2537.rem3.tuesday",
+        "mahabhut2537.rem3.wednesday",
+        "mahabhut2537.rem4.friday",
+        "mahabhut2537.rem4.monday",
+        "mahabhut2537.rem4.saturday",
+        "mahabhut2537.rem4.sunday",
+        "mahabhut2537.rem4.thursday",
+        "mahabhut2537.rem4.tuesday",
+        "mahabhut2537.rem4.wednesday",
+        "mahabhut2537.rem5.friday",
+        "mahabhut2537.rem5.monday",
+        "mahabhut2537.rem5.saturday",
+        "mahabhut2537.rem5.sunday",
+        "mahabhut2537.rem5.thursday",
+        "mahabhut2537.rem5.tuesday",
+        "mahabhut2537.rem5.wednesday",
+        "mahabhut2537.rem6.friday",
+        "mahabhut2537.rem6.monday",
+        "mahabhut2537.rem6.saturday",
+        "mahabhut2537.rem6.sunday",
+        "mahabhut2537.rem6.thursday",
+        "mahabhut2537.rem6.tuesday",
+        "mahabhut2537.rem6.wednesday"
+      ],
+      "evidenceFingerprints": [
+        ""
+      ],
+      "mismatchedEvidenceReuseCount": 0,
+      "mismatchedEvidenceReuse": [],
+      "paragraphs": [
+        {
+          "text": "คำทำนายนี้เป็นมุมมองตามความเชื่อ ใช้ประกอบการทบทวนชีวิตและเทียบกับข้อเท็จจริงก่อนตัดสินใจเรื่องสำคัญ",
+          "reuseCount": 49,
+          "contexts": [
+            "mahabhut2537.rem0.friday",
+            "mahabhut2537.rem0.monday",
+            "mahabhut2537.rem0.saturday",
+            "mahabhut2537.rem0.sunday",
+            "mahabhut2537.rem0.thursday",
+            "mahabhut2537.rem0.tuesday",
+            "mahabhut2537.rem0.wednesday",
+            "mahabhut2537.rem1.friday",
+            "mahabhut2537.rem1.monday",
+            "mahabhut2537.rem1.saturday",
+            "mahabhut2537.rem1.sunday",
+            "mahabhut2537.rem1.thursday",
+            "mahabhut2537.rem1.tuesday",
+            "mahabhut2537.rem1.wednesday",
+            "mahabhut2537.rem2.friday",
+            "mahabhut2537.rem2.monday",
+            "mahabhut2537.rem2.saturday",
+            "mahabhut2537.rem2.sunday",
+            "mahabhut2537.rem2.thursday",
+            "mahabhut2537.rem2.tuesday",
+            "mahabhut2537.rem2.wednesday",
+            "mahabhut2537.rem3.friday",
+            "mahabhut2537.rem3.monday",
+            "mahabhut2537.rem3.saturday",
+            "mahabhut2537.rem3.sunday",
+            "mahabhut2537.rem3.thursday",
+            "mahabhut2537.rem3.tuesday",
+            "mahabhut2537.rem3.wednesday",
+            "mahabhut2537.rem4.friday",
+            "mahabhut2537.rem4.monday",
+            "mahabhut2537.rem4.saturday",
+            "mahabhut2537.rem4.sunday",
+            "mahabhut2537.rem4.thursday",
+            "mahabhut2537.rem4.tuesday",
+            "mahabhut2537.rem4.wednesday",
+            "mahabhut2537.rem5.friday",
+            "mahabhut2537.rem5.monday",
+            "mahabhut2537.rem5.saturday",
+            "mahabhut2537.rem5.sunday",
+            "mahabhut2537.rem5.thursday",
+            "mahabhut2537.rem5.tuesday",
+            "mahabhut2537.rem5.wednesday",
+            "mahabhut2537.rem6.friday",
+            "mahabhut2537.rem6.monday",
+            "mahabhut2537.rem6.saturday",
+            "mahabhut2537.rem6.sunday",
+            "mahabhut2537.rem6.thursday",
+            "mahabhut2537.rem6.tuesday",
+            "mahabhut2537.rem6.wednesday"
+          ],
+          "evidenceFingerprints": [
+            ""
+          ],
+          "evidenceKeys": [
+            ""
+          ]
+        }
+      ]
+    }
+  }
+}
