@@ -10,7 +10,7 @@ The accepted PR HEAD tree is also `a0bdb326add5ac33bd03fa3537b51daf83377477`; by
 
 Final pre-merge gates passed from the pinned HEAD: manifest 239/239 paths with unknown/unclassified 0; machine-local path payload 0; tracked build/binary output 0; `product-acceptance/` delta 0; Firebase/deployment configuration delta 0; Candidate 0023 and historical Candidate 0011 exact; 49 contexts and 392 periods; Node 9/9; `git diff --check`, manifest validation, path-safety validation and docs-only PreCommit PASS. GitHub reported PR #115 as Open + Ready, MERGEABLE/CLEAN and `statusCheckRollup=[]` immediately before the merge.
 
-This closeout changes only the six status Markdown files on branch `codex/pr115-post-merge-closeout`. No runtime, tests, Candidate, Canon, UI, PDF, infographic, artifact, Firebase, `product-acceptance/` or Production content is changed. Production has not been deployed or revalidated by this task, and no Production QA PASS is claimed. The docs-only closeout PR remains Draft pending separate review and merge authorization.
+This closeout changes only the six status Markdown files on branch `codex/pr115-post-merge-closeout`. No runtime, tests, Candidate, Canon, UI, PDF, infographic, artifact, Firebase, `product-acceptance/` or Production content is changed. PR #115 is merged; Production deployment and Production QA remain pending, Production has not changed, and no Production QA PASS is claimed.
 
 
 ## PR115 Owner Product Acceptance and final merge-surface closeout (2026-09-08)
