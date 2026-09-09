@@ -209,7 +209,11 @@ for (const entry of pendingEntries) {
 }
 
 assert(rejection.includes('OWNER-REJECTED — METHODOLOGY AND DEFENSIVE CAVEAT LEAKAGE IN READER COPY'), 'Candidate 0025 rejection decision missing.');
-assert(contract.includes('Revision: **2 — natural reader language and audit-boundary repair**'), 'Voice Contract is not Revision 2.');
+assert(
+  contract.includes('Revision: **2 — natural reader language and audit-boundary repair**') ||
+    contract.includes('Revision: **3 — natural reader language, semantic caveat and overview-ownership repair**'),
+  'Voice Contract is not compatible with Candidate 0026 validation.',
+);
 for (const counter of Object.keys(leakageRules)) assert(contract.includes(`\`${counter}\``), `Voice Contract counter missing: ${counter}`);
 assert(candidate.includes('No SHA-256 or byte-exact golden is defined for Candidate 0026.'), 'Candidate 0026 no-golden declaration missing.');
 assert(!/Candidate 0026 SHA-256\s*[:=]/i.test(candidate), 'Candidate 0026 exact SHA must not be defined.');
