@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "task_id": "unknown-dedicated-pdf-optional-infographic-hotfix",
-  "expected_branch": "codex/unknown-dedicated-pdf-optional-infographic-hotfix",
+  "task_id": "thai-report-reader-voice-v3-content-first",
+  "expected_branch": "codex/thai-report-reader-voice-v3-content-first",
   "expected_worktree": "C:/Users/USER/Documents/Knowme/pr107-release-main",
-  "base_ref": "819c90ec02f99f58e135c58363895e4e6b0dc2ce",
+  "base_ref": "6af7ccdd05796c97e6108255da43f40123485583",
   "allowed_files": [
     "task_scope.json",
     "TASK_RESULT.md",
@@ -12,8 +12,16 @@
     "docs/HANDOFF.md",
     "docs/ROADMAP.md",
     "docs/THAI_REPORT_READER_EXPERIENCE_V2.md",
-    "lib/features/thai_beta/presentation/widgets/thai_beta_report_export_button.dart",
-    "test/validation/thai_beta/thai_beta_report_export_test.dart"
+    "docs/CANDIDATE_0024_ACTUAL_0035_FULL_READER_COPY.md",
+    "docs/CANDIDATE_0023_TO_0024_BEFORE_AFTER.md",
+    "docs/CANDIDATE_0024_CLAIM_MAP.md",
+    "docs/CANDIDATE_0024_CLAIM_MAP.json",
+    "docs/CANDIDATE_0024_READER_VOICE_AUDIT.md",
+    "docs/CANDIDATE_0024_SEMANTIC_OWNERSHIP.md",
+    "docs/CANDIDATE_0024_SEMANTIC_OWNERSHIP.json",
+    "docs/CANDIDATE_0024_VALIDATION.json",
+    "docs/THAI_REPORT_READER_VOICE_CONTRACT_V3.md",
+    "tool/validate_candidate_0024_reader_voice.mjs"
   ],
   "allowed_globs": [],
   "forbidden_files": [
@@ -45,17 +53,12 @@
     "round_[0-9]+_review\\.json"
   ],
   "focused_tests": [
-    "node tool/generate_predictive_runtime_v2_catalog.mjs --check",
-    "node tool/build_predictive_runtime_v2_audit.mjs",
-    "node --test test/evidence/predictive_runtime_v2_foundation.test.mjs test/evidence/pr115_or10r_predictive_signature.test.mjs",
-    "flutter test --no-pub --concurrency=1 test/validation/thai_beta/thai_beta_report_export_test.dart",
-    "flutter test --no-pub --concurrency=1 test/validation/thai_beta/narrative/thai_beta_input_fixture_separation_test.dart test/evidence/or5r_sentinel_runtime_test.dart test/evidence/predictive_runtime_v2_or5_actual_input_export_test.dart",
-    "flutter test --no-pub --concurrency=1 test/validation/thai_beta/narrative/ test/validation/thai_beta/thai_beta_report_export_test.dart test/validation/thai_beta/thai_report_experience_infographic_vnext_test.dart test/validation/thai_beta/thai_report_vnext_artifact_generation_test.dart test/validation/thai_beta/thai_beta_pdf_title_only_test.dart",
-    "flutter test --no-pub --concurrency=1 test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart"
+    "node tool/validate_candidate_0024_reader_voice.mjs",
+    "node --test test/evidence/predictive_runtime_v2_foundation.test.mjs test/evidence/pr115_or10r_predictive_signature.test.mjs"
   ],
-  "full_test_policy": "required",
-  "full_test_command": "flutter test --no-pub --concurrency=1 test/validation/thai_beta/ test/validation/thai/ test/validation/birth_normalization/ test/thai_foundation_engine_test.dart test/validation/thai_mirror_qa_harness/story_coverage_validation_test.dart test/validation/thai_mirror_qa_harness/screenshot_regression_test.dart",
-  "analyze_command": "flutter analyze --no-pub --no-fatal-warnings --no-fatal-infos",
-  "commit_message_regex": "^(fix\\(thai-beta\\): .{10,72}|test\\(thai-beta\\): .{10,72}|docs: .{10,72})$",
+  "full_test_policy": "skip",
+  "full_test_command": "SKIP",
+  "analyze_command": "SKIP",
+  "commit_message_regex": "^docs: .{10,72}$",
   "require_clean_tree_after_commit": true
 }
