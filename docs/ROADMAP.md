@@ -1,5 +1,18 @@
 # KnowMe Roadmap+
 
+## Thai Report Reader Voice V3 — Content-first Candidate 0024 (2026-09-09)
+
+**THAI REPORT READER VOICE V3 CONTENT-FIRST CANDIDATE 0024 READY — PENDING OWNER COPY REVIEW — OPEN + DRAFT PR #120 — NOT IMPLEMENTED — NOT MERGED — NOT DEPLOYED.**
+
+Owner rejected the current Production/Candidate 0023 reader voice as too short, stiff and list-like. Candidate 0023 remains immutable historical engineering evidence but is not the V3 exact-copy target; Candidate 0011 informed cadence, continuity and detail level only. Content/evidence commit `57c51f4825cb10c87911e6570e52ebbfb74cd353` adds Candidate 0024, the Reader Voice V3 contract, full Candidate 0023→0024 comparison, sentence-level claim map, semantic ownership, two-pass audit and validator. No exact Candidate 0024 SHA/golden was created.
+
+The candidate uses the actual 00:35 facts (male, 6 June 1982, Chiang Mai, Saturday, Aquarius 19°19′) and `asOf=2026-09-09 Asia/Bangkok`, yielding the illustrative rolling interval `9 กันยายน 2569 ถึง 8 กันยายน 2570`. Known 00:03 preserves Aquarius 9°24′ and has predictive-body mismatch 0 versus 00:35. Unknown leakage and authority gaps are 0. The overview has 6 sentences across 2 paragraphs; current domains have 2–3 sentences and the rolling horizon has 4. Seven `INTENTIONAL_SUMMARY_TO_DETAIL` relations bind 19 destinations without same-level repetition.
+
+Validation: 55 reader sentences/factual lines mapped; 6 prohibited meaning classes blocked; all unsupported event/causal/timing/domain/advice/personality/same-level-duplicate/summary-link/parity/leakage counters are 0; negative controls 11/11; current foundation/signature Node tests 9/9; `git diff --check`, PreCommit and content PostCommit pass. Historical OR9 and OR5 snapshot failures on unchanged `main` are disclosed as non-gating baseline observations; no source or test was edited to conceal them. Full Flutter and Analyzer are **NOT RERUN — CONTENT/EVIDENCE/MARKDOWN-ONLY DELTA**.
+
+Draft PR: https://github.com/notekmitl/knowme/pull/120. Production Hosting remains release `1788872430445000`, version `0e8f5299ed8635e6`. There is no `lib/`, runtime, generator, UI, export, PDF, infographic, Flutter-test, Candidate 0011/0023, `product-acceptance/`, Firebase or Production delta. Owner Copy Review is required before any freeze or implementation.
+
+
 ## PR118 Production hotfix merge, Hosting deployment and QA closeout (2026-09-08)
 
 **PR119 DOCS CLOSEOUT COMPLETE — PR118 HOTFIX LIVE — KNOWN 00:03/00:35 PASS — UNKNOWN DEDICATED PDF PRODUCTION QA PASS — FULL PRODUCTION QA PASSED — NO ROLLBACK.**
