@@ -1,5 +1,17 @@
 # Task Result — Thai Report Reader Experience V2+
 
+## PR120 Reader Voice V3 Revision 3 — Candidate 0027 (2026-09-09)
+
+**PR120 R3 CANDIDATE 0026 OWNER-REJECTED AS FINAL COPY — CANDIDATE 0027 READY FOR OWNER FINAL NATURAL-LANGUAGE REVIEW — DRAFT — NOT IMPLEMENTED — NOT MERGED — NOT DEPLOYED.**
+
+Owner rejected Candidate 0026 as `OWNER-REJECTED AS FINAL COPY — OVERVIEW STILL READS AS SECTION-BY-SECTION RESTATEMENT AND SOME EDITORIAL EXPANSIONS REMAIN DEFENSIVE OR OVER-SPECIFIC`. Candidate 0026 remains byte-exact historical evidence. Candidate 0027 changes only the overview, work, finance, relationship, support and rolling-12-month prose; the profile, all past periods, current introduction, health, advice, limitations, psychological baseline, provenance/method and facts-only chart remain byte-identical to Candidate 0026.
+
+Content/evidence commit `fe9f831788eb79103eac9f36d1aa1c78d40c4568` adds the full Candidate 0027, complete Candidate 0026→0027 Before/After, sentence-level Markdown/JSON Claim Map, eight `OWNER_AUTHORIZED_EDITORIAL_INTERPRETATION` records, two-pass reader audit, meaning-density/overview-ownership audit, semantic validator and Voice Contract V3 Revision 3. No changed reader sentence is mislabeled `SOURCE_EXACT`; exact source spans remain separate evidence and all eight editorial expansions retain their limits outside reader copy.
+
+Validation maps 53 reader sentences/factual lines to 57 meaning units, 6 intentional summaries / 14 destination links, and passes pairwise semantic ownership 6/6. All seven required reader-language/overview counters are 0; unsupported claim/event/causal-link, timing/domain, summary/editorial ownership, Known parity and Unknown leakage counters are 0. Candidate 0026-derived and semantic negative controls reject 15/15. Manual review was completed twice: one uninterrupted full-report read and one section-by-section read. Candidate 0024/0025/0026/0027 validators pass; foundation/signature Node tests pass 9/9; `git diff --check`, PreCommit and the content/evidence PostCommit pass.
+
+Candidate 0011, 0023, 0024, 0025 and 0026 historical files remain exact. Candidate 0027 has no SHA/golden and is not implemented. Full Flutter suite and Analyzer are **NOT RERUN — CONTENT/EVIDENCE/MARKDOWN-ONLY DELTA; NO DART, RUNTIME OR FLUTTER-TEST CHANGE**. No Web/PDF/infographic/ZIP was generated. Runtime, generator, UI, export, PDF layout, Flutter tests, product artifacts, `product-acceptance/`, Firebase and Production are unchanged. PR #120 remains Open + Draft pending Owner final natural-language review.
+
 ## PR120 Reader Voice V3 Revision 2 — Candidate 0026 (2026-09-09)
 
 **PR120 R2 CANDIDATE 0025 OWNER-REJECTED — CANDIDATE 0026 READY FOR OWNER NATURAL-LANGUAGE AND EDITORIAL-INTERPRETATION REVIEW — OPEN + DRAFT — NOT IMPLEMENTED — NOT MERGED — NOT DEPLOYED.**
