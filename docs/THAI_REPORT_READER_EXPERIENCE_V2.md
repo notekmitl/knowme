@@ -1,5 +1,17 @@
 # Thai Report Reader Experience V2+
 
+## PR120 Reader Voice V3 Revision 2 — Candidate 0026 (2026-09-09)
+
+**PR120 R2 CANDIDATE 0025 OWNER-REJECTED — CANDIDATE 0026 READY FOR OWNER NATURAL-LANGUAGE AND EDITORIAL-INTERPRETATION REVIEW — OPEN + DRAFT — NOT IMPLEMENTED — NOT MERGED — NOT DEPLOYED.**
+
+Owner rejected Candidate 0025 as `OWNER-REJECTED — METHODOLOGY AND DEFENSIVE CAVEAT LEAKAGE IN READER COPY`. Candidate 0025's five interpretation passages sounded like evidence-review instructions because they repeatedly used defensive phrases such as `ไม่ได้ระบุ`, `ไม่ได้ชี้`, `ให้เข้าใจเพียงแนวโน้ม` and `ในชีวิตประจำวัน ภาพนี้อาจหมายถึง`. Candidate 0025 remains unchanged historical evidence and is not authorized for implementation.
+
+Content/evidence commit `03e789837ba426a9be4fdd6893634f80c3435544` creates Candidate 0026 as a surgical revision. Only work, finance, relationship, support and rolling-12-month reader sections change. The overview, ages 0–10/11–29/30–41, current introduction, health, advice, limitations, psychological baseline, methodology and facts-only main chart are exact with Candidate 0025.
+
+Candidate 0026 maps 53 reader-visible sentences/factual lines to 54 distinct meaning-unit identifiers, 7 intentional summary relations / 13 destination links and 5 `OWNER_EDITORIAL_INTERPRETATION_PENDING` sentences. The six reader-language counters—methodology leakage, defensive caveat, repeated interpretation lead-in, evidence-audit language, validator interruption and formula repetition—are all 0. Unsupported claims, same-level reader-perceived duplicates, Known 00:03/00:35 predictive-body mismatch, Unknown leakage and authority gaps are 0. Six deterministic controls using Candidate 0025's rejected wording are rejected 6/6 without an arbitrary similarity threshold.
+
+Candidate 0011, Candidate 0023, Candidate 0024 and Candidate 0025 remain unchanged. No Candidate 0026 SHA-256 or exact golden was created. Candidate 0024/0025/0026 validators pass; current foundation/signature Node tests pass 9/9; `git diff --check` and PreCommit pass. Full Flutter and Analyzer are **NOT RERUN — CONTENT/EVIDENCE/MARKDOWN-ONLY DELTA**. Runtime, generator, UI, export, PDF, infographic, Flutter tests, `product-acceptance/`, Firebase and Production are unchanged. PR #120 remains Open + Draft pending Owner natural-language review and five editorial-interpretation decisions.
+
 ## PR120 Reader Voice V3 Revision 1 — Candidate 0025 (2026-09-09)
 
 **PR120 R1 CANDIDATE 0024 OWNER-REJECTED — CANDIDATE 0025 READY FOR OWNER COPY AND EDITORIAL-INTERPRETATION REVIEW — OPEN + DRAFT — NOT IMPLEMENTED — NOT MERGED — NOT DEPLOYED.**
