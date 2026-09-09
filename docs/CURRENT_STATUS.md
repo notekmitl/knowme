@@ -1,5 +1,17 @@
 # KnowMe Current Status+
 
+## PR120 Reader Voice V3 Revision 1 — Candidate 0025 (2026-09-09)
+
+**PR120 R1 CANDIDATE 0024 OWNER-REJECTED — CANDIDATE 0025 READY FOR OWNER COPY AND EDITORIAL-INTERPRETATION REVIEW — OPEN + DRAFT — NOT IMPLEMENTED — NOT MERGED — NOT DEPLOYED.**
+
+Owner rejected Candidate 0024 as `OWNER-REJECTED — MEANING-DENSITY AND READER-PERCEIVED REPETITION`. The retained directions are the broader and non-blaming age 0–10 wording, the facts-only main-chart block, and an overview spanning several life periods. The rejected issues were duplicated current-period wording, synonym-only relationship expansion, repeated supporter groups, repeated work/income claims in the 12-month paragraph, thin work/finance meaning, sentence-count filler and a validator that missed repetition visible to readers. Candidate 0024 remains unchanged historical evidence and is not authorized for implementation.
+
+Content/evidence commit `5752724bdb3db0b2e33e2fdd61fa6e231ab14f36` adds Candidate 0025 and revises the Voice Contract audit model. Sentence count is now inventory only; each sentence has one primary function, while distinct meaning units, same-level reader-perceived duplicates, intentional summaries, unsupported claims and blocked claims are counted separately. Explanations beyond strict logical equivalence use `OWNER_EDITORIAL_INTERPRETATION_PENDING` and remain individually pending Owner decision.
+
+Candidate 0025 uses the actual 00:35 profile and `asOf=2026-09-09 Asia/Bangkok`. It maps 52 reader-visible sentences/factual lines to 55 distinct meaning-unit identifiers, 6 intentional summary relations / 11 destination links, 5 pending editorial interpretations and 6 blocked failure classes. Unsupported claims, same-level reader-perceived duplicates, summary-link errors, Known 00:03/00:35 predictive-body mismatch, Unknown leakage and authority gaps are 0. Deterministic negative controls reproduce Candidate 0024's actual repetition/filler failures and reject 6/6 with human-readable reasons; no arbitrary similarity threshold is used.
+
+Candidate 0011, Candidate 0023 and Candidate 0024 are unchanged. No Candidate 0025 SHA-256 or exact golden was created. Runtime, generator, UI, export, PDF, infographic, Flutter tests, `product-acceptance/`, Firebase and Production are unchanged. Candidate 0024/0025 content validators pass; current foundation/signature Node tests pass 9/9; `git diff --check` and PreCommit pass. Full Flutter and Analyzer are **NOT RERUN — CONTENT/EVIDENCE/MARKDOWN-ONLY DELTA**. PR #120 remains Open + Draft pending Owner copy and five editorial-interpretation decisions.
+
 ## Thai Report Reader Voice V3 — Content-first Candidate 0024 (2026-09-09)
 
 **THAI REPORT READER VOICE V3 CONTENT-FIRST CANDIDATE 0024 READY — PENDING OWNER COPY REVIEW — OPEN + DRAFT PR #120 — NOT IMPLEMENTED — NOT MERGED — NOT DEPLOYED.**
