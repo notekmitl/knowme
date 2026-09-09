@@ -1,14 +1,32 @@
 # Thai Report Reader Voice Contract V3
 
-Revision: **1 — meaning-density and reader-perceived-repetition repair**
+Revision: **2 — natural reader language and audit-boundary repair**
 
-Status: **CONTENT CONTRACT PROPOSAL — PENDING OWNER COPY AND EDITORIAL-INTERPRETATION REVIEW — NOT IMPLEMENTED**
+Status: **CONTENT CONTRACT PROPOSAL — PENDING OWNER NATURAL-LANGUAGE AND EDITORIAL-INTERPRETATION REVIEW — NOT IMPLEMENTED**
 
 ## Purpose
 
 Reader Voice V3 separates evidence authority from prose length. Evidence limits what a report may mean; it does not require the reader copy to mirror a short source span or collapse each section into one sentence. The desired voice is natural, warm, direct Thai using “คุณ”, as if an astrologer were explaining the chart to its owner.
 
-Candidate 0023 remains immutable historical engineering evidence, but its exact SHA and exact wording are not a target for V3. Candidate 0011 may guide cadence, continuity and detail level only. No event, fact, cause, timing or prediction may be imported from Candidate 0011 without current evidence. Candidate 0024 is retained as an Owner-rejected historical proposal with the decision `OWNER-REJECTED — MEANING-DENSITY AND READER-PERCEIVED REPETITION`.
+Candidate 0023 remains immutable historical engineering evidence, but its exact SHA and exact wording are not a target for V3. Candidate 0011 may guide cadence, continuity and detail level only. No event, fact, cause, timing or prediction may be imported from Candidate 0011 without current evidence. Candidate 0024 is retained as an Owner-rejected historical proposal with the decision `OWNER-REJECTED — MEANING-DENSITY AND READER-PERCEIVED REPETITION`. Candidate 0025 is retained as an Owner-rejected historical proposal with the decision `OWNER-REJECTED — METHODOLOGY AND DEFENSIVE CAVEAT LEAKAGE IN READER COPY`.
+
+## Reader-copy versus audit boundary
+
+Prediction reader copy contains only the core prediction, its natural lived meaning and evidence-authorized conditions or cautions. Per-clause statements about what the system, evidence or validator did not calculate, identify or prove belong in the claim map, evidence audit or general limitations section.
+
+The following patterns are rejected inside prediction prose even when the underlying limit is valid:
+
+- `ไม่ได้ระบุจำนวนหรือที่มาของเงิน`
+- `ไม่ได้ชี้ว่าจะมีคนใหม่`
+- `ไม่ได้ระบุว่าความช่วยเหลือนั้นจะนำไปสู่ผลลัพธ์ใด`
+- `โดยไม่จำเป็นต้องตีความว่า`
+- `ให้เข้าใจเพียงแนวโน้ม`
+- `ไม่ได้ผูกว่า`
+- repeated use of `ในชีวิตประจำวัน ภาพนี้อาจหมายถึง` as a domain template
+
+A natural qualifier may remain when it is part of the proposed lived meaning rather than an explanation of validator scope—for example, saying wider work scope does not necessarily mean changing jobs. Its evidence boundary must still be explicit in the claim map and its Owner decision remains `PENDING`.
+
+Revision 2 validators report these counters independently: `reader_methodology_leakage`, `defensive_scope_caveat_in_prediction`, `repeated_interpretation_lead_in`, `evidence_audit_language_in_reader_copy`, `prediction_interrupted_by_validator_explanation`, and `reader_perceived_formula_repetition`.
 
 ## Meaning-density model
 
@@ -109,4 +127,4 @@ Unknown birth time must remain fail-closed. It must not receive Known ascendant,
 
 ## Acceptance sequence
 
-Candidate 0025 is a content proposal only. Candidate 0024 is rejected and must not be implemented. Engineering validation may check boundaries, mappings and negative controls, but it cannot declare the prose good or accepted. No exact SHA/golden, runtime implementation, visual artifact regeneration, merge or deployment is allowed until Owner has read and accepted the full candidate and separately decided every pending editorial interpretation.
+Candidate 0026 is a content proposal only. Candidate 0024 and Candidate 0025 are rejected and must not be implemented. Engineering validation may check boundaries, mappings and negative controls, but it cannot declare the prose good or accepted. No exact SHA/golden, runtime implementation, visual artifact regeneration, merge or deployment is allowed until Owner has read and accepted the full candidate and separately decided every pending editorial interpretation.

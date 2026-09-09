@@ -29,9 +29,17 @@
     "docs/CANDIDATE_0025_OWNER_EDITORIAL_INTERPRETATIONS.md",
     "docs/CANDIDATE_0025_READER_VOICE_AUDIT.md",
     "docs/CANDIDATE_0025_VALIDATION.json",
+    "docs/CANDIDATE_0025_OWNER_REJECTION.md",
+    "docs/CANDIDATE_0026_ACTUAL_0035_FULL_READER_COPY.md",
+    "docs/CANDIDATE_0025_TO_0026_BEFORE_AFTER.md",
+    "docs/CANDIDATE_0026_CLAIM_MAP.md",
+    "docs/CANDIDATE_0026_OWNER_EDITORIAL_INTERPRETATIONS.md",
+    "docs/CANDIDATE_0026_READER_VOICE_AUDIT.md",
+    "docs/CANDIDATE_0026_VALIDATION.json",
     "docs/THAI_REPORT_READER_VOICE_CONTRACT_V3.md",
     "tool/validate_candidate_0024_reader_voice.mjs",
-    "tool/validate_candidate_0025_reader_voice.mjs"
+    "tool/validate_candidate_0025_reader_voice.mjs",
+    "tool/validate_candidate_0026_reader_voice.mjs"
   ],
   "allowed_globs": [],
   "forbidden_files": [
@@ -63,6 +71,7 @@
     "round_[0-9]+_review\\.json"
   ],
   "focused_tests": [
+    "node tool/validate_candidate_0026_reader_voice.mjs",
     "node tool/validate_candidate_0025_reader_voice.mjs",
     "node tool/validate_candidate_0024_reader_voice.mjs",
     "node --test test/evidence/predictive_runtime_v2_foundation.test.mjs test/evidence/pr115_or10r_predictive_signature.test.mjs"
