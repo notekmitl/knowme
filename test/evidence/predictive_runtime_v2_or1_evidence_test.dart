@@ -11,9 +11,10 @@ import '../validation/thai_beta/synthetic_audit/thai_beta_synthetic_matrix_300.d
 
 const _historicalCandidate0011Sha256 =
     '6AA94C7A01555310C5189FAAF711597057C5DF2F102246A0DF3946DAB2B62A1E';
+const _currentAuditRoot = 'build/repository-wide-baseline/predictive-runtime';
 
 void main() {
-  test('writes and validates PR115 OR2 generalized predictive evidence', () {
+  test('validates the current generalized predictive runtime baseline', () {
     final asOf = DateTime(2026, 8, 29);
     final rawProfiles = <Map<String, Object?>>[];
     final knownPlans = <String, ThaiPredictiveRuntimeV2Plan>{};
@@ -265,7 +266,7 @@ void main() {
               allContentCountersZero &&
               allHumanReviewsPass &&
               goldenComparison['status'] == 'PASS'
-          ? 'PASS_PREDICTIVE_RUNTIME_V2_OR2_EDITORIAL_AND_EVIDENCE'
+          ? 'PASS_PREDICTIVE_RUNTIME_V2_CURRENT_BASELINE'
           : 'FAIL',
       'ownerReviewState': 'PENDING_OWNER_PRODUCT_RE_REVIEW',
       'candidate0011Sha256': _historicalCandidate0011Sha256,
@@ -304,15 +305,16 @@ void main() {
       'integrityErrors': integrity.errors,
     };
 
-    _writeJson('docs/PREDICTIVE_RUNTIME_V2_RAW_300_PROFILE_AUDIT.json', {
+    Directory(_currentAuditRoot).createSync(recursive: true);
+    _writeJson(_auditPath('RAW_300_PROFILE_AUDIT.json'), {
       'summary': summary,
       'profiles': rawProfiles,
     });
-    _writeJson('docs/PREDICTIVE_RUNTIME_V2_49_CONTEXT_READER_COPY.json', {
+    _writeJson(_auditPath('49_CONTEXT_READER_COPY.json'), {
       'summary': summary,
       'contexts': contextEvidence,
     });
-    _writeJson('docs/PREDICTIVE_RUNTIME_V2_392_PERIOD_RUNTIME_MAPPING.json', {
+    _writeJson(_auditPath('392_PERIOD_RUNTIME_MAPPING.json'), {
       'summary': {
         'rows': periodMapping.length,
         'mapped': periodMapping.length - unmappedPeriods.length,
@@ -322,7 +324,7 @@ void main() {
       },
       'rows': periodMapping,
     });
-    _writeJson('docs/PREDICTIVE_RUNTIME_V2_CLAIM_LEVEL_BINDINGS.json', {
+    _writeJson(_auditPath('CLAIM_LEVEL_BINDINGS.json'), {
       'summary': {
         'entries': claimBindings.length,
         'missing': missingBindings,
@@ -332,34 +334,28 @@ void main() {
       },
       'bindings': claimBindings,
     });
-    _writeJson('docs/PREDICTIVE_RUNTIME_V2_CONTENT_QUALITY_AUDIT.json', {
+    _writeJson(_auditPath('CONTENT_QUALITY_AUDIT.json'), {
       'summary': summary,
       'counters': contentCounters,
       'contexts': humanReview,
     });
-    _writeJson('docs/PREDICTIVE_RUNTIME_V2_OWNER_REUSE_AUDIT.json', {
+    _writeJson(_auditPath('OWNER_REUSE_AUDIT.json'), {
       'summary': {
         'semanticOwners': reuseAudit.length,
         'evidenceMismatchedReuse': evidenceMismatchedReuse,
       },
       'owners': reuseAudit,
     });
-    _writeJson(
-      'docs/PREDICTIVE_RUNTIME_V2_GOLDEN_NEIGHBOR_COMPARISON.json',
-      goldenComparison,
-    );
-    _writeJson('docs/PREDICTIVE_RUNTIME_V2_GENERALIZATION_AUDIT.json', summary);
+    _writeJson(_auditPath('GOLDEN_NEIGHBOR_COMPARISON.json'), goldenComparison);
+    _writeJson(_auditPath('GENERALIZATION_AUDIT.json'), summary);
     File(
-      'docs/PREDICTIVE_RUNTIME_V2_HUMAN_REVIEW_49_CONTEXTS.md',
+      _auditPath('HUMAN_REVIEW_49_CONTEXTS.md'),
     ).writeAsStringSync(_humanReviewMarkdown(humanReview));
     File(
-      'docs/PREDICTIVE_RUNTIME_V2_GENERALIZATION_AUDIT.md',
+      _auditPath('GENERALIZATION_AUDIT.md'),
     ).writeAsStringSync(_summaryMarkdown(summary));
 
-    expect(
-      summary['status'],
-      'PASS_PREDICTIVE_RUNTIME_V2_OR2_EDITORIAL_AND_EVIDENCE',
-    );
+    expect(summary['status'], 'PASS_PREDICTIVE_RUNTIME_V2_CURRENT_BASELINE');
     expect(integrity.errors, isEmpty);
     expect(knownComplete, 225);
     expect(knownFallback, 0);
@@ -557,7 +553,7 @@ Map<String, Object?> _goldenNeighborComparison(DateTime asOf) {
   }) => ThaiPredictiveRuntimeV2Plan.fromAnalysis(
     ThaiBetaAnalysisRunner.run(
       ThaiBetaInput(
-        firstName: 'OR2',
+        firstName: 'Baseline',
         lastName: 'Comparison',
         birthDate: DateTime(1982, 6, 6),
         birthHour: known ? 0 : null,
@@ -622,7 +618,12 @@ bool _ownersInRequiredOrder(List<String> owners) {
   ];
   var previous = -1;
   for (final owner in required) {
-    final index = owners.indexOf(owner);
+    final index = owner == 'past'
+        ? owners.indexWhere(
+            (candidate) =>
+                candidate == owner || candidate.startsWith('$owner-'),
+          )
+        : owners.indexOf(owner);
     if (index <= previous) return false;
     previous = index;
   }
@@ -718,7 +719,7 @@ double _trigramSimilarity(String left, String right) {
 
 String _humanReviewMarkdown(List<Map<String, Object?>> reviews) {
   final buffer = StringBuffer(
-    '# Predictive Runtime V2 OR2 Human Review - 49 Contexts\n\n'
+    '# Predictive Runtime V2 Current Baseline Review - 49 Contexts\n\n'
     'Each context records two complete reader-copy passes: sequence/duplication '
     'and conversational predictive voice/semantic ownership.\n\n',
   );
@@ -743,7 +744,7 @@ String _humanReviewMarkdown(List<Map<String, Object?>> reviews) {
 String _summaryMarkdown(Map<String, Object?> summary) {
   final counts = summary['counts']! as Map;
   final quality = summary['contentQualityCounters']! as Map;
-  return '# Predictive Runtime V2 OR2 Editorial and Evidence Audit\n\n'
+  return '# Predictive Runtime V2 Current Baseline Audit\n\n'
       'Status: **${summary['status']}**\n\n'
       '- Actual representative context reports: ${counts['contextsWithCompleteContent']}/49\n'
       '- 300-profile Known complete V2: ${counts['knownProfilesWithCompleteV2Report']}/225\n'
@@ -765,6 +766,8 @@ void _writeJson(String path, Object value) {
     path,
   ).writeAsStringSync('${const JsonEncoder.withIndent('  ').convert(value)}\n');
 }
+
+String _auditPath(String filename) => '$_currentAuditRoot/$filename';
 
 String _isoDate(DateTime date) =>
     '${date.year.toString().padLeft(4, '0')}-'

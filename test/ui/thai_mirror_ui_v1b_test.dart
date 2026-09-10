@@ -9,9 +9,14 @@ import 'thai_mirror_consumer_fixtures.dart';
 void main() {
   group('ThaiMirrorResultPage V1b', () {
     testWidgets('renders life dashboard areas', (tester) async {
-      await tester.pumpWidget(wrapConsumerResultPage(sampleConsumerViewState()));
+      await tester.pumpWidget(
+        wrapConsumerResultPage(sampleConsumerViewState()),
+      );
 
-      expect(find.text(ThaiMirrorConsumerCopy.dashboardSectionTitle), findsOneWidget);
+      expect(
+        find.text(ThaiMirrorConsumerCopy.dashboardSectionTitle),
+        findsOneWidget,
+      );
       expect(find.text('การงาน'), findsOneWidget);
       expect(find.text('การเงิน'), findsOneWidget);
       expect(find.text('ความรัก'), findsOneWidget);
@@ -20,7 +25,9 @@ void main() {
     });
 
     testWidgets('renders life dashboard status labels in Thai', (tester) async {
-      await tester.pumpWidget(wrapConsumerResultPage(sampleConsumerViewState()));
+      await tester.pumpWidget(
+        wrapConsumerResultPage(sampleConsumerViewState()),
+      );
 
       expect(find.text('สดใส'), findsOneWidget);
       expect(find.text('ดี'), findsWidgets);
@@ -29,7 +36,9 @@ void main() {
     });
 
     testWidgets('does not show accordion section titles', (tester) async {
-      await tester.pumpWidget(wrapConsumerResultPage(sampleConsumerViewState()));
+      await tester.pumpWidget(
+        wrapConsumerResultPage(sampleConsumerViewState()),
+      );
 
       expect(find.text('แก่นตัวตน'), findsNothing);
       expect(find.text('พื้นที่เติบโต'), findsNothing);
@@ -38,7 +47,9 @@ void main() {
     });
 
     testWidgets('shows secret tip', (tester) async {
-      await tester.pumpWidget(wrapConsumerResultPage(sampleConsumerViewState()));
+      await tester.pumpWidget(
+        wrapConsumerResultPage(sampleConsumerViewState()),
+      );
 
       expect(find.textContaining('เคล็ดลับ:'), findsOneWidget);
     });
@@ -47,7 +58,9 @@ void main() {
       await tester.binding.setSurfaceSize(const Size(390, 520));
       addTearDown(() => tester.binding.setSurfaceSize(null));
 
-      await tester.pumpWidget(wrapConsumerResultPage(sampleConsumerViewState()));
+      await tester.pumpWidget(
+        wrapConsumerResultPage(sampleConsumerViewState()),
+      );
 
       expect(find.byType(SingleChildScrollView), findsWidgets);
 
@@ -60,8 +73,17 @@ void main() {
       );
       await tester.pumpAndSettle();
 
-      expect(find.text('หลักการวิเคราะห์'), findsOneWidget);
-      expect(find.text(ThaiMirrorConsumerCopy.cautionsSectionTitle), findsOneWidget);
+      final sourceTitle = find.text('รายงานนี้ดูจากอะไร');
+      await tester.ensureVisible(sourceTitle);
+      await tester.tap(sourceTitle);
+      await tester.pumpAndSettle();
+
+      expect(sourceTitle, findsOneWidget);
+      expect(find.text('หลักการคำนวณ'), findsOneWidget);
+      expect(
+        find.text(ThaiMirrorConsumerCopy.cautionsSectionTitle),
+        findsOneWidget,
+      );
     });
 
     testWidgets('consumes ThaiMirrorConsumerViewState only', (tester) async {
@@ -78,8 +100,10 @@ void main() {
     });
 
     testWidgets('wraps long advice text', (tester) async {
-      final longAdvice =
-          List.filled(10, 'คำแนะนำยาวสำหรับทดสอบการขึ้นบรรทัดใหม่').join(' ');
+      final longAdvice = List.filled(
+        10,
+        'คำแนะนำยาวสำหรับทดสอบการขึ้นบรรทัดใหม่',
+      ).join(' ');
 
       await tester.pumpWidget(
         wrapConsumerResultPage(
@@ -107,8 +131,9 @@ void main() {
       expect(find.textContaining('คำแนะนำยาวสำหรับทดสอบ'), findsOneWidget);
     });
 
-    testWidgets('life dashboard currentState shows full Thai without ellipsis',
-        (tester) async {
+    testWidgets('life dashboard currentState shows full Thai without ellipsis', (
+      tester,
+    ) async {
       const fullState =
           'แสดงออกชัด: พูดความรู้สึกตรง ๆ ในที่ที่ปลอดภัยจะทำให้ความรักแน่นแฟ้นขึ้น';
       final base = sampleConsumerViewState();

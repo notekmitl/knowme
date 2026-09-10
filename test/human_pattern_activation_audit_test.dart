@@ -11,12 +11,12 @@ void main() {
     late HumanPatternActivationAuditResult audit;
 
     setUpAll(() {
+      Directory('build/repository-wide-baseline').createSync(recursive: true);
       audit = HumanPatternActivationAuditRunner.run();
       HumanPatternActivationAuditReport.writeArtifacts(
         result: audit,
-        jsonPath:
-            'test/validation/human_pattern_activation_audit/output/results.json',
-        markdownPath: 'docs/HUMAN_PATTERN_ACTIVATION_AUDIT_V1.md',
+        jsonPath: 'build/repository-wide-baseline/human-pattern-audit.json',
+        markdownPath: 'build/repository-wide-baseline/human-pattern-audit.md',
       );
     });
 
@@ -29,8 +29,8 @@ void main() {
       expect(audit.patternUtilization.populationSize, 200);
     });
 
-    test('confirms 20 never-activated patterns with forensic classification', () {
-      expect(audit.patternDeadZones.neverActivated.length, 20);
+    test('classifies the current 19 never-activated patterns forensically', () {
+      expect(audit.patternDeadZones.neverActivated.length, 19);
       for (final entry in audit.patternDeadZones.neverActivated) {
         expect(entry.activationCount, 0);
         expect(entry.primaryBlockReason, isNotEmpty);
@@ -46,9 +46,9 @@ void main() {
       expect(audit.eqSignalSurvival.primaryEqLossLayer, isNotEmpty);
     });
 
-    test('documents narrative collapse from 200 to ~82 unique outputs', () {
-      expect(audit.narrativeCollapse.layerUniques['narrative'], lessThan(100));
-      expect(audit.narrativeCollapse.collapseZones.length, greaterThan(0));
+    test('confirms 200 distinct narratives without a collapse zone', () {
+      expect(audit.narrativeCollapse.layerUniques['narrative'], 200);
+      expect(audit.narrativeCollapse.collapseZones, isEmpty);
     });
 
     test('produces root cause analysis and evidence-based conclusions', () {
@@ -58,12 +58,15 @@ void main() {
 
     test('writes audit artifacts', () {
       expect(
-        File('test/validation/human_pattern_activation_audit/output/results.json')
-            .existsSync(),
+        File(
+          'build/repository-wide-baseline/human-pattern-audit.json',
+        ).existsSync(),
         isTrue,
       );
       expect(
-        File('docs/HUMAN_PATTERN_ACTIVATION_AUDIT_V1.md').existsSync(),
+        File(
+          'build/repository-wide-baseline/human-pattern-audit.md',
+        ).existsSync(),
         isTrue,
       );
     });

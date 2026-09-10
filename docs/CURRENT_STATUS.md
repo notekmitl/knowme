@@ -1,5 +1,15 @@
 # KnowMe Current Status+
 
+## Repository-wide full-suite baseline recovery (2026-09-10)
+
+**DRAFT BASELINE RECOVERY — FULL SUITE 3,024/3,024 — PR120 UNCHANGED — NOT PRODUCT ACCEPTANCE — NOT MERGED — NOT DEPLOYED.**
+
+The separate `codex/repository-wide-full-suite-baseline-recovery` branch is based on `6af7ccdd05796c97e6108255da43f40123485583`. It migrates 22 stale test/portability files and 174 changed PNG golden baselines; it changes no `lib/`, runtime, generator, UI/export implementation, Canon, Candidate, `product-acceptance/`, Firebase, or Production artifact.
+
+Flutter 3.41.1 with Dart 3.11.0 and `TZ=Asia/Bangkok` passes focused tests 197/197 and the full suite 3,024/3,024. Analyzer remains clean-base/current 296/296 with 0 new diagnostics. Two independent hashes across all 176 regenerated goldens match at `470DE4ADBEEDBD8940FE1F92518133C07AE613432B08FEF94FF1EAF218A7CCB7`; dimensions and opened contact-sheet/full-size review pass. PreCommit passes; delivery is additionally gated on PostCommit before push.
+
+Quality debt remains explicit: semantic mapping 8/9 with `gf_tension_f03a3173` missing, 19 similarity pairs above 30%, and 19 never-activated patterns. This green test baseline is not Product Acceptance. Owner review/merge of the separate Draft PR precedes any rebase or Revision 4 work on PR120.
+
 ## PR118 Production hotfix merge, Hosting deployment and QA closeout (2026-09-08)
 
 **PR119 DOCS CLOSEOUT COMPLETE — PR118 HOTFIX LIVE — KNOWN 00:03/00:35 PASS — UNKNOWN DEDICATED PDF PRODUCTION QA PASS — FULL PRODUCTION QA PASSED — NO ROLLBACK.**

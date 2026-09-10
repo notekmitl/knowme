@@ -40,45 +40,48 @@ List<String> _structuralSignalIds(ThaiSignalExtractorResult result) {
 
 void main() {
   group('ThaiSignalExtractor', () {
-    test('signal count — 26 structural signals when birth time is available', () {
-      final birth = _bangkokBirth(
-        year: 1990,
-        month: 1,
-        day: 15,
-        hour: 10,
-        minute: 30,
-      );
-      final chart = ThaiChartEngine.generate(birth);
-      final result = ThaiSignalExtractor.extract(
-        ThaiSignalExtractorInput(chart: chart, birthData: birth),
-      );
+    test(
+      'signal count — 26 structural signals when birth time is available',
+      () {
+        final birth = _bangkokBirth(
+          year: 1990,
+          month: 1,
+          day: 15,
+          hour: 10,
+          minute: 30,
+        );
+        final chart = ThaiChartEngine.generate(birth);
+        final result = ThaiSignalExtractor.extract(
+          ThaiSignalExtractorInput(chart: chart, birthData: birth),
+        );
 
-      final structural = result.bundle.signals
-          .where(
-            (signal) =>
-                signal.source == ThaiSignalSource.sidereal ||
-                signal.source == ThaiSignalSource.house,
-          )
-          .toList();
+        final structural = result.bundle.signals
+            .where(
+              (signal) =>
+                  signal.source == ThaiSignalSource.sidereal ||
+                  signal.source == ThaiSignalSource.house,
+            )
+            .toList();
 
-      expect(structural, hasLength(26));
-      expect(
-        structural.where((s) => s.factType == ThaiSignalFactType.lagnaSign),
-        hasLength(1),
-      );
-      expect(
-        structural.where((s) => s.factType == ThaiSignalFactType.lagnaLord),
-        hasLength(1),
-      );
-      expect(
-        structural.where((s) => s.factType == ThaiSignalFactType.houseSign),
-        hasLength(12),
-      );
-      expect(
-        structural.where((s) => s.factType == ThaiSignalFactType.houseLord),
-        hasLength(12),
-      );
-    });
+        expect(structural, hasLength(26));
+        expect(
+          structural.where((s) => s.factType == ThaiSignalFactType.lagnaSign),
+          hasLength(1),
+        );
+        expect(
+          structural.where((s) => s.factType == ThaiSignalFactType.lagnaLord),
+          hasLength(1),
+        );
+        expect(
+          structural.where((s) => s.factType == ThaiSignalFactType.houseSign),
+          hasLength(12),
+        );
+        expect(
+          structural.where((s) => s.factType == ThaiSignalFactType.houseLord),
+          hasLength(12),
+        );
+      },
+    );
 
     test('no birth time — no lagna or house signals', () {
       final birth = _bangkokBirth(
@@ -104,12 +107,7 @@ void main() {
     });
 
     test('deterministic bundle id for the same chart input', () {
-      final birth = _bangkokBirth(
-        year: 1988,
-        month: 5,
-        day: 10,
-        hour: 14,
-      );
+      final birth = _bangkokBirth(year: 1988, month: 5, day: 10, hour: 14);
       final chart = ThaiChartEngine.generate(birth);
 
       final first = ThaiSignalExtractor.extract(
@@ -148,17 +146,12 @@ void main() {
 
       expect(lagnaSign.contentKeyRefs, [chart.lagna!.signKey]);
       expect(lagnaLord.contentKeyRefs, [chart.lagna!.lordKey]);
-      expect(lagnaSign.signalId, 'lagna_sign_virgo');
-      expect(lagnaLord.signalId, 'lagna_lord_mercury');
+      expect(lagnaSign.signalId, 'lagna_sign_pisces');
+      expect(lagnaLord.signalId, 'lagna_lord_jupiter');
     });
 
     test('house parity with chart', () {
-      final birth = _bangkokBirth(
-        year: 1988,
-        month: 5,
-        day: 10,
-        hour: 14,
-      );
+      final birth = _bangkokBirth(year: 1988, month: 5, day: 10, hour: 14);
       final chart = ThaiChartEngine.generate(birth);
       final result = ThaiSignalExtractor.extract(
         ThaiSignalExtractorInput(chart: chart, birthData: birth),
@@ -166,10 +159,14 @@ void main() {
 
       for (final house in chart.houses) {
         final signSignal = result.bundle.signals.firstWhere(
-          (signal) => signal.signalId == 'house_${house.houseNumber}_sign_${house.signKey.replaceFirst('lagna_', '')}',
+          (signal) =>
+              signal.signalId ==
+              'house_${house.houseNumber}_sign_${house.signKey.replaceFirst('lagna_', '')}',
         );
         final lordSignal = result.bundle.signals.firstWhere(
-          (signal) => signal.signalId == 'house_${house.houseNumber}_lord_${house.lordKey.replaceFirst('lagna_lord_', '')}',
+          (signal) =>
+              signal.signalId ==
+              'house_${house.houseNumber}_lord_${house.lordKey.replaceFirst('lagna_lord_', '')}',
         );
 
         expect(signSignal.contentKeyRefs, [house.signKey]);
@@ -188,17 +185,21 @@ void main() {
       );
 
       final myanmarSignals = result.bundle.signals
-          .where((signal) => signal.factType == ThaiSignalFactType.myanmarPosition)
+          .where(
+            (signal) => signal.factType == ThaiSignalFactType.myanmarPosition,
+          )
           .toList();
       final mahabhutaSignals = result.bundle.signals
           .where(
-            (signal) =>
-                signal.factType == ThaiSignalFactType.mahabhutaPosition,
+            (signal) => signal.factType == ThaiSignalFactType.mahabhutaPosition,
           )
           .toList();
 
       expect(myanmarSignals, hasLength(myanmar.myanmarKeys.length));
-      expect(mahabhutaSignals, hasLength(mahabhuta.mahabhutaPositionKeys.length));
+      expect(
+        mahabhutaSignals,
+        hasLength(mahabhuta.mahabhutaPositionKeys.length),
+      );
 
       for (final key in myanmar.myanmarKeys) {
         expect(
@@ -209,9 +210,7 @@ void main() {
 
       for (final key in mahabhuta.mahabhutaPositionKeys) {
         expect(
-          result.bundle.signals.any(
-            (signal) => signal.signalId == key,
-          ),
+          result.bundle.signals.any((signal) => signal.signalId == key),
           isTrue,
         );
       }

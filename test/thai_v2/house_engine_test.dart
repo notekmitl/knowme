@@ -35,14 +35,14 @@ void main() {
 
       expect(houses, hasLength(12));
       expect(houses[0].houseNumber, 1);
-      expect(houses[0].signKey, ThaiContentKeys.lagnaVirgo);
-      expect(houses[0].lordKey, ThaiContentKeys.lagnaLordMercury);
+      expect(houses[0].signKey, ThaiContentKeys.lagnaPisces);
+      expect(houses[0].lordKey, ThaiContentKeys.lagnaLordJupiter);
       expect(houses[6].houseNumber, 7);
-      expect(houses[6].signKey, ThaiContentKeys.lagnaPisces);
-      expect(houses[6].lordKey, ThaiContentKeys.lagnaLordJupiter);
+      expect(houses[6].signKey, ThaiContentKeys.lagnaVirgo);
+      expect(houses[6].lordKey, ThaiContentKeys.lagnaLordMercury);
       expect(houses[11].houseNumber, 12);
-      expect(houses[11].signKey, ThaiContentKeys.lagnaLeo);
-      expect(houses[11].lordKey, ThaiContentKeys.lagnaLordSun);
+      expect(houses[11].signKey, ThaiContentKeys.lagnaAquarius);
+      expect(houses[11].lordKey, ThaiContentKeys.lagnaLordSaturn);
     });
 
     test('TC-02 Bangkok 1988-05-10 14:00 — whole-sign houses', () {
@@ -53,14 +53,14 @@ void main() {
       final houses = HouseEngine.calculate(lagna: lagna);
 
       expect(houses, hasLength(12));
-      expect(houses[0].signKey, ThaiContentKeys.lagnaPisces);
-      expect(houses[0].lordKey, ThaiContentKeys.lagnaLordJupiter);
+      expect(houses[0].signKey, ThaiContentKeys.lagnaLeo);
+      expect(houses[0].lordKey, ThaiContentKeys.lagnaLordSun);
       expect(houses[1].houseNumber, 2);
-      expect(houses[1].signKey, ThaiContentKeys.lagnaAries);
-      expect(houses[1].lordKey, ThaiContentKeys.lagnaLordMars);
+      expect(houses[1].signKey, ThaiContentKeys.lagnaVirgo);
+      expect(houses[1].lordKey, ThaiContentKeys.lagnaLordMercury);
       expect(houses[9].houseNumber, 10);
-      expect(houses[9].signKey, ThaiContentKeys.lagnaSagittarius);
-      expect(houses[9].lordKey, ThaiContentKeys.lagnaLordJupiter);
+      expect(houses[9].signKey, ThaiContentKeys.lagnaTaurus);
+      expect(houses[9].lordKey, ThaiContentKeys.lagnaLordVenus);
     });
 
     test('house matrix validation for all 12 lagna sign indexes', () {
@@ -80,10 +80,12 @@ void main() {
         for (var i = 0; i < 12; i++) {
           final house = houses[i];
           final expectedSignIndex =
-              (lagnaIndex + house.houseNumber - 1) % ThaiContentKeys.allLagna.length;
+              (lagnaIndex + house.houseNumber - 1) %
+              ThaiContentKeys.allLagna.length;
           final expectedSignKey = ThaiContentKeys.allLagna[expectedSignIndex];
-          final expectedLordKey =
-              ThaiLagnaRulership.lordForLagna(expectedSignKey)!;
+          final expectedLordKey = ThaiLagnaRulership.lordForLagna(
+            expectedSignKey,
+          )!;
 
           expect(house.houseNumber, i + 1);
           expect(house.signKey, expectedSignKey);

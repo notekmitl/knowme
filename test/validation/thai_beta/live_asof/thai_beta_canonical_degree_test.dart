@@ -90,7 +90,11 @@ void main() {
         asOf: syntheticAsOf,
       );
       expect(analysis.isSuccess, isTrue);
-      expect(analysis.profile!.siderealAscendantDeg, s008VmRawDegree);
+      expect(
+        analysis.profile!.siderealAscendantDeg,
+        isIn([s008VmRawDegree, s008ChromeRawDegree]),
+        reason: 'raw IEEE-754 output may differ by one ULP across runtimes',
+      );
 
       final canonicalSnapshot = analysis.reportSnapshot!;
       final canonicalProfile = canonicalSnapshot['profile']! as Map;
