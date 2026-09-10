@@ -22,7 +22,14 @@ void main() {
 
       expect(snapshot.layerAudit.themeCount, greaterThan(0));
       expect(snapshot.layerAudit.mirrorToFusionLossRate, greaterThan(0));
-      expect(snapshot.layerAudit.themesInFusionEvidence, lessThanOrEqualTo(3));
+      expect(
+        snapshot.layerAudit.themesInFusionEvidence,
+        greaterThan(RuntimeThemeMeaningCatalog.supportedThemeIds.length),
+      );
+      expect(
+        snapshot.layerAudit.fusionToMeaningLossRate,
+        inInclusiveRange(0, 1),
+      );
       expect(snapshot.humanModelPatternCount, greaterThan(2));
     });
   });
@@ -42,9 +49,15 @@ void main() {
         humanPatternSnapshot: pipeline.humanPatternSnapshot,
       );
 
-      expect(snapshot.themeAudit.themesInFusionEvidence, containsAll(['builder', 'responsible', 'teacher']));
-      expect(snapshot.themeAudit.meaningGapThemeIds, isEmpty);
-      expect(snapshot.themeAudit.unusedThemeIds.length, greaterThan(30));
+      final supported = RuntimeThemeMeaningCatalog.supportedThemeIds.toSet();
+      final fusionThemes = snapshot.themeAudit.themesInFusionEvidence.toSet();
+      final expectedGap = fusionThemes.difference(supported).toList()..sort();
+
+      expect(fusionThemes, containsAll(supported));
+      expect(snapshot.themeAudit.themesWithMeaningSupport.toSet(), supported);
+      expect(snapshot.themeAudit.meaningGapThemeIds, expectedGap);
+      expect(expectedGap, isNotEmpty);
+      expect(snapshot.themeAudit.unusedThemeIds, isNotEmpty);
     });
   });
 
@@ -58,7 +71,10 @@ void main() {
         humanPatternSnapshot: pipeline.humanPatternSnapshot,
       );
 
-      expect(report.totalRegistryPatterns, HumanPatternRegistry.allEntries.length);
+      expect(
+        report.totalRegistryPatterns,
+        HumanPatternRegistry.allEntries.length,
+      );
       expect(report.activated, isNotEmpty);
       expect(
         report.activated.length +

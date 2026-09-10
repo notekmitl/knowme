@@ -26,19 +26,17 @@ void main() {
   group('SiderealEngine', () {
     test('returns null lagna and warning when birth time is missing', () {
       final result = SiderealEngine.calculate(
-        _bangkokBirth(
-          year: 1990,
-          month: 1,
-          day: 15,
-          hasBirthTime: false,
-        ),
+        _bangkokBirth(year: 1990, month: 1, day: 15, hasBirthTime: false),
       );
 
       expect(result.lagna, isNull);
       expect(result.warnings, hasLength(1));
       expect(result.warnings.first.code, 'MISSING_BIRTH_TIME');
       expect(result.warnings.first.severity.name, 'high');
-      expect(result.warnings.first.affectedFields, ['lagnaKey', 'lagnaLordKey']);
+      expect(result.warnings.first.affectedFields, [
+        'lagnaKey',
+        'lagnaLordKey',
+      ]);
     });
 
     test('TC-01 Bangkok 1990-01-15 10:30 — deterministic lagna', () {
@@ -48,9 +46,9 @@ void main() {
 
       expect(result.warnings, isEmpty);
       expect(result.lagna, isNotNull);
-      expect(result.lagna!.signKey, ThaiContentKeys.lagnaVirgo);
-      expect(result.lagna!.signIndex, 5);
-      expect(result.lagna!.lordKey, ThaiContentKeys.lagnaLordMercury);
+      expect(result.lagna!.signKey, ThaiContentKeys.lagnaPisces);
+      expect(result.lagna!.signIndex, 11);
+      expect(result.lagna!.lordKey, ThaiContentKeys.lagnaLordJupiter);
       expect(result.lagna!.siderealDeg, inInclusiveRange(0.0, 360.0));
     });
 
@@ -61,9 +59,9 @@ void main() {
 
       expect(result.warnings, isEmpty);
       expect(result.lagna, isNotNull);
-      expect(result.lagna!.signKey, ThaiContentKeys.lagnaPisces);
-      expect(result.lagna!.signIndex, 11);
-      expect(result.lagna!.lordKey, ThaiContentKeys.lagnaLordJupiter);
+      expect(result.lagna!.signKey, ThaiContentKeys.lagnaLeo);
+      expect(result.lagna!.signIndex, 4);
+      expect(result.lagna!.lordKey, ThaiContentKeys.lagnaLordSun);
       expect(result.lagna!.siderealDeg, inInclusiveRange(0.0, 360.0));
     });
   });

@@ -1,11 +1,26 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:knowme/features/astrology/thai/knowledge/canon/integration/thai_canon_evidence_repository.dart';
+import 'package:knowme/features/astrology/thai/knowledge/canon/integration/thai_canon_production_loader.dart';
 import 'package:knowme/features/astrology/thai/mirror/presentation/ui/pages/thai_mirror_result_page.dart';
 import 'package:knowme/features/astrology/thai/mirror/runtime/thai_mirror_pipeline.dart';
 import 'package:knowme/features/astrology/thai/qa/thai_mirror_qa_profiles.dart';
 import 'package:knowme/features/astrology/thai/qa/thai_mirror_qa_report.dart';
 import 'package:knowme/features/astrology/thai/qa/thai_mirror_qa_routes.dart';
 import 'package:knowme/features/astrology/thai/qa/thai_mirror_qa_screen.dart';
+
+void _bindCanonFixture() {
+  final load = ThaiCanonProductionLoader.loadFromJson(
+    File(
+      'knowledge/canon/production/foundation_v1.knowme.json',
+    ).readAsStringSync(),
+  );
+  ThaiCanonEvidenceRepository.bindCachedForTest(
+    ThaiCanonEvidenceRepository.fromLoadResult(load),
+  );
+}
 
 void main() {
   group('ThaiMirrorQaProfiles', () {
@@ -22,8 +37,10 @@ void main() {
     });
 
     test('previous profile wraps around', () {
-      expect(ThaiMirrorQaProfiles.previousIndex(0),
-          ThaiMirrorQaProfiles.all.length - 1);
+      expect(
+        ThaiMirrorQaProfiles.previousIndex(0),
+        ThaiMirrorQaProfiles.all.length - 1,
+      );
       expect(ThaiMirrorQaProfiles.previousIndex(1), 0);
     });
   });
@@ -44,14 +61,18 @@ void main() {
     });
 
     test('validation passes for complete golden profile', () {
-      final report = ThaiMirrorQaReport.generate(ThaiMirrorQaProfiles.byId('QA-07'));
+      final report = ThaiMirrorQaReport.generate(
+        ThaiMirrorQaProfiles.byId('QA-07'),
+      );
 
       expect(report.status, ThaiMirrorQaStatus.pass);
       expect(report.issues, isEmpty);
     });
 
     test('missing birth time profile still runs pipeline', () {
-      final report = ThaiMirrorQaReport.generate(ThaiMirrorQaProfiles.byId('QA-05'));
+      final report = ThaiMirrorQaReport.generate(
+        ThaiMirrorQaProfiles.byId('QA-05'),
+      );
 
       expect(report.pipelineSucceeded, isTrue);
       expect(report.warningCount, greaterThan(0));
@@ -79,8 +100,10 @@ void main() {
 
       expect(result.isSuccess, isTrue);
       expect(result.viewState, isNotNull);
-      expect(result.mirrorResult!.sections.length,
-          ThaiMirrorQaReport.expectedSectionCount);
+      expect(
+        result.mirrorResult!.sections.length,
+        ThaiMirrorQaReport.expectedSectionCount,
+      );
     });
 
     test('no crash across all profiles', () {
@@ -92,16 +115,24 @@ void main() {
         );
 
         final report = ThaiMirrorQaReport.generate(profile);
-        expect(report.pipelineSucceeded, isTrue,
-            reason: 'Profile ${profile.id} should succeed');
-        expect(report.sectionCount, ThaiMirrorQaReport.expectedSectionCount,
-            reason: 'Profile ${profile.id} should have 8 sections');
+        expect(
+          report.pipelineSucceeded,
+          isTrue,
+          reason: 'Profile ${profile.id} should succeed',
+        );
+        expect(
+          report.sectionCount,
+          ThaiMirrorQaReport.expectedSectionCount,
+          reason: 'Profile ${profile.id} should have 8 sections',
+        );
       }
     });
   });
 
   group('ThaiMirrorQaRoutes', () {
     testWidgets('route opens QA screen', (tester) async {
+      _bindCanonFixture();
+      addTearDown(ThaiCanonEvidenceRepository.clearCachedForTest);
       await tester.pumpWidget(
         MaterialApp(
           onGenerateRoute: (settings) {
@@ -123,20 +154,28 @@ void main() {
     });
 
     testWidgets('screen renders result page after pipeline', (tester) async {
-      await tester.pumpWidget(
-        const MaterialApp(
-          home: ThaiMirrorQaScreen(),
-        ),
-      );
+      _bindCanonFixture();
+      addTearDown(ThaiCanonEvidenceRepository.clearCachedForTest);
+      await tester.pumpWidget(const MaterialApp(home: ThaiMirrorQaScreen()));
 
       await tester.pump();
       await tester.pump(const Duration(milliseconds: 100));
 
       expect(find.byType(ThaiMirrorQaScreen), findsOneWidget);
 
-      await tester.pumpAndSettle(const Duration(seconds: 5));
+      // The loading indicator owns a repeating animation, so waiting for a
+      // global settle can never complete. Poll only for the async pipeline
+      // boundary and retain a finite failure deadline.
+      for (
+        var attempt = 0;
+        attempt < 100 && find.byType(ThaiMirrorResultPage).evaluate().isEmpty;
+        attempt++
+      ) {
+        await tester.pump(const Duration(milliseconds: 50));
+      }
 
       expect(find.byType(ThaiMirrorResultPage), findsOneWidget);
+      expect(tester.takeException(), isNull);
     });
   });
 }

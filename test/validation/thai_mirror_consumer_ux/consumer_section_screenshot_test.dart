@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:knowme/features/astrology/thai/mirror/presentation/ui/pages/thai_mirror_result_page.dart';
-import 'package:knowme/features/astrology/thai/mirror/presentation/ui/widgets/thai_mirror_birth_data_confidence_banner.dart';
 
 import 'analysis/consumer_ux_validation_runner.dart';
 import '../../ui/thai_mirror_consumer_fixtures.dart';
@@ -18,7 +17,9 @@ void main() {
       await tester.pumpWidget(
         MaterialApp(
           theme: ThemeData(
-            colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF7E57C2)),
+            colorScheme: ColorScheme.fromSeed(
+              seedColor: const Color(0xFF7E57C2),
+            ),
             useMaterial3: true,
           ),
           home: ThaiMirrorResultPage(consumerState: consumer),
@@ -38,9 +39,9 @@ void main() {
         find.byKey(const Key('thai_consumer_hero')),
         matchesGoldenFile('screenshots/profile_a_01_hero.png'),
       );
-      await expectLater(
-        find.byKey(ThaiMirrorBirthDataConfidenceBanner.sectionKey),
-        matchesGoldenFile('screenshots/profile_a_02_birth_confidence.png'),
+      expect(
+        find.byKey(const Key('thai_consumer_birth_confidence')),
+        findsNothing,
       );
       await expectLater(
         find.byKey(const Key('thai_consumer_strengths')),
@@ -68,15 +69,22 @@ void main() {
       );
     });
 
-    testWidgets('profile A — missing birth time banner', (tester) async {
+    testWidgets('profile A — missing time limitation stays in the hero', (
+      tester,
+    ) async {
       final consumer = ConsumerUxValidationRunner.presentProfile(
         ConsumerUxValidationRunner.profiles.first,
         hasBirthTime: false,
       );
       await pumpConsumer(tester, consumer);
+      expect(
+        find.byKey(const Key('thai_consumer_birth_confidence')),
+        findsNothing,
+      );
+      expect(consumer.hero.identitySubtitle, contains('ไม่มีเวลาเกิด'));
       await expectLater(
-        find.byKey(ThaiMirrorBirthDataConfidenceBanner.sectionKey),
-        matchesGoldenFile('screenshots/profile_a_no_birth_time_banner.png'),
+        find.byKey(const Key('thai_consumer_hero')),
+        matchesGoldenFile('screenshots/profile_a_no_birth_time_hero.png'),
       );
     });
 
