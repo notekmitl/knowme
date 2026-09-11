@@ -1874,6 +1874,13 @@ void main() {
 String? _findPdftoppm() {
   final configured = Platform.environment['KNOWME_PDFTOPPM'];
   if (configured != null && File(configured).existsSync()) return configured;
+  final lookup = Process.runSync(Platform.isWindows ? 'where' : 'which', [
+    'pdftoppm',
+  ], runInShell: Platform.isWindows);
+  if (lookup.exitCode == 0) {
+    final resolved = '${lookup.stdout}'.split(RegExp(r'[\r\n]+')).first.trim();
+    if (resolved.isNotEmpty && File(resolved).existsSync()) return resolved;
+  }
   if (Platform.isWindows) {
     final profile = Platform.environment['USERPROFILE'];
     if (profile != null) {

@@ -49,7 +49,7 @@ ThaiSignalBundle _signalBundle(ThaiBirthData birth) {
 }
 
 ({ThaiSignalBundle signalBundle, ThaiInterpretationEngineResult result})
-    _interpret(ThaiBirthData birth) {
+_interpret(ThaiBirthData birth) {
   final signalBundle = _signalBundle(birth);
   final result = ThaiInterpretationEngine.interpret(signalBundle);
   return (signalBundle: signalBundle, result: result);
@@ -106,7 +106,8 @@ void _assertForbiddenKnowledge(ThaiInterpretationFact fact) {
   for (final forbidden in ThaiInterpretationContract.forbiddenFactFieldNames) {
     expect(serialized.containsKey(forbidden), isFalse);
   }
-  for (final allowed in ThaiInterpretationContract.interpretationFactFieldNames) {
+  for (final allowed
+      in ThaiInterpretationContract.interpretationFactFieldNames) {
     expect(serialized.containsKey(allowed), isTrue);
   }
 }
@@ -120,15 +121,12 @@ void main() {
 
       expect(audited.signalBundle.signals, hasLength(26));
       expect(audited.result.bundle.facts, hasLength(26));
-      expect(
-        _predicateDistribution(audited.result.bundle.facts),
-        {
-          ThaiMeaningPredicate.lagnaSignIs: 1,
-          ThaiMeaningPredicate.lagnaLordIs: 1,
-          ThaiMeaningPredicate.houseSignIs: 12,
-          ThaiMeaningPredicate.houseLordIs: 12,
-        },
-      );
+      expect(_predicateDistribution(audited.result.bundle.facts), {
+        ThaiMeaningPredicate.lagnaSignIs: 1,
+        ThaiMeaningPredicate.lagnaLordIs: 1,
+        ThaiMeaningPredicate.houseSignIs: 12,
+        ThaiMeaningPredicate.houseLordIs: 12,
+      });
     });
 
     test('GC-05 — full signal and fact parity with seven numbers', () {
@@ -138,20 +136,17 @@ void main() {
 
       expect(audited.signalBundle.signals, hasLength(40));
       expect(audited.result.bundle.facts, hasLength(40));
-      expect(
-        _predicateDistribution(audited.result.bundle.facts),
-        {
-          ThaiMeaningPredicate.lagnaSignIs: 1,
-          ThaiMeaningPredicate.lagnaLordIs: 1,
-          ThaiMeaningPredicate.houseSignIs: 12,
-          ThaiMeaningPredicate.houseLordIs: 12,
-          ThaiMeaningPredicate.myanmarPositionIs: 7,
-          ThaiMeaningPredicate.mahabhutaPositionIs: 7,
-        },
-      );
+      expect(_predicateDistribution(audited.result.bundle.facts), {
+        ThaiMeaningPredicate.lagnaSignIs: 1,
+        ThaiMeaningPredicate.lagnaLordIs: 1,
+        ThaiMeaningPredicate.houseSignIs: 12,
+        ThaiMeaningPredicate.houseLordIs: 12,
+        ThaiMeaningPredicate.myanmarPositionIs: 7,
+        ThaiMeaningPredicate.mahabhutaPositionIs: 7,
+      });
     });
 
-    test('GC-05 no birth time — seven-number facts only', () {
+    test('GC-05 no birth time — signal and fact layers fail closed', () {
       final audited = _interpret(
         _bangkokBirth(
           year: 1972,
@@ -162,16 +157,10 @@ void main() {
         ),
       );
 
-      expect(audited.signalBundle.signals, hasLength(14));
-      expect(audited.result.bundle.facts, hasLength(14));
-      expect(
-        audited.result.bundle.facts.every(
-          (fact) =>
-              fact.predicate == ThaiMeaningPredicate.myanmarPositionIs ||
-              fact.predicate == ThaiMeaningPredicate.mahabhutaPositionIs,
-        ),
-        isTrue,
-      );
+      expect(audited.signalBundle.signals, isEmpty);
+      expect(audited.result.bundle.facts, isEmpty);
+      expect(audited.result.bundle.hasBirthTime, isFalse);
+      expect(audited.result.bundle.warnings, isNotEmpty);
     });
   });
 
@@ -201,8 +190,9 @@ void main() {
       );
 
       final firstIds = first.result.bundle.facts.map((f) => f.factId).toList();
-      final secondIds =
-          second.result.bundle.facts.map((f) => f.factId).toList();
+      final secondIds = second.result.bundle.facts
+          .map((f) => f.factId)
+          .toList();
 
       expect(firstIds.toSet(), hasLength(firstIds.length));
       expect(firstIds, secondIds);
@@ -235,26 +225,25 @@ void main() {
       final audited = _interpret(
         _bangkokBirth(year: 1990, month: 1, day: 15, hour: 10, minute: 30),
       );
-      final sortedIds = audited.result.bundle.facts
-          .map((fact) => fact.factId)
-          .toList()
-        ..sort();
+      final sortedIds =
+          audited.result.bundle.facts.map((fact) => fact.factId).toList()
+            ..sort();
       final reversedIds = sortedIds.reversed.toList();
 
       final fromSorted = [
         '${audited.signalBundle.bundleId}'
-        '${ThaiInterpretationContract.bundleIdDelimiter}'
-        '${ThaiInterpreterVersionContract.interpreterVersion}'
-        '${ThaiInterpretationContract.bundleIdDelimiter}'
-        '${sortedIds.join(',')}',
+            '${ThaiInterpretationContract.bundleIdDelimiter}'
+            '${ThaiInterpreterVersionContract.interpreterVersion}'
+            '${ThaiInterpretationContract.bundleIdDelimiter}'
+            '${sortedIds.join(',')}',
       ].single;
 
       final fromReversed = [
         '${audited.signalBundle.bundleId}'
-        '${ThaiInterpretationContract.bundleIdDelimiter}'
-        '${ThaiInterpreterVersionContract.interpreterVersion}'
-        '${ThaiInterpretationContract.bundleIdDelimiter}'
-        '${reversedIds.join(',')}',
+            '${ThaiInterpretationContract.bundleIdDelimiter}'
+            '${ThaiInterpreterVersionContract.interpreterVersion}'
+            '${ThaiInterpretationContract.bundleIdDelimiter}'
+            '${reversedIds.join(',')}',
       ].single;
 
       expect(audited.result.bundle.bundleId, fromSorted);
@@ -281,8 +270,7 @@ void main() {
         derived: false,
       );
 
-      final factId =
-          'lagna_sign_rule_v1:LAGNA_SIGN_IS:virgo@lagna_sign_virgo';
+      final factId = 'lagna_sign_rule_v1:LAGNA_SIGN_IS:virgo@lagna_sign_virgo';
       final low = ThaiInterpretationFact(
         factId: factId,
         predicate: ThaiMeaningPredicate.lagnaSignIs,
@@ -332,11 +320,7 @@ void main() {
         provenance: provenance,
       );
 
-      final merged = ThaiInterpretationEngine.dedupeFacts([
-        low,
-        high,
-        low,
-      ]);
+      final merged = ThaiInterpretationEngine.dedupeFacts([low, high, low]);
       expect(merged.single.confidence, 0.95);
       expect(merged.single.evidence.structuralFactKeys, ['high']);
 
@@ -392,12 +376,9 @@ void main() {
     test('100× deterministic bundle identity for GC-05', () {
       final birth = _bangkokBirth(year: 1972, month: 4, day: 4, hour: 2);
       final baselineBundleId = _interpret(birth).result.bundle.bundleId;
-      final baselineFactIds = _interpret(birth)
-          .result
-          .bundle
-          .facts
-          .map((fact) => fact.factId)
-          .toList();
+      final baselineFactIds = _interpret(
+        birth,
+      ).result.bundle.facts.map((fact) => fact.factId).toList();
 
       for (var i = 0; i < 100; i++) {
         final result = _interpret(birth).result.bundle;

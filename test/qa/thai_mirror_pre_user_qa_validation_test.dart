@@ -65,16 +65,25 @@ void main() {
 
         for (final ref in selected) {
           final source = sorted.firstWhere((t) => t.themeId == ref.themeId);
-          expect(ref.score, source.score,
-              reason: '${profile.id} score drift on ${ref.themeId}');
-          expect(ref.confidence, source.confidence,
-              reason: '${profile.id} confidence drift on ${ref.themeId}');
+          expect(
+            ref.score,
+            source.score,
+            reason: '${profile.id} score drift on ${ref.themeId}',
+          );
+          expect(
+            ref.confidence,
+            source.confidence,
+            reason: '${profile.id} confidence drift on ${ref.themeId}',
+          );
         }
 
         final engineIds = engineTop3.map((t) => t.themeId).toList()..sort();
         final selectedIds = selected.map((t) => t.themeId).toList()..sort();
-        expect(selectedIds, engineIds,
-            reason: '${profile.id} must not introduce new theme ids');
+        expect(
+          selectedIds,
+          engineIds,
+          reason: '${profile.id} must not introduce new theme ids',
+        );
 
         if (engineTop3.isNotEmpty &&
             selected.isNotEmpty &&
@@ -83,8 +92,11 @@ void main() {
         }
       }
 
-      expect(reorderCount, greaterThan(0),
-          reason: 'selector should occasionally reorder #1');
+      expect(
+        reorderCount,
+        greaterThan(0),
+        reason: 'selector should occasionally reorder #1',
+      );
     });
 
     test('PASS: sections/evidence unaffected by top theme display order', () {
@@ -94,7 +106,7 @@ void main() {
         birthData: birth,
       );
       final input = ThaiMirrorAssemblerSpec.inputFromProfile(profile);
-      final structural = ThaiMirrorAssembler.assemble(input);
+      final beforeSelection = ThaiMirrorAssembler.assemble(input);
 
       final sorted = _sortEngineThemes(input.presentedThemes);
       final pureTop = sorted.take(3).map(_toRef).toList();
@@ -103,22 +115,33 @@ void main() {
         limit: 3,
         toRef: _toRef,
       );
+      final afterSelection = ThaiMirrorAssembler.assemble(input);
 
-      expect(structural.sections, isNotEmpty);
-      expect(pureTop.map((t) => t.themeId).toSet(),
-          selectedTop.map((t) => t.themeId).toSet());
-      for (final section in structural.sections) {
-        expect(section.evidence, isNotEmpty);
-      }
+      expect(beforeSelection.sections, isNotEmpty);
+      expect(
+        pureTop.map((t) => t.themeId).toSet(),
+        selectedTop.map((t) => t.themeId).toSet(),
+      );
+      expect(afterSelection, beforeSelection);
+      expect(
+        beforeSelection.sections.expand((section) => section.evidence),
+        isNotEmpty,
+        reason:
+            'the report must retain evidence even when some sections omit it',
+      );
     });
   });
 
   group('Validation #2 — Engine Truth (Growth Areas)', () {
     test('PASS: no synthetic growth themes across 10 population profiles', () {
-      final profiles = ThaiMirrorPopulationGenerator.generate().take(10).toList();
+      final profiles = ThaiMirrorPopulationGenerator.generate()
+          .take(10)
+          .toList();
 
       for (final profile in profiles) {
-        final result = ThaiMirrorPipeline.generate(profile.birthData).mirrorResult!;
+        final result = ThaiMirrorPipeline.generate(
+          profile.birthData,
+        ).mirrorResult!;
         final growth = result.sectionById(ThaiMirrorSectionId.growthAreas)!;
         final input = ThaiMirrorAssemblerSpec.inputFromProfile(
           _profileFor(profile),
@@ -129,12 +152,21 @@ void main() {
 
         for (final ref in growth.supportingThemes) {
           final engine = engineById[ref.themeId];
-          expect(engine, isNotNull,
-              reason: '${profile.id} unknown theme ${ref.themeId}');
-          expect(engine!.score, greaterThan(0),
-              reason: '${profile.id} synthetic score on ${ref.themeId}');
-          expect(engine.evidence, isNotEmpty,
-              reason: '${profile.id} synthetic evidence on ${ref.themeId}');
+          expect(
+            engine,
+            isNotNull,
+            reason: '${profile.id} unknown theme ${ref.themeId}',
+          );
+          expect(
+            engine!.score,
+            greaterThan(0),
+            reason: '${profile.id} synthetic score on ${ref.themeId}',
+          );
+          expect(
+            engine.evidence,
+            isNotEmpty,
+            reason: '${profile.id} synthetic evidence on ${ref.themeId}',
+          );
           expect(ref.score, engine.score);
         }
       }
@@ -144,7 +176,9 @@ void main() {
       final profiles = ThaiMirrorPopulationGenerator.generate(count: 30);
 
       for (final profile in profiles) {
-        final result = ThaiMirrorPipeline.generate(profile.birthData).mirrorResult!;
+        final result = ThaiMirrorPipeline.generate(
+          profile.birthData,
+        ).mirrorResult!;
         final growth = result.sectionById(ThaiMirrorSectionId.growthAreas)!;
         final themeIds = growth.supportingThemes.map((t) => t.themeId).toSet();
 
@@ -175,10 +209,15 @@ void main() {
         expect(result.topThemes, baseline.topThemes, reason: 'run $run top');
         expect(result.sections.length, baseline.sections.length);
         for (var i = 0; i < result.sections.length; i++) {
-          expect(result.sections[i].summary, baseline.sections[i].summary,
-              reason: 'run $run section ${result.sections[i].id}');
-          expect(result.sections[i].evidence.length,
-              baseline.sections[i].evidence.length);
+          expect(
+            result.sections[i].summary,
+            baseline.sections[i].summary,
+            reason: 'run $run section ${result.sections[i].id}',
+          );
+          expect(
+            result.sections[i].evidence.length,
+            baseline.sections[i].evidence.length,
+          );
         }
       }
     });

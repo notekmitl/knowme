@@ -67,8 +67,16 @@ void main() {
     });
 
     test('increases unique patterns referenced per paragraph budget', () {
-      final v1Coverage = _uniquePatternsCoverage(v1Result, snapshot, isV2: false);
-      final v2Coverage = _uniquePatternsCoverage(v2Result, snapshot, isV2: true);
+      final v1Coverage = _uniquePatternsCoverage(
+        v1Result,
+        snapshot,
+        isV2: false,
+      );
+      final v2Coverage = _uniquePatternsCoverage(
+        v2Result,
+        snapshot,
+        isV2: true,
+      );
 
       expect(v2Coverage, greaterThan(v1Coverage));
     });
@@ -87,57 +95,90 @@ void main() {
     test('detects pattern interactions in real runtime snapshot', () {
       final plans = NarrativeIntelligenceLayer.buildPlans(snapshot);
       final interactions = plans
-          .where((plan) => plan.interactionType != NarrativeInteractionType.single)
+          .where(
+            (plan) => plan.interactionType != NarrativeInteractionType.single,
+          )
           .toList();
 
       expect(interactions, isNotEmpty);
     });
 
-    test('detects agreement compression for structured + accountable operators', () {
-      final plan = _syntheticInteractionPlan(
-        patternIds: ['structured_operator', 'accountable_operator'],
-        mode: NarrativeMode.decision,
-      );
+    test(
+      'detects agreement compression for structured + accountable operators',
+      () {
+        final plan = _syntheticInteractionPlan(
+          patternIds: ['structured_operator', 'accountable_operator'],
+          mode: NarrativeMode.decision,
+        );
 
-      expect(plan, isNotNull);
-      expect(plan!.interactionType, NarrativeInteractionType.agreement);
-      expect(plan.interactionThemeKey, 'consistency_theme');
-      expect(plan.textContainsBothLabels, isTrue);
-    });
+        expect(plan, isNotNull);
+        expect(plan!.interactionType, NarrativeInteractionType.agreement);
+        expect(plan.interactionThemeKey, 'consistency_theme');
+        expect(plan.textContainsBothLabels, isTrue);
+      },
+    );
 
-    test('detects tension between independent decision maker and stabilizer', () {
-      final plan = _syntheticInteractionPlan(
-        patternIds: ['independent_decision_maker', 'relationship_stabilizer'],
-        mode: NarrativeMode.relationship,
-      );
+    test(
+      'detects tension between independent decision maker and stabilizer',
+      () {
+        final plan = _syntheticInteractionPlan(
+          patternIds: ['independent_decision_maker', 'relationship_stabilizer'],
+          mode: NarrativeMode.relationship,
+        );
 
-      expect(plan, isNotNull);
-      expect(plan!.interactionType, NarrativeInteractionType.tension);
-      expect(plan.interactionThemeKey, 'autonomy_vs_harmony');
-    });
+        expect(plan, isNotNull);
+        expect(plan!.interactionType, NarrativeInteractionType.tension);
+        expect(plan.interactionThemeKey, 'autonomy_vs_harmony');
+      },
+    );
 
-    test('detects growth edge between growth edge builder and analytical thinker', () {
-      final plan = _syntheticInteractionPlan(
-        patternIds: ['growth_edge_builder', 'analytical_thinker'],
-        mode: NarrativeMode.growth,
-      );
+    test(
+      'detects growth edge between growth edge builder and analytical thinker',
+      () {
+        final plan = _syntheticInteractionPlan(
+          patternIds: ['growth_edge_builder', 'analytical_thinker'],
+          mode: NarrativeMode.growth,
+        );
 
-      expect(plan, isNotNull);
-      expect(plan!.interactionType, NarrativeInteractionType.growthEdge);
-    });
+        expect(plan, isNotNull);
+        expect(plan!.interactionType, NarrativeInteractionType.growthEdge);
+      },
+    );
 
-    test('surfaces blind spot family patterns naturally', () {
-      final plans = NarrativeIntelligenceLayer.buildPlans(snapshot);
-      final blindSpotPlans = plans
-          .where((plan) => plan.interactionType == NarrativeInteractionType.blindSpot)
-          .toList();
+    test(
+      'keeps blind-spot evidence eligible within the V5 paragraph budget',
+      () {
+        final plans = NarrativeIntelligenceLayer.buildPlans(snapshot);
+        final blindSpotPlans = plans
+            .where(
+              (plan) =>
+                  plan.interactionType == NarrativeInteractionType.blindSpot,
+            )
+            .toList();
 
-      if (snapshot.activations.any(
-        (item) => item.patternFamilyId == 'blind_spot_pattern',
-      )) {
-        expect(blindSpotPlans, isNotEmpty);
-      }
-    });
+        final blindSpotActivations = snapshot.activations
+            .where((item) => item.patternFamilyId == 'blind_spot_pattern')
+            .toList();
+
+        expect(blindSpotActivations, isNotEmpty);
+        for (final activation in blindSpotActivations) {
+          expect(
+            snapshot.evidence.where(
+              (row) => row.activationId == activation.activationId,
+            ),
+            isNotEmpty,
+          );
+        }
+        for (final plan in blindSpotPlans) {
+          expect(
+            plan.referencedPatternIds.any(
+              (id) => blindSpotActivations.any((item) => item.patternId == id),
+            ),
+            isTrue,
+          );
+        }
+      },
+    );
 
     test('preserves full evidence lineage in V2 output', () {
       final report = NarrativeValidation.validate(
@@ -156,8 +197,9 @@ void main() {
     test('writes validation report artifact', () {
       expect(File('docs/NARRATIVE_INTELLIGENCE_V2.md').existsSync(), isTrue);
       expect(
-        File('test/validation/narrative_intelligence_v2/output/results.json')
-            .existsSync(),
+        File(
+          'test/validation/narrative_intelligence_v2/output/results.json',
+        ).existsSync(),
         isTrue,
       );
     });
@@ -293,7 +335,10 @@ int _evidenceCount(NarrativeResult result) {
       .fold<int>(0, (sum, paragraph) => sum + paragraph.evidence.length);
 }
 
-double _insightDensityScore(List<NarrativeInsightPlan> plans, int paragraphCount) {
+double _insightDensityScore(
+  List<NarrativeInsightPlan> plans,
+  int paragraphCount,
+) {
   if (paragraphCount == 0) return 0;
   final patternSlots = plans.expand((plan) => plan.referencedPatternIds).length;
   final interactionSlots = plans
@@ -325,7 +370,11 @@ void _writeReport({
       'paragraphCount': v1.paragraphCount,
       'evidenceCount': _evidenceCount(v1),
       'uniquePatternsReferenced': _uniquePatternsReferenced(v1),
-      'uniquePatternsCoverage': _uniquePatternsCoverage(v1, snapshot, isV2: false),
+      'uniquePatternsCoverage': _uniquePatternsCoverage(
+        v1,
+        snapshot,
+        isV2: false,
+      ),
       'uniqueFindingsReferenced': _uniqueFindingsReferenced(v1),
       'confidence': v1.confidence.composite,
     },
@@ -333,18 +382,24 @@ void _writeReport({
       'paragraphCount': v2.paragraphCount,
       'evidenceCount': _evidenceCount(v2),
       'uniquePatternsReferenced': _uniquePatternsReferenced(v2),
-      'uniquePatternsCoverage': _uniquePatternsCoverage(v2, snapshot, isV2: true),
+      'uniquePatternsCoverage': _uniquePatternsCoverage(
+        v2,
+        snapshot,
+        isV2: true,
+      ),
       'uniqueFindingsReferenced': _uniqueFindingsReferenced(v2),
       'confidence': v2.confidence.composite,
-      'interactionPlanCount':
-          plans.where((p) => p.interactionType != NarrativeInteractionType.single).length,
+      'interactionPlanCount': plans
+          .where((p) => p.interactionType != NarrativeInteractionType.single)
+          .length,
       'insightDensityScore': _insightDensityScore(plans, v2.paragraphCount),
     },
     'interactionExamples': interactionExamples,
   };
 
-  final jsonFile =
-      File('test/validation/narrative_intelligence_v2/output/results.json');
+  final jsonFile = File(
+    'test/validation/narrative_intelligence_v2/output/results.json',
+  );
   jsonFile.parent.createSync(recursive: true);
   jsonFile.writeAsStringSync(const JsonEncoder.withIndent('  ').convert(json));
 
@@ -358,16 +413,20 @@ void _writeReport({
     ..writeln('| --- | ---: | ---: | ---: |')
     ..writeln(_row('Paragraph count', v1.paragraphCount, v2.paragraphCount))
     ..writeln(_row('Evidence rows', _evidenceCount(v1), _evidenceCount(v2)))
-    ..writeln(_row(
-      'Unique patterns coverage',
-      _uniquePatternsCoverage(v1, snapshot, isV2: false),
-      _uniquePatternsCoverage(v2, snapshot, isV2: true),
-    ))
-    ..writeln(_row(
-      'Unique fusion findings referenced',
-      _uniqueFindingsReferenced(v1),
-      _uniqueFindingsReferenced(v2),
-    ))
+    ..writeln(
+      _row(
+        'Unique patterns coverage',
+        _uniquePatternsCoverage(v1, snapshot, isV2: false),
+        _uniquePatternsCoverage(v2, snapshot, isV2: true),
+      ),
+    )
+    ..writeln(
+      _row(
+        'Unique fusion findings referenced',
+        _uniqueFindingsReferenced(v1),
+        _uniqueFindingsReferenced(v2),
+      ),
+    )
     ..writeln(
       '| Confidence (composite) | ${v1.confidence.composite.toStringAsFixed(3)} '
       '| ${v2.confidence.composite.toStringAsFixed(3)} '
@@ -377,11 +436,11 @@ void _writeReport({
   md.writeln('## Pattern Interaction Examples');
   md.writeln();
   for (final example in interactionExamples.take(8)) {
-      md.writeln(
-        '- **${example['type']}** (${example['mode']}): '
-        '${(example['patterns'] as List).join(' + ')} → ${example['theme']}',
-      );
-    }
+    md.writeln(
+      '- **${example['type']}** (${example['mode']}): '
+      '${(example['patterns'] as List).join(' + ')} → ${example['theme']}',
+    );
+  }
 
   File('docs/NARRATIVE_INTELLIGENCE_V2.md').writeAsStringSync(md.toString());
 }

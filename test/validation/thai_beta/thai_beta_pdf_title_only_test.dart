@@ -9,12 +9,32 @@ import 'package:knowme/features/thai_beta/domain/thai_beta_input.dart';
 String dependency(String variable, String suffix) {
   final configured = Platform.environment[variable];
   if (configured != null && File(configured).existsSync()) return configured;
-  final bundled =
-      '${Platform.environment['USERPROFILE']}/.cache/codex-runtimes/codex-primary-runtime/dependencies/$suffix';
-  if (File(bundled).existsSync()) return bundled;
+  for (final executable in switch (variable) {
+    'KNOWME_PDF_PYTHON' => ['python3', 'python'],
+    'KNOWME_PDFTOPPM' => ['pdftoppm'],
+    _ => <String>[],
+  }) {
+    final resolved = _executableOnPath(executable);
+    if (resolved != null) return resolved;
+  }
+  final profile = Platform.environment['USERPROFILE'];
+  if (profile != null) {
+    final bundled =
+        '$profile/.cache/codex-runtimes/codex-primary-runtime/dependencies/$suffix';
+    if (File(bundled).existsSync()) return bundled;
+  }
   throw StateError(
     'Set $variable to the required real-PDF dependency; this test cannot skip.',
   );
+}
+
+String? _executableOnPath(String executable) {
+  final lookup = Process.runSync(Platform.isWindows ? 'where' : 'which', [
+    executable,
+  ], runInShell: Platform.isWindows);
+  if (lookup.exitCode != 0) return null;
+  final path = '${lookup.stdout}'.split(RegExp(r'[\r\n]+')).first.trim();
+  return path.isNotEmpty && File(path).existsSync() ? path : null;
 }
 
 void main() {

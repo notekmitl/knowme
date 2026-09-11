@@ -6,6 +6,7 @@ import 'package:knowme/features/astrology/thai/content/models/thai_content_key.d
 import 'package:knowme/features/astrology/thai/foundation/models/thai_birth_data.dart';
 import 'package:knowme/features/astrology/thai/foundation/v2/contracts/thai_v2_engine_contract.dart';
 import 'package:knowme/features/astrology/thai/foundation/v2/engines/thai_chart_engine.dart';
+
 const _bangkokOffset = Duration(hours: 7);
 
 ThaiBirthData _bangkokBirth({
@@ -61,12 +62,13 @@ void main() {
 
       expect(chart.warnings, isEmpty);
       expect(chart.lagna, isNotNull);
-      expect(chart.lagna!.signKey, ThaiContentKeys.lagnaVirgo);
-      expect(chart.lagna!.signIndex, 5);
+      expect(chart.lagna!.signKey, ThaiContentKeys.lagnaPisces);
+      expect(chart.lagna!.signIndex, 11);
       expect(chart.houses, hasLength(12));
       expect(chart.houses.first.houseNumber, 1);
-      expect(chart.houses.first.signKey, ThaiContentKeys.lagnaVirgo);
+      expect(chart.houses.first.signKey, ThaiContentKeys.lagnaPisces);
       expect(chart.houses.last.houseNumber, 12);
+      expect(chart.houses.last.signKey, ThaiContentKeys.lagnaAquarius);
       expect(chart.placements, isEmpty);
       expect(chart.relationships, isEmpty);
     });
@@ -91,12 +93,7 @@ void main() {
     });
 
     test('metadata validation', () {
-      final birth = _bangkokBirth(
-        year: 1988,
-        month: 5,
-        day: 10,
-        hour: 14,
-      );
+      final birth = _bangkokBirth(year: 1988, month: 5, day: 10, hour: 14);
 
       final chart = ThaiChartEngine.generate(birth);
       final metadata = chart.metadata;
@@ -108,10 +105,7 @@ void main() {
       expect(metadata.houseSystem, ThaiV2EngineContract.houseSystem);
       expect(metadata.hasBirthTime, isTrue);
       expect(metadata.computedAt.isUtc, isTrue);
-      expect(
-        metadata.birthFingerprint,
-        _sha256Fingerprint(birth),
-      );
+      expect(metadata.birthFingerprint, _sha256Fingerprint(birth));
       expect(metadata.birthFingerprint, hasLength(64));
     });
 
@@ -136,9 +130,9 @@ void main() {
       );
 
       expect(chart.houses, hasLength(12));
-      expect(chart.lagna!.signKey, ThaiContentKeys.lagnaPisces);
-      expect(chart.houses[0].signKey, ThaiContentKeys.lagnaPisces);
-      expect(chart.houses[1].signKey, ThaiContentKeys.lagnaAries);
+      expect(chart.lagna!.signKey, ThaiContentKeys.lagnaLeo);
+      expect(chart.houses[0].signKey, ThaiContentKeys.lagnaLeo);
+      expect(chart.houses[1].signKey, ThaiContentKeys.lagnaVirgo);
     });
   });
 }

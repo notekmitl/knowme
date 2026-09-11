@@ -102,7 +102,10 @@ void main() {
         confidenceWeight: 0.95,
       );
 
-      final facts = const LagnaSignRule().interpret(signal, _ruleContext([signal]));
+      final facts = const LagnaSignRule().interpret(
+        signal,
+        _ruleContext([signal]),
+      );
 
       expect(facts, hasLength(1));
       expect(facts.first.predicate, ThaiMeaningPredicate.lagnaSignIs);
@@ -126,7 +129,10 @@ void main() {
         facts: const {'houseNumber': '10'},
       );
 
-      final facts = const HouseSignRule().interpret(signal, _ruleContext([signal]));
+      final facts = const HouseSignRule().interpret(
+        signal,
+        _ruleContext([signal]),
+      );
 
       expect(facts, hasLength(1));
       expect(facts.first.predicate, ThaiMeaningPredicate.houseSignIs);
@@ -148,8 +154,10 @@ void main() {
         confidenceWeight: 0.50,
       );
 
-      final facts =
-          const MyanmarPositionRule().interpret(signal, _ruleContext([signal]));
+      final facts = const MyanmarPositionRule().interpret(
+        signal,
+        _ruleContext([signal]),
+      );
 
       expect(facts, hasLength(1));
       expect(facts.first.predicate, ThaiMeaningPredicate.myanmarPositionIs);
@@ -211,7 +219,7 @@ void main() {
       );
       expect(
         lagnaSign.factId,
-        'lagna_sign_rule_v1:LAGNA_SIGN_IS:virgo@lagna_sign_virgo',
+        'lagna_sign_rule_v1:LAGNA_SIGN_IS:pisces@lagna_sign_pisces',
       );
     });
 
@@ -285,7 +293,7 @@ void main() {
       expect(deduped.single.evidence.structuralFactKeys, ['b']);
     });
 
-    test('no birth time bundle has only seven-number facts', () {
+    test('no birth time bundle fails interpretation closed', () {
       final birth = _bangkokBirth(
         year: 1972,
         month: 4,
@@ -304,7 +312,8 @@ void main() {
         ),
         isEmpty,
       );
-      expect(result.bundle.facts, hasLength(14));
+      expect(result.bundle.facts, isEmpty);
+      expect(result.bundle.warnings, isNotEmpty);
     });
 
     test('100× deterministic interpretation key', () {

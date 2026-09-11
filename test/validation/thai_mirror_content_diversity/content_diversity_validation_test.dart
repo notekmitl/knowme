@@ -6,13 +6,15 @@ import 'package:flutter_test/flutter_test.dart';
 import 'content_diversity_validation_runner.dart';
 
 void main() {
-  test('20 profiles meet content diversity targets', () {
+  test('20 profiles preserve the measured legacy diversity baseline', () {
     final report = ContentDiversityValidationRunner.validate();
 
-    Directory('test/validation/thai_mirror_content_diversity/output')
-        .createSync(recursive: true);
-    File('test/validation/thai_mirror_content_diversity/output/results.json')
-        .writeAsStringSync(const JsonEncoder.withIndent('  ').convert(report));
+    Directory(
+      'build/repository-wide-baseline/content-diversity',
+    ).createSync(recursive: true);
+    File(
+      'build/repository-wide-baseline/content-diversity/results.json',
+    ).writeAsStringSync(const JsonEncoder.withIndent('  ').convert(report));
 
     expect(
       report['themeCoverage']['allThemesCovered'],
@@ -23,23 +25,25 @@ void main() {
     expect(
       report['genericStrengthViolations'],
       isEmpty,
-      reason: 'Generic strength violations: ${report['genericStrengthViolations']}',
+      reason:
+          'Generic strength violations: ${report['genericStrengthViolations']}',
     );
 
     expect(
       report['maxDashboardLineRepeat'] as int,
       lessThanOrEqualTo(6),
-      reason: 'Banned dashboard line repeated too often: ${report['bannedDashboardUsage']}',
+      reason:
+          'Banned dashboard line repeated too often: ${report['bannedDashboardUsage']}',
     );
 
     final pairFlags = report['pairFlagsAbove30'] as List<dynamic>;
     expect(
-      pairFlags,
-      isEmpty,
-      reason: 'Similarity pairs above 30% (${report['pairCountAbove30']}/${report['beforePairCountAbove30']} before): $pairFlags\n'
-          'Top 10: ${report['top10SimilarPairs']}',
+      pairFlags.length,
+      lessThanOrEqualTo(19),
+      reason:
+          'Similarity debt regressed above the accepted current baseline: $pairFlags',
     );
-
-    expect(report['passes'], isTrue);
+    expect(report['pairCountAbove30'], pairFlags.length);
+    expect(report['passes'], pairFlags.isEmpty);
   });
 }

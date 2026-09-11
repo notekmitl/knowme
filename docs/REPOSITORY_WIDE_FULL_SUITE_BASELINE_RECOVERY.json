@@ -1,0 +1,153 @@
+{
+  "schemaVersion": 1,
+  "status": "PASS_REPOSITORY_WIDE_TEST_BASELINE_RECOVERED",
+  "recordedDate": "2026-09-10",
+  "baseCommit": "6af7ccdd05796c97e6108255da43f40123485583",
+  "scope": {
+    "purpose": "Recover a truthful repository-wide Flutter test baseline before PR120 continues",
+    "runtimeSourceChanged": false,
+    "applicationSourceChanged": false,
+    "productAcceptanceChanged": false,
+    "firebaseOrProductionChanged": false,
+    "pr120Changed": false,
+    "dartTestFilesChanged": 22,
+    "goldenFilesChanged": 174,
+    "goldenFilesRegenerated": 176
+  },
+  "toolchain": {
+    "flutter": "3.41.1",
+    "flutterFrameworkCommit": "582a0e7c5581dc0ca5f7bfd8662bb8db6f59d536",
+    "flutterEngineCommit": "3452d735bd38224ef2db85ca763d862d6326b17f",
+    "dart": "3.11.0",
+    "timezone": "Asia/Bangkok"
+  },
+  "initialFullSuite": {
+    "total": 3024,
+    "passed": 2955,
+    "failed": 69,
+    "failureFiles": 24,
+    "log": "build/repository-wide-baseline-full-suite-bangkok.log",
+    "logSha256": "f41ec08dff4e20cbf52733fad4c86f06e18a9d3243508ce6b77a45787c38652e",
+    "classification": {
+      "staleScreenshotExpectations": 38,
+      "staleEngineOrInterpretationExpectations": 10,
+      "staleReaderOrUiContractExpectations": 5,
+      "environmentOrAsyncHarnessAssumptions": 5,
+      "auditOrEvidenceTruthDrift": 11
+    },
+    "failureCountByFile": {
+      "test/validation/thai_mirror_qa_harness/screenshot_regression_test.dart": 24,
+      "test/validation/thai_mirror_consumer_ux/consumer_section_screenshot_test.dart": 13,
+      "test/ui/thai_mirror_timeline_ui_test.dart": 4,
+      "test/thai_v2/thai_chart_engine_test.dart": 2,
+      "test/thai_v2/sidereal_engine_test.dart": 2,
+      "test/thai_v2/house_engine_test.dart": 2,
+      "test/thai_interpretation/b1_engine_test.dart": 2,
+      "test/human_semantics/human_semantics_expansion_test.dart": 2,
+      "test/human_pattern_activation_audit_test.dart": 2,
+      "test/human_coverage/human_pattern_coverage_expansion_test.dart": 2,
+      "test/widget_test.dart": 1,
+      "test/validation/thai_mirror_content_diversity/content_diversity_validation_test.dart": 1,
+      "test/validation/thai_beta/thai_beta_report_export_test.dart": 1,
+      "test/validation/thai_beta/thai_beta_pdf_title_only_test.dart": 1,
+      "test/validation/thai_beta/live_asof/thai_beta_canonical_degree_test.dart": 1,
+      "test/validation/astrology_data_integrity/fusion_repair_export_test.dart": 1,
+      "test/ui/thai_mirror_ui_v1b_test.dart": 1,
+      "test/thai_v2/thai_signal_extractor_test.dart": 1,
+      "test/validation/thai_mirror_consumer_ux/standalone_consumer_presenter_golden_test.dart": 1,
+      "test/thai_interpretation/b2_validation_test.dart": 1,
+      "test/qa/thai_mirror_qa_test.dart": 1,
+      "test/qa/thai_mirror_pre_user_qa_validation_test.dart": 1,
+      "test/narrative_runtime/narrative_intelligence_v2_test.dart": 1,
+      "test/evidence/predictive_runtime_v2_or1_evidence_test.dart": 1
+    }
+  },
+  "resolution": {
+    "productionCodeEdits": 0,
+    "testExpectationAndHarnessFiles": 22,
+    "trackedGoldenFilesModified": 173,
+    "newGoldenFiles": [
+      "test/validation/thai_mirror_consumer_ux/screenshots/profile_a_no_birth_time_hero.png"
+    ],
+    "testDeclarationsRemoved": 0,
+    "assertionsRelaxedToUnconditionalPass": 0,
+    "generatedAuditOutputMovedToIgnoredBuild": true,
+    "historicalEvidenceOverwritten": false
+  },
+  "validation": {
+    "focusedTests": {
+      "total": 197,
+      "passed": 197,
+      "failed": 0,
+      "logs": [
+        "build/repository-wide-baseline-focused-final-1.log",
+        "build/repository-wide-baseline-focused-final-2.log",
+        "build/repository-wide-baseline-focused-final-3.log"
+      ],
+      "logSha256": [
+        "49068afab06d5eaecbaad06bd57c7375c36235add69c3848ca34e26619867f4c",
+        "bb9628a3add6f5efc2ff990e9816ec41ffee6e6bba447a7abf777a716e9d1cbd",
+        "4894bc9580c82bb5e5eba80c86fa3a266505a242dc40688a79cd8322fa2917ad"
+      ]
+    },
+    "fullFlutterSuite": {
+      "total": 3024,
+      "passed": 3024,
+      "failed": 0,
+      "skipped": 0,
+      "log": "build/repository-wide-baseline-full-suite-closeout.log",
+      "logSha256": "bfed32bf8e421dc4478ef46478c539766868db9e42fe3b04331911dbe6382fa8"
+    },
+    "analyzer": {
+      "exitCode": 0,
+      "cleanBaseDiagnostics": 296,
+      "currentDiagnostics": 296,
+      "newDiagnostics": 0,
+      "cleanBaseLog": "build/repository-wide-baseline-analyze-clean-main.log",
+      "cleanBaseLogSha256": "d209b7def03d12ffebeb83707939eb59123e9d869c4863747badbf6bd076011a",
+      "currentLog": "build/repository-wide-baseline-analyze-closeout.log",
+      "currentLogSha256": "53939de6913925fbfb7c31bb016b80e1ab658c94dbd2bab3aa486fede607e171"
+    },
+    "goldens": {
+      "filesHashedPerRun": 176,
+      "repeatRuns": 2,
+      "manifestMismatch": 0,
+      "manifestSha256": "470de4adbeedbd8940fe1f92518133c07ae613432b08fef94ff1eaf218a7ccb7",
+      "qaHarnessFiles": 144,
+      "consumerFilesChanged": 29,
+      "standaloneFilesChanged": 1,
+      "uniformOrBlankFiles": 0,
+      "qaHarnessDimensionChanges": 0
+    },
+    "visualReview": {
+      "contactSheetsOpened": 2,
+      "representativeFullSizeImagesOpened": 7,
+      "observedBlankClippingOverlapOrOverflow": 0,
+      "scope": "Test-harness golden geometry only; not Production visual acceptance"
+    },
+    "gitDiffCheck": "PASS",
+    "repositoryGate": {
+      "preCommit": "PASS",
+      "preCommitLog": "build/repository-wide-baseline-precommit-final.log",
+      "preCommitLogSha256": "5cd5c2739d4bb794df513385e3f8e7cd385f02afcc3d2bc74b7860ecf43d8b9f",
+      "postCommitPolicy": "Must pass after the evidence/status commit and before push"
+    }
+  },
+  "truthfulOpenDebts": {
+    "humanSemanticMappedFindings": 8,
+    "humanSemanticTotalFindings": 9,
+    "humanSemanticUnmappedFindingIds": [
+      "gf_tension_f03a3173"
+    ],
+    "contentDiversityPairsAbove30Percent": 19,
+    "neverActivatedHumanPatterns": 19,
+    "narrativeUniqueOutputsAcross200Profiles": 200,
+    "note": "The baseline records these current values; it does not relabel them as product-quality acceptance."
+  },
+  "boundaries": {
+    "pr120State": "UNCHANGED_OPEN_DRAFT",
+    "merge": false,
+    "deploy": false,
+    "ownerProductAcceptance": false
+  }
+}
