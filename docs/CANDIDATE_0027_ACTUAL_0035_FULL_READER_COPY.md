@@ -1,10 +1,10 @@
 # Candidate 0027 — actual 00:35 full reader copy
 
-**CONTENT-FIRST REVISION 3 — READY FOR OWNER FINAL NATURAL-LANGUAGE REVIEW — NOT IMPLEMENTED — NOT ACCEPTED**
+**CONTENT-FIRST REVISION 3 — IMPLEMENTED IN RUNTIME REVISION 4 FOR OWNER TESTING — NOT ACCEPTED — NOT MERGED — NOT DEPLOYED**
 
 Fixture: ผู้ชาย · 6 มิถุนายน 2525 · 00:35 · เชียงใหม่ · วันทางโหราศาสตร์วันเสาร์ · ลัคนาราศีกุมภ์ 19°19′ · `asOf=2026-09-09 Asia/Bangkok`
 
-Candidate 0027 is a surgical reader-copy proposal based on Candidate 0026. It changes only the overview, work, finance, relationship, support and rolling-12-month prose. It is not an exact golden and not a runtime output. Source-bound paraphrases and Owner-authorized editorial interpretations are classified separately in the claim map; no changed reader sentence is represented as a verbatim `SOURCE_EXACT` quotation.
+Candidate 0027 began as a surgical reader-copy proposal based on Candidate 0026. Runtime Revision 4 now realizes this source copy for Owner testing while retaining the accepted Candidate 0023 selector/evidence authority. It is still not an exact golden or Owner-accepted copy. Source-bound paraphrases and Owner-authorized editorial interpretations are classified separately in the claim map; no changed reader sentence is represented as a verbatim `SOURCE_EXACT` quotation.
 
 <!-- BEGIN CANDIDATE 0027 FULL READER COPY -->
 # คำทำนายดวงชะตา
@@ -124,4 +124,4 @@ Candidate 0027 is a surgical reader-copy proposal based on Candidate 0026. It ch
 นำข้อมูลวันเกิดของคุณมาประมวลผลตามหลักดวงไทย แล้วแปลงเป็นภาษาที่อ่านเข้าใจง่าย โดยไม่แสดงรายละเอียดเชิงเทคนิค
 <!-- END CANDIDATE 0027 FULL READER COPY -->
 
-No SHA-256 or byte-exact golden is defined for Candidate 0027. Owner review must precede any exact-copy freeze or runtime implementation.
+No SHA-256 or byte-exact golden is defined for Candidate 0027. Runtime Revision 4 is implemented at `772f69dbb6f7b0ad81d25a26a4b7303b2c827264` only for Owner testing. Explicit Owner acceptance must precede any exact-copy freeze, Ready for Review, merge or Production deployment.

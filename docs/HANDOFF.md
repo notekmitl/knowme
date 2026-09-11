@@ -1,5 +1,20 @@
 # Handoff — Thai Report Reading Flow and Friendly Voice V1+
 
+## PR120 Reader Voice V3 Revision 4 — Candidate 0027 runtime (2026-09-11)
+
+**CANDIDATE 0027 IMPLEMENTED FOR OWNER TESTING — OPEN + DRAFT — NOT OWNER-ACCEPTED — NOT READY FOR REVIEW — NOT MERGED — NOT DEPLOYED.**
+
+Implementation commit `772f69dbb6f7b0ad81d25a26a4b7303b2c827264` applies the Candidate 0027 reader copy to the accepted Candidate 0023 selector/evidence component set. The 00:35 report now emits the exact Candidate 0027 text between the source-document markers, keeps the overview as two paragraphs, separates `รายงานนี้ดูจากอะไร` from the facts-only `โครงสร้างดวงหลัก`, and preserves the compact infographic copy. No new selector, evidence authority, fixture override, Canon rule or predictive claim was added. Unknown time remains fail-closed.
+
+Final validation on Flutter 3.41.1 / Dart 3.11.0 with `CI=true`, analytics suppressed and `TZ=Asia/Bangkok`: focused Candidate runtime 17/17; export 58/58; PDF title/field integrity 4/4; OR5 authority projection 1/1; Node foundation/signature 9/9; Candidate 0024/0025/0026/0027 validators all pass; full Flutter suite 3,024/3,024. Full analyzer exits 0 under the repository policy with 298 repository warning/info diagnostics; analysis of all six changed Dart/test files reports 0 issues.
+
+The historical OR5R baseline remains byte-identical at SHA-256 `91B71E6689193EE8C5CBD2604F24F139D380B9994A94437F4135FD42019CD998`. Regression tests now pin that hash and compare the stable selector/evidence/ownership projection, so a reader-copy revision cannot rewrite historical evidence or weaken the underlying authority contract.
+
+A fresh Owner Review PDF for the actual 00:35 fixture and `asOf=2026-09-09 Asia/Bangkok` was generated from the implementation commit: `KnowMe_Candidate_0027_Runtime_Revision_4_Owner_Review_0035.pdf`, 5 A4 pages, 331,703 bytes, SHA-256 `EA15C74C87B4825B25A48C423E9ED28636CCEE15B90D51B407AC1A1931712362`. All five rendered pages were inspected; missing text, broken Thai glyphs, clipping, overlap and overflow are 0.
+
+Candidate 0027 still has no Owner-accepted exact golden. PR #120 must remain Draft until the Owner tests the PDF and explicitly accepts or rejects the copy. This revision does not authorize Ready for Review, merge, Firebase deployment, Production data access or any Production change. `product-acceptance/` is unchanged.
+
+
 ## PR120 Reader Voice V3 Revision 3 — Candidate 0027 (2026-09-09)
 
 **PR120 R3 CANDIDATE 0026 OWNER-REJECTED AS FINAL COPY — CANDIDATE 0027 READY FOR OWNER FINAL NATURAL-LANGUAGE REVIEW — DRAFT — NOT IMPLEMENTED — NOT MERGED — NOT DEPLOYED.**
