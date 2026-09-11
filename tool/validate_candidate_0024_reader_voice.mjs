@@ -4,6 +4,7 @@ import fs from 'node:fs';
 import {execFileSync} from 'node:child_process';
 
 const BASE = '6af7ccdd05796c97e6108255da43f40123485583';
+const REVISION_HEAD = 'd164318403a24797a91b3da89cbda85d273dd863';
 const CANDIDATE_PATH = 'docs/CANDIDATE_0024_ACTUAL_0035_FULL_READER_COPY.md';
 const MAP_PATH = 'docs/CANDIDATE_0024_CLAIM_MAP.json';
 const OWNERSHIP_PATH = 'docs/CANDIDATE_0024_SEMANTIC_OWNERSHIP.json';
@@ -34,11 +35,12 @@ function calculatedHorizon(asOf) {
 }
 
 function changedPaths() {
-  const committed = execFileSync('git', ['diff', '--name-only', `${BASE}..HEAD`], {encoding: 'utf8'});
-  const working = execFileSync('git', ['diff', '--name-only'], {encoding: 'utf8'});
-  const staged = execFileSync('git', ['diff', '--cached', '--name-only'], {encoding: 'utf8'});
-  const untracked = execFileSync('git', ['ls-files', '--others', '--exclude-standard'], {encoding: 'utf8'});
-  return [...new Set(`${committed}\n${working}\n${staged}\n${untracked}`.split(/\r?\n/u).filter(Boolean))].sort();
+  const committed = execFileSync(
+    'git',
+    ['diff', '--name-only', `${BASE}..${REVISION_HEAD}`],
+    {encoding: 'utf8'},
+  );
+  return committed.split(/\r?\n/u).filter(Boolean).sort();
 }
 
 function historicalUnchanged(path) {

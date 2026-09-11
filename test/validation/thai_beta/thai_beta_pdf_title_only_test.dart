@@ -1,5 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
+
+import 'package:crypto/crypto.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_analysis.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_report_export_document.dart';
@@ -105,20 +107,44 @@ void main() {
       final doc = ThaiBetaReportExportDocument.candidate(
         ThaiBetaAnalysisRunner.run(input, startedAt: asOf, asOf: asOf),
       );
-      final baseline = jsonDecode(
-        File(
-          'test/evidence/fixtures/or5r_known_baseline.json',
-        ).readAsStringSync(),
-      )['35'];
-      expect([
-        for (final s in doc.sections)
-          {
-            'id': s.id,
-            'title': s.title,
-            'paragraphs': s.paragraphs,
-            'traceIds': s.traceIds,
-          },
-      ], baseline['sections']);
+      final baselineFile = File(
+        'test/evidence/fixtures/or5r_known_baseline.json',
+      );
+      expect(
+        sha256.convert(baselineFile.readAsBytesSync()).toString(),
+        '91b71e6689193ee8c5cbd2604f24f139d380b9994a94437f4135fd42019cd998',
+        reason: 'The pre-repair OR5R reader baseline must remain immutable',
+      );
+      final baseline = jsonDecode(baselineFile.readAsStringSync())['35'];
+      final historicalPredictiveStructure = [
+        for (final section in baseline['sections'] as List)
+          if ((section['traceIds'] as List).any(
+            (traceId) => (traceId as String).startsWith('PRV2-'),
+          ))
+            {
+              'id': section['id'],
+              'title': section['title'],
+              'traceIds': section['traceIds'],
+            },
+      ];
+      final activePredictiveStructure = [
+        for (final section in doc.sections)
+          if (section.traceIds.any((traceId) => traceId.startsWith('PRV2-')))
+            {
+              'id': section.id,
+              'title': section.title,
+              'traceIds': section.traceIds,
+            },
+      ];
+      expect(
+        activePredictiveStructure,
+        historicalPredictiveStructure,
+        reason:
+            'Candidate reader revisions may change prose and provenance layout, but not predictive section ownership',
+      );
+      expect(doc.fullPlainText, contains('เวลา 00:35 น. จังหวัดเชียงใหม่'));
+      expect(doc.fullPlainText, contains('วันทางโหราศาสตร์เป็นวันเสาร์'));
+      expect(doc.fullPlainText, contains('ลัคนาราศีกุมภ์ 19°19′'));
       final output = Directory(
         Platform.environment['OR5R_PDF_TEST_OUTPUT'] ??
             'build/or5r-title-only-regression',

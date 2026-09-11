@@ -460,6 +460,9 @@ class ThaiPredictiveRuntimeV2Plan {
       : const {};
   String get generationPath =>
       'predictive-runtime-v2:signature+392-selector+typed-material+editorial-contract-v2';
+
+  /// The underlying source/evidence component set first accepted with
+  /// Candidate 0023 remains the authority boundary for this signature.
   bool get usesCandidate0023Components {
     final emitted = emittedClaims;
     return knownTime &&
@@ -470,8 +473,10 @@ class ThaiPredictiveRuntimeV2Plan {
                   decision.rule.kind == RuntimePredictiveKind.prediction,
             )
             .every(
-              (decision) =>
-                  decision.rule.realizerId == 'candidate-0023-component-v1',
+              (decision) => const {
+                'candidate-0023-component-v1',
+                'candidate-0027-reader-copy-v1',
+              }.contains(decision.rule.realizerId),
             ) &&
         emittedSemanticOwners.containsAll(const {
           'overview',
@@ -489,6 +494,21 @@ class ThaiPredictiveRuntimeV2Plan {
           'disclosure',
         });
   }
+
+  /// Candidate 0027 changes only the reader realization for the accepted
+  /// Candidate 0023 component/evidence set. It does not introduce a
+  /// fixture-specific selector or a new authority source.
+  bool get usesCandidate0027ReaderCopy =>
+      usesCandidate0023Components &&
+      emittedClaims
+          .where(
+            (decision) =>
+                decision.rule.kind == RuntimePredictiveKind.prediction,
+          )
+          .every(
+            (decision) =>
+                decision.rule.realizerId == 'candidate-0027-reader-copy-v1',
+          );
 
   static String contextIdForMetadata(int remainder, int thaiWeekdayNumber) {
     if (remainder < 0 || remainder > 6) return 'mahabhut2537.unresolved';
@@ -538,6 +558,7 @@ class ThaiPredictiveRuntimeV2Plan {
     'generationPath': generationPath,
     'predictiveSignature': predictiveSignature,
     'usesCandidate0023Components': usesCandidate0023Components,
+    'usesCandidate0027ReaderCopy': usesCandidate0027ReaderCopy,
     'monthlyTimelineAvailable': monthlyTimelineAvailable,
     'emittedPredictions': emittedPredictions,
     'emittedClaimCount': emittedClaims.length,
@@ -558,9 +579,9 @@ class ThaiPredictiveRuntimeV2Plan {
   };
 }
 
-/// Accepted non-predictive sections that accompany the Candidate 0023
-/// predictive component set. These are deliberately separate semantic
-/// components rather than a static full-report shortcut.
+/// Non-predictive sections shared by Candidate 0023 and Candidate 0027.
+/// These remain separate semantic components rather than a static
+/// full-report shortcut.
 abstract final class RuntimeCandidate0023SupportingCopy {
   static const psychologySeparationTitle = 'พื้นดวงและมุมมองด้านจิตวิทยา';
   static const psychologySeparationText =
@@ -734,6 +755,7 @@ abstract final class RuntimePredictiveClaimBindingValidator {
         }
         const allowedRealizers = {
           'candidate-0023-component-v1',
+          'candidate-0027-reader-copy-v1',
           'generalized-editorial-v2',
           'life-period-editorial-v2',
           'support-editorial-v2',
@@ -869,6 +891,7 @@ List<RuntimePredictiveRule> _buildCandidate0023ComponentRules({
     String materialFingerprint = '',
     String evidenceKey = '',
     String directionBand = '',
+    String infographicText = '',
     bool rolling = false,
   }) {
     final selectorRefs = evidence
@@ -917,7 +940,8 @@ List<RuntimePredictiveRule> _buildCandidate0023ComponentRules({
       evidenceKey: evidenceKey.isEmpty ? row.selectorRef : evidenceKey,
       directionBand: directionBand.isEmpty ? row.periodStatus : directionBand,
       sourceComponents: evidence,
-      realizerId: 'candidate-0023-component-v1',
+      realizerId: 'candidate-0027-reader-copy-v1',
+      infographicTextTemplate: infographicText,
     );
   }
 
@@ -927,7 +951,7 @@ List<RuntimePredictiveRule> _buildCandidate0023ComponentRules({
       owner: 'overview',
       section: 'ภาพรวมเส้นทางชีวิต',
       text:
-          'วัย 0–10 ปีเป็นช่วงที่ชีวิตติดขัดจากปัญหาในครอบครัว หลังอายุ 11 ปี ชีวิตเปลี่ยนเป็นขาขึ้นและดีขึ้นต่อเนื่องมาถึงปัจจุบัน',
+          'วัยเด็กของคุณเป็นช่วงที่ต้องปรับตัวตามข้อจำกัดและความพร้อมของครอบครัว เมื่อพ้นช่วงนั้น ชีวิตค่อย ๆ เปิดทางผ่านการเรียน การสร้างเส้นทางงาน และความรับผิดชอบที่เพิ่มขึ้น ภาพรวมจึงค่อย ๆ เปลี่ยนจากช่วงที่ต้องอยู่ตามเงื่อนไขของครอบครัว ไปสู่ช่วงที่คุณมีบทบาทและต้องตัดสินใจเรื่องสำคัญด้วยตัวเองมากขึ้น\n\nตั้งแต่อายุ 42 ปี ชีวิตยังเดินไปในทางที่ดีขึ้น ปัจจุบันหลายด้านขยับไปพร้อมกัน ทั้งงาน การเงิน ความสัมพันธ์ และแรงสนับสนุนจากคนรอบตัว จึงเป็นช่วงที่เรื่องต่าง ๆ เดินหน้าได้คล่องกว่าวัยก่อน',
       row: currentPeriod,
       domain: 'life_path',
       horizon: 'current',
@@ -948,7 +972,7 @@ List<RuntimePredictiveRule> _buildCandidate0023ComponentRules({
       owner: 'past-0-10',
       section: 'อายุ 0–10 ปี',
       text:
-          'ช่วงอายุ 0–10 ปี พ่อแม่มีปัญหาสุขภาพ งานไม่ราบรื่น และเงินติดขัด จึงดูแลคุณได้ไม่เต็มที่',
+          'ช่วงอายุ 0–10 ปี ผู้ปกครองของคุณต้องรับมือปัญหาหลายด้าน ทั้งสุขภาพ การงาน และการเงิน ทำให้การดูแลคุณอาจทำได้ไม่เต็มที่ ชีวิตในวัยนั้นจึงขึ้นอยู่กับเงื่อนไขและความพร้อมของครอบครัวเป็นหลัก',
       row: childhood,
       domain: 'family_constraints',
       horizon: 'past-life-period',
@@ -963,7 +987,7 @@ List<RuntimePredictiveRule> _buildCandidate0023ComponentRules({
       owner: 'past-11-29',
       section: 'อายุ 11–29 ปี',
       text:
-          'ช่วงอายุ 11–29 ปี ชีวิตดีขึ้นจากวัยเด็ก การเรียนให้ผลดี และคุณเริ่มสร้างเส้นทางงานของตัวเอง',
+          'เมื่อพ้นวัยเด็ก ช่วงอายุ 11–29 ปีเป็นช่วงที่ชีวิตค่อย ๆ ดีขึ้นและเปิดทางมากกว่าเดิม การเรียนให้ผลดี ขณะเดียวกันคุณก็เริ่มสร้างเส้นทางงานของตัวเอง',
       row: learning,
       domain: 'learning_and_career',
       horizon: 'past-life-period',
@@ -979,7 +1003,7 @@ List<RuntimePredictiveRule> _buildCandidate0023ComponentRules({
       owner: 'past-30-41',
       section: 'อายุ 30–41 ปี',
       text:
-          'ช่วงอายุ 30–41 ปี งานและความรับผิดชอบเพิ่มขึ้น คุณต้องตัดสินใจเรื่องสำคัญด้วยตัวเองมากกว่าเดิม',
+          'ต่อมาในช่วงอายุ 30–41 ปี งานและความรับผิดชอบมีมากขึ้นกว่าช่วงก่อน เรื่องสำคัญหลายอย่างในวัยนี้ต้องอาศัยการตัดสินใจของคุณเองมากขึ้น',
       row: responsibility,
       domain: 'career_and_authority',
       horizon: 'past-life-period',
@@ -994,7 +1018,8 @@ List<RuntimePredictiveRule> _buildCandidate0023ComponentRules({
       suffix: 'CURRENT-01',
       owner: 'current',
       section: 'คำทำนายปัจจุบัน — อายุ {{currentAge}} ปี',
-      text: 'ตอนนี้การลงมือทำ การพูดคุย และการตัดสินใจคล่องกว่าช่วงก่อน',
+      text:
+          'เมื่ออายุ {{currentAge}} ปี คุณยังอยู่ในช่วงที่ภาพรวมชีวิตเดินไปในทางที่ดีขึ้น เรื่องที่ต้องลงมือเอง การพูดคุยกับคนอื่น และการตัดสินใจสำคัญมีอุปสรรคน้อยกว่าวัยก่อน จึงจัดการเรื่องที่อยู่ตรงหน้าได้ต่อเนื่องมากขึ้น',
       row: currentPeriod,
       domain: 'life_path',
       horizon: 'current',
@@ -1004,7 +1029,8 @@ List<RuntimePredictiveRule> _buildCandidate0023ComponentRules({
       suffix: 'WORK-01',
       owner: 'work',
       section: 'การงาน',
-      text: 'งานมีเข้ามาต่อเนื่องและคุณยังรับผิดชอบงานหลักได้เต็มที่',
+      text:
+          'งานยังมีเข้ามาอย่างต่อเนื่อง และคุณยังรับผิดชอบงานหลักที่อยู่ในมือได้เต็มที่ ช่วงนี้จึงเป็นจังหวะของการพางานที่กำลังทำอยู่ให้เดินหน้าต่อ',
       row: currentPeriod,
       domain: 'career',
       horizon: 'current',
@@ -1016,12 +1042,15 @@ List<RuntimePredictiveRule> _buildCandidate0023ComponentRules({
       materialFingerprint: currentCareer,
       evidenceKey: 'prediction.career.current.strong',
       directionBand: 'strong',
+      infographicText:
+          'งานมีเข้ามาต่อเนื่องและคุณยังรับผิดชอบงานหลักได้เต็มที่',
     ),
     prediction(
       suffix: 'FINANCE-01',
       owner: 'finance',
       section: 'การเงิน',
-      text: 'คุณมีเงินใช้และมีโชคลาภ เรื่องเงินในช่วงนี้คล่องตัวขึ้น',
+      text:
+          'การเงินในช่วงนี้คล่องตัวขึ้น คุณมีเงินใช้และมีจังหวะโชคลาภเข้ามา จึงจัดการรายจ่ายที่จำเป็นได้คล่องขึ้นกว่าช่วงก่อน',
       row: currentPeriod,
       domain: 'finance',
       horizon: 'current',
@@ -1034,12 +1063,15 @@ List<RuntimePredictiveRule> _buildCandidate0023ComponentRules({
       materialFingerprint: currentFinance,
       evidenceKey: 'prediction.finance.current.strong',
       directionBand: 'strong',
+      infographicText:
+          'คุณมีเงินใช้และมีโชคลาภ เรื่องเงินในช่วงนี้คล่องตัวขึ้น',
     ),
     prediction(
       suffix: 'RELATIONSHIP-01',
       owner: 'relationship',
       section: 'ความรักและความสัมพันธ์',
-      text: 'ความสัมพันธ์ที่สำคัญจะแน่นแฟ้นขึ้น',
+      text:
+          'ความสัมพันธ์ที่สำคัญของคุณจะแน่นแฟ้นขึ้น ความไว้ใจและความใกล้ชิดกับคนสำคัญจึงชัดขึ้นตามไปด้วย',
       row: currentPeriod,
       domain: 'relationship',
       horizon: 'current',
@@ -1052,13 +1084,14 @@ List<RuntimePredictiveRule> _buildCandidate0023ComponentRules({
       materialFingerprint: currentRelationship,
       evidenceKey: 'prediction.relationship.current.strong',
       directionBand: 'strong',
+      infographicText: 'ความสัมพันธ์ที่สำคัญจะแน่นแฟ้นขึ้น',
     ),
     prediction(
       suffix: 'HEALTH-01',
       owner: 'health',
       section: 'สุขภาพ',
       text:
-          'กำลังโดยรวมยังดี แต่ช่วงที่พักไม่พอ ร่างกายจะฟื้นช้าลงและทำกิจกรรมต่อเนื่องได้ลดลง',
+          'ภาพรวมร่างกายยังมีกำลังสำหรับกิจกรรมตามปกติ อย่างไรก็ตาม เมื่อพักไม่พอ ร่างกายจะฟื้นช้าลงและทำกิจกรรมต่อเนื่องได้น้อยลง',
       row: currentPeriod,
       domain: 'health',
       horizon: 'current',
@@ -1070,12 +1103,15 @@ List<RuntimePredictiveRule> _buildCandidate0023ComponentRules({
       materialFingerprint: currentHealth,
       evidenceKey: 'prediction.health.current.strong',
       directionBand: 'strong',
+      infographicText:
+          'กำลังโดยรวมยังดี แต่ช่วงที่พักไม่พอ ร่างกายจะฟื้นช้าลงและทำกิจกรรมต่อเนื่องได้ลดลง',
     ),
     prediction(
       suffix: 'SUPPORT-01',
       owner: 'support',
       section: 'โชคลาภและแรงสนับสนุน',
-      text: 'ครู ผู้มีประสบการณ์ เพื่อน และคนในเครือข่ายจะเข้ามาช่วย',
+      text:
+          'ช่วงนี้คุณจะได้รับแรงช่วยเหลือจากครู ผู้มีประสบการณ์ เพื่อน และคนในเครือข่าย ความช่วยเหลืออาจมาในรูปของคำแนะนำ การชี้ทาง หรือการช่วยประคองเรื่องที่คุณกำลังรับมืออยู่',
       row: currentPeriod,
       domain: 'support',
       horizon: 'current',
@@ -1085,13 +1121,15 @@ List<RuntimePredictiveRule> _buildCandidate0023ComponentRules({
         'source.T0003-SRC-42-62-WORK',
         'source.T0003-SRC-42-62-FINANCE',
       ],
+      infographicText:
+          'ครู ผู้มีประสบการณ์ เพื่อน และคนในเครือข่ายจะเข้ามาช่วย',
     ),
     prediction(
       suffix: 'HORIZON-01',
       owner: 'rolling12',
       section: 'คำทำนาย 12 เดือนข้างหน้า',
       text:
-          'ระหว่างวันที่ {{horizonStart}} ถึง {{horizonEnd}} ขอบเขตงานจะกว้างขึ้น และรายรับจะเพิ่มขึ้น',
+          'ระหว่างวันที่ {{horizonStart}} ถึง {{horizonEnd}} ขอบเขตงานของคุณจะกว้างขึ้น คุณจึงต้องดูแลเรื่องมากกว่าเดิม ในช่วงเดียวกัน รายรับมีแนวโน้มเพิ่มขึ้นด้วย จึงเป็นรอบที่ทั้งบทบาทในงานและรายรับขยับขึ้นพร้อมกัน',
       row: currentPeriod,
       domain: 'career_and_finance',
       horizon: 'next12Months',
@@ -1105,6 +1143,8 @@ List<RuntimePredictiveRule> _buildCandidate0023ComponentRules({
       materialFingerprint: 'aggregate:$horizonCareer||$horizonFinance',
       evidenceKey: 'prediction.career.next12Months.strong',
       directionBand: 'strong',
+      infographicText:
+          'ระหว่างวันที่ {{horizonStart}} ถึง {{horizonEnd}} ขอบเขตงานจะกว้างขึ้น และรายรับจะเพิ่มขึ้น',
       rolling: true,
     ),
     RuntimePredictiveRule(
@@ -1113,6 +1153,8 @@ List<RuntimePredictiveRule> _buildCandidate0023ComponentRules({
       section: 'คำแนะนำ',
       kind: RuntimePredictiveKind.advice,
       textTemplate:
+          'ถ้ามีงานเข้ามาเพิ่ม ควรกำหนดขอบเขตให้ชัดก่อนตอบตกลง และดูยอดเงินคงเหลือหลังรายจ่ายจำเป็นก่อนขยายแผน เรื่องสุขภาพ ควรกันเวลาพักไว้ล่วงหน้าเพื่อให้ร่างกายมีเวลาฟื้นแรง',
+      infographicTextTemplate:
           'กำหนดขอบเขตงานที่รับเพิ่ม ตรวจเงินคงเหลือหลังรายจ่ายจำเป็นก่อนขยายแผน และกันเวลาพักไว้ให้ร่างกายฟื้นแรง',
       contextId: contextId,
       periodBinding: currentPeriod.ageBinding,

@@ -531,8 +531,8 @@ class ThaiBetaReportExportDocument {
               currentAge: plan.currentAge,
             );
     }
-    if (plan.usesCandidate0023Components) {
-      return _applyCandidate0023ReaderSurface(baseline, plan);
+    if (plan.usesCandidate0027ReaderCopy) {
+      return _applyCandidate0027ReaderSurface(baseline, plan);
     }
     final part2Index = baseline.sections.indexWhere(
       (section) => section.title.startsWith('ส่วนที่ 2 ·'),
@@ -638,7 +638,7 @@ class ThaiBetaReportExportDocument {
     );
   }
 
-  static ThaiBetaReportExportDocument _applyCandidate0023ReaderSurface(
+  static ThaiBetaReportExportDocument _applyCandidate0027ReaderSurface(
     ThaiBetaReportExportDocument baseline,
     ThaiPredictiveRuntimeV2Plan plan,
   ) {
@@ -647,7 +647,14 @@ class ThaiBetaReportExportDocument {
     ) {
       final isPast = section.id.startsWith('past-');
       final isDisclaimer = section.id == 'advice' || section.id == 'disclosure';
-      final paragraphs = section.claims.map((claim) => claim.text).toList();
+      final paragraphs = section.claims
+          .expand(
+            (claim) => claim.text
+                .split(RegExp(r'\n\s*\n'))
+                .map((paragraph) => paragraph.trim())
+                .where((paragraph) => paragraph.isNotEmpty),
+          )
+          .toList();
       if (section.id == 'disclosure') {
         paragraphs.add(RuntimeCandidate0023SupportingCopy.healthDisclaimer);
       }
@@ -676,10 +683,10 @@ class ThaiBetaReportExportDocument {
       id: 'report-body-predictive-v2-$id',
       title: title,
       paragraphs: [text],
-      fieldSource: 'candidate-0023-supporting-component',
-      visibilityRule: 'candidate-0023-component-set-only',
+      fieldSource: 'candidate-0027-supporting-component',
+      visibilityRule: 'candidate-0027-reader-copy-only',
       knownUnknownRule: 'known-only; omit-fail-closed',
-      traceIds: ['candidate-0023-supporting:$id'],
+      traceIds: ['candidate-0027-supporting:$id'],
     );
 
     final methodology = baseline.sections.singleWhere(
@@ -688,6 +695,26 @@ class ThaiBetaReportExportDocument {
     final provenance = baseline.sections.singleWhere(
       (section) => section.title == 'ที่มาของผลวิเคราะห์',
     );
+    final chartHeadingIndex = methodology.paragraphs.indexOf(
+      'โครงสร้างดวงหลัก',
+    );
+    final methodologyParagraphs = chartHeadingIndex < 0
+        ? methodology.paragraphs
+        : methodology.paragraphs
+              .take(chartHeadingIndex)
+              .toList(growable: false);
+    final chartParagraphs = chartHeadingIndex < 0
+        ? const <String>[]
+        : methodology.paragraphs
+              .skip(chartHeadingIndex + 1)
+              .where(
+                (paragraph) => paragraph != 'ความหมายและข้อจำกัดของผลลัพธ์',
+              )
+              .map(
+                (paragraph) => paragraph.split(RegExp(r'\s+—\s+')).first.trim(),
+              )
+              .where((paragraph) => paragraph.isNotEmpty)
+              .toList(growable: false);
     final sections = <ThaiBetaReportExportSection>[
       ThaiBetaReportExportSection(
         id: 'report-body-predictive-v2-report-header',
@@ -715,13 +742,23 @@ class ThaiBetaReportExportDocument {
       ),
       ThaiBetaReportExportSection(
         title: methodology.title,
-        paragraphs: methodology.paragraphs,
+        paragraphs: methodologyParagraphs,
         id: 'report-body-predictive-v2-provenance-methodology',
         fieldSource: methodology.fieldSource,
         visibilityRule: methodology.visibilityRule,
         knownUnknownRule: methodology.knownUnknownRule,
         traceIds: methodology.traceIds,
       ),
+      if (chartParagraphs.isNotEmpty)
+        ThaiBetaReportExportSection(
+          title: 'โครงสร้างดวงหลัก',
+          paragraphs: chartParagraphs,
+          id: 'report-body-predictive-v2-provenance-chart',
+          fieldSource: methodology.fieldSource,
+          visibilityRule: methodology.visibilityRule,
+          knownUnknownRule: methodology.knownUnknownRule,
+          traceIds: methodology.traceIds,
+        ),
       ThaiBetaReportExportSection(
         title: provenance.title,
         paragraphs: provenance.paragraphs.take(2).toList(growable: false),

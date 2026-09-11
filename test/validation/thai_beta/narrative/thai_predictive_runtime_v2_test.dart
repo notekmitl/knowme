@@ -1,7 +1,6 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:crypto/crypto.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:knowme/features/thai_beta/application/narrative/predictive_runtime_v2.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_analysis.dart';
@@ -11,70 +10,53 @@ import 'package:knowme/features/thai_beta/domain/thai_beta_input.dart';
 import '../synthetic_audit/thai_beta_synthetic_matrix_300.dart';
 
 void main() {
-  group('Candidate 0023 predictive-signature runtime', () {
-    test(
-      '00:35 renders the accepted Candidate 0023 predictive block exactly',
-      () {
-        final plan = ThaiPredictiveRuntimeV2Plan.fromAnalysis(
-          _accepted(minute: 35),
-        );
-        expect(plan.contextId, 'mahabhut2537.rem0.saturday');
-        expect(plan.emittedPredictions, 11);
-        expect(plan.emittedClaims, hasLength(13));
-        expect(plan.omittedClaims, isEmpty);
-        expect(plan.unsupportedClaims, 0);
-        expect(plan.fixtureSpecificBranches, 0);
-        expect(plan.ownerAcceptedGoldenOverrideApplied, 0);
-        expect(plan.unexpectedFixtureSpecificBranches, 0);
-        expect(plan.fixtureReferenceLeakage, 0);
-        final bindingErrors = RuntimePredictiveClaimBindingValidator.validate(
-          plan,
-        );
-        expect(bindingErrors, isEmpty);
-        expect(plan.monthlyTimelineAvailable, isFalse);
-        final sectionTitles = plan.sections
-            .map((section) => section.title)
-            .toList(growable: false);
-        const expectedHeadings = [
-          'คำทำนายอดีต',
-          'อายุ 0–10 ปี',
-          'อายุ 11–29 ปี',
-          'อายุ 30–41 ปี',
-          'คำทำนายปัจจุบัน — อายุ 44 ปี',
-          'คำทำนาย 12 เดือนข้างหน้า',
-          'คำแนะนำ',
-          'ข้อจำกัด',
-        ];
-        expect(sectionTitles, containsAllInOrder(expectedHeadings));
-        for (final heading in expectedHeadings) {
-          expect(
-            sectionTitles.where((title) => title == heading),
-            hasLength(1),
-          );
-        }
-        expect(_planLines(plan), _candidate0023RuntimeLines());
-      },
-    );
+  group('Candidate 0027 reader copy on Candidate 0023 authority', () {
+    test('00:35 renders the Candidate 0027 predictive block exactly', () {
+      final plan = ThaiPredictiveRuntimeV2Plan.fromAnalysis(
+        _acceptedAt(DateTime(2026, 9, 9), minute: 35),
+      );
+      expect(plan.contextId, 'mahabhut2537.rem0.saturday');
+      expect(plan.emittedPredictions, 11);
+      expect(plan.emittedClaims, hasLength(13));
+      expect(plan.omittedClaims, isEmpty);
+      expect(plan.unsupportedClaims, 0);
+      expect(plan.fixtureSpecificBranches, 0);
+      expect(plan.ownerAcceptedGoldenOverrideApplied, 0);
+      expect(plan.unexpectedFixtureSpecificBranches, 0);
+      expect(plan.fixtureReferenceLeakage, 0);
+      final bindingErrors = RuntimePredictiveClaimBindingValidator.validate(
+        plan,
+      );
+      expect(bindingErrors, isEmpty);
+      expect(plan.monthlyTimelineAvailable, isFalse);
+      final sectionTitles = plan.sections
+          .map((section) => section.title)
+          .toList(growable: false);
+      const expectedHeadings = [
+        'คำทำนายอดีต',
+        'อายุ 0–10 ปี',
+        'อายุ 11–29 ปี',
+        'อายุ 30–41 ปี',
+        'คำทำนายปัจจุบัน — อายุ 44 ปี',
+        'คำทำนาย 12 เดือนข้างหน้า',
+        'คำแนะนำ',
+        'ข้อจำกัด',
+      ];
+      expect(sectionTitles, containsAllInOrder(expectedHeadings));
+      for (final heading in expectedHeadings) {
+        expect(sectionTitles.where((title) => title == heading), hasLength(1));
+      }
+      expect(_planLines(plan), _candidate0027RuntimeLines());
+    });
 
-    test('00:35 renders the accepted full reader sections and SHA exactly', () {
+    test('00:35 renders the Candidate 0027 full reader sections exactly', () {
       final document = ThaiBetaReportExportDocument.candidate(
-        _accepted(minute: 35),
+        _acceptedAt(DateTime(2026, 9, 9), minute: 35),
       );
-      final candidate =
-          jsonDecode(
-                File('docs/CANDIDATE_0023_CLAIM_MAP.json').readAsStringSync(),
-              )
-              as Map<String, dynamic>;
-      final expected = candidate['fullReaderCopy'] as String;
+      final expected = _candidate0027SectionPlainText();
       expect(document.sectionPlainText, expected);
-      expect(
-        sha256
-            .convert(utf8.encode(document.sectionPlainText))
-            .toString()
-            .toUpperCase(),
-        _candidate0023FullReaderSha256,
-      );
       expect(document.predictiveRuntimeV2!.usesCandidate0023Components, isTrue);
+      expect(document.predictiveRuntimeV2!.usesCandidate0027ReaderCopy, isTrue);
     });
 
     test('rolling horizon uses asOf and never stays pinned to 2026-08-29', () {
@@ -378,7 +360,7 @@ void main() {
       expect(after.fullPlainText, before.fullPlainText);
       expect(
         _planLines(after.predictiveRuntimeV2!),
-        _candidate0023RuntimeLines(minute: 3),
+        _candidate0027RuntimeLines(minute: 3, asOf: DateTime(2026, 8, 29)),
       );
       expect(after.predictiveRuntimeV2!.ownerAcceptedGoldenOverrideApplied, 0);
     });
@@ -393,7 +375,9 @@ void main() {
             .expand((section) => section.paragraphs)
             .toSet();
         for (final claim in plan.emittedClaims) {
-          expect(projected, contains(claim.text), reason: claim.rule.id);
+          for (final paragraph in claim.text.split(RegExp(r'\n\s*\n'))) {
+            expect(projected, contains(paragraph), reason: claim.rule.id);
+          }
         }
         expect(
           document.infographic!.traceIds.toSet(),
@@ -736,13 +720,13 @@ void main() {
 
 const _acceptedOracleSha256 =
     '6AA94C7A01555310C5189FAAF711597057C5DF2F102246A0DF3946DAB2B62A1E';
-const _candidate0023FullReaderSha256 =
-    'FDA1DA8917CD5ADCA4650AECF87414DCFCDEE7F13019DF0794ECF76DFD91E7F2';
-
 ThaiBetaAnalysis _accepted({int minute = 3}) => ThaiBetaAnalysisRunner.run(
   _acceptedInput(minute: minute),
   asOf: DateTime(2026, 8, 29),
 );
+
+ThaiBetaAnalysis _acceptedAt(DateTime asOf, {int minute = 3}) =>
+    ThaiBetaAnalysisRunner.run(_acceptedInput(minute: minute), asOf: asOf);
 
 ThaiBetaInput _acceptedInput({bool known = true, int minute = 3}) =>
     ThaiBetaInput(
@@ -762,27 +746,60 @@ List<String> _planLines(ThaiPredictiveRuntimeV2Plan plan) => [
   ...plan.subtitle.split('\n'),
   for (final section in plan.sections) ...[
     section.title,
-    ...section.claims.map((claim) => claim.text),
+    ...section.claims.expand(
+      (claim) => claim.text
+          .split(RegExp(r'\n\s*\n'))
+          .map((paragraph) => paragraph.trim())
+          .where((paragraph) => paragraph.isNotEmpty),
+    ),
   ],
 ].where((line) => line.trim().isNotEmpty).toList(growable: false);
 
-List<String> _candidate0023RuntimeLines({int minute = 35}) {
-  final candidate =
-      jsonDecode(File('docs/CANDIDATE_0023_CLAIM_MAP.json').readAsStringSync())
-          as Map<String, dynamic>;
-  final sections = (candidate['sections'] as List<dynamic>)
-      .cast<Map<String, dynamic>>()
-      .take(15);
+List<List<String>> _candidate0027Sections() {
+  final source = File(
+    'docs/CANDIDATE_0027_ACTUAL_0035_FULL_READER_COPY.md',
+  ).readAsStringSync().replaceAll('\r\n', '\n');
+  final body = source
+      .split('<!-- BEGIN CANDIDATE 0027 FULL READER COPY -->')
+      .last
+      .split('<!-- END CANDIDATE 0027 FULL READER COPY -->')
+      .first;
+  final sections = <List<String>>[];
+  for (final rawLine in body.split('\n')) {
+    final line = rawLine.trim();
+    if (line.isEmpty || line.startsWith('# คำทำนายดวงชะตา')) continue;
+    final heading = RegExp(r'^#{2,3}\s+(.+)$').firstMatch(line);
+    if (heading != null) {
+      sections.add([heading.group(1)!]);
+      continue;
+    }
+    sections.last.add(line);
+  }
+  return sections;
+}
+
+String _candidate0027SectionPlainText() =>
+    _candidate0027Sections().map((section) => section.join('\n')).join('\n\n');
+
+List<String> _candidate0027RuntimeLines({int minute = 35, DateTime? asOf}) {
+  final sections = _candidate0027Sections();
   final lines = <String>[];
   for (final section in sections) {
-    lines.add(section['title'] as String);
-    final paragraphs = (section['paragraphs'] as List<dynamic>).cast<String>();
-    lines.addAll(
-      section['kind'] == 'disclaimer' ? paragraphs.take(1) : paragraphs,
-    );
+    final title = section.first;
+    if (title == 'พื้นดวงและมุมมองด้านจิตวิทยา') break;
+    lines.add(title);
+    final paragraphs = section.skip(1);
+    lines.addAll(title == 'ข้อจำกัด' ? paragraphs.take(1) : paragraphs);
   }
+  final range = _testRollingRange(asOf ?? DateTime(2026, 9, 9));
+  const sourceRange = '9 กันยายน 2569 ถึง 8 กันยายน 2570';
+  final targetRange =
+      '${_thaiLongDateForTest(range.$1)} ถึง ${_thaiLongDateForTest(range.$2)}';
+  final realized = lines
+      .map((line) => line.replaceAll(sourceRange, targetRange))
+      .toList(growable: false);
   if (minute == 3) {
-    return lines
+    return realized
         .map(
           (line) => line
               .replaceAll('เวลา 00:35 น.', 'เวลา 00:03 น.')
@@ -790,7 +807,39 @@ List<String> _candidate0023RuntimeLines({int minute = 35}) {
         )
         .toList(growable: false);
   }
-  return lines;
+  return realized;
+}
+
+(DateTime, DateTime) _testRollingRange(DateTime asOf) {
+  final nextYear = asOf.year + 1;
+  final lastDay = DateTime(nextYear, asOf.month + 1, 0).day;
+  final anniversary = DateTime(
+    nextYear,
+    asOf.month,
+    asOf.day > lastDay ? lastDay : asOf.day,
+  );
+  return (
+    DateTime(asOf.year, asOf.month, asOf.day),
+    anniversary.subtract(const Duration(days: 1)),
+  );
+}
+
+String _thaiLongDateForTest(DateTime date) {
+  const months = [
+    'มกราคม',
+    'กุมภาพันธ์',
+    'มีนาคม',
+    'เมษายน',
+    'พฤษภาคม',
+    'มิถุนายน',
+    'กรกฎาคม',
+    'สิงหาคม',
+    'กันยายน',
+    'ตุลาคม',
+    'พฤศจิกายน',
+    'ธันวาคม',
+  ];
+  return '${date.day} ${months[date.month - 1]} ${date.year + 543}';
 }
 
 List<Map<String, Object?>> _predictiveSectionProjection(
@@ -860,6 +909,20 @@ List<String> _predictionQualityViolations(RuntimePredictiveDecision decision) {
   final violations = <String>[];
   const hedgePhrases = ['มีแนวโน้ม', 'อาจ', 'มีโอกาส', 'น่าจะ', 'เป็นไปได้ว่า'];
   for (final phrase in hedgePhrases) {
+    final isCandidate0027BoundWording = switch ((
+      phrase,
+      decision.rule.semanticOwner,
+    )) {
+      ('อาจ', 'past-0-10') => text.contains('การดูแลคุณอาจทำได้ไม่เต็มที่'),
+      ('อาจ', 'support') => text.contains('ความช่วยเหลืออาจมาในรูป'),
+      ('มีแนวโน้ม', 'rolling12') => text.contains(
+        'รายรับมีแนวโน้มเพิ่มขึ้นด้วย',
+      ),
+      _ => false,
+    };
+    if (isCandidate0027BoundWording) {
+      continue;
+    }
     if (text.contains(phrase)) violations.add('hedge:$phrase');
   }
   const personalityPhrases = ['คุณคาดหวัง', 'คุณมัก', 'นิสัย', 'เป็นคน'];

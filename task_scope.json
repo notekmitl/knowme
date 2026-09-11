@@ -52,6 +52,9 @@
     "tool/validate_candidate_0027_reader_voice.mjs",
     "lib/features/thai_beta/application/narrative/predictive_runtime_v2.dart",
     "lib/features/thai_beta/application/thai_beta_report_export_document.dart",
+    "test/evidence/predictive_runtime_v2_or5_actual_input_export_test.dart",
+    "test/validation/thai_beta/thai_beta_pdf_title_only_test.dart",
+    "test/validation/thai_beta/thai_beta_report_export_test.dart",
     "test/validation/thai_beta/narrative/thai_predictive_runtime_v2_test.dart",
     "docs/CANDIDATE_0027_RUNTIME_REVISION_4_VALIDATION.md",
     "docs/CANDIDATE_0027_RUNTIME_REVISION_4_VALIDATION.json"

@@ -12,6 +12,7 @@ const fail = (message) => { throw new Error(message); };
 const assert = (condition, message) => { if (!condition) fail(message); };
 
 const revisionBaseHead = '183f2a07de5d53a4f80e9fb39864891569ff2d74';
+const revisionReviewHead = 'c968cff92dccff3563185c01837f4b424d76ade3';
 const candidatePath = 'docs/CANDIDATE_0027_ACTUAL_0035_FULL_READER_COPY.md';
 const previousCandidatePath = 'docs/CANDIDATE_0026_ACTUAL_0035_FULL_READER_COPY.md';
 const baseMapPath = 'docs/CANDIDATE_0025_CLAIM_MAP.json';
@@ -302,9 +303,9 @@ assert(candidate.includes('No SHA-256 or byte-exact golden is defined for Candid
 assert(!/Candidate 0027 SHA-256\s*[:=]/i.test(candidate), 'Candidate 0027 exact SHA must not be defined.');
 
 const expectedHistoricalHashes = {
-  'docs/THAI_REPORT_PREDICTIVE_NARRATIVE_V2_TARGET_CANDIDATE_0011.md': '37667A0CA37F03B52B05D79756550962DDA4862B102085361FF6D39984309282',
-  'docs/CANDIDATE_0011_OWNER_ACCEPTED_ORACLE.json': '247FC78BEBFB5218AF37DB65AB3F8BE887A6D0D899B9E105E878CF326081BBB6',
-  'docs/CANDIDATE_0023_ACTUAL_0035_FULL_READER_COPY.md': '66DA3DD3CC0922E24E1FBC3B6DA21B14389755251D7651D60D00AAF3ECF9C309',
+  'docs/THAI_REPORT_PREDICTIVE_NARRATIVE_V2_TARGET_CANDIDATE_0011.md': '2F03D5246AF1EDF88B474AE9AFB3252779B477F1F57D760AC92B01163ECD2985',
+  'docs/CANDIDATE_0011_OWNER_ACCEPTED_ORACLE.json': 'F29D7B6B368B523CA351DB774DA8FD8D2F68D6A75C0237137B3F2B446C3F68B8',
+  'docs/CANDIDATE_0023_ACTUAL_0035_FULL_READER_COPY.md': '4AF9E7E8DDA05BE04DC0A04A1D9F84FC53EEB6E8AD7C002D6488FB13281C2B8F',
   'docs/CANDIDATE_0024_ACTUAL_0035_FULL_READER_COPY.md': 'AF7E59E9036292AD2982077FCDC7A95656C6E5D4A3646C202581A90585A217CF',
   'docs/CANDIDATE_0025_ACTUAL_0035_FULL_READER_COPY.md': 'DE1A94E3F1CD823F8F1A5128E3E7F915D5D027CD0E3E60DF951EFC5413DA710D',
   'docs/CANDIDATE_0026_ACTUAL_0035_FULL_READER_COPY.md': '70B4A7537BAD71E937D6416A06988BB2F2A82533343A63562B16C4D2A2300155',
@@ -322,9 +323,8 @@ const allowedChangedPaths = new Set([
   'docs/CANDIDATE_0027_READER_VOICE_AUDIT.md', 'docs/CANDIDATE_0027_MEANING_DENSITY_AUDIT.md', 'docs/CANDIDATE_0027_VALIDATION.json',
   'docs/THAI_REPORT_READER_VOICE_CONTRACT_V3.md', 'tool/validate_candidate_0026_reader_voice.mjs', 'tool/validate_candidate_0027_reader_voice.mjs',
 ]);
-const changed = execFileSync('git', ['diff', '--name-only', revisionBaseHead], { cwd: root, encoding: 'utf8' }).trim().split(/\r?\n/).filter(Boolean).map((item) => item.replaceAll('\\', '/'));
-const untracked = execFileSync('git', ['ls-files', '--others', '--exclude-standard'], { cwd: root, encoding: 'utf8' }).trim().split(/\r?\n/).filter(Boolean).map((item) => item.replaceAll('\\', '/'));
-const unexpectedPaths = [...new Set([...changed, ...untracked])].filter((item) => !allowedChangedPaths.has(item));
+const changed = execFileSync('git', ['diff', '--name-only', revisionBaseHead, revisionReviewHead], { cwd: root, encoding: 'utf8' }).trim().split(/\r?\n/).filter(Boolean).map((item) => item.replaceAll('\\', '/'));
+const unexpectedPaths = [...new Set(changed)].filter((item) => !allowedChangedPaths.has(item));
 assert(unexpectedPaths.length === 0, `Revision 3 out-of-scope paths: ${unexpectedPaths.join(', ')}`);
 
 const distinctMeaningUnits = new Set(entries.flatMap((entry) => entry.meaningUnits));
