@@ -10,10 +10,10 @@ import 'package:knowme/features/thai_beta/domain/thai_beta_input.dart';
 import '../synthetic_audit/thai_beta_synthetic_matrix_300.dart';
 
 void main() {
-  group('Candidate 0027 reader copy on Candidate 0023 authority', () {
-    test('00:35 renders the Candidate 0027 predictive block exactly', () {
+  group('Candidate 0028 reader copy on Candidate 0023 authority', () {
+    test('00:35 binds Candidate 0028 to the accepted predictive authority', () {
       final plan = ThaiPredictiveRuntimeV2Plan.fromAnalysis(
-        _acceptedAt(DateTime(2026, 9, 9), minute: 35),
+        _acceptedAt(DateTime(2026, 9, 11), minute: 35),
       );
       expect(plan.contextId, 'mahabhut2537.rem0.saturday');
       expect(plan.emittedPredictions, 11);
@@ -34,10 +34,10 @@ void main() {
           .toList(growable: false);
       const expectedHeadings = [
         'คำทำนายอดีต',
-        'อายุ 0–10 ปี',
-        'อายุ 11–29 ปี',
-        'อายุ 30–41 ปี',
-        'คำทำนายปัจจุบัน — อายุ 44 ปี',
+        'ตั้งแต่เกิดจนถึง 10 ปี · ดาวเสาร์เสวยอายุ',
+        'อายุ 11–29 ปี · ดาวพฤหัสบดีเสวยอายุ',
+        'อายุ 30–41 ปี · ดาวราหูเสวยอายุ',
+        'คำทำนายปัจจุบัน — อายุ 44 ปี · ดาวศุกร์เสวยอายุ',
         'คำทำนาย 12 เดือนข้างหน้า',
         'คำแนะนำ',
         'ข้อจำกัด',
@@ -46,17 +46,61 @@ void main() {
       for (final heading in expectedHeadings) {
         expect(sectionTitles.where((title) => title == heading), hasLength(1));
       }
-      expect(_planLines(plan), _candidate0027RuntimeLines());
+      expect(plan.usesCandidate0023Components, isTrue);
+      expect(plan.usesCandidate0027ReaderCopy, isFalse);
+      expect(plan.usesCandidate0028ReaderCopy, isTrue);
     });
 
-    test('00:35 renders the Candidate 0027 full reader sections exactly', () {
+    test('00:35 renders the Candidate 0028 full reader sections exactly', () {
       final document = ThaiBetaReportExportDocument.candidate(
-        _acceptedAt(DateTime(2026, 9, 9), minute: 35),
+        _acceptedAt(DateTime(2026, 9, 11), minute: 35),
       );
-      final expected = _candidate0027SectionPlainText();
+      final expected = _candidate0028SectionPlainText();
       expect(document.sectionPlainText, expected);
       expect(document.predictiveRuntimeV2!.usesCandidate0023Components, isTrue);
-      expect(document.predictiveRuntimeV2!.usesCandidate0027ReaderCopy, isTrue);
+      expect(
+        document.predictiveRuntimeV2!.usesCandidate0027ReaderCopy,
+        isFalse,
+      );
+      expect(document.predictiveRuntimeV2!.usesCandidate0028ReaderCopy, isTrue);
+      expect(
+        document.sections.map((section) => section.title),
+        isNot(contains('ภาพรวมเส้นทางชีวิตที่ผ่านมา')),
+      );
+      final current = document.sections.singleWhere(
+        (section) => section.id == 'report-body-predictive-v2-current',
+      );
+      expect(
+        current.paragraphs,
+        containsAllInOrder(const [
+          'การงาน',
+          'การเงิน',
+          'ความรักและความสัมพันธ์',
+          'สุขภาพ',
+          'โชคลาภและแรงสนับสนุน',
+        ]),
+      );
+      expect(
+        document.sections.where(
+          (section) => const {
+            'การงาน',
+            'การเงิน',
+            'ความรักและความสัมพันธ์',
+            'สุขภาพ',
+            'โชคลาภและแรงสนับสนุน',
+          }.contains(section.title),
+        ),
+        isEmpty,
+      );
+      final titles = document.sections.map((section) => section.title).toList();
+      expect(
+        titles.indexOf('ข้อจำกัด'),
+        greaterThan(titles.indexOf('คำแนะนำ')),
+      );
+      expect(
+        titles.indexOf('ข้อจำกัด'),
+        lessThan(titles.indexOf('พื้นดวงและมุมมองด้านจิตวิทยา')),
+      );
     });
 
     test('rolling horizon uses asOf and never stays pinned to 2026-08-29', () {
@@ -103,7 +147,8 @@ void main() {
       const expectedByOwner = <String, String>{
         'work': 'งานมีเข้ามาต่อเนื่องและคุณยังรับผิดชอบงานหลักได้เต็มที่',
         'finance': 'คุณมีเงินใช้และมีโชคลาภ เรื่องเงินในช่วงนี้คล่องตัวขึ้น',
-        'relationship': 'ความสัมพันธ์ที่สำคัญจะแน่นแฟ้นขึ้น',
+        'relationship':
+            'คนมีคู่ใกล้ชิดกันขึ้น ส่วนคนโสดที่กำลังรู้จักใครจะเห็นความสัมพันธ์ชัดขึ้น',
         'health':
             'กำลังโดยรวมยังดี แต่ช่วงที่พักไม่พอ ร่างกายจะฟื้นช้าลงและทำกิจกรรมต่อเนื่องได้ลดลง',
         'support': 'ครู ผู้มีประสบการณ์ เพื่อน และคนในเครือข่ายจะเข้ามาช่วย',
@@ -358,10 +403,7 @@ void main() {
       final before = ThaiBetaReportExportDocument.candidate(_accepted());
       final after = ThaiBetaReportExportDocument.candidate(_accepted());
       expect(after.fullPlainText, before.fullPlainText);
-      expect(
-        _planLines(after.predictiveRuntimeV2!),
-        _candidate0027RuntimeLines(minute: 3, asOf: DateTime(2026, 8, 29)),
-      );
+      expect(after.predictiveRuntimeV2!.usesCandidate0028ReaderCopy, isTrue);
       expect(after.predictiveRuntimeV2!.ownerAcceptedGoldenOverrideApplied, 0);
     });
 
@@ -374,11 +416,18 @@ void main() {
             .where((section) => section.id.contains('predictive-v2-'))
             .expand((section) => section.paragraphs)
             .toSet();
-        for (final claim in plan.emittedClaims) {
+        for (final claim in plan.emittedClaims.where(
+          (claim) => claim.rule.semanticOwner != 'overview',
+        )) {
           for (final paragraph in claim.text.split(RegExp(r'\n\s*\n'))) {
             expect(projected, contains(paragraph), reason: claim.rule.id);
           }
         }
+        expect(
+          projected,
+          isNot(contains(plan.claimForOwner('overview')!.text)),
+          reason: 'The redundant overview remains internal evidence only',
+        );
         expect(
           document.infographic!.traceIds.toSet(),
           plan.emittedClaims.map((claim) => claim.rule.id).toSet(),
@@ -516,6 +565,31 @@ void main() {
         );
       }
     });
+
+    test(
+      'all rendered life-period headings identify their governing planet',
+      () {
+        final plans = _representativePlans49();
+        expect(plans, hasLength(49));
+        for (final entry in plans.entries) {
+          final lifePeriods = entry.value.sections.where(
+            (section) =>
+                section.claims.isNotEmpty &&
+                (section.id.startsWith('past-') ||
+                    section.id == 'current' ||
+                    section.id == 'next-life-period'),
+          );
+          expect(lifePeriods, isNotEmpty, reason: entry.key);
+          for (final section in lifePeriods) {
+            expect(
+              section.title,
+              matches(RegExp(r'ดาว.+เสวยอายุ')),
+              reason: '${entry.key}:${section.id}',
+            );
+          }
+        }
+      },
+    );
 
     test('coverage validator rejects every required negative control', () {
       const contextA = 'mahabhut2537.rem0.sunday';
@@ -741,33 +815,24 @@ ThaiBetaInput _acceptedInput({bool known = true, int minute = 3}) =>
       gender: 'ชาย',
     );
 
-List<String> _planLines(ThaiPredictiveRuntimeV2Plan plan) => [
-  plan.title,
-  ...plan.subtitle.split('\n'),
-  for (final section in plan.sections) ...[
-    section.title,
-    ...section.claims.expand(
-      (claim) => claim.text
-          .split(RegExp(r'\n\s*\n'))
-          .map((paragraph) => paragraph.trim())
-          .where((paragraph) => paragraph.isNotEmpty),
-    ),
-  ],
-].where((line) => line.trim().isNotEmpty).toList(growable: false);
-
-List<List<String>> _candidate0027Sections() {
+List<List<String>> _candidate0028Sections() {
   final source = File(
-    'docs/CANDIDATE_0027_ACTUAL_0035_FULL_READER_COPY.md',
+    'docs/CANDIDATE_0028_ACTUAL_0035_FULL_READER_COPY.md',
   ).readAsStringSync().replaceAll('\r\n', '\n');
   final body = source
-      .split('<!-- BEGIN CANDIDATE 0027 FULL READER COPY -->')
+      .split('<!-- BEGIN CANDIDATE 0028 FULL READER COPY -->')
       .last
-      .split('<!-- END CANDIDATE 0027 FULL READER COPY -->')
+      .split('<!-- END CANDIDATE 0028 FULL READER COPY -->')
       .first;
   final sections = <List<String>>[];
   for (final rawLine in body.split('\n')) {
     final line = rawLine.trim();
     if (line.isEmpty || line.startsWith('# คำทำนายดวงชะตา')) continue;
+    final subheading = RegExp(r'^####\s+(.+)$').firstMatch(line);
+    if (subheading != null) {
+      sections.last.add(subheading.group(1)!);
+      continue;
+    }
     final heading = RegExp(r'^#{2,3}\s+(.+)$').firstMatch(line);
     if (heading != null) {
       sections.add([heading.group(1)!]);
@@ -778,69 +843,8 @@ List<List<String>> _candidate0027Sections() {
   return sections;
 }
 
-String _candidate0027SectionPlainText() =>
-    _candidate0027Sections().map((section) => section.join('\n')).join('\n\n');
-
-List<String> _candidate0027RuntimeLines({int minute = 35, DateTime? asOf}) {
-  final sections = _candidate0027Sections();
-  final lines = <String>[];
-  for (final section in sections) {
-    final title = section.first;
-    if (title == 'พื้นดวงและมุมมองด้านจิตวิทยา') break;
-    lines.add(title);
-    final paragraphs = section.skip(1);
-    lines.addAll(title == 'ข้อจำกัด' ? paragraphs.take(1) : paragraphs);
-  }
-  final range = _testRollingRange(asOf ?? DateTime(2026, 9, 9));
-  const sourceRange = '9 กันยายน 2569 ถึง 8 กันยายน 2570';
-  final targetRange =
-      '${_thaiLongDateForTest(range.$1)} ถึง ${_thaiLongDateForTest(range.$2)}';
-  final realized = lines
-      .map((line) => line.replaceAll(sourceRange, targetRange))
-      .toList(growable: false);
-  if (minute == 3) {
-    return realized
-        .map(
-          (line) => line
-              .replaceAll('เวลา 00:35 น.', 'เวลา 00:03 น.')
-              .replaceAll('ลัคนาราศีกุมภ์ 19°19′', 'ลัคนาราศีกุมภ์ 9°24′'),
-        )
-        .toList(growable: false);
-  }
-  return realized;
-}
-
-(DateTime, DateTime) _testRollingRange(DateTime asOf) {
-  final nextYear = asOf.year + 1;
-  final lastDay = DateTime(nextYear, asOf.month + 1, 0).day;
-  final anniversary = DateTime(
-    nextYear,
-    asOf.month,
-    asOf.day > lastDay ? lastDay : asOf.day,
-  );
-  return (
-    DateTime(asOf.year, asOf.month, asOf.day),
-    anniversary.subtract(const Duration(days: 1)),
-  );
-}
-
-String _thaiLongDateForTest(DateTime date) {
-  const months = [
-    'มกราคม',
-    'กุมภาพันธ์',
-    'มีนาคม',
-    'เมษายน',
-    'พฤษภาคม',
-    'มิถุนายน',
-    'กรกฎาคม',
-    'สิงหาคม',
-    'กันยายน',
-    'ตุลาคม',
-    'พฤศจิกายน',
-    'ธันวาคม',
-  ];
-  return '${date.day} ${months[date.month - 1]} ${date.year + 543}';
-}
+String _candidate0028SectionPlainText() =>
+    _candidate0028Sections().map((section) => section.join('\n')).join('\n\n');
 
 List<Map<String, Object?>> _predictiveSectionProjection(
   ThaiPredictiveRuntimeV2Plan plan,
@@ -909,18 +913,15 @@ List<String> _predictionQualityViolations(RuntimePredictiveDecision decision) {
   final violations = <String>[];
   const hedgePhrases = ['มีแนวโน้ม', 'อาจ', 'มีโอกาส', 'น่าจะ', 'เป็นไปได้ว่า'];
   for (final phrase in hedgePhrases) {
-    final isCandidate0027BoundWording = switch ((
+    final isCandidate0028BoundWording = switch ((
       phrase,
       decision.rule.semanticOwner,
     )) {
       ('อาจ', 'past-0-10') => text.contains('การดูแลคุณอาจทำได้ไม่เต็มที่'),
       ('อาจ', 'support') => text.contains('ความช่วยเหลืออาจมาในรูป'),
-      ('มีแนวโน้ม', 'rolling12') => text.contains(
-        'รายรับมีแนวโน้มเพิ่มขึ้นด้วย',
-      ),
       _ => false,
     };
-    if (isCandidate0027BoundWording) {
+    if (isCandidate0028BoundWording) {
       continue;
     }
     if (text.contains(phrase)) violations.add('hedge:$phrase');

@@ -531,8 +531,8 @@ class ThaiBetaReportExportDocument {
               currentAge: plan.currentAge,
             );
     }
-    if (plan.usesCandidate0027ReaderCopy) {
-      return _applyCandidate0027ReaderSurface(baseline, plan);
+    if (plan.usesCandidate0028ReaderCopy) {
+      return _applyCandidate0028ReaderSurface(baseline, plan);
     }
     final part2Index = baseline.sections.indexWhere(
       (section) => section.title.startsWith('ส่วนที่ 2 ·'),
@@ -556,7 +556,7 @@ class ThaiBetaReportExportDocument {
     ) {
       final kind = section.id.startsWith('past-')
           ? ThaiBetaReportExportSectionKind.timeline
-          : section.id == 'advice'
+          : section.id == 'advice' || section.id == 'disclosure'
           ? ThaiBetaReportExportSectionKind.disclaimer
           : ThaiBetaReportExportSectionKind.body;
       return ThaiBetaReportExportSection(
@@ -571,16 +571,42 @@ class ThaiBetaReportExportDocument {
       );
     }
 
+    const currentDetailIds = {
+      'work',
+      'finance',
+      'relationship',
+      'health',
+      'support',
+    };
+    final current = plan.sections.singleWhere(
+      (section) => section.id == 'current',
+    );
+    final currentDetails = [
+      for (final section in plan.sections)
+        if (currentDetailIds.contains(section.id)) section,
+    ];
+    final currentReaderSection = ThaiBetaReportExportSection(
+      id: 'report-body-predictive-v2-current',
+      title: current.title,
+      paragraphs: [
+        ...current.claims.map((claim) => claim.text),
+        for (final section in currentDetails) ...[
+          section.title,
+          ...section.claims.map((claim) => claim.text),
+        ],
+      ],
+      fieldSource: 'predictive-runtime-v2-canonical-plan',
+      visibilityRule: 'complete-owner-accepted-chain-only',
+      knownUnknownRule: 'known-only; omit-fail-closed',
+      traceIds: [
+        ...current.claims.map((claim) => claim.rule.id),
+        for (final section in currentDetails)
+          ...section.claims.map((claim) => claim.rule.id),
+      ],
+    );
+
     final pastAndCurrent = plan.sections
-        .where(
-          (section) => !const {
-            'horizon',
-            'next-life-period',
-            'summary',
-            'advice',
-            'disclosure',
-          }.contains(section.id),
-        )
+        .where((section) => section.id.startsWith('past-'))
         .toList(growable: false);
     final future = plan.sections
         .where(
@@ -616,6 +642,7 @@ class ThaiBetaReportExportDocument {
       ),
     );
     inserted.addAll(pastAndCurrent.map(runtimeSection));
+    inserted.add(currentReaderSection);
     inserted.add(
       const ThaiBetaReportExportSection(
         id: 'report-chapter-predictive-v2-part-3',
@@ -627,7 +654,51 @@ class ThaiBetaReportExportDocument {
     );
     inserted.addAll(future.map(runtimeSection));
 
-    final tail = baseline.sections.skip(part4Index).toList(growable: true);
+    final tail = <ThaiBetaReportExportSection>[];
+    for (final section in baseline.sections.skip(part4Index)) {
+      if (section.title != 'รายงานนี้ดูจากอะไร') {
+        tail.add(section);
+        continue;
+      }
+      final chartHeadingIndex = section.paragraphs.indexOf('โครงสร้างดวงหลัก');
+      if (chartHeadingIndex < 0) {
+        tail.add(section);
+        continue;
+      }
+      tail.add(
+        ThaiBetaReportExportSection(
+          title: section.title,
+          paragraphs: section.paragraphs
+              .take(chartHeadingIndex)
+              .toList(growable: false),
+          kind: section.kind,
+          id: section.id,
+          fieldSource: section.fieldSource,
+          visibilityRule: section.visibilityRule,
+          knownUnknownRule: section.knownUnknownRule,
+          traceIds: section.traceIds,
+        ),
+      );
+      final chartParagraphs = section.paragraphs
+          .skip(chartHeadingIndex + 1)
+          .where((paragraph) => paragraph != 'ความหมายและข้อจำกัดของผลลัพธ์')
+          .map((paragraph) => paragraph.split(RegExp(r'\s+—\s+')).first.trim())
+          .where((paragraph) => paragraph.isNotEmpty)
+          .toList(growable: false);
+      if (chartParagraphs.isNotEmpty) {
+        tail.add(
+          ThaiBetaReportExportSection(
+            title: 'โครงสร้างดวงหลัก',
+            paragraphs: chartParagraphs,
+            id: 'report-body-predictive-v2-provenance-chart',
+            fieldSource: section.fieldSource,
+            visibilityRule: section.visibilityRule,
+            knownUnknownRule: section.knownUnknownRule,
+            traceIds: section.traceIds,
+          ),
+        );
+      }
+    }
     return ThaiBetaReportExportDocument(
       title: baseline.title,
       subtitle: baseline.subtitle,
@@ -638,23 +709,26 @@ class ThaiBetaReportExportDocument {
     );
   }
 
-  static ThaiBetaReportExportDocument _applyCandidate0027ReaderSurface(
+  static ThaiBetaReportExportDocument _applyCandidate0028ReaderSurface(
     ThaiBetaReportExportDocument baseline,
     ThaiPredictiveRuntimeV2Plan plan,
   ) {
+    List<String> runtimeParagraphs(RuntimePredictiveSection section) => section
+        .claims
+        .expand(
+          (claim) => claim.text
+              .split(RegExp(r'\n\s*\n'))
+              .map((paragraph) => paragraph.trim())
+              .where((paragraph) => paragraph.isNotEmpty),
+        )
+        .toList(growable: false);
+
     ThaiBetaReportExportSection runtimeSection(
       RuntimePredictiveSection section,
     ) {
       final isPast = section.id.startsWith('past-');
       final isDisclaimer = section.id == 'advice' || section.id == 'disclosure';
-      final paragraphs = section.claims
-          .expand(
-            (claim) => claim.text
-                .split(RegExp(r'\n\s*\n'))
-                .map((paragraph) => paragraph.trim())
-                .where((paragraph) => paragraph.isNotEmpty),
-          )
-          .toList();
+      final paragraphs = runtimeParagraphs(section).toList();
       if (section.id == 'disclosure') {
         paragraphs.add(RuntimeCandidate0023SupportingCopy.healthDisclaimer);
       }
@@ -675,6 +749,51 @@ class ThaiBetaReportExportDocument {
       );
     }
 
+    const currentDetailIds = {
+      'work',
+      'finance',
+      'relationship',
+      'health',
+      'support',
+    };
+    final current = plan.sections.singleWhere(
+      (section) => section.id == 'current',
+    );
+    final currentDetails = [
+      for (final section in plan.sections)
+        if (currentDetailIds.contains(section.id)) section,
+    ];
+    final currentReaderSection = ThaiBetaReportExportSection(
+      id: 'report-body-predictive-v2-current',
+      title: current.title,
+      paragraphs: [
+        ...runtimeParagraphs(current),
+        for (final section in currentDetails) ...[
+          section.title,
+          ...runtimeParagraphs(section),
+        ],
+      ],
+      fieldSource: 'predictive-runtime-v2-canonical-plan',
+      visibilityRule: 'complete-owner-accepted-chain-only',
+      knownUnknownRule: 'known-only; omit-fail-closed',
+      traceIds: [
+        ...current.claims.map((claim) => claim.rule.id),
+        for (final section in currentDetails)
+          ...section.claims.map((claim) => claim.rule.id),
+      ],
+    );
+    final predictiveSections = <ThaiBetaReportExportSection>[];
+    for (final section in plan.sections) {
+      if (section.id == 'overview' || currentDetailIds.contains(section.id)) {
+        continue;
+      }
+      predictiveSections.add(
+        section.id == 'current'
+            ? currentReaderSection
+            : runtimeSection(section),
+      );
+    }
+
     ThaiBetaReportExportSection supportingSection({
       required String id,
       required String title,
@@ -683,10 +802,10 @@ class ThaiBetaReportExportDocument {
       id: 'report-body-predictive-v2-$id',
       title: title,
       paragraphs: [text],
-      fieldSource: 'candidate-0027-supporting-component',
-      visibilityRule: 'candidate-0027-reader-copy-only',
+      fieldSource: 'candidate-0028-supporting-component',
+      visibilityRule: 'candidate-0028-reader-copy-only',
       knownUnknownRule: 'known-only; omit-fail-closed',
-      traceIds: ['candidate-0027-supporting:$id'],
+      traceIds: ['candidate-0028-supporting:$id'],
     );
 
     final methodology = baseline.sections.singleWhere(
@@ -724,7 +843,7 @@ class ThaiBetaReportExportDocument {
         visibilityRule: 'complete-owner-accepted-chain-only',
         knownUnknownRule: 'known-only',
       ),
-      ...plan.sections.map(runtimeSection),
+      ...predictiveSections,
       supportingSection(
         id: 'psychology-separation',
         title: RuntimeCandidate0023SupportingCopy.psychologySeparationTitle,

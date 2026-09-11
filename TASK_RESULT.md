@@ -1,5 +1,20 @@
 # Task Result — Thai Report Reader Experience V2+
 
+## PR120 Reader Voice V3 Revision 5 — Candidate 0028 runtime (2026-09-11)
+
+**CANDIDATE 0028 IMPLEMENTED FOR OWNER TESTING — OPEN + DRAFT — NOT OWNER-ACCEPTED — NOT READY FOR REVIEW — NOT MERGED — NOT DEPLOYED.**
+
+Owner feedback rejects Candidate 0027 Runtime Revision 4 as the final reader experience. Candidate 0027 remains an immutable historical review artifact. Candidate 0028 omits the redundant life-path overview, keeps one past-prediction heading, replaces the first range with `ตั้งแต่เกิดจนถึง 10 ปี`, adds the dynamically resolved governing planet to every life-period heading, expands all past-period explanations, groups the current introduction and five domains into one continuous section, covers both partnered and single readers, adds `เด่นเรื่อง` to both rolling-12-month topics, moves limitations to the end of the prediction sequence, and reduces the main-chart structure to seven facts without explanatory tails.
+
+The implementation retains the Candidate 0023 selector, evidence bindings, calculations, Known/Unknown boundary and fail-closed behavior. The single-reader wording stays evidence-bound (`หากกำลังทำความรู้จักใคร`) rather than promising an unsupported new person or event. No new selector, evidence authority, fixture override, Canon rule or predictive claim was added.
+
+Final validation on Flutter 3.41.1 / Dart 3.11.0 with `CI=true`, analytics suppressed and `TZ=Asia/Bangkok`: Candidate runtime 18/18; export 59/59; PDF title/field integrity 4/4; OR5 evidence 5/5; Node foundation/signature 9/9; Candidate 0024–0028 validators pass; full Flutter suite 3,026/3,026. Full analyzer exits 0 under repository policy with 297 historical warning/info diagnostics; scoped analysis of all changed Dart/test files reports 0 issues.
+
+A fresh Owner Review PDF was generated from the actual 00:03 profile for `asOf=2026-09-11 Asia/Bangkok`: `KnowMe_Candidate_0028_Runtime_Revision_5_Owner_Review_0003.pdf`, 5 A4 pages, 333,991 bytes, SHA-256 `1E400D4DD435D2C22DB6A11C7C93267B7DBB68A6130C720478C2C89F67E605CC`. All five rendered pages were inspected; missing text, broken Thai glyphs, clipping, overlap and overflow are 0.
+
+Candidate 0028 has no Owner-accepted exact golden. PR #120 must remain Open + Draft until explicit Owner acceptance. This revision does not authorize Ready for Review, merge, Firebase deployment, Production data access or any Production change. `product-acceptance/` is unchanged.
+
+
 ## PR120 Reader Voice V3 Revision 4 — Candidate 0027 runtime (2026-09-11)
 
 **CANDIDATE 0027 IMPLEMENTED FOR OWNER TESTING — OPEN + DRAFT — NOT OWNER-ACCEPTED — NOT READY FOR REVIEW — NOT MERGED — NOT DEPLOYED.**

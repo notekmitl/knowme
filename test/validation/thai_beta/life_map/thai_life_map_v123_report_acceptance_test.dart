@@ -26,7 +26,10 @@ void main() {
       );
       await tester.pumpAndSettle();
 
-      expect(find.text('คำทำนายปัจจุบัน — อายุ 44 ปี'), findsOneWidget);
+      expect(
+        find.textContaining('คำทำนายปัจจุบัน — อายุ 44 ปี · ดาว'),
+        findsOneWidget,
+      );
       expect(find.text('คำทำนายอดีต'), findsOneWidget);
       expect(
         find.descendant(
@@ -35,7 +38,10 @@ void main() {
         ),
         findsOneWidget,
       );
-      expect(find.text('ช่วงชีวิตถัดไป — อายุ 47–65 ปี'), findsOneWidget);
+      expect(
+        find.textContaining('ช่วงชีวิตถัดไป — อายุ 47–65 ปี · ดาว'),
+        findsOneWidget,
+      );
       expect(
         find.text(ThaiMirrorLifeTimelineSection.expandDetailsLabel),
         findsNothing,
@@ -45,8 +51,8 @@ void main() {
         findsNothing,
       );
 
-      expect(find.text('อดีต'), findsOneWidget);
-      expect(find.text('ปัจจุบัน'), findsOneWidget);
+      expect(find.text('อดีต'), findsNothing);
+      expect(find.text('ปัจจุบัน'), findsNothing);
       expect(find.text('อนาคต'), findsOneWidget);
       expect(find.text('อดีตของคุณ'), findsNothing);
       expect(find.text('ช่วงปัจจุบัน'), findsNothing);

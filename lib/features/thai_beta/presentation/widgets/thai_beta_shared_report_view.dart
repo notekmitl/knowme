@@ -14,8 +14,10 @@ const _reportDomainHeadings = {
   'การงาน',
   'การเงิน',
   'ความรัก',
+  'ความรักและความสัมพันธ์',
   'สุขภาพ',
   'โชคลาภ',
+  'โชคลาภและแรงสนับสนุน',
 };
 
 abstract final class ThaiBetaAnnualInfographicCapture {
@@ -196,8 +198,6 @@ class _SharedReportSection extends StatelessWidget {
         ? const Color(0xfffff7e8)
         : theme.colorScheme.surface;
     final phaseLabel = switch (section.title) {
-      'คำทำนายอดีต' => 'อดีต',
-      final title when title.startsWith('คำทำนายปัจจุบัน') => 'ปัจจุบัน',
       final title when title.startsWith('ช่วงชีวิตถัดไป') => 'อนาคต',
       'อดีตของคุณ' => 'อดีต',
       'ช่วงปัจจุบัน' => 'ปัจจุบัน',
@@ -267,11 +267,13 @@ class _SharedReportSection extends StatelessWidget {
                     color: const Color(0xff96702e),
                   ),
                   const SizedBox(width: 8),
-                  Text(
-                    section.paragraphs[index],
-                    style: theme.textTheme.labelLarge?.copyWith(
-                      color: const Color(0xff18203f),
-                      fontWeight: FontWeight.w800,
+                  Expanded(
+                    child: Text(
+                      section.paragraphs[index],
+                      style: theme.textTheme.labelLarge?.copyWith(
+                        color: const Color(0xff18203f),
+                        fontWeight: FontWeight.w800,
+                      ),
                     ),
                   ),
                 ],
@@ -294,9 +296,9 @@ class _SharedReportSection extends StatelessWidget {
   IconData _domainIcon(String label) => switch (label.trim()) {
     'การงาน' => Icons.work_outline,
     'การเงิน' => Icons.savings_outlined,
-    'ความรัก' => Icons.favorite_border,
+    'ความรัก' || 'ความรักและความสัมพันธ์' => Icons.favorite_border,
     'สุขภาพ' => Icons.self_improvement,
-    'โชคลาภ' => Icons.auto_awesome_outlined,
+    'โชคลาภ' || 'โชคลาภและแรงสนับสนุน' => Icons.auto_awesome_outlined,
     _ => Icons.circle_outlined,
   };
 }
@@ -386,7 +388,6 @@ class _AnnualInfographicCanvas extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const navy = Color(0xff0d1530);
     const deepIndigo = Color(0xff18254f);
     const gold = Color(0xffc7a760);
     const cream = Color(0xfffff8e8);

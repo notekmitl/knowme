@@ -52,10 +52,23 @@
     "tool/validate_candidate_0027_reader_voice.mjs",
     "lib/features/thai_beta/application/narrative/predictive_runtime_v2.dart",
     "lib/features/thai_beta/application/thai_beta_report_export_document.dart",
+    "lib/features/thai_beta/application/thai_beta_report_pdf_exporter.dart",
+    "lib/features/thai_beta/presentation/widgets/thai_beta_shared_report_view.dart",
     "test/evidence/predictive_runtime_v2_or5_actual_input_export_test.dart",
     "test/validation/thai_beta/thai_beta_pdf_title_only_test.dart",
     "test/validation/thai_beta/thai_beta_report_export_test.dart",
     "test/validation/thai_beta/narrative/thai_predictive_runtime_v2_test.dart",
+    "test/validation/thai_beta/life_map/v126/thai_life_map_v126_time_bucket_ux_test.dart",
+    "test/validation/thai_beta/thai_report_experience_infographic_vnext_test.dart",
+    "test/validation/thai_beta/narrative/thai_beta_report_v121_acceptance_test.dart",
+    "test/validation/thai_beta/narrative/thai_beta_report_v122_editorial_test.dart",
+    "test/validation/thai_beta/life_map/thai_life_map_v123_report_acceptance_test.dart",
+    "test/validation/thai_beta/life_map/v135/thai_life_map_v135_ui_primary_test.dart",
+    "docs/CANDIDATE_0027_RUNTIME_REVISION_4_OWNER_REJECTION.md",
+    "docs/CANDIDATE_0028_ACTUAL_0035_FULL_READER_COPY.md",
+    "docs/CANDIDATE_0028_RUNTIME_REVISION_5_VALIDATION.md",
+    "docs/CANDIDATE_0028_RUNTIME_REVISION_5_VALIDATION.json",
+    "tool/validate_candidate_0028_reader_voice.mjs",
     "docs/CANDIDATE_0027_RUNTIME_REVISION_4_VALIDATION.md",
     "docs/CANDIDATE_0027_RUNTIME_REVISION_4_VALIDATION.json"
   ],
@@ -91,12 +104,13 @@
     "/workspace/"
   ],
   "focused_tests": [
+    "node tool/validate_candidate_0028_reader_voice.mjs",
     "node tool/validate_candidate_0027_reader_voice.mjs",
     "node tool/validate_candidate_0026_reader_voice.mjs",
     "node tool/validate_candidate_0025_reader_voice.mjs",
     "node tool/validate_candidate_0024_reader_voice.mjs",
     "node --test test/evidence/predictive_runtime_v2_foundation.test.mjs test/evidence/pr115_or10r_predictive_signature.test.mjs",
-    "flutter test --no-pub --concurrency=1 test/validation/thai_beta/narrative/thai_predictive_runtime_v2_test.dart"
+    "flutter test --no-pub --concurrency=1 test/validation/thai_beta/narrative/thai_predictive_runtime_v2_test.dart test/validation/thai_beta/thai_beta_report_export_test.dart test/validation/thai_beta/thai_beta_pdf_title_only_test.dart"
   ],
   "full_test_policy": "required",
   "full_test_command": "flutter test --no-pub --concurrency=4 --reporter compact",

@@ -476,6 +476,7 @@ class ThaiPredictiveRuntimeV2Plan {
               (decision) => const {
                 'candidate-0023-component-v1',
                 'candidate-0027-reader-copy-v1',
+                'candidate-0028-reader-copy-v1',
               }.contains(decision.rule.realizerId),
             ) &&
         emittedSemanticOwners.containsAll(const {
@@ -508,6 +509,20 @@ class ThaiPredictiveRuntimeV2Plan {
           .every(
             (decision) =>
                 decision.rule.realizerId == 'candidate-0027-reader-copy-v1',
+          );
+
+  /// Candidate 0028 is the Owner-directed reader and layout revision that
+  /// follows Candidate 0027 while retaining the same selector/evidence set.
+  bool get usesCandidate0028ReaderCopy =>
+      usesCandidate0023Components &&
+      emittedClaims
+          .where(
+            (decision) =>
+                decision.rule.kind == RuntimePredictiveKind.prediction,
+          )
+          .every(
+            (decision) =>
+                decision.rule.realizerId == 'candidate-0028-reader-copy-v1',
           );
 
   static String contextIdForMetadata(int remainder, int thaiWeekdayNumber) {
@@ -559,6 +574,7 @@ class ThaiPredictiveRuntimeV2Plan {
     'predictiveSignature': predictiveSignature,
     'usesCandidate0023Components': usesCandidate0023Components,
     'usesCandidate0027ReaderCopy': usesCandidate0027ReaderCopy,
+    'usesCandidate0028ReaderCopy': usesCandidate0028ReaderCopy,
     'monthlyTimelineAvailable': monthlyTimelineAvailable,
     'emittedPredictions': emittedPredictions,
     'emittedClaimCount': emittedClaims.length,
@@ -756,6 +772,7 @@ abstract final class RuntimePredictiveClaimBindingValidator {
         const allowedRealizers = {
           'candidate-0023-component-v1',
           'candidate-0027-reader-copy-v1',
+          'candidate-0028-reader-copy-v1',
           'generalized-editorial-v2',
           'life-period-editorial-v2',
           'support-editorial-v2',
@@ -856,6 +873,21 @@ final _candidate0023PredictiveSignature = _composePredictiveSignature(
   materialFingerprints: _candidate0023MaterialFingerprints,
 );
 
+String _lifePeriodPlanetLabel(RuntimePredictivePeriodRow row) {
+  final name = switch (row.planet) {
+    'sun' => 'ดาวอาทิตย์',
+    'moon' => 'ดาวจันทร์',
+    'mars' => 'ดาวอังคาร',
+    'mercury' => 'ดาวพุธ',
+    'jupiter' => 'ดาวพฤหัสบดี',
+    'venus' => 'ดาวศุกร์',
+    'saturn' => 'ดาวเสาร์',
+    'rahu' => 'ดาวราหู',
+    _ => 'ดาวประจำช่วง',
+  };
+  return '$nameเสวยอายุ';
+}
+
 List<RuntimePredictiveRule> _buildCandidate0023ComponentRules({
   required String contextId,
   required int currentAge,
@@ -940,7 +972,7 @@ List<RuntimePredictiveRule> _buildCandidate0023ComponentRules({
       evidenceKey: evidenceKey.isEmpty ? row.selectorRef : evidenceKey,
       directionBand: directionBand.isEmpty ? row.periodStatus : directionBand,
       sourceComponents: evidence,
-      realizerId: 'candidate-0027-reader-copy-v1',
+      realizerId: 'candidate-0028-reader-copy-v1',
       infographicTextTemplate: infographicText,
     );
   }
@@ -949,7 +981,7 @@ List<RuntimePredictiveRule> _buildCandidate0023ComponentRules({
     prediction(
       suffix: 'OVERVIEW-01',
       owner: 'overview',
-      section: 'ภาพรวมเส้นทางชีวิต',
+      section: 'ภาพรวมเส้นทางชีวิตที่ผ่านมา',
       text:
           'วัยเด็กของคุณเป็นช่วงที่ต้องปรับตัวตามข้อจำกัดและความพร้อมของครอบครัว เมื่อพ้นช่วงนั้น ชีวิตค่อย ๆ เปิดทางผ่านการเรียน การสร้างเส้นทางงาน และความรับผิดชอบที่เพิ่มขึ้น ภาพรวมจึงค่อย ๆ เปลี่ยนจากช่วงที่ต้องอยู่ตามเงื่อนไขของครอบครัว ไปสู่ช่วงที่คุณมีบทบาทและต้องตัดสินใจเรื่องสำคัญด้วยตัวเองมากขึ้น\n\nตั้งแต่อายุ 42 ปี ชีวิตยังเดินไปในทางที่ดีขึ้น ปัจจุบันหลายด้านขยับไปพร้อมกัน ทั้งงาน การเงิน ความสัมพันธ์ และแรงสนับสนุนจากคนรอบตัว จึงเป็นช่วงที่เรื่องต่าง ๆ เดินหน้าได้คล่องกว่าวัยก่อน',
       row: currentPeriod,
@@ -970,9 +1002,9 @@ List<RuntimePredictiveRule> _buildCandidate0023ComponentRules({
     prediction(
       suffix: 'PAST-0-10-01',
       owner: 'past-0-10',
-      section: 'อายุ 0–10 ปี',
+      section: 'ตั้งแต่เกิดจนถึง 10 ปี · ${_lifePeriodPlanetLabel(childhood)}',
       text:
-          'ช่วงอายุ 0–10 ปี ผู้ปกครองของคุณต้องรับมือปัญหาหลายด้าน ทั้งสุขภาพ การงาน และการเงิน ทำให้การดูแลคุณอาจทำได้ไม่เต็มที่ ชีวิตในวัยนั้นจึงขึ้นอยู่กับเงื่อนไขและความพร้อมของครอบครัวเป็นหลัก',
+          'ตั้งแต่เกิดจนถึง 10 ปี ผู้ปกครองของคุณต้องรับมือปัญหาหลายด้านพร้อมกัน ทั้งสุขภาพ การงานที่ไม่ราบรื่น และการเงินที่ติดขัด ภาระเหล่านี้ทำให้การดูแลคุณอาจทำได้ไม่เต็มที่ ชีวิตในวัยนั้นจึงต้องปรับไปตามเงื่อนไขและความพร้อมของครอบครัวเป็นหลัก',
       row: childhood,
       domain: 'family_constraints',
       horizon: 'past-life-period',
@@ -985,9 +1017,9 @@ List<RuntimePredictiveRule> _buildCandidate0023ComponentRules({
     prediction(
       suffix: 'PAST-11-29-01',
       owner: 'past-11-29',
-      section: 'อายุ 11–29 ปี',
+      section: 'อายุ 11–29 ปี · ${_lifePeriodPlanetLabel(learning)}',
       text:
-          'เมื่อพ้นวัยเด็ก ช่วงอายุ 11–29 ปีเป็นช่วงที่ชีวิตค่อย ๆ ดีขึ้นและเปิดทางมากกว่าเดิม การเรียนให้ผลดี ขณะเดียวกันคุณก็เริ่มสร้างเส้นทางงานของตัวเอง',
+          'เมื่อพ้นวัยเด็ก ช่วงอายุ 11–29 ปีเป็นช่วงที่ชีวิตค่อย ๆ ดีขึ้นและเปิดทางมากกว่าเดิม การเรียนให้ผลดีและช่วยให้คุณเห็นทางเลือกของตัวเองชัดขึ้น ขณะเดียวกันคุณก็เริ่มสร้างเส้นทางงานของตัวเอง จึงเป็นช่วงที่ทั้งการเรียนรู้และการเริ่มรับผิดชอบอนาคตของตัวเองเดินหน้าไปพร้อมกัน',
       row: learning,
       domain: 'learning_and_career',
       horizon: 'past-life-period',
@@ -1001,9 +1033,9 @@ List<RuntimePredictiveRule> _buildCandidate0023ComponentRules({
     prediction(
       suffix: 'PAST-30-41-01',
       owner: 'past-30-41',
-      section: 'อายุ 30–41 ปี',
+      section: 'อายุ 30–41 ปี · ${_lifePeriodPlanetLabel(responsibility)}',
       text:
-          'ต่อมาในช่วงอายุ 30–41 ปี งานและความรับผิดชอบมีมากขึ้นกว่าช่วงก่อน เรื่องสำคัญหลายอย่างในวัยนี้ต้องอาศัยการตัดสินใจของคุณเองมากขึ้น',
+          'ต่อมาในช่วงอายุ 30–41 ปี งานและความรับผิดชอบมีมากขึ้นกว่าช่วงก่อน คุณต้องดูแลทั้งงานที่อยู่ในมือและผลของการตัดสินใจสำคัญด้วยตัวเองมากขึ้น หลายเรื่องในวัยนี้จึงเป็นช่วงของการจัดลำดับภาระและเลือกทางเดินที่ต้องรับผิดชอบด้วยตัวเอง',
       row: responsibility,
       domain: 'career_and_authority',
       horizon: 'past-life-period',
@@ -1017,7 +1049,8 @@ List<RuntimePredictiveRule> _buildCandidate0023ComponentRules({
     prediction(
       suffix: 'CURRENT-01',
       owner: 'current',
-      section: 'คำทำนายปัจจุบัน — อายุ {{currentAge}} ปี',
+      section:
+          'คำทำนายปัจจุบัน — อายุ {{currentAge}} ปี · ${_lifePeriodPlanetLabel(currentPeriod)}',
       text:
           'เมื่ออายุ {{currentAge}} ปี คุณยังอยู่ในช่วงที่ภาพรวมชีวิตเดินไปในทางที่ดีขึ้น เรื่องที่ต้องลงมือเอง การพูดคุยกับคนอื่น และการตัดสินใจสำคัญมีอุปสรรคน้อยกว่าวัยก่อน จึงจัดการเรื่องที่อยู่ตรงหน้าได้ต่อเนื่องมากขึ้น',
       row: currentPeriod,
@@ -1071,7 +1104,7 @@ List<RuntimePredictiveRule> _buildCandidate0023ComponentRules({
       owner: 'relationship',
       section: 'ความรักและความสัมพันธ์',
       text:
-          'ความสัมพันธ์ที่สำคัญของคุณจะแน่นแฟ้นขึ้น ความไว้ใจและความใกล้ชิดกับคนสำคัญจึงชัดขึ้นตามไปด้วย',
+          'สำหรับคนมีคู่ ความไว้ใจและความใกล้ชิดกับคนสำคัญจะแน่นแฟ้นขึ้น ส่วนคนโสด หากกำลังทำความรู้จักใคร ความสัมพันธ์นั้นจะค่อย ๆ ชัดเจนขึ้นตามจังหวะของช่วงนี้',
       row: currentPeriod,
       domain: 'relationship',
       horizon: 'current',
@@ -1084,7 +1117,8 @@ List<RuntimePredictiveRule> _buildCandidate0023ComponentRules({
       materialFingerprint: currentRelationship,
       evidenceKey: 'prediction.relationship.current.strong',
       directionBand: 'strong',
-      infographicText: 'ความสัมพันธ์ที่สำคัญจะแน่นแฟ้นขึ้น',
+      infographicText:
+          'คนมีคู่ใกล้ชิดกันขึ้น ส่วนคนโสดที่กำลังรู้จักใครจะเห็นความสัมพันธ์ชัดขึ้น',
     ),
     prediction(
       suffix: 'HEALTH-01',
@@ -1129,7 +1163,7 @@ List<RuntimePredictiveRule> _buildCandidate0023ComponentRules({
       owner: 'rolling12',
       section: 'คำทำนาย 12 เดือนข้างหน้า',
       text:
-          'ระหว่างวันที่ {{horizonStart}} ถึง {{horizonEnd}} ขอบเขตงานของคุณจะกว้างขึ้น คุณจึงต้องดูแลเรื่องมากกว่าเดิม ในช่วงเดียวกัน รายรับมีแนวโน้มเพิ่มขึ้นด้วย จึงเป็นรอบที่ทั้งบทบาทในงานและรายรับขยับขึ้นพร้อมกัน',
+          'ระหว่างวันที่ {{horizonStart}} ถึง {{horizonEnd}} จะเด่นเรื่องการงาน ขอบเขตงานของคุณจะกว้างขึ้น และเด่นเรื่องการเงิน รายรับจะเพิ่มขึ้น',
       row: currentPeriod,
       domain: 'career_and_finance',
       horizon: 'next12Months',
@@ -1275,7 +1309,7 @@ List<RuntimePredictiveRule> _buildContractRules({
     periodRule(
       suffix: 'OVERVIEW-01',
       owner: 'overview',
-      section: 'ภาพรวมเส้นทางชีวิต',
+      section: 'ภาพรวมเส้นทางชีวิตที่ผ่านมา',
       text: _overviewPrediction(
         currentPeriod,
         work.material!,
@@ -1296,8 +1330,8 @@ List<RuntimePredictiveRule> _buildContractRules({
       suffix: 'PAST-01',
       owner: 'past-${pastRow.ageBinding}',
       section: currentIndex == 0
-          ? 'ช่วงที่ผ่านมา — ตั้งแต่วัยเริ่มต้นถึงอายุ {{currentAge}} ปี'
-          : 'ช่วงที่ผ่านมา — อายุ ${pastRow.ageStart}–${pastRow.ageEnd} ปี',
+          ? 'ช่วงที่ผ่านมา — ตั้งแต่เกิดจนถึงอายุ {{currentAge}} ปี · ${_lifePeriodPlanetLabel(pastRow)}'
+          : 'ช่วงที่ผ่านมา — อายุ ${pastRow.ageStart}–${pastRow.ageEnd} ปี · ${_lifePeriodPlanetLabel(pastRow)}',
       text: _pastPeriodPrediction(pastRow, currentIndex == 0, currentAge),
       row: pastRow,
       horizon: 'past-life-period',
@@ -1308,7 +1342,8 @@ List<RuntimePredictiveRule> _buildContractRules({
     periodRule(
       suffix: 'CURRENT-01',
       owner: 'current',
-      section: 'คำทำนายปัจจุบัน — อายุ {{currentAge}} ปี',
+      section:
+          'คำทำนายปัจจุบัน — อายุ {{currentAge}} ปี · ${_lifePeriodPlanetLabel(currentPeriod)}',
       text: _currentPeriodPrediction(currentPeriod, currentAge),
       row: currentPeriod,
       horizon: 'current',
@@ -1427,8 +1462,8 @@ List<RuntimePredictiveRule> _buildContractRules({
       id: '$prefix-NEXT-01',
       owner: 'next',
       section: nextRow == currentPeriod
-          ? 'ช่วงชีวิตระยะยาว'
-          : 'ช่วงชีวิตถัดไป — อายุ ${nextRow.ageStart}–${nextRow.ageEnd} ปี',
+          ? 'ช่วงชีวิตระยะยาว · ${_lifePeriodPlanetLabel(nextRow)}'
+          : 'ช่วงชีวิตถัดไป — อายุ ${nextRow.ageStart}–${nextRow.ageEnd} ปี · ${_lifePeriodPlanetLabel(nextRow)}',
       text: _joinReaderParts([
         _nextPeriodPrediction(nextRow, currentAge),
         _directDomainPrediction(nextDomains.first, nextRow.ageStart),

@@ -227,11 +227,15 @@ void main() {
           expect(
             text,
             contains(
-              'ความสัมพันธ์ที่สำคัญของคุณจะแน่นแฟ้นขึ้น ความไว้ใจและความใกล้ชิดกับคนสำคัญจึงชัดขึ้นตามไปด้วย',
+              'สำหรับคนมีคู่ ความไว้ใจและความใกล้ชิดกับคนสำคัญจะแน่นแฟ้นขึ้น ส่วนคนโสด หากกำลังทำความรู้จักใคร ความสัมพันธ์นั้นจะค่อย ๆ ชัดเจนขึ้นตามจังหวะของช่วงนี้',
             ),
           );
-          expect(text, contains('รายรับมีแนวโน้มเพิ่มขึ้นด้วย'));
+          expect(text, contains('จะเด่นเรื่องการงาน'));
+          expect(text, contains('และเด่นเรื่องการเงิน รายรับจะเพิ่มขึ้น'));
           expect(text, isNot(contains('มีโอกาส')));
+          expect(text, isNot(contains('ภาพรวมเส้นทางชีวิต')));
+          expect(text, isNot(contains('อายุ 0–10 ปี')));
+          expect(text, contains('ตั้งแต่เกิดจนถึง 10 ปี · ดาวเสาร์เสวยอายุ'));
         } else {
           expectUnknownContract(fixture);
           expect(
@@ -264,6 +268,70 @@ void main() {
         }
         expect(text, isNot(contains('คำทำนายรายเดือน')));
       }
+    });
+
+    test('Revision 5 groups current domains and keeps limits last', () {
+      final document = ThaiBetaReportExportDocument.candidate(
+        ThaiBetaAnalysisRunner.run(
+          ThaiBetaInput(
+            firstName: 'Owner',
+            lastName: 'Known',
+            birthDate: DateTime(1982, 6, 6),
+            birthHour: 0,
+            birthMinute: 35,
+            province: 'เชียงใหม่',
+            provinceKey: 'chiang_mai',
+          ),
+          startedAt: DateTime(2026, 9, 11),
+          asOf: DateTime(2026, 9, 11),
+        ),
+      );
+      final current = document.sections.singleWhere(
+        (section) => section.id == 'report-body-predictive-v2-current',
+      );
+      expect(
+        current.paragraphs,
+        containsAllInOrder(const [
+          'การงาน',
+          'การเงิน',
+          'ความรักและความสัมพันธ์',
+          'สุขภาพ',
+          'โชคลาภและแรงสนับสนุน',
+        ]),
+      );
+      expect(
+        document.sections.where(
+          (section) => const {
+            'การงาน',
+            'การเงิน',
+            'ความรักและความสัมพันธ์',
+            'สุขภาพ',
+            'โชคลาภและแรงสนับสนุน',
+          }.contains(section.title),
+        ),
+        isEmpty,
+      );
+      final titles = document.sections.map((section) => section.title).toList();
+      expect(
+        titles.indexOf('ข้อจำกัด'),
+        greaterThan(titles.indexOf('คำแนะนำ')),
+      );
+      expect(
+        titles.indexOf('ข้อจำกัด'),
+        lessThan(titles.indexOf('พื้นดวงและมุมมองด้านจิตวิทยา')),
+      );
+      final chart = document.sections.singleWhere(
+        (section) => section.title == 'โครงสร้างดวงหลัก',
+      );
+      expect(chart.paragraphs, hasLength(7));
+      expect(
+        chart.paragraphs.any((paragraph) => paragraph.contains(' — ')),
+        isFalse,
+      );
+      expect(
+        document.fullPlainText,
+        isNot(contains('ความหมายและข้อจำกัดของผลลัพธ์')),
+      );
     });
 
     test('PR106-OR2 Unknown copy is natural and fail-closed on every field', () {

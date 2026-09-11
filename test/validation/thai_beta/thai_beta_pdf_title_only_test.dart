@@ -115,32 +115,52 @@ void main() {
         '91b71e6689193ee8c5cbd2604f24f139d380b9994a94437f4135fd42019cd998',
         reason: 'The pre-repair OR5R reader baseline must remain immutable',
       );
-      final baseline = jsonDecode(baselineFile.readAsStringSync())['35'];
-      final historicalPredictiveStructure = [
-        for (final section in baseline['sections'] as List)
-          if ((section['traceIds'] as List).any(
-            (traceId) => (traceId as String).startsWith('PRV2-'),
-          ))
-            {
-              'id': section['id'],
-              'title': section['title'],
-              'traceIds': section['traceIds'],
-            },
-      ];
-      final activePredictiveStructure = [
-        for (final section in doc.sections)
-          if (section.traceIds.any((traceId) => traceId.startsWith('PRV2-')))
-            {
-              'id': section.id,
-              'title': section.title,
-              'traceIds': section.traceIds,
-            },
-      ];
+      final plan = doc.predictiveRuntimeV2!;
+      final activePredictiveTraceIds = {
+        for (final section in doc.sections) ...section.traceIds,
+      }.where((traceId) => traceId.startsWith('PRV2-')).toSet();
+      final expectedReaderTraceIds = plan.emittedClaims
+          .where((claim) => claim.rule.semanticOwner != 'overview')
+          .map((claim) => claim.rule.id)
+          .toSet();
       expect(
-        activePredictiveStructure,
-        historicalPredictiveStructure,
+        activePredictiveTraceIds,
+        expectedReaderTraceIds,
         reason:
-            'Candidate reader revisions may change prose and provenance layout, but not predictive section ownership',
+            'Reader layout may regroup sections but must retain every displayed authority binding',
+      );
+      expect(plan.usesCandidate0028ReaderCopy, isTrue);
+      expect(
+        doc.sections.map((section) => section.title),
+        containsAllInOrder(const [
+          'คำทำนายอดีต',
+          'ตั้งแต่เกิดจนถึง 10 ปี · ดาวเสาร์เสวยอายุ',
+          'อายุ 11–29 ปี · ดาวพฤหัสบดีเสวยอายุ',
+          'อายุ 30–41 ปี · ดาวราหูเสวยอายุ',
+          'คำทำนายปัจจุบัน — อายุ 44 ปี · ดาวศุกร์เสวยอายุ',
+          'คำทำนาย 12 เดือนข้างหน้า',
+          'คำแนะนำ',
+          'ข้อจำกัด',
+        ]),
+      );
+      final current = doc.sections.singleWhere(
+        (section) => section.id == 'report-body-predictive-v2-current',
+      );
+      expect(
+        ThaiBetaReportPdfExporter.debugPaginationUnitsForTest(current),
+        hasLength(6),
+      );
+      final chart = doc.sections.singleWhere(
+        (section) => section.title == 'โครงสร้างดวงหลัก',
+      );
+      expect(chart.paragraphs, hasLength(7));
+      expect(
+        chart.paragraphs.any((paragraph) => paragraph.contains(' — ')),
+        isFalse,
+      );
+      expect(
+        doc.fullPlainText,
+        isNot(contains('ความหมายและข้อจำกัดของผลลัพธ์')),
       );
       expect(doc.fullPlainText, contains('เวลา 00:35 น. จังหวัดเชียงใหม่'));
       expect(doc.fullPlainText, contains('วันทางโหราศาสตร์เป็นวันเสาร์'));

@@ -388,7 +388,10 @@ void main() {
             if (!knownTime) {
               expectUnknownContract(_analysis(knownTime: false));
               expect(find.text('คำทำนายอดีต'), findsNothing);
-              expect(find.text('คำทำนายปัจจุบัน — อายุ 44 ปี'), findsNothing);
+              expect(
+                find.textContaining('คำทำนายปัจจุบัน — อายุ 44 ปี'),
+                findsNothing,
+              );
               expect(find.text('ช่วงชีวิตถัดไป'), findsNothing);
               expect(find.text('อดีตของคุณ'), findsNothing);
               expect(find.text('ช่วงปัจจุบัน'), findsNothing);
