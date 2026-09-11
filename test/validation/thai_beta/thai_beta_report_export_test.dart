@@ -270,7 +270,7 @@ void main() {
       }
     });
 
-    test('Revision 5 groups current domains and keeps limits last', () {
+    test('Revision 6 keeps current as six paragraphs and limits last', () {
       final document = ThaiBetaReportExportDocument.candidate(
         ThaiBetaAnalysisRunner.run(
           ThaiBetaInput(
@@ -289,16 +289,18 @@ void main() {
       final current = document.sections.singleWhere(
         (section) => section.id == 'report-body-predictive-v2-current',
       );
-      expect(
-        current.paragraphs,
-        containsAllInOrder(const [
-          'การงาน',
-          'การเงิน',
-          'ความรักและความสัมพันธ์',
-          'สุขภาพ',
-          'โชคลาภและแรงสนับสนุน',
-        ]),
-      );
+      expect(current.paragraphs, hasLength(6));
+      const currentLeads = [
+        'ปัจจุบันอายุ 44 ปี',
+        'ด้านการงาน',
+        'ด้านการเงิน',
+        'ด้านความรักและความสัมพันธ์',
+        'ด้านสุขภาพ',
+        'ด้านโชคลาภและแรงสนับสนุน',
+      ];
+      for (var index = 0; index < currentLeads.length; index++) {
+        expect(current.paragraphs[index], startsWith(currentLeads[index]));
+      }
       expect(
         document.sections.where(
           (section) => const {
@@ -312,13 +314,10 @@ void main() {
         isEmpty,
       );
       final titles = document.sections.map((section) => section.title).toList();
+      expect(titles.last, 'ข้อจำกัด');
       expect(
         titles.indexOf('ข้อจำกัด'),
-        greaterThan(titles.indexOf('คำแนะนำ')),
-      );
-      expect(
-        titles.indexOf('ข้อจำกัด'),
-        lessThan(titles.indexOf('พื้นดวงและมุมมองด้านจิตวิทยา')),
+        greaterThan(titles.indexOf('ที่มาของผลวิเคราะห์')),
       );
       final chart = document.sections.singleWhere(
         (section) => section.title == 'โครงสร้างดวงหลัก',

@@ -129,7 +129,8 @@ void main() {
         reason:
             'Reader layout may regroup sections but must retain every displayed authority binding',
       );
-      expect(plan.usesCandidate0028ReaderCopy, isTrue);
+      expect(plan.usesCandidate0028ReaderCopy, isFalse);
+      expect(plan.usesCandidate0029ReaderCopy, isTrue);
       expect(
         doc.sections.map((section) => section.title),
         containsAllInOrder(const [
@@ -146,9 +147,22 @@ void main() {
       final current = doc.sections.singleWhere(
         (section) => section.id == 'report-body-predictive-v2-current',
       );
+      expect(current.paragraphs, hasLength(6));
+      expect(current.paragraphs[0], startsWith('ปัจจุบันอายุ 44 ปี'));
+      expect(current.paragraphs[1], startsWith('ด้านการงาน'));
+      expect(current.paragraphs[2], startsWith('ด้านการเงิน'));
+      expect(current.paragraphs[3], startsWith('ด้านความรักและความสัมพันธ์'));
+      expect(current.paragraphs[4], startsWith('ด้านสุขภาพ'));
+      expect(current.paragraphs[5], startsWith('ด้านโชคลาภและแรงสนับสนุน'));
+      final currentUnits =
+          ThaiBetaReportPdfExporter.debugPaginationUnitsForTest(current);
+      expect(currentUnits, hasLength(1));
+      expect(currentUnits.single.split('\n'), hasLength(7));
+      final titles = doc.sections.map((section) => section.title).toList();
+      expect(titles.last, 'ข้อจำกัด');
       expect(
-        ThaiBetaReportPdfExporter.debugPaginationUnitsForTest(current),
-        hasLength(6),
+        titles.indexOf('ข้อจำกัด'),
+        greaterThan(titles.indexOf('ที่มาของผลวิเคราะห์')),
       );
       final chart = doc.sections.singleWhere(
         (section) => section.title == 'โครงสร้างดวงหลัก',

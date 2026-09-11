@@ -477,6 +477,7 @@ class ThaiPredictiveRuntimeV2Plan {
                 'candidate-0023-component-v1',
                 'candidate-0027-reader-copy-v1',
                 'candidate-0028-reader-copy-v1',
+                'candidate-0029-reader-copy-v1',
               }.contains(decision.rule.realizerId),
             ) &&
         emittedSemanticOwners.containsAll(const {
@@ -523,6 +524,20 @@ class ThaiPredictiveRuntimeV2Plan {
           .every(
             (decision) =>
                 decision.rule.realizerId == 'candidate-0028-reader-copy-v1',
+          );
+
+  /// Candidate 0029 applies the Owner's final-section and continuous-current
+  /// corrections while retaining the Candidate 0023 authority boundary.
+  bool get usesCandidate0029ReaderCopy =>
+      usesCandidate0023Components &&
+      emittedClaims
+          .where(
+            (decision) =>
+                decision.rule.kind == RuntimePredictiveKind.prediction,
+          )
+          .every(
+            (decision) =>
+                decision.rule.realizerId == 'candidate-0029-reader-copy-v1',
           );
 
   static String contextIdForMetadata(int remainder, int thaiWeekdayNumber) {
@@ -575,6 +590,7 @@ class ThaiPredictiveRuntimeV2Plan {
     'usesCandidate0023Components': usesCandidate0023Components,
     'usesCandidate0027ReaderCopy': usesCandidate0027ReaderCopy,
     'usesCandidate0028ReaderCopy': usesCandidate0028ReaderCopy,
+    'usesCandidate0029ReaderCopy': usesCandidate0029ReaderCopy,
     'monthlyTimelineAvailable': monthlyTimelineAvailable,
     'emittedPredictions': emittedPredictions,
     'emittedClaimCount': emittedClaims.length,
@@ -773,6 +789,7 @@ abstract final class RuntimePredictiveClaimBindingValidator {
           'candidate-0023-component-v1',
           'candidate-0027-reader-copy-v1',
           'candidate-0028-reader-copy-v1',
+          'candidate-0029-reader-copy-v1',
           'generalized-editorial-v2',
           'life-period-editorial-v2',
           'support-editorial-v2',
@@ -972,7 +989,7 @@ List<RuntimePredictiveRule> _buildCandidate0023ComponentRules({
       evidenceKey: evidenceKey.isEmpty ? row.selectorRef : evidenceKey,
       directionBand: directionBand.isEmpty ? row.periodStatus : directionBand,
       sourceComponents: evidence,
-      realizerId: 'candidate-0028-reader-copy-v1',
+      realizerId: 'candidate-0029-reader-copy-v1',
       infographicTextTemplate: infographicText,
     );
   }
@@ -1052,7 +1069,7 @@ List<RuntimePredictiveRule> _buildCandidate0023ComponentRules({
       section:
           'คำทำนายปัจจุบัน — อายุ {{currentAge}} ปี · ${_lifePeriodPlanetLabel(currentPeriod)}',
       text:
-          'เมื่ออายุ {{currentAge}} ปี คุณยังอยู่ในช่วงที่ภาพรวมชีวิตเดินไปในทางที่ดีขึ้น เรื่องที่ต้องลงมือเอง การพูดคุยกับคนอื่น และการตัดสินใจสำคัญมีอุปสรรคน้อยกว่าวัยก่อน จึงจัดการเรื่องที่อยู่ตรงหน้าได้ต่อเนื่องมากขึ้น',
+          'ปัจจุบันอายุ {{currentAge}} ปี คุณยังอยู่ในช่วงที่ภาพรวมชีวิตเดินไปในทางที่ดีขึ้น เรื่องที่ต้องลงมือเอง การพูดคุยกับคนอื่น และการตัดสินใจสำคัญมีอุปสรรคน้อยกว่าวัยก่อน จึงจัดการเรื่องที่อยู่ตรงหน้าได้ต่อเนื่องมากขึ้น',
       row: currentPeriod,
       domain: 'life_path',
       horizon: 'current',
@@ -1063,7 +1080,7 @@ List<RuntimePredictiveRule> _buildCandidate0023ComponentRules({
       owner: 'work',
       section: 'การงาน',
       text:
-          'งานยังมีเข้ามาอย่างต่อเนื่อง และคุณยังรับผิดชอบงานหลักที่อยู่ในมือได้เต็มที่ ช่วงนี้จึงเป็นจังหวะของการพางานที่กำลังทำอยู่ให้เดินหน้าต่อ',
+          'ด้านการงานยังมีเข้ามาอย่างต่อเนื่อง และคุณยังรับผิดชอบงานหลักที่อยู่ในมือได้เต็มที่ ช่วงนี้จึงเป็นจังหวะของการพางานที่กำลังทำอยู่ให้เดินหน้าต่อ',
       row: currentPeriod,
       domain: 'career',
       horizon: 'current',
@@ -1083,7 +1100,7 @@ List<RuntimePredictiveRule> _buildCandidate0023ComponentRules({
       owner: 'finance',
       section: 'การเงิน',
       text:
-          'การเงินในช่วงนี้คล่องตัวขึ้น คุณมีเงินใช้และมีจังหวะโชคลาภเข้ามา จึงจัดการรายจ่ายที่จำเป็นได้คล่องขึ้นกว่าช่วงก่อน',
+          'ด้านการเงินในช่วงนี้คล่องตัวขึ้น คุณมีเงินใช้และมีจังหวะโชคลาภเข้ามา จึงจัดการรายจ่ายที่จำเป็นได้คล่องขึ้นกว่าช่วงก่อน',
       row: currentPeriod,
       domain: 'finance',
       horizon: 'current',
@@ -1104,7 +1121,7 @@ List<RuntimePredictiveRule> _buildCandidate0023ComponentRules({
       owner: 'relationship',
       section: 'ความรักและความสัมพันธ์',
       text:
-          'สำหรับคนมีคู่ ความไว้ใจและความใกล้ชิดกับคนสำคัญจะแน่นแฟ้นขึ้น ส่วนคนโสด หากกำลังทำความรู้จักใคร ความสัมพันธ์นั้นจะค่อย ๆ ชัดเจนขึ้นตามจังหวะของช่วงนี้',
+          'ด้านความรักและความสัมพันธ์ สำหรับคนมีคู่ ความไว้ใจและความใกล้ชิดกับคนสำคัญจะแน่นแฟ้นขึ้น ส่วนคนโสด หากกำลังทำความรู้จักใคร ความสัมพันธ์นั้นจะค่อย ๆ ชัดเจนขึ้นตามจังหวะของช่วงนี้',
       row: currentPeriod,
       domain: 'relationship',
       horizon: 'current',
@@ -1125,7 +1142,7 @@ List<RuntimePredictiveRule> _buildCandidate0023ComponentRules({
       owner: 'health',
       section: 'สุขภาพ',
       text:
-          'ภาพรวมร่างกายยังมีกำลังสำหรับกิจกรรมตามปกติ อย่างไรก็ตาม เมื่อพักไม่พอ ร่างกายจะฟื้นช้าลงและทำกิจกรรมต่อเนื่องได้น้อยลง',
+          'ด้านสุขภาพ ภาพรวมร่างกายยังมีกำลังสำหรับกิจกรรมตามปกติ อย่างไรก็ตาม เมื่อพักไม่พอ ร่างกายจะฟื้นช้าลงและทำกิจกรรมต่อเนื่องได้น้อยลง',
       row: currentPeriod,
       domain: 'health',
       horizon: 'current',
@@ -1145,7 +1162,7 @@ List<RuntimePredictiveRule> _buildCandidate0023ComponentRules({
       owner: 'support',
       section: 'โชคลาภและแรงสนับสนุน',
       text:
-          'ช่วงนี้คุณจะได้รับแรงช่วยเหลือจากครู ผู้มีประสบการณ์ เพื่อน และคนในเครือข่าย ความช่วยเหลืออาจมาในรูปของคำแนะนำ การชี้ทาง หรือการช่วยประคองเรื่องที่คุณกำลังรับมืออยู่',
+          'ด้านโชคลาภและแรงสนับสนุน ช่วงนี้คุณจะได้รับแรงช่วยเหลือจากครู ผู้มีประสบการณ์ เพื่อน และคนในเครือข่าย ความช่วยเหลืออาจมาในรูปของคำแนะนำ การชี้ทาง หรือการช่วยประคองเรื่องที่คุณกำลังรับมืออยู่',
       row: currentPeriod,
       domain: 'support',
       horizon: 'current',

@@ -70,7 +70,12 @@
     "docs/CANDIDATE_0028_RUNTIME_REVISION_5_VALIDATION.json",
     "tool/validate_candidate_0028_reader_voice.mjs",
     "docs/CANDIDATE_0027_RUNTIME_REVISION_4_VALIDATION.md",
-    "docs/CANDIDATE_0027_RUNTIME_REVISION_4_VALIDATION.json"
+    "docs/CANDIDATE_0027_RUNTIME_REVISION_4_VALIDATION.json",
+    "docs/CANDIDATE_0028_RUNTIME_REVISION_5_OWNER_REJECTION.md",
+    "docs/CANDIDATE_0029_ACTUAL_0035_FULL_READER_COPY.md",
+    "docs/CANDIDATE_0029_RUNTIME_REVISION_6_VALIDATION.md",
+    "docs/CANDIDATE_0029_RUNTIME_REVISION_6_VALIDATION.json",
+    "tool/validate_candidate_0029_reader_voice.mjs"
   ],
   "allowed_globs": [],
   "forbidden_files": [
@@ -104,6 +109,7 @@
     "/workspace/"
   ],
   "focused_tests": [
+    "node tool/validate_candidate_0029_reader_voice.mjs",
     "node tool/validate_candidate_0028_reader_voice.mjs",
     "node tool/validate_candidate_0027_reader_voice.mjs",
     "node tool/validate_candidate_0026_reader_voice.mjs",

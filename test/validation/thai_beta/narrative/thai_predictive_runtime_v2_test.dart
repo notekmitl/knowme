@@ -10,8 +10,8 @@ import 'package:knowme/features/thai_beta/domain/thai_beta_input.dart';
 import '../synthetic_audit/thai_beta_synthetic_matrix_300.dart';
 
 void main() {
-  group('Candidate 0028 reader copy on Candidate 0023 authority', () {
-    test('00:35 binds Candidate 0028 to the accepted predictive authority', () {
+  group('Candidate 0029 reader copy on Candidate 0023 authority', () {
+    test('00:35 binds Candidate 0029 to the accepted predictive authority', () {
       final plan = ThaiPredictiveRuntimeV2Plan.fromAnalysis(
         _acceptedAt(DateTime(2026, 9, 11), minute: 35),
       );
@@ -48,21 +48,26 @@ void main() {
       }
       expect(plan.usesCandidate0023Components, isTrue);
       expect(plan.usesCandidate0027ReaderCopy, isFalse);
-      expect(plan.usesCandidate0028ReaderCopy, isTrue);
+      expect(plan.usesCandidate0028ReaderCopy, isFalse);
+      expect(plan.usesCandidate0029ReaderCopy, isTrue);
     });
 
-    test('00:35 renders the Candidate 0028 full reader sections exactly', () {
+    test('00:35 renders the Candidate 0029 full reader sections exactly', () {
       final document = ThaiBetaReportExportDocument.candidate(
         _acceptedAt(DateTime(2026, 9, 11), minute: 35),
       );
-      final expected = _candidate0028SectionPlainText();
+      final expected = _candidate0029SectionPlainText();
       expect(document.sectionPlainText, expected);
       expect(document.predictiveRuntimeV2!.usesCandidate0023Components, isTrue);
       expect(
         document.predictiveRuntimeV2!.usesCandidate0027ReaderCopy,
         isFalse,
       );
-      expect(document.predictiveRuntimeV2!.usesCandidate0028ReaderCopy, isTrue);
+      expect(
+        document.predictiveRuntimeV2!.usesCandidate0028ReaderCopy,
+        isFalse,
+      );
+      expect(document.predictiveRuntimeV2!.usesCandidate0029ReaderCopy, isTrue);
       expect(
         document.sections.map((section) => section.title),
         isNot(contains('ภาพรวมเส้นทางชีวิตที่ผ่านมา')),
@@ -70,16 +75,18 @@ void main() {
       final current = document.sections.singleWhere(
         (section) => section.id == 'report-body-predictive-v2-current',
       );
-      expect(
-        current.paragraphs,
-        containsAllInOrder(const [
-          'การงาน',
-          'การเงิน',
-          'ความรักและความสัมพันธ์',
-          'สุขภาพ',
-          'โชคลาภและแรงสนับสนุน',
-        ]),
-      );
+      expect(current.paragraphs, hasLength(6));
+      const currentLeads = [
+        'ปัจจุบันอายุ 44 ปี',
+        'ด้านการงาน',
+        'ด้านการเงิน',
+        'ด้านความรักและความสัมพันธ์',
+        'ด้านสุขภาพ',
+        'ด้านโชคลาภและแรงสนับสนุน',
+      ];
+      for (var index = 0; index < currentLeads.length; index++) {
+        expect(current.paragraphs[index], startsWith(currentLeads[index]));
+      }
       expect(
         document.sections.where(
           (section) => const {
@@ -93,13 +100,10 @@ void main() {
         isEmpty,
       );
       final titles = document.sections.map((section) => section.title).toList();
+      expect(titles.last, 'ข้อจำกัด');
       expect(
         titles.indexOf('ข้อจำกัด'),
-        greaterThan(titles.indexOf('คำแนะนำ')),
-      );
-      expect(
-        titles.indexOf('ข้อจำกัด'),
-        lessThan(titles.indexOf('พื้นดวงและมุมมองด้านจิตวิทยา')),
+        greaterThan(titles.indexOf('ที่มาของผลวิเคราะห์')),
       );
     });
 
@@ -403,7 +407,8 @@ void main() {
       final before = ThaiBetaReportExportDocument.candidate(_accepted());
       final after = ThaiBetaReportExportDocument.candidate(_accepted());
       expect(after.fullPlainText, before.fullPlainText);
-      expect(after.predictiveRuntimeV2!.usesCandidate0028ReaderCopy, isTrue);
+      expect(after.predictiveRuntimeV2!.usesCandidate0028ReaderCopy, isFalse);
+      expect(after.predictiveRuntimeV2!.usesCandidate0029ReaderCopy, isTrue);
       expect(after.predictiveRuntimeV2!.ownerAcceptedGoldenOverrideApplied, 0);
     });
 
@@ -815,24 +820,19 @@ ThaiBetaInput _acceptedInput({bool known = true, int minute = 3}) =>
       gender: 'ชาย',
     );
 
-List<List<String>> _candidate0028Sections() {
+List<List<String>> _candidate0029Sections() {
   final source = File(
-    'docs/CANDIDATE_0028_ACTUAL_0035_FULL_READER_COPY.md',
+    'docs/CANDIDATE_0029_ACTUAL_0035_FULL_READER_COPY.md',
   ).readAsStringSync().replaceAll('\r\n', '\n');
   final body = source
-      .split('<!-- BEGIN CANDIDATE 0028 FULL READER COPY -->')
+      .split('<!-- BEGIN CANDIDATE 0029 FULL READER COPY -->')
       .last
-      .split('<!-- END CANDIDATE 0028 FULL READER COPY -->')
+      .split('<!-- END CANDIDATE 0029 FULL READER COPY -->')
       .first;
   final sections = <List<String>>[];
   for (final rawLine in body.split('\n')) {
     final line = rawLine.trim();
     if (line.isEmpty || line.startsWith('# คำทำนายดวงชะตา')) continue;
-    final subheading = RegExp(r'^####\s+(.+)$').firstMatch(line);
-    if (subheading != null) {
-      sections.last.add(subheading.group(1)!);
-      continue;
-    }
     final heading = RegExp(r'^#{2,3}\s+(.+)$').firstMatch(line);
     if (heading != null) {
       sections.add([heading.group(1)!]);
@@ -843,8 +843,8 @@ List<List<String>> _candidate0028Sections() {
   return sections;
 }
 
-String _candidate0028SectionPlainText() =>
-    _candidate0028Sections().map((section) => section.join('\n')).join('\n\n');
+String _candidate0029SectionPlainText() =>
+    _candidate0029Sections().map((section) => section.join('\n')).join('\n\n');
 
 List<Map<String, Object?>> _predictiveSectionProjection(
   ThaiPredictiveRuntimeV2Plan plan,
@@ -913,7 +913,7 @@ List<String> _predictionQualityViolations(RuntimePredictiveDecision decision) {
   final violations = <String>[];
   const hedgePhrases = ['มีแนวโน้ม', 'อาจ', 'มีโอกาส', 'น่าจะ', 'เป็นไปได้ว่า'];
   for (final phrase in hedgePhrases) {
-    final isCandidate0028BoundWording = switch ((
+    final isCandidate0029BoundWording = switch ((
       phrase,
       decision.rule.semanticOwner,
     )) {
@@ -921,7 +921,7 @@ List<String> _predictionQualityViolations(RuntimePredictiveDecision decision) {
       ('อาจ', 'support') => text.contains('ความช่วยเหลืออาจมาในรูป'),
       _ => false,
     };
-    if (isCandidate0028BoundWording) {
+    if (isCandidate0029BoundWording) {
       continue;
     }
     if (text.contains(phrase)) violations.add('hedge:$phrase');
