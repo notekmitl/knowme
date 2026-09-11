@@ -276,7 +276,7 @@ void main() {
           expect(document.infographic, isNull);
           expect(
             document.sections.where(
-              (s) => s.title == 'แนวโน้ม 12 เดือนข้างหน้า',
+              (s) => s.title == 'คำทำนาย 12 เดือนข้างหน้า',
             ),
             isEmpty,
           );
@@ -286,7 +286,7 @@ void main() {
           );
           continue;
         }
-        expect(document.sections[insertion].title, 'แนวโน้ม 12 เดือนข้างหน้า');
+        expect(document.sections[insertion].title, 'คำทำนาย 12 เดือนข้างหน้า');
         final markup = browserPrintMarkup(
           document,
           infographicPng: Uint8List.fromList([1, 2, 3]),

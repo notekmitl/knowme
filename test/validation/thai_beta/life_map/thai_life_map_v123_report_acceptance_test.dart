@@ -34,7 +34,7 @@ void main() {
       expect(
         find.descendant(
           of: find.byKey(const ValueKey('report-body-predictive-v2-horizon')),
-          matching: find.text('แนวโน้ม 12 เดือนข้างหน้า'),
+          matching: find.text('คำทำนาย 12 เดือนข้างหน้า'),
         ),
         findsOneWidget,
       );

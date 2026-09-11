@@ -1,5 +1,18 @@
 # Thai Report Reader Experience V2+
 
+## PR120 Reader Voice V3 Revision 7 — supported-input completeness (2026-09-11)
+
+**CANDIDATE 0029 SUPPORTED-INPUT MATRIX PASSED — OPEN + DRAFT — READY FOR OWNER TESTING ONLY — NOT OWNER-ACCEPTED — NOT READY FOR REVIEW — NOT MERGED — NOT DEPLOYED.**
+
+At the Owner's request, Revision 7 adds a layered completeness matrix over the full input domain exposed by the Thai report flow. Birth normalization passes all 776,160 combinations of 7 civil weekdays × 1,440 clock minutes × 77 selectable Thai provinces, including both sides of local sunrise and all seven resulting astrological weekdays. The Known-time runtime passes 1,909 real analysis/plan cases and 126 complete reader documents, reaching all five form gender representations, 12 lagna values, 49 predictive contexts and all 392 context/age/planet rows at their inclusive boundaries. Unknown time passes all 539 weekday/province combinations with no predictive leakage.
+
+The matrix found and fixed two generalized-runtime defects that the earlier reference-profile tests did not expose. Generic profiles still carried legacy current, relationship, zero-based past-range and rolling-highlight wording; terminal age periods could also suppress the whole plan when no legitimate next-life-period window existed. The runtime now applies the requested reader structure to every supported context and emits all applicable claims at terminal periods without inventing a future period. Two stale UI assertions were updated from the retired generic heading to “คำทำนาย 12 เดือนข้างหน้า”; the independently versioned infographic title remains unchanged.
+
+Final gates on Flutter 3.41.1 / Dart 3.11.0 with CI=true, analytics suppressed and TZ=Asia/Bangkok: completeness matrix 3/3; focused runtime/export/PDF/completeness 84/84; updated heading regressions 13/13; OR5 evidence 5/5; Node foundation/signature 9/9; Candidate 0024–0029 validators PASS; full Flutter suite 3,029/3,029; changed-scope analyzer 0 issues; repository analyzer exits 0 with 297 historical warning/info diagnostics.
+
+The exhaustive statement is intentionally limited to the selectable Thai place domain. It does not cover arbitrary worldwide coordinates or every Cartesian combination as a full rendered document, and it does not claim astrological predictive accuracy. Selector, evidence authority, Canon, Known/Unknown boundary and product-acceptance/ are unchanged. PR #120 remains Open + Draft; this revision does not authorize Ready for Review, merge, deployment, Production access or Production mutation.
+
+
 ## PR120 Reader Voice V3 Revision 6 — Candidate 0029 runtime (2026-09-11)
 
 **CANDIDATE 0029 IMPLEMENTED AND VALIDATED FOR OWNER TESTING — OPEN + DRAFT — NOT OWNER-ACCEPTED — NOT READY FOR REVIEW — NOT MERGED — NOT DEPLOYED.**

@@ -1,0 +1,134 @@
+{
+  "schemaVersion": 1,
+  "candidate": "0029",
+  "revision": 7,
+  "date": "2026-09-11",
+  "status": "PASS_SUPPORTED_THAI_INPUT_DOMAIN_READY_FOR_OWNER_TESTING_ONLY",
+  "pullRequest": {
+    "number": 120,
+    "state": "OPEN",
+    "draft": true,
+    "ownerAccepted": false,
+    "readyForReview": false,
+    "merged": false,
+    "deployed": false
+  },
+  "runtime": {
+    "flutter": "3.41.1",
+    "dart": "3.11.0",
+    "timezone": "Asia/Bangkok"
+  },
+  "normalizationMatrix": {
+    "strategy": "exhaustive_cartesian",
+    "cases": 776160,
+    "failed": 0,
+    "civilWeekdays": 7,
+    "clockMinutes": 1440,
+    "hours": 24,
+    "thaiProvinces": 77,
+    "beforeSunrise": 187042,
+    "atOrAfterSunrise": 589118,
+    "astrologicalWeekdaysReached": 7
+  },
+  "knownReportMatrix": {
+    "strategy": "exhaustive_axes_plus_equivalence_class_documents",
+    "analysisAndPlanCases": 1909,
+    "failed": 0,
+    "readerDocuments": 126,
+    "clockMinutesReached": 1440,
+    "hoursReached": 24,
+    "thaiProvincesReached": 77,
+    "civilWeekdaysReached": 7,
+    "astrologicalWeekdaysReached": 7,
+    "genderFormValuesReached": 5,
+    "lagnaValuesReached": 12,
+    "predictiveContextsReached": 49,
+    "contextAgePlanetRowsReached": 392,
+    "periodStartBoundariesChecked": 392,
+    "periodEndBoundariesChecked": 392,
+    "periodEndRowsRunThroughAnalysis": 392
+  },
+  "unknownTimeMatrix": {
+    "strategy": "exhaustive_weekday_by_supported_province",
+    "cases": 539,
+    "failed": 0,
+    "civilWeekdays": 7,
+    "thaiProvinces": 77,
+    "predictionClaims": 0,
+    "knownToUnknownLeakage": 0,
+    "infographics": 0,
+    "explicitOmissionExplanation": true
+  },
+  "completenessAssertions": {
+    "missingSemanticOwners": 0,
+    "unsupportedClaims": 0,
+    "omittedClaims": 0,
+    "fixtureSpecificBranches": 0,
+    "fixtureReferenceLeakage": 0,
+    "claimBindingErrors": 0,
+    "baselineFallbackCases": 0,
+    "emptyReaderTitlesOrParagraphs": 0,
+    "unresolvedTemplatePlaceholders": 0,
+    "zeroBasedPastRanges": 0,
+    "adultRelationshipAudienceGaps": 0,
+    "rollingHighlightGaps": 0,
+    "currentDomainSubheadings": 0,
+    "limitationsNotAbsoluteFinal": 0,
+    "mainChartExplanatoryTails": 0,
+    "lifePeriodPlanetLabelGaps": 0
+  },
+  "terminalPeriodBehavior": {
+    "fabricatesNextLifePeriod": false,
+    "applicableClaimsStillEmitted": true,
+    "terminalClaimCount": 12,
+    "terminalPredictionCount": 9
+  },
+  "tests": {
+    "completenessMatrix": {
+      "passed": 3,
+      "failed": 0
+    },
+    "focusedRuntimeExportPdfCompleteness": {
+      "passed": 84,
+      "failed": 0
+    },
+    "updatedHeadingRegressions": {
+      "passed": 13,
+      "failed": 0
+    },
+    "or5EvidenceProjection": {
+      "passed": 5,
+      "failed": 0
+    },
+    "nodeFoundationAndSignature": {
+      "passed": 9,
+      "failed": 0
+    },
+    "candidateValidators": {
+      "from": "0024",
+      "through": "0029",
+      "status": "PASS"
+    },
+    "fullFlutterSuite": {
+      "passed": 3029,
+      "failed": 0
+    },
+    "changedScopeAnalyzerIssues": 0,
+    "repositoryAnalyzer": {
+      "exitCode": 0,
+      "historicalWarningInfoDiagnostics": 297,
+      "historicalWarningInfoDiagnosticsRetained": true
+    }
+  },
+  "scope": {
+    "selectableThaiProvinceDomainExhaustive": true,
+    "worldwideCoordinateDomainExhaustive": false,
+    "everyCartesianCombinationRenderedAsFullDocument": false,
+    "predictiveAccuracyClaimed": false,
+    "selectorChanged": false,
+    "evidenceAuthorityChanged": false,
+    "canonChanged": false,
+    "productAcceptanceChanged": false,
+    "productionChanged": false
+  }
+}

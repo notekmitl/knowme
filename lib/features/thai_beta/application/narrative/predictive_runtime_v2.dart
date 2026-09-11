@@ -1268,7 +1268,7 @@ List<RuntimePredictiveRule> _buildContractRules({
   final currentWindow = _window(prediction, ForecastHorizon.current);
   final horizonWindow = _window(prediction, ForecastHorizon.next12Months);
   final nextWindow = _window(prediction, ForecastHorizon.nextLifePeriod);
-  if (currentWindow == null || horizonWindow == null || nextWindow == null) {
+  if (currentWindow == null || horizonWindow == null) {
     return const [];
   }
 
@@ -1287,13 +1287,16 @@ List<RuntimePredictiveRule> _buildContractRules({
     return const [];
   }
   final horizonDomains = _rankedDomains(horizonWindow);
-  final nextDomains = _rankedDomains(nextWindow);
+  final nextDomains = nextWindow == null
+      ? const <PredictionDomainModel>[]
+      : _rankedDomains(nextWindow);
   if (horizonDomains.length < 2 ||
-      nextDomains.isEmpty ||
       horizonDomains.any((domain) => domain.material == null) ||
       nextDomains.any((domain) => domain.material == null)) {
     return const [];
   }
+  final hasSupportedNextPeriod =
+      nextRow != currentPeriod && nextDomains.isNotEmpty;
 
   final prefix = 'PRV2-${contextId.replaceAll('.', '-')}';
   final rules = <RuntimePredictiveRule>[];
@@ -1348,6 +1351,8 @@ List<RuntimePredictiveRule> _buildContractRules({
       owner: 'past-${pastRow.ageBinding}',
       section: currentIndex == 0
           ? 'ช่วงที่ผ่านมา — ตั้งแต่เกิดจนถึงอายุ {{currentAge}} ปี · ${_lifePeriodPlanetLabel(pastRow)}'
+          : pastRow.ageStart == 0
+          ? 'ช่วงที่ผ่านมา — ตั้งแต่เกิดจนถึง ${pastRow.ageEnd} ปี · ${_lifePeriodPlanetLabel(pastRow)}'
           : 'ช่วงที่ผ่านมา — อายุ ${pastRow.ageStart}–${pastRow.ageEnd} ปี · ${_lifePeriodPlanetLabel(pastRow)}',
       text: _pastPeriodPrediction(pastRow, currentIndex == 0, currentAge),
       row: pastRow,
@@ -1446,9 +1451,9 @@ List<RuntimePredictiveRule> _buildContractRules({
     _rule(
       id: '$prefix-HORIZON-01',
       owner: 'rolling12',
-      section: 'แนวโน้ม 12 เดือนข้างหน้า',
+      section: 'คำทำนาย 12 เดือนข้างหน้า',
       text:
-          'ระหว่างวันที่ {{horizonStart}} ถึง {{horizonEnd}} ${_joinReaderParts(horizonDomains.take(2).map((domain) => _directDomainPrediction(domain, currentAge)))}',
+          'ระหว่างวันที่ {{horizonStart}} ถึง {{horizonEnd}} จะ${_rollingHighlights(horizonDomains, currentAge)}',
       contextId: contextId,
       period: currentPeriod,
       domain: 'life_path',
@@ -1474,39 +1479,40 @@ List<RuntimePredictiveRule> _buildContractRules({
       realizerId: 'generalized-editorial-v2',
     ),
   );
-  rules.add(
-    _rule(
-      id: '$prefix-NEXT-01',
-      owner: 'next',
-      section: nextRow == currentPeriod
-          ? 'ช่วงชีวิตระยะยาว · ${_lifePeriodPlanetLabel(nextRow)}'
-          : 'ช่วงชีวิตถัดไป — อายุ ${nextRow.ageStart}–${nextRow.ageEnd} ปี · ${_lifePeriodPlanetLabel(nextRow)}',
-      text: _joinReaderParts([
-        _nextPeriodPrediction(nextRow, currentAge),
-        _directDomainPrediction(nextDomains.first, nextRow.ageStart),
-      ]),
-      contextId: contextId,
-      period: nextRow,
-      domain: 'life_path',
-      horizon: 'nextLifePeriod',
-      sourceComponents: [
-        nextRow.selectorRef,
-        nextDomains.first.materialFingerprint,
-        nextDomains.first.claim,
-        nextDomains.first.risk,
-      ],
-      materialFingerprint: nextDomains.first.materialFingerprint,
-      evidenceKey: nextDomains.first.material!.evidenceKey,
-      directionBand: nextDomains.first.material!.band.name,
-      realizerId: 'generalized-editorial-v2',
-    ),
-  );
+  if (hasSupportedNextPeriod) {
+    rules.add(
+      _rule(
+        id: '$prefix-NEXT-01',
+        owner: 'next',
+        section:
+            'ช่วงชีวิตถัดไป — อายุ ${nextRow.ageStart}–${nextRow.ageEnd} ปี · ${_lifePeriodPlanetLabel(nextRow)}',
+        text: _joinReaderParts([
+          _nextPeriodPrediction(nextRow, currentAge),
+          _directDomainPrediction(nextDomains.first, nextRow.ageStart),
+        ]),
+        contextId: contextId,
+        period: nextRow,
+        domain: 'life_path',
+        horizon: 'nextLifePeriod',
+        sourceComponents: [
+          nextRow.selectorRef,
+          nextDomains.first.materialFingerprint,
+          nextDomains.first.claim,
+          nextDomains.first.risk,
+        ],
+        materialFingerprint: nextDomains.first.materialFingerprint,
+        evidenceKey: nextDomains.first.material!.evidenceKey,
+        directionBand: nextDomains.first.material!.band.name,
+        realizerId: 'generalized-editorial-v2',
+      ),
+    );
+  }
 
   final composition = [
     '$prefix-CURRENT-01',
     '$prefix-WORK-01',
     '$prefix-HORIZON-01',
-    '$prefix-NEXT-01',
+    if (hasSupportedNextPeriod) '$prefix-NEXT-01',
   ];
   rules.add(
     RuntimePredictiveRule(
@@ -1778,19 +1784,19 @@ String _directDomainPrediction(PredictionDomainModel domain, int readerAge) {
             ForecastDomain.relationship,
             ForecastBand.strong,
           ) =>
-            'ความสัมพันธ์ในช่วงปัจจุบันจะชัดขึ้นจากการกระทำที่สม่ำเสมอ ข้อตกลงที่ค้างอยู่จะได้ข้อสรุป',
+            'สำหรับคนมีคู่ ความสัมพันธ์จะชัดขึ้นจากการกระทำที่สม่ำเสมอและข้อตกลงที่ค้างอยู่จะได้ข้อสรุป ส่วนคนโสด หากกำลังทำความรู้จักใคร ความสัมพันธ์นั้นจะชัดขึ้นจากการกระทำที่สม่ำเสมอ',
           (
             ForecastHorizon.current,
             ForecastDomain.relationship,
             ForecastBand.active,
           ) =>
-            'ความสัมพันธ์ในช่วงปัจจุบันจะค่อย ๆ เปลี่ยนระดับ การพูดเงื่อนไขตรงกันจะทำให้สถานะชัดขึ้น',
+            'สำหรับคนมีคู่ ความสัมพันธ์จะค่อย ๆ ปรับระดับเมื่อพูดเงื่อนไขให้ตรงกัน ส่วนคนโสด หากกำลังทำความรู้จักใคร การพูดเงื่อนไขให้ตรงกันจะทำให้สถานะชัดขึ้น',
           (
             ForecastHorizon.current,
             ForecastDomain.relationship,
             ForecastBand.quiet,
           ) =>
-            'ความสัมพันธ์ในช่วงปัจจุบันจะเว้นระยะมากขึ้นเมื่อคำพูดกับการกระทำไม่ตรงกัน เรื่องค้างจะถูกนำกลับมาคุย',
+            'สำหรับคนมีคู่ ความสัมพันธ์จะเว้นระยะมากขึ้นเมื่อคำพูดกับการกระทำไม่ตรงกันและเรื่องค้างจะถูกนำกลับมาคุย ส่วนคนโสด หากกำลังทำความรู้จักใคร ความสัมพันธ์นั้นจะชะลอลงจนกว่าคำพูดกับการกระทำจะชัดเจนตรงกัน',
           (
             ForecastHorizon.current,
             ForecastDomain.health,
@@ -1965,6 +1971,31 @@ String _directDomainPrediction(PredictionDomainModel domain, int readerAge) {
     if (material.spansTransition)
       _transitionOutcome(material.horizon, material.domain, readerAge),
   ]);
+}
+
+String _rollingHighlights(
+  List<PredictionDomainModel> rankedDomains,
+  int readerAge,
+) {
+  final highlights = rankedDomains
+      .take(2)
+      .map((domain) {
+        final material = domain.material;
+        final rawLabel = _domainThaiForAge(material?.domain, readerAge);
+        final label =
+            readerAge >= 18 && material?.domain == ForecastDomain.career
+            ? 'การงาน'
+            : rawLabel;
+        final prediction = _directDomainPrediction(
+          domain,
+          readerAge,
+        ).replaceFirst(RegExp(r'^ตลอด 12 เดือน\s*'), '');
+        return 'เด่นเรื่อง$label $prediction';
+      })
+      .toList(growable: false);
+  if (highlights.isEmpty) return 'เด่นเรื่องที่กำลังเปลี่ยน';
+  if (highlights.length == 1) return highlights.single;
+  return '${highlights.first} และ${highlights[1]}';
 }
 
 String _childDirectDomainPrediction(
@@ -2315,12 +2346,12 @@ String _openingPastHouseEvent(
 String _currentPeriodPrediction(RuntimePredictivePeriodRow period, int age) {
   final rising = period.periodStatus == 'dueng_khuen';
   final ageLead = age == 0
-      ? 'วัยแรกเกิดเป็นช่วงเปลี่ยนผ่านของกิจวัตรและความสัมพันธ์กับผู้ดูแล'
+      ? 'ปัจจุบันอยู่ในวัยแรกเกิด ซึ่งเป็นช่วงเปลี่ยนผ่านของกิจวัตรและความสัมพันธ์กับผู้ดูแล'
       : age < 4
-      ? 'วัย $age ปีเป็นช่วงเปลี่ยนผ่านของกิจวัตร พัฒนาการ และความสัมพันธ์กับผู้ดูแล'
+      ? 'ปัจจุบันอายุ $age ปี เป็นช่วงเปลี่ยนผ่านของกิจวัตร พัฒนาการ และความสัมพันธ์กับผู้ดูแล'
       : age < 18
-      ? 'วัย $age ปีเป็นช่วงเปลี่ยนผ่านของการเรียน กิจวัตร และความสัมพันธ์รอบตัว'
-      : 'อายุ $age ปีเป็นช่วงเปลี่ยนผ่านของหน้าที่ ฐานชีวิต และเรื่องที่ต้องรับผิดชอบ';
+      ? 'ปัจจุบันอายุ $age ปี เป็นช่วงเปลี่ยนผ่านของการเรียน กิจวัตร และความสัมพันธ์รอบตัว'
+      : 'ปัจจุบันอายุ $age ปี เป็นช่วงเปลี่ยนผ่านของหน้าที่ ฐานชีวิต และเรื่องที่ต้องรับผิดชอบ';
   return _joinReaderParts([
     ageLead,
     _roleDevelopment(period.taksaRole, rising, child: age < 18),
@@ -2391,6 +2422,9 @@ String _summaryPrediction(
       : 'รอบปัจจุบันกำลังปิดภาระเดิมและจัดโครงสร้างใหม่';
   final first = _domainThaiForAge(horizon.first.material?.domain, currentAge);
   final second = _domainThaiForAge(horizon[1].material?.domain, currentAge);
+  if (next.isEmpty) {
+    return '$now รอบ 12 เดือนจะเห็นผลผ่าน$firstควบคู่กับ$second';
+  }
   final later = _domainThaiForAge(next.first.material?.domain, nextAge);
   return '$now รอบ 12 เดือนจะเห็นผลผ่าน$firstควบคู่กับ$second ส่วนช่วงชีวิตถัดไปจะย้ายแกนหลักไปที่$later';
 }
@@ -2558,6 +2592,7 @@ String _compactSummaryInfographic(
       : 'รอบปัจจุบันกำลังจัดเรื่องค้าง';
   final first = _domainThaiForAge(horizon.first.material?.domain, currentAge);
   final second = _domainThaiForAge(horizon[1].material?.domain, currentAge);
+  if (next.isEmpty) return '$direction 12 เดือนเน้น$firstกับ$second';
   final later = _domainThaiForAge(next.first.material?.domain, nextAge);
   return '$direction 12 เดือนเน้น$firstกับ$second จากนั้นแกนหลักย้ายไป$later';
 }
