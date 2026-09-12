@@ -1,6 +1,37 @@
 # Task Result — Chinese Astrology Report V1
 
-## Stacked Draft PR #122 — calculation-policy decision gate (2026-09-12)
+## KnowMe BaZi Compatibility V1 — Owner-testing delivery (2026-09-12)
+
+**READY FOR OWNER TESTING ON STACKED DRAFT PR #122 — NOT READY FOR REVIEW,
+NOT MERGED, NOT DEPLOYED.**
+
+Owner policy is implemented as a named KnowMe compatibility contract: local
+civil time in a validated IANA zone, Li Chun Year, Jie Month, `sect=2` civil
+midnight Day, no true-solar correction, and fail-closed Unknown time. The
+calculation stays deterministic under `lunar_python@1.4.8` and no AI output is
+used as chart logic.
+
+Authenticated requests now require a Firebase bearer token, reject UID
+mismatch and write only to verified-UID paths. Input fingerprints include the
+contract version; missing, legacy or changed input regenerates BaZi. A failed
+regeneration cannot expose a stale chart. Unknown time omits Hour and
+time-dependent values and suppresses Year/Month fields that cross a boundary
+within the date.
+
+The signed-in result, Owner fixture Web route and PDF/export share one canonical
+fact-only report. Old unsourced personality, strengths, work/relationship and
+prediction prose is excluded. Health/financial/legal limitations are last.
+
+Final validation passes backend **18/18**, focused Flutter **32/32**, and the
+full Flutter suite **3,043/3,043** on the Linux platform used by the inherited
+goldens. Analyzer exits 0 with 282 existing non-fatal diagnostics and no
+scoped finding. Scoped-diff proof and PDF QA are frozen in
+`docs/CHINESE_ASTROLOGY_VALIDATION_V1.md`. The Owner route supports `known`,
+`unknown`, `lichun-unknown` and `jie-unknown`; it calls no API and performs no
+data write. The `localhost` Production-bundle guard remains a separate blocker
+and was not changed.
+
+## Prior discovery checkpoint — superseded by Owner approval (2026-09-12)
 
 **AUDIT COMPLETE — STACKED DRAFT PR #122 OPEN — IMPLEMENTATION PAUSED FOR ONE
 OWNER DECISION — NO RUNTIME CHANGE — NO DEPLOY.**

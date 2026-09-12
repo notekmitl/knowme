@@ -6,19 +6,24 @@ import 'package:knowme/features/astrology/fusion/application/astrology_fusion_le
 import 'package:knowme/features/astrology/fusion/application/astrology_fusion_regeneration_service.dart';
 import 'package:knowme/features/astrology/fusion/application/astrology_fusion_repository.dart';
 import 'package:knowme/features/astrology/fusion/domain/entities/astrology_lens.dart';
+import 'package:knowme/features/bazi_compatibility/application/bazi_input_fingerprint.dart';
 import 'package:knowme/features/tests/fusion/application/fusion_astrology_mirror.dart';
 import 'package:knowme/services/astrology_api_service.dart';
 import 'package:knowme/services/astrology_firestore_service.dart';
 import 'package:knowme/services/bazi_api_service.dart';
+import 'package:knowme/services/bazi_firestore_service.dart';
 import 'package:knowme/services/profile_service.dart';
 
-typedef GenerateBaziFn = Future<void> Function(String uid, ProfileModel profile);
+typedef GenerateBaziFn =
+    Future<void> Function(String uid, ProfileModel profile);
 
-typedef AstrologyGenerationProgress = void Function(
-  AstrologyGenerationSnapshot snapshot,
-);
+typedef AstrologyGenerationProgress =
+    void Function(AstrologyGenerationSnapshot snapshot);
 
-typedef GenerateWesternFn = Future<void> Function(String uid, ProfileModel profile);
+typedef GenerateWesternFn =
+    Future<void> Function(String uid, ProfileModel profile);
+
+typedef LoadBaziInputHashFn = Future<String?> Function(String uid);
 
 /// Central coordinator — auto-generates missing astrology from canonical profile.
 class AstrologyGenerationCoordinator {
@@ -29,14 +34,14 @@ class AstrologyGenerationCoordinator {
     AstrologyFusionRepository? fusionRepository,
     GenerateBaziFn? generateBazi,
     GenerateWesternFn? generateWestern,
-  })  : _profileService = profileService ?? ProfileService(),
-        _lensProbe = lensProbe ?? FirestoreAstrologyFusionLensProbe(),
-        _fusionService =
-            fusionService ?? AstrologyFusionRegenerationService(),
-        _fusionRepository =
-            fusionRepository ?? AstrologyFusionRepositoryImpl(),
-        _generateBaziFn = generateBazi ?? _defaultGenerateBazi,
-        _generateWesternFn = generateWestern ?? _defaultGenerateWestern;
+    LoadBaziInputHashFn? loadBaziInputHash,
+  }) : _profileService = profileService ?? ProfileService(),
+       _lensProbe = lensProbe ?? FirestoreAstrologyFusionLensProbe(),
+       _fusionService = fusionService ?? AstrologyFusionRegenerationService(),
+       _fusionRepository = fusionRepository ?? AstrologyFusionRepositoryImpl(),
+       _generateBaziFn = generateBazi ?? _defaultGenerateBazi,
+       _generateWesternFn = generateWestern ?? _defaultGenerateWestern,
+       _loadBaziInputHashFn = loadBaziInputHash ?? _defaultLoadBaziInputHash;
 
   final ProfileService _profileService;
   final AstrologyFusionLensProbe _lensProbe;
@@ -44,6 +49,7 @@ class AstrologyGenerationCoordinator {
   final AstrologyFusionRepository _fusionRepository;
   final GenerateBaziFn _generateBaziFn;
   final GenerateWesternFn _generateWesternFn;
+  final LoadBaziInputHashFn _loadBaziInputHashFn;
 
   static final Map<String, Future<AstrologyGenerationSnapshot>> _inFlight = {};
 
@@ -74,15 +80,19 @@ class AstrologyGenerationCoordinator {
     if (uid.isEmpty) return _notReadySnapshot();
 
     final profile = await _profileService.loadProfileForUid(uid);
-    if (!BirthProfileReadiness.isComplete(profile)) {
+    if (profile == null || !BirthProfileReadiness.isBaziCompatible(profile)) {
       return _notReadySnapshot();
     }
+
+    final fullProfileReady = BirthProfileReadiness.isComplete(profile);
 
     final probe = await _lensProbe.probe(uid);
     final fusionExists = await _hasFusionSnapshot(uid);
     return _snapshotFromProbe(
       probe.completedLensIds,
       fusionExists: fusionExists,
+      fullProfileReady: fullProfileReady,
+      baziProfileReady: true,
     );
   }
 
@@ -92,21 +102,35 @@ class AstrologyGenerationCoordinator {
     String? retrySystemId,
   }) async {
     final profile = await _profileService.loadProfileForUid(uid);
-    if (!BirthProfileReadiness.isComplete(profile) || profile == null) {
+    if (profile == null || !BirthProfileReadiness.isBaziCompatible(profile)) {
       final snap = _notReadySnapshot();
       onProgress?.call(snap);
       return snap;
     }
 
+    final fullProfileReady = BirthProfileReadiness.isComplete(profile);
+    final baziInputChanged = await _baziInputChanged(uid, profile);
+
     void emit(AstrologyGenerationSnapshot snap) => onProgress?.call(snap);
 
-    var snapshot = await _buildProbeSnapshot(uid);
+    var snapshot = await _buildProbeSnapshot(
+      uid,
+      fullProfileReady: fullProfileReady,
+      baziProfileReady: true,
+    );
     emit(snapshot);
 
     final failures = <String, String>{};
 
     Future<void> runBazi() async {
-      if (!_shouldGenerate(snapshot, 'bazi', retrySystemId)) return;
+      if (!_shouldGenerate(
+        snapshot,
+        'bazi',
+        retrySystemId,
+        force: baziInputChanged,
+      )) {
+        return;
+      }
       snapshot = snapshot.withSystem(
         const AstrologySystemSnapshot(
           systemId: 'bazi',
@@ -124,6 +148,7 @@ class AstrologyGenerationCoordinator {
     }
 
     Future<void> runWestern() async {
+      if (!fullProfileReady) return;
       if (!_shouldGenerate(snapshot, 'western', retrySystemId)) return;
       snapshot = snapshot.withSystem(
         const AstrologySystemSnapshot(
@@ -143,10 +168,17 @@ class AstrologyGenerationCoordinator {
 
     await Future.wait([runBazi(), runWestern()]);
 
-    snapshot = _mergeFailures(await _buildProbeSnapshot(uid), failures);
+    snapshot = _mergeFailures(
+      await _buildProbeSnapshot(
+        uid,
+        fullProfileReady: fullProfileReady,
+        baziProfileReady: true,
+      ),
+      failures,
+    );
     emit(snapshot);
 
-    if (_shouldGenerateFusion(snapshot, retrySystemId)) {
+    if (fullProfileReady && _shouldGenerateFusion(snapshot, retrySystemId)) {
       snapshot = snapshot.withSystem(
         const AstrologySystemSnapshot(
           systemId: 'fusion',
@@ -159,7 +191,14 @@ class AstrologyGenerationCoordinator {
         if (probe.completedLensIds.isNotEmpty) {
           await _fusionService.loadOrGenerate(uid: uid, input: probe.input);
         }
-        snapshot = _mergeFailures(await _buildProbeSnapshot(uid), failures);
+        snapshot = _mergeFailures(
+          await _buildProbeSnapshot(
+            uid,
+            fullProfileReady: fullProfileReady,
+            baziProfileReady: true,
+          ),
+          failures,
+        );
       } catch (e, stack) {
         debugPrint('[AstrologyGeneration] fusion failed: $e');
         debugPrint('[AstrologyGeneration] $stack');
@@ -180,10 +219,11 @@ class AstrologyGenerationCoordinator {
   bool _shouldGenerate(
     AstrologyGenerationSnapshot snapshot,
     String systemId,
-    String? retrySystemId,
-  ) {
+    String? retrySystemId, {
+    bool force = false,
+  }) {
     if (retrySystemId != null && retrySystemId != systemId) return false;
-    return !snapshot.system(systemId).isReady;
+    return force || !snapshot.system(systemId).isReady;
   }
 
   bool _shouldGenerateFusion(
@@ -197,13 +237,24 @@ class AstrologyGenerationCoordinator {
         snapshot.system('western').isReady;
   }
 
-  Future<AstrologyGenerationSnapshot> _buildProbeSnapshot(String uid) async {
+  Future<AstrologyGenerationSnapshot> _buildProbeSnapshot(
+    String uid, {
+    required bool fullProfileReady,
+    required bool baziProfileReady,
+  }) async {
     final probe = await _lensProbe.probe(uid);
     final fusionExists = await _hasFusionSnapshot(uid);
     return _snapshotFromProbe(
       probe.completedLensIds,
       fusionExists: fusionExists,
+      fullProfileReady: fullProfileReady,
+      baziProfileReady: baziProfileReady,
     );
+  }
+
+  Future<bool> _baziInputChanged(String uid, ProfileModel profile) async {
+    final storedHash = await _loadBaziInputHashFn(uid);
+    return storedHash != BaziInputFingerprint.forProfile(profile);
   }
 
   Future<bool> _hasFusionSnapshot(String uid) async {
@@ -217,28 +268,37 @@ class AstrologyGenerationCoordinator {
   ) {
     var result = snapshot;
     for (final entry in failures.entries) {
-      if (!result.system(entry.key).isReady) {
-        result = result.withSystem(
-          AstrologySystemSnapshot(
-            systemId: entry.key,
-            status: AstrologyGenerationStatus.failed,
-            errorMessage: entry.value,
-          ),
-        );
-      }
+      // A failed forced refresh invalidates an otherwise "ready" stale lens.
+      result = result.withSystem(
+        AstrologySystemSnapshot(
+          systemId: entry.key,
+          status: AstrologyGenerationStatus.failed,
+          errorMessage: entry.value,
+        ),
+      );
     }
     return result;
   }
 
-  static Future<void> _defaultGenerateBazi(String uid, ProfileModel profile) async {
+  static Future<void> _defaultGenerateBazi(
+    String uid,
+    ProfileModel profile,
+  ) async {
     await BaziApiService.generateBazi(
       uid: uid,
       birthDate: BirthProfileReadiness.apiBirthDate(profile),
-      birthTime: profile.birthTime.trim(),
+      birthTime: profile.birthTime.trim().isEmpty
+          ? null
+          : profile.birthTime.trim(),
       timezone: profile.timezone.isNotEmpty ? profile.timezone : 'Asia/Bangkok',
       latitude: profile.latitude,
       longitude: profile.longitude,
     );
+  }
+
+  static Future<String?> _defaultLoadBaziInputHash(String uid) async {
+    final chart = await BaziFirestoreService().getChineseBaziChart(uid);
+    return chart?.inputHash;
   }
 
   static Future<void> _defaultGenerateWestern(
@@ -252,8 +312,7 @@ class AstrologyGenerationCoordinator {
       latitude: profile.latitude,
       longitude: profile.longitude,
     );
-    final chart =
-        await AstrologyFirestoreService().getWesternNatalChart(uid);
+    final chart = await AstrologyFirestoreService().getWesternNatalChart(uid);
     if (chart != null) {
       await FusionAstrologyMirror.mirrorFromChart(uid: uid, chart: chart);
     }
@@ -262,8 +321,20 @@ class AstrologyGenerationCoordinator {
   AstrologyGenerationSnapshot _snapshotFromProbe(
     List<String> completedLensIds, {
     required bool fusionExists,
+    required bool fullProfileReady,
+    required bool baziProfileReady,
   }) {
-    AstrologySystemSnapshot forLens(String systemId, String lensId) {
+    AstrologySystemSnapshot forLens(
+      String systemId,
+      String lensId, {
+      required bool profileReady,
+    }) {
+      if (!profileReady) {
+        return AstrologySystemSnapshot(
+          systemId: systemId,
+          status: AstrologyGenerationStatus.notReady,
+        );
+      }
       final status = completedLensIds.contains(lensId)
           ? AstrologyGenerationStatus.completed
           : AstrologyGenerationStatus.queued;
@@ -271,14 +342,28 @@ class AstrologyGenerationCoordinator {
     }
 
     return AstrologyGenerationSnapshot(
-      birthProfileComplete: true,
+      birthProfileComplete: baziProfileReady,
       systems: {
-        'thai': forLens('thai', AstrologyLens.thaiAstrology.lensId),
-        'bazi': forLens('bazi', AstrologyLens.chineseBazi.lensId),
-        'western': forLens('western', AstrologyLens.westernNatal.lensId),
+        'thai': forLens(
+          'thai',
+          AstrologyLens.thaiAstrology.lensId,
+          profileReady: fullProfileReady,
+        ),
+        'bazi': forLens(
+          'bazi',
+          AstrologyLens.chineseBazi.lensId,
+          profileReady: baziProfileReady,
+        ),
+        'western': forLens(
+          'western',
+          AstrologyLens.westernNatal.lensId,
+          profileReady: fullProfileReady,
+        ),
         'fusion': AstrologySystemSnapshot(
           systemId: 'fusion',
-          status: fusionExists
+          status: !fullProfileReady
+              ? AstrologyGenerationStatus.notReady
+              : fusionExists
               ? AstrologyGenerationStatus.completed
               : AstrologyGenerationStatus.queued,
         ),

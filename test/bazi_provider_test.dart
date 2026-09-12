@@ -18,11 +18,7 @@ BaziChartModel _sampleChart() {
       'polarity': 'yin',
       'pillar_label': '丁丑',
     },
-    'year_animal': {
-      'zh': '马',
-      'roman': 'horse',
-      'en': 'Horse',
-    },
+    'year_animal': {'zh': '马', 'roman': 'horse', 'en': 'Horse'},
     'element_balance': {
       'wood': 0,
       'fire': 3,
@@ -77,9 +73,7 @@ void main() {
   group('BaziProvider.loadChart', () {
     test('load success sets chart and clears error', () async {
       final sample = _sampleChart();
-      final provider = BaziProvider(
-        loadChartFn: (_) async => sample,
-      );
+      final provider = BaziProvider(loadChartFn: (_) async => sample);
 
       await provider.loadChart('uid-1');
 
@@ -90,9 +84,7 @@ void main() {
     });
 
     test('load empty leaves chart null without error', () async {
-      final provider = BaziProvider(
-        loadChartFn: (_) async => null,
-      );
+      final provider = BaziProvider(loadChartFn: (_) async => null);
 
       await provider.loadChart('uid-empty');
 
@@ -110,16 +102,17 @@ void main() {
           loadCalls++;
           return _sampleChart();
         },
-        generateBaziFn: ({
-          required String uid,
-          required String birthDate,
-          required String birthTime,
-          required String timezone,
-          double? latitude,
-          double? longitude,
-        }) async {
-          throw Exception('Failed to generate BaZi chart');
-        },
+        generateBaziFn:
+            ({
+              required String uid,
+              required String birthDate,
+              required String? birthTime,
+              required String timezone,
+              double? latitude,
+              double? longitude,
+            }) async {
+              throw Exception('Failed to generate BaZi chart');
+            },
       );
 
       await provider.generateBazi(

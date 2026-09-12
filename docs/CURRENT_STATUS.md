@@ -1,6 +1,28 @@
 # KnowMe Current Status+
 
-## Chinese Astrology Report V1 — stacked Draft decision gate (2026-09-12)
+## KnowMe BaZi Compatibility V1 — Owner testing (2026-09-12)
+
+**CURRENT: READY FOR OWNER TESTING ON STACKED DRAFT PR #122; NOT READY FOR
+REVIEW, NOT MERGED AND NOT DEPLOYED.**
+
+The Owner-approved compatibility rules are now an explicit deterministic
+contract. Known time returns four pillars. Unknown time omits Hour and all
+hour-dependent data and suppresses Year/Month values that are not invariant
+across the civil date. Li Chun, Jie, Chinese New Year non-boundary, leap day,
+23:00/00:00, timezone and coordinate semantics have targeted tests.
+
+The API verifies Firebase bearer identity, rejects body UID mismatch and writes
+only to the verified UID. Profile fingerprints force regeneration after birth
+data or contract version changes, and a failed refresh cannot display stale
+facts. Signed-in Web, `/beta/chinese` Owner fixtures and PDF/export share one
+fact-only report with no unsourced personality or predictive prose.
+
+No Thai astrology source, Thai golden, `product-acceptance/`, Production service
+or Hosting asset is in scope. The strict live-bundle `localhost` string failure
+remains separately blocked and unchanged. Exact test/PDF results are in
+`CHINESE_ASTROLOGY_VALIDATION_V1.md`.
+
+## Prior Chinese discovery gate — superseded (2026-09-12)
 
 **CURRENT: DRAFT PR #122 OPEN; AUDIT COMPLETE; IMPLEMENTATION AWAITS ONE OWNER
 CALCULATION-POLICY DECISION.**

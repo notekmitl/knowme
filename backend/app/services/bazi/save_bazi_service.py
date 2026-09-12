@@ -2,14 +2,14 @@
 
 from datetime import datetime
 
-from app.services.firebase_service import db
-
-
 def save_bazi(
     uid: str,
     chart_data: dict,
     results_snapshot: dict,
 ) -> bool:
+    # Import lazily so pure calculation/auth tests never initialize Firestore.
+    from app.services.firebase_service import db
+
     user_ref = db.collection("users").document(uid)
 
     user_ref.set(

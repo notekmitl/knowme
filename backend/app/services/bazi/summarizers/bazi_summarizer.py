@@ -27,19 +27,23 @@ def _stem_roman(stem: str) -> str:
 
 def compute_element_balance(pillars: dict) -> dict:
     """
-    surface_stem_branch_v1: count stem + branch elements across four pillars.
+    Count visible stem + branch elements across only the available pillars.
 
-    Dominant Element V1 is a count-based approximation — not full BaZi
-    strength analysis (no hidden stems, rooting, or seasonal weighting).
+    Unknown time omits the Hour pillar, and a transition-ambiguous Year/Month
+    pillar is omitted too. This is not full BaZi strength analysis.
     """
     counts = {element: 0 for element in ELEMENT_TIEBREAK_ORDER}
+    total_slots = 0
 
     for key in ("year", "month", "day", "hour"):
-        pillar = pillars[key]
+        pillar = pillars.get(key)
+        if not isinstance(pillar, dict):
+            continue
         for field in ("stem_element", "branch_element"):
             element = pillar.get(field)
             if element in counts:
                 counts[element] += 1
+                total_slots += 1
 
     return {
         "wood": counts["wood"],
@@ -47,7 +51,7 @@ def compute_element_balance(pillars: dict) -> dict:
         "earth": counts["earth"],
         "metal": counts["metal"],
         "water": counts["water"],
-        "total_slots": 8,
+        "total_slots": total_slots,
         "method": ELEMENT_BALANCE_METHOD,
     }
 

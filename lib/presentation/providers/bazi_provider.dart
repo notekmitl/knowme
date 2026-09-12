@@ -6,25 +6,26 @@ import '../../services/bazi_firestore_service.dart';
 
 typedef BaziChartLoader = Future<BaziChartModel?> Function(String uid);
 
-typedef BaziGenerateFn = Future<void> Function({
-  required String uid,
-  required String birthDate,
-  required String birthTime,
-  required String timezone,
-  double? latitude,
-  double? longitude,
-});
+typedef BaziGenerateFn =
+    Future<void> Function({
+      required String uid,
+      required String birthDate,
+      required String? birthTime,
+      required String timezone,
+      double? latitude,
+      double? longitude,
+    });
 
 class BaziProvider extends ChangeNotifier {
   BaziProvider({
     BaziFirestoreService? firestoreService,
     BaziChartLoader? loadChartFn,
     BaziGenerateFn? generateBaziFn,
-  })  : _loadChartFn = loadChartFn ??
-            ((uid) =>
-                (firestoreService ?? BaziFirestoreService())
-                    .getChineseBaziChart(uid)),
-        _generateBaziFn = generateBaziFn ?? BaziApiService.generateBazi;
+  }) : _loadChartFn =
+           loadChartFn ??
+           ((uid) => (firestoreService ?? BaziFirestoreService())
+               .getChineseBaziChart(uid)),
+       _generateBaziFn = generateBaziFn ?? _defaultGenerateBazi;
 
   final BaziChartLoader _loadChartFn;
   final BaziGenerateFn _generateBaziFn;
@@ -36,6 +37,24 @@ class BaziProvider extends ChangeNotifier {
   BaziChartModel? get chart => _chart;
   bool get isLoading => _isLoading;
   String? get error => _error;
+
+  static Future<void> _defaultGenerateBazi({
+    required String uid,
+    required String birthDate,
+    required String? birthTime,
+    required String timezone,
+    double? latitude,
+    double? longitude,
+  }) {
+    return BaziApiService.generateBazi(
+      uid: uid,
+      birthDate: birthDate,
+      birthTime: birthTime,
+      timezone: timezone,
+      latitude: latitude,
+      longitude: longitude,
+    );
+  }
 
   Future<void> loadChart(String uid) async {
     try {
@@ -55,7 +74,7 @@ class BaziProvider extends ChangeNotifier {
   Future<void> generateBazi({
     required String uid,
     required String birthDate,
-    required String birthTime,
+    required String? birthTime,
     required String timezone,
     double? latitude,
     double? longitude,

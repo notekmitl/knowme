@@ -1,6 +1,39 @@
 # Task: Chinese Astrology Report V1
 
-## Stacked Draft PR #122 — calculation-policy decision gate (2026-09-12)
+## KnowMe BaZi Compatibility V1 — Owner-testing delivery (2026-09-12)
+
+**READY FOR OWNER TESTING ON STACKED DRAFT PR #122 — NOT READY FOR REVIEW,
+NOT MERGED, NOT DEPLOYED.**
+
+The Owner approved Gregorian local civil time in the supplied IANA zone, Li
+Chun for Year, Jie for Month, `sect=2`/00:00 for Day, no true-solar correction,
+and fail-closed Unknown time. The implementation names this exact contract
+`KnowMe BaZi Compatibility V1` and does not claim a universal school standard.
+
+The backend now supports deterministic Known/Unknown projections, suppresses
+hour and transition-ambiguous values, records rule/input metadata, and binds
+writes to a verified Firebase token UID. The Flutter client supplies the token,
+regenerates legacy or changed-input charts, and refuses to show a stale chart
+when regeneration fails. Signed-in Web, the no-write Owner fixture route and
+PDF/export use one fact-only report model. Unsourced personality and predictive
+copy is not used.
+
+Boundary coverage includes Li Chun, Jie, Chinese New Year as a deliberate
+non-boundary, leap day, 22:59/23:00/23:59/00:00, IANA validation, coordinate
+non-use, Known/Unknown leakage, authentication and stale-input regeneration.
+This is an equivalence-class suite, not a claim that every instant, zone or
+place was tested. Final counts and PDF visual QA are recorded in
+`docs/CHINESE_ASTROLOGY_VALIDATION_V1.md` immediately before delivery.
+
+The Owner route is `/beta/chinese?case=known|unknown|lichun-unknown|jie-unknown`.
+It is explicitly marked as fixture-only, calls no API and writes no data. The
+reference PDF is generated under `output/pdf/` and ignored by Git.
+
+The Production cache pin `e6aaa98` still has the separately reported strict
+`localhost` string blocker. No shared/Production fix or deployment is included.
+Thai source, Thai goldens and `product-acceptance/` remain outside scope.
+
+## Prior discovery checkpoint — superseded by Owner approval (2026-09-12)
 
 **AUDIT COMPLETE — STACKED DRAFT PR #122 OPEN — IMPLEMENTATION PAUSED FOR ONE
 OWNER DECISION — NO RUNTIME CHANGE — NO DEPLOY.**

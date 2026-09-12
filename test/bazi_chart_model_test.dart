@@ -4,12 +4,15 @@ import 'package:knowme/data/models/bazi_chart_model.dart';
 /// Fixture aligned with backend runtime verification (1990-05-12 15:30 Bangkok).
 Map<String, dynamic> _sampleChineseBaziDoc() {
   return {
-    'version': 'bazi_v1',
+    'version': 'knowme_bazi_compatibility_v1',
+    'contract_id': 'knowme_bazi_compatibility_v1',
+    'contract_name': 'KnowMe BaZi Compatibility V1',
     'engine_version': 'lunar_python@1.4.8',
     'generated_at': '2026-06-07T07:22:13.583812+00:00',
     'input_hash':
         '9e3e1aff9b78a1df65669b89e8cf51718af102d597af31b60e88b82191e6cd66',
     'completeness': 'four_pillars',
+    'time_known': true,
     'dominant_element': 'fire',
     'day_master': {
       'stem': '丁',
@@ -18,11 +21,7 @@ Map<String, dynamic> _sampleChineseBaziDoc() {
       'polarity': 'yin',
       'pillar_label': '丁丑',
     },
-    'year_animal': {
-      'zh': '马',
-      'roman': 'horse',
-      'en': 'Horse',
-    },
+    'year_animal': {'zh': '马', 'roman': 'horse', 'en': 'Horse'},
     'element_balance': {
       'wood': 0,
       'fire': 3,
@@ -139,11 +138,42 @@ void main() {
     });
 
     test('parses metadata fields', () {
-      expect(chart.version, 'bazi_v1');
+      expect(chart.version, 'knowme_bazi_compatibility_v1');
+      expect(chart.contractName, 'KnowMe BaZi Compatibility V1');
+      expect(chart.timeKnown, isTrue);
       expect(chart.engineVersion, 'lunar_python@1.4.8');
       expect(chart.generatedAt, isNotEmpty);
       expect(chart.inputHash.length, 64);
       expect(chart.completeness, 'four_pillars');
+    });
+
+    test('parses omitted Unknown-time fields as unavailable', () {
+      final map = _sampleChineseBaziDoc()
+        ..['time_known'] = false
+        ..['completeness'] = 'partial_pillars'
+        ..['year_animal'] = null
+        ..['ambiguities'] = {'year': true, 'month': true, 'day': false}
+        ..['suppressed_fields'] = [
+          'pillars.hour',
+          'pillars.year',
+          'pillars.month',
+        ];
+      final pillars = Map<String, dynamic>.from(map['pillars'] as Map);
+      pillars
+        ..['year'] = null
+        ..['month'] = null
+        ..['hour'] = null;
+      map['pillars'] = pillars;
+
+      final unknown = BaziChartModel.fromMap(map);
+
+      expect(unknown.timeKnown, isFalse);
+      expect(unknown.pillars.year.isAvailable, isFalse);
+      expect(unknown.pillars.month.isAvailable, isFalse);
+      expect(unknown.pillars.hour.isAvailable, isFalse);
+      expect(unknown.pillars.day.isAvailable, isTrue);
+      expect(unknown.yearAnimal.isAvailable, isFalse);
+      expect(unknown.ambiguities['year'], isTrue);
     });
   });
 }

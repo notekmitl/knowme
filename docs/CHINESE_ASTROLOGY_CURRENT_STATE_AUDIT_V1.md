@@ -3,10 +3,10 @@
 **Status:** HISTORICAL AUDIT SNAPSHOT — superseded by
 `docs/CHINESE_ASTROLOGY_CURRENT_STATE.md`; implementation remains blocked on one
 Owner calculation-policy decision
-**Date:** 2026-09-12  
-**Working branch:** `codex/chinese-astrology-report-v1`  
+**Date:** 2026-09-12
+**Working branch:** `codex/chinese-astrology-report-v1`
 **Stack base:** PR #120 head
-`4ce29747fee66d08637dbe0b16b982b17071526d`  
+`4ce29747fee66d08637dbe0b16b982b17071526d`
 **Runtime changes in this audit:** none
 
 > Post-audit verification note: a later strict scan found one literal

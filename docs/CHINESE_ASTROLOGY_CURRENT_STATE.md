@@ -1,212 +1,152 @@
-# Chinese Astrology V1 — Current State and Owner Decision Gate
+# Chinese Astrology V1 — Current State
 
-**Status:** CURRENT — stacked Draft PR #122; audit complete; implementation
-blocked on one Owner calculation-policy decision
+**Status:** IMPLEMENTED FOR OWNER TESTING — stacked Draft PR #122 — not Ready,
+not merged, not deployed
 
 **Date:** 2026-09-12
 
-**Branch:** `codex/chinese-astrology-report-v1`
+**Product contract:** `KnowMe BaZi Compatibility V1`
 
-**Stack dependency:** Draft PR #120 at
-`4ce29747fee66d08637dbe0b16b982b17071526d`
+## What the system actually uses
 
-**Runtime delta:** none
+KnowMe uses **BaZi / Four Pillars (八字 / 四柱)**. The year animal is a
+secondary value derived from the Year pillar; it is not the calculation system
+by itself. V1 is explicitly a KnowMe compatibility contract. It does not claim
+to be the universal standard of every BaZi school.
 
-## Decision summary
+The deterministic source of calculation is the Python code under
+`backend/app/services/bazi/`, backed by the pinned dependency
+`lunar_python==1.4.8`. No AI text is used to calculate a chart. The report
+projects only calculated facts, input/rule metadata, plain-language term
+explanations and limitations. The prior personality, strengths, work-style,
+relationship and predictive copy is not used by this report because the
+repository does not contain approved sources for those claims.
 
-KnowMe currently implements **BaZi / Four Pillars (八字 / 四柱)**. The Chinese
-year animal is a secondary lens, not the calculation system itself. The code is
-deterministic and does not use AI text as a substitute for calculation, but the
-repository has never approved the calculation school as a product contract.
+## Approved compatibility policy
 
-That ambiguity can change pillars at real boundaries. The Discovery gate is
-therefore closed: Draft PR #122 records the audit and does not implement a
-report, route, PDF, API change, cache change, Thai change, or Production change.
-
-The recommended compatibility policy is:
-
-- Gregorian local civil date and time in the recorded IANA timezone;
-- Li Chun (`立春`) changes the Year pillar;
-- Jie (`节`) solar terms change the Month pillar;
-- `sect=2` changes the Day pillar at local civil 00:00;
-- no true-solar correction; coordinates are disclosed as unused;
-- Known time may expose four pillars; Unknown time omits the Hour pillar and
-  every hour-dependent field, and suppresses any Year/Month result that is not
-  invariant across a solar-term transition day.
-
-This preserves current Known-time charts while naming their limits. The
-alternative is to keep implementation paused until an astrologer-reviewed canon
-defines location correction, day boundary, solar-term policy and interpretation
-sources.
-
-## System and source of truth
-
-| Concern | Source actually used |
+| Concern | KnowMe BaZi Compatibility V1 rule |
 |---|---|
-| BaZi calculation | `backend/app/services/bazi/` |
-| Calendar engine | pinned Python package `lunar_python==1.4.8` |
-| API endpoint | `backend/app/api/routes/bazi.py` |
-| Flutter model/API/state | `lib/models/bazi_chart_model.dart`, `lib/services/bazi_api_service.dart`, `lib/providers/bazi_provider.dart` |
-| Signed-in result UI | `lib/features/bazi/presentation/bazi_result_page.dart` |
-| Deterministic interpretation | `BaziThemeEngine`, `BaziSummaryEngine`, and `lib/features/astrology/chinese_zodiac/` |
-| Persistence | `users/{uid}/astrology/chinese_bazi`, mirrored to `users/{uid}/results/chinese_bazi` |
-| Shared normalization contract | `docs/BIRTH_NORMALIZATION.md` and its Dart adapter |
+| Calendar input | Gregorian local civil date and optional local civil time |
+| Timezone | a supplied IANA zone is required and validated as the civil-time context; the wall clock is not converted to UTC |
+| Year boundary | exact Li Chun (`立春`) boundary from the pinned engine |
+| Month boundary | exact Jie (`節`) solar-term boundary from the pinned engine |
+| Day boundary | local civil 00:00 using `sect=2`; 23:00 changes the Hour branch but not the Day pillar |
+| True-solar correction | none |
+| Location/coordinates | recorded as context; not used in the V1 calculation or input fingerprint |
+| Known time | exposes Year, Month, Day and Hour pillars |
+| Unknown time | omits Hour and time-dependent fields; evaluates 00:00:00 and 23:59:59 and omits a Year/Month value if it is not invariant across the civil date |
 
-`lib/astrology/services/chinese_zodiac_calculator.dart` is a dormant year-animal
-calculator and is not the BaZi source of truth. Shared Birth Normalization still
-marks the real BaZi adapter and true-solar normalization as unimplemented, which
-is the central contract conflict behind this gate.
+Chinese/Lunar New Year is deliberately **not** the V1 Year-pillar boundary.
+Li Chun is. A regression test fixes this distinction.
 
-## Inputs, calculation, and outputs
+## Inputs and normalization
 
-### Inputs
+The authenticated API accepts:
 
-The current API accepts Gregorian `birth_date`, required local `birth_time`, an
-IANA `timezone`, `latitude`, `longitude`, and a body-supplied `uid`.
+- `uid`, which must exactly match the verified Firebase ID-token UID;
+- `birth_date` as a Gregorian local-civil date;
+- optional `birth_time`; null/blank means Unknown time;
+- required IANA `timezone`;
+- optional latitude and longitude, retained only as disclosed context.
 
-- The timezone identifier is validated. Its UTC offset is not applied: the same
-  wall-clock fields are passed unchanged to the calendar engine.
-- Latitude and longitude are stored but not used in calculation and are omitted
-  from the input hash.
-- Birth time is mandatory. Empty time raises `MissingBirthTime`; the current
-  system has no three-pillar mode.
+The input fingerprint is SHA-256 over a canonical JSON payload containing
+trimmed birth date, normalized birth time (`null` for Unknown), trimmed IANA
+zone and the contract id. Coordinates are intentionally excluded because they
+do not affect this compatibility calculation. The Dart client and Python
+backend have fixed cross-language hash fixtures.
 
-### Rules implemented today
+Authentication is enforced twice: the client requires a current Firebase user
+and ID token, and the backend verifies the bearer token with revocation checking,
+rejects UID mismatch, and writes only to the authenticated UID paths. Tests use
+stubs; they do not write Production data.
 
-The builder calls `Solar.fromYmdHms` with local civil fields and reads
-`EightChar` from `lunar_python@1.4.8`.
+## Outputs
 
-| Boundary or rule | Current behavior | Approval state |
-|---|---|---|
-| Year | exact Li Chun boundary | implemented, not Owner-approved as canon |
-| Month | exact Jie solar-term boundary | implemented, not Owner-approved as canon |
-| Day | `EightChar.setSect(2)`; civil 00:00 change | implemented, not Owner-approved as canon |
-| Hour | two-hour branch from supplied civil time | implemented for Known time only |
-| Timezone | validates IANA name; calculation uses unchanged wall time | limitation not yet approved |
-| Location | coordinates accepted/stored, calculation unchanged | limitation not yet approved |
-| True solar time | `none` in metadata | not implemented |
+The stored chart and its results mirror carry the same governed projection:
 
-### Outputs
+- contract id/name, engine/version, generated timestamp and input fingerprint;
+- disclosed calculation policy and normalized input context;
+- available pillars and Day Master stem;
+- Year-pillar animal only when Year is available;
+- visible stem/branch element counts over available pillars only;
+- completeness, `time_known`, ambiguity flags and an explicit suppressed-field
+  list.
 
-The engine returns Year, Month, Day and Hour pillars; Day Master; year animal;
-engine/version metadata; generated timestamp; input hash; and a five-element
-count over the eight visible stem/branch slots. The UI currently calls the
-largest count “Dominant Element.” The accurate V1 label would be **surface
-element count**: it excludes hidden stems, rooting, seasonal weighting, Day
-Master strength and Useful God (`用神`). Count ties resolve in the fixed order
-Wood → Fire → Earth → Metal → Water.
+The element result is a **visible surface count**, not full BaZi strength. It
+does not include hidden stems, rooting, seasonal weighting, Day Master strength
+or Useful God (`用神`). The report does not turn the largest count into a
+personality or prediction.
 
-Generated timestamps vary by run, but chart facts are deterministic for the same
-accepted civil input, engine version and rule settings. Calculation and report
-metadata must expose those inputs and rule identifiers so a result can be traced
-and reproduced.
+## Known and Unknown time behavior
 
-## Known and Unknown time contract
+Known time uses only the supplied local civil clock fields supported by V1.
+Timezone offsets and longitude do not shift the clock, and no true-solar
+correction is implied.
 
-### Known time
+Unknown time is fail-closed:
 
-Current code genuinely supports a supplied local civil time and uses it for the
-Hour pillar. It does not support a claim that timezone offsets, longitude or true
-solar time affect the result. Any V1 must say that plainly.
+1. no noon, midnight-as-birth-time, guessed clock, placeholder Hour pillar or
+   hour-derived element slots are exposed;
+2. the Day pillar remains available because `sect=2` holds it constant across
+   one civil date;
+3. if Li Chun occurs within the date, Year, Month and Year animal are omitted;
+4. if another Jie occurs within the date, Month is omitted;
+5. suppression metadata is persisted and the same canonical report builder is
+   used by signed-in Web, the Owner route and PDF/export.
 
-### Unknown time — required fail-closed behavior
+The generation coordinator fingerprints the current profile before accepting a
+stored chart. A missing, legacy-version or changed fingerprint triggers a new
+BaZi calculation. If regeneration fails, the result page does not expose the
+stale chart. Unknown-time profiles generate BaZi only; Thai, Western and Fusion
+generation remain closed because their existing readiness contract requires
+the missing inputs.
 
-Current code blocks generation entirely. A safe V1 may add a three-pillar
-projection only after the calculation policy is approved. It must:
+## Surfaces available for Owner testing
 
-1. never insert noon, midnight, a guessed time, or a placeholder Hour pillar;
-2. omit the Hour pillar, hour-derived element slots and all hour-dependent copy;
-3. evaluate the full possible local-day interval at Li Chun/Jie transition dates
-   and expose a Year or Month pillar only when invariant; otherwise suppress it
-   or mark it unavailable;
-4. keep the same projection rules across Web, shared view, storage and export.
+- Signed-in BaZi result page: authenticated chart freshness check, then the
+  canonical fact-only report and PDF export.
+- Owner fixture route: `/beta/chinese?case=known`, `unknown`,
+  `lichun-unknown`, or `jie-unknown`. It is visibly marked as a fixture, calls no
+  API and performs no user-data write.
+- Owner reference PDF: `output/pdf/knowme-bazi-compatibility-v1-owner-reference.pdf`.
+  It is reproducible from the same canonical report object and is ignored by
+  Git.
 
-## Surface parity and current gaps
+There is no separately published public Chinese shared-report URL in V1. Any
+surface implemented here uses the same report model; wider Fusion/narrative
+interpretation remains outside this fact-only report and is not claimed as
+source-approved Chinese interpretation.
 
-| Surface | Current state |
-|---|---|
-| Web | signed-in `BaziResultPage`; no stable `/beta/chinese` owner route |
-| Shared report | no Chinese shared-report projection |
-| PDF/export | no Chinese PDF, export document or capture route |
-| Unknown time | generation blocked; no safe projection |
-| Interpretation evidence | deterministic copy exists but has no source/citation records |
-| API authorization | client sends no Firebase ID token; backend trusts body `uid` and writes via Admin SDK |
-| Freshness | an already-ready chart is not regenerated when birth data changes |
+## Evidence and coverage limits
 
-The authentication and stale-chart findings are release blockers for any wider
-Chinese route. Existing personality, work and relationship prose must not be
-presented as a calculated fact until its interpretation sources and wording are
-reviewed.
+The validation uses targeted boundary and equivalence classes. It does **not**
+claim every date, second, IANA zone or coordinate pair was executed. The exact
+matrix and counts are maintained in
+`docs/CHINESE_ASTROLOGY_VALIDATION_V1.md`.
 
-## Tested evidence on this branch
+Covered representatives include Known and Unknown time, ordinary dates,
+Li Chun, Jie, Chinese New Year as a deliberate non-boundary, leap day,
+22:59/23:00/23:59/00:00, two valid zones plus one invalid zone, two coordinate
+pairs, UID mismatch, missing/invalid tokens, stale-profile regeneration,
+cross-surface report leakage and four PDF fixture variants.
 
-The audit uses equivalence classes and targeted probes; it does **not** claim
-coverage of every date, time, timezone or location.
+## Known limitations and separate blockers
 
-- Backend: the eight existing builder assertions passed against
-  `lunar_python==1.4.8`. Because this Windows Python installation lacks IANA
-  `tzdata`, the fresh reproduction used a UTC `ZoneInfo` stub after separately
-  inspecting the timezone-validation code. This verifies the pinned calendar
-  outputs but is not evidence that Windows timezone lookup works.
-- Focused Flutter: **83/83 passed** across 14 BaZi, Chinese Zodiac,
-  coordinator, provider, page, mirror and fusion files.
-- Analyzer: exit 0 under repository policy, with **297 existing warning/info
-  diagnostics** and no analyzer error.
-- Full Flutter invocation: **2,989 passed / 40 failed**. All failures are pixel
-  comparisons in existing Thai screenshot-golden tests. They reproduce when the
-  four golden-bearing files are isolated on Flutter 3.41.3; PR #120's recorded
-  3,029/3,029 baseline used Flutter 3.41.1. The goldens were not updated because
-  this branch has no Thai/UI delta.
-- Fresh read-only Production bundle guard: the Thai route returns 200 and the
-  index carries cache pin `e6aaa98`, but the pinned 8,565,520-byte
-  `main.dart.js` contains one literal `localhost`. Its surrounding minified code
-  compares `window.location.hostname` with that value; URL extraction finds no
-  localhost/loopback URL, and the other loopback strings are absent. The strict
-  no-`localhost` string gate therefore fails even though no development endpoint
-  was found. This is an existing Production/shared-bundle issue, not a Chinese
-  branch delta, and it was not changed or deployed under this task.
-- Existing backend probes record `1990-05-12` 22:59 as Day `丁丑` / Hour `辛亥`,
-  23:00 and 23:59 as Day `丁丑` / Hour `壬子`, and `1990-05-13` 00:00 as Day
-  `戊寅` / Hour `壬子`.
-
-Still missing before implementation acceptance: exact Li Chun instants across
-zones, exact Jie/month transitions, leap-year representatives, timezone
-normalization, coordinate/solar-time semantics, interval-safe Unknown time,
-authenticated UID binding, stale-input regeneration, and cross-surface
-projection/PDF tests. There is no Chinese PDF or export to inspect visually in
-this audit-only PR.
-
-## Safe V1 after approval
-
-The smallest acceptable scope is a non-predictive facts-and-context report:
-
-- publish a versioned calculation contract and its source/version metadata;
-- bind API identity to an authenticated user and reject mismatched body UIDs;
-- regenerate when the normalized birth-input hash changes;
-- implement Known and interval-safe Unknown projections;
-- label the visible eight-slot result as surface element count;
-- use sourced, plain-language explanations and no AI-generated calculation;
-- project one canonical report to Web, shared view and PDF/export;
-- place health/financial limitations at the end;
-- add boundary, completeness, leakage, deterministic and cross-surface tests.
-
-Out of V1: Ten Gods, hidden-stem or seasonal strength, Useful God, combinations
-and clashes, Da Yun/luck pillars, annual timing, compatibility and event
-prediction.
-
-## Owner review artifact
-
-Draft PR #122 and this document are the Owner artifact. There is intentionally no
-Chinese test route or PDF yet: creating either would require selecting the
-unapproved rules this gate is designed to protect. Owner testing for this
-checkpoint is to review the actual/current behavior, the gaps, and the single
-policy choice in the Decision summary.
+- `lunar_python@1.4.8` is a pinned implementation dependency, not evidence that
+  V1 represents all schools.
+- No true-solar correction, arbitrary school selection, hidden-stem strength,
+  Ten Gods, combinations/clashes, luck pillars or event prediction is present.
+- The live Production bundle remains blocked by the separate strict guard: it
+  contains one literal `localhost` in a hostname comparison, although no
+  localhost/loopback endpoint URL was found. This PR does not fix shared or
+  Production code.
+- Full-suite pixel results are toolchain-sensitive. Final results and the exact
+  Flutter version are recorded in the validation document; Thai goldens are not
+  changed.
 
 ## Scope protection
 
-This branch changes documentation and the narrow task-scope manifest only. The
-strict Production-bundle string guard remains a separately classified blocker.
-This branch
-does not change Dart/Python runtime, calculations, Chinese or Thai reader copy,
-routes, tests, golden files, Firebase, Production data, deployed assets, PR #120
-readiness, merge state, or Hosting release `04c592`.
+PR #122 remains stacked on Open + Draft PR #120 at
+`4ce29747fee66d08637dbe0b16b982b17071526d`. This work does not modify Thai
+astrology source, Thai goldens, `product-acceptance/`, Firebase Hosting,
+Production data, Production services, merge state or readiness state.

@@ -1,6 +1,31 @@
 # Handoff — Chinese Astrology Report V1
 
-## Current handoff — stacked Draft PR #122 decision required (2026-09-12)
+## Current handoff — KnowMe BaZi Compatibility V1 Owner testing (2026-09-12)
+
+**READY FOR OWNER TESTING — KEEP PR #122 DRAFT — DO NOT MARK READY, MERGE OR
+DEPLOY.**
+
+- Branch: `codex/chinese-astrology-report-v1`
+- Stack dependency: Open + Draft PR #120 at
+  `4ce29747fee66d08637dbe0b16b982b17071526d`
+- Owner route: `/beta/chinese?case=known`, `unknown`, `lichun-unknown`,
+  `jie-unknown`
+- Owner PDF: `output/pdf/knowme-bazi-compatibility-v1-owner-reference.pdf`
+- Contract/source state: `CHINESE_ASTROLOGY_CURRENT_STATE.md` and
+  `CHINESE_ASTROLOGY_COMPATIBILITY_V1.md`
+- Test matrix/results: `CHINESE_ASTROLOGY_VALIDATION_V1.md`
+
+Owner should compare Known versus ordinary Unknown, confirm Li Chun/Jie Unknown
+cases omit ambiguous values, verify 23:00 changes Hour but 00:00 changes Day,
+inspect the final limitations section, export a PDF and confirm Web/PDF content
+parity. The Owner fixture route is no-write and visibly labelled non-Production.
+
+Do not re-enable removed personality/prediction sections without approved
+sources. Do not weaken UID binding or Unknown suppression. Do not update Thai
+goldens in this branch. The strict Production `localhost` string blocker remains
+separate and requires explicit shared/Production authorization.
+
+## Prior handoff — superseded decision gate (2026-09-12)
 
 **AUDIT COMPLETE — DRAFT PR #122 OPEN — STOP BEFORE IMPLEMENTATION.**
 

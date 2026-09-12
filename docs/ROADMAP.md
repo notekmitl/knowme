@@ -1,6 +1,22 @@
 # KnowMe Roadmap+
 
-## Active next project — Chinese Astrology Report V1 (2026-09-12)
+## Active project — KnowMe BaZi Compatibility V1 Owner testing (2026-09-12)
+
+**IMPLEMENTATION AND TECHNICAL VALIDATION COMPLETE IN STACKED DRAFT PR #122;
+OWNER TESTING IS THE REMAINING GATE.**
+
+Delivered scope: explicit local-civil/Li-Chun/Jie/`sect=2`/no-true-solar
+contract, Known/Unknown fail-closed calculation, authenticated UID-bound writes,
+birth-change regeneration, canonical fact-only Web/PDF report, no-write Owner
+fixtures, boundary/auth/leakage tests and traceability documentation.
+
+Next actions are limited to Owner testing.
+Only after explicit later approval may the PR become Ready or merge. Production
+deploy is a separate authorization. Unsourced interpretation expansion, luck
+cycles/timing, Thai changes, `product-acceptance/` and the existing shared-bundle
+`localhost` repair are separate future work.
+
+## Prior Phase 0 plan — superseded by Owner approval (2026-09-12)
 
 **PHASE 0 AUDIT COMPLETE IN STACKED DRAFT PR #122; PHASE 1 BLOCKED ON ONE OWNER
 POLICY DECISION.**
