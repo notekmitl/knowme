@@ -1,5 +1,17 @@
 # Handoff — Thai Report Reading Flow and Friendly Voice V1+
 
+## PR120 Reader Voice V3 Revision 8 — Production Hosting release (2026-09-12)
+
+**OWNER-AUTHORIZED PRODUCTION HOSTING RELEASE LIVE — FIREBASE RELEASE `04c592` — PUBLIC ROUTE SMOKE PASS — OPEN + DRAFT — NOT MERGED.**
+
+The Owner explicitly authorized the Production deployment after the Revision 7 supported-input matrix passed. The deployed application is pinned to source HEAD `e6aaa987ebf02da4ac3c05909c385f8378514b35`, tree `c3318444a97b74fdc0e58a67560fa0cb2745479b` and cache key `e6aaa98`. It was built with Flutter 3.41.1 / Dart 3.11.0 for the Production astrology API and `THAI_PUBLIC_EVIDENCE_BADGE_BETA=public_beta`. The Flutter tool was run from an AOT snapshot because this environment could not execute its JIT snapshot; `--no-tree-shake-icons` was required for the same JIT limitation and changes only icon-font optimization, not application source, reader copy or prediction logic.
+
+Pre-upload guards found the Production API host and zero `localhost`, `127.0.0.1`, `10.0.2.2` or `0.0.0.0` endpoints. Pinned payload SHA-256 values are `7585e92bccd47cbb6e4874f493de7c7dfac8e85b6a27251254eca65217e2ea56` for `index.html`, `4af0e8f2fd062dfdf5bb65abc5a715e267b8255c4649738c797edcd95fd5b67f` for `flutter_bootstrap.js`, `389fe890ca9882a9d3b36710411c5d8eaaf45ab5316b6478e5d536923c208970` for `main.dart.js` and `a131df5ca46154cc4eb79044f7f5a14029c2f8bfccf8cef34e3ec3b5a9f5a88c` for `flutter_service_worker.js`. The transfer archive SHA-256 is `c14a9a8340904b9564dbcd76961865aa2970f1e27972771de5c3eb2c9739db43`.
+
+The first Hosting upload stopped safely during file transfer after Firebase exhausted its retries; no release was finalized. The authorized serial retry uploaded all 77 Hosting files, finalized the version and completed the release. Firebase Console reports current release `04c592` at `2026-09-12 12:03 Asia/Bangkok`; previous release `8635e6` remains available as the rollback baseline. Live browser QA opened `https://knowme-app-694e1.web.app/beta/thai`, rendered the Thai research landing screen and its start action, and confirmed both `flutter_bootstrap.js?v=e6aaa98` and `main.dart.js?v=e6aaa98`. No application-origin runtime error was observed; the remote QA browser emitted only its expected CPU-rendering fallback warning.
+
+Deployment scope was Firebase Hosting only. Firestore, Functions, Cloud Run, Authentication, Storage, Firebase configuration, Production data and `product-acceptance/` were not changed. The already-passed Revision 7 gates were not rerun for this deployment/docs-only closeout. PR #120 remains Open + Draft and unmerged; this Production authorization does not authorize merge or Ready for Review.
+
 ## PR120 Reader Voice V3 Revision 7 — supported-input completeness (2026-09-11)
 
 **CANDIDATE 0029 SUPPORTED-INPUT MATRIX PASSED — OPEN + DRAFT — READY FOR OWNER TESTING ONLY — NOT OWNER-ACCEPTED — NOT READY FOR REVIEW — NOT MERGED — NOT DEPLOYED.**
