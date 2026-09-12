@@ -1,0 +1,174 @@
+{
+  "schema": "candidate-0024-reader-voice-validation/1",
+  "status": "PASS_PENDING_OWNER_COPY_REVIEW",
+  "candidate": "Candidate 0024 actual 00:35",
+  "baseHead": "6af7ccdd05796c97e6108255da43f40123485583",
+  "asOf": "2026-09-09 Asia/Bangkok",
+  "exactGoldenCreated": false,
+  "sentenceEntries": 55,
+  "blockedMeaningEntries": 6,
+  "sectionSentenceCounts": {
+    "overview": 6,
+    "past-0-10": 2,
+    "past-11-29": 2,
+    "past-30-41": 2,
+    "current": 3,
+    "work": 2,
+    "finance": 2,
+    "relationship": 2,
+    "health": 2,
+    "support": 2,
+    "rolling12": 4,
+    "advice": 2
+  },
+  "firstPassReaderOnly": {
+    "performed": true,
+    "naturalThaiFindingCount": 0,
+    "disconnectedNarrativeFindingCount": 0,
+    "listLikeFindingCount": 0,
+    "unhelpfulOverviewFindingCount": 0,
+    "insufficientCurrentDetailFindingCount": 0,
+    "readerPerceivedRepetitionFindingCount": 0,
+    "note": "Human editorial read; validator counts do not replace Owner judgment."
+  },
+  "secondPassEvidenceBound": {
+    "performed": true,
+    "counters": {
+      "unsupported_event": 0,
+      "unsupported_causal_link": 0,
+      "timing_mismatch": 0,
+      "domain_mismatch": 0,
+      "advice_disguised_as_prediction": 0,
+      "personality_disguised_as_prediction": 0,
+      "same_level_semantic_duplicate": 0,
+      "summary_owner_missing": 0,
+      "summary_destination_missing": 0,
+      "known_003_0035_predictive_body_mismatch": 0,
+      "unknown_leakage": 0,
+      "authority_gap": 0
+    }
+  },
+  "intentionalSummaryToDetail": {
+    "relations": 7,
+    "destinationLinks": 19,
+    "missingOwners": 0,
+    "missingDestinations": 0
+  },
+  "negativeControls": {
+    "total": 11,
+    "detected": 11,
+    "missed": 0,
+    "entries": [
+      {
+        "id": "NC-01",
+        "kind": "unsupported-event",
+        "detected": true
+      },
+      {
+        "id": "NC-02",
+        "kind": "unsupported-causal-link",
+        "detected": true
+      },
+      {
+        "id": "NC-03",
+        "kind": "timing-mismatch",
+        "detected": true
+      },
+      {
+        "id": "NC-04",
+        "kind": "domain-mismatch",
+        "detected": true
+      },
+      {
+        "id": "NC-05",
+        "kind": "advice-disguised-as-prediction",
+        "detected": true
+      },
+      {
+        "id": "NC-06",
+        "kind": "personality-disguised-as-prediction",
+        "detected": true
+      },
+      {
+        "id": "NC-07",
+        "kind": "same-level-duplicate",
+        "detected": true
+      },
+      {
+        "id": "NC-08",
+        "kind": "summary-destination-missing",
+        "detected": true
+      },
+      {
+        "id": "NC-09",
+        "kind": "predictive-signature-mismatch",
+        "detected": true
+      },
+      {
+        "id": "NC-10",
+        "kind": "unknown-leakage",
+        "detected": true
+      },
+      {
+        "id": "NC-11",
+        "kind": "chart-interpretation-tail",
+        "detected": true
+      }
+    ]
+  },
+  "evidenceRegression": {
+    "currentFoundationAndSignature": {
+      "tests": 9,
+      "passed": 9,
+      "failed": 0,
+      "status": "PASS"
+    },
+    "nonGatingBaselineObservations": [
+      {
+        "suite": "test/evidence/pr115_or9_content_candidate.test.mjs",
+        "status": "BASELINE_STALE_IMPORT_FAILURE",
+        "detail": "Historical OR6 dependency expects report-body-08, which is absent on the unchanged current main evidence snapshot."
+      },
+      {
+        "suite": "test/evidence/or5r_actual_authority_v2.test.mjs",
+        "status": "BASELINE_STALE_24_OF_26",
+        "detail": "Two historical OR5 snapshot assertions disagree with the unchanged Candidate 0023-era runtime/evidence files."
+      }
+    ]
+  },
+  "fixtureParity": {
+    "known003Ascendant": "Aquarius 9°24′",
+    "known0035Ascendant": "Aquarius 19°19′",
+    "predictiveBodyMismatch": 0,
+    "fixtureSpecificPredictiveTokenHits": 0,
+    "unknownLeakage": 0
+  },
+  "historicalProtection": {
+    "candidate0011Unchanged": true,
+    "candidate0023Unchanged": true,
+    "candidate0023UsedAsExactTarget": false
+  },
+  "protectedDelta": {
+    "libRuntimeGeneratorUiExportPdf": 0,
+    "flutterTests": 0,
+    "productAcceptance": 0,
+    "firebaseProduction": 0,
+    "buildArtifacts": 0
+  },
+  "repositoryGates": {
+    "contentEvidenceValidator": "PASS",
+    "negativeControls": "PASS",
+    "gitDiffCheck": "PASS",
+    "preCommit": "PASS",
+    "postCommit": "PASS_CONTENT_COMMIT"
+  },
+  "notRerun": {
+    "fullFlutterSuite": "NOT RERUN — CONTENT/EVIDENCE/MARKDOWN-ONLY DELTA",
+    "analyzer": "NOT RERUN — NO DART/RUNTIME/FLUTTER-TEST DELTA",
+    "buildAndDeploy": "NOT RUN — OUT OF SCOPE"
+  },
+  "ownerStatus": "PENDING OWNER COPY REVIEW",
+  "implemented": false,
+  "merged": false,
+  "deployed": false
+}

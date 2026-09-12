@@ -1,0 +1,295 @@
+{
+  "schema": "candidate-0027-reader-voice-validation/1",
+  "status": "PASS_PENDING_OWNER_FINAL_NATURAL_LANGUAGE_REVIEW",
+  "candidate": "Candidate 0027 actual 00:35",
+  "revisionBaseHead": "183f2a07de5d53a4f80e9fb39864891569ff2d74",
+  "asOf": "2026-09-09 Asia/Bangkok",
+  "exactGoldenCreated": false,
+  "sentenceEntries": 53,
+  "distinctMeaningUnits": 57,
+  "intentionalSummaryRelations": 6,
+  "summaryDestinationLinks": 14,
+  "ownerAuthorizedEditorialInterpretations": 8,
+  "sourceExactChangedReaderEntries": 0,
+  "sameLevelReaderPerceivedDuplicates": 0,
+  "pairwiseSemanticOwnership": [
+    {
+      "section": "การงาน",
+      "entries": [
+        "C27-WORK-01",
+        "C27-WORK-02"
+      ],
+      "duplicateUnits": [],
+      "passed": true
+    },
+    {
+      "section": "การเงิน",
+      "entries": [
+        "C27-FINANCE-01",
+        "C27-FINANCE-02"
+      ],
+      "duplicateUnits": [],
+      "passed": true
+    },
+    {
+      "section": "ความรักและความสัมพันธ์",
+      "entries": [
+        "C27-RELATIONSHIP-01",
+        "C27-RELATIONSHIP-02"
+      ],
+      "duplicateUnits": [],
+      "passed": true
+    },
+    {
+      "section": "สุขภาพ",
+      "entries": [
+        "C27-HEALTH-01",
+        "C27-HEALTH-02"
+      ],
+      "duplicateUnits": [],
+      "passed": true
+    },
+    {
+      "section": "โชคลาภและแรงสนับสนุน",
+      "entries": [
+        "C27-SUPPORT-01",
+        "C27-SUPPORT-02"
+      ],
+      "duplicateUnits": [],
+      "passed": true
+    },
+    {
+      "section": "คำทำนาย 12 เดือนข้างหน้า",
+      "entries": [
+        "C27-ROLLING12-01",
+        "C27-ROLLING12-02",
+        "C27-ROLLING12-03",
+        "C27-ROLLING12-04"
+      ],
+      "duplicateUnits": [],
+      "passed": true
+    }
+  ],
+  "manualReaderReview": {
+    "passes": 2,
+    "continuousFlow": "PASS",
+    "sectionBySection": "PASS",
+    "replacedByZeroCounters": false
+  },
+  "counters": {
+    "reader_methodology_leakage": 0,
+    "defensive_scope_caveat_in_prediction": 0,
+    "repeated_interpretation_lead_in": 0,
+    "evidence_audit_language_in_reader_copy": 0,
+    "prediction_interrupted_by_validator_explanation": 0,
+    "reader_perceived_formula_repetition": 0,
+    "overview_detail_section_restatement": 0,
+    "unsupported_claim": 0,
+    "unsupported_event": 0,
+    "unsupported_causal_link": 0,
+    "timing_mismatch": 0,
+    "domain_mismatch": 0,
+    "advice_disguised_as_prediction": 0,
+    "personality_disguised_as_prediction": 0,
+    "same_level_reader_perceived_duplicate": 0,
+    "summary_owner_missing": 0,
+    "summary_destination_missing": 0,
+    "editorial_support_missing": 0,
+    "editorial_decision_missing": 0,
+    "known_003_0035_predictive_body_mismatch": 0,
+    "unknown_leakage": 0,
+    "authority_gap": 0
+  },
+  "negativeControls": {
+    "total": 15,
+    "rejected": 15,
+    "missed": 0,
+    "arbitrarySimilarityThresholdUsed": false,
+    "results": [
+      {
+        "id": "NC27-01",
+        "text": "มากกว่าการเปลี่ยนเส้นทางครั้งใหญ่",
+        "expectedCounter": "defensive_scope_caveat_in_prediction",
+        "actualCounter": "defensive_scope_caveat_in_prediction",
+        "rejected": true,
+        "reason": "Deterministic semantic classifier routes this sample to defensive_scope_caveat_in_prediction."
+      },
+      {
+        "id": "NC27-02",
+        "text": "การขยายตัวนี้ไม่จำเป็นต้องหมายถึงการเปลี่ยนงาน",
+        "expectedCounter": "defensive_scope_caveat_in_prediction",
+        "actualCounter": "defensive_scope_caveat_in_prediction",
+        "rejected": true,
+        "reason": "Deterministic semantic classifier routes this sample to defensive_scope_caveat_in_prediction."
+      },
+      {
+        "id": "NC27-03",
+        "text": "บางคนช่วยให้มุมมอง ขณะที่บางคนช่วยประคองเรื่องที่คุณกำลังรับมือ",
+        "expectedCounter": "unsupported_actor_distribution",
+        "actualCounter": "unsupported_actor_distribution",
+        "rejected": true,
+        "reason": "Deterministic semantic classifier routes this sample to unsupported_actor_distribution."
+      },
+      {
+        "id": "NC27-04",
+        "text": "ข้อความนี้ไม่ได้หมายความว่าจะมีเหตุการณ์ใหม่",
+        "expectedCounter": "defensive_scope_caveat_in_prediction",
+        "actualCounter": "defensive_scope_caveat_in_prediction",
+        "rejected": true,
+        "reason": "Deterministic semantic classifier routes this sample to defensive_scope_caveat_in_prediction."
+      },
+      {
+        "id": "NC27-05",
+        "text": "คำนี้ไม่ได้แปลว่าจะเปลี่ยนงาน",
+        "expectedCounter": "defensive_scope_caveat_in_prediction",
+        "actualCounter": "defensive_scope_caveat_in_prediction",
+        "rejected": true,
+        "reason": "Deterministic semantic classifier routes this sample to defensive_scope_caveat_in_prediction."
+      },
+      {
+        "id": "NC27-06",
+        "text": "ให้ตีความเพียงแนวโน้มทั่วไป",
+        "expectedCounter": "defensive_scope_caveat_in_prediction",
+        "actualCounter": "defensive_scope_caveat_in_prediction",
+        "rejected": true,
+        "reason": "Deterministic semantic classifier routes this sample to defensive_scope_caveat_in_prediction."
+      },
+      {
+        "id": "NC27-07",
+        "text": "ในที่นี้หมายถึงเฉพาะสิ่งที่หลักฐานรองรับ",
+        "expectedCounter": "defensive_scope_caveat_in_prediction",
+        "actualCounter": "defensive_scope_caveat_in_prediction",
+        "rejected": true,
+        "reason": "Deterministic semantic classifier routes this sample to defensive_scope_caveat_in_prediction."
+      },
+      {
+        "id": "NC27-08",
+        "text": "มีแนวโน้มดีขึ้น โดยไม่ได้ยืนยันผลลัพธ์",
+        "expectedCounter": "defensive_scope_caveat_in_prediction",
+        "actualCounter": "defensive_scope_caveat_in_prediction",
+        "rejected": true,
+        "reason": "Deterministic semantic classifier routes this sample to defensive_scope_caveat_in_prediction."
+      },
+      {
+        "id": "NC27-09",
+        "text": "รายรับเพิ่มขึ้น แต่ไม่ได้ระบุจำนวนหรือที่มา",
+        "expectedCounter": "defensive_scope_caveat_in_prediction",
+        "actualCounter": "defensive_scope_caveat_in_prediction",
+        "rejected": true,
+        "reason": "Deterministic semantic classifier routes this sample to defensive_scope_caveat_in_prediction."
+      },
+      {
+        "id": "NC27-10",
+        "text": "ในชีวิตประจำวัน ความเปลี่ยนแปลงนี้อาจหมายถึงงานที่มากขึ้น",
+        "expectedCounter": "repeated_interpretation_lead_in",
+        "actualCounter": "repeated_interpretation_lead_in",
+        "rejected": true,
+        "reason": "Deterministic semantic classifier routes this sample to repeated_interpretation_lead_in."
+      },
+      {
+        "id": "NC27-11",
+        "text": "ระบบไม่ได้ยืนยันเหตุการณ์เฉพาะ",
+        "expectedCounter": "reader_methodology_leakage",
+        "actualCounter": "reader_methodology_leakage",
+        "rejected": true,
+        "reason": "Deterministic semantic classifier routes this sample to reader_methodology_leakage."
+      },
+      {
+        "id": "NC27-12",
+        "text": "ให้เข้าใจเพียงแนวโน้มตามตัวตรวจ",
+        "expectedCounter": "defensive_scope_caveat_in_prediction",
+        "actualCounter": "defensive_scope_caveat_in_prediction",
+        "rejected": true,
+        "reason": "Deterministic semantic classifier routes this sample to defensive_scope_caveat_in_prediction."
+      },
+      {
+        "id": "NC27-13",
+        "text": "หลักฐานรองรับเฉพาะระดับความหมายนี้",
+        "expectedCounter": "reader_methodology_leakage",
+        "actualCounter": "reader_methodology_leakage",
+        "rejected": true,
+        "reason": "Deterministic semantic classifier routes this sample to reader_methodology_leakage."
+      },
+      {
+        "id": "NC27-14",
+        "text": "วัยเด็กของคุณเป็นช่วงที่ชีวิตต้องเดินตามข้อจำกัดและความพร้อมของครอบครัวอยู่มาก เมื่อพ้นช่วงนั้น ภาพชีวิตค่อย ๆ เปิดออกในวัย 11–29 ปี ทั้งด้านการเรียนและการเริ่มสร้างทางงานของตัวเอง พอเข้าสู่อายุ 30–41 ปี งานและความรับผิดชอบก็มีน้ำหนักมากขึ้น เรื่องสำคัญหลายอย่างในวัยนั้นต้องอาศัยการตัดสินใจของคุณเองมากกว่าเดิม ตั้งแต่อายุ 42 ปีถึงปัจจุบัน ภาพรวมชีวิตยังเดินไปในทางที่ดีขึ้น โดยเรื่องที่ต้องลงมือ พูดคุย และตัดสินใจมีอุปสรรคน้อยลง เมื่อมองชีวิตตอนอายุ 44 ปี งานและการเงินยังเดินหน้า",
+        "expectedCounter": "overview_detail_section_restatement",
+        "actualCounter": "overview_detail_section_restatement",
+        "rejected": true,
+        "reason": "Deterministic semantic classifier routes this sample to overview_detail_section_restatement."
+      },
+      {
+        "id": "NC27-15",
+        "text": "รายรับเพิ่มขึ้นเพราะขอบเขตงานกว้างขึ้น",
+        "expectedCounter": "unsupported_causal_link",
+        "actualCounter": "unsupported_causal_link",
+        "rejected": true,
+        "reason": "Deterministic semantic classifier routes this sample to unsupported_causal_link."
+      }
+    ]
+  },
+  "surgicalScope": {
+    "changedReaderSections": [
+      "ภาพรวมเส้นทางชีวิต",
+      "การงาน",
+      "การเงิน",
+      "ความรักและความสัมพันธ์",
+      "โชคลาภและแรงสนับสนุน",
+      "คำทำนาย 12 เดือนข้างหน้า"
+    ],
+    "unexpectedChangedReaderSections": 0
+  },
+  "evidenceBoundary": {
+    "sourceExactSeparatedFromOwnerAuthorizedEditorial": true,
+    "newEvents": 0,
+    "newPeople": 0,
+    "newAmounts": 0,
+    "newTiming": 0,
+    "workToIncomeCausalLinks": 0,
+    "jobChangePredictions": 0
+  },
+  "fixtureParity": {
+    "known003Ascendant": "Aquarius 9°24′",
+    "known0035Ascendant": "Aquarius 19°19′",
+    "predictiveBodyMismatch": 0,
+    "fixtureSpecificPredictiveTokenHits": 0,
+    "unknownLeakage": 0
+  },
+  "historicalProtection": {
+    "docs/THAI_REPORT_PREDICTIVE_NARRATIVE_V2_TARGET_CANDIDATE_0011.md": {
+      "sha256": "2F03D5246AF1EDF88B474AE9AFB3252779B477F1F57D760AC92B01163ECD2985",
+      "unchanged": true
+    },
+    "docs/CANDIDATE_0011_OWNER_ACCEPTED_ORACLE.json": {
+      "sha256": "F29D7B6B368B523CA351DB774DA8FD8D2F68D6A75C0237137B3F2B446C3F68B8",
+      "unchanged": true
+    },
+    "docs/CANDIDATE_0023_ACTUAL_0035_FULL_READER_COPY.md": {
+      "sha256": "4AF9E7E8DDA05BE04DC0A04A1D9F84FC53EEB6E8AD7C002D6488FB13281C2B8F",
+      "unchanged": true
+    },
+    "docs/CANDIDATE_0024_ACTUAL_0035_FULL_READER_COPY.md": {
+      "sha256": "AF7E59E9036292AD2982077FCDC7A95656C6E5D4A3646C202581A90585A217CF",
+      "unchanged": true
+    },
+    "docs/CANDIDATE_0025_ACTUAL_0035_FULL_READER_COPY.md": {
+      "sha256": "DE1A94E3F1CD823F8F1A5128E3E7F915D5D027CD0E3E60DF951EFC5413DA710D",
+      "unchanged": true
+    },
+    "docs/CANDIDATE_0026_ACTUAL_0035_FULL_READER_COPY.md": {
+      "sha256": "70B4A7537BAD71E937D6416A06988BB2F2A82533343A63562B16C4D2A2300155",
+      "unchanged": true
+    }
+  },
+  "protectedDelta": {
+    "libRuntimeGeneratorUiExportPdf": 0,
+    "flutterTests": 0,
+    "productAcceptance": 0,
+    "firebaseProduction": 0,
+    "generatedProductArtifacts": 0
+  },
+  "ownerStatus": "PENDING OWNER FINAL NATURAL-LANGUAGE REVIEW",
+  "implemented": false,
+  "merged": false,
+  "deployed": false
+}

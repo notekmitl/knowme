@@ -1,0 +1,127 @@
+{
+  "schema": "candidate-0025-reader-voice-validation/1",
+  "status": "PASS_PENDING_OWNER_COPY_AND_EDITORIAL_INTERPRETATION_REVIEW",
+  "candidate": "Candidate 0025 actual 00:35",
+  "revisionBaseHead": "d164318403a24797a91b3da89cbda85d273dd863",
+  "asOf": "2026-09-09 Asia/Bangkok",
+  "exactGoldenCreated": false,
+  "sentenceEntries": 52,
+  "distinctMeaningUnits": 55,
+  "blockedClaims": 6,
+  "sectionSentenceCounts": {
+    "ข้อมูลดวง": 3,
+    "ภาพรวมเส้นทางชีวิต": 6,
+    "อายุ 0–10 ปี": 2,
+    "อายุ 11–29 ปี": 2,
+    "อายุ 30–41 ปี": 2,
+    "คำทำนายปัจจุบัน — อายุ 44 ปี": 1,
+    "การงาน": 2,
+    "การเงิน": 2,
+    "ความรักและความสัมพันธ์": 2,
+    "สุขภาพ": 2,
+    "โชคลาภและแรงสนับสนุน": 2,
+    "คำทำนาย 12 เดือนข้างหน้า": 3,
+    "คำแนะนำ": 2,
+    "ข้อจำกัด": 2,
+    "พื้นดวงและมุมมองด้านจิตวิทยา": 1,
+    "ลักษณะพื้นฐาน": 2,
+    "ที่มาและวิธีอ่าน": 1,
+    "รายงานนี้ดูจากอะไร": 6,
+    "โครงสร้างดวงหลัก": 7,
+    "ที่มาของผลวิเคราะห์": 2
+  },
+  "sameLevelReaderPerceivedDuplicates": 0,
+  "intentionalSummaryRelations": 6,
+  "summaryDestinationLinks": 11,
+  "editorialInterpretationsPending": 5,
+  "counters": {
+    "unsupported_claim": 0,
+    "unsupported_event": 0,
+    "unsupported_causal_link": 0,
+    "timing_mismatch": 0,
+    "domain_mismatch": 0,
+    "advice_disguised_as_prediction": 0,
+    "personality_disguised_as_prediction": 0,
+    "same_level_reader_perceived_duplicate": 0,
+    "summary_owner_missing": 0,
+    "summary_destination_missing": 0,
+    "editorial_support_missing": 0,
+    "editorial_decision_missing": 0,
+    "known_003_0035_predictive_body_mismatch": 0,
+    "unknown_leakage": 0,
+    "authority_gap": 0
+  },
+  "negativeControls": {
+    "total": 6,
+    "rejected": 6,
+    "missed": 0,
+    "arbitrarySimilarityThresholdUsed": false,
+    "results": [
+      {
+        "id": "NC25-01",
+        "rule": "REPEATED_EXACT_PHRASE",
+        "rejected": true,
+        "exactFixtureText": "เมื่ออายุ 44 ปี คุณยังอยู่ในช่วงขาขึ้นของวัย 42–62 ปี การลงมือทำ การพูดคุย และการตัดสินใจคล่องกว่าช่วงก่อน คุณจึงจัดการสิ่งที่ต้องทำ สิ่งที่ต้องคุย และเรื่องที่ต้องตัดสินใจได้คล่องกว่าช่วงก่อน",
+        "reason": "Candidate 0024 repeats the same comparison twice in one current-introduction paragraph."
+      },
+      {
+        "id": "NC25-02",
+        "rule": "REPEATED_SEMANTIC_OWNER",
+        "rejected": true,
+        "exactFixtureText": "ในช่วงนี้ ความสัมพันธ์ที่สำคัญของคุณจะแน่นแฟ้นขึ้น คุณจะสัมผัสได้ถึงความใกล้ชิดและความผูกพันที่ชัดกว่าเดิมกับคนสำคัญ",
+        "reason": "Candidate 0024 changes words but both sentences own the same tightening/closeness meaning."
+      },
+      {
+        "id": "NC25-03",
+        "rule": "REPEATED_OWNER_SET",
+        "rejected": true,
+        "exactFixtureText": "ช่วงนี้ คุณจะได้รับแรงช่วยเหลือจากครู ผู้มีประสบการณ์ เพื่อน และคนในเครือข่าย แรงหนุนจึงมีทั้งคำแนะนำจากผู้มีประสบการณ์และความช่วยเหลือจากคนที่คุณรู้จัก",
+        "reason": "Candidate 0024 re-enumerates the same helper groups instead of adding a distinct lived meaning."
+      },
+      {
+        "id": "NC25-04",
+        "rule": "REPEATED_OWNER_SET",
+        "rejected": true,
+        "exactFixtureText": "รอบ 12 เดือนข้างหน้าเริ่มตั้งแต่วันที่ 9 กันยายน 2569 ถึง 8 กันยายน 2570 สิ่งที่เปลี่ยนชัดในช่วงนี้อยู่ที่ขอบเขตงานและรายรับของคุณ ขอบเขตงานจะกว้างขึ้นจากระดับที่คุณรับผิดชอบอยู่ในปัจจุบัน ส่วนรายรับจะเพิ่มขึ้นภายในกรอบเวลาเดียวกัน",
+        "reason": "Candidate 0024 spreads the same two owners across three sentences without a new meaning."
+      },
+      {
+        "id": "NC25-05",
+        "rule": "EMPTY_MEANING_UNIT",
+        "rejected": true,
+        "reason": "A filler sentence added only to increase length has no distinct meaning unit."
+      },
+      {
+        "id": "NC25-06",
+        "rule": "REPEATED_SEMANTIC_OWNER",
+        "rejected": true,
+        "exactFixtureText": "การเงินในช่วงนี้คล่องตัวกว่าก่อน เรื่องเงินจึงมีความคล่องตัวขึ้น",
+        "reason": "Different wording does not create a new function when semantic owner and lived meaning are identical."
+      }
+    ]
+  },
+  "fixtureParity": {
+    "known003Ascendant": "Aquarius 9°24′",
+    "known0035Ascendant": "Aquarius 19°19′",
+    "predictiveBodyMismatch": 0,
+    "fixtureSpecificPredictiveTokenHits": 0,
+    "unknownLeakage": 0
+  },
+  "historicalProtection": {
+    "candidate0011Unchanged": true,
+    "candidate0023Unchanged": true,
+    "candidate0024Unchanged": true,
+    "candidate0024OwnerDecision": "OWNER-REJECTED — MEANING-DENSITY AND READER-PERCEIVED REPETITION"
+  },
+  "protectedDelta": {
+    "libRuntimeGeneratorUiExportPdf": 0,
+    "flutterTests": 0,
+    "productAcceptance": 0,
+    "firebaseProduction": 0,
+    "buildArtifacts": 0
+  },
+  "ownerStatus": "PENDING OWNER COPY AND EDITORIAL-INTERPRETATION REVIEW",
+  "implemented": false,
+  "merged": false,
+  "deployed": false
+}

@@ -1,5 +1,125 @@
 # Handoff — Thai Report Reading Flow and Friendly Voice V1+
 
+## PR120 Reader Voice V3 Revision 8 — Production Hosting release (2026-09-12)
+
+**OWNER-AUTHORIZED PRODUCTION HOSTING RELEASE LIVE — FIREBASE RELEASE `04c592` — PUBLIC ROUTE SMOKE PASS — OPEN + DRAFT — NOT MERGED.**
+
+The Owner explicitly authorized the Production deployment after the Revision 7 supported-input matrix passed. The deployed application is pinned to source HEAD `e6aaa987ebf02da4ac3c05909c385f8378514b35`, tree `c3318444a97b74fdc0e58a67560fa0cb2745479b` and cache key `e6aaa98`. It was built with Flutter 3.41.1 / Dart 3.11.0 for the Production astrology API and `THAI_PUBLIC_EVIDENCE_BADGE_BETA=public_beta`. The Flutter tool was run from an AOT snapshot because this environment could not execute its JIT snapshot; `--no-tree-shake-icons` was required for the same JIT limitation and changes only icon-font optimization, not application source, reader copy or prediction logic.
+
+Pre-upload guards found the Production API host and zero `localhost`, `127.0.0.1`, `10.0.2.2` or `0.0.0.0` endpoints. Pinned payload SHA-256 values are `7585e92bccd47cbb6e4874f493de7c7dfac8e85b6a27251254eca65217e2ea56` for `index.html`, `4af0e8f2fd062dfdf5bb65abc5a715e267b8255c4649738c797edcd95fd5b67f` for `flutter_bootstrap.js`, `389fe890ca9882a9d3b36710411c5d8eaaf45ab5316b6478e5d536923c208970` for `main.dart.js` and `a131df5ca46154cc4eb79044f7f5a14029c2f8bfccf8cef34e3ec3b5a9f5a88c` for `flutter_service_worker.js`. The transfer archive SHA-256 is `c14a9a8340904b9564dbcd76961865aa2970f1e27972771de5c3eb2c9739db43`.
+
+The first Hosting upload stopped safely during file transfer after Firebase exhausted its retries; no release was finalized. The authorized serial retry uploaded all 77 Hosting files, finalized the version and completed the release. Firebase Console reports current release `04c592` at `2026-09-12 12:03 Asia/Bangkok`; previous release `8635e6` remains available as the rollback baseline. Live browser QA opened `https://knowme-app-694e1.web.app/beta/thai`, rendered the Thai research landing screen and its start action, and confirmed both `flutter_bootstrap.js?v=e6aaa98` and `main.dart.js?v=e6aaa98`. No application-origin runtime error was observed; the remote QA browser emitted only its expected CPU-rendering fallback warning.
+
+Deployment scope was Firebase Hosting only. Firestore, Functions, Cloud Run, Authentication, Storage, Firebase configuration, Production data and `product-acceptance/` were not changed. The already-passed Revision 7 gates were not rerun for this deployment/docs-only closeout. PR #120 remains Open + Draft and unmerged; this Production authorization does not authorize merge or Ready for Review.
+
+## PR120 Reader Voice V3 Revision 7 — supported-input completeness (2026-09-11)
+
+**CANDIDATE 0029 SUPPORTED-INPUT MATRIX PASSED — OPEN + DRAFT — READY FOR OWNER TESTING ONLY — NOT OWNER-ACCEPTED — NOT READY FOR REVIEW — NOT MERGED — NOT DEPLOYED.**
+
+At the Owner's request, Revision 7 adds a layered completeness matrix over the full input domain exposed by the Thai report flow. Birth normalization passes all 776,160 combinations of 7 civil weekdays × 1,440 clock minutes × 77 selectable Thai provinces, including both sides of local sunrise and all seven resulting astrological weekdays. The Known-time runtime passes 1,909 real analysis/plan cases and 126 complete reader documents, reaching all five form gender representations, 12 lagna values, 49 predictive contexts and all 392 context/age/planet rows at their inclusive boundaries. Unknown time passes all 539 weekday/province combinations with no predictive leakage.
+
+The matrix found and fixed two generalized-runtime defects that the earlier reference-profile tests did not expose. Generic profiles still carried legacy current, relationship, zero-based past-range and rolling-highlight wording; terminal age periods could also suppress the whole plan when no legitimate next-life-period window existed. The runtime now applies the requested reader structure to every supported context and emits all applicable claims at terminal periods without inventing a future period. Two stale UI assertions were updated from the retired generic heading to “คำทำนาย 12 เดือนข้างหน้า”; the independently versioned infographic title remains unchanged.
+
+Final gates on Flutter 3.41.1 / Dart 3.11.0 with CI=true, analytics suppressed and TZ=Asia/Bangkok: completeness matrix 3/3; focused runtime/export/PDF/completeness 84/84; updated heading regressions 13/13; OR5 evidence 5/5; Node foundation/signature 9/9; Candidate 0024–0029 validators PASS; full Flutter suite 3,029/3,029; changed-scope analyzer 0 issues; repository analyzer exits 0 with 297 historical warning/info diagnostics.
+
+The exhaustive statement is intentionally limited to the selectable Thai place domain. It does not cover arbitrary worldwide coordinates or every Cartesian combination as a full rendered document, and it does not claim astrological predictive accuracy. Selector, evidence authority, Canon, Known/Unknown boundary and product-acceptance/ are unchanged. PR #120 remains Open + Draft; this revision does not authorize Ready for Review, merge, deployment, Production access or Production mutation.
+
+
+## PR120 Reader Voice V3 Revision 6 — Candidate 0029 runtime (2026-09-11)
+
+**CANDIDATE 0029 IMPLEMENTED AND VALIDATED FOR OWNER TESTING — OPEN + DRAFT — NOT OWNER-ACCEPTED — NOT READY FOR REVIEW — NOT MERGED — NOT DEPLOYED.**
+
+Owner feedback rejects Candidate 0028 Runtime Revision 5 as the final reader experience. Revision 5 interpreted “ท้ายสุดของคำทำนาย” as the final prediction section instead of the absolute final report section, and it grouped the current domains semantically while still rendering their labels as subheadings. Candidate 0028 remains an immutable historical artifact at SHA-256 `53F4A8DEA71CAAE7EC19CBDC3E359B560C3B260285631804932ED3B40A1C1798`.
+
+Candidate 0029 moves `ข้อจำกัด` after `ที่มาของผลวิเคราะห์` as the final report section. The current reading is now one heading followed by exactly six continuous paragraphs: the current overview and five inline `ด้าน...` paragraphs, with zero domain subheadings. All previously requested past-period, governing-planet, partnered/single relationship, rolling-12-month and facts-only chart corrections remain intact.
+
+The implementation retains the Candidate 0023 selector, evidence bindings, calculations, Known/Unknown boundary and fail-closed behavior. No selector, evidence authority, fixture override, Canon rule or predictive claim was added.
+
+Validation on Flutter 3.41.1 / Dart 3.11.0 with `CI=true`, analytics suppressed and `TZ=Asia/Bangkok`: focused Flutter 81/81; OR5 evidence 5/5; PDF artifact generation 3/3; Node foundation/signature 9/9; Candidate 0024–0029 validators pass; full Flutter suite 3,026/3,026. Full analyzer exits 0 under repository policy with 297 historical warning/info diagnostics; scoped analysis reports 0 issues.
+
+A fresh Owner Review PDF was generated from the actual 00:03 profile for `asOf=2026-09-11 Asia/Bangkok`: `KnowMe_Candidate_0029_Runtime_Revision_6_Owner_Review_0003.pdf`, 5 A4 pages, 333,750 bytes, SHA-256 `ACC141F1EEAE6D9579172FDCD17B779BB5B39DA049F5E36E835A4EDC93A2DD1E`. All five rendered pages were inspected; missing text, broken Thai glyphs, clipping, overlap, overflow and blank pages are 0.
+
+Candidate 0029 has no Owner-accepted exact golden. PR #120 must remain Open + Draft until explicit Owner acceptance. This revision does not authorize Ready for Review, merge, Firebase deployment, Production data access or any Production change. `product-acceptance/` is unchanged.
+
+
+## PR120 Reader Voice V3 Revision 5 — Candidate 0028 runtime (2026-09-11)
+
+**CANDIDATE 0028 IMPLEMENTED FOR OWNER TESTING — OPEN + DRAFT — NOT OWNER-ACCEPTED — NOT READY FOR REVIEW — NOT MERGED — NOT DEPLOYED.**
+
+Owner feedback rejects Candidate 0027 Runtime Revision 4 as the final reader experience. Candidate 0027 remains an immutable historical review artifact. Candidate 0028 omits the redundant life-path overview, keeps one past-prediction heading, replaces the first range with `ตั้งแต่เกิดจนถึง 10 ปี`, adds the dynamically resolved governing planet to every life-period heading, expands all past-period explanations, groups the current introduction and five domains into one continuous section, covers both partnered and single readers, adds `เด่นเรื่อง` to both rolling-12-month topics, moves limitations to the end of the prediction sequence, and reduces the main-chart structure to seven facts without explanatory tails.
+
+The implementation retains the Candidate 0023 selector, evidence bindings, calculations, Known/Unknown boundary and fail-closed behavior. The single-reader wording stays evidence-bound (`หากกำลังทำความรู้จักใคร`) rather than promising an unsupported new person or event. No new selector, evidence authority, fixture override, Canon rule or predictive claim was added.
+
+Final validation on Flutter 3.41.1 / Dart 3.11.0 with `CI=true`, analytics suppressed and `TZ=Asia/Bangkok`: Candidate runtime 18/18; export 59/59; PDF title/field integrity 4/4; OR5 evidence 5/5; Node foundation/signature 9/9; Candidate 0024–0028 validators pass; full Flutter suite 3,026/3,026. Full analyzer exits 0 under repository policy with 297 historical warning/info diagnostics; scoped analysis of all changed Dart/test files reports 0 issues.
+
+A fresh Owner Review PDF was generated from the actual 00:03 profile for `asOf=2026-09-11 Asia/Bangkok`: `KnowMe_Candidate_0028_Runtime_Revision_5_Owner_Review_0003.pdf`, 5 A4 pages, 333,991 bytes, SHA-256 `1E400D4DD435D2C22DB6A11C7C93267B7DBB68A6130C720478C2C89F67E605CC`. All five rendered pages were inspected; missing text, broken Thai glyphs, clipping, overlap and overflow are 0.
+
+Candidate 0028 has no Owner-accepted exact golden. PR #120 must remain Open + Draft until explicit Owner acceptance. This revision does not authorize Ready for Review, merge, Firebase deployment, Production data access or any Production change. `product-acceptance/` is unchanged.
+
+
+## PR120 Reader Voice V3 Revision 4 — Candidate 0027 runtime (2026-09-11)
+
+**CANDIDATE 0027 IMPLEMENTED FOR OWNER TESTING — OPEN + DRAFT — NOT OWNER-ACCEPTED — NOT READY FOR REVIEW — NOT MERGED — NOT DEPLOYED.**
+
+Implementation commit `772f69dbb6f7b0ad81d25a26a4b7303b2c827264` applies the Candidate 0027 reader copy to the accepted Candidate 0023 selector/evidence component set. The 00:35 report now emits the exact Candidate 0027 text between the source-document markers, keeps the overview as two paragraphs, separates `รายงานนี้ดูจากอะไร` from the facts-only `โครงสร้างดวงหลัก`, and preserves the compact infographic copy. No new selector, evidence authority, fixture override, Canon rule or predictive claim was added. Unknown time remains fail-closed.
+
+Final validation on Flutter 3.41.1 / Dart 3.11.0 with `CI=true`, analytics suppressed and `TZ=Asia/Bangkok`: focused Candidate runtime 17/17; export 58/58; PDF title/field integrity 4/4; OR5 authority projection 1/1; Node foundation/signature 9/9; Candidate 0024/0025/0026/0027 validators all pass; full Flutter suite 3,024/3,024. Full analyzer exits 0 under the repository policy with 298 repository warning/info diagnostics; analysis of all six changed Dart/test files reports 0 issues.
+
+The historical OR5R baseline remains byte-identical at SHA-256 `91B71E6689193EE8C5CBD2604F24F139D380B9994A94437F4135FD42019CD998`. Regression tests now pin that hash and compare the stable selector/evidence/ownership projection, so a reader-copy revision cannot rewrite historical evidence or weaken the underlying authority contract.
+
+A fresh Owner Review PDF for the actual 00:35 fixture and `asOf=2026-09-09 Asia/Bangkok` was generated from the implementation commit: `KnowMe_Candidate_0027_Runtime_Revision_4_Owner_Review_0035.pdf`, 5 A4 pages, 331,703 bytes, SHA-256 `EA15C74C87B4825B25A48C423E9ED28636CCEE15B90D51B407AC1A1931712362`. All five rendered pages were inspected; missing text, broken Thai glyphs, clipping, overlap and overflow are 0.
+
+Candidate 0027 still has no Owner-accepted exact golden. PR #120 must remain Draft until the Owner tests the PDF and explicitly accepts or rejects the copy. This revision does not authorize Ready for Review, merge, Firebase deployment, Production data access or any Production change. `product-acceptance/` is unchanged.
+
+
+## PR120 Reader Voice V3 Revision 3 — Candidate 0027 (2026-09-09)
+
+**PR120 R3 CANDIDATE 0026 OWNER-REJECTED AS FINAL COPY — CANDIDATE 0027 READY FOR OWNER FINAL NATURAL-LANGUAGE REVIEW — DRAFT — NOT IMPLEMENTED — NOT MERGED — NOT DEPLOYED.**
+
+Owner rejected Candidate 0026 as `OWNER-REJECTED AS FINAL COPY — OVERVIEW STILL READS AS SECTION-BY-SECTION RESTATEMENT AND SOME EDITORIAL EXPANSIONS REMAIN DEFENSIVE OR OVER-SPECIFIC`. Candidate 0026 remains byte-exact historical evidence. Candidate 0027 changes only the overview, work, finance, relationship, support and rolling-12-month prose; the profile, all past periods, current introduction, health, advice, limitations, psychological baseline, provenance/method and facts-only chart remain byte-identical to Candidate 0026.
+
+Content/evidence commit `fe9f831788eb79103eac9f36d1aa1c78d40c4568` adds the full Candidate 0027, complete Candidate 0026→0027 Before/After, sentence-level Markdown/JSON Claim Map, eight `OWNER_AUTHORIZED_EDITORIAL_INTERPRETATION` records, two-pass reader audit, meaning-density/overview-ownership audit, semantic validator and Voice Contract V3 Revision 3. No changed reader sentence is mislabeled `SOURCE_EXACT`; exact source spans remain separate evidence and all eight editorial expansions retain their limits outside reader copy.
+
+Validation maps 53 reader sentences/factual lines to 57 meaning units, 6 intentional summaries / 14 destination links, and passes pairwise semantic ownership 6/6. All seven required reader-language/overview counters are 0; unsupported claim/event/causal-link, timing/domain, summary/editorial ownership, Known parity and Unknown leakage counters are 0. Candidate 0026-derived and semantic negative controls reject 15/15. Manual review was completed twice: one uninterrupted full-report read and one section-by-section read. Candidate 0024/0025/0026/0027 validators pass; foundation/signature Node tests pass 9/9; `git diff --check`, PreCommit and the content/evidence PostCommit pass.
+
+Candidate 0011, 0023, 0024, 0025 and 0026 historical files remain exact. Candidate 0027 has no SHA/golden and is not implemented. Full Flutter suite and Analyzer are **NOT RERUN — CONTENT/EVIDENCE/MARKDOWN-ONLY DELTA; NO DART, RUNTIME OR FLUTTER-TEST CHANGE**. No Web/PDF/infographic/ZIP was generated. Runtime, generator, UI, export, PDF layout, Flutter tests, product artifacts, `product-acceptance/`, Firebase and Production are unchanged. PR #120 remains Open + Draft pending Owner final natural-language review.
+
+## PR120 Reader Voice V3 Revision 2 — Candidate 0026 (2026-09-09)
+
+**PR120 R2 CANDIDATE 0025 OWNER-REJECTED — CANDIDATE 0026 READY FOR OWNER NATURAL-LANGUAGE AND EDITORIAL-INTERPRETATION REVIEW — OPEN + DRAFT — NOT IMPLEMENTED — NOT MERGED — NOT DEPLOYED.**
+
+Owner rejected Candidate 0025 as `OWNER-REJECTED — METHODOLOGY AND DEFENSIVE CAVEAT LEAKAGE IN READER COPY`. Candidate 0025's five interpretation passages sounded like evidence-review instructions because they repeatedly used defensive phrases such as `ไม่ได้ระบุ`, `ไม่ได้ชี้`, `ให้เข้าใจเพียงแนวโน้ม` and `ในชีวิตประจำวัน ภาพนี้อาจหมายถึง`. Candidate 0025 remains unchanged historical evidence and is not authorized for implementation.
+
+Content/evidence commit `03e789837ba426a9be4fdd6893634f80c3435544` creates Candidate 0026 as a surgical revision. Only work, finance, relationship, support and rolling-12-month reader sections change. The overview, ages 0–10/11–29/30–41, current introduction, health, advice, limitations, psychological baseline, methodology and facts-only main chart are exact with Candidate 0025.
+
+Candidate 0026 maps 53 reader-visible sentences/factual lines to 54 distinct meaning-unit identifiers, 7 intentional summary relations / 13 destination links and 5 `OWNER_EDITORIAL_INTERPRETATION_PENDING` sentences. The six reader-language counters—methodology leakage, defensive caveat, repeated interpretation lead-in, evidence-audit language, validator interruption and formula repetition—are all 0. Unsupported claims, same-level reader-perceived duplicates, Known 00:03/00:35 predictive-body mismatch, Unknown leakage and authority gaps are 0. Six deterministic controls using Candidate 0025's rejected wording are rejected 6/6 without an arbitrary similarity threshold.
+
+Candidate 0011, Candidate 0023, Candidate 0024 and Candidate 0025 remain unchanged. No Candidate 0026 SHA-256 or exact golden was created. Candidate 0024/0025/0026 validators pass; current foundation/signature Node tests pass 9/9; `git diff --check` and PreCommit pass. Full Flutter and Analyzer are **NOT RERUN — CONTENT/EVIDENCE/MARKDOWN-ONLY DELTA**. Runtime, generator, UI, export, PDF, infographic, Flutter tests, `product-acceptance/`, Firebase and Production are unchanged. PR #120 remains Open + Draft pending Owner natural-language review and five editorial-interpretation decisions.
+
+## PR120 Reader Voice V3 Revision 1 — Candidate 0025 (2026-09-09)
+
+**PR120 R1 CANDIDATE 0024 OWNER-REJECTED — CANDIDATE 0025 READY FOR OWNER COPY AND EDITORIAL-INTERPRETATION REVIEW — OPEN + DRAFT — NOT IMPLEMENTED — NOT MERGED — NOT DEPLOYED.**
+
+Owner rejected Candidate 0024 as `OWNER-REJECTED — MEANING-DENSITY AND READER-PERCEIVED REPETITION`. The retained directions are the broader and non-blaming age 0–10 wording, the facts-only main-chart block, and an overview spanning several life periods. The rejected issues were duplicated current-period wording, synonym-only relationship expansion, repeated supporter groups, repeated work/income claims in the 12-month paragraph, thin work/finance meaning, sentence-count filler and a validator that missed repetition visible to readers. Candidate 0024 remains unchanged historical evidence and is not authorized for implementation.
+
+Content/evidence commit `5752724bdb3db0b2e33e2fdd61fa6e231ab14f36` adds Candidate 0025 and revises the Voice Contract audit model. Sentence count is now inventory only; each sentence has one primary function, while distinct meaning units, same-level reader-perceived duplicates, intentional summaries, unsupported claims and blocked claims are counted separately. Explanations beyond strict logical equivalence use `OWNER_EDITORIAL_INTERPRETATION_PENDING` and remain individually pending Owner decision.
+
+Candidate 0025 uses the actual 00:35 profile and `asOf=2026-09-09 Asia/Bangkok`. It maps 52 reader-visible sentences/factual lines to 55 distinct meaning-unit identifiers, 6 intentional summary relations / 11 destination links, 5 pending editorial interpretations and 6 blocked failure classes. Unsupported claims, same-level reader-perceived duplicates, summary-link errors, Known 00:03/00:35 predictive-body mismatch, Unknown leakage and authority gaps are 0. Deterministic negative controls reproduce Candidate 0024's actual repetition/filler failures and reject 6/6 with human-readable reasons; no arbitrary similarity threshold is used.
+
+Candidate 0011, Candidate 0023 and Candidate 0024 are unchanged. No Candidate 0025 SHA-256 or exact golden was created. Runtime, generator, UI, export, PDF, infographic, Flutter tests, `product-acceptance/`, Firebase and Production are unchanged. Candidate 0024/0025 content validators pass; current foundation/signature Node tests pass 9/9; `git diff --check` and PreCommit pass. Full Flutter and Analyzer are **NOT RERUN — CONTENT/EVIDENCE/MARKDOWN-ONLY DELTA**. PR #120 remains Open + Draft pending Owner copy and five editorial-interpretation decisions.
+
+## Thai Report Reader Voice V3 — Content-first Candidate 0024 (2026-09-09)
+
+**THAI REPORT READER VOICE V3 CONTENT-FIRST CANDIDATE 0024 READY — PENDING OWNER COPY REVIEW — OPEN + DRAFT PR #120 — NOT IMPLEMENTED — NOT MERGED — NOT DEPLOYED.**
+
+Owner rejected the current Production/Candidate 0023 reader voice as too short, stiff and list-like. Candidate 0023 remains immutable historical engineering evidence but is not the V3 exact-copy target; Candidate 0011 informed cadence, continuity and detail level only. Content/evidence commit `57c51f4825cb10c87911e6570e52ebbfb74cd353` adds Candidate 0024, the Reader Voice V3 contract, full Candidate 0023→0024 comparison, sentence-level claim map, semantic ownership, two-pass audit and validator. No exact Candidate 0024 SHA/golden was created.
+
+The candidate uses the actual 00:35 facts (male, 6 June 1982, Chiang Mai, Saturday, Aquarius 19°19′) and `asOf=2026-09-09 Asia/Bangkok`, yielding the illustrative rolling interval `9 กันยายน 2569 ถึง 8 กันยายน 2570`. Known 00:03 preserves Aquarius 9°24′ and has predictive-body mismatch 0 versus 00:35. Unknown leakage and authority gaps are 0. The overview has 6 sentences across 2 paragraphs; current domains have 2–3 sentences and the rolling horizon has 4. Seven `INTENTIONAL_SUMMARY_TO_DETAIL` relations bind 19 destinations without same-level repetition.
+
+Validation: 55 reader sentences/factual lines mapped; 6 prohibited meaning classes blocked; all unsupported event/causal/timing/domain/advice/personality/same-level-duplicate/summary-link/parity/leakage counters are 0; negative controls 11/11; current foundation/signature Node tests 9/9; `git diff --check`, PreCommit and content PostCommit pass. Historical OR9 and OR5 snapshot failures on unchanged `main` are disclosed as non-gating baseline observations; no source or test was edited to conceal them. Full Flutter and Analyzer are **NOT RERUN — CONTENT/EVIDENCE/MARKDOWN-ONLY DELTA**.
+
+Draft PR: https://github.com/notekmitl/knowme/pull/120. Production Hosting remains release `1788872430445000`, version `0e8f5299ed8635e6`. There is no `lib/`, runtime, generator, UI, export, PDF, infographic, Flutter-test, Candidate 0011/0023, `product-acceptance/`, Firebase or Production delta. Owner Copy Review is required before any freeze or implementation.
+
 ## Repository-wide full-suite baseline recovery (2026-09-10)
 
 **DRAFT BASELINE RECOVERY — FULL SUITE 3,024/3,024 — PR120 UNCHANGED — NOT PRODUCT ACCEPTANCE — NOT MERGED — NOT DEPLOYED.**

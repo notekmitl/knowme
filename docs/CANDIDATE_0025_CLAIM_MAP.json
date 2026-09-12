@@ -1,0 +1,548 @@
+{
+  "schema": "candidate-0025-claim-map/1",
+  "candidate": "Candidate 0025 actual 00:35",
+  "status": "PENDING_OWNER_COPY_AND_EDITORIAL_INTERPRETATION_REVIEW",
+  "exactGoldenCreated": false,
+  "revisionBaseHead": "d164318403a24797a91b3da89cbda85d273dd863",
+  "entries": [
+    {
+      "id": "C25-PROFILE-01",
+      "section": "ข้อมูลดวง",
+      "level": "methodology",
+      "function": "METHODOLOGY",
+      "evidenceClass": "SOURCE_FACT",
+      "text": "เกิดวันที่ 6 มิถุนายน 2525 เวลา 00:35 น. จังหวัดเชียงใหม่",
+      "meaningUnits": ["profile.birth_time_place"],
+      "evidence": ["fixture.birthDate", "fixture.birthTime", "fixture.province"]
+    },
+    {
+      "id": "C25-PROFILE-02",
+      "section": "ข้อมูลดวง",
+      "level": "methodology",
+      "function": "METHODOLOGY",
+      "evidenceClass": "SOURCE_FACT",
+      "text": "เพศชาย · วันทางโหราศาสตร์เป็นวันเสาร์",
+      "meaningUnits": ["profile.sex_thai_day"],
+      "evidence": ["fixture.sex", "thai-day.runtime"]
+    },
+    {
+      "id": "C25-PROFILE-03",
+      "section": "ข้อมูลดวง",
+      "level": "methodology",
+      "function": "METHODOLOGY",
+      "evidenceClass": "SOURCE_FACT",
+      "text": "ลัคนาราศีกุมภ์ 19°19′",
+      "meaningUnits": ["profile.ascendant_0035"],
+      "evidence": ["ascendant.runtime.00:35"]
+    },
+    {
+      "id": "C25-OVERVIEW-01",
+      "section": "ภาพรวมเส้นทางชีวิต",
+      "level": "summary",
+      "function": "INTENTIONAL_SUMMARY",
+      "evidenceClass": "INTENTIONAL_SUMMARY_TO_DETAIL",
+      "text": "วัยเด็กของคุณเป็นช่วงที่ชีวิตต้องเดินตามข้อจำกัดและความพร้อมของครอบครัวอยู่มาก",
+      "meaningUnits": ["life.childhood_family_constraints"],
+      "evidence": ["source.T0003-SRC-0-10-FAMILY-CONSTRAINT"],
+      "summaryDestinations": ["C25-PAST-0-10-01", "C25-PAST-0-10-02"]
+    },
+    {
+      "id": "C25-OVERVIEW-02",
+      "section": "ภาพรวมเส้นทางชีวิต",
+      "level": "summary",
+      "function": "INTENTIONAL_SUMMARY",
+      "evidenceClass": "INTENTIONAL_SUMMARY_TO_DETAIL",
+      "text": "เมื่อพ้นช่วงนั้น ภาพชีวิตค่อย ๆ เปิดออกในวัย 11–29 ปี ทั้งด้านการเรียนและการเริ่มสร้างทางงานของตัวเอง",
+      "meaningUnits": ["life.11_29_improves", "life.11_29_learning", "life.11_29_career_start"],
+      "evidence": ["source.T0003-SRC-11-62-RISING-BLOCK", "canon.mahabhut.p220.jupiter_owns_learning", "canon.mahabhut.p220.jupiter_owns_career"],
+      "summaryDestinations": ["C25-PAST-11-29-01", "C25-PAST-11-29-02"]
+    },
+    {
+      "id": "C25-OVERVIEW-03",
+      "section": "ภาพรวมเส้นทางชีวิต",
+      "level": "summary",
+      "function": "INTENTIONAL_SUMMARY",
+      "evidenceClass": "INTENTIONAL_SUMMARY_TO_DETAIL",
+      "text": "พอเข้าสู่อายุ 30–41 ปี งานและความรับผิดชอบก็มีน้ำหนักมากขึ้น",
+      "meaningUnits": ["life.30_41_work_responsibility"],
+      "evidence": ["source.T0003-SRC-30-41-PLACEMENT", "canon.mahabhut.p39.det_owns_career"],
+      "summaryDestinations": ["C25-PAST-30-41-01"]
+    },
+    {
+      "id": "C25-OVERVIEW-04",
+      "section": "ภาพรวมเส้นทางชีวิต",
+      "level": "summary",
+      "function": "INTENTIONAL_SUMMARY",
+      "evidenceClass": "INTENTIONAL_SUMMARY_TO_DETAIL",
+      "text": "เรื่องสำคัญหลายอย่างในวัยนั้นต้องอาศัยการตัดสินใจของคุณเองมากกว่าเดิม",
+      "meaningUnits": ["life.30_41_self_decision"],
+      "evidence": ["source.T0003-SRC-30-41-PLACEMENT"],
+      "summaryDestinations": ["C25-PAST-30-41-02"]
+    },
+    {
+      "id": "C25-OVERVIEW-05",
+      "section": "ภาพรวมเส้นทางชีวิต",
+      "level": "summary",
+      "function": "INTENTIONAL_SUMMARY",
+      "evidenceClass": "INTENTIONAL_SUMMARY_TO_DETAIL",
+      "text": "ตั้งแต่อายุ 42 ปีถึงปัจจุบัน ภาพรวมชีวิตยังเดินไปในทางที่ดีขึ้น โดยเรื่องที่ต้องลงมือ พูดคุย และตัดสินใจมีอุปสรรคน้อยลง",
+      "meaningUnits": ["current.42_62_rising", "current.action_speech_decision_flow"],
+      "evidence": ["source.T0003-SRC-11-62-RISING-BLOCK", "source.T0003-SRC-42-62-FLOW"],
+      "summaryDestinations": ["C25-CURRENT-01"]
+    },
+    {
+      "id": "C25-OVERVIEW-06",
+      "section": "ภาพรวมเส้นทางชีวิต",
+      "level": "summary",
+      "function": "INTENTIONAL_SUMMARY",
+      "evidenceClass": "INTENTIONAL_SUMMARY_TO_DETAIL",
+      "text": "เมื่อมองชีวิตตอนอายุ 44 ปี งานและการเงินยังเดินหน้า ขณะที่ความสัมพันธ์สำคัญและแรงช่วยเหลือจากคนรอบตัวเป็นอีกสองด้านที่เด่นในช่วงเดียวกัน",
+      "meaningUnits": ["current.work", "current.finance", "current.relationship", "current.support"],
+      "evidence": ["source.T0003-SRC-42-62-WORK", "source.T0003-SRC-42-62-FINANCE", "source.T0003-SRC-42-62-SUPPORT", "typed.current.relationship"],
+      "summaryDestinations": ["C25-WORK-01", "C25-FINANCE-01", "C25-RELATIONSHIP-01", "C25-SUPPORT-01"]
+    },
+    {
+      "id": "C25-PAST-0-10-01",
+      "section": "อายุ 0–10 ปี",
+      "level": "detail",
+      "function": "CORE_PREDICTION",
+      "evidenceClass": "INTERPRETIVE_PARAPHRASE",
+      "text": "ช่วงอายุ 0–10 ปี ผู้ปกครองของคุณต้องรับมือปัญหาหลายด้าน ทั้งสุขภาพ การงาน และการเงิน ทำให้การดูแลคุณอาจทำได้ไม่เต็มที่",
+      "meaningUnits": ["life.childhood_guardian_constraints"],
+      "evidence": ["source.T0003-SRC-0-10-FAMILY-CONSTRAINT", "canon.mahabhut.p28.saturn_owns_family"]
+    },
+    {
+      "id": "C25-PAST-0-10-02",
+      "section": "อายุ 0–10 ปี",
+      "level": "detail",
+      "function": "CORE_PREDICTION",
+      "evidenceClass": "INTERPRETIVE_PARAPHRASE",
+      "text": "ชีวิตในวัยนั้นจึงขึ้นอยู่กับเงื่อนไขและความพร้อมของครอบครัวเป็นหลัก",
+      "meaningUnits": ["life.childhood_family_constraints"],
+      "evidence": ["source.T0003-SRC-0-10-FAMILY-CONSTRAINT"]
+    },
+    {
+      "id": "C25-PAST-11-29-01",
+      "section": "อายุ 11–29 ปี",
+      "level": "detail",
+      "function": "CONTEXTUAL_TRANSITION",
+      "evidenceClass": "INTERPRETIVE_PARAPHRASE",
+      "text": "เมื่อพ้นวัยเด็ก ช่วงอายุ 11–29 ปีเป็นช่วงที่ชีวิตค่อย ๆ ดีขึ้นและเปิดทางมากกว่าเดิม",
+      "meaningUnits": ["life.11_29_improves"],
+      "evidence": ["source.T0003-SRC-11-62-RISING-BLOCK"]
+    },
+    {
+      "id": "C25-PAST-11-29-02",
+      "section": "อายุ 11–29 ปี",
+      "level": "detail",
+      "function": "CORE_PREDICTION",
+      "evidenceClass": "SOURCE_FACT",
+      "text": "การเรียนให้ผลดี ขณะเดียวกันคุณก็เริ่มสร้างเส้นทางงานของตัวเอง",
+      "meaningUnits": ["life.11_29_learning", "life.11_29_career_start"],
+      "evidence": ["canon.mahabhut.p220.jupiter_owns_learning", "canon.mahabhut.p220.jupiter_owns_career"]
+    },
+    {
+      "id": "C25-PAST-30-41-01",
+      "section": "อายุ 30–41 ปี",
+      "level": "detail",
+      "function": "CONTEXTUAL_TRANSITION",
+      "evidenceClass": "INTERPRETIVE_PARAPHRASE",
+      "text": "ต่อมาในช่วงอายุ 30–41 ปี งานและความรับผิดชอบมีมากขึ้นกว่าช่วงก่อน",
+      "meaningUnits": ["life.30_41_work_responsibility"],
+      "evidence": ["source.T0003-SRC-30-41-PLACEMENT", "canon.mahabhut.p39.det_owns_career"]
+    },
+    {
+      "id": "C25-PAST-30-41-02",
+      "section": "อายุ 30–41 ปี",
+      "level": "detail",
+      "function": "CORE_PREDICTION",
+      "evidenceClass": "INTERPRETIVE_PARAPHRASE",
+      "text": "เรื่องสำคัญหลายอย่างในวัยนี้ต้องอาศัยการตัดสินใจของคุณเองมากขึ้น",
+      "meaningUnits": ["life.30_41_self_decision"],
+      "evidence": ["source.T0003-SRC-30-41-PLACEMENT"]
+    },
+    {
+      "id": "C25-CURRENT-01",
+      "section": "คำทำนายปัจจุบัน — อายุ 44 ปี",
+      "level": "detail",
+      "function": "CORE_PREDICTION",
+      "evidenceClass": "INTERPRETIVE_PARAPHRASE",
+      "text": "เมื่ออายุ 44 ปี คุณยังอยู่ในช่วงที่ภาพรวมชีวิตเดินไปในทางที่ดีขึ้น เรื่องที่ต้องลงมือเอง การพูดคุยกับคนอื่น และการตัดสินใจสำคัญมีอุปสรรคน้อยกว่าวัยก่อน จึงจัดการเรื่องที่อยู่ตรงหน้าได้ต่อเนื่องมากขึ้น",
+      "meaningUnits": ["current.action_speech_decision_flow"],
+      "evidence": ["source.T0003-SRC-11-62-RISING-BLOCK", "source.T0003-SRC-42-62-FLOW"]
+    },
+    {
+      "id": "C25-WORK-01",
+      "section": "การงาน",
+      "level": "detail",
+      "function": "CORE_PREDICTION",
+      "evidenceClass": "SOURCE_FACT",
+      "text": "งานยังมีเข้ามาอย่างต่อเนื่อง และคุณยังรับผิดชอบงานหลักที่อยู่ในมือได้เต็มที่",
+      "meaningUnits": ["current.work_continuity_and_capacity"],
+      "evidence": ["source.T0003-SRC-42-62-WORK", "typed.current.career"]
+    },
+    {
+      "id": "C25-WORK-02",
+      "section": "การงาน",
+      "level": "detail",
+      "function": "LIVED_MEANING",
+      "evidenceClass": "OWNER_EDITORIAL_INTERPRETATION_PENDING",
+      "text": "จุดเด่นของช่วงนี้จึงอยู่ที่ความต่อเนื่องของงานและการประคองสิ่งที่อยู่ในมือให้เดินต่อ มากกว่าการเปลี่ยนเส้นทางแบบฉับพลัน",
+      "meaningUnits": ["current.work_sustainment_not_abrupt_change"],
+      "evidence": ["C25-WORK-01"],
+      "ownerDecision": "PENDING"
+    },
+    {
+      "id": "C25-FINANCE-01",
+      "section": "การเงิน",
+      "level": "detail",
+      "function": "CORE_PREDICTION",
+      "evidenceClass": "SOURCE_FACT",
+      "text": "เรื่องเงินในช่วงนี้คล่องตัวขึ้น โดยคุณมีเงินใช้และมีโชคลาภเข้ามา",
+      "meaningUnits": ["current.finance_liquidity", "current.finance_funds_and_luck"],
+      "evidence": ["source.T0003-SRC-42-62-FINANCE", "typed.current.finance"]
+    },
+    {
+      "id": "C25-FINANCE-02",
+      "section": "การเงิน",
+      "level": "detail",
+      "function": "LIVED_MEANING",
+      "evidenceClass": "OWNER_EDITORIAL_INTERPRETATION_PENDING",
+      "text": "ในชีวิตประจำวัน ภาพนี้อาจหมายถึงคุณมีพื้นที่รับมือรายจ่ายจำเป็นได้สบายมือขึ้น แต่ไม่ได้ระบุจำนวนหรือที่มาของเงิน",
+      "meaningUnits": ["current.finance_daily_room_and_scope_limit"],
+      "evidence": ["C25-FINANCE-01"],
+      "ownerDecision": "PENDING"
+    },
+    {
+      "id": "C25-RELATIONSHIP-01",
+      "section": "ความรักและความสัมพันธ์",
+      "level": "detail",
+      "function": "CORE_PREDICTION",
+      "evidenceClass": "SOURCE_FACT",
+      "text": "ความสัมพันธ์ที่สำคัญของคุณจะแน่นแฟ้นขึ้น",
+      "meaningUnits": ["current.relationship_tightening"],
+      "evidence": ["typed.current.relationship"]
+    },
+    {
+      "id": "C25-RELATIONSHIP-02",
+      "section": "ความรักและความสัมพันธ์",
+      "level": "detail",
+      "function": "LIVED_MEANING",
+      "evidenceClass": "OWNER_EDITORIAL_INTERPRETATION_PENDING",
+      "text": "ในชีวิตประจำวัน ภาพนี้อาจหมายถึงความสัมพันธ์เหล่านั้นเป็นพื้นที่ที่คุณไว้วางใจได้มากขึ้น โดยไม่ได้ชี้ว่าจะมีคนใหม่หรือเกิดเหตุการณ์ความรักแบบใดโดยเฉพาะ",
+      "meaningUnits": ["current.relationship_trust_space_and_scope_limit"],
+      "evidence": ["C25-RELATIONSHIP-01"],
+      "ownerDecision": "PENDING"
+    },
+    {
+      "id": "C25-HEALTH-01",
+      "section": "สุขภาพ",
+      "level": "detail",
+      "function": "CORE_PREDICTION",
+      "evidenceClass": "SOURCE_FACT",
+      "text": "ภาพรวมร่างกายยังมีกำลังสำหรับกิจกรรมตามปกติ",
+      "meaningUnits": ["current.health_capacity"],
+      "evidence": ["typed.current.health"]
+    },
+    {
+      "id": "C25-HEALTH-02",
+      "section": "สุขภาพ",
+      "level": "detail",
+      "function": "CORE_PREDICTION",
+      "evidenceClass": "SOURCE_FACT",
+      "text": "อย่างไรก็ตาม เมื่อพักไม่พอ ร่างกายจะฟื้นช้าลงและทำกิจกรรมต่อเนื่องได้น้อยลง",
+      "meaningUnits": ["current.health_low_rest_recovery"],
+      "evidence": ["typed.current.health"]
+    },
+    {
+      "id": "C25-SUPPORT-01",
+      "section": "โชคลาภและแรงสนับสนุน",
+      "level": "detail",
+      "function": "CORE_PREDICTION",
+      "evidenceClass": "SOURCE_FACT",
+      "text": "ช่วงนี้ คุณจะได้รับแรงช่วยเหลือจากครู ผู้มีประสบการณ์ เพื่อน และคนในเครือข่าย",
+      "meaningUnits": ["current.support_groups"],
+      "evidence": ["source.T0003-SRC-42-62-SUPPORT"]
+    },
+    {
+      "id": "C25-SUPPORT-02",
+      "section": "โชคลาภและแรงสนับสนุน",
+      "level": "detail",
+      "function": "LIVED_MEANING",
+      "evidenceClass": "OWNER_EDITORIAL_INTERPRETATION_PENDING",
+      "text": "ในชีวิตประจำวัน แรงหนุนนี้อาจปรากฏเป็นคนที่ช่วยให้มุมมองหรือช่วยประคองเรื่องที่กำลังรับมือ โดยไม่ได้ระบุว่าความช่วยเหลือนั้นจะนำไปสู่ผลลัพธ์ใด",
+      "meaningUnits": ["current.support_forms_and_outcome_limit"],
+      "evidence": ["C25-SUPPORT-01"],
+      "ownerDecision": "PENDING"
+    },
+    {
+      "id": "C25-ROLLING12-01",
+      "section": "คำทำนาย 12 เดือนข้างหน้า",
+      "level": "detail",
+      "function": "CORE_PREDICTION",
+      "evidenceClass": "SOURCE_FACT",
+      "text": "ระหว่างวันที่ 9 กันยายน 2569 ถึง 8 กันยายน 2570 ขอบเขตงานของคุณจะกว้างขึ้น และรายรับจะเพิ่มขึ้นในกรอบเวลาเดียวกัน",
+      "meaningUnits": ["rolling12.work_scope_widens", "rolling12.income_increases"],
+      "evidence": ["typed.next12.career", "typed.next12.finance", "asOf.2026-09-09"]
+    },
+    {
+      "id": "C25-ROLLING12-02",
+      "section": "คำทำนาย 12 เดือนข้างหน้า",
+      "level": "detail",
+      "function": "LIVED_MEANING",
+      "evidenceClass": "OWNER_EDITORIAL_INTERPRETATION_PENDING",
+      "text": "ในชีวิตประจำวัน ขอบเขตงานที่กว้างขึ้นอาจหมายถึงวงของเรื่องที่ต้องดูแลมากกว่าเดิม โดยไม่จำเป็นต้องตีความว่าเป็นการเปลี่ยนงาน",
+      "meaningUnits": ["rolling12.work_scope_daily_meaning"],
+      "evidence": ["C25-ROLLING12-01"],
+      "ownerDecision": "PENDING"
+    },
+    {
+      "id": "C25-ROLLING12-03",
+      "section": "คำทำนาย 12 เดือนข้างหน้า",
+      "level": "detail",
+      "function": "DISCLOSURE",
+      "evidenceClass": "METHODOLOGY",
+      "text": "ส่วนรายรับ ให้เข้าใจเพียงแนวโน้มว่าจะเพิ่มขึ้นในช่วงดังกล่าว โดยไม่ได้ระบุจำนวน ที่มา หรือผูกว่าการเพิ่มนี้เกิดจากงาน",
+      "meaningUnits": ["rolling12.income_scope_and_causality_limit"],
+      "evidence": ["typed.next12.finance", "blocked.no_work_to_income_causality"]
+    },
+    {
+      "id": "C25-ADVICE-01",
+      "section": "คำแนะนำ",
+      "level": "advice",
+      "function": "ADVICE",
+      "evidenceClass": "ADVICE",
+      "text": "ถ้ามีงานเข้ามาเพิ่ม ควรกำหนดขอบเขตให้ชัดก่อนตอบตกลง และดูยอดเงินคงเหลือหลังรายจ่ายจำเป็นก่อนขยายแผน",
+      "meaningUnits": ["advice.work_scope", "advice.finance_buffer"],
+      "evidence": ["C25-WORK-01", "C25-FINANCE-01"]
+    },
+    {
+      "id": "C25-ADVICE-02",
+      "section": "คำแนะนำ",
+      "level": "advice",
+      "function": "ADVICE",
+      "evidenceClass": "ADVICE",
+      "text": "เรื่องสุขภาพ ควรกันเวลาพักไว้ล่วงหน้าเพื่อให้ร่างกายมีเวลาฟื้นแรง",
+      "meaningUnits": ["advice.health_rest"],
+      "evidence": ["C25-HEALTH-02"]
+    },
+    {
+      "id": "C25-LIMIT-01",
+      "section": "ข้อจำกัด",
+      "level": "disclosure",
+      "function": "DISCLOSURE",
+      "evidenceClass": "METHODOLOGY",
+      "text": "คำทำนายนี้เป็นการตีความตามหลักโหราศาสตร์และความเชื่อ ใช้ประกอบการพิจารณาร่วมกับข้อเท็จจริงก่อนตัดสินใจเรื่องสำคัญ",
+      "meaningUnits": ["disclosure.belief"],
+      "evidence": ["report.disclaimer.belief"]
+    },
+    {
+      "id": "C25-LIMIT-02",
+      "section": "ข้อจำกัด",
+      "level": "disclosure",
+      "function": "DISCLOSURE",
+      "evidenceClass": "METHODOLOGY",
+      "text": "ข้อความด้านสุขภาพใช้เพื่อการทบทวนทั่วไป ไม่ใช่การวินิจฉัยโรคหรือคำแนะนำทางการแพทย์",
+      "meaningUnits": ["disclosure.health"],
+      "evidence": ["report.disclaimer.health"]
+    },
+    {
+      "id": "C25-PSYCH-INTRO-01",
+      "section": "พื้นดวงและมุมมองด้านจิตวิทยา",
+      "level": "disclosure",
+      "function": "DISCLOSURE",
+      "evidenceClass": "METHODOLOGY",
+      "text": "เนื้อหาต่อไปนี้กล่าวถึงลักษณะพื้นฐานเท่านั้น แยกจากคำทำนายและคำแนะนำ",
+      "meaningUnits": ["disclosure.personality_boundary"],
+      "evidence": ["report.section_boundary.personality"]
+    },
+    {
+      "id": "C25-PERSONALITY-01",
+      "section": "ลักษณะพื้นฐาน",
+      "level": "detail",
+      "function": "LIVED_MEANING",
+      "evidenceClass": "INTERPRETIVE_PARAPHRASE",
+      "text": "คุณคิดเป็นระบบและทำได้ดีเมื่อรู้ว่าขั้นต่อไปต้องทำอะไร",
+      "meaningUnits": ["personality.systematic_thinking"],
+      "evidence": ["typed.personality"]
+    },
+    {
+      "id": "C25-PERSONALITY-02",
+      "section": "ลักษณะพื้นฐาน",
+      "level": "detail",
+      "function": "LIVED_MEANING",
+      "evidenceClass": "INTERPRETIVE_PARAPHRASE",
+      "text": "ความอดทนช่วยให้คุณค่อย ๆ สร้างสิ่งต่าง ๆ ให้มั่นคง จึงเป็นคนที่คนอื่นพึ่งพาได้",
+      "meaningUnits": ["personality.patience_and_reliability"],
+      "evidence": ["typed.personality"]
+    },
+    {
+      "id": "C25-SOURCE-INTRO-01",
+      "section": "ที่มาและวิธีอ่าน",
+      "level": "disclosure",
+      "function": "DISCLOSURE",
+      "evidenceClass": "METHODOLOGY",
+      "text": "ข้อมูลและหลักที่ใช้ประกอบรายงาน แยกจากคำทำนาย",
+      "meaningUnits": ["disclosure.source_boundary"],
+      "evidence": ["report.section_boundary.source"]
+    },
+    {
+      "id": "C25-METHOD-01",
+      "section": "รายงานนี้ดูจากอะไร",
+      "level": "methodology",
+      "function": "METHODOLOGY",
+      "evidenceClass": "METHODOLOGY",
+      "text": "ข้อมูลวัน เวลา และสถานที่เกิด",
+      "meaningUnits": ["method.profile_inputs"],
+      "evidence": ["fixture.birthDate", "fixture.birthTime", "fixture.province"]
+    },
+    {
+      "id": "C25-METHOD-02",
+      "section": "รายงานนี้ดูจากอะไร",
+      "level": "methodology",
+      "function": "METHODOLOGY",
+      "evidenceClass": "METHODOLOGY",
+      "text": "วิธีนับวันทางโหราศาสตร์ไทย",
+      "meaningUnits": ["method.thai_day_basis"],
+      "evidence": ["thai-day.runtime"]
+    },
+    {
+      "id": "C25-METHOD-03",
+      "section": "รายงานนี้ดูจากอะไร",
+      "level": "methodology",
+      "function": "METHODOLOGY",
+      "evidenceClass": "METHODOLOGY",
+      "text": "วันเกิดตามสูติบัตรยังเป็นวันที่ 1982-06-06 ตามเดิม ส่วนการอ่านตามหลักโหราศาสตร์ไทยใช้วันเสาร์ (วันที่ 1982-06-05) เป็นวันทางโหราศาสตร์",
+      "meaningUnits": ["method.civil_date_and_thai_day"],
+      "evidence": ["thai-day.runtime"]
+    },
+    {
+      "id": "C25-METHOD-04",
+      "section": "รายงานนี้ดูจากอะไร",
+      "level": "methodology",
+      "function": "METHODOLOGY",
+      "evidenceClass": "METHODOLOGY",
+      "text": "เวลาเกิดอยู่ก่อนพระอาทิตย์ขึ้นเวลา 05:46 จึงใช้วันก่อนหน้าตามกฎที่นับวันใหม่เมื่อพระอาทิตย์ขึ้น โดยไม่เปลี่ยนวันเกิดตามสูติบัตร",
+      "meaningUnits": ["method.sunrise_day_rule"],
+      "evidence": ["thai-day.runtime.sunrise"]
+    },
+    {
+      "id": "C25-METHOD-05",
+      "section": "รายงานนี้ดูจากอะไร",
+      "level": "methodology",
+      "function": "METHODOLOGY",
+      "evidenceClass": "METHODOLOGY",
+      "text": "ลัคนา (ภาพบุคลิกตั้งต้นที่คำนวณจากนาฬิกาเกิดและพิกัดจังหวัด) อยู่ที่ราศีกุมภ์",
+      "meaningUnits": ["method.ascendant_definition"],
+      "evidence": ["ascendant.runtime.00:35"]
+    },
+    {
+      "id": "C25-METHOD-06",
+      "section": "รายงานนี้ดูจากอะไร",
+      "level": "methodology",
+      "function": "METHODOLOGY",
+      "evidenceClass": "METHODOLOGY",
+      "text": "รายงานเลือกเรื่องที่เกี่ยวกับชีวิตคุณชัดที่สุดขึ้นมาก่อน จากนั้นจึงอธิบายสิ่งที่ควรระวังและใช้ตัดสินใจ",
+      "meaningUnits": ["method.report_ordering"],
+      "evidence": ["report.reader_ordering"]
+    },
+    {
+      "id": "C25-CHART-01",
+      "section": "โครงสร้างดวงหลัก",
+      "level": "methodology",
+      "function": "METHODOLOGY",
+      "evidenceClass": "SOURCE_FACT",
+      "text": "วันทางโหราศาสตร์: วันเสาร์",
+      "meaningUnits": ["chart.thai_day"],
+      "evidence": ["thai-day.runtime"]
+    },
+    {
+      "id": "C25-CHART-02",
+      "section": "โครงสร้างดวงหลัก",
+      "level": "methodology",
+      "function": "METHODOLOGY",
+      "evidenceClass": "SOURCE_FACT",
+      "text": "ลัคนา: ราศีกุมภ์ 19°19′",
+      "meaningUnits": ["chart.ascendant_0035"],
+      "evidence": ["ascendant.runtime.00:35"]
+    },
+    {
+      "id": "C25-CHART-03",
+      "section": "โครงสร้างดวงหลัก",
+      "level": "methodology",
+      "function": "METHODOLOGY",
+      "evidenceClass": "SOURCE_FACT",
+      "text": "เจ้าเรือนลัคนา: ดาวเสาร์",
+      "meaningUnits": ["chart.ascendant_ruler"],
+      "evidence": ["chart.runtime.ascendant_ruler"]
+    },
+    {
+      "id": "C25-CHART-04",
+      "section": "โครงสร้างดวงหลัก",
+      "level": "methodology",
+      "function": "METHODOLOGY",
+      "evidenceClass": "SOURCE_FACT",
+      "text": "เรือนการงาน: ราศีพิจิก · เจ้าเรือนดาวอังคาร",
+      "meaningUnits": ["chart.work_house"],
+      "evidence": ["chart.runtime.work_house"]
+    },
+    {
+      "id": "C25-CHART-05",
+      "section": "โครงสร้างดวงหลัก",
+      "level": "methodology",
+      "function": "METHODOLOGY",
+      "evidenceClass": "SOURCE_FACT",
+      "text": "เรือนการเงิน: ราศีมีน · เจ้าเรือนดาวพฤหัสบดี",
+      "meaningUnits": ["chart.finance_house"],
+      "evidence": ["chart.runtime.finance_house"]
+    },
+    {
+      "id": "C25-CHART-06",
+      "section": "โครงสร้างดวงหลัก",
+      "level": "methodology",
+      "function": "METHODOLOGY",
+      "evidenceClass": "SOURCE_FACT",
+      "text": "เรือนความสัมพันธ์: ราศีสิงห์ · เจ้าเรือนดาวอาทิตย์",
+      "meaningUnits": ["chart.relationship_house"],
+      "evidence": ["chart.runtime.relationship_house"]
+    },
+    {
+      "id": "C25-CHART-07",
+      "section": "โครงสร้างดวงหลัก",
+      "level": "methodology",
+      "function": "METHODOLOGY",
+      "evidenceClass": "SOURCE_FACT",
+      "text": "เรือนสุขภาวะ: ราศีกรกฎ · เจ้าเรือนดาวจันทร์",
+      "meaningUnits": ["chart.health_house"],
+      "evidence": ["chart.runtime.health_house"]
+    },
+    {
+      "id": "C25-SOURCE-01",
+      "section": "ที่มาของผลวิเคราะห์",
+      "level": "methodology",
+      "function": "METHODOLOGY",
+      "evidenceClass": "METHODOLOGY",
+      "text": "ใช้วัน เดือน ปีเกิด เวลาเกิด และจังหวัดที่เกิดจากโปรไฟล์ของคุณ",
+      "meaningUnits": ["source.profile_inputs"],
+      "evidence": ["fixture.birthDate", "fixture.birthTime", "fixture.province"]
+    },
+    {
+      "id": "C25-SOURCE-02",
+      "section": "ที่มาของผลวิเคราะห์",
+      "level": "methodology",
+      "function": "METHODOLOGY",
+      "evidenceClass": "METHODOLOGY",
+      "text": "นำข้อมูลวันเกิดของคุณมาประมวลผลตามหลักดวงไทย แล้วแปลงเป็นภาษาที่อ่านเข้าใจง่าย โดยไม่แสดงรายละเอียดเชิงเทคนิค",
+      "meaningUnits": ["source.processing_and_plain_language"],
+      "evidence": ["report.methodology"]
+    }
+  ],
+  "blockedClaims": [
+    "C24 current phrase repeated at the same detail level",
+    "C24 relationship synonym restatement",
+    "C24 support-group re-enumeration",
+    "C24 rolling work/income repetition",
+    "sentence-count filler without a meaning unit",
+    "same semantic owner and lived meaning rewritten with different words"
+  ]
+}

@@ -346,6 +346,42 @@ Json publicBoundary(ThaiBetaAnalysis a) {
   };
 }
 
+Json authorityBoundary(Json boundary) => {
+  'copyClassification': boundary['copyClassification'],
+  'omissionReason': boundary['omissionReason'],
+  'predictionClaims': boundary['predictionClaims'],
+  'decisions': [
+    for (final rawDecision in boundary['decisions'] as List)
+      authorityDecision(rawDecision as Json),
+  ],
+};
+
+Json authorityDecision(Json decision) {
+  final binding = decision['binding'] as Json;
+  return {
+    'claimId': decision['claimId'],
+    'semanticOwner': decision['semanticOwner'],
+    'kind': decision['kind'],
+    'domain': decision['domain'],
+    'periodBinding': decision['periodBinding'],
+    'emitted': decision['emitted'],
+    'reason': decision['reason'],
+    'evidenceRefs': decision['evidenceRefs'],
+    'binding': {
+      'selectorApplicationId': binding['selectorApplicationId'],
+      'context': binding['context'],
+      'period': binding['period'],
+      'semanticOwner': binding['semanticOwner'],
+      'domain': binding['domain'],
+      'horizon': binding['horizon'],
+      'materialFingerprint': binding['materialFingerprint'],
+      'evidenceKey': binding['evidenceKey'],
+      'directionBand': binding['directionBand'],
+      'sourceComponents': binding['sourceComponents'],
+    },
+  };
+}
+
 Json unknownBoundary(ThaiBetaAnalysis a) {
   final v = a.consumerViewState!;
   final document = ThaiBetaReportExportDocument.candidate(a);
@@ -548,7 +584,25 @@ void main() {
         );
       } else {
         expect(baselineFile.existsSync(), isTrue);
-        expect(knownContracts, jsonDecode(baselineFile.readAsStringSync()));
+        expect(
+          sha256.convert(baselineFile.readAsBytesSync()).toString(),
+          '91b71e6689193ee8c5cbd2604f24f139d380b9994a94437f4135fd42019cd998',
+          reason: 'The pre-repair OR5R reader baseline must remain immutable',
+        );
+        final historicalContracts =
+            jsonDecode(baselineFile.readAsStringSync()) as Json;
+        expect(
+          {
+            for (final entry in knownContracts.entries)
+              entry.key: authorityBoundary(entry.value),
+          },
+          {
+            for (final entry in historicalContracts.entries)
+              entry.key: authorityBoundary(entry.value as Json),
+          },
+          reason:
+              'Candidate reader revisions may change copy, but not the accepted selector/evidence authority boundary',
+        );
       }
       expect(three['plan']['ownerAcceptedGoldenOverrideApplied'], 0);
       expect(thirtyFive['plan']['ownerAcceptedGoldenOverrideApplied'], 0);

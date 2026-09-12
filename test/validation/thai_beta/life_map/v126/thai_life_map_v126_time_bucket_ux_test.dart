@@ -132,7 +132,10 @@ void main() {
       );
       await tester.pumpAndSettle();
 
-      expect(find.text('คำทำนายปัจจุบัน — อายุ 44 ปี'), findsOneWidget);
+      expect(
+        find.textContaining('คำทำนายปัจจุบัน — อายุ 44 ปี · ดาว'),
+        findsOneWidget,
+      );
       expect(find.text('ช่วงปัจจุบัน'), findsNothing);
       expect(find.text('สิ่งที่เกิดขึ้น'), findsNothing);
       expect(find.text('คำทำนายอดีต'), findsOneWidget);
@@ -145,13 +148,16 @@ void main() {
       expect(
         find.descendant(
           of: find.byKey(const ValueKey('report-body-predictive-v2-current')),
-          matching: find.text('คำทำนายปัจจุบัน — อายุ 44 ปี'),
+          matching: find.textContaining('คำทำนายปัจจุบัน — อายุ 44 ปี · ดาว'),
         ),
         findsOneWidget,
       );
       expect(find.text('คำทำนายอดีต'), findsOneWidget);
       expect(find.text('อดีตของคุณ'), findsNothing);
-      expect(find.text('ช่วงชีวิตถัดไป — อายุ 47–65 ปี'), findsOneWidget);
+      expect(
+        find.textContaining('ช่วงชีวิตถัดไป — อายุ 47–65 ปี · ดาว'),
+        findsOneWidget,
+      );
       expect(find.text('จังหวะชีวิตระยะต่อไป'), findsNothing);
       expect(find.text('พื้นดวงตลอดชีวิต'), findsNothing);
       expect(find.text('ข้อมูลดวงที่พบ'), findsNothing);
@@ -160,9 +166,15 @@ void main() {
         find.text(ThaiMirrorLifeTimelineSection.expandDetailsLabel),
         findsNothing,
       );
-      expect(find.text('คำทำนายปัจจุบัน — อายุ 44 ปี'), findsOneWidget);
+      expect(
+        find.textContaining('คำทำนายปัจจุบัน — อายุ 44 ปี · ดาว'),
+        findsOneWidget,
+      );
       expect(find.text('ช่วงปัจจุบัน'), findsNothing);
-      expect(find.text('ช่วงชีวิตถัดไป — อายุ 47–65 ปี'), findsOneWidget);
+      expect(
+        find.textContaining('ช่วงชีวิตถัดไป — อายุ 47–65 ปี · ดาว'),
+        findsOneWidget,
+      );
       expect(find.text('จังหวะชีวิตระยะต่อไป'), findsNothing);
       expect(find.textContaining('ซ่อนรายละเอียดช่วงชีวิต'), findsNothing);
       expect(tester.takeException(), isNull);

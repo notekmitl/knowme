@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 1,
+  "candidate": "0028",
+  "revision": 5,
+  "date": "2026-09-11",
+  "status": "PASS_READY_FOR_OWNER_TESTING_ONLY",
+  "pullRequest": {
+    "number": 120,
+    "state": "OPEN",
+    "draft": true,
+    "ownerAccepted": false,
+    "readyForReview": false,
+    "merged": false,
+    "deployed": false
+  },
+  "runtime": {
+    "flutter": "3.41.1",
+    "dart": "3.11.0",
+    "timezone": "Asia/Bangkok"
+  },
+  "ownerFeedback": {
+    "overviewReaderVisible": false,
+    "pastHeadingLayers": 1,
+    "firstAgeLabel": "ตั้งแต่เกิดจนถึง 10 ปี",
+    "lifePeriodContextsChecked": 49,
+    "lifePeriodRowsChecked": 392,
+    "profileMatrixPreserved": 300,
+    "pastParagraphsExpanded": 3,
+    "groupedCurrentDomains": 5,
+    "partneredReaderCovered": true,
+    "singleReaderCovered": true,
+    "unsupportedNewPersonPromise": false,
+    "rolling12WorkEmphasis": true,
+    "rolling12FinanceEmphasis": true,
+    "limitationsFinalPredictionSection": true,
+    "mainChartFactRows": 7,
+    "mainChartExplanatoryTails": 0
+  },
+  "tests": {
+    "candidateRuntime": {"passed": 18, "failed": 0},
+    "exportDocument": {"passed": 59, "failed": 0},
+    "pdfTitleAndFieldIntegrity": {"passed": 4, "failed": 0},
+    "or5EvidenceProjection": {"passed": 5, "failed": 0},
+    "nodeFoundationAndSignature": {"passed": 9, "failed": 0},
+    "candidateValidators": {"from": "0024", "through": "0028", "status": "PASS"},
+    "fullFlutterSuite": {"passed": 3026, "failed": 0},
+    "changedScopeAnalyzerIssues": 0,
+    "repositoryAnalyzer": {"exitCode": 0, "historicalWarningInfoDiagnostics": 297},
+    "diffCheck": "PASS"
+  },
+  "hashes": {
+    "candidate0028Sha256": "53f4a8dea71caae7ec19cbdc3e359b560c3b260285631804932ed3b40a1c1798",
+    "candidate0027HistoricalSha256": "0c5ee0a14b5ececef6674eb1809fe7537070a1e8ef81cbb64a017b40d5e70936"
+  },
+  "ownerReviewPdf": {
+    "filename": "KnowMe_Candidate_0028_Runtime_Revision_5_Owner_Review_0003.pdf",
+    "fixture": "known-00:03-Chiang-Mai",
+    "asOf": "2026-09-11",
+    "timezone": "Asia/Bangkok",
+    "pages": 5,
+    "bytes": 333991,
+    "sha256": "1e400d4dd435d2c22db6a11c7c93267b7dbb68a6130c720478c2c89f67e605cc",
+    "visualQa": {
+      "pagesInspected": 5,
+      "missingText": 0,
+      "brokenThaiGlyphs": 0,
+      "clipping": 0,
+      "overlap": 0,
+      "overflow": 0,
+      "blankPages": 0
+    }
+  },
+  "scope": {
+    "selectorChanged": false,
+    "evidenceAuthorityChanged": false,
+    "canonChanged": false,
+    "productAcceptanceChanged": false,
+    "productionChanged": false
+  }
+}
