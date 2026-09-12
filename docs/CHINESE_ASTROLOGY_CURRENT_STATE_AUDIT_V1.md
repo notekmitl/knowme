@@ -1,7 +1,8 @@
 # Chinese Astrology Current-State Audit V1
 
-**Status:** CURRENT — audit complete; implementation intentionally blocked on
-one Owner calculation-policy decision  
+**Status:** HISTORICAL AUDIT SNAPSHOT — superseded by
+`docs/CHINESE_ASTROLOGY_CURRENT_STATE.md`; implementation remains blocked on one
+Owner calculation-policy decision
 **Date:** 2026-09-12  
 **Working branch:** `codex/chinese-astrology-report-v1`  
 **Stack base:** PR #120 head

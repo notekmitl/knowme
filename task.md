@@ -1,16 +1,18 @@
 # Task: Chinese Astrology Report V1
 
-## Current-state audit — calculation-policy hard stop (2026-09-12)
+## Stacked Draft PR #122 — calculation-policy decision gate (2026-09-12)
 
-**AUDIT COMPLETE — IMPLEMENTATION PAUSED FOR ONE OWNER DECISION — NO DRAFT PR YET — NO RUNTIME CHANGE — NO DEPLOY.**
+**AUDIT COMPLETE — STACKED DRAFT PR #122 OPEN — IMPLEMENTATION PAUSED FOR ONE
+OWNER DECISION — NO RUNTIME CHANGE — NO DEPLOY.**
 
 GitHub and the live Thai route match the supplied baseline. PR #120 is Open +
 Draft at `4ce29747fee66d08637dbe0b16b982b17071526d`; Production application source is
 its source-equivalent ancestor `e6aaa987ebf02da4ac3c05909c385f8378514b35`, and
 the only intervening changes are six documentation files. The live Thai assets
-are pinned to `e6aaa98` and match the recorded release hashes. No active Chinese
-branch or PR was found, so `codex/chinese-astrology-report-v1` was created from
-the exact PR #120 head as the future stacked-work branch.
+are pinned to `e6aaa98` and match the recorded release hashes. No older Chinese
+PR was found. The existing `codex/chinese-astrology-report-v1` audit branch was
+verified to descend exactly from PR #120 and continued without duplication. It
+is now Draft PR #122 with PR #120 as its base/dependency.
 
 The system is BaZi/Four Pillars, with year animal as a secondary lens. The backend
 uses local civil input, Li Chun/Jie boundaries, `lunar_python@1.4.8`, `sect=2`
@@ -22,8 +24,19 @@ is selected. The audit also found unauthenticated UID-trusting API writes, stale
 BaZi after birth-profile edits, unsupported interpretation provenance, no Chinese
 PDF/export, and missing boundary tests.
 
-Canonical evidence and the proposed non-predictive V1 boundary are in
-[`docs/CHINESE_ASTROLOGY_CURRENT_STATE_AUDIT_V1.md`](docs/CHINESE_ASTROLOGY_CURRENT_STATE_AUDIT_V1.md).
+Canonical evidence, reproduced validation and the proposed non-predictive V1
+boundary are in
+[`docs/CHINESE_ASTROLOGY_CURRENT_STATE.md`](docs/CHINESE_ASTROLOGY_CURRENT_STATE.md).
+The initial audit remains in
+[`docs/CHINESE_ASTROLOGY_CURRENT_STATE_AUDIT_V1.md`](docs/CHINESE_ASTROLOGY_CURRENT_STATE_AUDIT_V1.md)
+as a historical snapshot.
+
+Fresh validation on Flutter 3.41.3 / Dart 3.11.1: Chinese-focused Flutter
+**83/83 passed**; analyzer exited 0 under repository policy with 297 existing
+warning/info diagnostics; the full invocation reached **2,989 passed / 40
+failed**, all from existing Thai screenshot-golden comparisons. The goldens were
+not changed. Eight backend calculation assertions passed against
+`lunar_python==1.4.8` with the documented Windows `ZoneInfo` test stub.
 This audit does not change Thai source, `product-acceptance/`, Production data,
 Firebase services, PR readiness, merge state, or any deployment.
 

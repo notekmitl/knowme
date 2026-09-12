@@ -1,14 +1,16 @@
 # KnowMe Current Status+
 
-## Chinese Astrology Report V1 — audit hard stop (2026-09-12)
+## Chinese Astrology Report V1 — stacked Draft decision gate (2026-09-12)
 
-**CURRENT: AUDIT COMPLETE; IMPLEMENTATION AWAITS ONE OWNER CALCULATION-POLICY DECISION.**
+**CURRENT: DRAFT PR #122 OPEN; AUDIT COMPLETE; IMPLEMENTATION AWAITS ONE OWNER
+CALCULATION-POLICY DECISION.**
 
 The exact PR #120 head `4ce29747fee66d08637dbe0b16b982b17071526d`
 is the stacked base for `codex/chinese-astrology-report-v1`. GitHub, source
 lineage and the live `/beta/thai` release match the recorded Production baseline;
-there is no active duplicate Chinese branch/PR and no Thai application-code delta
-from Production source `e6aaa98` to the stack base.
+there is no older duplicate Chinese PR and no Thai application-code delta from
+Production source `e6aaa98` to the stack base. The existing Chinese audit branch
+was continued and published as stacked Draft PR #122.
 
 Chinese astrology is BaZi/Four Pillars with a secondary year-animal lens. The
 backend implements local-civil calculation with Li Chun/Jie, `sect=2` and no
@@ -17,10 +19,13 @@ normalization is unimplemented. Unknown time, authenticated UID-bound writes,
 birth-change cache freshness, citable interpretation provenance and PDF/export
 parity are missing. Work is paused under the Owner's explicit hard-stop rule.
 
-See
-[`CHINESE_ASTROLOGY_CURRENT_STATE_AUDIT_V1.md`](CHINESE_ASTROLOGY_CURRENT_STATE_AUDIT_V1.md).
-Audit-only: no runtime, Thai, `product-acceptance/`, Production, Ready, merge or
-deploy change.
+Fresh validation: focused Chinese Flutter 83/83; analyzer exit 0 with 297
+existing warning/info diagnostics; full Flutter 2,989 passed / 40 existing Thai
+screenshot-golden pixel failures on Flutter 3.41.3. No golden was changed.
+
+See [`CHINESE_ASTROLOGY_CURRENT_STATE.md`](CHINESE_ASTROLOGY_CURRENT_STATE.md);
+the initial audit remains an explicitly historical snapshot. Audit-only: no
+runtime, Thai, `product-acceptance/`, Production, Ready, merge or deploy change.
 
 ## PR120 Reader Voice V3 Revision 8 — Production Hosting release (2026-09-12)
 

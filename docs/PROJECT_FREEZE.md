@@ -104,7 +104,7 @@ yet an Owner-approved Chinese Report calculation contract. Shared Birth
 Normalization still marks BaZi/true-solar normalization as unimplemented. Do not
 extend or expose the report until the Owner selects the compatibility policy or
 supplies an astrologer-reviewed canon. See
-[`CHINESE_ASTROLOGY_CURRENT_STATE_AUDIT_V1.md`](CHINESE_ASTROLOGY_CURRENT_STATE_AUDIT_V1.md).
+[`CHINESE_ASTROLOGY_CURRENT_STATE.md`](CHINESE_ASTROLOGY_CURRENT_STATE.md).
 
 ### Thai Astrology — Engine (V2 Core)
 

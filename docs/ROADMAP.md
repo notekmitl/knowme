@@ -2,13 +2,14 @@
 
 ## Active next project — Chinese Astrology Report V1 (2026-09-12)
 
-**PHASE 0 AUDIT COMPLETE; PHASE 1 BLOCKED ON ONE OWNER POLICY DECISION.**
+**PHASE 0 AUDIT COMPLETE IN STACKED DRAFT PR #122; PHASE 1 BLOCKED ON ONE OWNER
+POLICY DECISION.**
 
 The current system is BaZi/Four Pillars, not a year-zodiac-only feature. The
 existing engine/UI/storage/fusion paths are audited in
-[`CHINESE_ASTROLOGY_CURRENT_STATE_AUDIT_V1.md`](CHINESE_ASTROLOGY_CURRENT_STATE_AUDIT_V1.md).
-The future stacked branch is based exactly on Open + Draft PR #120 head and does
-not change the Production-equivalent Thai source.
+[`CHINESE_ASTROLOGY_CURRENT_STATE.md`](CHINESE_ASTROLOGY_CURRENT_STATE.md).
+The branch is based exactly on Open + Draft PR #120 head and is published as
+stacked Draft PR #122 without changing the Production-equivalent Thai source.
 
 Planned only after policy approval:
 
@@ -18,8 +19,8 @@ Planned only after policy approval:
 4. build a deterministic, non-predictive, source-governed Chinese report with
    honest surface-element labels;
 5. verify Web, PDF/export, cache/API/fusion and Thai regression boundaries;
-6. commit, push and open a stacked **Draft** PR dependent on PR #120 for Owner
-   Testing only.
+6. update the existing stacked **Draft** PR #122 for Owner Testing only; keep it
+   Draft until explicit acceptance.
 
 Explicitly out of this phase: Ready for Review, merge, Production deploy, AI
 predictions, luck-cycle/timing expansion, `product-acceptance/` and Production

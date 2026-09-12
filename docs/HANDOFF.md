@@ -1,25 +1,29 @@
 # Handoff — Chinese Astrology Report V1
 
-## Current handoff — calculation-policy decision required (2026-09-12)
+## Current handoff — stacked Draft PR #122 decision required (2026-09-12)
 
-**AUDIT COMPLETE — STOP BEFORE IMPLEMENTATION — NO DRAFT PR YET.**
+**AUDIT COMPLETE — DRAFT PR #122 OPEN — STOP BEFORE IMPLEMENTATION.**
 
 - Branch: `codex/chinese-astrology-report-v1`
 - Stack base: PR #120 head
   `4ce29747fee66d08637dbe0b16b982b17071526d`
+- Draft PR: `https://github.com/notekmitl/knowme/pull/122` (Open + Draft)
 - Production source retained: `e6aaa987ebf02da4ac3c05909c385f8378514b35`
   / cache pin `e6aaa98`
-- Detailed audit:
+- Current Owner artifact:
+  [`CHINESE_ASTROLOGY_CURRENT_STATE.md`](CHINESE_ASTROLOGY_CURRENT_STATE.md)
+- Historical first audit:
   [`CHINESE_ASTROLOGY_CURRENT_STATE_AUDIT_V1.md`](CHINESE_ASTROLOGY_CURRENT_STATE_AUDIT_V1.md)
-- Executed gate: backend BaZi builder **8/8 passed**
-- Not reproduced locally: 83 direct Flutter/Dart tests (Flutter unavailable);
-  PR #120's release record remains the baseline full-suite evidence
+- Reproduced: backend assertions 8/8 with documented `ZoneInfo` stub;
+  Chinese-focused Flutter 83/83; analyzer exit 0 with 297 existing diagnostics
+- Full Flutter: 2,989 passed / 40 existing Thai screenshot-golden pixel
+  failures on Flutter 3.41.3; do not update Thai goldens in this branch
 
 Next action is exactly one Owner decision: either freeze the current
 local-civil/Li-Chun/Jie/`sect=2`/no-true-solar behavior as the compatibility V1
-contract (recommended), or pause for an astrologer-reviewed canon. Do not
-implement, open the stacked Draft PR, expose the API, or create unknown-time
-fallbacks before that decision.
+contract (recommended), or pause for an astrologer-reviewed canon. Draft PR #122
+is already open; do not implement, expose the API, mark Ready for Review, merge,
+deploy, or create unknown-time fallbacks before that decision.
 
 The audit found four release gates for any later V1: explicit calculation policy;
 Unknown-time leakage suppression; authenticated UID-bound API writes; and
