@@ -1,5 +1,30 @@
 # KnowMe Roadmap+
 
+## Active next project — Chinese Astrology Report V1 (2026-09-12)
+
+**PHASE 0 AUDIT COMPLETE; PHASE 1 BLOCKED ON ONE OWNER POLICY DECISION.**
+
+The current system is BaZi/Four Pillars, not a year-zodiac-only feature. The
+existing engine/UI/storage/fusion paths are audited in
+[`CHINESE_ASTROLOGY_CURRENT_STATE_AUDIT_V1.md`](CHINESE_ASTROLOGY_CURRENT_STATE_AUDIT_V1.md).
+The future stacked branch is based exactly on Open + Draft PR #120 head and does
+not change the Production-equivalent Thai source.
+
+Planned only after policy approval:
+
+1. codify one calculation contract and exact boundary tests;
+2. implement separate Known-time and interval-safe Unknown-time projections;
+3. bind authenticated API identity to UID and repair birth-change freshness;
+4. build a deterministic, non-predictive, source-governed Chinese report with
+   honest surface-element labels;
+5. verify Web, PDF/export, cache/API/fusion and Thai regression boundaries;
+6. commit, push and open a stacked **Draft** PR dependent on PR #120 for Owner
+   Testing only.
+
+Explicitly out of this phase: Ready for Review, merge, Production deploy, AI
+predictions, luck-cycle/timing expansion, `product-acceptance/` and Production
+data/Firebase-service changes.
+
 ## PR120 Reader Voice V3 Revision 8 — Production Hosting release (2026-09-12)
 
 **OWNER-AUTHORIZED PRODUCTION HOSTING RELEASE LIVE — FIREBASE RELEASE `04c592` — PUBLIC ROUTE SMOKE PASS — OPEN + DRAFT — NOT MERGED.**

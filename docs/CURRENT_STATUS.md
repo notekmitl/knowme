@@ -1,5 +1,27 @@
 # KnowMe Current Status+
 
+## Chinese Astrology Report V1 — audit hard stop (2026-09-12)
+
+**CURRENT: AUDIT COMPLETE; IMPLEMENTATION AWAITS ONE OWNER CALCULATION-POLICY DECISION.**
+
+The exact PR #120 head `4ce29747fee66d08637dbe0b16b982b17071526d`
+is the stacked base for `codex/chinese-astrology-report-v1`. GitHub, source
+lineage and the live `/beta/thai` release match the recorded Production baseline;
+there is no active duplicate Chinese branch/PR and no Thai application-code delta
+from Production source `e6aaa98` to the stack base.
+
+Chinese astrology is BaZi/Four Pillars with a secondary year-animal lens. The
+backend implements local-civil calculation with Li Chun/Jie, `sect=2` and no
+true-solar correction, while shared Birth Normalization explicitly says real BaZi
+normalization is unimplemented. Unknown time, authenticated UID-bound writes,
+birth-change cache freshness, citable interpretation provenance and PDF/export
+parity are missing. Work is paused under the Owner's explicit hard-stop rule.
+
+See
+[`CHINESE_ASTROLOGY_CURRENT_STATE_AUDIT_V1.md`](CHINESE_ASTROLOGY_CURRENT_STATE_AUDIT_V1.md).
+Audit-only: no runtime, Thai, `product-acceptance/`, Production, Ready, merge or
+deploy change.
+
 ## PR120 Reader Voice V3 Revision 8 — Production Hosting release (2026-09-12)
 
 **OWNER-AUTHORIZED PRODUCTION HOSTING RELEASE LIVE — FIREBASE RELEASE `04c592` — PUBLIC ROUTE SMOKE PASS — OPEN + DRAFT — NOT MERGED.**

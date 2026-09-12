@@ -6,6 +6,11 @@
 
 Status: **CURRENT** · Architecture only (no deploy). Decision Log **D-035**.
 
+> **Chinese Report gate (2026-09-12):** the BaZi context below remains a
+> placeholder even though the separate backend already calculates from local
+> civil fields. This mismatch is an explicit implementation hard stop; see
+> [`CHINESE_ASTROLOGY_CURRENT_STATE_AUDIT_V1.md`](CHINESE_ASTROLOGY_CURRENT_STATE_AUDIT_V1.md).
+
 ---
 
 ## Goal

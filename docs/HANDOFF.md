@@ -1,4 +1,31 @@
-# Handoff — Thai Report Reading Flow and Friendly Voice V1+
+# Handoff — Chinese Astrology Report V1
+
+## Current handoff — calculation-policy decision required (2026-09-12)
+
+**AUDIT COMPLETE — STOP BEFORE IMPLEMENTATION — NO DRAFT PR YET.**
+
+- Branch: `codex/chinese-astrology-report-v1`
+- Stack base: PR #120 head
+  `4ce29747fee66d08637dbe0b16b982b17071526d`
+- Production source retained: `e6aaa987ebf02da4ac3c05909c385f8378514b35`
+  / cache pin `e6aaa98`
+- Detailed audit:
+  [`CHINESE_ASTROLOGY_CURRENT_STATE_AUDIT_V1.md`](CHINESE_ASTROLOGY_CURRENT_STATE_AUDIT_V1.md)
+- Executed gate: backend BaZi builder **8/8 passed**
+- Not reproduced locally: 83 direct Flutter/Dart tests (Flutter unavailable);
+  PR #120's release record remains the baseline full-suite evidence
+
+Next action is exactly one Owner decision: either freeze the current
+local-civil/Li-Chun/Jie/`sect=2`/no-true-solar behavior as the compatibility V1
+contract (recommended), or pause for an astrologer-reviewed canon. Do not
+implement, open the stacked Draft PR, expose the API, or create unknown-time
+fallbacks before that decision.
+
+The audit found four release gates for any later V1: explicit calculation policy;
+Unknown-time leakage suppression; authenticated UID-bound API writes; and
+input-hash/regeneration correctness after birth edits. Source provenance and
+Web/PDF/export parity follow within the V1 report boundary. Thai source,
+`product-acceptance/`, Production data and Firebase services remain untouched.
 
 ## PR120 Reader Voice V3 Revision 8 — Production Hosting release (2026-09-12)
 

@@ -1,4 +1,34 @@
-# Task Result — Thai Report Reader Experience V2+
+# Task Result — Chinese Astrology Report V1
+
+## Current-state audit — calculation-policy hard stop (2026-09-12)
+
+**AUDIT COMPLETE — IMPLEMENTATION PAUSED FOR ONE OWNER DECISION — NO DRAFT PR YET — NO RUNTIME CHANGE — NO DEPLOY.**
+
+GitHub and the live Thai route match the supplied baseline. PR #120 is Open +
+Draft at `4ce29747fee66d08637dbe0b16b982b17071526d`; Production application source is
+its source-equivalent ancestor `e6aaa987ebf02da4ac3c05909c385f8378514b35`, and
+the only intervening changes are six documentation files. The live Thai assets
+are pinned to `e6aaa98` and match the recorded release hashes. No active Chinese
+branch or PR was found, so `codex/chinese-astrology-report-v1` was created from
+the exact PR #120 head as the future stacked-work branch.
+
+The system is BaZi/Four Pillars, with year animal as a secondary lens. The backend
+uses local civil input, Li Chun/Jie boundaries, `lunar_python@1.4.8`, `sect=2`
+(00:00 day change), and no true-solar correction; coordinates are stored but not
+calculated. Shared Birth Normalization simultaneously marks real BaZi
+normalization/true solar time as unimplemented. Unknown time has no safe result.
+Per the Owner's stop rule, implementation is blocked until the calculation policy
+is selected. The audit also found unauthenticated UID-trusting API writes, stale
+BaZi after birth-profile edits, unsupported interpretation provenance, no Chinese
+PDF/export, and missing boundary tests.
+
+Backend audit tests pass 8/8. The 83 direct BaZi/Chinese/coordinator Dart tests
+were inspected but could not be re-executed because Flutter is unavailable in
+this environment. Full evidence, test limitations and the proposed
+non-predictive V1 boundary are in
+[`docs/CHINESE_ASTROLOGY_CURRENT_STATE_AUDIT_V1.md`](docs/CHINESE_ASTROLOGY_CURRENT_STATE_AUDIT_V1.md).
+This audit does not change Thai source, `product-acceptance/`, Production data,
+Firebase services, PR readiness, merge state, or any deployment.
 
 ## PR120 Reader Voice V3 Revision 8 — Production Hosting release (2026-09-12)
 
