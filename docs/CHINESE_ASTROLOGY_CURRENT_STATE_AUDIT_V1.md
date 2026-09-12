@@ -9,6 +9,11 @@ Owner calculation-policy decision
 `4ce29747fee66d08637dbe0b16b982b17071526d`  
 **Runtime changes in this audit:** none
 
+> Post-audit verification note: a later strict scan found one literal
+> `localhost` hostname comparison in the existing pinned Production bundle, but
+> no development URL. See `docs/CHINESE_ASTROLOGY_CURRENT_STATE.md` for the
+> current classification; this snapshot otherwise remains unchanged.
+
 ## Executive finding
 
 KnowMe's existing “Chinese astrology” is **BaZi / Four Pillars

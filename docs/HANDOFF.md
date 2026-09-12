@@ -18,6 +18,9 @@
   Chinese-focused Flutter 83/83; analyzer exit 0 with 297 existing diagnostics
 - Full Flutter: 2,989 passed / 40 existing Thai screenshot-golden pixel
   failures on Flutter 3.41.3; do not update Thai goldens in this branch
+- Production bundle guard: strict string gate fails on one `localhost` hostname
+  comparison; no development URL or other loopback string found; existing shared
+  issue, so stop and report before any fix or deploy
 
 Next action is exactly one Owner decision: either freeze the current
 local-civil/Li-Chun/Jie/`sect=2`/no-true-solar behavior as the compatibility V1

@@ -23,6 +23,12 @@ Fresh validation: focused Chinese Flutter 83/83; analyzer exit 0 with 297
 existing warning/info diagnostics; full Flutter 2,989 passed / 40 existing Thai
 screenshot-golden pixel failures on Flutter 3.41.3. No golden was changed.
 
+Fresh live verification returns 200 and cache pin `e6aaa98`. The strict bundle
+guard nevertheless finds one literal `localhost` in a hostname comparison; it
+finds no localhost/loopback URL and no other loopback string. This pre-existing
+shared Production-bundle finding is reported as a separate blocker and was not
+fixed or deployed from the Chinese branch.
+
 See [`CHINESE_ASTROLOGY_CURRENT_STATE.md`](CHINESE_ASTROLOGY_CURRENT_STATE.md);
 the initial audit remains an explicitly historical snapshot. Audit-only: no
 runtime, Thai, `product-acceptance/`, Production, Ready, merge or deploy change.

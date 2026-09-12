@@ -37,6 +37,12 @@ Full evidence, limitations and the proposed non-predictive V1 boundary are in
 The initial
 [`docs/CHINESE_ASTROLOGY_CURRENT_STATE_AUDIT_V1.md`](docs/CHINESE_ASTROLOGY_CURRENT_STATE_AUDIT_V1.md)
 is retained as a historical snapshot.
+
+The fresh live-bundle guard is **BLOCKED** under its strict string rule: cache
+pin `e6aaa98` is present and no development URL was found, but the deployed
+bundle contains one literal `localhost` in a hostname comparison. It predates
+this branch and is not a Chinese runtime delta. Per scope protection, it was
+reported without modifying Thai/shared code or Production.
 This audit does not change Thai source, `product-acceptance/`, Production data,
 Firebase services, PR readiness, merge state, or any deployment.
 

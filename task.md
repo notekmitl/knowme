@@ -37,6 +37,12 @@ warning/info diagnostics; the full invocation reached **2,989 passed / 40
 failed**, all from existing Thai screenshot-golden comparisons. The goldens were
 not changed. Eight backend calculation assertions passed against
 `lunar_python==1.4.8` with the documented Windows `ZoneInfo` test stub.
+
+A fresh read-only guard of the live pinned bundle found one literal `localhost`
+in a hostname equality check, but no localhost/loopback URL or other loopback
+string. The strict no-`localhost` gate is therefore red. This is an existing
+Production/shared-bundle issue rather than a branch delta; no fix or deploy was
+attempted because shared/Thai and Production mutation are outside authorization.
 This audit does not change Thai source, `product-acceptance/`, Production data,
 Firebase services, PR readiness, merge state, or any deployment.
 

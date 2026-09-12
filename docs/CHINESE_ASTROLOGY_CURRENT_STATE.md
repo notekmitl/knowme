@@ -157,6 +157,14 @@ coverage of every date, time, timezone or location.
   four golden-bearing files are isolated on Flutter 3.41.3; PR #120's recorded
   3,029/3,029 baseline used Flutter 3.41.1. The goldens were not updated because
   this branch has no Thai/UI delta.
+- Fresh read-only Production bundle guard: the Thai route returns 200 and the
+  index carries cache pin `e6aaa98`, but the pinned 8,565,520-byte
+  `main.dart.js` contains one literal `localhost`. Its surrounding minified code
+  compares `window.location.hostname` with that value; URL extraction finds no
+  localhost/loopback URL, and the other loopback strings are absent. The strict
+  no-`localhost` string gate therefore fails even though no development endpoint
+  was found. This is an existing Production/shared-bundle issue, not a Chinese
+  branch delta, and it was not changed or deployed under this task.
 - Existing backend probes record `1990-05-12` 22:59 as Day `丁丑` / Hour `辛亥`,
   23:00 and 23:59 as Day `丁丑` / Hour `壬子`, and `1990-05-13` 00:00 as Day
   `戊寅` / Hour `壬子`.
@@ -196,7 +204,9 @@ policy choice in the Decision summary.
 
 ## Scope protection
 
-This branch changes documentation and the narrow task-scope manifest only. It
+This branch changes documentation and the narrow task-scope manifest only. The
+strict Production-bundle string guard remains a separately classified blocker.
+This branch
 does not change Dart/Python runtime, calculations, Chinese or Thai reader copy,
 routes, tests, golden files, Firebase, Production data, deployed assets, PR #120
 readiness, merge state, or Hosting release `04c592`.

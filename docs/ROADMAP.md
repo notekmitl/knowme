@@ -22,6 +22,11 @@ Planned only after policy approval:
 6. update the existing stacked **Draft** PR #122 for Owner Testing only; keep it
    Draft until explicit acceptance.
 
+Separate pre-release blocker: the live pinned bundle contains one literal
+`localhost` in a hostname comparison even though no development URL was found.
+Resolve its source and restore the strict bundle guard only in separately
+authorized shared/Production work; do not change Thai/shared runtime here.
+
 Explicitly out of this phase: Ready for Review, merge, Production deploy, AI
 predictions, luck-cycle/timing expansion, `product-acceptance/` and Production
 data/Firebase-service changes.
