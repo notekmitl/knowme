@@ -5,6 +5,9 @@
 **CALCULATION, SOURCED SYMBOLIC READING AND TECHNICAL VALIDATION COMPLETE IN
 STACKED DRAFT PR #122; OWNER TESTING IS THE REMAINING PRODUCT GATE.**
 
+Validated application commit `afaa3a97b3a6ce82f555efbfbd79917567ebc339`,
+tree `3b56c98a3d03552246acc66ca7e6830b256ba957`.
+
 Completed V1 scope:
 
 1. named local-civil/Li-Chun/Jie/`sect=2`/no-true-solar calculation contract;

@@ -5,6 +5,9 @@
 **READY FOR OWNER TESTING ON STACKED DRAFT PR #122 — NOT READY FOR REVIEW,
 NOT MERGED, NOT DEPLOYED.**
 
+Validated application commit `afaa3a97b3a6ce82f555efbfbd79917567ebc339`,
+tree `3b56c98a3d03552246acc66ca7e6830b256ba957`.
+
 The Chinese feature is now a useful, deterministic BaZi/Four Pillars report
 rather than a calculation-only screen. It retains the approved
 local-civil/Li-Chun/Jie/`sect=2`/no-true-solar calculation contract and adds the

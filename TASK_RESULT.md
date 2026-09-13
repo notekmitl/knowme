@@ -5,6 +5,9 @@
 **READY FOR OWNER TESTING ON STACKED DRAFT PR #122 — NOT READY FOR REVIEW,
 NOT MERGED, NOT DEPLOYED.**
 
+Validated application commit `afaa3a97b3a6ce82f555efbfbd79917567ebc339`,
+tree `3b56c98a3d03552246acc66ca7e6830b256ba957`.
+
 KnowMe now has a completed Chinese astrology V1 report built on BaZi/Four
 Pillars. In addition to the governed calculation, the result includes a
 deterministic symbolic reading for all ten Day Masters, constructive reflection,

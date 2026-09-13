@@ -9,6 +9,10 @@ not merged, not deployed
 
 **Interpretation contract:** `knowme_bazi_symbolic_reading_v1`
 
+**Validated application:** commit
+`afaa3a97b3a6ce82f555efbfbd79917567ebc339`, tree
+`3b56c98a3d03552246acc66ca7e6830b256ba957`
+
 ## What the system actually uses
 
 KnowMe uses **BaZi / Four Pillars (八字 / 四柱)**. The year animal is a

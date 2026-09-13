@@ -4,6 +4,10 @@
 
 **Date:** 2026-09-13
 
+**Validated application:** commit
+`afaa3a97b3a6ce82f555efbfbd79917567ebc339`, tree
+`3b56c98a3d03552246acc66ca7e6830b256ba957`
+
 ## Coverage statement
 
 Validation is risk-based and uses equivalence classes. It does not assert that

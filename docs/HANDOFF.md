@@ -6,6 +6,8 @@
 DEPLOY.**
 
 - Branch/PR: `codex/chinese-astrology-report-v1` / Draft PR #122
+- Application commit/tree: `afaa3a97b3a6ce82f555efbfbd79917567ebc339`
+  / `3b56c98a3d03552246acc66ca7e6830b256ba957`
 - Stack dependency: Draft PR #120 at
   `4ce29747fee66d08637dbe0b16b982b17071526d`
 - Owner route: `/beta/chinese?case=known|unknown|lichun-unknown|jie-unknown`
