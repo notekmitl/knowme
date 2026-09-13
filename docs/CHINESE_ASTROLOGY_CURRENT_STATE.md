@@ -107,7 +107,7 @@ the version comparison treats a lens that disappears as outdated. The old
 hour-bearing Fusion result cannot survive the fail-closed transition even when
 the Day Master itself is unchanged.
 
-## Surfaces available for Owner testing
+## Product surfaces
 
 - Signed-in BaZi result page: authenticated chart freshness check, then the
   canonical fact-only report and PDF export.
@@ -124,6 +124,20 @@ There is no separately published public Chinese shared-report URL in V1. Any
 surface implemented here uses the same report model; wider Fusion/narrative
 interpretation remains outside this fact-only report and is not claimed as
 source-approved Chinese interpretation.
+
+## Owner manual QA boundary
+
+Owner fixture testing is deliberately limited to:
+
+1. Known completeness;
+2. ordinary Unknown omission of Hour and all time-dependent values;
+3. Li Chun Unknown omission of boundary-ambiguous values;
+4. Jie Unknown omission of boundary-ambiguous values; and
+5. Web/PDF parity for facts, omissions, policy label and final limitations.
+
+The fixture route calls no API and writes no data. Token presence, verified UID,
+revoked-token handling, regeneration and Fusion freshness are automated
+engineering gates, not Owner fixture steps.
 
 ## Evidence and coverage limits
 
@@ -147,26 +161,32 @@ non-fatal diagnostics and scoped analyzer 0.
   V1 represents all schools.
 - No true-solar correction, arbitrary school selection, hidden-stem strength,
   Ten Gods, combinations/clashes, luck pillars or event prediction is present.
-- The live Production bundle remains blocked by the separate strict guard: it
-  contains one literal `localhost` in a hostname comparison, although no
-  localhost/loopback endpoint URL was found. This PR does not fix shared or
-  Production code.
+- Actual localhost/loopback endpoint findings are 0. The bundle has one literal
+  `localhost` in a hostname comparison, which is not an endpoint. Distinguishing
+  the two is a future shared guard-quality task; policy still requires it to
+  close before Production. This PR does not change shared or Production code.
 - Full-suite pixel results are toolchain-sensitive. Final results and the exact
   Flutter version are recorded in the validation document; Thai goldens are not
   changed.
 
 ## Release sequencing (not authorized by this PR)
 
-The UID-enforcing backend is intentionally incompatible with legacy clients
-that omit the Firebase bearer token. If a later release is explicitly
-authorized, release the bearer-capable client first and deploy backend UID
-enforcement immediately afterward. The old backend ignores the extra header,
-but it cannot serve the new Unknown-time request during this short overlap, so
-the window must be coordinated and verified. Do not release the enforcing
-backend first. For rollback, restore the backend before rolling back the client.
+The prior client-first then immediate backend-enforcement proposal is withdrawn:
+it does not safely cover cached or already-open legacy clients that omit the
+bearer token. Release remains blocked on a compatibility migration that is not
+implemented in PR #122:
 
-This sequencing note is planning only. Draft PR #122 performs no backend,
-Hosting or Production deployment.
+1. add an authenticated versioned endpoint in parallel with the legacy
+   endpoint;
+2. move the new bearer-capable client to that versioned endpoint;
+3. observe and verify client adoption; and
+4. retire the legacy endpoint only after the adoption gate passes.
+
+This is a recommended future release design, not authorization or completed
+work. Draft PR #122 performs no backend, Hosting or Production deployment. The
+validated application is commit
+`8fe3c68e2c60ec9a1511e75bc22982a1d854c007`, tree
+`a478defae8cd8f88435e8f5fda7c908db4a11773`.
 
 ## Scope protection
 

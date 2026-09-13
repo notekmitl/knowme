@@ -15,6 +15,8 @@ DEPLOY.**
 - Contract/source state: `CHINESE_ASTROLOGY_CURRENT_STATE.md` and
   `CHINESE_ASTROLOGY_COMPATIBILITY_V1.md`
 - Test matrix/results: `CHINESE_ASTROLOGY_VALIDATION_V1.md`
+- Application commit/tree: `8fe3c68e2c60ec9a1511e75bc22982a1d854c007`
+  / `a478defae8cd8f88435e8f5fda7c908db4a11773`
 
 Authoritative Flutter 3.41.1 Linux gates pass backend 18/18, focused Flutter
 51/51, full Flutter 3,049/3,049, analyzer exit 0 with 282 existing diagnostics
@@ -24,18 +26,28 @@ have missing/clipped/overlapped/blank content 0 and embed
 contains `/beta/chinese`, and keeps the one generic `localhost` hostname
 comparison as the separately reported strict-scan blocker.
 
-Owner should compare Known versus ordinary Unknown, confirm Li Chun/Jie Unknown
-cases omit ambiguous values, verify Fusion cannot retain the Known hour lens
-after Known -> Unknown, inspect the final limitations section, export a PDF and
-confirm Web/PDF content parity. The Owner fixture route is no-write and visibly
-labelled non-Production.
+Owner manual checklist:
+
+1. Compare Known with ordinary Unknown and confirm Unknown omits the Hour and
+   every time-dependent value.
+2. Confirm Li Chun Unknown and Jie Unknown omit their boundary-ambiguous values
+   with a clear explanation.
+3. Compare each Web fixture with its PDF, including policy label, facts,
+   omissions and the final limitations section.
+
+The Owner fixture route is no-write and visibly labelled non-Production. Token,
+UID, revoked-token, regeneration and Fusion-freshness behavior is covered by
+automated engineering gates and is not part of this manual fixture checklist.
 
 Do not re-enable removed personality/prediction sections without approved
 sources. Do not weaken UID binding or Unknown suppression. Do not update Thai
-goldens in this branch. The strict Production `localhost` string blocker remains
-separate and requires explicit shared/Production authorization. If release is
-authorized later, release the bearer-capable client first and backend UID
-enforcement immediately after; rollback backend first, then client.
+goldens in this branch. Actual loopback endpoints are 0; the remaining
+`localhost` literal is a hostname comparison, not an endpoint. Its strict-guard
+repair is a future shared task that must close before Production and is not in
+this PR. Do not use the previous client-first/immediate-enforcement sequence:
+cached/open legacy clients make it incomplete. Release remains blocked pending
+a parallel authenticated versioned endpoint, new-client migration, adoption
+verification and eventual legacy-endpoint retirement; none is implemented here.
 
 ## Prior handoff — superseded decision gate (2026-09-12)
 

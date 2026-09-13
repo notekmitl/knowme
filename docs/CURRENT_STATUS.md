@@ -19,6 +19,11 @@ removed lens, so a Known -> Unknown edit invalidates the old hour-bearing Fusion
 snapshot. Signed-in Web, `/beta/chinese` Owner fixtures and PDF/export share one
 fact-only report with no unsourced personality or predictive prose.
 
+Owner manual QA covers only the four no-write fixtures—Known, ordinary Unknown,
+Li Chun Unknown and Jie Unknown—and their Web/PDF parity. Authentication token,
+UID/revoked-token, regeneration and Fusion-freshness assertions are automated
+engineering gates rather than Owner fixture tasks.
+
 Authoritative Flutter 3.41.1 Linux validation passes backend **18/18**, focused
 Flutter **51/51**, full Flutter **3,049/3,049**, repository analyzer exit 0 with
 282 existing non-fatal diagnostics and scoped analyzer 0. Four two-page A4 PDFs
@@ -28,10 +33,18 @@ Production endpoint guard and contains `/beta/chinese`; its SHA-256 is
 `F30256BE2AF1725DF933ECA7D9228341BBA980D07C6FA058AC08418132AE2959`.
 
 No Thai astrology source, Thai golden, `product-acceptance/`, Production service
-or Hosting asset is in scope. The strict live-bundle `localhost` string failure
-remains separately blocked and unchanged. A future authorized release must put
-the bearer-capable client before backend UID enforcement and roll back backend
-before client. Exact test/PDF results are in
+or Hosting asset is in scope. The application stays pinned to commit
+`8fe3c68e2c60ec9a1511e75bc22982a1d854c007`, tree
+`a478defae8cd8f88435e8f5fda7c908db4a11773`.
+
+Actual loopback endpoint findings are 0. The single literal `localhost`
+hostname comparison is not an endpoint; strict-guard refinement is a future
+shared guard-quality task that remains a policy blocker before Production, and
+PR #122 does not change shared runtime. Release is also blocked because
+client-first/immediate backend enforcement does not cover cached/open legacy
+clients. The recommended unimplemented path is a parallel authenticated
+versioned endpoint, new-client migration, adoption verification and later
+legacy-endpoint retirement. Exact test/PDF results are in
 `CHINESE_ASTROLOGY_VALIDATION_V1.md`.
 
 ## Prior Chinese discovery gate — superseded (2026-09-12)

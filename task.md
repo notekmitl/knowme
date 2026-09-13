@@ -1,6 +1,6 @@
 # Task: Chinese Astrology Report V1
 
-## KnowMe BaZi Compatibility V1 — Fusion/PDF QA closeout (2026-09-13)
+## KnowMe BaZi Compatibility V1 — Owner QA delivery (2026-09-13)
 
 **READY FOR OWNER TESTING ON STACKED DRAFT PR #122 — NOT READY FOR REVIEW,
 NOT MERGED, NOT DEPLOYED.**
@@ -38,18 +38,29 @@ The Owner route is `/beta/chinese?case=known|unknown|lichun-unknown|jie-unknown`
 It is fixture-only, calls no API and writes no data. Final PDFs are under
 `output/pdf/knowme-bazi-fusion-linux-20260913/` and ignored by Git.
 
+Owner manual QA is limited to those four fixture variants and Web/PDF content
+parity: Known completeness, ordinary Unknown time omission, Li Chun Unknown
+ambiguity omission and Jie Unknown ambiguity omission. Token/UID/revoked-token
+handling, regeneration and Fusion freshness are automated engineering gates;
+they are not Owner fixture steps.
+
 The Flutter 3.41.1 Web release build passes the Production endpoint guard. Its
 `main.dart.js` is 8,428,317 bytes with SHA-256
 `F30256BE2AF1725DF933ECA7D9228341BBA980D07C6FA058AC08418132AE2959`;
-the Production API URL and `/beta/chinese` are present, while loopback endpoint
-counts are 0. The strict scan still finds one literal `localhost` in a hostname
-equality check and remains a separate shared-code blocker.
+the Production API URL and `/beta/chinese` are present, while actual loopback
+endpoint counts are 0. The remaining literal `localhost` is a hostname
+comparison, not an endpoint. Improving that strict scan is a future shared
+guard-quality task, but the policy blocker must still close before Production;
+PR #122 does not change shared runtime.
 
-No release is authorized here. If separately authorized later, release the
-bearer-capable client first and then enable backend UID enforcement immediately.
-Backend-first would reject the legacy client that sends no token. Coordinate
-the overlap because the old backend rejects Unknown-time requests; rollback
-order is backend first, then client.
+Application evidence is pinned at commit
+`8fe3c68e2c60ec9a1511e75bc22982a1d854c007`, tree
+`a478defae8cd8f88435e8f5fda7c908db4a11773`. No release is authorized. The
+previous client-first/immediate-enforcement sequence is incomplete because it
+cannot protect cached or already-open legacy clients. The recommended release
+blocker, not implemented here, is to add an authenticated versioned endpoint
+beside the legacy endpoint, move the new client to it, measure adoption, and
+only then retire the legacy endpoint.
 
 Thai source, Thai goldens, `product-acceptance/`, Production data and deployed
 assets remain unchanged.

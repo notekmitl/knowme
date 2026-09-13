@@ -69,6 +69,13 @@ The PDF projection embeds static `NotoSansSC-Regular` for Chinese glyphs. It
 must not substitute a Thin variable-font instance, and Unknown variants must not
 recover time, Hour or boundary-ambiguous values during layout/export.
 
+## Owner manual QA boundary
+
+Owner manual testing covers the Known, ordinary Unknown, Li Chun Unknown and
+Jie Unknown fixtures plus Web/PDF parity. The no-write fixture route does not
+test authentication. Token/UID/revoked-token enforcement, regeneration and
+Fusion freshness are automated engineering gates.
+
 ## Fusion freshness contract
 
 The Fusion source version includes the governed BaZi input fingerprint, not
@@ -80,12 +87,20 @@ time-dependent lens data.
 
 ## Release sequencing
 
-No release is authorized by this contract. If a later deployment is approved,
-release the client that sends the Firebase bearer token before enabling backend
-UID enforcement, then verify the authenticated write path immediately. An
-enforcing-backend-first rollout would return 401 to legacy clients. Coordinate
-the short client-first overlap because the old backend does not support Unknown
-time. Rollback order is backend first and client second.
+No release is authorized by this contract. The earlier client-first then
+immediate backend-enforcement proposal is insufficient because cached or
+already-open legacy clients may continue to omit the Firebase bearer token.
+Release is blocked pending an implementation outside PR #122 that:
+
+1. adds an authenticated versioned endpoint beside the legacy endpoint;
+2. moves the new bearer-capable client to the versioned endpoint;
+3. verifies adoption; and
+4. retires the legacy endpoint only after the adoption gate passes.
+
+The application implementation remains commit
+`8fe3c68e2c60ec9a1511e75bc22982a1d854c007`, tree
+`a478defae8cd8f88435e8f5fda7c908db4a11773`; this clarification changes no
+runtime or release state.
 
 ## Explicit exclusions
 

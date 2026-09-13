@@ -9,6 +9,9 @@
 Validation is risk-based and uses equivalence classes. It does not assert that
 every day, time, place or IANA timezone was executed.
 
+The backend and Flutter lists below are automated engineering gates. They are
+not instructions for Owner fixture testing.
+
 ### Backend equivalence classes
 
 - Known four-pillar reference and deterministic replay.
@@ -55,6 +58,16 @@ every day, time, place or IANA timezone was executed.
   The exact Production API URL and `/beta/chinese` each occur once. Counts for
   `http://localhost`, `127.0.0.1`, `10.0.2.2` and `0.0.0.0` are zero.
 
+These application results are pinned to commit
+`8fe3c68e2c60ec9a1511e75bc22982a1d854c007`, tree
+`a478defae8cd8f88435e8f5fda7c908db4a11773`.
+
+The later Owner-QA clarification is Markdown-only. Its docs-required PreCommit
+reverified exactly eight approved document paths, forbidden text, `git diff
+--check`, the pinned application commit/tree, the Web bundle hash and all four
+PDF hashes. Analyzer, Flutter tests, PDF generation and Web build were not
+rerun because runtime, tests and artifacts did not change.
+
 The earlier Windows full-suite result is not used as a passing gate. The
 authoritative result above comes from the pinned Linux framework/engine and the
 unchanged Thai screenshot goldens pass there. No Thai source or golden was
@@ -83,18 +96,28 @@ non-empty text on every page. Known contains `15:30` and its `wu/shen` Hour;
 ordinary Unknown, Li Chun Unknown and Jie Unknown contain neither value. The
 Li Chun/Jie variants visibly omit their boundary-ambiguous fields.
 
+## Owner manual checklist
+
+Owner manually checks Known, ordinary Unknown, Li Chun Unknown, Jie Unknown and
+Web/PDF parity only. Token/UID/revoked-token behavior, regeneration and Fusion
+freshness are already automated engineering gates and are not exercised by the
+no-write fixture route.
+
 ## Production guard
 
-Production mutation is not authorized. The new local release bundle and live
-cache pin `e6aaa98` each retain one literal `localhost` in hostname comparison
-code but no development/loopback endpoint URL. The local context is
-`window.location.hostname == "localhost"`; the strict string guard therefore
-remains separately blocked. Draft PR #122 does not repair or deploy it.
+Production mutation is not authorized. Actual loopback endpoint findings are 0
+for both the new local release bundle and live cache pin `e6aaa98`. Each retains
+one literal `localhost` in hostname comparison code; the local context is
+`window.location.hostname == "localhost"`, which is not an endpoint. Improving
+this strict classification is a future shared guard-quality task that policy
+still requires before Production. Draft PR #122 does not repair shared runtime
+or deploy it.
 
-The release build is evidence only. If a later release is authorized, the
-bearer-capable client must precede backend UID enforcement and backend rollback
-must precede client rollback. The overlap requires coordination because the old
-backend does not support Unknown-time requests.
+The release build is evidence only. Client-first followed by immediate backend
+enforcement is not accepted sequencing because cached/open legacy clients may
+still omit the token. Release remains blocked pending a separately implemented
+parallel authenticated versioned endpoint, new-client migration, adoption
+verification and later legacy-endpoint retirement.
 
 ## Regression boundary
 

@@ -11,19 +11,33 @@ birth-change regeneration, Fusion Known -> Unknown stale-lens invalidation,
 canonical fact-only Web/PDF report, static Regular CJK font, no-write Owner
 fixtures, boundary/auth/leakage tests and traceability documentation.
 
+The application evidence is fixed at commit
+`8fe3c68e2c60ec9a1511e75bc22982a1d854c007`, tree
+`a478defae8cd8f88435e8f5fda7c908db4a11773`. Owner manual QA is limited to the
+four fixture variants and Web/PDF parity; authentication, regeneration and
+Fusion freshness remain automated engineering evidence.
+
 Final technical evidence uses Flutter 3.41.1 / Dart 3.11.0 on Linux: backend
 18/18, focused Flutter 51/51, full Flutter 3,049/3,049, analyzer 282 existing
 non-fatal diagnostics with scoped findings 0. Four two-page PDFs pass eight-page
 visual QA and the release Web bundle passes route/API endpoint checks. The exact
 PDF and bundle hashes are in `CHINESE_ASTROLOGY_VALIDATION_V1.md`.
 
-Next actions are limited to Owner testing.
-Only after explicit later approval may the PR become Ready or merge. Production
-deploy is a separate authorization. Any authorized rollout must release the
-bearer-capable client before backend UID enforcement and roll back backend
-before client. Unsourced interpretation expansion, luck
-cycles/timing, Thai changes, `product-acceptance/` and the existing shared-bundle
-`localhost` repair are separate future work.
+Next action on PR #122 is Owner testing only. Only after explicit later approval
+may the PR become Ready or merge; Production deploy is separate.
+
+Two pre-Production blockers remain outside this PR:
+
+1. Replace the incomplete client-first/immediate-enforcement plan with a
+   separately implemented parallel authenticated versioned endpoint, migrate
+   the new client, verify adoption and only then retire the legacy endpoint.
+2. Refine the shared strict bundle guard so a literal hostname comparison is
+   distinguished from an actual loopback endpoint. Actual loopback endpoints
+   are 0, but policy still requires this guard-quality task to close before
+   Production.
+
+Unsourced interpretation expansion, luck cycles/timing, Thai changes and
+`product-acceptance/` are also separate future work.
 
 ## Prior Phase 0 plan — superseded by Owner approval (2026-09-12)
 
