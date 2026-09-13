@@ -101,7 +101,7 @@ class _BaziResultPageState extends State<BaziResultPage> {
       );
       await Printing.sharePdf(
         bytes: bytes,
-        filename: 'knowme-bazi-compatibility-v1.pdf',
+        filename: 'knowme-chinese-astrology-bazi-v1.pdf',
       );
     } catch (error) {
       if (!mounted) return;
@@ -118,7 +118,7 @@ class _BaziResultPageState extends State<BaziResultPage> {
       backgroundColor: const Color(0xFFF5F0F8),
       appBar: AppBar(
         backgroundColor: const Color(0xFFF5F0F8),
-        title: const Text('KnowMe BaZi Compatibility V1'),
+        title: const Text('KnowMe โหราศาสตร์จีน · BaZi V1'),
       ),
       body: Consumer<BaziProvider>(
         builder: (context, provider, _) {

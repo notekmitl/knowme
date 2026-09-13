@@ -100,7 +100,7 @@ void main() {
     expect(find.text(AstrologyFlowCopy.retryCta), findsOneWidget);
   });
 
-  testWidgets('renders the fact-only Compatibility V1 projection', (
+  testWidgets('renders the sourced Chinese astrology reading projection', (
     tester,
   ) async {
     final chart = BaziCompatibilityOwnerFixtures.chart(BaziOwnerCase.known);
@@ -117,16 +117,14 @@ void main() {
     );
     await tester.pumpAndSettle();
 
-    expect(find.text('KnowMe BaZi Compatibility V1'), findsWidgets);
-    expect(find.textContaining('ไม่ใช่มาตรฐานสากล'), findsOneWidget);
+    expect(find.text('KnowMe โหราศาสตร์จีน · BaZi V1'), findsWidgets);
+    expect(find.text('ภาพรวมคำอ่านพื้นดวง'), findsOneWidget);
+    expect(find.text('แกนตัวตนตาม Day Master'), findsOneWidget);
+    expect(find.text('ความสัมพันธ์ของธาตุที่มองเห็น'), findsOneWidget);
     expect(find.text('ผลเสาหลักที่ยืนยันได้'), findsOneWidget);
     expect(find.text('庚午 (geng/wu) — ทอง + ไฟ'), findsOneWidget);
     expect(find.byKey(const Key('bazi-export-pdf')), findsOneWidget);
-
-    expect(find.text('Strengths'), findsNothing);
-    expect(find.text('Growth Areas'), findsNothing);
-    expect(find.text('Year Zodiac Personality'), findsNothing);
-    expect(find.text('Overall Chinese Lens Summary'), findsNothing);
+    expect(find.text('ที่มาของผลคำนวณและคำอ่าน'), findsOneWidget);
   });
 
   testWidgets('does not expose a stale chart when regeneration fails', (

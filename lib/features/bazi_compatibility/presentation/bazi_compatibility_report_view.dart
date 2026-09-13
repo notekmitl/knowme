@@ -74,6 +74,10 @@ class _SectionCard extends StatelessWidget {
               const SizedBox(height: 8),
               Text(intro, style: const TextStyle(height: 1.45)),
             ],
+            for (final paragraph in section.paragraphs) ...[
+              const SizedBox(height: 10),
+              Text(paragraph, style: const TextStyle(height: 1.5)),
+            ],
             for (final row in section.rows) ...[
               const SizedBox(height: 10),
               Text(

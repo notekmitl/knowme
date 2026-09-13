@@ -6,9 +6,12 @@
 
 Status: **CURRENT** · Architecture only (no deploy). Decision Log **D-035**.
 
-> **Chinese Report gate (2026-09-12):** the BaZi context below remains a
-> placeholder even though the separate backend already calculates from local
-> civil fields. This mismatch is an explicit implementation hard stop; see
+> **Chinese Report compatibility boundary (2026-09-13):** the BaZi context
+> below remains a placeholder. The separately approved
+> `knowme_bazi_compatibility_v1` backend deliberately uses disclosed local-civil
+> fields with no true-solar correction; it does not claim that this shared
+> adapter is implemented. Migrating BaZi into this foundation or adding
+> true-solar behavior requires a new contract; see
 > [`CHINESE_ASTROLOGY_CURRENT_STATE.md`](CHINESE_ASTROLOGY_CURRENT_STATE.md).
 
 ---

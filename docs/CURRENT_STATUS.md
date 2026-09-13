@@ -1,6 +1,52 @@
 # KnowMe Current Status+
 
-## KnowMe BaZi Compatibility V1 — Owner testing (2026-09-13)
+## KnowMe Chinese Astrology · BaZi V1 — complete for Owner testing (2026-09-13)
+
+**CURRENT: SOURCED SYMBOLIC READING IMPLEMENTED AND VALIDATED ON STACKED DRAFT
+PR #122; NOT READY FOR REVIEW, NOT MERGED AND NOT DEPLOYED.**
+
+The Chinese feature is BaZi/Four Pillars, not a year-animal-only horoscope. Its
+approved compatibility calculation remains deterministic: Gregorian local
+civil fields in a validated IANA zone, Li Chun Year, Jie Month, civil-midnight
+Day with `sect=2`, no true-solar correction and fail-closed Unknown time.
+
+The product now adds `knowme_bazi_symbolic_reading_v1`: a checked-in Thai and
+English reading catalog covering all ten Day Masters and five broad elemental
+relationship families over the visible stems/branches. The report explains a
+symbolic tendency, constructive expression, balance point and practical
+reflection, then shows which relationship families are most visible without
+calling the counts good/bad or strong/weak. It prints a source ledger and does
+not use AI to compose a request-time prediction.
+
+Known uses four pillars. Ordinary Unknown uses Year/Month/Day and has no Hour
+contribution. Li Chun/Jie Unknown displays only the invariant Day Master reading
+and omits a chart-wide relationship summary. Full hidden stems, seasonal
+strength, Useful God, polarity-specific Ten Gods, combinations/clashes, Da Yun,
+annual timing and domain/event forecasts remain explicitly outside V1.
+
+Signed-in Web, `/beta/chinese` fixtures, plain text and PDF project the same
+report object. Authentication/UID binding, input regeneration, stale-chart
+hiding and Fusion Known-to-Unknown invalidation remain automated gates.
+
+Final Flutter 3.41.1 / Dart 3.11.0 validation with `CI=true`, analytics
+suppressed and `TZ=Asia/Bangkok`: backend **18/18**, focused Flutter **57/57**,
+full Flutter **3,055/3,055**, analyzer exit 0 with 282 inherited non-fatal
+diagnostics and scoped findings 0. Generated tracked-output deltas were restored
+by exact path; Thai source/golden and `product-acceptance/` deltas are 0.
+
+All four PDFs are three A4 pages and the latest 12 raster pages pass visual and
+Known/Unknown content QA. `NotoSansSC-Regular` is embedded. The release Web
+bundle is 8,469,824 bytes / SHA-256
+`3DFF3095890C8EF72E00F499AA44EC6BFA7292CF0F02B548B439699E40C5FCE8`;
+Production API and `/beta/chinese` occur once, actual loopback endpoints are 0.
+The one inherited `localhost` hostname comparison remains a separate shared
+strict-guard blocker before Production.
+
+No V1 calculation or interpretation decision remains. Owner testing is the
+next gate; PR #122 must remain Draft and release sequencing still requires a
+separate parallel authenticated versioned endpoint migration.
+
+## Prior calculation/report checkpoint — superseded by the sourced reading (2026-09-13)
 
 **CURRENT: READY FOR OWNER TESTING ON STACKED DRAFT PR #122; NOT READY FOR
 REVIEW, NOT MERGED AND NOT DEPLOYED.**

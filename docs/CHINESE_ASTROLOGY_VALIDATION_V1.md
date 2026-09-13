@@ -35,73 +35,78 @@ not instructions for Owner fixture testing.
   Master is unchanged, and when a Known lens disappears after Unknown time.
 - Client ID-token presence, UID match and null Unknown-time transport.
 - Known, ordinary Unknown, Li Chun Unknown and Jie Unknown canonical reports.
+- All ten Day Master profiles in Thai and English.
+- All five visible-element relationship mappings for each Day Master element.
+- Known four-pillar versus ordinary Unknown three-pillar relationship counts.
+- Boundary-partial Unknown omission of chart-wide relationship emphasis.
+- Deterministic reading catalog scan for forbidden event/domain promises.
 - Signed-in report view and Owner fixture route.
 - PDF build for all four fixtures from the same report object.
 - Forbidden old personality/prediction section leakage and stale-chart hiding.
 
 ## Results
 
-- Backend focused: **18/18 passed** in 0.40 seconds.
-- Flutter focused auth/freshness/Fusion/model/report/PDF/routes: **51/51
+- Backend focused: **18/18 passed** in 0.23 seconds. The offline rerun used the
+  pinned calculation/FastAPI dependencies and a minimal test-only
+  `firebase_admin` import stub; route tests monkeypatched token verification and
+  made no Firebase call or write.
+- Flutter focused auth/freshness/Fusion/model/reading/report/PDF/routes: **57/57
   passed**.
-- Full Flutter 3.41.1 / Dart 3.11.0 suite on Linux, matching the inherited
-  screenshot baseline platform: **3,049/3,049 passed**, failures 0.
+- Full Flutter 3.41.1 / Dart 3.11.0 suite on Linux with `CI=true`, analytics
+  suppressed and repository-required `TZ=Asia/Bangkok`: **3,055/3,055 passed**,
+  failures 0. A preliminary invocation without the required timezone produced
+  11 environment-driven Thai date/hash mismatches and is not counted as a gate;
+  no Thai code, fixture or golden was changed.
 - Repository analyzer: exit 0 with **282 existing non-fatal warning/info
   diagnostics**; scoped changed-Dart diagnostics: **0**.
-- PreCommit gate: PASS for branch/worktree/base/scope, forbidden-text scan,
+- PreCommit component gates: PASS for base/scope, forbidden-text scan,
   analyzer, both focused commands and required full suite.
-- The full suite rewrote 23 tracked generated validation outputs. Each exact
+- The full suite rewrote 22 tracked generated validation outputs. Each exact
   path was restored individually to HEAD; no broad restore was used.
-- Web release build: PASS on Flutter 3.41.1. `main.dart.js` is **8,428,317
+- Web release build: PASS on Flutter 3.41.1. `main.dart.js` is **8,469,824
   bytes**, SHA-256
-  `F30256BE2AF1725DF933ECA7D9228341BBA980D07C6FA058AC08418132AE2959`.
+  `3DFF3095890C8EF72E00F499AA44EC6BFA7292CF0F02B548B439699E40C5FCE8`.
   The exact Production API URL and `/beta/chinese` each occur once. Counts for
   `http://localhost`, `127.0.0.1`, `10.0.2.2` and `0.0.0.0` are zero.
 
-These application results are pinned to commit
-`8fe3c68e2c60ec9a1511e75bc22982a1d854c007`, tree
-`a478defae8cd8f88435e8f5fda7c908db4a11773`.
-
-The later Owner-QA clarification is Markdown-only. Its docs-required PreCommit
-reverified exactly eight approved document paths, forbidden text, `git diff
---check`, the pinned application commit/tree, the Web bundle hash and all four
-PDF hashes. Analyzer, Flutter tests, PDF generation and Web build were not
-rerun because runtime, tests and artifacts did not change.
-
 The earlier Windows full-suite result is not used as a passing gate. The
-authoritative result above comes from the pinned Linux framework/engine and the
-unchanged Thai screenshot goldens pass there. No Thai source or golden was
-edited.
+authoritative result above comes from the pinned framework/engine, correct
+repository timezone and unchanged Thai screenshot goldens. No Thai source or
+golden was edited.
 
 ## PDF visual QA
 
 Final PDFs are ignored by Git under
-`output/pdf/knowme-bazi-fusion-linux-20260913/`:
+`output/pdf/knowme-bazi-symbolic-reading-linux-20260913/`:
 
 | Fixture | Pages | Bytes | SHA-256 |
 |---|---:|---:|---|
-| `knowme-bazi-known.pdf` | 2 | 28,887 | `D2BE7BC941B0C0A848BD1766E7F9EE7909E2FE9211B2A083D5DAC53789A3DBA4` |
-| `knowme-bazi-unknown.pdf` | 2 | 28,984 | `68AC206E4CF285C3A955CB9D161F4DCFAB5F3007D18ECAC5A1DC685A0980D5D7` |
-| `knowme-bazi-lichun-unknown.pdf` | 2 | 28,217 | `76607BEF322605DB950B434AFD4D393FC83A3483B3700CC76D348AE7516CE2A3` |
-| `knowme-bazi-jie-unknown.pdf` | 2 | 28,493 | `BA723E00E3CBB0AFE1DB561A1A792B17E83B052980F561336A40723D41BF987A` |
+| `knowme-bazi-known.pdf` | 3 | 40,887 | `3140A215B36F7B6072F98FC0C85A4AF48D4F3C6A0885923EBF73DC784CD36ADB` |
+| `knowme-bazi-unknown.pdf` | 3 | 41,040 | `553546D11B0928343FB65317F205AB238EF5D2DB6B149974FAB396A9DAF7E0DC` |
+| `knowme-bazi-lichun-unknown.pdf` | 3 | 36,338 | `7AAF410FA75C0299AF160F5DAB06C0F0615EAB8661BA99210A66A201C748B666` |
+| `knowme-bazi-jie-unknown.pdf` | 3 | 36,448 | `AD4678F3D396E02389980D45E0A2BDB3AED77632CBB7A5D90A0068D0DE9F27C5` |
 
-All eight pages were rendered with Poppler at 144 DPI and opened at original
+All 12 latest pages were rendered with Poppler at 144 DPI and opened at original
 resolution. Missing sections, broken Thai/Chinese glyphs, clipping, overlap,
-overflow and blank pages are all **0**. Page numbering is complete at `1 / 2`
-and `2 / 2`, and the 64-character input hashes fit one line.
+overflow, blank pages and sparse trailing pages are all **0**. Page numbering is
+complete at `1 / 3` through `3 / 3`, and the 64-character input hashes fit one
+line. The final raster set is byte-identical to the visually inspected set even
+though PDF metadata makes independently generated PDF bytes differ.
 
-`pdfinfo` reports two A4 pages for every file. `pdffonts` reports embedded CID
-TrueType `NotoSansSC-Regular` for all four PDFs and no Thin font. pypdf reports
-non-empty text on every page. Known contains `15:30` and its `wu/shen` Hour;
-ordinary Unknown, Li Chun Unknown and Jie Unknown contain neither value. The
-Li Chun/Jie variants visibly omit their boundary-ambiguous fields.
+`pdfinfo` reports three A4 pages for every file. `pdffonts` reports embedded CID
+TrueType `NotoSansSC-Regular` for all four PDFs and no Thin font. Poppler text
+extraction is non-empty on every page. Known contains `15:30` and its `wu/shen`
+Hour. Ordinary Unknown, Li Chun Unknown and Jie Unknown contain neither. The
+ordinary Unknown report retains the three-pillar relationship section; the Li
+Chun/Jie variants omit it as well as their boundary-ambiguous facts.
 
 ## Owner manual checklist
 
-Owner manually checks Known, ordinary Unknown, Li Chun Unknown, Jie Unknown and
-Web/PDF parity only. Token/UID/revoked-token behavior, regeneration and Fusion
-freshness are already automated engineering gates and are not exercised by the
-no-write fixture route.
+Owner manually reads Known, ordinary Unknown, Li Chun Unknown and Jie Unknown,
+including the Day Master wording, visible relationship section where allowed,
+source ledger and Web/PDF parity. Token/UID/revoked-token behavior,
+regeneration and Fusion freshness are already automated engineering gates and
+are not exercised by the no-write fixture route.
 
 ## Production guard
 

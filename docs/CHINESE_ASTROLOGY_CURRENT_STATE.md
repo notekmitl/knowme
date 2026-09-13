@@ -7,6 +7,8 @@ not merged, not deployed
 
 **Product contract:** `KnowMe BaZi Compatibility V1`
 
+**Interpretation contract:** `knowme_bazi_symbolic_reading_v1`
+
 ## What the system actually uses
 
 KnowMe uses **BaZi / Four Pillars (八字 / 四柱)**. The year animal is a
@@ -16,11 +18,37 @@ to be the universal standard of every BaZi school.
 
 The deterministic source of calculation is the Python code under
 `backend/app/services/bazi/`, backed by the pinned dependency
-`lunar_python==1.4.8`. No AI text is used to calculate a chart. The report
-projects only calculated facts, input/rule metadata, plain-language term
-explanations and limitations. The prior personality, strengths, work-style,
-relationship and predictive copy is not used by this report because the
-repository does not contain approved sources for those claims.
+`lunar_python==1.4.8`. No AI text is used to calculate a chart or compose the
+reading. The report projects calculated facts, input/rule metadata, a
+source-ledgered symbolic interpretation and limitations. The dormant legacy
+personality/work/relationship/prediction copy is still excluded because it has
+no approved mapping to this calculation contract.
+
+## Sourced symbolic reading
+
+`knowme_bazi_symbolic_reading_v1` adds the smallest useful interpretation that
+can be audited against the governed facts:
+
+- all ten Heavenly Stem Day Masters have a Thai and English natural-image
+  metaphor, symbolic tendency, constructive expression, balance point and
+  practical reflection;
+- visible elements are grouped into five broad relationships relative to the
+  Day Master: Resource, Companion, Output, Wealth and Authority; and
+- the report separates calculation sources from interpretation sources and
+  identifies both versioned contracts.
+
+The source ledger cites Hong Kong Observatory for stem/branch and solar-term
+structure, the pinned 6tail implementation for reproducible calculation, and
+Joey Yap's Ten Day Masters and 10 Gods books for the named interpretation
+framework. KnowMe owns the concise paraphrases. They are presented as symbolic
+self-reflection, not scientific evidence, diagnosis or event prediction.
+
+The five relationship counts reuse only the visible surface elements already
+allowed by the calculation contract. A largest count is described as most
+visible, never strong/favourable or good/bad. Zero is not treated as absence
+because V1 does not include hidden stems, roots, seasonality or strength
+weighting. Exact wording and mappings are in
+`CHINESE_ASTROLOGY_INTERPRETATION_V1.md`.
 
 ## Approved compatibility policy
 
@@ -74,8 +102,9 @@ The stored chart and its results mirror carry the same governed projection:
 
 The element result is a **visible surface count**, not full BaZi strength. It
 does not include hidden stems, rooting, seasonal weighting, Day Master strength
-or Useful God (`用神`). The report does not turn the largest count into a
-personality or prediction.
+or Useful God (`用神`). The report may identify the most visible broad
+relationship family as a structural reflection, but it does not turn that count
+into a strength score, personality verdict or prediction.
 
 ## Known and Unknown time behavior
 
@@ -94,6 +123,11 @@ Unknown time is fail-closed:
 5. suppression metadata is persisted and the same canonical report builder is
    used by signed-in Web, the Owner route and PDF/export.
 
+For interpretation, ordinary Unknown time uses the six visible slots from
+Year/Month/Day and explicitly excludes Hour. A Li Chun/Jie boundary fixture may
+have too few complete pillars for a chart-wide relationship summary, so it
+shows only the invariant Day Master reflection and does not fill the gap.
+
 The generation coordinator fingerprints the current profile before accepting a
 stored chart. A missing, legacy-version or changed fingerprint triggers a new
 BaZi calculation. If regeneration fails, the result page does not expose the
@@ -110,20 +144,19 @@ the Day Master itself is unchanged.
 ## Product surfaces
 
 - Signed-in BaZi result page: authenticated chart freshness check, then the
-  canonical fact-only report and PDF export.
+  canonical sourced symbolic reading and PDF export.
 - Owner fixture route: `/beta/chinese?case=known`, `unknown`,
   `lichun-unknown`, or `jie-unknown`. It is visibly marked as a fixture, calls no
   API and performs no user-data write.
-- Owner PDFs: `output/pdf/knowme-bazi-fusion-linux-20260913/` contains `known`,
-  `unknown`, `lichun-unknown` and `jie-unknown`. Each is reproducible from the
-  same canonical report object and ignored by Git. Chinese glyphs use the
-  checked-in static `NotoSansSC-Regular` font; the Thin variable font is not
-  used.
+- Owner PDFs: `output/pdf/knowme-bazi-symbolic-reading-linux-20260913/`
+  contains `known`, `unknown`, `lichun-unknown` and `jie-unknown`. Each is
+  reproducible from the same canonical report object and ignored by Git.
+  Chinese glyphs use the checked-in static `NotoSansSC-Regular` font; the Thin
+  variable font is not used.
 
 There is no separately published public Chinese shared-report URL in V1. Any
-surface implemented here uses the same report model; wider Fusion/narrative
-interpretation remains outside this fact-only report and is not claimed as
-source-approved Chinese interpretation.
+surface implemented here uses the same report model. Wider Fusion/narrative,
+strength, luck-cycle and event interpretation remains outside this sourced V1.
 
 ## Owner manual QA boundary
 
@@ -133,7 +166,8 @@ Owner fixture testing is deliberately limited to:
 2. ordinary Unknown omission of Hour and all time-dependent values;
 3. Li Chun Unknown omission of boundary-ambiguous values;
 4. Jie Unknown omission of boundary-ambiguous values; and
-5. Web/PDF parity for facts, omissions, policy label and final limitations.
+5. Web/PDF parity for the Day Master reading, relationship families, facts,
+   omissions, source ledger, policy labels and final limitations.
 
 The fixture route calls no API and writes no data. Token presence, verified UID,
 revoked-token handling, regeneration and Fusion freshness are automated
@@ -151,16 +185,21 @@ Li Chun, Jie, Chinese New Year as a deliberate non-boundary, leap day,
 22:59/23:00/23:59/00:00, two valid zones plus one invalid zone, two coordinate
 pairs, UID mismatch, missing/invalid tokens, stale-profile regeneration,
 Fusion Known -> Unknown invalidation, cross-surface report leakage and four PDF
-fixture variants. Authoritative Flutter 3.41.1 Linux results are backend 18/18,
-focused Flutter 51/51, full Flutter 3,049/3,049, analyzer exit 0 with 282 existing
-non-fatal diagnostics and scoped analyzer 0.
+fixture variants. The interpretation suite additionally covers all ten Day
+Masters, all five Day Master element cycles, Known/ordinary Unknown/boundary
+projection and forbidden outcome promises. Authoritative Flutter 3.41.1 / Dart
+3.11.0 results with `TZ=Asia/Bangkok` are backend 18/18, focused Flutter 57/57,
+full Flutter 3,055/3,055, analyzer exit 0 with 282 inherited non-fatal
+diagnostics and scoped analyzer 0.
 
 ## Known limitations and separate blockers
 
 - `lunar_python@1.4.8` is a pinned implementation dependency, not evidence that
   V1 represents all schools.
-- No true-solar correction, arbitrary school selection, hidden-stem strength,
-  Ten Gods, combinations/clashes, luck pillars or event prediction is present.
+- No true-solar correction, arbitrary school selection, hidden-stem/seasonal
+  strength, polarity-specific Ten Gods, Useful God, combinations/clashes, luck
+  pillars or event prediction is present. V1 only uses the five broad elemental
+  relationship families documented by the interpretation contract.
 - Actual localhost/loopback endpoint findings are 0. The bundle has one literal
   `localhost` in a hostname comparison, which is not an endpoint. Distinguishing
   the two is a future shared guard-quality task; policy still requires it to
@@ -183,10 +222,7 @@ implemented in PR #122:
 4. retire the legacy endpoint only after the adoption gate passes.
 
 This is a recommended future release design, not authorization or completed
-work. Draft PR #122 performs no backend, Hosting or Production deployment. The
-validated application is commit
-`8fe3c68e2c60ec9a1511e75bc22982a1d854c007`, tree
-`a478defae8cd8f88435e8f5fda7c908db4a11773`.
+work. Draft PR #122 performs no backend, Hosting or Production deployment.
 
 ## Scope protection
 

@@ -96,14 +96,16 @@ understanding or product value?*
 | **Modification policy** | No Four Pillars / Day Master engine changes; no navigation redesign |
 | **When allowed** | Blocker fixes, usability |
 | **Bug-only exceptions** | Pillar/element computation correctness, render issues |
-| **Architecture exceptions** | **Chinese Zodiac Personality Expansion** — additive content library + resolver only |
-| **Future replacement plan** | Engine stable; expansion happens additively, not by reopening the core |
+| **Architecture exceptions** | Chinese Zodiac personality expansion remains additive; versioned BaZi report interpretation may also be additive only with an explicit source ledger, Known/Unknown rules and regression tests |
+| **Future replacement plan** | Engine and Chinese Zodiac expansion stay additive; `knowme_bazi_compatibility_v1` and `knowme_bazi_symbolic_reading_v1` remain stable, while strength/luck/timing work requires a new reviewed contract |
 
-**2026-09-12 audit gate:** the frozen backend behavior is implemented but is not
-yet an Owner-approved Chinese Report calculation contract. Shared Birth
-Normalization still marks BaZi/true-solar normalization as unimplemented. Do not
-extend or expose the report until the Owner selects the compatibility policy or
-supplies an astrologer-reviewed canon. See
+**2026-09-13 contract update:** Owner approved the backend behavior as the named
+`knowme_bazi_compatibility_v1` contract, and Draft PR #122 now adds the sourced
+`knowme_bazi_symbolic_reading_v1` report. Shared Birth Normalization still marks
+its own BaZi/true-solar adapter as unimplemented; the compatibility contract
+therefore discloses local-civil/no-true-solar behavior rather than claiming that
+adapter. Do not add hidden-stem strength, Useful God, luck cycles, timing or
+event/domain forecasts without a new sourced and Owner-approved contract. See
 [`CHINESE_ASTROLOGY_CURRENT_STATE.md`](CHINESE_ASTROLOGY_CURRENT_STATE.md).
 
 ### Thai Astrology — Engine (V2 Core)

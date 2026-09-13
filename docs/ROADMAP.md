@@ -1,6 +1,44 @@
 # KnowMe Roadmap+
 
-## Active project — KnowMe BaZi Compatibility V1 Owner testing (2026-09-13)
+## Active project — KnowMe Chinese Astrology · BaZi V1 Owner testing (2026-09-13)
+
+**CALCULATION, SOURCED SYMBOLIC READING AND TECHNICAL VALIDATION COMPLETE IN
+STACKED DRAFT PR #122; OWNER TESTING IS THE REMAINING PRODUCT GATE.**
+
+Completed V1 scope:
+
+1. named local-civil/Li-Chun/Jie/`sect=2`/no-true-solar calculation contract;
+2. fail-closed Known/Unknown projections, authenticated writes and freshness;
+3. all ten Day Master symbolic profiles in Thai and English;
+4. five visible-element relationship families relative to the Day Master;
+5. shared Web/plain-text/PDF report, source ledger and final limitations;
+6. four no-write Owner fixtures and 12-page PDF visual QA; and
+7. full backend, Flutter, analyzer, Web and regression gates with zero Thai or
+   `product-acceptance/` delta.
+
+Owner testing is now the only next action inside PR #122. No V1 calculation or
+interpretation decision remains open. Keep the PR Draft until explicit Owner
+acceptance; Ready, merge and deployment are separate later authorizations.
+
+Separate pre-Production blockers remain:
+
+1. implement a parallel authenticated versioned endpoint, migrate the new
+   client, verify adoption and only then retire the legacy endpoint; and
+2. refine the shared bundle guard so the inherited hostname comparison is not
+   classified as a loopback endpoint while retaining a strict endpoint block.
+
+Future Chinese-astrology expansion is deliberately versioned work, not a loose
+extension of V1. Hidden stems, strength/seasonality, Useful God,
+polarity-specific Ten Gods, combinations/clashes, Da Yun and annual timing need
+an astrologer-reviewed/sourced canon plus new Unknown-time rules before any
+event or domain forecast can be exposed.
+
+Final evidence uses Flutter 3.41.1 / Dart 3.11.0: backend 18/18, focused
+Flutter 57/57, full Flutter 3,055/3,055, analyzer scoped findings 0, four
+three-page PDFs/12 inspected pages, and Web bundle SHA-256
+`3DFF3095890C8EF72E00F499AA44EC6BFA7292CF0F02B548B439699E40C5FCE8`.
+
+## Prior calculation/report roadmap — superseded by the sourced reading (2026-09-13)
 
 **IMPLEMENTATION AND TECHNICAL VALIDATION COMPLETE IN STACKED DRAFT PR #122;
 OWNER TESTING IS THE REMAINING GATE.**

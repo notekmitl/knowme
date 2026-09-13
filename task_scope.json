@@ -13,6 +13,7 @@
     "docs/CHINESE_ASTROLOGY_CURRENT_STATE.md",
     "docs/CHINESE_ASTROLOGY_CURRENT_STATE_AUDIT_V1.md",
     "docs/CHINESE_ASTROLOGY_COMPATIBILITY_V1.md",
+    "docs/CHINESE_ASTROLOGY_INTERPRETATION_V1.md",
     "docs/CHINESE_ASTROLOGY_VALIDATION_V1.md",
     "docs/CURRENT_STATUS.md",
     "docs/HANDOFF.md",
@@ -86,7 +87,7 @@
   ],
   "focused_tests": [
     "& (Join-Path $env:TEMP 'knowme-bazi-v1-py\\Scripts\\python.exe') -m pytest -q backend/tests/test_bazi_builder.py backend/tests/test_bazi_route_auth.py",
-    "flutter test --no-pub --concurrency=1 --reporter compact test/api_config_bazi_test.dart test/astrology_generation_coordinator_test.dart test/astrology_fusion_af09_test.dart test/bazi_chart_model_test.dart test/bazi_provider_test.dart test/bazi_result_page_test.dart test/bazi_compatibility_api_auth_test.dart test/bazi_compatibility_report_test.dart test/bazi_compatibility_pdf_test.dart test/bazi_compatibility_routes_test.dart"
+    "flutter test --no-pub --concurrency=1 --reporter compact test/api_config_bazi_test.dart test/astrology_generation_coordinator_test.dart test/astrology_fusion_af09_test.dart test/bazi_chart_model_test.dart test/bazi_provider_test.dart test/bazi_result_page_test.dart test/bazi_compatibility_api_auth_test.dart test/bazi_compatibility_report_test.dart test/bazi_compatibility_symbolic_reading_test.dart test/bazi_compatibility_pdf_test.dart test/bazi_compatibility_routes_test.dart"
   ],
   "full_test_policy": "required",
   "full_test_command": "flutter test --no-pub --concurrency=4 --reporter compact",

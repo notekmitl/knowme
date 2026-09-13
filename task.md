@@ -1,6 +1,61 @@
 # Task: Chinese Astrology Report V1
 
-## KnowMe BaZi Compatibility V1 — Owner QA delivery (2026-09-13)
+## KnowMe Chinese Astrology · BaZi V1 — sourced reading complete (2026-09-13)
+
+**READY FOR OWNER TESTING ON STACKED DRAFT PR #122 — NOT READY FOR REVIEW,
+NOT MERGED, NOT DEPLOYED.**
+
+The Chinese feature is now a useful, deterministic BaZi/Four Pillars report
+rather than a calculation-only screen. It retains the approved
+local-civil/Li-Chun/Jie/`sect=2`/no-true-solar calculation contract and adds the
+versioned `knowme_bazi_symbolic_reading_v1` interpretation contract. The report
+now explains the Day Master through all ten Heavenly Stems and groups the
+visible elements into five relationship families relative to that Day Master.
+Thai and English wording is checked in, source-ledgered and deterministic; an
+AI model does not invent a reading at request time.
+
+The reading is intentionally conservative. It uses Day Master metaphors and
+visible stem/branch relationships only. It does not claim Day Master strength,
+hidden stems, Useful God, clashes/combinations, Da Yun, annual timing or event,
+career, relationship, health or financial outcomes. Those require a separate
+sourced contract rather than extrapolation from the current facts.
+
+Known time uses four pillars. Ordinary Unknown time uses only Year, Month and
+Day and excludes every Hour contribution. When Unknown time falls on a Li Chun
+or Jie transition date, the report retains the invariant Day Master reading but
+omits the relationship summary because too few complete pillars remain. The
+same canonical report object drives the signed-in result, no-write Owner route,
+plain text and PDF, so these omissions cannot be reintroduced by export.
+
+Final validation used Flutter 3.41.1 / Dart 3.11.0 with `CI=true`, analytics
+suppressed and `TZ=Asia/Bangkok`: backend focused **18/18**, Flutter focused
+**57/57**, full Flutter **3,055/3,055**, and analyzer exit 0 with 282 inherited
+non-fatal diagnostics and **0 scoped findings**. The full suite regenerated 22
+tracked validation outputs; each exact path was restored to HEAD. Thai source,
+Thai goldens and `product-acceptance/` deltas remain 0.
+
+The four final PDFs are each three A4 pages. All 12 latest raster pages were
+opened at 144 DPI; missing text, broken Thai/Chinese glyphs, clipping, overlap,
+overflow, blank pages and sparse trailing pages are 0. Unknown variants contain
+no Known time/Hour value, and the two boundary variants contain no chart-wide
+relationship section. All PDFs embed `NotoSansSC-Regular`, not Thin. Exact
+bytes and hashes are recorded in `docs/CHINESE_ASTROLOGY_VALIDATION_V1.md`.
+
+The release Web build contains the Production API and `/beta/chinese` once
+each. `main.dart.js` is 8,469,824 bytes with SHA-256
+`3DFF3095890C8EF72E00F499AA44EC6BFA7292CF0F02B548B439699E40C5FCE8`.
+Actual loopback endpoints are 0. The inherited single `localhost` literal is
+still only `window.location.hostname == "localhost"`; closing the strict
+literal policy remains a separate shared guard-quality task before Production.
+
+Owner fixtures remain `known`, `unknown`, `lichun-unknown` and `jie-unknown` at
+`/beta/chinese?case=...`. Authentication, UID binding, revoked-token handling,
+birth-change regeneration and Fusion Known-to-Unknown freshness are automated
+engineering gates. No additional calculation or interpretation decision is
+required for this V1; Owner testing is the only next product gate. Release still
+requires the separately designed versioned authenticated endpoint migration.
+
+## Prior calculation/report delivery — superseded by the sourced reading (2026-09-13)
 
 **READY FOR OWNER TESTING ON STACKED DRAFT PR #122 — NOT READY FOR REVIEW,
 NOT MERGED, NOT DEPLOYED.**

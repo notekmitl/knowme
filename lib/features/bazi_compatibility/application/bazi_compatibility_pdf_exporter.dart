@@ -27,7 +27,7 @@ abstract final class BaziCompatibilityPdfExporter {
     final document = pw.Document(
       title: report.title,
       author: 'KnowMe',
-      subject: 'KnowMe BaZi Compatibility V1 owner review',
+      subject: 'KnowMe Chinese Astrology BaZi V1 owner review',
     );
 
     document.addPage(
@@ -57,9 +57,9 @@ abstract final class BaziCompatibilityPdfExporter {
           pw.SizedBox(height: 8),
           pw.Text(report.subtitle, style: const pw.TextStyle(fontSize: 11.5)),
           pw.SizedBox(height: 14),
-          for (final section in report.sections) ...[
-            pw.Inseparable(child: _section(section)),
-            pw.SizedBox(height: 12),
+          for (var index = 0; index < report.sections.length; index++) ...[
+            pw.Inseparable(child: _section(report.sections[index])),
+            if (index < report.sections.length - 1) pw.SizedBox(height: 8),
           ],
         ],
       ),
@@ -85,6 +85,10 @@ abstract final class BaziCompatibilityPdfExporter {
           if (section.intro case final intro?) ...[
             pw.SizedBox(height: 5),
             pw.Text(intro, style: const pw.TextStyle(fontSize: 10.5)),
+          ],
+          for (final paragraph in section.paragraphs) ...[
+            pw.SizedBox(height: 6),
+            pw.Text(paragraph, style: const pw.TextStyle(fontSize: 10.5)),
           ],
           for (final row in section.rows) ...[
             pw.SizedBox(height: 6),
@@ -113,7 +117,7 @@ abstract final class BaziCompatibilityPdfExporter {
             ),
           ],
           for (final note in section.notes) ...[
-            pw.SizedBox(height: 6),
+            pw.SizedBox(height: 4),
             pw.Text('• $note', style: const pw.TextStyle(fontSize: 10.5)),
           ],
         ],

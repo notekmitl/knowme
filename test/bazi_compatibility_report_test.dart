@@ -7,24 +7,31 @@ import 'package:knowme/features/bazi_compatibility/application/bazi_input_finger
 void main() {
   group('KnowMe BaZi Compatibility V1 report', () {
     test(
-      'known-time report contains traceable facts without personality copy',
+      'known-time report contains traceable facts and sourced symbolic reading',
       () {
         final report = BaziCompatibilityReportBuilder.build(
           BaziCompatibilityOwnerFixtures.chart(BaziOwnerCase.known),
         );
         final text = report.plainText;
 
-        expect(text, contains('KnowMe BaZi Compatibility V1'));
-        expect(text, contains('ไม่ใช่มาตรฐานสากล'));
+        expect(text, contains('KnowMe โหราศาสตร์จีน · BaZi V1'));
+        expect(text, contains('ภาพรวมคำอ่านพื้นดวง'));
+        expect(text, contains('丁 Ding · ไฟหยิน'));
+        expect(text, contains('แสงเทียนหรือโคมไฟที่ส่องเฉพาะจุด'));
+        expect(text, contains('พลังร่วมธาตุ · 比劫'));
+        expect(text, contains('Companion · ไฟ 3 ช่อง'));
+        expect(text, contains('พลังการจัดการทรัพยากร · 財'));
+        expect(text, contains('Wealth · ทอง 3 ช่อง'));
         expect(text, contains('庚午 (geng/wu)'));
         expect(text, contains('ม้า (马 / Horse)'));
         expect(text, isNot(contains('กติกาความเข้ากันได้')));
         expect(text, contains('Li Chun (立春)'));
         expect(text, contains('Jie (節)'));
         expect(text, contains('00:00 ตามเวลาท้องถิ่น (sect=2)'));
-        expect(text, isNot(contains('บุคลิกของคุณ')));
-        expect(text, isNot(contains('จุดแข็งของคุณ')));
         expect(text, isNot(contains('คุณจะ')));
+        expect(text, contains('ISBN 9789675395321'));
+        expect(text, contains('ISBN 9789675395918'));
+        expect(text, contains('ไม่ใช้แหล่งเหล่านี้เป็นหลักฐานทางวิทยาศาสตร์'));
       },
     );
 
@@ -50,6 +57,10 @@ void main() {
       expect(jie, contains('ไม่แสดงเสาเดือน'));
       expect(jie, isNot(contains('戊寅')));
       expect(jie, isNot(contains('己卯')));
+      expect(lichun, contains('ไม่สรุปธาตุเด่นหรือภาพรวม'));
+      expect(jie, contains('ไม่สรุปธาตุเด่นหรือภาพรวม'));
+      expect(lichun, isNot(contains('พลังสนับสนุน · 印')));
+      expect(jie, isNot(contains('พลังสนับสนุน · 印')));
     });
 
     test('health and finance caution is the final report content', () {

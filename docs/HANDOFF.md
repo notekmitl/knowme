@@ -1,6 +1,45 @@
 # Handoff — Chinese Astrology Report V1
 
-## Current handoff — KnowMe BaZi Compatibility V1 Owner testing (2026-09-13)
+## Current handoff — KnowMe Chinese Astrology · BaZi V1 (2026-09-13)
+
+**READY FOR OWNER TESTING — KEEP PR #122 DRAFT — DO NOT MARK READY, MERGE OR
+DEPLOY.**
+
+- Branch/PR: `codex/chinese-astrology-report-v1` / Draft PR #122
+- Stack dependency: Draft PR #120 at
+  `4ce29747fee66d08637dbe0b16b982b17071526d`
+- Owner route: `/beta/chinese?case=known|unknown|lichun-unknown|jie-unknown`
+- Final PDFs: `output/pdf/knowme-bazi-symbolic-reading-linux-20260913/`
+- Calculation contract: `knowme_bazi_compatibility_v1`
+- Reading contract: `knowme_bazi_symbolic_reading_v1`
+- Reading specification: `CHINESE_ASTROLOGY_INTERPRETATION_V1.md`
+- Exact evidence: `CHINESE_ASTROLOGY_VALIDATION_V1.md`
+
+Delivered reader value is a deterministic Ten Day Master reflection plus five
+visible-element relationship families, with calculation and interpretation
+sources separated in the report. Known uses four pillars; ordinary Unknown
+uses three and excludes Hour; Li Chun/Jie Unknown omits chart-wide emphasis and
+keeps only the invariant Day Master reading. Web/plain text/PDF share one model.
+
+Final gates: backend 18/18, focused Flutter 57/57, full Flutter 3,055/3,055,
+analyzer exit 0 / 282 inherited diagnostics / scoped 0. Four three-page PDFs
+pass all 12-page visual QA and embed `NotoSansSC-Regular`. The release Web
+bundle passes the route/API/loopback-endpoint checks at SHA-256
+`3DFF3095890C8EF72E00F499AA44EC6BFA7292CF0F02B548B439699E40C5FCE8`.
+Thai source/goldens and `product-acceptance/` have no delta.
+
+Owner testing is limited to reading the four fixture variants and comparing
+Web/PDF content. Security, regeneration, freshness and leakage are automated
+engineering gates. No calculation or interpretation decision remains open for
+V1.
+
+Do not extend this reading into hidden-stem/strength analysis, Useful God, luck
+cycles, dates or concrete career/relationship/health/financial forecasts
+without a new sourced contract. The inherited `localhost` hostname comparison
+and authenticated versioned-endpoint migration remain separate pre-Production
+work. Neither blocks Owner testing of this Draft, but both block release.
+
+## Prior calculation/report handoff — superseded by the sourced reading (2026-09-13)
 
 **READY FOR OWNER TESTING — KEEP PR #122 DRAFT — DO NOT MARK READY, MERGE OR
 DEPLOY.**

@@ -9,12 +9,14 @@ class BaziCompatibilityReportSection {
   const BaziCompatibilityReportSection({
     required this.title,
     this.intro,
+    this.paragraphs = const [],
     this.rows = const [],
     this.notes = const [],
   });
 
   final String title;
   final String? intro;
+  final List<String> paragraphs;
   final List<BaziCompatibilityReportRow> rows;
   final List<String> notes;
 }
@@ -37,6 +39,9 @@ class BaziCompatibilityReport {
     for (final section in sections) {
       buffer.writeln(section.title);
       if (section.intro case final intro?) buffer.writeln(intro);
+      for (final paragraph in section.paragraphs) {
+        buffer.writeln(paragraph);
+      }
       for (final row in section.rows) {
         buffer.writeln('${row.label}: ${row.value}');
       }

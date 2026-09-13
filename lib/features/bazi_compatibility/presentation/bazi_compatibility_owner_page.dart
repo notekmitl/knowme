@@ -41,7 +41,9 @@ class _BaziCompatibilityOwnerPageState
   Widget build(BuildContext context) {
     final chart = BaziCompatibilityOwnerFixtures.chart(_ownerCase);
     return Scaffold(
-      appBar: AppBar(title: const Text('BaZi V1 · Owner Testing')),
+      appBar: AppBar(
+        title: const Text('โหราศาสตร์จีน · BaZi V1 · Owner Testing'),
+      ),
       body: Column(
         children: [
           Container(

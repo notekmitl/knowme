@@ -1,4 +1,5 @@
 import 'package:knowme/data/models/bazi_chart_model.dart';
+import 'package:knowme/features/bazi_compatibility/application/bazi_symbolic_reading_engine.dart';
 import 'package:knowme/features/bazi_compatibility/domain/bazi_compatibility_report.dart';
 
 abstract final class BaziCompatibilityReportBuilder {
@@ -7,17 +8,120 @@ abstract final class BaziCompatibilityReportBuilder {
     String languageCode = 'th',
   }) {
     final th = languageCode != 'en';
+    final reading = BaziSymbolicReadingEngine.build(
+      chart,
+      languageCode: languageCode,
+    );
     return BaziCompatibilityReport(
-      title: 'KnowMe BaZi Compatibility V1',
+      title: th
+          ? 'KnowMe โหราศาสตร์จีน · BaZi V1'
+          : 'KnowMe Chinese Astrology · BaZi V1',
       subtitle: th
-          ? 'ผลคำนวณตามกติกา BaZi ที่ KnowMe ใช้ในรุ่น V1 — ไม่ได้อ้างว่าเป็นมาตรฐานสากลของทุกสำนัก'
-          : 'Calculated with the KnowMe BaZi V1 rules; this is not claimed as a universal standard across all schools.',
+          ? 'คำอ่านพื้นดวงเชิงสัญลักษณ์จาก Day Master และความสัมพันธ์ของธาตุที่มองเห็น พร้อมแสดงกติกาและที่มาให้ตรวจสอบได้'
+          : 'A symbolic natal reading from the Day Master and visible element relationships, with reproducible rules and sources.',
       sections: [
         _inputSection(chart, th),
+        _readingOverviewSection(reading, th),
+        _dayMasterSection(reading, th),
+        if (reading.hasChartEmphasis) _relationshipSection(chart, reading, th),
         _pillarsSection(chart, th),
         _elementSection(chart, th),
         _methodSection(chart, th),
+        _sourcesSection(th),
         _limitationsSection(chart, th),
+      ],
+    );
+  }
+
+  static BaziCompatibilityReportSection _readingOverviewSection(
+    BaziSymbolicReading reading,
+    bool th,
+  ) {
+    return BaziCompatibilityReportSection(
+      title: th ? 'ภาพรวมคำอ่านพื้นดวง' : 'Natal reading overview',
+      intro: th
+          ? 'ส่วนนี้เป็นการตีความตามกรอบ BaZi แบบกำหนดกติกาตายตัว ไม่ได้ใช้ AI สร้างคำทำนายเฉพาะหน้า'
+          : 'This is a deterministic BaZi interpretation. No AI generates a prediction at request time.',
+      paragraphs: [reading.overview],
+      notes: [reading.coverageNote],
+    );
+  }
+
+  static BaziCompatibilityReportSection _dayMasterSection(
+    BaziSymbolicReading reading,
+    bool th,
+  ) {
+    final profile = reading.dayMaster;
+    return BaziCompatibilityReportSection(
+      title: th ? 'แกนตัวตนตาม Day Master' : 'Day Master symbolic lens',
+      intro: th
+          ? 'Day Master คือก้านฟ้าของเสาวัน ใช้เป็นจุดอ้างอิงหลักของคำอ่าน แต่ไม่ใช่ข้อสรุปบุคลิกทั้งหมดของคนคนหนึ่ง'
+          : 'The Day Master is the Heavenly Stem of the Day pillar. It anchors this reading but is not a complete personality verdict.',
+      rows: [
+        BaziCompatibilityReportRow(label: 'Day Master', value: profile.name),
+        BaziCompatibilityReportRow(
+          label: th ? 'ภาพเปรียบเทียบดั้งเดิม' : 'Traditional metaphor',
+          value: profile.symbol,
+        ),
+        BaziCompatibilityReportRow(
+          label: th ? 'แนวโน้มเชิงสัญลักษณ์' : 'Symbolic tendency',
+          value: profile.overview,
+        ),
+        BaziCompatibilityReportRow(
+          label: th ? 'พลังที่นำไปใช้ได้' : 'Constructive expression',
+          value: profile.strengths.join(' · '),
+        ),
+        BaziCompatibilityReportRow(
+          label: th ? 'จุดที่ควรรักษาสมดุล' : 'Balance to watch',
+          value: profile.cautions.join(' · '),
+        ),
+        BaziCompatibilityReportRow(
+          label: th ? 'แนวทางทดลองใช้' : 'Practical reflection',
+          value: profile.practices.join(' · '),
+        ),
+      ],
+      notes: [
+        th
+            ? 'คำอ่านนี้เป็นภาษาสะท้อนตนเองจากสัญลักษณ์ ไม่ได้ยืนยันว่าคุณต้องมีลักษณะดังกล่าวทุกข้อ'
+            : 'This is reflective language derived from a symbol; it does not assert that every trait must describe you.',
+      ],
+    );
+  }
+
+  static BaziCompatibilityReportSection _relationshipSection(
+    BaziChartModel chart,
+    BaziSymbolicReading reading,
+    bool th,
+  ) {
+    final rows = [
+      for (final family in reading.relationships)
+        BaziCompatibilityReportRow(
+          label: th
+              ? '${family.label} · ${family.traditionalLabel.split(' · ').first}'
+              : '${family.label} · ${family.traditionalLabel}',
+          value: th
+              ? '${family.traditionalLabel.split(' · ').last} · '
+                    '${_element(family.element, true)} ${family.count} ช่อง — '
+                    '${family.meaning}'
+              : '${_element(family.element, false)} ${family.count} slots — ${family.meaning}',
+        ),
+    ];
+    return BaziCompatibilityReportSection(
+      title: th
+          ? 'ความสัมพันธ์ของธาตุที่มองเห็น'
+          : 'Visible element relationships',
+      intro: th
+          ? 'จัดธาตุที่ปรากฏในเสาซึ่งยืนยันได้เป็น 5 กลุ่มเมื่อเทียบกับ Day Master เพื่อช่วยอ่านว่าโครงสร้างส่วนใดมองเห็นมากหรือน้อย'
+          : 'Groups visible elements from confirmed pillars into five families relative to the Day Master.',
+      rows: rows,
+      notes: [
+        th
+            ? 'จำนวน 0 ในตารางนี้ไม่ได้แปลว่า “ไม่มีพลังนั้น” เพราะ V1 ยังไม่รวมก้านซ่อน ฤดูกาล ราก และน้ำหนักความแข็งแรง'
+            : 'A zero here does not mean the role is absent; V1 excludes hidden stems, seasonality, rooting, and strength weighting.',
+        if (!chart.timeKnown)
+          th
+              ? 'ไม่รวมส่วนที่มาจากเสาชั่วโมง เพราะไม่ทราบเวลาเกิด'
+              : 'Hour-pillar contributions are excluded because the birth time is unknown.',
       ],
     );
   }
@@ -208,6 +312,61 @@ abstract final class BaziCompatibilityReportBuilder {
           label: th ? 'รหัสตรวจ input' : 'Input fingerprint',
           value: chart.inputHash,
         ),
+        BaziCompatibilityReportRow(
+          label: th ? 'สัญญาคำอ่าน' : 'Reading contract',
+          value: BaziSymbolicReadingEngine.interpretationContractId,
+        ),
+      ],
+    );
+  }
+
+  static BaziCompatibilityReportSection _sourcesSection(bool th) {
+    return BaziCompatibilityReportSection(
+      title: th
+          ? 'ที่มาของผลคำนวณและคำอ่าน'
+          : 'Calculation and reading sources',
+      intro: th
+          ? 'แยกแหล่งคำนวณออกจากแหล่งตีความ เพื่อให้ตรวจได้ว่าข้อความแต่ละส่วนมาจากกรอบใด'
+          : 'Calculation sources are separated from interpretation sources so each layer can be audited.',
+      rows: [
+        BaziCompatibilityReportRow(
+          label: th
+              ? '[C1] โครงสร้างก้านฟ้า–กิ่งดิน'
+              : '[C1] Stem–Branch structure',
+          value:
+              'Hong Kong Observatory · Heavenly Stems and Earthly Branches · https://www.hko.gov.hk/en/gts/time/stemsandbranches.htm',
+        ),
+        BaziCompatibilityReportRow(
+          label: th ? '[C2] 24 ฤดูกาลจีน' : '[C2] 24 Solar Terms',
+          value:
+              'Hong Kong Observatory · The 24 Solar Terms · https://www.hko.gov.hk/en/gts/time/24solarterms.htm',
+        ),
+        BaziCompatibilityReportRow(
+          label: th
+              ? '[C3] โค้ดระบบคำนวณที่ตรึงเวอร์ชัน'
+              : '[C3] Pinned calculation implementation',
+          value:
+              '6tail · lunar-python v1.4.8 · https://github.com/6tail/lunar-python/tree/v1.4.8',
+        ),
+        BaziCompatibilityReportRow(
+          label: th
+              ? '[I1] กรอบ Ten Day Masters'
+              : '[I1] Ten Day Masters framework',
+          value:
+              'Joey Yap · BaZi Essentials — The Ten Day Masters · JY Books, 2009 · ISBN 9789675395321',
+        ),
+        BaziCompatibilityReportRow(
+          label: th
+              ? '[I2] กลุ่มความสัมพันธ์ของธาตุ'
+              : '[I2] Element relationship families',
+          value:
+              'Joey Yap · The Power of X: Enter the 10 Gods · JY Books, 2011 · ISBN 9789675395918',
+        ),
+      ],
+      notes: [
+        th
+            ? 'KnowMe เรียบเรียงถ้อยคำใหม่ให้เป็นภาษาสะท้อนตนเอง ไม่ได้คัดลอกคำทำนายจากแหล่งอ้างอิง และไม่ใช้แหล่งเหล่านี้เป็นหลักฐานทางวิทยาศาสตร์'
+            : 'KnowMe paraphrases the framework into reflective language. These references are not presented as scientific validation.',
       ],
     );
   }
@@ -220,12 +379,15 @@ abstract final class BaziCompatibilityReportBuilder {
       title: th ? 'ข้อจำกัดและคำเตือน' : 'Limitations and cautions',
       notes: [
         th
-            ? 'รายงานนี้แสดงข้อมูลคำนวณตาม KnowMe BaZi Compatibility V1 เท่านั้น ไม่ใช่มาตรฐานสากลของทุกสำนัก และไม่มีคำทำนายหรือคำอธิบายบุคลิก'
-            : 'This report presents only KnowMe BaZi Compatibility V1 calculations. It is not a universal school standard and contains no prediction or personality reading.',
+            ? 'รายงานนี้ใช้กติกา KnowMe BaZi Compatibility V1 และคำอ่านเชิงสัญลักษณ์ที่ระบุที่มา ไม่ได้อ้างว่าเป็นมาตรฐานสากลของทุกสำนักหรือข้อพิสูจน์บุคลิก'
+            : 'This report uses the KnowMe BaZi Compatibility V1 rules and sourced symbolic interpretation; it is neither a universal school standard nor proof of personality.',
         if (!chart.timeKnown)
           th
               ? 'ผล Unknown time เป็นแบบ fail-closed: ข้อมูลที่ต้องใช้เวลาและค่าปี/เดือนที่กำกวมจะไม่ถูกแสดง'
               : 'Unknown-time results fail closed: time-dependent and ambiguous Year/Month values are not shown.',
+        th
+            ? 'V1 ยังไม่คำนวณก้านซ่อน ความแข็งแรงตามฤดูกาล Useful God การผสม/ปะทะ ดวงจรสิบปี หรือจังหวะรายปี จึงไม่ทำนายเหตุการณ์ อาชีพเฉพาะ ความรัก สุขภาพ หรือผลการเงิน'
+            : 'V1 does not calculate hidden stems, seasonal strength, Useful God, combinations/clashes, ten-year luck pillars, or annual timing, so it does not predict events, specific careers, relationships, health, or financial outcomes.',
         th
             ? 'ห้ามใช้รายงานนี้แทนคำแนะนำจากผู้เชี่ยวชาญด้านสุขภาพ การแพทย์ การเงิน การลงทุน หรือกฎหมาย และไม่ควรใช้เพื่อรับประกันเหตุการณ์ในอนาคต'
             : 'Do not use this report as health, medical, financial, investment, or legal advice, or as a guarantee of future events.',

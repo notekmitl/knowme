@@ -55,15 +55,25 @@ with them.
 
 ## Report contract
 
-The report may show calculated inputs, available pillars, Day Master as a
-structural stem, Year animal, visible element counts, method/version information
-and limitations. Technical terms must be explained in plain language.
+The report shows calculated inputs, available pillars, Day Master, Year animal,
+visible element counts, method/version information, separated source ledgers
+and limitations. It also projects the separately versioned
+`knowme_bazi_symbolic_reading_v1` contract:
 
-The report must not show unsupported personality, strengths, weaknesses,
-relationship, career, health, finance or event predictions. Health, medical,
-financial, investment, legal and future-guarantee cautions form the final
-section. Signed-in Web, Owner fixture Web and PDF/export are projections of the
-same report object.
+- one deterministic profile for each of the ten Day Master stems;
+- a natural-image metaphor, symbolic tendency, constructive expression,
+  balance point and practical reflection; and
+- five broad visible-element relationship families relative to the Day Master.
+
+This interpretation never changes a chart fact. A visible count is not a
+strength or favourability score, and the copy does not assert that the reader
+must have a trait or that a future outcome will occur. Full mapping, source and
+Known/Unknown rules are in `CHINESE_ASTROLOGY_INTERPRETATION_V1.md`.
+
+The report must not show unsupported concrete relationship, career, health,
+finance or event predictions. Health, medical, financial, investment, legal and
+future-guarantee cautions form the final section. Signed-in Web, Owner fixture
+Web, plain text and PDF/export are projections of the same report object.
 
 The PDF projection embeds static `NotoSansSC-Regular` for Chinese glyphs. It
 must not substitute a Thin variable-font instance, and Unknown variants must not
@@ -97,14 +107,11 @@ Release is blocked pending an implementation outside PR #122 that:
 3. verifies adoption; and
 4. retires the legacy endpoint only after the adoption gate passes.
 
-The application implementation remains commit
-`8fe3c68e2c60ec9a1511e75bc22982a1d854c007`, tree
-`a478defae8cd8f88435e8f5fda7c908db4a11773`; this clarification changes no
-runtime or release state.
-
 ## Explicit exclusions
 
 V1 excludes true-solar time, hidden stems, rooting/seasonal strength, Useful
-God, Ten Gods, combinations/clashes, Da Yun/luck pillars, annual timing,
-relationship compatibility and event prediction. Adding any of these requires
-a new sourced and Owner-approved contract.
+God, polarity-specific Ten Gods, combinations/clashes, Da Yun/luck pillars,
+annual timing, two-person relationship compatibility and event prediction. The
+implemented five broad relationship families are visible-element categories,
+not full Ten Gods or strength analysis. Adding any excluded feature requires a
+new sourced and Owner-approved contract.
