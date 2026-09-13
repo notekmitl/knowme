@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:knowme/features/astrology/thai/mirror/presentation/pages/thai_mirror_consumer_preview_page.dart';
 import 'package:knowme/features/astrology/thai/mirror/presentation/thai_mirror_routes.dart';
 import 'package:knowme/features/astrology/thai/qa/harness/thai_qa_harness_spec.dart';
+import 'package:knowme/features/bazi_compatibility/presentation/bazi_compatibility_routes.dart';
 import 'package:knowme/features/knowledge_workspace/acquisition/knowledge_acquisition_dashboard.dart';
 import 'package:knowme/features/knowledge_workspace/knowledge_workspace_routes.dart';
 import 'package:knowme/features/knowledge_workspace/presentation/knowledge_workspace_page.dart';
@@ -44,6 +45,8 @@ class WebLaunchRouter extends StatelessWidget {
     if (routeName == null) return null;
 
     final uri = routeUriFromName(routeName);
+    final baziOwnerPage = BaziCompatibilityRoutes.resolve(uri);
+    if (baziOwnerPage != null) return baziOwnerPage;
     if (ThaiBetaScreenshotRoutes.isDeepLink(uri)) {
       return ThaiBetaScreenshotEntry(routeName: routeName);
     }

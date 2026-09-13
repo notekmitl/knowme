@@ -1,107 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:knowme/data/models/bazi_chart_model.dart';
 import 'package:knowme/features/astrology/application/astrology_generation_coordinator.dart';
-import 'package:knowme/features/astrology/domain/astrology_generation_status.dart';
-import 'package:knowme/features/astrology/shared/astrology_flow_state.dart';
-import 'package:knowme/presentation/pages/bazi/bazi_result_page.dart';
 import 'package:knowme/features/astrology/fusion/application/astrology_fusion_lens_probe.dart';
 import 'package:knowme/features/astrology/fusion/application/astrology_fusion_regeneration_service.dart';
 import 'package:knowme/features/astrology/fusion/application/astrology_fusion_repository.dart';
 import 'package:knowme/features/astrology/fusion/domain/models/astrology_fusion_real_input.dart';
 import 'package:knowme/features/astrology/fusion/domain/models/astrology_fusion_snapshot.dart';
-import 'package:knowme/services/profile_service.dart';
+import 'package:knowme/features/astrology/fusion/domain/entities/astrology_lens.dart';
+import 'package:knowme/features/astrology/shared/astrology_flow_state.dart';
+import 'package:knowme/features/bazi_compatibility/application/bazi_compatibility_owner_fixtures.dart';
+import 'package:knowme/domain/models/profile_model.dart';
+import 'package:knowme/presentation/pages/bazi/bazi_result_page.dart';
 import 'package:knowme/presentation/providers/bazi_provider.dart';
 import 'package:knowme/presentation/providers/locale_provider.dart';
+import 'package:knowme/services/profile_service.dart';
 import 'package:provider/provider.dart';
 
-BaziChartModel _sampleChart() {
-  return BaziChartModel.fromMap({
-    'version': 'bazi_v1',
-    'engine_version': 'lunar_python@1.4.8',
-    'generated_at': '2026-06-07T07:22:13.583812+00:00',
-    'input_hash': 'abc',
-    'completeness': 'four_pillars',
-    'dominant_element': 'fire',
-    'day_master': {
-      'stem': '丁',
-      'stem_roman': 'ding',
-      'element': 'fire',
-      'polarity': 'yin',
-      'pillar_label': '丁丑',
-    },
-    'year_animal': {'zh': '马', 'roman': 'horse', 'en': 'Horse'},
-    'element_balance': {
-      'wood': 0,
-      'fire': 3,
-      'earth': 2,
-      'metal': 3,
-      'water': 0,
-      'total_slots': 8,
-      'method': 'surface_stem_branch_v1',
-    },
-    'pillars': {
-      'year': {
-        'stem': '庚',
-        'branch': '午',
-        'stem_roman': 'geng',
-        'branch_roman': 'wu',
-        'stem_element': 'metal',
-        'branch_element': 'fire',
-        'pillar_label': '庚午',
-      },
-      'month': {
-        'stem': '辛',
-        'branch': '巳',
-        'stem_roman': 'xin',
-        'branch_roman': 'si',
-        'stem_element': 'metal',
-        'branch_element': 'fire',
-        'pillar_label': '辛巳',
-      },
-      'day': {
-        'stem': '丁',
-        'branch': '丑',
-        'stem_roman': 'ding',
-        'branch_roman': 'chou',
-        'stem_element': 'fire',
-        'branch_element': 'earth',
-        'pillar_label': '丁丑',
-      },
-      'hour': {
-        'stem': '戊',
-        'branch': '申',
-        'stem_roman': 'wu',
-        'branch_roman': 'shen',
-        'stem_element': 'earth',
-        'branch_element': 'metal',
-        'pillar_label': '戊申',
-      },
-    },
-  });
-}
-
-Widget _wrap(
-  Widget child,
-  BaziProvider provider, {
-  AstrologyGenerationCoordinator? coordinator,
-}) {
-  return MultiProvider(
-    providers: [
-      ChangeNotifierProvider<BaziProvider>.value(value: provider),
-      ChangeNotifierProvider(
-        create: (_) => LocaleProvider()..setLocale('en'),
-      ),
-    ],
-    child: MaterialApp(home: child),
-  );
-}
-
 class _NoopLensProbe implements AstrologyFusionLensProbe {
+  _NoopLensProbe([this.completedLensIds = const []]);
+
+  final List<String> completedLensIds;
+
   @override
   Future<AstrologyFusionLensProbeResult> probe(String uid) async {
     return AstrologyFusionLensProbeResult(
-      completedLensIds: [],
+      completedLensIds: completedLensIds,
       input: AstrologyFusionRealInput(),
     );
   }
@@ -118,16 +41,43 @@ class _NoopFusionRepository implements AstrologyFusionRepository {
   Future<void> saveFusion(String uid, AstrologyFusionSnapshot snapshot) async {}
 }
 
-AstrologyGenerationCoordinator _noopCoordinator() {
+AstrologyGenerationCoordinator _readyCoordinator({
+  bool generationFails = false,
+}) {
+  const profile = ProfileModel(
+    name: 'Test User',
+    gender: 'male',
+    birthDate: '1990-05-12',
+    birthTime: '15:30',
+    birthPlace: 'Bangkok, Thailand',
+    latitude: 13.7563,
+    longitude: 100.5018,
+    timezone: 'Asia/Bangkok',
+  );
   return AstrologyGenerationCoordinator(
-    profileService: ProfileService.testing((_) async => null),
-    lensProbe: _NoopLensProbe(),
+    profileService: ProfileService.testing((_) async => profile),
+    lensProbe: _NoopLensProbe([AstrologyLens.chineseBazi.lensId]),
     fusionRepository: _NoopFusionRepository(),
     fusionService: AstrologyFusionRegenerationService(
       repository: InMemoryAstrologyFusionRepository(),
     ),
-    generateBazi: (_, __) async {},
-    generateWestern: (_, __) async {},
+    generateBazi: (_, _) async {
+      if (generationFails) throw StateError('generation failed');
+    },
+    generateWestern: (_, _) async {},
+    loadBaziInputHash: (_) async => generationFails
+        ? 'stale-input-hash'
+        : '7e5deacba21e9abc250024b1448bcf902b6efd41f1c4f4a121be0bdcc1a0154b',
+  );
+}
+
+Widget _wrap(Widget child, BaziProvider provider) {
+  return MultiProvider(
+    providers: [
+      ChangeNotifierProvider<BaziProvider>.value(value: provider),
+      ChangeNotifierProvider(create: (_) => LocaleProvider()),
+    ],
+    child: MaterialApp(home: child),
   );
 }
 
@@ -139,7 +89,7 @@ void main() {
       _wrap(
         BaziResultPage(
           userId: 'test-uid',
-          generationCoordinator: _noopCoordinator(),
+          generationCoordinator: _readyCoordinator(),
         ),
         provider,
       ),
@@ -150,57 +100,53 @@ void main() {
     expect(find.text(AstrologyFlowCopy.retryCta), findsOneWidget);
   });
 
-  testWidgets('renders insight-first sections when chart loaded', (tester) async {
-    final provider = BaziProvider(loadChartFn: (_) async => _sampleChart());
+  testWidgets('renders the fact-only Compatibility V1 projection', (
+    tester,
+  ) async {
+    final chart = BaziCompatibilityOwnerFixtures.chart(BaziOwnerCase.known);
+    final provider = BaziProvider(loadChartFn: (_) async => chart);
 
     await tester.pumpWidget(
       _wrap(
         BaziResultPage(
           userId: 'test-uid',
-          generationCoordinator: _noopCoordinator(),
+          generationCoordinator: _readyCoordinator(),
         ),
         provider,
       ),
     );
     await tester.pumpAndSettle();
 
-    expect(find.text('Yin Fire'), findsOneWidget);
-    expect(find.text('Through the Chinese chart lens'), findsOneWidget);
-    expect(find.text('Core Self'), findsOneWidget);
-    expect(find.text('Chart emphasis'), findsOneWidget);
-    expect(find.text('Prominent Fire'), findsOneWidget);
-    expect(find.text('Strengths'), findsWidgets);
-    expect(find.text('Growth Areas'), findsOneWidget);
-    expect(find.text('Year Zodiac Personality'), findsOneWidget);
-    expect(find.text('Horse'), findsWidgets);
-    expect(find.text('Core Traits'), findsOneWidget);
-    expect(find.text('Work Style'), findsOneWidget);
-    expect(find.text('Overall Chinese Lens Summary'), findsOneWidget);
-    expect(find.text('In-depth data'), findsOneWidget);
+    expect(find.text('KnowMe BaZi Compatibility V1'), findsWidgets);
+    expect(find.textContaining('ไม่ใช่มาตรฐานสากล'), findsOneWidget);
+    expect(find.text('ผลเสาหลักที่ยืนยันได้'), findsOneWidget);
+    expect(find.text('庚午 (geng/wu) — ทอง + ไฟ'), findsOneWidget);
+    expect(find.byKey(const Key('bazi-export-pdf')), findsOneWidget);
 
-    await tester.scrollUntilVisible(
-      find.text('In-depth data'),
-      120,
-      scrollable: find.byType(Scrollable),
+    expect(find.text('Strengths'), findsNothing);
+    expect(find.text('Growth Areas'), findsNothing);
+    expect(find.text('Year Zodiac Personality'), findsNothing);
+    expect(find.text('Overall Chinese Lens Summary'), findsNothing);
+  });
+
+  testWidgets('does not expose a stale chart when regeneration fails', (
+    tester,
+  ) async {
+    final chart = BaziCompatibilityOwnerFixtures.chart(BaziOwnerCase.known);
+    final provider = BaziProvider(loadChartFn: (_) async => chart);
+
+    await tester.pumpWidget(
+      _wrap(
+        BaziResultPage(
+          userId: 'stale-test-uid',
+          generationCoordinator: _readyCoordinator(generationFails: true),
+        ),
+        provider,
+      ),
     );
-    await tester.tap(find.text('In-depth data'));
     await tester.pumpAndSettle();
 
-    expect(find.text('Four Pillars'), findsOneWidget);
-    expect(find.textContaining('Pillar code:'), findsWidgets);
-    expect(find.textContaining('Heavenly Stem:'), findsWidgets);
-    expect(find.textContaining('Earthly Branch:'), findsWidgets);
-    expect(find.textContaining('Day (core self)'), findsOneWidget);
-    expect(
-      find.textContaining('Core starting points in Chinese chart reading'),
-      findsOneWidget,
-    );
-    expect(
-      find.textContaining('This is the structural basis'),
-      findsOneWidget,
-    );
-    expect(find.text('What the elements mean'), findsOneWidget);
-    expect(find.textContaining('⚔️ Metal / 🔥 Fire'), findsWidgets);
-    expect(find.text('Data Version'), findsOneWidget);
+    expect(find.text(AstrologyFlowCopy.failedTitle), findsOneWidget);
+    expect(find.text('ผลเสาหลักที่ยืนยันได้'), findsNothing);
   });
 }

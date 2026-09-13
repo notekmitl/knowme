@@ -1,5 +1,75 @@
 # KnowMe Roadmap+
 
+## Active project — KnowMe BaZi Compatibility V1 Owner testing (2026-09-13)
+
+**IMPLEMENTATION AND TECHNICAL VALIDATION COMPLETE IN STACKED DRAFT PR #122;
+OWNER TESTING IS THE REMAINING GATE.**
+
+Delivered scope: explicit local-civil/Li-Chun/Jie/`sect=2`/no-true-solar
+contract, Known/Unknown fail-closed calculation, authenticated UID-bound writes,
+birth-change regeneration, Fusion Known -> Unknown stale-lens invalidation,
+canonical fact-only Web/PDF report, static Regular CJK font, no-write Owner
+fixtures, boundary/auth/leakage tests and traceability documentation.
+
+The application evidence is fixed at commit
+`8fe3c68e2c60ec9a1511e75bc22982a1d854c007`, tree
+`a478defae8cd8f88435e8f5fda7c908db4a11773`. Owner manual QA is limited to the
+four fixture variants and Web/PDF parity; authentication, regeneration and
+Fusion freshness remain automated engineering evidence.
+
+Final technical evidence uses Flutter 3.41.1 / Dart 3.11.0 on Linux: backend
+18/18, focused Flutter 51/51, full Flutter 3,049/3,049, analyzer 282 existing
+non-fatal diagnostics with scoped findings 0. Four two-page PDFs pass eight-page
+visual QA and the release Web bundle passes route/API endpoint checks. The exact
+PDF and bundle hashes are in `CHINESE_ASTROLOGY_VALIDATION_V1.md`.
+
+Next action on PR #122 is Owner testing only. Only after explicit later approval
+may the PR become Ready or merge; Production deploy is separate.
+
+Two pre-Production blockers remain outside this PR:
+
+1. Replace the incomplete client-first/immediate-enforcement plan with a
+   separately implemented parallel authenticated versioned endpoint, migrate
+   the new client, verify adoption and only then retire the legacy endpoint.
+2. Refine the shared strict bundle guard so a literal hostname comparison is
+   distinguished from an actual loopback endpoint. Actual loopback endpoints
+   are 0, but policy still requires this guard-quality task to close before
+   Production.
+
+Unsourced interpretation expansion, luck cycles/timing, Thai changes and
+`product-acceptance/` are also separate future work.
+
+## Prior Phase 0 plan — superseded by Owner approval (2026-09-12)
+
+**PHASE 0 AUDIT COMPLETE IN STACKED DRAFT PR #122; PHASE 1 BLOCKED ON ONE OWNER
+POLICY DECISION.**
+
+The current system is BaZi/Four Pillars, not a year-zodiac-only feature. The
+existing engine/UI/storage/fusion paths are audited in
+[`CHINESE_ASTROLOGY_CURRENT_STATE.md`](CHINESE_ASTROLOGY_CURRENT_STATE.md).
+The branch is based exactly on Open + Draft PR #120 head and is published as
+stacked Draft PR #122 without changing the Production-equivalent Thai source.
+
+Planned only after policy approval:
+
+1. codify one calculation contract and exact boundary tests;
+2. implement separate Known-time and interval-safe Unknown-time projections;
+3. bind authenticated API identity to UID and repair birth-change freshness;
+4. build a deterministic, non-predictive, source-governed Chinese report with
+   honest surface-element labels;
+5. verify Web, PDF/export, cache/API/fusion and Thai regression boundaries;
+6. update the existing stacked **Draft** PR #122 for Owner Testing only; keep it
+   Draft until explicit acceptance.
+
+Separate pre-release blocker: the live pinned bundle contains one literal
+`localhost` in a hostname comparison even though no development URL was found.
+Resolve its source and restore the strict bundle guard only in separately
+authorized shared/Production work; do not change Thai/shared runtime here.
+
+Explicitly out of this phase: Ready for Review, merge, Production deploy, AI
+predictions, luck-cycle/timing expansion, `product-acceptance/` and Production
+data/Firebase-service changes.
+
 ## PR120 Reader Voice V3 Revision 8 — Production Hosting release (2026-09-12)
 
 **OWNER-AUTHORIZED PRODUCTION HOSTING RELEASE LIVE — FIREBASE RELEASE `04c592` — PUBLIC ROUTE SMOKE PASS — OPEN + DRAFT — NOT MERGED.**

@@ -99,6 +99,13 @@ understanding or product value?*
 | **Architecture exceptions** | **Chinese Zodiac Personality Expansion** — additive content library + resolver only |
 | **Future replacement plan** | Engine stable; expansion happens additively, not by reopening the core |
 
+**2026-09-12 audit gate:** the frozen backend behavior is implemented but is not
+yet an Owner-approved Chinese Report calculation contract. Shared Birth
+Normalization still marks BaZi/true-solar normalization as unimplemented. Do not
+extend or expose the report until the Owner selects the compatibility policy or
+supplies an astrologer-reviewed canon. See
+[`CHINESE_ASTROLOGY_CURRENT_STATE.md`](CHINESE_ASTROLOGY_CURRENT_STATE.md).
+
 ### Thai Astrology — Engine (V2 Core)
 
 | Field | Detail |

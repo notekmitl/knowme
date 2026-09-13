@@ -1,5 +1,85 @@
 # KnowMe Current Status+
 
+## KnowMe BaZi Compatibility V1 — Owner testing (2026-09-13)
+
+**CURRENT: READY FOR OWNER TESTING ON STACKED DRAFT PR #122; NOT READY FOR
+REVIEW, NOT MERGED AND NOT DEPLOYED.**
+
+The Owner-approved compatibility rules are now an explicit deterministic
+contract. Known time returns four pillars. Unknown time omits Hour and all
+hour-dependent data and suppresses Year/Month values that are not invariant
+across the civil date. Li Chun, Jie, Chinese New Year non-boundary, leap day,
+23:00/00:00, timezone and coordinate semantics have targeted tests.
+
+The API verifies Firebase bearer identity, rejects body UID mismatch and writes
+only to the verified UID. Profile fingerprints force regeneration after birth
+data or contract version changes, and a failed refresh cannot display stale
+facts. Fusion versions now incorporate the BaZi input fingerprint and detect a
+removed lens, so a Known -> Unknown edit invalidates the old hour-bearing Fusion
+snapshot. Signed-in Web, `/beta/chinese` Owner fixtures and PDF/export share one
+fact-only report with no unsourced personality or predictive prose.
+
+Owner manual QA covers only the four no-write fixtures—Known, ordinary Unknown,
+Li Chun Unknown and Jie Unknown—and their Web/PDF parity. Authentication token,
+UID/revoked-token, regeneration and Fusion-freshness assertions are automated
+engineering gates rather than Owner fixture tasks.
+
+Authoritative Flutter 3.41.1 Linux validation passes backend **18/18**, focused
+Flutter **51/51**, full Flutter **3,049/3,049**, repository analyzer exit 0 with
+282 existing non-fatal diagnostics and scoped analyzer 0. Four two-page A4 PDFs
+were rendered as eight pages and inspected with visual defect count 0; CJK is
+embedded as static `NotoSansSC-Regular`. The release Web bundle passes the
+Production endpoint guard and contains `/beta/chinese`; its SHA-256 is
+`F30256BE2AF1725DF933ECA7D9228341BBA980D07C6FA058AC08418132AE2959`.
+
+No Thai astrology source, Thai golden, `product-acceptance/`, Production service
+or Hosting asset is in scope. The application stays pinned to commit
+`8fe3c68e2c60ec9a1511e75bc22982a1d854c007`, tree
+`a478defae8cd8f88435e8f5fda7c908db4a11773`.
+
+Actual loopback endpoint findings are 0. The single literal `localhost`
+hostname comparison is not an endpoint; strict-guard refinement is a future
+shared guard-quality task that remains a policy blocker before Production, and
+PR #122 does not change shared runtime. Release is also blocked because
+client-first/immediate backend enforcement does not cover cached/open legacy
+clients. The recommended unimplemented path is a parallel authenticated
+versioned endpoint, new-client migration, adoption verification and later
+legacy-endpoint retirement. Exact test/PDF results are in
+`CHINESE_ASTROLOGY_VALIDATION_V1.md`.
+
+## Prior Chinese discovery gate — superseded (2026-09-12)
+
+**CURRENT: DRAFT PR #122 OPEN; AUDIT COMPLETE; IMPLEMENTATION AWAITS ONE OWNER
+CALCULATION-POLICY DECISION.**
+
+The exact PR #120 head `4ce29747fee66d08637dbe0b16b982b17071526d`
+is the stacked base for `codex/chinese-astrology-report-v1`. GitHub, source
+lineage and the live `/beta/thai` release match the recorded Production baseline;
+there is no older duplicate Chinese PR and no Thai application-code delta from
+Production source `e6aaa98` to the stack base. The existing Chinese audit branch
+was continued and published as stacked Draft PR #122.
+
+Chinese astrology is BaZi/Four Pillars with a secondary year-animal lens. The
+backend implements local-civil calculation with Li Chun/Jie, `sect=2` and no
+true-solar correction, while shared Birth Normalization explicitly says real BaZi
+normalization is unimplemented. Unknown time, authenticated UID-bound writes,
+birth-change cache freshness, citable interpretation provenance and PDF/export
+parity are missing. Work is paused under the Owner's explicit hard-stop rule.
+
+Fresh validation: focused Chinese Flutter 83/83; analyzer exit 0 with 297
+existing warning/info diagnostics; full Flutter 2,989 passed / 40 existing Thai
+screenshot-golden pixel failures on Flutter 3.41.3. No golden was changed.
+
+Fresh live verification returns 200 and cache pin `e6aaa98`. The strict bundle
+guard nevertheless finds one literal `localhost` in a hostname comparison; it
+finds no localhost/loopback URL and no other loopback string. This pre-existing
+shared Production-bundle finding is reported as a separate blocker and was not
+fixed or deployed from the Chinese branch.
+
+See [`CHINESE_ASTROLOGY_CURRENT_STATE.md`](CHINESE_ASTROLOGY_CURRENT_STATE.md);
+the initial audit remains an explicitly historical snapshot. Audit-only: no
+runtime, Thai, `product-acceptance/`, Production, Ready, merge or deploy change.
+
 ## PR120 Reader Voice V3 Revision 8 — Production Hosting release (2026-09-12)
 
 **OWNER-AUTHORIZED PRODUCTION HOSTING RELEASE LIVE — FIREBASE RELEASE `04c592` — PUBLIC ROUTE SMOKE PASS — OPEN + DRAFT — NOT MERGED.**

@@ -29,7 +29,17 @@ abstract final class SourceLensVersionResolver {
 
   static String? baziVersion(BaziChartModel? bazi) {
     if (bazi == null) return null;
-    return '${bazi.version}|${bazi.engineVersion}|${bazi.dayMaster.stem}';
+    final suppressed = [...bazi.suppressedFields]..sort();
+    return <String>[
+      'contract=${bazi.contractId}',
+      'schema=${bazi.version}',
+      'engine=${bazi.engineVersion}',
+      'input=${bazi.inputHash}',
+      'time=${bazi.timeKnown ? 'known' : 'unknown'}',
+      'completeness=${bazi.completeness}',
+      'dayMaster=${bazi.dayMaster.stem}',
+      'suppressed=${suppressed.join(',')}',
+    ].join(';');
   }
 
   static String? thaiVersion(ThaiMirrorResult? thai) {

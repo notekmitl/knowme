@@ -1,4 +1,87 @@
-# Handoff — Thai Report Reading Flow and Friendly Voice V1+
+# Handoff — Chinese Astrology Report V1
+
+## Current handoff — KnowMe BaZi Compatibility V1 Owner testing (2026-09-13)
+
+**READY FOR OWNER TESTING — KEEP PR #122 DRAFT — DO NOT MARK READY, MERGE OR
+DEPLOY.**
+
+- Branch: `codex/chinese-astrology-report-v1`
+- Stack dependency: Open + Draft PR #120 at
+  `4ce29747fee66d08637dbe0b16b982b17071526d`
+- Owner route: `/beta/chinese?case=known`, `unknown`, `lichun-unknown`,
+  `jie-unknown`
+- Owner PDFs: `output/pdf/knowme-bazi-fusion-linux-20260913/` (`known`,
+  `unknown`, `lichun-unknown`, `jie-unknown`)
+- Contract/source state: `CHINESE_ASTROLOGY_CURRENT_STATE.md` and
+  `CHINESE_ASTROLOGY_COMPATIBILITY_V1.md`
+- Test matrix/results: `CHINESE_ASTROLOGY_VALIDATION_V1.md`
+- Application commit/tree: `8fe3c68e2c60ec9a1511e75bc22982a1d854c007`
+  / `a478defae8cd8f88435e8f5fda7c908db4a11773`
+
+Authoritative Flutter 3.41.1 Linux gates pass backend 18/18, focused Flutter
+51/51, full Flutter 3,049/3,049, analyzer exit 0 with 282 existing diagnostics
+and scoped analyzer 0. All four PDFs are two A4 pages; all eight rendered pages
+have missing/clipped/overlapped/blank content 0 and embed
+`NotoSansSC-Regular`. The Web bundle passes the Production endpoint guard,
+contains `/beta/chinese`, and keeps the one generic `localhost` hostname
+comparison as the separately reported strict-scan blocker.
+
+Owner manual checklist:
+
+1. Compare Known with ordinary Unknown and confirm Unknown omits the Hour and
+   every time-dependent value.
+2. Confirm Li Chun Unknown and Jie Unknown omit their boundary-ambiguous values
+   with a clear explanation.
+3. Compare each Web fixture with its PDF, including policy label, facts,
+   omissions and the final limitations section.
+
+The Owner fixture route is no-write and visibly labelled non-Production. Token,
+UID, revoked-token, regeneration and Fusion-freshness behavior is covered by
+automated engineering gates and is not part of this manual fixture checklist.
+
+Do not re-enable removed personality/prediction sections without approved
+sources. Do not weaken UID binding or Unknown suppression. Do not update Thai
+goldens in this branch. Actual loopback endpoints are 0; the remaining
+`localhost` literal is a hostname comparison, not an endpoint. Its strict-guard
+repair is a future shared task that must close before Production and is not in
+this PR. Do not use the previous client-first/immediate-enforcement sequence:
+cached/open legacy clients make it incomplete. Release remains blocked pending
+a parallel authenticated versioned endpoint, new-client migration, adoption
+verification and eventual legacy-endpoint retirement; none is implemented here.
+
+## Prior handoff — superseded decision gate (2026-09-12)
+
+**AUDIT COMPLETE — DRAFT PR #122 OPEN — STOP BEFORE IMPLEMENTATION.**
+
+- Branch: `codex/chinese-astrology-report-v1`
+- Stack base: PR #120 head
+  `4ce29747fee66d08637dbe0b16b982b17071526d`
+- Draft PR: `https://github.com/notekmitl/knowme/pull/122` (Open + Draft)
+- Production source retained: `e6aaa987ebf02da4ac3c05909c385f8378514b35`
+  / cache pin `e6aaa98`
+- Current Owner artifact:
+  [`CHINESE_ASTROLOGY_CURRENT_STATE.md`](CHINESE_ASTROLOGY_CURRENT_STATE.md)
+- Historical first audit:
+  [`CHINESE_ASTROLOGY_CURRENT_STATE_AUDIT_V1.md`](CHINESE_ASTROLOGY_CURRENT_STATE_AUDIT_V1.md)
+- Reproduced: backend assertions 8/8 with documented `ZoneInfo` stub;
+  Chinese-focused Flutter 83/83; analyzer exit 0 with 297 existing diagnostics
+- Full Flutter: 2,989 passed / 40 existing Thai screenshot-golden pixel
+  failures on Flutter 3.41.3; do not update Thai goldens in this branch
+- Production bundle guard: strict string gate fails on one `localhost` hostname
+  comparison; no development URL or other loopback string found; existing shared
+  issue, so stop and report before any fix or deploy
+
+Next action is exactly one Owner decision: either freeze the current
+local-civil/Li-Chun/Jie/`sect=2`/no-true-solar behavior as the compatibility V1
+contract (recommended), or pause for an astrologer-reviewed canon. Draft PR #122
+is already open; do not implement, expose the API, mark Ready for Review, merge,
+deploy, or create unknown-time fallbacks before that decision.
+
+The audit found four release gates for any later V1: explicit calculation policy;
+Unknown-time leakage suppression; authenticated UID-bound API writes; and
+input-hash/regeneration correctness after birth edits. Source provenance and
+Web/PDF/export parity follow within the V1 report boundary. Thai source,
+`product-acceptance/`, Production data and Firebase services remain untouched.
 
 ## PR120 Reader Voice V3 Revision 8 — Production Hosting release (2026-09-12)
 

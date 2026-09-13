@@ -1,4 +1,115 @@
-# Task: Thai Report Reader Experience V2+
+# Task: Chinese Astrology Report V1
+
+## KnowMe BaZi Compatibility V1 — Owner QA delivery (2026-09-13)
+
+**READY FOR OWNER TESTING ON STACKED DRAFT PR #122 — NOT READY FOR REVIEW,
+NOT MERGED, NOT DEPLOYED.**
+
+The Owner-approved contract uses Gregorian local civil time in the supplied
+IANA zone, Li Chun for Year, Jie for Month, `sect=2`/00:00 for Day, no true-solar
+correction, and fail-closed Unknown time. It is named `KnowMe BaZi
+Compatibility V1` and does not claim a universal school standard.
+
+The backend produces deterministic Known/Unknown projections, suppresses hour
+and transition-ambiguous values, records rule/input metadata, and binds writes
+to a verified Firebase token UID. The client supplies the token, regenerates
+legacy or changed-input charts, and refuses to show a stale chart after a failed
+refresh. Fusion freshness now includes the governed BaZi input fingerprint and
+treats a removed lens as outdated, so Known -> Unknown cannot retain the prior
+hour-bearing lens. Signed-in Web, the no-write Owner fixture route and
+PDF/export use one fact-only report model; unsourced personality and predictive
+copy is not used.
+
+Boundary coverage includes Li Chun, Jie, Chinese New Year as a deliberate
+non-boundary, leap day, 22:59/23:00/23:59/00:00, IANA validation, coordinate
+non-use, Known/Unknown leakage, authentication, birth-change regeneration and
+Fusion Known -> Unknown invalidation. This is an equivalence-class suite, not a
+claim that every instant, zone or place was tested.
+
+Authoritative Flutter 3.41.1 / Dart 3.11.0 Linux validation passes backend
+**18/18**, focused Flutter **51/51** and full Flutter **3,049/3,049**. Analyzer
+exits 0 with 282 existing non-fatal diagnostics and 0 scoped findings. Four
+two-page A4 PDFs were generated and all eight pages were rendered and inspected.
+Missing text, broken Thai/Chinese glyphs, clipping, overlap, overflow and blank
+pages are 0. CJK is embedded as static `NotoSansSC-Regular`, not Thin. Exact
+bytes and hashes are in `docs/CHINESE_ASTROLOGY_VALIDATION_V1.md`.
+
+The Owner route is `/beta/chinese?case=known|unknown|lichun-unknown|jie-unknown`.
+It is fixture-only, calls no API and writes no data. Final PDFs are under
+`output/pdf/knowme-bazi-fusion-linux-20260913/` and ignored by Git.
+
+Owner manual QA is limited to those four fixture variants and Web/PDF content
+parity: Known completeness, ordinary Unknown time omission, Li Chun Unknown
+ambiguity omission and Jie Unknown ambiguity omission. Token/UID/revoked-token
+handling, regeneration and Fusion freshness are automated engineering gates;
+they are not Owner fixture steps.
+
+The Flutter 3.41.1 Web release build passes the Production endpoint guard. Its
+`main.dart.js` is 8,428,317 bytes with SHA-256
+`F30256BE2AF1725DF933ECA7D9228341BBA980D07C6FA058AC08418132AE2959`;
+the Production API URL and `/beta/chinese` are present, while actual loopback
+endpoint counts are 0. The remaining literal `localhost` is a hostname
+comparison, not an endpoint. Improving that strict scan is a future shared
+guard-quality task, but the policy blocker must still close before Production;
+PR #122 does not change shared runtime.
+
+Application evidence is pinned at commit
+`8fe3c68e2c60ec9a1511e75bc22982a1d854c007`, tree
+`a478defae8cd8f88435e8f5fda7c908db4a11773`. No release is authorized. The
+previous client-first/immediate-enforcement sequence is incomplete because it
+cannot protect cached or already-open legacy clients. The recommended release
+blocker, not implemented here, is to add an authenticated versioned endpoint
+beside the legacy endpoint, move the new client to it, measure adoption, and
+only then retire the legacy endpoint.
+
+Thai source, Thai goldens, `product-acceptance/`, Production data and deployed
+assets remain unchanged.
+
+## Prior discovery checkpoint — superseded by Owner approval (2026-09-12)
+
+**AUDIT COMPLETE — STACKED DRAFT PR #122 OPEN — IMPLEMENTATION PAUSED FOR ONE
+OWNER DECISION — NO RUNTIME CHANGE — NO DEPLOY.**
+
+GitHub and the live Thai route match the supplied baseline. PR #120 is Open +
+Draft at `4ce29747fee66d08637dbe0b16b982b17071526d`; Production application source is
+its source-equivalent ancestor `e6aaa987ebf02da4ac3c05909c385f8378514b35`, and
+the only intervening changes are six documentation files. The live Thai assets
+are pinned to `e6aaa98` and match the recorded release hashes. No older Chinese
+PR was found. The existing `codex/chinese-astrology-report-v1` audit branch was
+verified to descend exactly from PR #120 and continued without duplication. It
+is now Draft PR #122 with PR #120 as its base/dependency.
+
+The system is BaZi/Four Pillars, with year animal as a secondary lens. The backend
+uses local civil input, Li Chun/Jie boundaries, `lunar_python@1.4.8`, `sect=2`
+(00:00 day change), and no true-solar correction; coordinates are stored but not
+calculated. Shared Birth Normalization simultaneously marks real BaZi
+normalization/true solar time as unimplemented. Unknown time has no safe result.
+Per the Owner's stop rule, implementation is blocked until the calculation policy
+is selected. The audit also found unauthenticated UID-trusting API writes, stale
+BaZi after birth-profile edits, unsupported interpretation provenance, no Chinese
+PDF/export, and missing boundary tests.
+
+Canonical evidence, reproduced validation and the proposed non-predictive V1
+boundary are in
+[`docs/CHINESE_ASTROLOGY_CURRENT_STATE.md`](docs/CHINESE_ASTROLOGY_CURRENT_STATE.md).
+The initial audit remains in
+[`docs/CHINESE_ASTROLOGY_CURRENT_STATE_AUDIT_V1.md`](docs/CHINESE_ASTROLOGY_CURRENT_STATE_AUDIT_V1.md)
+as a historical snapshot.
+
+Fresh validation on Flutter 3.41.3 / Dart 3.11.1: Chinese-focused Flutter
+**83/83 passed**; analyzer exited 0 under repository policy with 297 existing
+warning/info diagnostics; the full invocation reached **2,989 passed / 40
+failed**, all from existing Thai screenshot-golden comparisons. The goldens were
+not changed. Eight backend calculation assertions passed against
+`lunar_python==1.4.8` with the documented Windows `ZoneInfo` test stub.
+
+A fresh read-only guard of the live pinned bundle found one literal `localhost`
+in a hostname equality check, but no localhost/loopback URL or other loopback
+string. The strict no-`localhost` gate is therefore red. This is an existing
+Production/shared-bundle issue rather than a branch delta; no fix or deploy was
+attempted because shared/Thai and Production mutation are outside authorization.
+This audit does not change Thai source, `product-acceptance/`, Production data,
+Firebase services, PR readiness, merge state, or any deployment.
 
 ## PR120 Reader Voice V3 Revision 8 — Production Hosting release (2026-09-12)
 
