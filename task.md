@@ -1,37 +1,58 @@
 # Task: Chinese Astrology Report V1
 
-## KnowMe BaZi Compatibility V1 — Owner-testing delivery (2026-09-12)
+## KnowMe BaZi Compatibility V1 — Fusion/PDF QA closeout (2026-09-13)
 
 **READY FOR OWNER TESTING ON STACKED DRAFT PR #122 — NOT READY FOR REVIEW,
 NOT MERGED, NOT DEPLOYED.**
 
-The Owner approved Gregorian local civil time in the supplied IANA zone, Li
-Chun for Year, Jie for Month, `sect=2`/00:00 for Day, no true-solar correction,
-and fail-closed Unknown time. The implementation names this exact contract
-`KnowMe BaZi Compatibility V1` and does not claim a universal school standard.
+The Owner-approved contract uses Gregorian local civil time in the supplied
+IANA zone, Li Chun for Year, Jie for Month, `sect=2`/00:00 for Day, no true-solar
+correction, and fail-closed Unknown time. It is named `KnowMe BaZi
+Compatibility V1` and does not claim a universal school standard.
 
-The backend now supports deterministic Known/Unknown projections, suppresses
-hour and transition-ambiguous values, records rule/input metadata, and binds
-writes to a verified Firebase token UID. The Flutter client supplies the token,
-regenerates legacy or changed-input charts, and refuses to show a stale chart
-when regeneration fails. Signed-in Web, the no-write Owner fixture route and
-PDF/export use one fact-only report model. Unsourced personality and predictive
+The backend produces deterministic Known/Unknown projections, suppresses hour
+and transition-ambiguous values, records rule/input metadata, and binds writes
+to a verified Firebase token UID. The client supplies the token, regenerates
+legacy or changed-input charts, and refuses to show a stale chart after a failed
+refresh. Fusion freshness now includes the governed BaZi input fingerprint and
+treats a removed lens as outdated, so Known -> Unknown cannot retain the prior
+hour-bearing lens. Signed-in Web, the no-write Owner fixture route and
+PDF/export use one fact-only report model; unsourced personality and predictive
 copy is not used.
 
 Boundary coverage includes Li Chun, Jie, Chinese New Year as a deliberate
 non-boundary, leap day, 22:59/23:00/23:59/00:00, IANA validation, coordinate
-non-use, Known/Unknown leakage, authentication and stale-input regeneration.
-This is an equivalence-class suite, not a claim that every instant, zone or
-place was tested. Final counts and PDF visual QA are recorded in
-`docs/CHINESE_ASTROLOGY_VALIDATION_V1.md` immediately before delivery.
+non-use, Known/Unknown leakage, authentication, birth-change regeneration and
+Fusion Known -> Unknown invalidation. This is an equivalence-class suite, not a
+claim that every instant, zone or place was tested.
+
+Authoritative Flutter 3.41.1 / Dart 3.11.0 Linux validation passes backend
+**18/18**, focused Flutter **51/51** and full Flutter **3,049/3,049**. Analyzer
+exits 0 with 282 existing non-fatal diagnostics and 0 scoped findings. Four
+two-page A4 PDFs were generated and all eight pages were rendered and inspected.
+Missing text, broken Thai/Chinese glyphs, clipping, overlap, overflow and blank
+pages are 0. CJK is embedded as static `NotoSansSC-Regular`, not Thin. Exact
+bytes and hashes are in `docs/CHINESE_ASTROLOGY_VALIDATION_V1.md`.
 
 The Owner route is `/beta/chinese?case=known|unknown|lichun-unknown|jie-unknown`.
-It is explicitly marked as fixture-only, calls no API and writes no data. The
-reference PDF is generated under `output/pdf/` and ignored by Git.
+It is fixture-only, calls no API and writes no data. Final PDFs are under
+`output/pdf/knowme-bazi-fusion-linux-20260913/` and ignored by Git.
 
-The Production cache pin `e6aaa98` still has the separately reported strict
-`localhost` string blocker. No shared/Production fix or deployment is included.
-Thai source, Thai goldens and `product-acceptance/` remain outside scope.
+The Flutter 3.41.1 Web release build passes the Production endpoint guard. Its
+`main.dart.js` is 8,428,317 bytes with SHA-256
+`F30256BE2AF1725DF933ECA7D9228341BBA980D07C6FA058AC08418132AE2959`;
+the Production API URL and `/beta/chinese` are present, while loopback endpoint
+counts are 0. The strict scan still finds one literal `localhost` in a hostname
+equality check and remains a separate shared-code blocker.
+
+No release is authorized here. If separately authorized later, release the
+bearer-capable client first and then enable backend UID enforcement immediately.
+Backend-first would reject the legacy client that sends no token. Coordinate
+the overlap because the old backend rejects Unknown-time requests; rollback
+order is backend first, then client.
+
+Thai source, Thai goldens, `product-acceptance/`, Production data and deployed
+assets remain unchanged.
 
 ## Prior discovery checkpoint — superseded by Owner approval (2026-09-12)
 

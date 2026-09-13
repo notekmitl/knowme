@@ -65,6 +65,28 @@ financial, investment, legal and future-guarantee cautions form the final
 section. Signed-in Web, Owner fixture Web and PDF/export are projections of the
 same report object.
 
+The PDF projection embeds static `NotoSansSC-Regular` for Chinese glyphs. It
+must not substitute a Thin variable-font instance, and Unknown variants must not
+recover time, Hour or boundary-ambiguous values during layout/export.
+
+## Fusion freshness contract
+
+The Fusion source version includes the governed BaZi input fingerprint, not
+only the Day Master. A fingerprint change invalidates the Fusion snapshot even
+when the Day Master remains the same. If a BaZi lens becomes unavailable, the
+version comparison is outdated rather than equal. This closes Known -> Unknown
+fail-closed transitions without retaining a prior Hour pillar or other
+time-dependent lens data.
+
+## Release sequencing
+
+No release is authorized by this contract. If a later deployment is approved,
+release the client that sends the Firebase bearer token before enabling backend
+UID enforcement, then verify the authenticated write path immediately. An
+enforcing-backend-first rollout would return 401 to legacy clients. Coordinate
+the short client-first overlap because the old backend does not support Unknown
+time. Rollback order is backend first and client second.
+
 ## Explicit exclusions
 
 V1 excludes true-solar time, hidden stems, rooting/seasonal strength, Useful

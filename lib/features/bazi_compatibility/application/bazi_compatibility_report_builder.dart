@@ -10,8 +10,8 @@ abstract final class BaziCompatibilityReportBuilder {
     return BaziCompatibilityReport(
       title: 'KnowMe BaZi Compatibility V1',
       subtitle: th
-          ? 'ผลคำนวณตามกติกาความเข้ากันได้ของ KnowMe รุ่น V1 — ไม่ได้อ้างว่าเป็นมาตรฐานสากลของทุกสำนัก'
-          : 'Calculated with the KnowMe V1 compatibility rules; this is not claimed as a universal standard across all schools.',
+          ? 'ผลคำนวณตามกติกา BaZi ที่ KnowMe ใช้ในรุ่น V1 — ไม่ได้อ้างว่าเป็นมาตรฐานสากลของทุกสำนัก'
+          : 'Calculated with the KnowMe BaZi V1 rules; this is not claimed as a universal standard across all schools.',
       sections: [
         _inputSection(chart, th),
         _pillarsSection(chart, th),
@@ -103,7 +103,7 @@ abstract final class BaziCompatibilityReportBuilder {
       rows.add(
         BaziCompatibilityReportRow(
           label: th ? 'สัตว์ประจำเสาปี' : 'Year-pillar animal',
-          value: '${chart.yearAnimal.zh} (${chart.yearAnimal.en})',
+          value: _yearAnimal(chart.yearAnimal, th),
         ),
       );
     }
@@ -111,7 +111,7 @@ abstract final class BaziCompatibilityReportBuilder {
     return BaziCompatibilityReportSection(
       title: th ? 'ผลเสาหลักที่ยืนยันได้' : 'Available pillar results',
       intro: th
-          ? 'เสาหลักคือรหัสก้านฟ้าและกิ่งดินที่ engine คำนวณได้ ส่วน Day Master ในข้อมูลดิบคือก้านฟ้าของเสาวัน ไม่ใช่คำอธิบายบุคลิก'
+          ? 'เสาหลักคือรหัสก้านฟ้าและกิ่งดินที่ระบบคำนวณได้ ส่วน Day Master ในข้อมูลดิบคือก้านฟ้าของเสาวัน ไม่ใช่คำอธิบายบุคลิก'
           : 'Each pillar is an engine-calculated heavenly-stem/earthly-branch code. Day Master is the Day pillar stem, not a personality description.',
       rows: rows,
       notes: notes,
@@ -163,15 +163,15 @@ abstract final class BaziCompatibilityReportBuilder {
   ) {
     return BaziCompatibilityReportSection(
       title: th
-          ? 'กติกาและแหล่งที่ตรวจย้อนกลับได้'
-          : 'Traceable rules and source',
+          ? 'กติกาและข้อมูลสำหรับตรวจซ้ำ'
+          : 'Rules and reproducibility data',
       rows: [
         BaziCompatibilityReportRow(
           label: th ? 'สัญญากติกา' : 'Rule contract',
           value: chart.contractId,
         ),
         BaziCompatibilityReportRow(
-          label: th ? 'engine' : 'Engine',
+          label: th ? 'ระบบคำนวณ' : 'Engine',
           value: chart.engineVersion,
         ),
         BaziCompatibilityReportRow(
@@ -242,6 +242,27 @@ abstract final class BaziCompatibilityReportBuilder {
       'water': 'น้ำ',
     };
     return th ? (thai[value] ?? value) : value;
+  }
+
+  static String _yearAnimal(BaziYearAnimal animal, bool th) {
+    if (!th) return '${animal.zh} (${animal.en})';
+    const thai = {
+      'rat': 'หนู',
+      'ox': 'วัว',
+      'tiger': 'เสือ',
+      'rabbit': 'กระต่าย',
+      'dragon': 'มังกร',
+      'snake': 'งู',
+      'horse': 'ม้า',
+      'goat': 'แพะ',
+      'monkey': 'ลิง',
+      'rooster': 'ไก่',
+      'dog': 'สุนัข',
+      'pig': 'หมู',
+    };
+    final translated = thai[animal.roman.trim().toLowerCase()];
+    if (translated == null) return '${animal.zh} (${animal.en})';
+    return '$translated (${animal.zh} / ${animal.en})';
   }
 
   static String _text(dynamic value, {String fallback = ''}) {

@@ -110,17 +110,33 @@ class AstrologyGenerationCoordinator {
 
     final fullProfileReady = BirthProfileReadiness.isComplete(profile);
     final baziInputChanged = await _baziInputChanged(uid, profile);
+    final failures = <String, String>{};
+    var baziFreshForFusion = !baziInputChanged;
+
+    // Invalidate the saved cross-system result before refreshing a stale BaZi
+    // lens. This prevents a Known-time Fusion snapshot from surviving a
+    // transition to Unknown time, including when the BaZi refresh itself fails.
+    if (baziInputChanged) {
+      try {
+        await _fusionRepository.deleteFusion(uid);
+      } catch (e, stack) {
+        failures['fusion'] = e.toString();
+        debugPrint('[AstrologyGeneration] fusion invalidation failed: $e');
+        debugPrint('[AstrologyGeneration] $stack');
+      }
+    }
 
     void emit(AstrologyGenerationSnapshot snap) => onProgress?.call(snap);
 
-    var snapshot = await _buildProbeSnapshot(
-      uid,
-      fullProfileReady: fullProfileReady,
-      baziProfileReady: true,
+    var snapshot = _mergeFailures(
+      await _buildProbeSnapshot(
+        uid,
+        fullProfileReady: fullProfileReady,
+        baziProfileReady: true,
+      ),
+      failures,
     );
     emit(snapshot);
-
-    final failures = <String, String>{};
 
     Future<void> runBazi() async {
       if (!_shouldGenerate(
@@ -140,6 +156,7 @@ class AstrologyGenerationCoordinator {
       emit(snapshot);
       try {
         await _generateBaziFn(uid, profile);
+        baziFreshForFusion = true;
       } catch (e, stack) {
         failures['bazi'] = e.toString();
         debugPrint('[AstrologyGeneration] bazi failed: $e');
@@ -178,7 +195,9 @@ class AstrologyGenerationCoordinator {
     );
     emit(snapshot);
 
-    if (fullProfileReady && _shouldGenerateFusion(snapshot, retrySystemId)) {
+    if (fullProfileReady &&
+        baziFreshForFusion &&
+        _shouldGenerateFusion(snapshot, retrySystemId)) {
       snapshot = snapshot.withSystem(
         const AstrologySystemSnapshot(
           systemId: 'fusion',
@@ -191,6 +210,7 @@ class AstrologyGenerationCoordinator {
         if (probe.completedLensIds.isNotEmpty) {
           await _fusionService.loadOrGenerate(uid: uid, input: probe.input);
         }
+        failures.remove('fusion');
         snapshot = _mergeFailures(
           await _buildProbeSnapshot(
             uid,

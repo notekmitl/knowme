@@ -3,7 +3,7 @@
 **Status:** IMPLEMENTED FOR OWNER TESTING — stacked Draft PR #122 — not Ready,
 not merged, not deployed
 
-**Date:** 2026-09-12
+**Date:** 2026-09-13
 
 **Product contract:** `KnowMe BaZi Compatibility V1`
 
@@ -101,6 +101,12 @@ stale chart. Unknown-time profiles generate BaZi only; Thai, Western and Fusion
 generation remain closed because their existing readiness contract requires
 the missing inputs.
 
+Fusion freshness uses the governed BaZi input fingerprint rather than only the
+Day Master. A Known -> Unknown edit therefore changes the BaZi lens version, and
+the version comparison treats a lens that disappears as outdated. The old
+hour-bearing Fusion result cannot survive the fail-closed transition even when
+the Day Master itself is unchanged.
+
 ## Surfaces available for Owner testing
 
 - Signed-in BaZi result page: authenticated chart freshness check, then the
@@ -108,9 +114,11 @@ the missing inputs.
 - Owner fixture route: `/beta/chinese?case=known`, `unknown`,
   `lichun-unknown`, or `jie-unknown`. It is visibly marked as a fixture, calls no
   API and performs no user-data write.
-- Owner reference PDF: `output/pdf/knowme-bazi-compatibility-v1-owner-reference.pdf`.
-  It is reproducible from the same canonical report object and is ignored by
-  Git.
+- Owner PDFs: `output/pdf/knowme-bazi-fusion-linux-20260913/` contains `known`,
+  `unknown`, `lichun-unknown` and `jie-unknown`. Each is reproducible from the
+  same canonical report object and ignored by Git. Chinese glyphs use the
+  checked-in static `NotoSansSC-Regular` font; the Thin variable font is not
+  used.
 
 There is no separately published public Chinese shared-report URL in V1. Any
 surface implemented here uses the same report model; wider Fusion/narrative
@@ -128,7 +136,10 @@ Covered representatives include Known and Unknown time, ordinary dates,
 Li Chun, Jie, Chinese New Year as a deliberate non-boundary, leap day,
 22:59/23:00/23:59/00:00, two valid zones plus one invalid zone, two coordinate
 pairs, UID mismatch, missing/invalid tokens, stale-profile regeneration,
-cross-surface report leakage and four PDF fixture variants.
+Fusion Known -> Unknown invalidation, cross-surface report leakage and four PDF
+fixture variants. Authoritative Flutter 3.41.1 Linux results are backend 18/18,
+focused Flutter 51/51, full Flutter 3,049/3,049, analyzer exit 0 with 282 existing
+non-fatal diagnostics and scoped analyzer 0.
 
 ## Known limitations and separate blockers
 
@@ -143,6 +154,19 @@ cross-surface report leakage and four PDF fixture variants.
 - Full-suite pixel results are toolchain-sensitive. Final results and the exact
   Flutter version are recorded in the validation document; Thai goldens are not
   changed.
+
+## Release sequencing (not authorized by this PR)
+
+The UID-enforcing backend is intentionally incompatible with legacy clients
+that omit the Firebase bearer token. If a later release is explicitly
+authorized, release the bearer-capable client first and deploy backend UID
+enforcement immediately afterward. The old backend ignores the extra header,
+but it cannot serve the new Unknown-time request during this short overlap, so
+the window must be coordinated and verified. Do not release the enforcing
+backend first. For rollback, restore the backend before rolling back the client.
+
+This sequencing note is planning only. Draft PR #122 performs no backend,
+Hosting or Production deployment.
 
 ## Scope protection
 

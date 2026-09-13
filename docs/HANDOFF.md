@@ -1,6 +1,6 @@
 # Handoff — Chinese Astrology Report V1
 
-## Current handoff — KnowMe BaZi Compatibility V1 Owner testing (2026-09-12)
+## Current handoff — KnowMe BaZi Compatibility V1 Owner testing (2026-09-13)
 
 **READY FOR OWNER TESTING — KEEP PR #122 DRAFT — DO NOT MARK READY, MERGE OR
 DEPLOY.**
@@ -10,20 +10,32 @@ DEPLOY.**
   `4ce29747fee66d08637dbe0b16b982b17071526d`
 - Owner route: `/beta/chinese?case=known`, `unknown`, `lichun-unknown`,
   `jie-unknown`
-- Owner PDF: `output/pdf/knowme-bazi-compatibility-v1-owner-reference.pdf`
+- Owner PDFs: `output/pdf/knowme-bazi-fusion-linux-20260913/` (`known`,
+  `unknown`, `lichun-unknown`, `jie-unknown`)
 - Contract/source state: `CHINESE_ASTROLOGY_CURRENT_STATE.md` and
   `CHINESE_ASTROLOGY_COMPATIBILITY_V1.md`
 - Test matrix/results: `CHINESE_ASTROLOGY_VALIDATION_V1.md`
 
+Authoritative Flutter 3.41.1 Linux gates pass backend 18/18, focused Flutter
+51/51, full Flutter 3,049/3,049, analyzer exit 0 with 282 existing diagnostics
+and scoped analyzer 0. All four PDFs are two A4 pages; all eight rendered pages
+have missing/clipped/overlapped/blank content 0 and embed
+`NotoSansSC-Regular`. The Web bundle passes the Production endpoint guard,
+contains `/beta/chinese`, and keeps the one generic `localhost` hostname
+comparison as the separately reported strict-scan blocker.
+
 Owner should compare Known versus ordinary Unknown, confirm Li Chun/Jie Unknown
-cases omit ambiguous values, verify 23:00 changes Hour but 00:00 changes Day,
-inspect the final limitations section, export a PDF and confirm Web/PDF content
-parity. The Owner fixture route is no-write and visibly labelled non-Production.
+cases omit ambiguous values, verify Fusion cannot retain the Known hour lens
+after Known -> Unknown, inspect the final limitations section, export a PDF and
+confirm Web/PDF content parity. The Owner fixture route is no-write and visibly
+labelled non-Production.
 
 Do not re-enable removed personality/prediction sections without approved
 sources. Do not weaken UID binding or Unknown suppression. Do not update Thai
 goldens in this branch. The strict Production `localhost` string blocker remains
-separate and requires explicit shared/Production authorization.
+separate and requires explicit shared/Production authorization. If release is
+authorized later, release the bearer-capable client first and backend UID
+enforcement immediately after; rollback backend first, then client.
 
 ## Prior handoff — superseded decision gate (2026-09-12)
 

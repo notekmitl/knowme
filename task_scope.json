@@ -35,12 +35,16 @@
     "lib/data/models/bazi_chart_model.dart",
     "lib/features/astrology/application/astrology_generation_coordinator.dart",
     "lib/features/astrology/application/birth_profile_readiness.dart",
+    "lib/features/astrology/fusion/application/astrology_fusion_lens_probe.dart",
+    "lib/features/astrology/fusion/application/source_lens_version_resolver.dart",
+    "lib/features/astrology/fusion/domain/models/source_lens_versions.dart",
     "lib/main.dart",
     "lib/presentation/pages/bazi/bazi_result_page.dart",
     "lib/presentation/providers/bazi_provider.dart",
     "lib/services/bazi_api_service.dart",
     "pubspec.yaml",
     "test/astrology_generation_coordinator_test.dart",
+    "test/astrology_fusion_af09_test.dart",
     "test/bazi_chart_model_test.dart",
     "test/bazi_provider_test.dart",
     "test/bazi_result_page_test.dart"
@@ -82,7 +86,7 @@
   ],
   "focused_tests": [
     "& (Join-Path $env:TEMP 'knowme-bazi-v1-py\\Scripts\\python.exe') -m pytest -q backend/tests/test_bazi_builder.py backend/tests/test_bazi_route_auth.py",
-    "flutter test --no-pub --concurrency=1 --reporter compact test/api_config_bazi_test.dart test/astrology_generation_coordinator_test.dart test/bazi_chart_model_test.dart test/bazi_provider_test.dart test/bazi_result_page_test.dart test/bazi_compatibility_api_auth_test.dart test/bazi_compatibility_report_test.dart test/bazi_compatibility_pdf_test.dart test/bazi_compatibility_routes_test.dart"
+    "flutter test --no-pub --concurrency=1 --reporter compact test/api_config_bazi_test.dart test/astrology_generation_coordinator_test.dart test/astrology_fusion_af09_test.dart test/bazi_chart_model_test.dart test/bazi_provider_test.dart test/bazi_result_page_test.dart test/bazi_compatibility_api_auth_test.dart test/bazi_compatibility_report_test.dart test/bazi_compatibility_pdf_test.dart test/bazi_compatibility_routes_test.dart"
   ],
   "full_test_policy": "required",
   "full_test_command": "flutter test --no-pub --concurrency=4 --reporter compact",

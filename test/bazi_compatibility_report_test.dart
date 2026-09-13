@@ -17,6 +17,8 @@ void main() {
         expect(text, contains('KnowMe BaZi Compatibility V1'));
         expect(text, contains('ไม่ใช่มาตรฐานสากล'));
         expect(text, contains('庚午 (geng/wu)'));
+        expect(text, contains('ม้า (马 / Horse)'));
+        expect(text, isNot(contains('กติกาความเข้ากันได้')));
         expect(text, contains('Li Chun (立春)'));
         expect(text, contains('Jie (節)'));
         expect(text, contains('00:00 ตามเวลาท้องถิ่น (sect=2)'));

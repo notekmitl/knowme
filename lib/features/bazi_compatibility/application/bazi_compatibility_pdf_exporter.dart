@@ -39,11 +39,14 @@ abstract final class BaziCompatibilityPdfExporter {
           bold: thaiBold,
           fontFallback: [cjk],
         ),
-        footer: (context) => pw.Align(
-          alignment: pw.Alignment.centerRight,
-          child: pw.Text(
-            '${context.pageNumber} / ${context.pagesCount}',
-            style: const pw.TextStyle(fontSize: 9, color: PdfColors.grey700),
+        footer: (context) => pw.Padding(
+          padding: const pw.EdgeInsets.only(right: 8),
+          child: pw.Align(
+            alignment: pw.Alignment.centerRight,
+            child: pw.Text(
+              '${context.pageNumber} / ${context.pagesCount}',
+              style: const pw.TextStyle(fontSize: 9, color: PdfColors.grey700),
+            ),
           ),
         ),
         build: (_) => [
@@ -103,7 +106,7 @@ abstract final class BaziCompatibilityPdfExporter {
                 pw.Expanded(
                   child: pw.Text(
                     row.value,
-                    style: const pw.TextStyle(fontSize: 10.5),
+                    style: const pw.TextStyle(fontSize: 10),
                   ),
                 ),
               ],

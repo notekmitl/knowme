@@ -6,6 +6,7 @@ import 'package:knowme/features/astrology/fusion/application/astrology_fusion_le
 import 'package:knowme/features/astrology/fusion/application/astrology_fusion_regeneration_service.dart';
 import 'package:knowme/features/astrology/fusion/application/astrology_fusion_repository.dart';
 import 'package:knowme/features/astrology/fusion/domain/entities/astrology_lens.dart';
+import 'package:knowme/features/bazi_compatibility/application/bazi_compatibility_owner_fixtures.dart';
 import 'package:knowme/features/astrology/fusion/domain/models/astrology_fusion_real_input.dart';
 import 'package:knowme/features/astrology/fusion/domain/entities/astrology_fusion_status.dart';
 import 'package:knowme/features/astrology/fusion/domain/models/astrology_fusion_snapshot.dart';
@@ -61,10 +62,14 @@ class _FakeLensProbe implements AstrologyFusionLensProbe {
 class _StubFusionRepository implements AstrologyFusionRepository {
   _StubFusionRepository({required this.hasFusion});
 
-  final bool hasFusion;
+  bool hasFusion;
+  var deleteCount = 0;
 
   @override
-  Future<void> deleteFusion(String uid) async {}
+  Future<void> deleteFusion(String uid) async {
+    deleteCount++;
+    hasFusion = false;
+  }
 
   @override
   Future<AstrologyFusionSnapshot?> loadFusion(String uid) async {
@@ -288,11 +293,77 @@ void main() {
       expect(baziCalls, 1);
     });
 
+    test(
+      'changed bazi input invalidates and rebuilds existing fusion',
+      () async {
+        var baziCalls = 0;
+        var fusionCalls = 0;
+        final repository = _StubFusionRepository(hasFusion: true);
+        final fusionService = _TrackingFusionService((_) async {
+          fusionCalls++;
+          repository.hasFusion = true;
+        });
+        final coordinator = AstrologyGenerationCoordinator(
+          profileService: ProfileService.testing(
+            (_) async => _completeProfile(),
+          ),
+          lensProbe: _FakeLensProbe([
+            AstrologyLens.thaiAstrology.lensId,
+            AstrologyLens.chineseBazi.lensId,
+            AstrologyLens.westernNatal.lensId,
+          ]),
+          fusionRepository: repository,
+          fusionService: fusionService,
+          generateBazi: (_, _) async => baziCalls++,
+          generateWestern: (_, _) async {},
+          loadBaziInputHash: (_) async => 'stale-input-hash',
+        );
+
+        final snapshot = await coordinator.ensureGenerated(
+          'uid-input-changed-with-fusion',
+        );
+
+        expect(baziCalls, 1);
+        expect(repository.deleteCount, 1);
+        expect(fusionCalls, 1);
+        expect(snapshot.system('fusion').isReady, isTrue);
+      },
+    );
+
+    test('retry fusion stays closed while BaZi input is stale', () async {
+      var fusionCalls = 0;
+      final repository = _StubFusionRepository(hasFusion: true);
+      final fusionService = _TrackingFusionService((_) async => fusionCalls++);
+      final coordinator = AstrologyGenerationCoordinator(
+        profileService: ProfileService.testing((_) async => _completeProfile()),
+        lensProbe: _FakeLensProbe([
+          AstrologyLens.thaiAstrology.lensId,
+          AstrologyLens.chineseBazi.lensId,
+          AstrologyLens.westernNatal.lensId,
+        ]),
+        fusionRepository: repository,
+        fusionService: fusionService,
+        generateBazi: (_, _) async {},
+        generateWestern: (_, _) async {},
+        loadBaziInputHash: (_) async => 'stale-input-hash',
+      );
+
+      final snapshot = await coordinator.ensureGenerated(
+        'uid-stale-bazi-retry-fusion',
+        retrySystemId: 'fusion',
+      );
+
+      expect(repository.deleteCount, 1);
+      expect(fusionCalls, 0);
+      expect(snapshot.system('fusion').isReady, isFalse);
+    });
+
     test('failed stale-chart refresh overrides the old ready state', () async {
+      final repository = _StubFusionRepository(hasFusion: true);
       final coordinator = AstrologyGenerationCoordinator(
         profileService: ProfileService.testing((_) async => _completeProfile()),
         lensProbe: _FakeLensProbe([AstrologyLens.chineseBazi.lensId]),
-        fusionRepository: _StubFusionRepository(hasFusion: false),
+        fusionRepository: repository,
         fusionService: noopFusionService(),
         generateBazi: (_, _) async => throw StateError('refresh failed'),
         generateWestern: (_, _) async {},
@@ -306,6 +377,8 @@ void main() {
 
       expect(snapshot.system('bazi').status, AstrologyGenerationStatus.failed);
       expect(snapshot.system('bazi').errorMessage, contains('refresh failed'));
+      expect(repository.deleteCount, 1);
+      expect(snapshot.system('fusion').isReady, isFalse);
     });
 
     test(
@@ -314,12 +387,13 @@ void main() {
         var baziCalls = 0;
         var westernCalls = 0;
         final probe = _FakeLensProbe(const []);
+        final repository = _StubFusionRepository(hasFusion: true);
         final coordinator = AstrologyGenerationCoordinator(
           profileService: ProfileService.testing(
             (_) async => _unknownTimeProfile(),
           ),
           lensProbe: probe,
-          fusionRepository: _StubFusionRepository(hasFusion: true),
+          fusionRepository: repository,
           fusionService: noopFusionService(),
           generateBazi: (_, profile) async {
             expect(profile.birthTime, isEmpty);
@@ -334,6 +408,7 @@ void main() {
 
         expect(baziCalls, 1);
         expect(westernCalls, 0);
+        expect(repository.deleteCount, 1);
         expect(snapshot.system('bazi').isReady, isTrue);
         expect(
           snapshot.system('western').status,
@@ -349,5 +424,36 @@ void main() {
         );
       },
     );
+
+    test('Fusion accepts only a BaZi chart matching the current profile', () {
+      final knownChart = BaziCompatibilityOwnerFixtures.chart(
+        BaziOwnerCase.known,
+      );
+      final unknownChart = BaziCompatibilityOwnerFixtures.chart(
+        BaziOwnerCase.unknown,
+      );
+
+      expect(
+        FirestoreAstrologyFusionLensProbe.isBaziFreshForProfile(
+          knownChart,
+          _completeProfile(),
+        ),
+        isTrue,
+      );
+      expect(
+        FirestoreAstrologyFusionLensProbe.isBaziFreshForProfile(
+          knownChart,
+          _unknownTimeProfile(),
+        ),
+        isFalse,
+      );
+      expect(
+        FirestoreAstrologyFusionLensProbe.isBaziFreshForProfile(
+          unknownChart,
+          _unknownTimeProfile(),
+        ),
+        isTrue,
+      );
+    });
   });
 }

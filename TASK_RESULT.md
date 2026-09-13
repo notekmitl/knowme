@@ -1,6 +1,6 @@
 # Task Result — Chinese Astrology Report V1
 
-## KnowMe BaZi Compatibility V1 — Owner-testing delivery (2026-09-12)
+## KnowMe BaZi Compatibility V1 — Fusion/PDF QA closeout (2026-09-13)
 
 **READY FOR OWNER TESTING ON STACKED DRAFT PR #122 — NOT READY FOR REVIEW,
 NOT MERGED, NOT DEPLOYED.**
@@ -8,28 +8,44 @@ NOT MERGED, NOT DEPLOYED.**
 Owner policy is implemented as a named KnowMe compatibility contract: local
 civil time in a validated IANA zone, Li Chun Year, Jie Month, `sect=2` civil
 midnight Day, no true-solar correction, and fail-closed Unknown time. The
-calculation stays deterministic under `lunar_python@1.4.8` and no AI output is
-used as chart logic.
+calculation stays deterministic under `lunar_python@1.4.8`; AI output is not
+used as chart logic or report evidence.
 
-Authenticated requests now require a Firebase bearer token, reject UID
-mismatch and write only to verified-UID paths. Input fingerprints include the
-contract version; missing, legacy or changed input regenerates BaZi. A failed
-regeneration cannot expose a stale chart. Unknown time omits Hour and
-time-dependent values and suppresses Year/Month fields that cross a boundary
+Authenticated requests require a Firebase bearer token, reject UID mismatch
+and write only to verified-UID paths. Missing, legacy or changed input
+regenerates BaZi, and failed regeneration cannot expose a stale chart. Fusion
+source versions now include the BaZi input fingerprint and detect a removed
+BaZi lens, closing the Known -> Unknown stale-lens path. Unknown time omits Hour
+and time-dependent values and suppresses Year/Month fields that cross a boundary
 within the date.
 
 The signed-in result, Owner fixture Web route and PDF/export share one canonical
 fact-only report. Old unsourced personality, strengths, work/relationship and
 prediction prose is excluded. Health/financial/legal limitations are last.
 
-Final validation passes backend **18/18**, focused Flutter **32/32**, and the
-full Flutter suite **3,043/3,043** on the Linux platform used by the inherited
-goldens. Analyzer exits 0 with 282 existing non-fatal diagnostics and no
-scoped finding. Scoped-diff proof and PDF QA are frozen in
-`docs/CHINESE_ASTROLOGY_VALIDATION_V1.md`. The Owner route supports `known`,
-`unknown`, `lichun-unknown` and `jie-unknown`; it calls no API and performs no
-data write. The `localhost` Production-bundle guard remains a separate blocker
-and was not changed.
+Authoritative Linux validation on Flutter 3.41.1 / Dart 3.11.0 passes backend
+**18/18**, focused Flutter **51/51** and full Flutter **3,049/3,049**. Analyzer
+exits 0 with 282 existing non-fatal diagnostics and no scoped finding. All 23
+tracked validation outputs rewritten by the full suite were restored
+individually; Thai source/golden and `product-acceptance/` deltas are 0.
+
+Four gate PDFs are each two A4 pages. All eight rendered pages pass visual
+inspection, Unknown fixtures contain no known time/hour value, and Poppler
+reports embedded `NotoSansSC-Regular` rather than Thin. Exact bytes and hashes
+are recorded in `docs/CHINESE_ASTROLOGY_VALIDATION_V1.md`.
+
+The Flutter 3.41.1 Web release build passes the Production endpoint validator.
+The Production API URL and `/beta/chinese` are present; loopback endpoint counts
+are 0. `main.dart.js` is 8,428,317 bytes with SHA-256
+`F30256BE2AF1725DF933ECA7D9228341BBA980D07C6FA058AC08418132AE2959`.
+The separate strict scan still finds the inherited single `localhost` hostname
+comparison and was not changed.
+
+Any later authorized release must send the bearer-capable client first and then
+enable backend UID enforcement immediately; backend-first would reject legacy
+clients. Coordinate the short overlap because the old backend rejects
+Unknown-time requests. Rollback order is backend first, then client. No release,
+Ready transition, merge or deploy is authorized by this closeout.
 
 ## Prior discovery checkpoint — superseded by Owner approval (2026-09-12)
 

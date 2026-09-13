@@ -35,6 +35,15 @@ void main() {
           output.parent.createSync(recursive: true);
           output.writeAsBytesSync(bytes, flush: true);
         }
+        final outputDirectory =
+            Platform.environment['BAZI_OWNER_PDF_DIRECTORY'];
+        if (outputDirectory != null) {
+          final output = File(
+            '$outputDirectory/knowme-bazi-${ownerCase.id}.pdf',
+          );
+          output.parent.createSync(recursive: true);
+          output.writeAsBytesSync(bytes, flush: true);
+        }
         if (ownerCase != BaziOwnerCase.known) {
           expect(report.plainText, isNot(contains('戊申')), reason: ownerCase.id);
         }

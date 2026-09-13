@@ -1,6 +1,6 @@
 # KnowMe Current Status+
 
-## KnowMe BaZi Compatibility V1 — Owner testing (2026-09-12)
+## KnowMe BaZi Compatibility V1 — Owner testing (2026-09-13)
 
 **CURRENT: READY FOR OWNER TESTING ON STACKED DRAFT PR #122; NOT READY FOR
 REVIEW, NOT MERGED AND NOT DEPLOYED.**
@@ -14,12 +14,24 @@ across the civil date. Li Chun, Jie, Chinese New Year non-boundary, leap day,
 The API verifies Firebase bearer identity, rejects body UID mismatch and writes
 only to the verified UID. Profile fingerprints force regeneration after birth
 data or contract version changes, and a failed refresh cannot display stale
-facts. Signed-in Web, `/beta/chinese` Owner fixtures and PDF/export share one
+facts. Fusion versions now incorporate the BaZi input fingerprint and detect a
+removed lens, so a Known -> Unknown edit invalidates the old hour-bearing Fusion
+snapshot. Signed-in Web, `/beta/chinese` Owner fixtures and PDF/export share one
 fact-only report with no unsourced personality or predictive prose.
+
+Authoritative Flutter 3.41.1 Linux validation passes backend **18/18**, focused
+Flutter **51/51**, full Flutter **3,049/3,049**, repository analyzer exit 0 with
+282 existing non-fatal diagnostics and scoped analyzer 0. Four two-page A4 PDFs
+were rendered as eight pages and inspected with visual defect count 0; CJK is
+embedded as static `NotoSansSC-Regular`. The release Web bundle passes the
+Production endpoint guard and contains `/beta/chinese`; its SHA-256 is
+`F30256BE2AF1725DF933ECA7D9228341BBA980D07C6FA058AC08418132AE2959`.
 
 No Thai astrology source, Thai golden, `product-acceptance/`, Production service
 or Hosting asset is in scope. The strict live-bundle `localhost` string failure
-remains separately blocked and unchanged. Exact test/PDF results are in
+remains separately blocked and unchanged. A future authorized release must put
+the bearer-capable client before backend UID enforcement and roll back backend
+before client. Exact test/PDF results are in
 `CHINESE_ASTROLOGY_VALIDATION_V1.md`.
 
 ## Prior Chinese discovery gate — superseded (2026-09-12)

@@ -1,18 +1,27 @@
 # KnowMe Roadmap+
 
-## Active project — KnowMe BaZi Compatibility V1 Owner testing (2026-09-12)
+## Active project — KnowMe BaZi Compatibility V1 Owner testing (2026-09-13)
 
 **IMPLEMENTATION AND TECHNICAL VALIDATION COMPLETE IN STACKED DRAFT PR #122;
 OWNER TESTING IS THE REMAINING GATE.**
 
 Delivered scope: explicit local-civil/Li-Chun/Jie/`sect=2`/no-true-solar
 contract, Known/Unknown fail-closed calculation, authenticated UID-bound writes,
-birth-change regeneration, canonical fact-only Web/PDF report, no-write Owner
+birth-change regeneration, Fusion Known -> Unknown stale-lens invalidation,
+canonical fact-only Web/PDF report, static Regular CJK font, no-write Owner
 fixtures, boundary/auth/leakage tests and traceability documentation.
+
+Final technical evidence uses Flutter 3.41.1 / Dart 3.11.0 on Linux: backend
+18/18, focused Flutter 51/51, full Flutter 3,049/3,049, analyzer 282 existing
+non-fatal diagnostics with scoped findings 0. Four two-page PDFs pass eight-page
+visual QA and the release Web bundle passes route/API endpoint checks. The exact
+PDF and bundle hashes are in `CHINESE_ASTROLOGY_VALIDATION_V1.md`.
 
 Next actions are limited to Owner testing.
 Only after explicit later approval may the PR become Ready or merge. Production
-deploy is a separate authorization. Unsourced interpretation expansion, luck
+deploy is a separate authorization. Any authorized rollout must release the
+bearer-capable client before backend UID enforcement and roll back backend
+before client. Unsourced interpretation expansion, luck
 cycles/timing, Thai changes, `product-acceptance/` and the existing shared-bundle
 `localhost` repair are separate future work.
 

@@ -1,7 +1,8 @@
 # Noto Sans SC
 
-Bundled file: `NotoSansSC-Regular.ttf` (the official variable-weight file is
-stored under this stable application asset name).
+Bundled file: `NotoSansSC-Regular.ttf` (a static weight-400 instance generated
+from the official variable-weight source so PDF renderers embed Regular rather
+than the source font's weight-100 default instance).
 
 Source: Google Fonts, `ofl/notosanssc/NotoSansSC[wght].ttf`:
 <https://github.com/google/fonts/tree/main/ofl/notosanssc>
