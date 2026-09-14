@@ -5,6 +5,9 @@
 **IMPLEMENTED AND VALIDATED FOR OWNER TESTING ON STACKED DRAFT PR #122 — KEEP
 DRAFT; NOT READY FOR REVIEW, NOT MERGED, NOT DEPLOYED.**
 
+Validated application commit `050379289e7c29aef3b5aee1d92d3ab2ca573b8d`,
+tree `53a084adbea5592be9f156601e289303d8ee3e6d`.
+
 The `/beta/thai` birth form now stops at a three-way choice after validation:
 Thai, Chinese BaZi, or the existing Western natal chart. Thai continues through
 the previously accepted Thai analysis unchanged. Chinese and Western require a

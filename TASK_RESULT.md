@@ -46,10 +46,10 @@ Li-Chun Unknown 3, Jie Unknown 3. Fonts are
 reader-section presence, boundary omission and Hour-leakage assertions pass.
 Visual findings for clipping, overlap, blank pages and broken glyphs are 0.
 
-Application identity is recorded by the following docs-only closeout commit
-after the runtime commit. Until then this section describes the fully validated
-working tree. Draft PR #122 must remain Draft; deployment and the inherited
-strict `localhost` guard are separate later gates.
+Validated application commit `050379289e7c29aef3b5aee1d92d3ab2ca573b8d`,
+tree `53a084adbea5592be9f156601e289303d8ee3e6d`. Draft PR #122 must
+remain Draft; deployment and the inherited strict `localhost` guard are
+separate later gates.
 
 ## Prior sourced-reading completion result (2026-09-13)
 

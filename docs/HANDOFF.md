@@ -13,6 +13,9 @@ MERGE OR DEPLOY.**
 - Reading contract: `knowme_bazi_symbolic_reading_v1`.
 - Stack dependency: Draft PR #120 at
   `4ce29747fee66d08637dbe0b16b982b17071526d`.
+- Validated application: commit
+  `050379289e7c29aef3b5aee1d92d3ab2ca573b8d`, tree
+  `53a084adbea5592be9f156601e289303d8ee3e6d`.
 
 Owner-visible behavior is now complete: the same submitted birth data leads to
 one choice screen; Thai keeps its prior result, Chinese opens a reader-first
@@ -38,8 +41,8 @@ release; adoption and legacy retirement follow later. The inherited strict
 `localhost` hostname-comparison blocker also remains. Do not change Thai
 calculation/report/goldens or `product-acceptance/` while resolving either.
 
-Application commit/tree and the final remote Draft HEAD are recorded by the
-docs-only closeout commit after the validated runtime commit.
+The final remote Draft HEAD is the docs-only closeout layered over the validated
+application commit above.
 
 ## Prior sourced-reading handoff (2026-09-13)
 

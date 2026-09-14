@@ -6,6 +6,9 @@
 IMPLEMENTED AND VALIDATED ON STACKED DRAFT PR #122; NOT READY, MERGED OR
 DEPLOYED.**
 
+Validated application commit `050379289e7c29aef3b5aee1d92d3ab2ca573b8d`,
+tree `53a084adbea5592be9f156601e289303d8ee3e6d`.
+
 Submitting the birth form at `/beta/thai` now opens one choice screen for Thai,
 Chinese BaZi and Western astrology. Choosing Thai runs the existing accepted
 Thai path. Chinese and Western verify authentication, map the same birth input

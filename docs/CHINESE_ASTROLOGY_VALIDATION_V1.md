@@ -4,9 +4,9 @@
 
 **Date:** 2026-09-14
 
-**Validated application:** the runtime commit containing the post-form chooser,
-versioned API migration and natal-reading expansion; exact commit/tree are
-recorded in the final docs-only closeout.
+**Validated application:** commit
+`050379289e7c29aef3b5aee1d92d3ab2ca573b8d`, tree
+`53a084adbea5592be9f156601e289303d8ee3e6d`.
 
 ## Coverage statement
 

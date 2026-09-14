@@ -9,9 +9,9 @@ not merged, not deployed
 
 **Interpretation contract:** `knowme_bazi_symbolic_reading_v1`
 
-**Validated application:** the runtime commit containing the 2026-09-14
-three-system handoff and natal-reading expansion; its exact commit/tree are
-recorded in the final docs-only closeout.
+**Validated application:** commit
+`050379289e7c29aef3b5aee1d92d3ab2ca573b8d`, tree
+`53a084adbea5592be9f156601e289303d8ee3e6d`.
 
 ## What the system actually uses
 
