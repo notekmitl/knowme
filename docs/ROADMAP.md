@@ -1,6 +1,34 @@
 # KnowMe Roadmap+
 
-## Active project — Owner QA for chooser + BaZi natal reading (2026-09-14)
+## Active release operation — deploy merged BaZi V1 (2026-09-14)
+
+**PR #120 AND PR #122 ARE MERGED; NO PRODUCT OR ENGINEERING DECISION REMAINS
+FOR BAIZI V1. PRODUCTION DEPLOYMENT IS THE ONLY OPEN RELEASE OPERATION.**
+
+Release source is exact `main` commit
+`664c8656a2028cf266745f9c1c3a0567989266ec`, tree
+`bee0a7c8ea07035920bc58b2524aa9b68ab96df6`. Fresh backend 22/22,
+focused Flutter 79/79, full Flutter 3,070/3,070, analyzer and Production Web
+build gates pass. The production endpoint guard reports zero forbidden
+loopback endpoints; the previous blocker is closed because the single
+`localhost` literal is a hostname-mode comparison.
+
+The Owner authorized deployment, but this runner could not establish a
+supported Google Cloud CLI credential and its network denied both Cloud Console
+and standalone Cloud Shell. No Cloud Run, Hosting, Firestore or Firebase-data
+mutation occurred. Continue from an authenticated runner:
+
+1. deploy `backend/` to `knowme-astrology-api` in `asia-southeast1` from
+   `664c8656`;
+2. smoke-test health, missing-token rejection and authenticated UID binding;
+3. build Web against the Production API with `public_beta` and cache pin
+   `664c865`; and
+4. deploy Firebase Hosting only.
+
+Adoption observation and later legacy-Western retirement remain separate
+follow-up work. Future BaZi V2 also remains separately sourced and versioned.
+
+## Prior active project — Owner QA for chooser + BaZi natal reading (2026-09-14)
 
 **IMPLEMENTATION AND TECHNICAL VALIDATION ARE COMPLETE IN STACKED DRAFT PR
 #122. OWNER READING QA IS THE REMAINING PRODUCT GATE.**

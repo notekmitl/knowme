@@ -1,13 +1,22 @@
 # KnowMe Current Status+
 
-## Chinese result is now a reader-facing natal report (2026-09-14)
+## BaZi V1 merged; Production deploy needs an authenticated runner (2026-09-14)
 
-**CURRENT: THREE-SYSTEM POST-FORM CHOICE AND USEFUL BAIZI NATAL READING ARE
-IMPLEMENTED AND VALIDATED ON STACKED DRAFT PR #122; NOT READY, MERGED OR
-DEPLOYED.**
+**CURRENT: PR #120 AND PR #122 ARE MERGED TO `main`. THE BAIZI V1 RELEASE
+CANDIDATE IS VALIDATED, BUT THIS CLOSEOUT DID NOT DEPLOY CLOUD RUN OR FIREBASE
+HOSTING BECAUSE THE RUNNER COULD NOT COMPLETE A SUPPORTED GOOGLE CLOUD CLI
+SESSION AND CLOUD CONSOLE/CLOUD SHELL WERE BLOCKED BY ITS NETWORK POLICY.**
 
-Validated application commit `050379289e7c29aef3b5aee1d92d3ab2ca573b8d`,
-tree `53a084adbea5592be9f156601e289303d8ee3e6d`.
+- PR #120 merge: `d8245cd29e94641151988da33800670acbb8866a`.
+- PR #122 merge: `664c8656a2028cf266745f9c1c3a0567989266ec`.
+- PR #122 application tree: `bee0a7c8ea07035920bc58b2524aa9b68ab96df6`.
+
+The Owner authorized Ready, merge and Production release. Both PR transitions
+and merges completed. The remaining action is operational only: from an
+authenticated Google Cloud/Firebase runner, deploy the backend from exact
+`main` commit `664c8656`, verify `/health` plus authenticated v1 rejection/
+UID-binding behavior, then build and deploy Hosting from that same commit.
+Do not deploy Firestore rules; this release contains no rules change.
 
 Submitting the birth form at `/beta/thai` now opens one choice screen for Thai,
 Chinese BaZi and Western astrology. Choosing Thai runs the existing accepted
@@ -26,19 +35,25 @@ claim timed events or label surface counts as strength, favourability or fate.
 Li-Chun/Jie boundary-partial Unknown omits all whole-chart life-area readings.
 
 Authenticated versioned BaZi and Western endpoints and bearer-capable clients
-are now implemented in the branch. They have not been deployed. Compatibility
-routes remain during rollout; the existing BaZi compatibility route is still
-authenticated, while the pre-existing Western legacy route remains isolated
-from the new client. Required release order is backend v1, then client,
+are now merged to `main`. They have not been deployed by this closeout.
+Compatibility routes remain during rollout; the existing BaZi compatibility
+route is still authenticated, while the pre-existing Western legacy route
+remains isolated from the new client. Required release order is backend v1, then client,
 adoption verification, then separately authorized legacy retirement.
 
-Final validation on Flutter 3.41.1 / Dart 3.11.0: backend **22/22**, focused
+Fresh closeout validation on Flutter 3.41.1 / Dart 3.11.0: backend **22/22**, focused
 Flutter **79/79**, full Flutter **3,070/3,070**, full analyzer exit 0 with 282
-inherited non-fatal diagnostics and scoped diagnostics 0. The Web release build
-passes route/API scans at 8,511,596 bytes and SHA-256
-`B0C183CBB39FFB965DD2DC7CC53E2B6E7FDF8FFCB89E5EADE0221B1BDA95FD9A`.
-Actual loopback URL and forbidden-service/secret findings are 0; the inherited
-single `localhost` hostname comparison remains a separate strict-policy blocker.
+inherited non-fatal diagnostics. The Web release build passes route/API scans
+at 8,511,604 bytes and SHA-256
+`ee11caf2001c75aa86f9cb0018e893d0d76f60ea479d35c8a7a818071e3b874d`.
+Production API and both v1 paths are present. Forbidden loopback endpoint
+patterns are 0. The sole `localhost` literal is the existing
+`window.location.hostname == "localhost"` host-mode comparison, not an API
+endpoint; the repository's production endpoint guard passes, so the prior
+strict-policy blocker is closed by contextual classification.
+
+No new Cloud Run revision, Firebase Hosting release, Firestore rules change or
+Firebase data mutation occurred during this closeout attempt.
 
 The final Known/Unknown/Li-Chun/Jie PDFs are 5/4/3/3 A4 pages. All 15 pages
 were inspected with no missing text, broken Thai/Chinese glyph, clipping,
