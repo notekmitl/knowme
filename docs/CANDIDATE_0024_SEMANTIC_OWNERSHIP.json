@@ -1,0 +1,68 @@
+{
+  "schema": "candidate-0024-semantic-ownership/1",
+  "status": "PASS_PENDING_OWNER_COPY_REVIEW",
+  "intentionalSummaryToDetail": [
+    {
+      "summaryId": "C24-OVERVIEW-01",
+      "detailDestinationIds": [
+        "C24-PAST-0-10-01",
+        "C24-PAST-0-10-02"
+      ]
+    },
+    {
+      "summaryId": "C24-OVERVIEW-02",
+      "detailDestinationIds": [
+        "C24-PAST-11-29-01",
+        "C24-PAST-11-29-02"
+      ]
+    },
+    {
+      "summaryId": "C24-OVERVIEW-03",
+      "detailDestinationIds": [
+        "C24-PAST-30-41-01",
+        "C24-PAST-30-41-02"
+      ]
+    },
+    {
+      "summaryId": "C24-OVERVIEW-04",
+      "detailDestinationIds": [
+        "C24-CURRENT-01"
+      ]
+    },
+    {
+      "summaryId": "C24-OVERVIEW-05",
+      "detailDestinationIds": [
+        "C24-CURRENT-02",
+        "C24-CURRENT-03"
+      ]
+    },
+    {
+      "summaryId": "C24-OVERVIEW-07",
+      "detailDestinationIds": [
+        "C24-WORK-01",
+        "C24-WORK-02",
+        "C24-FINANCE-01",
+        "C24-FINANCE-02",
+        "C24-RELATIONSHIP-01",
+        "C24-RELATIONSHIP-02",
+        "C24-SUPPORT-01",
+        "C24-SUPPORT-02"
+      ]
+    },
+    {
+      "summaryId": "C24-HORIZON-02",
+      "detailDestinationIds": [
+        "C24-HORIZON-03",
+        "C24-HORIZON-04"
+      ]
+    }
+  ],
+  "intentionalSummaryCount": 7,
+  "detailDestinationLinkCount": 19,
+  "missingOwnerCount": 0,
+  "missingDestinationCount": 0,
+  "exactSameLevelDuplicateCount": 0,
+  "humanReviewedSameLevelSemanticDuplicateCount": 0,
+  "currentToRolling12DuplicateCount": 0,
+  "note": "Summary-to-detail is allowed only when a high-level preview points to named details and does not repeat their wording."
+}

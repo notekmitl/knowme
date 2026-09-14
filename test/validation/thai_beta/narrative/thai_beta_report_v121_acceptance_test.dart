@@ -437,7 +437,10 @@ void main() {
           find.text(ThaiBetaNarrativeV12.strengthsSectionTitle),
           findsNothing,
         );
-        expect(find.text('คำทำนายปัจจุบัน — อายุ 44 ปี'), findsOneWidget);
+        expect(
+          find.textContaining('คำทำนายปัจจุบัน — อายุ 44 ปี · ดาว'),
+          findsOneWidget,
+        );
         expect(find.text('ช่วงปัจจุบัน'), findsNothing);
         expect(find.textContaining('137'), findsNothing);
         expect(
@@ -458,7 +461,10 @@ void main() {
         find.byKey(const Key('thai_consumer_signature_insight')),
         findsNothing,
       );
-      expect(find.text('คำทำนายปัจจุบัน — อายุ 44 ปี'), findsOneWidget);
+      expect(
+        find.textContaining('คำทำนายปัจจุบัน — อายุ 44 ปี · ดาว'),
+        findsOneWidget,
+      );
       expect(find.text('ช่วงปัจจุบัน'), findsNothing);
       expect(tester.takeException(), isNull);
     });

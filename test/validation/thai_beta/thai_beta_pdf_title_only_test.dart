@@ -1,5 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
+
+import 'package:crypto/crypto.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_analysis.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_report_export_document.dart';
@@ -105,20 +107,78 @@ void main() {
       final doc = ThaiBetaReportExportDocument.candidate(
         ThaiBetaAnalysisRunner.run(input, startedAt: asOf, asOf: asOf),
       );
-      final baseline = jsonDecode(
-        File(
-          'test/evidence/fixtures/or5r_known_baseline.json',
-        ).readAsStringSync(),
-      )['35'];
-      expect([
-        for (final s in doc.sections)
-          {
-            'id': s.id,
-            'title': s.title,
-            'paragraphs': s.paragraphs,
-            'traceIds': s.traceIds,
-          },
-      ], baseline['sections']);
+      final baselineFile = File(
+        'test/evidence/fixtures/or5r_known_baseline.json',
+      );
+      expect(
+        sha256.convert(baselineFile.readAsBytesSync()).toString(),
+        '91b71e6689193ee8c5cbd2604f24f139d380b9994a94437f4135fd42019cd998',
+        reason: 'The pre-repair OR5R reader baseline must remain immutable',
+      );
+      final plan = doc.predictiveRuntimeV2!;
+      final activePredictiveTraceIds = {
+        for (final section in doc.sections) ...section.traceIds,
+      }.where((traceId) => traceId.startsWith('PRV2-')).toSet();
+      final expectedReaderTraceIds = plan.emittedClaims
+          .where((claim) => claim.rule.semanticOwner != 'overview')
+          .map((claim) => claim.rule.id)
+          .toSet();
+      expect(
+        activePredictiveTraceIds,
+        expectedReaderTraceIds,
+        reason:
+            'Reader layout may regroup sections but must retain every displayed authority binding',
+      );
+      expect(plan.usesCandidate0028ReaderCopy, isFalse);
+      expect(plan.usesCandidate0029ReaderCopy, isTrue);
+      expect(
+        doc.sections.map((section) => section.title),
+        containsAllInOrder(const [
+          'คำทำนายอดีต',
+          'ตั้งแต่เกิดจนถึง 10 ปี · ดาวเสาร์เสวยอายุ',
+          'อายุ 11–29 ปี · ดาวพฤหัสบดีเสวยอายุ',
+          'อายุ 30–41 ปี · ดาวราหูเสวยอายุ',
+          'คำทำนายปัจจุบัน — อายุ 44 ปี · ดาวศุกร์เสวยอายุ',
+          'คำทำนาย 12 เดือนข้างหน้า',
+          'คำแนะนำ',
+          'ข้อจำกัด',
+        ]),
+      );
+      final current = doc.sections.singleWhere(
+        (section) => section.id == 'report-body-predictive-v2-current',
+      );
+      expect(current.paragraphs, hasLength(6));
+      expect(current.paragraphs[0], startsWith('ปัจจุบันอายุ 44 ปี'));
+      expect(current.paragraphs[1], startsWith('ด้านการงาน'));
+      expect(current.paragraphs[2], startsWith('ด้านการเงิน'));
+      expect(current.paragraphs[3], startsWith('ด้านความรักและความสัมพันธ์'));
+      expect(current.paragraphs[4], startsWith('ด้านสุขภาพ'));
+      expect(current.paragraphs[5], startsWith('ด้านโชคลาภและแรงสนับสนุน'));
+      final currentUnits =
+          ThaiBetaReportPdfExporter.debugPaginationUnitsForTest(current);
+      expect(currentUnits, hasLength(1));
+      expect(currentUnits.single.split('\n'), hasLength(7));
+      final titles = doc.sections.map((section) => section.title).toList();
+      expect(titles.last, 'ข้อจำกัด');
+      expect(
+        titles.indexOf('ข้อจำกัด'),
+        greaterThan(titles.indexOf('ที่มาของผลวิเคราะห์')),
+      );
+      final chart = doc.sections.singleWhere(
+        (section) => section.title == 'โครงสร้างดวงหลัก',
+      );
+      expect(chart.paragraphs, hasLength(7));
+      expect(
+        chart.paragraphs.any((paragraph) => paragraph.contains(' — ')),
+        isFalse,
+      );
+      expect(
+        doc.fullPlainText,
+        isNot(contains('ความหมายและข้อจำกัดของผลลัพธ์')),
+      );
+      expect(doc.fullPlainText, contains('เวลา 00:35 น. จังหวัดเชียงใหม่'));
+      expect(doc.fullPlainText, contains('วันทางโหราศาสตร์เป็นวันเสาร์'));
+      expect(doc.fullPlainText, contains('ลัคนาราศีกุมภ์ 19°19′'));
       final output = Directory(
         Platform.environment['OR5R_PDF_TEST_OUTPUT'] ??
             'build/or5r-title-only-regression',

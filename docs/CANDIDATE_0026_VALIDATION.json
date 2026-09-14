@@ -1,0 +1,145 @@
+{
+  "schema": "candidate-0026-reader-voice-validation/1",
+  "status": "PASS_PENDING_OWNER_NATURAL_LANGUAGE_AND_EDITORIAL_INTERPRETATION_REVIEW",
+  "candidate": "Candidate 0026 actual 00:35",
+  "revisionBaseHead": "f0817d5ec6e6d1a292a4455e0d209eca3506aa47",
+  "asOf": "2026-09-09 Asia/Bangkok",
+  "exactGoldenCreated": false,
+  "sentenceEntries": 53,
+  "distinctMeaningUnits": 54,
+  "intentionalSummaryRelations": 7,
+  "summaryDestinationLinks": 13,
+  "editorialInterpretationsPending": 5,
+  "sameLevelReaderPerceivedDuplicates": 0,
+  "blockedClaims": 6,
+  "sectionSentenceCounts": {
+    "ข้อมูลดวง": 3,
+    "ภาพรวมเส้นทางชีวิต": 6,
+    "อายุ 0–10 ปี": 2,
+    "อายุ 11–29 ปี": 2,
+    "อายุ 30–41 ปี": 2,
+    "คำทำนายปัจจุบัน — อายุ 44 ปี": 1,
+    "การงาน": 2,
+    "การเงิน": 2,
+    "ความรักและความสัมพันธ์": 2,
+    "สุขภาพ": 2,
+    "โชคลาภและแรงสนับสนุน": 2,
+    "คำทำนาย 12 เดือนข้างหน้า": 4,
+    "คำแนะนำ": 2,
+    "ข้อจำกัด": 2,
+    "พื้นดวงและมุมมองด้านจิตวิทยา": 1,
+    "ลักษณะพื้นฐาน": 2,
+    "ที่มาและวิธีอ่าน": 1,
+    "รายงานนี้ดูจากอะไร": 6,
+    "โครงสร้างดวงหลัก": 7,
+    "ที่มาของผลวิเคราะห์": 2
+  },
+  "counters": {
+    "reader_methodology_leakage": 0,
+    "defensive_scope_caveat_in_prediction": 0,
+    "repeated_interpretation_lead_in": 0,
+    "evidence_audit_language_in_reader_copy": 0,
+    "prediction_interrupted_by_validator_explanation": 0,
+    "reader_perceived_formula_repetition": 0,
+    "unsupported_claim": 0,
+    "unsupported_event": 0,
+    "unsupported_causal_link": 0,
+    "timing_mismatch": 0,
+    "domain_mismatch": 0,
+    "advice_disguised_as_prediction": 0,
+    "personality_disguised_as_prediction": 0,
+    "same_level_reader_perceived_duplicate": 0,
+    "summary_owner_missing": 0,
+    "summary_destination_missing": 0,
+    "editorial_support_missing": 0,
+    "editorial_decision_missing": 0,
+    "known_003_0035_predictive_body_mismatch": 0,
+    "unknown_leakage": 0,
+    "authority_gap": 0
+  },
+  "negativeControls": {
+    "total": 6,
+    "rejected": 6,
+    "missed": 0,
+    "arbitrarySimilarityThresholdUsed": false,
+    "results": [
+      {
+        "id": "NC26-01",
+        "counter": "reader_methodology_leakage",
+        "text": "ในชีวิตประจำวัน ภาพนี้อาจหมายถึงคุณมีพื้นที่รับมือรายจ่ายจำเป็นได้สบายมือขึ้น แต่ไม่ได้ระบุจำนวนหรือที่มาของเงิน",
+        "rejected": true,
+        "reason": "The amount/source audit boundary interrupts the finance prediction and belongs in evidence documentation."
+      },
+      {
+        "id": "NC26-02",
+        "counter": "defensive_scope_caveat_in_prediction",
+        "text": "ในชีวิตประจำวัน ภาพนี้อาจหมายถึงความสัมพันธ์เหล่านั้นเป็นพื้นที่ที่คุณไว้วางใจได้มากขึ้น โดยไม่ได้ชี้ว่าจะมีคนใหม่หรือเกิดเหตุการณ์ความรักแบบใดโดยเฉพาะ",
+        "rejected": true,
+        "reason": "The new-person/event defense reads as reviewer guidance rather than an astrologer speaking to the reader."
+      },
+      {
+        "id": "NC26-03",
+        "counter": "repeated_interpretation_lead_in",
+        "text": "ในชีวิตประจำวัน ภาพนี้อาจหมายถึง",
+        "rejected": true,
+        "reason": "Candidate 0025 repeats the same interpretation lead-in across finance and relationship."
+      },
+      {
+        "id": "NC26-04",
+        "counter": "evidence_audit_language_in_reader_copy",
+        "text": "ในชีวิตประจำวัน แรงหนุนนี้อาจปรากฏเป็นคนที่ช่วยให้มุมมองหรือช่วยประคองเรื่องที่กำลังรับมือ โดยไม่ได้ระบุว่าความช่วยเหลือนั้นจะนำไปสู่ผลลัพธ์ใด",
+        "rejected": true,
+        "reason": "The no-result assertion is evidence-audit language placed inside support reader copy."
+      },
+      {
+        "id": "NC26-05",
+        "counter": "prediction_interrupted_by_validator_explanation",
+        "text": "ส่วนรายรับ ให้เข้าใจเพียงแนวโน้มว่าจะเพิ่มขึ้นในช่วงดังกล่าว โดยไม่ได้ระบุจำนวน ที่มา หรือผูกว่าการเพิ่มนี้เกิดจากงาน",
+        "rejected": true,
+        "reason": "The sentence tells the reader how to constrain validation instead of continuing the forecast naturally."
+      },
+      {
+        "id": "NC26-06",
+        "counter": "reader_perceived_formula_repetition",
+        "text": "ในชีวิตประจำวัน ภาพนี้อาจหมายถึง … ในชีวิตประจำวัน ภาพนี้อาจหมายถึง",
+        "rejected": true,
+        "reason": "Two domains use the same framing formula; the repetition is deterministic and visible without a similarity threshold."
+      }
+    ]
+  },
+  "surgicalScope": {
+    "changedReaderSections": [
+      "การงาน",
+      "การเงิน",
+      "ความรักและความสัมพันธ์",
+      "โชคลาภและแรงสนับสนุน",
+      "คำทำนาย 12 เดือนข้างหน้า"
+    ],
+    "unexpectedChangedReaderSections": 0
+  },
+  "fixtureParity": {
+    "known003Ascendant": "Aquarius 9°24′",
+    "known0035Ascendant": "Aquarius 19°19′",
+    "predictiveBodyMismatch": 0,
+    "fixtureSpecificPredictiveTokenHits": 0,
+    "unknownLeakage": 0
+  },
+  "historicalProtection": {
+    "candidate0011Unchanged": true,
+    "candidate0023Unchanged": true,
+    "candidate0024Unchanged": true,
+    "candidate0025Unchanged": true,
+    "candidate0025OwnerDecision": "OWNER-REJECTED — METHODOLOGY AND DEFENSIVE CAVEAT LEAKAGE IN READER COPY"
+  },
+  "protectedDelta": {
+    "libRuntimeGeneratorUiExportPdf": 0,
+    "flutterTests": 0,
+    "productAcceptance": 0,
+    "firebaseProduction": 0,
+    "buildArtifacts": 0
+  },
+  "ownerStatus": "PENDING OWNER NATURAL-LANGUAGE AND EDITORIAL-INTERPRETATION REVIEW",
+  "implemented": false,
+  "merged": false,
+  "deployed": false
+}

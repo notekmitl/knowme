@@ -47,9 +47,15 @@ void main() {
     );
     expect(find.text('คำทำนายอดีต'), findsOneWidget);
     expect(find.text('อดีตของคุณ'), findsNothing);
-    expect(find.text('คำทำนายปัจจุบัน — อายุ 44 ปี'), findsOneWidget);
+    expect(
+      find.textContaining('คำทำนายปัจจุบัน — อายุ 44 ปี · ดาว'),
+      findsOneWidget,
+    );
     expect(find.text('ช่วงปัจจุบัน'), findsNothing);
-    expect(find.text('ช่วงชีวิตถัดไป — อายุ 47–65 ปี'), findsOneWidget);
+    expect(
+      find.textContaining('ช่วงชีวิตถัดไป — อายุ 47–65 ปี · ดาว'),
+      findsOneWidget,
+    );
     expect(find.text('เรื่องสำคัญของช่วงนี้'), findsNothing);
     expect(find.text('จังหวะชีวิตระยะต่อไป'), findsNothing);
   }
@@ -96,9 +102,15 @@ void main() {
       );
       expect(find.text('คำทำนายอดีต'), findsOneWidget);
       expect(find.text('อดีตของคุณ'), findsNothing);
-      expect(find.text('คำทำนายปัจจุบัน — อายุ 44 ปี'), findsOneWidget);
+      expect(
+        find.textContaining('คำทำนายปัจจุบัน — อายุ 44 ปี · ดาว'),
+        findsOneWidget,
+      );
       expect(find.text('ช่วงปัจจุบัน'), findsNothing);
-      expect(find.text('ช่วงชีวิตถัดไป — อายุ 47–65 ปี'), findsOneWidget);
+      expect(
+        find.textContaining('ช่วงชีวิตถัดไป — อายุ 47–65 ปี · ดาว'),
+        findsOneWidget,
+      );
       expect(find.text('เรื่องสำคัญของช่วงนี้'), findsNothing);
       expect(find.text('จังหวะชีวิตระยะต่อไป'), findsNothing);
       expect(tester.takeException(), isNull);

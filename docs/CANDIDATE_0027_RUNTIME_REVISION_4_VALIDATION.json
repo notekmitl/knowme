@@ -1,0 +1,95 @@
+{
+  "schemaVersion": 1,
+  "candidate": "0027",
+  "revision": 4,
+  "date": "2026-09-11",
+  "status": "PASS_READY_FOR_OWNER_TESTING_NOT_ACCEPTED_NOT_DEPLOYED",
+  "implementationCommit": "772f69dbb6f7b0ad81d25a26a4b7303b2c827264",
+  "fixture": {
+    "birthDate": "1982-06-06",
+    "birthTime": "00:35",
+    "province": "เชียงใหม่",
+    "gender": "ชาย",
+    "thaiAstrologicalDay": "วันเสาร์",
+    "ascendant": "ราศีกุมภ์ 19°19′",
+    "asOf": "2026-09-09",
+    "timezone": "Asia/Bangkok"
+  },
+  "runtime": {
+    "authorityComponentSet": "candidate-0023",
+    "readerRealizer": "candidate-0027-reader-copy-v1",
+    "emittedClaims": 13,
+    "emittedPredictions": 11,
+    "knownContexts": 49,
+    "periodRows": 392,
+    "deterministicProfiles": 300,
+    "unknownFailClosed": true,
+    "fixtureOverrides": 0,
+    "newAuthoritySources": 0
+  },
+  "validation": {
+    "focusedCandidateRuntime": {
+      "passed": 17,
+      "failed": 0
+    },
+    "exportRegression": {
+      "passed": 58,
+      "failed": 0
+    },
+    "pdfTitleAndFieldRegression": {
+      "passed": 4,
+      "failed": 0
+    },
+    "or5AuthorityProjection": {
+      "passed": 1,
+      "failed": 0
+    },
+    "nodeFoundationAndSignature": {
+      "passed": 9,
+      "failed": 0
+    },
+    "candidateValidators": {
+      "0024": "PASS_11_OF_11_CONTROLS",
+      "0025": "PASS_6_OF_6_CONTROLS",
+      "0026": "PASS_6_OF_6_CONTROLS",
+      "0027": "PASS_6_OF_6_OWNERSHIP_15_OF_15_CONTROLS"
+    },
+    "fullFlutterSuite": {
+      "passed": 3024,
+      "failed": 0
+    },
+    "fullAnalyzer": {
+      "exitCode": 0,
+      "warningAndInfoDiagnostics": 298,
+      "errors": 0
+    },
+    "changedFileAnalyzer": {
+      "issues": 0
+    },
+    "diffCheck": "PASS"
+  },
+  "historicalProtection": {
+    "or5rKnownBaselineSha256": "91B71E6689193EE8C5CBD2604F24F139D380B9994A94437F4135FD42019CD998",
+    "baselineRegenerated": false,
+    "historicalCandidatesChanged": 0
+  },
+  "ownerReviewPdf": {
+    "fileName": "KnowMe_Candidate_0027_Runtime_Revision_4_Owner_Review_0035.pdf",
+    "pages": 5,
+    "pageSize": "A4",
+    "sizeBytes": 331703,
+    "sha256": "EA15C74C87B4825B25A48C423E9ED28636CCEE15B90D51B407AC1A1931712362",
+    "renderedPagesInspected": 5,
+    "visualDefects": 0
+  },
+  "deliveryBoundary": {
+    "pullRequest": 120,
+    "draft": true,
+    "ownerAccepted": false,
+    "exactCandidateGoldenCreated": false,
+    "readyForReview": false,
+    "merged": false,
+    "productionDeployed": false,
+    "productAcceptanceChanged": false
+  }
+}

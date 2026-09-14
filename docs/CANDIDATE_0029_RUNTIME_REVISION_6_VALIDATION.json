@@ -1,0 +1,110 @@
+{
+  "schemaVersion": 1,
+  "candidate": "0029",
+  "revision": 6,
+  "date": "2026-09-11",
+  "status": "PASS_READY_FOR_OWNER_TESTING_ONLY",
+  "pullRequest": {
+    "number": 120,
+    "state": "OPEN",
+    "draft": true,
+    "ownerAccepted": false,
+    "readyForReview": false,
+    "merged": false,
+    "deployed": false
+  },
+  "runtime": {
+    "flutter": "3.41.1",
+    "dart": "3.11.0",
+    "timezone": "Asia/Bangkok"
+  },
+  "ownerFeedback": {
+    "candidate0028Historical": true,
+    "currentParagraphs": 6,
+    "currentDomainSubheadings": 0,
+    "currentInlineDomainLeads": 5,
+    "partneredReaderCovered": true,
+    "singleReaderCovered": true,
+    "unsupportedNewPersonPromise": false,
+    "limitationsFinalReportSection": true,
+    "limitationsAfterAnalysisSource": true,
+    "healthDisclaimerFinalLine": true,
+    "pastAndPlanetCorrectionsPreserved": true,
+    "rolling12EmphasisPreserved": true,
+    "mainChartFactRows": 7,
+    "mainChartExplanatoryTails": 0
+  },
+  "tests": {
+    "candidateRuntime": {
+      "passed": 18,
+      "failed": 0
+    },
+    "exportDocument": {
+      "passed": 59,
+      "failed": 0
+    },
+    "pdfTitleAndFieldIntegrity": {
+      "passed": 4,
+      "failed": 0
+    },
+    "combinedFocusedFlutter": {
+      "passed": 81,
+      "failed": 0
+    },
+    "or5EvidenceProjection": {
+      "passed": 5,
+      "failed": 0
+    },
+    "pdfArtifactGeneration": {
+      "passed": 3,
+      "failed": 0
+    },
+    "nodeFoundationAndSignature": {
+      "passed": 9,
+      "failed": 0
+    },
+    "candidateValidators": {
+      "from": "0024",
+      "through": "0029",
+      "status": "PASS"
+    },
+    "fullFlutterSuite": {
+      "passed": 3026,
+      "failed": 0
+    },
+    "changedScopeAnalyzerIssues": 0,
+    "repositoryAnalyzer": {
+      "exitCode": 0,
+      "historicalWarningInfoDiagnostics": 297
+    }
+  },
+  "hashes": {
+    "candidate0029Sha256": "b1b1fd238d7e5be7d18397af0008a4d29f43dd2def85f834f10aeb430b6ac0d1",
+    "candidate0028HistoricalSha256": "53f4a8dea71caae7ec19cbdc3e359b560c3b260285631804932ed3b40a1c1798"
+  },
+  "ownerReviewPdf": {
+    "filename": "KnowMe_Candidate_0029_Runtime_Revision_6_Owner_Review_0003.pdf",
+    "fixture": "known-00:03-Chiang-Mai",
+    "asOf": "2026-09-11",
+    "timezone": "Asia/Bangkok",
+    "pages": 5,
+    "bytes": 333750,
+    "sha256": "acc141f1eeae6d9579172fdcd17b779bb5b39da049f5e36e835a4edc93a2dd1e",
+    "visualQa": {
+      "pagesInspected": 5,
+      "missingText": 0,
+      "brokenThaiGlyphs": 0,
+      "clipping": 0,
+      "overlap": 0,
+      "overflow": 0,
+      "blankPages": 0
+    }
+  },
+  "scope": {
+    "selectorChanged": false,
+    "evidenceAuthorityChanged": false,
+    "canonChanged": false,
+    "productAcceptanceChanged": false,
+    "productionChanged": false
+  }
+}

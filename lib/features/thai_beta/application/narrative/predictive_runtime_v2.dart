@@ -460,6 +460,9 @@ class ThaiPredictiveRuntimeV2Plan {
       : const {};
   String get generationPath =>
       'predictive-runtime-v2:signature+392-selector+typed-material+editorial-contract-v2';
+
+  /// The underlying source/evidence component set first accepted with
+  /// Candidate 0023 remains the authority boundary for this signature.
   bool get usesCandidate0023Components {
     final emitted = emittedClaims;
     return knownTime &&
@@ -470,8 +473,12 @@ class ThaiPredictiveRuntimeV2Plan {
                   decision.rule.kind == RuntimePredictiveKind.prediction,
             )
             .every(
-              (decision) =>
-                  decision.rule.realizerId == 'candidate-0023-component-v1',
+              (decision) => const {
+                'candidate-0023-component-v1',
+                'candidate-0027-reader-copy-v1',
+                'candidate-0028-reader-copy-v1',
+                'candidate-0029-reader-copy-v1',
+              }.contains(decision.rule.realizerId),
             ) &&
         emittedSemanticOwners.containsAll(const {
           'overview',
@@ -489,6 +496,49 @@ class ThaiPredictiveRuntimeV2Plan {
           'disclosure',
         });
   }
+
+  /// Candidate 0027 changes only the reader realization for the accepted
+  /// Candidate 0023 component/evidence set. It does not introduce a
+  /// fixture-specific selector or a new authority source.
+  bool get usesCandidate0027ReaderCopy =>
+      usesCandidate0023Components &&
+      emittedClaims
+          .where(
+            (decision) =>
+                decision.rule.kind == RuntimePredictiveKind.prediction,
+          )
+          .every(
+            (decision) =>
+                decision.rule.realizerId == 'candidate-0027-reader-copy-v1',
+          );
+
+  /// Candidate 0028 is the Owner-directed reader and layout revision that
+  /// follows Candidate 0027 while retaining the same selector/evidence set.
+  bool get usesCandidate0028ReaderCopy =>
+      usesCandidate0023Components &&
+      emittedClaims
+          .where(
+            (decision) =>
+                decision.rule.kind == RuntimePredictiveKind.prediction,
+          )
+          .every(
+            (decision) =>
+                decision.rule.realizerId == 'candidate-0028-reader-copy-v1',
+          );
+
+  /// Candidate 0029 applies the Owner's final-section and continuous-current
+  /// corrections while retaining the Candidate 0023 authority boundary.
+  bool get usesCandidate0029ReaderCopy =>
+      usesCandidate0023Components &&
+      emittedClaims
+          .where(
+            (decision) =>
+                decision.rule.kind == RuntimePredictiveKind.prediction,
+          )
+          .every(
+            (decision) =>
+                decision.rule.realizerId == 'candidate-0029-reader-copy-v1',
+          );
 
   static String contextIdForMetadata(int remainder, int thaiWeekdayNumber) {
     if (remainder < 0 || remainder > 6) return 'mahabhut2537.unresolved';
@@ -538,6 +588,9 @@ class ThaiPredictiveRuntimeV2Plan {
     'generationPath': generationPath,
     'predictiveSignature': predictiveSignature,
     'usesCandidate0023Components': usesCandidate0023Components,
+    'usesCandidate0027ReaderCopy': usesCandidate0027ReaderCopy,
+    'usesCandidate0028ReaderCopy': usesCandidate0028ReaderCopy,
+    'usesCandidate0029ReaderCopy': usesCandidate0029ReaderCopy,
     'monthlyTimelineAvailable': monthlyTimelineAvailable,
     'emittedPredictions': emittedPredictions,
     'emittedClaimCount': emittedClaims.length,
@@ -558,9 +611,9 @@ class ThaiPredictiveRuntimeV2Plan {
   };
 }
 
-/// Accepted non-predictive sections that accompany the Candidate 0023
-/// predictive component set. These are deliberately separate semantic
-/// components rather than a static full-report shortcut.
+/// Non-predictive sections shared by Candidate 0023 and Candidate 0027.
+/// These remain separate semantic components rather than a static
+/// full-report shortcut.
 abstract final class RuntimeCandidate0023SupportingCopy {
   static const psychologySeparationTitle = 'พื้นดวงและมุมมองด้านจิตวิทยา';
   static const psychologySeparationText =
@@ -734,6 +787,9 @@ abstract final class RuntimePredictiveClaimBindingValidator {
         }
         const allowedRealizers = {
           'candidate-0023-component-v1',
+          'candidate-0027-reader-copy-v1',
+          'candidate-0028-reader-copy-v1',
+          'candidate-0029-reader-copy-v1',
           'generalized-editorial-v2',
           'life-period-editorial-v2',
           'support-editorial-v2',
@@ -834,6 +890,21 @@ final _candidate0023PredictiveSignature = _composePredictiveSignature(
   materialFingerprints: _candidate0023MaterialFingerprints,
 );
 
+String _lifePeriodPlanetLabel(RuntimePredictivePeriodRow row) {
+  final name = switch (row.planet) {
+    'sun' => 'ดาวอาทิตย์',
+    'moon' => 'ดาวจันทร์',
+    'mars' => 'ดาวอังคาร',
+    'mercury' => 'ดาวพุธ',
+    'jupiter' => 'ดาวพฤหัสบดี',
+    'venus' => 'ดาวศุกร์',
+    'saturn' => 'ดาวเสาร์',
+    'rahu' => 'ดาวราหู',
+    _ => 'ดาวประจำช่วง',
+  };
+  return '$nameเสวยอายุ';
+}
+
 List<RuntimePredictiveRule> _buildCandidate0023ComponentRules({
   required String contextId,
   required int currentAge,
@@ -869,6 +940,7 @@ List<RuntimePredictiveRule> _buildCandidate0023ComponentRules({
     String materialFingerprint = '',
     String evidenceKey = '',
     String directionBand = '',
+    String infographicText = '',
     bool rolling = false,
   }) {
     final selectorRefs = evidence
@@ -917,7 +989,8 @@ List<RuntimePredictiveRule> _buildCandidate0023ComponentRules({
       evidenceKey: evidenceKey.isEmpty ? row.selectorRef : evidenceKey,
       directionBand: directionBand.isEmpty ? row.periodStatus : directionBand,
       sourceComponents: evidence,
-      realizerId: 'candidate-0023-component-v1',
+      realizerId: 'candidate-0029-reader-copy-v1',
+      infographicTextTemplate: infographicText,
     );
   }
 
@@ -925,9 +998,9 @@ List<RuntimePredictiveRule> _buildCandidate0023ComponentRules({
     prediction(
       suffix: 'OVERVIEW-01',
       owner: 'overview',
-      section: 'ภาพรวมเส้นทางชีวิต',
+      section: 'ภาพรวมเส้นทางชีวิตที่ผ่านมา',
       text:
-          'วัย 0–10 ปีเป็นช่วงที่ชีวิตติดขัดจากปัญหาในครอบครัว หลังอายุ 11 ปี ชีวิตเปลี่ยนเป็นขาขึ้นและดีขึ้นต่อเนื่องมาถึงปัจจุบัน',
+          'วัยเด็กของคุณเป็นช่วงที่ต้องปรับตัวตามข้อจำกัดและความพร้อมของครอบครัว เมื่อพ้นช่วงนั้น ชีวิตค่อย ๆ เปิดทางผ่านการเรียน การสร้างเส้นทางงาน และความรับผิดชอบที่เพิ่มขึ้น ภาพรวมจึงค่อย ๆ เปลี่ยนจากช่วงที่ต้องอยู่ตามเงื่อนไขของครอบครัว ไปสู่ช่วงที่คุณมีบทบาทและต้องตัดสินใจเรื่องสำคัญด้วยตัวเองมากขึ้น\n\nตั้งแต่อายุ 42 ปี ชีวิตยังเดินไปในทางที่ดีขึ้น ปัจจุบันหลายด้านขยับไปพร้อมกัน ทั้งงาน การเงิน ความสัมพันธ์ และแรงสนับสนุนจากคนรอบตัว จึงเป็นช่วงที่เรื่องต่าง ๆ เดินหน้าได้คล่องกว่าวัยก่อน',
       row: currentPeriod,
       domain: 'life_path',
       horizon: 'current',
@@ -946,9 +1019,9 @@ List<RuntimePredictiveRule> _buildCandidate0023ComponentRules({
     prediction(
       suffix: 'PAST-0-10-01',
       owner: 'past-0-10',
-      section: 'อายุ 0–10 ปี',
+      section: 'ตั้งแต่เกิดจนถึง 10 ปี · ${_lifePeriodPlanetLabel(childhood)}',
       text:
-          'ช่วงอายุ 0–10 ปี พ่อแม่มีปัญหาสุขภาพ งานไม่ราบรื่น และเงินติดขัด จึงดูแลคุณได้ไม่เต็มที่',
+          'ตั้งแต่เกิดจนถึง 10 ปี ผู้ปกครองของคุณต้องรับมือปัญหาหลายด้านพร้อมกัน ทั้งสุขภาพ การงานที่ไม่ราบรื่น และการเงินที่ติดขัด ภาระเหล่านี้ทำให้การดูแลคุณอาจทำได้ไม่เต็มที่ ชีวิตในวัยนั้นจึงต้องปรับไปตามเงื่อนไขและความพร้อมของครอบครัวเป็นหลัก',
       row: childhood,
       domain: 'family_constraints',
       horizon: 'past-life-period',
@@ -961,9 +1034,9 @@ List<RuntimePredictiveRule> _buildCandidate0023ComponentRules({
     prediction(
       suffix: 'PAST-11-29-01',
       owner: 'past-11-29',
-      section: 'อายุ 11–29 ปี',
+      section: 'อายุ 11–29 ปี · ${_lifePeriodPlanetLabel(learning)}',
       text:
-          'ช่วงอายุ 11–29 ปี ชีวิตดีขึ้นจากวัยเด็ก การเรียนให้ผลดี และคุณเริ่มสร้างเส้นทางงานของตัวเอง',
+          'เมื่อพ้นวัยเด็ก ช่วงอายุ 11–29 ปีเป็นช่วงที่ชีวิตค่อย ๆ ดีขึ้นและเปิดทางมากกว่าเดิม การเรียนให้ผลดีและช่วยให้คุณเห็นทางเลือกของตัวเองชัดขึ้น ขณะเดียวกันคุณก็เริ่มสร้างเส้นทางงานของตัวเอง จึงเป็นช่วงที่ทั้งการเรียนรู้และการเริ่มรับผิดชอบอนาคตของตัวเองเดินหน้าไปพร้อมกัน',
       row: learning,
       domain: 'learning_and_career',
       horizon: 'past-life-period',
@@ -977,9 +1050,9 @@ List<RuntimePredictiveRule> _buildCandidate0023ComponentRules({
     prediction(
       suffix: 'PAST-30-41-01',
       owner: 'past-30-41',
-      section: 'อายุ 30–41 ปี',
+      section: 'อายุ 30–41 ปี · ${_lifePeriodPlanetLabel(responsibility)}',
       text:
-          'ช่วงอายุ 30–41 ปี งานและความรับผิดชอบเพิ่มขึ้น คุณต้องตัดสินใจเรื่องสำคัญด้วยตัวเองมากกว่าเดิม',
+          'ต่อมาในช่วงอายุ 30–41 ปี งานและความรับผิดชอบมีมากขึ้นกว่าช่วงก่อน คุณต้องดูแลทั้งงานที่อยู่ในมือและผลของการตัดสินใจสำคัญด้วยตัวเองมากขึ้น หลายเรื่องในวัยนี้จึงเป็นช่วงของการจัดลำดับภาระและเลือกทางเดินที่ต้องรับผิดชอบด้วยตัวเอง',
       row: responsibility,
       domain: 'career_and_authority',
       horizon: 'past-life-period',
@@ -993,8 +1066,10 @@ List<RuntimePredictiveRule> _buildCandidate0023ComponentRules({
     prediction(
       suffix: 'CURRENT-01',
       owner: 'current',
-      section: 'คำทำนายปัจจุบัน — อายุ {{currentAge}} ปี',
-      text: 'ตอนนี้การลงมือทำ การพูดคุย และการตัดสินใจคล่องกว่าช่วงก่อน',
+      section:
+          'คำทำนายปัจจุบัน — อายุ {{currentAge}} ปี · ${_lifePeriodPlanetLabel(currentPeriod)}',
+      text:
+          'ปัจจุบันอายุ {{currentAge}} ปี คุณยังอยู่ในช่วงที่ภาพรวมชีวิตเดินไปในทางที่ดีขึ้น เรื่องที่ต้องลงมือเอง การพูดคุยกับคนอื่น และการตัดสินใจสำคัญมีอุปสรรคน้อยกว่าวัยก่อน จึงจัดการเรื่องที่อยู่ตรงหน้าได้ต่อเนื่องมากขึ้น',
       row: currentPeriod,
       domain: 'life_path',
       horizon: 'current',
@@ -1004,7 +1079,8 @@ List<RuntimePredictiveRule> _buildCandidate0023ComponentRules({
       suffix: 'WORK-01',
       owner: 'work',
       section: 'การงาน',
-      text: 'งานมีเข้ามาต่อเนื่องและคุณยังรับผิดชอบงานหลักได้เต็มที่',
+      text:
+          'ด้านการงานยังมีเข้ามาอย่างต่อเนื่อง และคุณยังรับผิดชอบงานหลักที่อยู่ในมือได้เต็มที่ ช่วงนี้จึงเป็นจังหวะของการพางานที่กำลังทำอยู่ให้เดินหน้าต่อ',
       row: currentPeriod,
       domain: 'career',
       horizon: 'current',
@@ -1016,12 +1092,15 @@ List<RuntimePredictiveRule> _buildCandidate0023ComponentRules({
       materialFingerprint: currentCareer,
       evidenceKey: 'prediction.career.current.strong',
       directionBand: 'strong',
+      infographicText:
+          'งานมีเข้ามาต่อเนื่องและคุณยังรับผิดชอบงานหลักได้เต็มที่',
     ),
     prediction(
       suffix: 'FINANCE-01',
       owner: 'finance',
       section: 'การเงิน',
-      text: 'คุณมีเงินใช้และมีโชคลาภ เรื่องเงินในช่วงนี้คล่องตัวขึ้น',
+      text:
+          'ด้านการเงินในช่วงนี้คล่องตัวขึ้น คุณมีเงินใช้และมีจังหวะโชคลาภเข้ามา จึงจัดการรายจ่ายที่จำเป็นได้คล่องขึ้นกว่าช่วงก่อน',
       row: currentPeriod,
       domain: 'finance',
       horizon: 'current',
@@ -1034,12 +1113,15 @@ List<RuntimePredictiveRule> _buildCandidate0023ComponentRules({
       materialFingerprint: currentFinance,
       evidenceKey: 'prediction.finance.current.strong',
       directionBand: 'strong',
+      infographicText:
+          'คุณมีเงินใช้และมีโชคลาภ เรื่องเงินในช่วงนี้คล่องตัวขึ้น',
     ),
     prediction(
       suffix: 'RELATIONSHIP-01',
       owner: 'relationship',
       section: 'ความรักและความสัมพันธ์',
-      text: 'ความสัมพันธ์ที่สำคัญจะแน่นแฟ้นขึ้น',
+      text:
+          'ด้านความรักและความสัมพันธ์ สำหรับคนมีคู่ ความไว้ใจและความใกล้ชิดกับคนสำคัญจะแน่นแฟ้นขึ้น ส่วนคนโสด หากกำลังทำความรู้จักใคร ความสัมพันธ์นั้นจะค่อย ๆ ชัดเจนขึ้นตามจังหวะของช่วงนี้',
       row: currentPeriod,
       domain: 'relationship',
       horizon: 'current',
@@ -1052,13 +1134,15 @@ List<RuntimePredictiveRule> _buildCandidate0023ComponentRules({
       materialFingerprint: currentRelationship,
       evidenceKey: 'prediction.relationship.current.strong',
       directionBand: 'strong',
+      infographicText:
+          'คนมีคู่ใกล้ชิดกันขึ้น ส่วนคนโสดที่กำลังรู้จักใครจะเห็นความสัมพันธ์ชัดขึ้น',
     ),
     prediction(
       suffix: 'HEALTH-01',
       owner: 'health',
       section: 'สุขภาพ',
       text:
-          'กำลังโดยรวมยังดี แต่ช่วงที่พักไม่พอ ร่างกายจะฟื้นช้าลงและทำกิจกรรมต่อเนื่องได้ลดลง',
+          'ด้านสุขภาพ ภาพรวมร่างกายยังมีกำลังสำหรับกิจกรรมตามปกติ อย่างไรก็ตาม เมื่อพักไม่พอ ร่างกายจะฟื้นช้าลงและทำกิจกรรมต่อเนื่องได้น้อยลง',
       row: currentPeriod,
       domain: 'health',
       horizon: 'current',
@@ -1070,12 +1154,15 @@ List<RuntimePredictiveRule> _buildCandidate0023ComponentRules({
       materialFingerprint: currentHealth,
       evidenceKey: 'prediction.health.current.strong',
       directionBand: 'strong',
+      infographicText:
+          'กำลังโดยรวมยังดี แต่ช่วงที่พักไม่พอ ร่างกายจะฟื้นช้าลงและทำกิจกรรมต่อเนื่องได้ลดลง',
     ),
     prediction(
       suffix: 'SUPPORT-01',
       owner: 'support',
       section: 'โชคลาภและแรงสนับสนุน',
-      text: 'ครู ผู้มีประสบการณ์ เพื่อน และคนในเครือข่ายจะเข้ามาช่วย',
+      text:
+          'ด้านโชคลาภและแรงสนับสนุน ช่วงนี้คุณจะได้รับแรงช่วยเหลือจากครู ผู้มีประสบการณ์ เพื่อน และคนในเครือข่าย ความช่วยเหลืออาจมาในรูปของคำแนะนำ การชี้ทาง หรือการช่วยประคองเรื่องที่คุณกำลังรับมืออยู่',
       row: currentPeriod,
       domain: 'support',
       horizon: 'current',
@@ -1085,13 +1172,15 @@ List<RuntimePredictiveRule> _buildCandidate0023ComponentRules({
         'source.T0003-SRC-42-62-WORK',
         'source.T0003-SRC-42-62-FINANCE',
       ],
+      infographicText:
+          'ครู ผู้มีประสบการณ์ เพื่อน และคนในเครือข่ายจะเข้ามาช่วย',
     ),
     prediction(
       suffix: 'HORIZON-01',
       owner: 'rolling12',
       section: 'คำทำนาย 12 เดือนข้างหน้า',
       text:
-          'ระหว่างวันที่ {{horizonStart}} ถึง {{horizonEnd}} ขอบเขตงานจะกว้างขึ้น และรายรับจะเพิ่มขึ้น',
+          'ระหว่างวันที่ {{horizonStart}} ถึง {{horizonEnd}} จะเด่นเรื่องการงาน ขอบเขตงานของคุณจะกว้างขึ้น และเด่นเรื่องการเงิน รายรับจะเพิ่มขึ้น',
       row: currentPeriod,
       domain: 'career_and_finance',
       horizon: 'next12Months',
@@ -1105,6 +1194,8 @@ List<RuntimePredictiveRule> _buildCandidate0023ComponentRules({
       materialFingerprint: 'aggregate:$horizonCareer||$horizonFinance',
       evidenceKey: 'prediction.career.next12Months.strong',
       directionBand: 'strong',
+      infographicText:
+          'ระหว่างวันที่ {{horizonStart}} ถึง {{horizonEnd}} ขอบเขตงานจะกว้างขึ้น และรายรับจะเพิ่มขึ้น',
       rolling: true,
     ),
     RuntimePredictiveRule(
@@ -1113,6 +1204,8 @@ List<RuntimePredictiveRule> _buildCandidate0023ComponentRules({
       section: 'คำแนะนำ',
       kind: RuntimePredictiveKind.advice,
       textTemplate:
+          'ถ้ามีงานเข้ามาเพิ่ม ควรกำหนดขอบเขตให้ชัดก่อนตอบตกลง และดูยอดเงินคงเหลือหลังรายจ่ายจำเป็นก่อนขยายแผน เรื่องสุขภาพ ควรกันเวลาพักไว้ล่วงหน้าเพื่อให้ร่างกายมีเวลาฟื้นแรง',
+      infographicTextTemplate:
           'กำหนดขอบเขตงานที่รับเพิ่ม ตรวจเงินคงเหลือหลังรายจ่ายจำเป็นก่อนขยายแผน และกันเวลาพักไว้ให้ร่างกายฟื้นแรง',
       contextId: contextId,
       periodBinding: currentPeriod.ageBinding,
@@ -1175,7 +1268,7 @@ List<RuntimePredictiveRule> _buildContractRules({
   final currentWindow = _window(prediction, ForecastHorizon.current);
   final horizonWindow = _window(prediction, ForecastHorizon.next12Months);
   final nextWindow = _window(prediction, ForecastHorizon.nextLifePeriod);
-  if (currentWindow == null || horizonWindow == null || nextWindow == null) {
+  if (currentWindow == null || horizonWindow == null) {
     return const [];
   }
 
@@ -1194,13 +1287,16 @@ List<RuntimePredictiveRule> _buildContractRules({
     return const [];
   }
   final horizonDomains = _rankedDomains(horizonWindow);
-  final nextDomains = _rankedDomains(nextWindow);
+  final nextDomains = nextWindow == null
+      ? const <PredictionDomainModel>[]
+      : _rankedDomains(nextWindow);
   if (horizonDomains.length < 2 ||
-      nextDomains.isEmpty ||
       horizonDomains.any((domain) => domain.material == null) ||
       nextDomains.any((domain) => domain.material == null)) {
     return const [];
   }
+  final hasSupportedNextPeriod =
+      nextRow != currentPeriod && nextDomains.isNotEmpty;
 
   final prefix = 'PRV2-${contextId.replaceAll('.', '-')}';
   final rules = <RuntimePredictiveRule>[];
@@ -1233,7 +1329,7 @@ List<RuntimePredictiveRule> _buildContractRules({
     periodRule(
       suffix: 'OVERVIEW-01',
       owner: 'overview',
-      section: 'ภาพรวมเส้นทางชีวิต',
+      section: 'ภาพรวมเส้นทางชีวิตที่ผ่านมา',
       text: _overviewPrediction(
         currentPeriod,
         work.material!,
@@ -1254,8 +1350,10 @@ List<RuntimePredictiveRule> _buildContractRules({
       suffix: 'PAST-01',
       owner: 'past-${pastRow.ageBinding}',
       section: currentIndex == 0
-          ? 'ช่วงที่ผ่านมา — ตั้งแต่วัยเริ่มต้นถึงอายุ {{currentAge}} ปี'
-          : 'ช่วงที่ผ่านมา — อายุ ${pastRow.ageStart}–${pastRow.ageEnd} ปี',
+          ? 'ช่วงที่ผ่านมา — ตั้งแต่เกิดจนถึงอายุ {{currentAge}} ปี · ${_lifePeriodPlanetLabel(pastRow)}'
+          : pastRow.ageStart == 0
+          ? 'ช่วงที่ผ่านมา — ตั้งแต่เกิดจนถึง ${pastRow.ageEnd} ปี · ${_lifePeriodPlanetLabel(pastRow)}'
+          : 'ช่วงที่ผ่านมา — อายุ ${pastRow.ageStart}–${pastRow.ageEnd} ปี · ${_lifePeriodPlanetLabel(pastRow)}',
       text: _pastPeriodPrediction(pastRow, currentIndex == 0, currentAge),
       row: pastRow,
       horizon: 'past-life-period',
@@ -1266,7 +1364,8 @@ List<RuntimePredictiveRule> _buildContractRules({
     periodRule(
       suffix: 'CURRENT-01',
       owner: 'current',
-      section: 'คำทำนายปัจจุบัน — อายุ {{currentAge}} ปี',
+      section:
+          'คำทำนายปัจจุบัน — อายุ {{currentAge}} ปี · ${_lifePeriodPlanetLabel(currentPeriod)}',
       text: _currentPeriodPrediction(currentPeriod, currentAge),
       row: currentPeriod,
       horizon: 'current',
@@ -1352,9 +1451,9 @@ List<RuntimePredictiveRule> _buildContractRules({
     _rule(
       id: '$prefix-HORIZON-01',
       owner: 'rolling12',
-      section: 'แนวโน้ม 12 เดือนข้างหน้า',
+      section: 'คำทำนาย 12 เดือนข้างหน้า',
       text:
-          'ระหว่างวันที่ {{horizonStart}} ถึง {{horizonEnd}} ${_joinReaderParts(horizonDomains.take(2).map((domain) => _directDomainPrediction(domain, currentAge)))}',
+          'ระหว่างวันที่ {{horizonStart}} ถึง {{horizonEnd}} จะ${_rollingHighlights(horizonDomains, currentAge)}',
       contextId: contextId,
       period: currentPeriod,
       domain: 'life_path',
@@ -1380,39 +1479,40 @@ List<RuntimePredictiveRule> _buildContractRules({
       realizerId: 'generalized-editorial-v2',
     ),
   );
-  rules.add(
-    _rule(
-      id: '$prefix-NEXT-01',
-      owner: 'next',
-      section: nextRow == currentPeriod
-          ? 'ช่วงชีวิตระยะยาว'
-          : 'ช่วงชีวิตถัดไป — อายุ ${nextRow.ageStart}–${nextRow.ageEnd} ปี',
-      text: _joinReaderParts([
-        _nextPeriodPrediction(nextRow, currentAge),
-        _directDomainPrediction(nextDomains.first, nextRow.ageStart),
-      ]),
-      contextId: contextId,
-      period: nextRow,
-      domain: 'life_path',
-      horizon: 'nextLifePeriod',
-      sourceComponents: [
-        nextRow.selectorRef,
-        nextDomains.first.materialFingerprint,
-        nextDomains.first.claim,
-        nextDomains.first.risk,
-      ],
-      materialFingerprint: nextDomains.first.materialFingerprint,
-      evidenceKey: nextDomains.first.material!.evidenceKey,
-      directionBand: nextDomains.first.material!.band.name,
-      realizerId: 'generalized-editorial-v2',
-    ),
-  );
+  if (hasSupportedNextPeriod) {
+    rules.add(
+      _rule(
+        id: '$prefix-NEXT-01',
+        owner: 'next',
+        section:
+            'ช่วงชีวิตถัดไป — อายุ ${nextRow.ageStart}–${nextRow.ageEnd} ปี · ${_lifePeriodPlanetLabel(nextRow)}',
+        text: _joinReaderParts([
+          _nextPeriodPrediction(nextRow, currentAge),
+          _directDomainPrediction(nextDomains.first, nextRow.ageStart),
+        ]),
+        contextId: contextId,
+        period: nextRow,
+        domain: 'life_path',
+        horizon: 'nextLifePeriod',
+        sourceComponents: [
+          nextRow.selectorRef,
+          nextDomains.first.materialFingerprint,
+          nextDomains.first.claim,
+          nextDomains.first.risk,
+        ],
+        materialFingerprint: nextDomains.first.materialFingerprint,
+        evidenceKey: nextDomains.first.material!.evidenceKey,
+        directionBand: nextDomains.first.material!.band.name,
+        realizerId: 'generalized-editorial-v2',
+      ),
+    );
+  }
 
   final composition = [
     '$prefix-CURRENT-01',
     '$prefix-WORK-01',
     '$prefix-HORIZON-01',
-    '$prefix-NEXT-01',
+    if (hasSupportedNextPeriod) '$prefix-NEXT-01',
   ];
   rules.add(
     RuntimePredictiveRule(
@@ -1684,19 +1784,19 @@ String _directDomainPrediction(PredictionDomainModel domain, int readerAge) {
             ForecastDomain.relationship,
             ForecastBand.strong,
           ) =>
-            'ความสัมพันธ์ในช่วงปัจจุบันจะชัดขึ้นจากการกระทำที่สม่ำเสมอ ข้อตกลงที่ค้างอยู่จะได้ข้อสรุป',
+            'สำหรับคนมีคู่ ความสัมพันธ์จะชัดขึ้นจากการกระทำที่สม่ำเสมอและข้อตกลงที่ค้างอยู่จะได้ข้อสรุป ส่วนคนโสด หากกำลังทำความรู้จักใคร ความสัมพันธ์นั้นจะชัดขึ้นจากการกระทำที่สม่ำเสมอ',
           (
             ForecastHorizon.current,
             ForecastDomain.relationship,
             ForecastBand.active,
           ) =>
-            'ความสัมพันธ์ในช่วงปัจจุบันจะค่อย ๆ เปลี่ยนระดับ การพูดเงื่อนไขตรงกันจะทำให้สถานะชัดขึ้น',
+            'สำหรับคนมีคู่ ความสัมพันธ์จะค่อย ๆ ปรับระดับเมื่อพูดเงื่อนไขให้ตรงกัน ส่วนคนโสด หากกำลังทำความรู้จักใคร การพูดเงื่อนไขให้ตรงกันจะทำให้สถานะชัดขึ้น',
           (
             ForecastHorizon.current,
             ForecastDomain.relationship,
             ForecastBand.quiet,
           ) =>
-            'ความสัมพันธ์ในช่วงปัจจุบันจะเว้นระยะมากขึ้นเมื่อคำพูดกับการกระทำไม่ตรงกัน เรื่องค้างจะถูกนำกลับมาคุย',
+            'สำหรับคนมีคู่ ความสัมพันธ์จะเว้นระยะมากขึ้นเมื่อคำพูดกับการกระทำไม่ตรงกันและเรื่องค้างจะถูกนำกลับมาคุย ส่วนคนโสด หากกำลังทำความรู้จักใคร ความสัมพันธ์นั้นจะชะลอลงจนกว่าคำพูดกับการกระทำจะชัดเจนตรงกัน',
           (
             ForecastHorizon.current,
             ForecastDomain.health,
@@ -1871,6 +1971,31 @@ String _directDomainPrediction(PredictionDomainModel domain, int readerAge) {
     if (material.spansTransition)
       _transitionOutcome(material.horizon, material.domain, readerAge),
   ]);
+}
+
+String _rollingHighlights(
+  List<PredictionDomainModel> rankedDomains,
+  int readerAge,
+) {
+  final highlights = rankedDomains
+      .take(2)
+      .map((domain) {
+        final material = domain.material;
+        final rawLabel = _domainThaiForAge(material?.domain, readerAge);
+        final label =
+            readerAge >= 18 && material?.domain == ForecastDomain.career
+            ? 'การงาน'
+            : rawLabel;
+        final prediction = _directDomainPrediction(
+          domain,
+          readerAge,
+        ).replaceFirst(RegExp(r'^ตลอด 12 เดือน\s*'), '');
+        return 'เด่นเรื่อง$label $prediction';
+      })
+      .toList(growable: false);
+  if (highlights.isEmpty) return 'เด่นเรื่องที่กำลังเปลี่ยน';
+  if (highlights.length == 1) return highlights.single;
+  return '${highlights.first} และ${highlights[1]}';
 }
 
 String _childDirectDomainPrediction(
@@ -2221,12 +2346,12 @@ String _openingPastHouseEvent(
 String _currentPeriodPrediction(RuntimePredictivePeriodRow period, int age) {
   final rising = period.periodStatus == 'dueng_khuen';
   final ageLead = age == 0
-      ? 'วัยแรกเกิดเป็นช่วงเปลี่ยนผ่านของกิจวัตรและความสัมพันธ์กับผู้ดูแล'
+      ? 'ปัจจุบันอยู่ในวัยแรกเกิด ซึ่งเป็นช่วงเปลี่ยนผ่านของกิจวัตรและความสัมพันธ์กับผู้ดูแล'
       : age < 4
-      ? 'วัย $age ปีเป็นช่วงเปลี่ยนผ่านของกิจวัตร พัฒนาการ และความสัมพันธ์กับผู้ดูแล'
+      ? 'ปัจจุบันอายุ $age ปี เป็นช่วงเปลี่ยนผ่านของกิจวัตร พัฒนาการ และความสัมพันธ์กับผู้ดูแล'
       : age < 18
-      ? 'วัย $age ปีเป็นช่วงเปลี่ยนผ่านของการเรียน กิจวัตร และความสัมพันธ์รอบตัว'
-      : 'อายุ $age ปีเป็นช่วงเปลี่ยนผ่านของหน้าที่ ฐานชีวิต และเรื่องที่ต้องรับผิดชอบ';
+      ? 'ปัจจุบันอายุ $age ปี เป็นช่วงเปลี่ยนผ่านของการเรียน กิจวัตร และความสัมพันธ์รอบตัว'
+      : 'ปัจจุบันอายุ $age ปี เป็นช่วงเปลี่ยนผ่านของหน้าที่ ฐานชีวิต และเรื่องที่ต้องรับผิดชอบ';
   return _joinReaderParts([
     ageLead,
     _roleDevelopment(period.taksaRole, rising, child: age < 18),
@@ -2297,6 +2422,9 @@ String _summaryPrediction(
       : 'รอบปัจจุบันกำลังปิดภาระเดิมและจัดโครงสร้างใหม่';
   final first = _domainThaiForAge(horizon.first.material?.domain, currentAge);
   final second = _domainThaiForAge(horizon[1].material?.domain, currentAge);
+  if (next.isEmpty) {
+    return '$now รอบ 12 เดือนจะเห็นผลผ่าน$firstควบคู่กับ$second';
+  }
   final later = _domainThaiForAge(next.first.material?.domain, nextAge);
   return '$now รอบ 12 เดือนจะเห็นผลผ่าน$firstควบคู่กับ$second ส่วนช่วงชีวิตถัดไปจะย้ายแกนหลักไปที่$later';
 }
@@ -2464,6 +2592,7 @@ String _compactSummaryInfographic(
       : 'รอบปัจจุบันกำลังจัดเรื่องค้าง';
   final first = _domainThaiForAge(horizon.first.material?.domain, currentAge);
   final second = _domainThaiForAge(horizon[1].material?.domain, currentAge);
+  if (next.isEmpty) return '$direction 12 เดือนเน้น$firstกับ$second';
   final later = _domainThaiForAge(next.first.material?.domain, nextAge);
   return '$direction 12 เดือนเน้น$firstกับ$second จากนั้นแกนหลักย้ายไป$later';
 }
