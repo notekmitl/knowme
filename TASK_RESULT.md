@@ -1,6 +1,33 @@
 # Task Result — Chinese Astrology Report V1
 
-## Owner-test candidate: chooser + horoscope-style BaZi report (2026-09-14)
+## Merge closeout and release status (2026-09-14)
+
+**IMPLEMENTATION COMPLETE AND MERGED TO `main`; PRODUCTION DEPLOYMENT NOT
+COMPLETED BY THIS RUNNER.**
+
+PR #120 merged as `d8245cd29e94641151988da33800670acbb8866a` and PR
+#122 merged as `664c8656a2028cf266745f9c1c3a0567989266ec`. The merged
+tree is `bee0a7c8ea07035920bc58b2524aa9b68ab96df6`, identical to the
+validated PR head tree.
+
+Fresh closeout gates passed: backend **22/22**, focused Flutter **79/79**,
+full Flutter **3,070/3,070**, analyzer exit 0 with 282 inherited non-fatal
+diagnostics, clean-tree and changed-line forbidden-text checks, and the Web
+release build. `main.dart.js` is 8,511,604 bytes with SHA-256
+`ee11caf2001c75aa86f9cb0018e893d0d76f60ea479d35c8a7a818071e3b874d`.
+It contains the Production API and both authenticated v1 routes. All forbidden
+loopback endpoint patterns are absent. The one `localhost` token is only the
+existing hostname comparison, so the former strict-policy blocker is closed.
+
+The Owner authorized release. Google account/device verification and SDK
+consent completed, but the local CLI could not safely receive its out-of-band
+credential and this environment blocked both Google Cloud Console and
+standalone Cloud Shell. No new Cloud Run revision, Hosting release, Firestore
+rules change or Firebase data mutation occurred. Deployment must resume from an
+authenticated runner at exact merge commit `664c8656`, backend first and
+Hosting second; Firestore rules are explicitly outside this release.
+
+## Pre-merge owner-test candidate: chooser + horoscope-style BaZi report (2026-09-14)
 
 **COMPLETE IN THE WORKING APPLICATION CANDIDATE FOR STACKED DRAFT PR #122 —
 NOT READY FOR REVIEW, NOT MERGED, NOT DEPLOYED.**

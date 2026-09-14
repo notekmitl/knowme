@@ -1,9 +1,9 @@
 # Handoff — Chinese Astrology Report V1
 
-## Current handoff — three-system chooser + BaZi natal reading (2026-09-14)
+## Current handoff — merged release candidate; deploy pending (2026-09-14)
 
-**READY FOR OWNER TESTING — KEEP STACKED PR #122 DRAFT — DO NOT MARK READY,
-MERGE OR DEPLOY.**
+**PR #120 AND PR #122 ARE MERGED. RELEASE VALIDATION IS GREEN. PRODUCTION
+DEPLOYMENT IS THE ONLY REMAINING ACTION.**
 
 - Entry: submit the existing `/beta/thai` birth form, then choose Thai,
   Chinese BaZi or Western astrology.
@@ -11,11 +11,10 @@ MERGE OR DEPLOY.**
 - Final PDFs: `output/pdf/knowme-bazi-natal-reading-v1/`.
 - Calculation contract: `knowme_bazi_compatibility_v1`.
 - Reading contract: `knowme_bazi_symbolic_reading_v1`.
-- Stack dependency: Draft PR #120 at
-  `4ce29747fee66d08637dbe0b16b982b17071526d`.
-- Validated application: commit
-  `050379289e7c29aef3b5aee1d92d3ab2ca573b8d`, tree
-  `53a084adbea5592be9f156601e289303d8ee3e6d`.
+- PR #120 merge: `d8245cd29e94641151988da33800670acbb8866a`.
+- PR #122 merge/release source:
+  `664c8656a2028cf266745f9c1c3a0567989266ec`.
+- Merged application tree: `bee0a7c8ea07035920bc58b2524aa9b68ab96df6`.
 
 Owner-visible behavior is now complete: the same submitted birth data leads to
 one choice screen; Thai keeps its prior result, Chinese opens a reader-first
@@ -30,19 +29,28 @@ is identical in Web/PDF semantics. Ordinary Unknown excludes Hour. Boundary
 Unknown omits the whole-chart life areas. No AI, timed-event prediction,
 strength score or guessed input is introduced.
 
-Engineering gates: backend 22/22, focused Flutter 79/79, full Flutter
-3,070/3,070, repository analyzer 282 inherited diagnostics and scoped 0, Web
-release build PASS, and 15/15 PDF pages visually passed. The exact PDF hashes
-and bundle identity are in `CHINESE_ASTROLOGY_VALIDATION_V1.md`.
+Fresh release gates: backend 22/22, focused Flutter 79/79, full Flutter
+3,070/3,070, repository analyzer exit 0 with 282 inherited diagnostics, Web
+release build PASS, and 15/15 PDF pages visually passed. The fresh bundle is
+8,511,604 bytes with SHA-256
+`ee11caf2001c75aa86f9cb0018e893d0d76f60ea479d35c8a7a818071e3b874d`.
+The exact PDF hashes are in `CHINESE_ASTROLOGY_VALIDATION_V1.md`.
 
-Release is not part of Owner QA. The branch contains parallel authenticated v1
-routes and migrated clients, but backend v1 must be deployed before any client
-release; adoption and legacy retirement follow later. The inherited strict
-`localhost` hostname-comparison blocker also remains. Do not change Thai
-calculation/report/goldens or `product-acceptance/` while resolving either.
+The production endpoint guard passes: forbidden loopback endpoint patterns are
+0 and the one `localhost` literal is only a hostname comparison. That former
+policy blocker is closed.
 
-The final remote Draft HEAD is the docs-only closeout layered over the validated
-application commit above.
+The attempted release could not establish a supported CLI credential handoff;
+Google Cloud Console and standalone Cloud Shell were also denied by the
+runner's network policy. No Production or Firebase mutation occurred. Resume
+only from an authenticated runner, in this order:
+
+1. check out exact `main` commit `664c8656`;
+2. deploy `backend/` to `knowme-astrology-api` in `asia-southeast1`;
+3. verify `/health`, missing-token rejection and authenticated UID binding;
+4. build Web with the Production API and `public_beta`, then cache-pin the
+   entrypoints to `664c865`; and
+5. deploy Firebase Hosting only. Do not deploy Firestore rules.
 
 ## Prior sourced-reading handoff (2026-09-13)
 

@@ -1,6 +1,30 @@
 # Task: Chinese Astrology Report V1
 
-## KnowMe multi-astrology handoff + BaZi natal reading (2026-09-14)
+## Completion checkpoint (2026-09-14)
+
+**CODE COMPLETE, VALIDATED AND MERGED; PRODUCTION DEPLOYMENT REQUIRES AN
+AUTHENTICATED GOOGLE CLOUD/FIREBASE RUNNER.**
+
+The Owner authorized Ready, merge and release. PR #120 merged at
+`d8245cd29e94641151988da33800670acbb8866a`; PR #122 merged at
+`664c8656a2028cf266745f9c1c3a0567989266ec`. The merged application tree
+`bee0a7c8ea07035920bc58b2524aa9b68ab96df6` matches the validated PR tree.
+
+Fresh gates are backend 22/22, focused Flutter 79/79, full Flutter
+3,070/3,070, analyzer exit 0 with 282 inherited non-fatal diagnostics, and a
+passing Production Web build. Forbidden loopback endpoints are 0; the single
+`localhost` occurrence is the existing hostname comparison and does not fail
+the release guard.
+
+Production was not mutated in this closeout attempt. Google Cloud CLI required
+an out-of-band credential that cannot be transferred through chat, while both
+Cloud Console and standalone Cloud Shell were blocked by runner network policy.
+The remaining operational task is to deploy the backend from exact merge
+commit `664c8656`, verify v1 auth/UID behavior, then deploy the cache-pinned Web
+build to Firebase Hosting only. Firestore rules and legacy-route retirement are
+not part of this deployment.
+
+## Pre-merge scope — KnowMe multi-astrology handoff + BaZi natal reading (2026-09-14)
 
 **IMPLEMENTED AND VALIDATED FOR OWNER TESTING ON STACKED DRAFT PR #122 — KEEP
 DRAFT; NOT READY FOR REVIEW, NOT MERGED, NOT DEPLOYED.**

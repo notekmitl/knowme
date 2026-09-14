@@ -1,12 +1,14 @@
 # KnowMe BaZi Compatibility V1 Validation
 
-**Status:** ready for Owner testing; Draft PR #122; not deployed
+**Status:** validated and merged in PR #122; Production deploy pending an
+authenticated runner
 
 **Date:** 2026-09-14
 
-**Validated application:** commit
-`050379289e7c29aef3b5aee1d92d3ab2ca573b8d`, tree
-`53a084adbea5592be9f156601e289303d8ee3e6d`.
+**Merged release source:** commit
+`664c8656a2028cf266745f9c1c3a0567989266ec`, tree
+`bee0a7c8ea07035920bc58b2524aa9b68ab96df6`. The merge tree is
+identical to the validated PR head tree.
 
 ## Coverage statement
 
@@ -59,7 +61,7 @@ not instructions for Owner fixture testing.
 
 ## Results
 
-- Backend focused calculation/BaZi-auth/Western-auth: **22/22 passed** in 0.42
+- Backend focused calculation/BaZi-auth/Western-auth: **22/22 passed** in 0.41
   seconds. Route tests stub calculations and persistence and make no Firebase
   call or write. Firestore initialization is now lazy at the Western
   persistence boundary, so importing the route cannot trigger metadata
@@ -74,9 +76,9 @@ not instructions for Owner fixture testing.
   scan, analyzer, both focused commands and required full suite.
 - The full suite rewrote 22 tracked generated validation outputs. Each exact
   path was restored individually to HEAD; no broad restore was used.
-- Web release build: PASS on Flutter 3.41.1. `main.dart.js` is **8,511,596
+- Web release build: PASS on Flutter 3.41.1. `main.dart.js` is **8,511,604
   bytes**, SHA-256
-  `B0C183CBB39FFB965DD2DC7CC53E2B6E7FDF8FFCB89E5EADE0221B1BDA95FD9A`.
+  `ee11caf2001c75aa86f9cb0018e893d0d76f60ea479d35c8a7a818071e3b874d`.
   The bundle contains `/beta/thai`, `/beta/chinese`, both `/v1` endpoint paths
   and the exact Production API URL. Actual loopback URL count and forbidden
   service/secret count are zero.
@@ -122,24 +124,32 @@ lines, source ledger and Web/PDF parity. Token/UID/revoked-token behavior,
 profile persistence, regeneration and Fusion freshness are automated
 engineering gates and are not exercised by the no-write fixture route.
 
-## Production guard
+## Production guard and release attempt
 
-Production mutation is not authorized. Actual loopback endpoint findings are 0
-for both the new local release bundle and live cache pin `e6aaa98`. Each retains
-one literal `localhost` in hostname comparison code; the local context is
-`window.location.hostname == "localhost"`, which is not an endpoint. Improving
-this strict classification is a future shared guard-quality task that policy
-still requires before Production. Draft PR #122 does not repair shared runtime
-or deploy it.
+The Owner authorized Ready, merge and Production release. PR #120 merged as
+`d8245cd29e94641151988da33800670acbb8866a`; PR #122 merged as
+`664c8656a2028cf266745f9c1c3a0567989266ec`.
 
-The release build is evidence only. PR #122 contains parallel authenticated v1
-endpoints and migrated bearer clients, but no release occurred. Backend v1 must
-be deployed before the client, followed by adoption verification and later
-legacy-Western retirement under separate authorization.
+Actual forbidden loopback endpoint findings are 0. The local bundle retains one
+literal `localhost` only in
+`window.location.hostname == "localhost"`, which is a host-mode comparison and
+not an API endpoint. The repository's endpoint-focused Production validator
+passes; the prior strict-policy blocker is closed by contextual classification.
+
+Deployment did not complete. Google account/device verification and Google
+Cloud SDK consent succeeded, but the local CLI required an out-of-band
+credential that cannot be handled through chat. The runner network also denied
+Google Cloud Console and standalone Cloud Shell. No new Cloud Run revision,
+Firebase Hosting release, Firestore rule or Firebase data mutation occurred.
+
+Resume from an authenticated runner at exact commit `664c8656`: deploy backend
+v1 beside legacy paths, verify health/auth/UID behavior, then build and deploy
+the cache-pinned client to Firebase Hosting only. Adoption verification and
+legacy-Western retirement remain separate follow-up work.
 
 ## Regression boundary
 
 The changed-file inventory contains one intentional Thai-route navigation seam
 and one date-aware assertion. Thai calculation/report source, Thai goldens,
 `product-acceptance/` and generated validation-output deltas are zero. The
-branch remains Draft, unmerged and undeployed.
+implementation is merged. Production remains undeployed by this closeout.
