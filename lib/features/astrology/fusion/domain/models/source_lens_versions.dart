@@ -20,8 +20,6 @@ class SourceLensVersions {
   }
 
   static bool _lensChanged(String? saved, String? current) {
-    if (current == null) return false;
-    if (saved == null) return true;
     return saved != current;
   }
 

@@ -6,6 +6,22 @@
 
 Status: **CURRENT** · Architecture only (no deploy). Decision Log **D-035**.
 
+> **Chinese Report compatibility boundary (2026-09-13):** the BaZi context
+> below remains a placeholder. The separately approved
+> `knowme_bazi_compatibility_v1` backend deliberately uses disclosed local-civil
+> fields with no true-solar correction; it does not claim that this shared
+> adapter is implemented. Migrating BaZi into this foundation or adding
+> true-solar behavior requires a new contract; see
+> [`CHINESE_ASTROLOGY_CURRENT_STATE.md`](CHINESE_ASTROLOGY_CURRENT_STATE.md).
+
+> **Post-form handoff (2026-09-14):** `/beta/thai` now uses `BirthNormalizer`
+> only to resolve the canonical profile fields shared by the selection flow.
+> This does not activate the placeholder `BaZiBirthContext` or alter BaZi's
+> compatibility calculation. Known time is persisted as the submitted `HH:mm`;
+> Unknown time is persisted as empty and never as the Thai layer's internal noon
+> sentinel. BaZi then applies its own fail-closed Unknown contract, while
+> Western is unavailable without a known time and province.
+
 ---
 
 ## Goal

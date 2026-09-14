@@ -1,5 +1,8 @@
+import 'package:knowme/data/models/bazi_chart_model.dart';
 import 'package:knowme/domain/models/profile_model.dart';
+import 'package:knowme/features/astrology/application/birth_profile_readiness.dart';
 import 'package:knowme/features/astrology/thai/foundation/models/thai_birth_data.dart';
+import 'package:knowme/features/bazi_compatibility/application/bazi_input_fingerprint.dart';
 import 'package:knowme/features/birth_normalization/application/adapters/thai_engine_adapter.dart';
 import 'package:knowme/features/astrology/thai/mirror/models/thai_mirror_result.dart';
 import 'package:knowme/features/astrology/thai/mirror/runtime/thai_mirror_pipeline.dart';
@@ -30,9 +33,9 @@ class FirestoreAstrologyFusionLensProbe extends AstrologyFusionLensProbe {
     AstrologyFirestoreService? westernService,
     BaziFirestoreService? baziService,
     ProfileService? profileService,
-  })  : _westernService = westernService ?? AstrologyFirestoreService(),
-        _baziService = baziService ?? BaziFirestoreService(),
-        _profileService = profileService ?? ProfileService();
+  }) : _westernService = westernService ?? AstrologyFirestoreService(),
+       _baziService = baziService ?? BaziFirestoreService(),
+       _profileService = profileService ?? ProfileService();
 
   final AstrologyFirestoreService _westernService;
   final BaziFirestoreService _baziService;
@@ -40,10 +43,23 @@ class FirestoreAstrologyFusionLensProbe extends AstrologyFusionLensProbe {
 
   @override
   Future<AstrologyFusionLensProbeResult> probe(String uid) async {
-    final western = await _westernService.getWesternNatalChart(uid);
-    final bazi = await _baziService.getChineseBaziChart(uid);
-    final profile = await _profileService.loadProfile();
-    final thai = _loadThaiMirror(profile);
+    final profile = await _profileService.loadProfileForUid(uid);
+    final fullProfileReady = BirthProfileReadiness.isComplete(profile);
+    final baziProfileReady = BirthProfileReadiness.isBaziCompatible(profile);
+
+    // A saved Western/Thai result can depend on a birth time that the current
+    // profile no longer knows. Keep those lenses out of Fusion until the full
+    // profile is complete again, so Unknown-time cannot reveal stale output.
+    final western = fullProfileReady
+        ? await _westernService.getWesternNatalChart(uid)
+        : null;
+    final candidateBazi = baziProfileReady
+        ? await _baziService.getChineseBaziChart(uid)
+        : null;
+    final bazi = isBaziFreshForProfile(candidateBazi, profile)
+        ? candidateBazi
+        : null;
+    final thai = fullProfileReady ? _loadThaiMirror(profile) : null;
 
     final completed = <String>[];
     if (western != null) {
@@ -58,12 +74,18 @@ class FirestoreAstrologyFusionLensProbe extends AstrologyFusionLensProbe {
 
     return AstrologyFusionLensProbeResult(
       completedLensIds: completed,
-      input: AstrologyFusionRealInput(
-        western: western,
-        bazi: bazi,
-        thai: thai,
-      ),
+      input: AstrologyFusionRealInput(western: western, bazi: bazi, thai: thai),
     );
+  }
+
+  static bool isBaziFreshForProfile(
+    BaziChartModel? chart,
+    ProfileModel? profile,
+  ) {
+    if (chart == null || !BirthProfileReadiness.isBaziCompatible(profile)) {
+      return false;
+    }
+    return chart.inputHash == BaziInputFingerprint.forProfile(profile!);
   }
 
   ThaiMirrorResult? _loadThaiMirror(ProfileModel? profile) {

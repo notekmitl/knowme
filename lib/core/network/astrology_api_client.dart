@@ -12,13 +12,14 @@ abstract final class AstrologyApiClient {
     required Uri endpoint,
     required Map<String, dynamic> body,
     required String failureLabel,
+    Map<String, String> headers = const {},
     Duration timeout = defaultTimeout,
   }) async {
     try {
       final response = await http
           .post(
             endpoint,
-            headers: const {'Content-Type': 'application/json'},
+            headers: {'Content-Type': 'application/json', ...headers},
             body: jsonEncode(body),
           )
           .timeout(timeout);

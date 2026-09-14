@@ -17,6 +17,8 @@ class BaziPillar {
   final String branchElement;
   final String pillarLabel;
 
+  bool get isAvailable => pillarLabel.trim().isNotEmpty;
+
   factory BaziPillar.fromMap(Map<String, dynamic> map) {
     return BaziPillar(
       stem: _string(map['stem']),
@@ -66,6 +68,8 @@ class BaziYearAnimal {
   final String zh;
   final String roman;
   final String en;
+
+  bool get isAvailable => zh.trim().isNotEmpty || en.trim().isNotEmpty;
 
   factory BaziYearAnimal.fromMap(Map<String, dynamic> map) {
     return BaziYearAnimal(
@@ -134,6 +138,8 @@ class BaziPillars {
 class BaziChartModel {
   const BaziChartModel({
     required this.version,
+    required this.contractId,
+    required this.contractName,
     required this.engineVersion,
     required this.generatedAt,
     required this.inputHash,
@@ -143,11 +149,16 @@ class BaziChartModel {
     required this.dominantElement,
     required this.pillars,
     required this.elementBalance,
+    required this.timeKnown,
     this.enginePolicy = const {},
     this.input = const {},
+    this.ambiguities = const {},
+    this.suppressedFields = const [],
   });
 
   final String version;
+  final String contractId;
+  final String contractName;
   final String engineVersion;
   final String generatedAt;
   final String inputHash;
@@ -157,12 +168,21 @@ class BaziChartModel {
   final String? dominantElement;
   final BaziPillars pillars;
   final BaziElementBalance elementBalance;
+  final bool timeKnown;
   final Map<String, dynamic> enginePolicy;
   final Map<String, dynamic> input;
+  final Map<String, bool> ambiguities;
+  final List<String> suppressedFields;
 
   factory BaziChartModel.fromMap(Map<String, dynamic> map) {
     return BaziChartModel(
       version: _string(map['version']),
+      contractId: _string(map['contract_id']).isNotEmpty
+          ? _string(map['contract_id'])
+          : _string(map['version']),
+      contractName: _string(map['contract_name']).isNotEmpty
+          ? _string(map['contract_name'])
+          : 'KnowMe BaZi Compatibility V1',
       engineVersion: _string(map['engine_version']),
       generatedAt: _string(map['generated_at']),
       inputHash: _string(map['input_hash']),
@@ -174,10 +194,29 @@ class BaziChartModel {
           : null,
       pillars: BaziPillars.fromMap(_map(map['pillars'])),
       elementBalance: BaziElementBalance.fromMap(_map(map['element_balance'])),
+      timeKnown: map['time_known'] is bool
+          ? map['time_known'] as bool
+          : _map(map['pillars'])['hour'] is Map,
       enginePolicy: Map<String, dynamic>.from(map['engine_policy'] ?? {}),
       input: Map<String, dynamic>.from(map['input'] ?? {}),
+      ambiguities: _boolMap(map['ambiguities']),
+      suppressedFields: _stringList(map['suppressed_fields']),
     );
   }
+}
+
+Map<String, bool> _boolMap(dynamic value) {
+  if (value is! Map) return const {};
+  return {
+    for (final entry in value.entries)
+      if (entry.key is String && entry.value is bool)
+        entry.key as String: entry.value as bool,
+  };
+}
+
+List<String> _stringList(dynamic value) {
+  if (value is! List) return const [];
+  return value.whereType<String>().toList(growable: false);
 }
 
 String _string(dynamic value) {

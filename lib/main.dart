@@ -27,6 +27,7 @@ import 'package:knowme/features/thai_beta/application/thai_evidence_badge_featur
 import 'package:knowme/features/thai_beta/presentation/pages/thai_beta_landing_page.dart';
 import 'package:knowme/features/thai_beta/presentation/thai_beta_screenshot_mode.dart';
 import 'package:knowme/features/astrology/thai/knowledge/canon/integration/presentation/thai_canon_evidence_routes.dart';
+import 'package:knowme/features/bazi_compatibility/presentation/bazi_compatibility_routes.dart';
 
 import 'package:knowme/core/web/web_launch_route.dart';
 import 'package:knowme/core/web/web_launch_router.dart';
@@ -202,6 +203,12 @@ class KnowMeApp extends StatelessWidget {
                 settings: settings,
                 builder: (_) => launchWidget,
               );
+            }
+
+            final baziCompatibilityRoute =
+                BaziCompatibilityRoutes.onGenerateRoute(settings);
+            if (baziCompatibilityRoute != null) {
+              return baziCompatibilityRoute;
             }
             final bigFiveRoute = BigFiveRoutes.onGenerateRoute(settings);
             if (bigFiveRoute != null) {

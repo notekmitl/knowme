@@ -12,6 +12,7 @@ import 'package:knowme/features/astrology/fusion/domain/entities/astrology_fusio
 import 'package:knowme/features/astrology/fusion/domain/models/astrology_fusion_real_input.dart';
 import 'package:knowme/features/astrology/fusion/domain/models/fusion_snapshot_codec.dart';
 import 'package:knowme/features/astrology/fusion/domain/models/source_lens_versions.dart';
+import 'package:knowme/features/bazi_compatibility/application/bazi_compatibility_owner_fixtures.dart';
 
 AstrologyChartModel _ariesWesternChart() {
   return AstrologyChartModel.fromMap({
@@ -78,11 +79,18 @@ void main() {
       expect(restored.agreements.length, original.agreements.length);
       expect(restored.tensions.length, original.tensions.length);
       expect(restored.reflection.summary, original.reflection.summary);
-      expect(restored.fusionInsight.primary?.title,
-          original.fusionInsight.primary?.title);
-      expect(restored.growthOpportunities.length,
-          original.growthOpportunities.length);
-      expect(restored.futureTendencies.length, original.futureTendencies.length);
+      expect(
+        restored.fusionInsight.primary?.title,
+        original.fusionInsight.primary?.title,
+      );
+      expect(
+        restored.growthOpportunities.length,
+        original.growthOpportunities.length,
+      );
+      expect(
+        restored.futureTendencies.length,
+        original.futureTendencies.length,
+      );
       expect(restored.sourceLensVersions, original.sourceLensVersions);
       expect(map['generatedAt'], isA<Timestamp>());
     });
@@ -101,10 +109,13 @@ void main() {
     });
 
     test('detects newly available bazi lens', () {
-      const saved = SourceLensVersions(westernVersion: 'western_natal_v1|Aries');
+      const saved = SourceLensVersions(
+        westernVersion: 'western_natal_v1|Aries',
+      );
       const current = SourceLensVersions(
         westernVersion: 'western_natal_v1|Aries',
-        baziVersion: 'bazi_v1|lunar_python@1.4.8|甲',
+        baziVersion:
+            'contract=bazi_v1;schema=bazi_v1;engine=lunar_python@1.4.8;input=;time=unknown;completeness=;dayMaster=甲;suppressed=',
       );
 
       expect(saved.requiresRegeneration(current), isTrue);
@@ -113,10 +124,35 @@ void main() {
     test('is up to date when versions match', () {
       const versions = SourceLensVersions(
         westernVersion: 'western_natal_v1|Aries|Cancer|Leo',
-        baziVersion: 'bazi_v1|lunar_python@1.4.8|甲',
+        baziVersion:
+            'contract=bazi_v1;schema=bazi_v1;engine=lunar_python@1.4.8;input=;time=unknown;completeness=;dayMaster=甲;suppressed=',
       );
 
       expect(versions.requiresRegeneration(versions), isFalse);
+    });
+
+    test('detects a removed lens instead of retaining its old output', () {
+      const saved = SourceLensVersions(
+        westernVersion: 'western_natal_v1|Aries|Cancer|Leo',
+        baziVersion: 'current-bazi',
+      );
+      const current = SourceLensVersions(baziVersion: 'current-bazi');
+
+      expect(saved.requiresRegeneration(current), isTrue);
+    });
+
+    test('BaZi fingerprint changes across Known and Unknown time', () {
+      final known = SourceLensVersionResolver.baziVersion(
+        BaziCompatibilityOwnerFixtures.chart(BaziOwnerCase.known),
+      );
+      final unknown = SourceLensVersionResolver.baziVersion(
+        BaziCompatibilityOwnerFixtures.chart(BaziOwnerCase.unknown),
+      );
+
+      expect(known, isNot(equals(unknown)));
+      expect(known, contains('time=known'));
+      expect(unknown, contains('time=unknown'));
+      expect(unknown, contains('suppressed=hour_dependent_outputs'));
     });
   });
 
@@ -179,10 +215,7 @@ void main() {
       );
       final input = _sampleInput();
 
-      final result = await service.loadOrGenerate(
-        uid: 'user_1',
-        input: input,
-      );
+      final result = await service.loadOrGenerate(uid: 'user_1', input: input);
 
       expect(result.usedSnapshot, isFalse);
       expect(result.status, AstrologyFusionStatus.upToDate);
@@ -204,8 +237,10 @@ void main() {
       expect(first.usedSnapshot, isFalse);
       expect(second.usedSnapshot, isTrue);
       expect(second.snapshot.generatedAt, first.snapshot.generatedAt);
-      expect(second.snapshot.reflection.summary,
-          first.snapshot.reflection.summary);
+      expect(
+        second.snapshot.reflection.summary,
+        first.snapshot.reflection.summary,
+      );
       expect(second.status, AstrologyFusionStatus.upToDate);
       expect(versions.hasAny, isTrue);
     });
@@ -241,6 +276,39 @@ void main() {
         isTrue,
       );
     });
+
+    test(
+      'regenerates when BaZi input changes but Day Master stays the same',
+      () async {
+        final repository = InMemoryAstrologyFusionRepository();
+        final service = AstrologyFusionRegenerationService(
+          repository: repository,
+        );
+        final known = _sampleInput(
+          bazi: BaziCompatibilityOwnerFixtures.chart(BaziOwnerCase.known),
+        );
+        final unknown = _sampleInput(
+          bazi: BaziCompatibilityOwnerFixtures.chart(BaziOwnerCase.unknown),
+        );
+
+        final first = await service.loadOrGenerate(
+          uid: 'user-bazi-freshness',
+          input: known,
+        );
+        final second = await service.loadOrGenerate(
+          uid: 'user-bazi-freshness',
+          input: unknown,
+        );
+
+        expect(first.usedSnapshot, isFalse);
+        expect(second.usedSnapshot, isFalse);
+        expect(second.status, AstrologyFusionStatus.outdated);
+        expect(
+          second.snapshot.sourceLensVersions.baziVersion,
+          contains('time=unknown'),
+        );
+      },
+    );
 
     test('peekStatus reports outdated without regenerating', () async {
       final repository = InMemoryAstrologyFusionRepository();

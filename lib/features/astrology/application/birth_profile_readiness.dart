@@ -12,6 +12,17 @@ abstract final class BirthProfileReadiness {
     return BirthProfileFormat.parseStoredDate(profile.birthDate.trim()) != null;
   }
 
+  /// Minimum governed input for KnowMe BaZi Compatibility V1.
+  ///
+  /// Birth time and coordinates are deliberately optional. The backend
+  /// validates the supplied IANA zone and fails closed for Unknown time.
+  static bool isBaziCompatible(ProfileModel? profile) {
+    if (profile == null) return false;
+    if (profile.birthDate.trim().isEmpty) return false;
+    if (profile.timezone.trim().isEmpty) return false;
+    return BirthProfileFormat.parseStoredDate(profile.birthDate.trim()) != null;
+  }
+
   static String apiBirthDate(ProfileModel profile) {
     final date = BirthProfileFormat.parseStoredDate(profile.birthDate.trim());
     if (date == null) {
