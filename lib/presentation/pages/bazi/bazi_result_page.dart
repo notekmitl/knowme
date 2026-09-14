@@ -118,7 +118,7 @@ class _BaziResultPageState extends State<BaziResultPage> {
       backgroundColor: const Color(0xFFF5F0F8),
       appBar: AppBar(
         backgroundColor: const Color(0xFFF5F0F8),
-        title: const Text('KnowMe โหราศาสตร์จีน · BaZi V1'),
+        title: const Text('ดวงจีนของฉัน · BaZi'),
       ),
       body: Consumer<BaziProvider>(
         builder: (context, provider, _) {

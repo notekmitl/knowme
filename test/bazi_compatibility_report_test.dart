@@ -14,8 +14,15 @@ void main() {
         );
         final text = report.plainText;
 
-        expect(text, contains('KnowMe โหราศาสตร์จีน · BaZi V1'));
+        expect(text, contains('คำทำนายพื้นดวงจีน · ปาจื้อ (BaZi)'));
         expect(text, contains('ภาพรวมคำอ่านพื้นดวง'));
+        expect(text, contains('คำทำนายพื้นดวงแบบรายด้าน'));
+        expect(text, contains('จุดแข็งที่หยิบใช้ได้'));
+        expect(text, contains('การงานและบทบาท'));
+        expect(text, contains('การเงินและทรัพยากร'));
+        expect(text, contains('ความสัมพันธ์และการอยู่ร่วมกัน'));
+        expect(text, contains('สิ่งที่ควรระวังและแนวทางพัฒนา'));
+        expect(text, contains('หลักที่ใช้: Day Master'));
         expect(text, contains('丁 Ding · ไฟหยิน'));
         expect(text, contains('แสงเทียนหรือโคมไฟที่ส่องเฉพาะจุด'));
         expect(text, contains('พลังร่วมธาตุ · 比劫'));
@@ -61,6 +68,8 @@ void main() {
       expect(jie, contains('ไม่สรุปธาตุเด่นหรือภาพรวม'));
       expect(lichun, isNot(contains('พลังสนับสนุน · 印')));
       expect(jie, isNot(contains('พลังสนับสนุน · 印')));
+      expect(lichun, isNot(contains('คำทำนายพื้นดวงแบบรายด้าน')));
+      expect(jie, isNot(contains('คำทำนายพื้นดวงแบบรายด้าน')));
     });
 
     test('health and finance caution is the final report content', () {

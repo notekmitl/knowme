@@ -117,7 +117,8 @@ void main() {
     );
     await tester.pumpAndSettle();
 
-    expect(find.text('KnowMe โหราศาสตร์จีน · BaZi V1'), findsWidgets);
+    expect(find.text('ดวงจีนของฉัน · BaZi'), findsOneWidget);
+    expect(find.text('คำทำนายพื้นดวงจีน · ปาจื้อ (BaZi)'), findsOneWidget);
     expect(find.text('ภาพรวมคำอ่านพื้นดวง'), findsOneWidget);
     expect(find.text('แกนตัวตนตาม Day Master'), findsOneWidget);
     expect(find.text('ความสัมพันธ์ของธาตุที่มองเห็น'), findsOneWidget);

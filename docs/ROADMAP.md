@@ -1,6 +1,46 @@
 # KnowMe Roadmap+
 
-## Active project — KnowMe Chinese Astrology · BaZi V1 Owner testing (2026-09-13)
+## Active project — Owner QA for chooser + BaZi natal reading (2026-09-14)
+
+**IMPLEMENTATION AND TECHNICAL VALIDATION ARE COMPLETE IN STACKED DRAFT PR
+#122. OWNER READING QA IS THE REMAINING PRODUCT GATE.**
+
+Completed in this iteration:
+
+1. `/beta/thai` post-submit choice for Thai, Chinese BaZi and Western natal;
+2. authenticated canonical-profile handoff for Chinese/Western, with Unknown
+   time stored empty and Western disabled when its required inputs are absent;
+3. reader-first Chinese overview plus strengths, work, money/resources,
+   relationships and cautions/development, each with deterministic evidence;
+4. fail-closed ordinary/boundary Unknown projection and Fusion freshness;
+5. authenticated versioned BaZi/Western endpoints and migrated bearer clients,
+   while retaining explicit compatibility routes for safe rollout;
+6. canonical Web/PDF parity and 15-page visual/semantic PDF QA; and
+7. backend 22/22, focused Flutter 79/79, full Flutter 3,070/3,070, scoped
+   analyzer 0, release Web build PASS and protected-scope checks.
+
+Next inside PR #122 is Owner reading QA only. Keep the PR Draft. Any Ready,
+merge or deployment remains a separate explicit authorization.
+
+Pre-Production sequence is now implementation-aware rather than a missing-code
+task:
+
+1. deploy the backend containing both legacy and authenticated v1 routes;
+2. smoke-test v1 authentication/UID binding without changing user data;
+3. deploy the new client that calls v1;
+4. measure adoption and compatibility; and
+5. retire the legacy Western write route only in separately authorized work.
+
+The other release blocker is the inherited strict scan of one
+`window.location.hostname == "localhost"` comparison. Actual loopback URLs are
+0, but the policy task must still close before Production.
+
+Future BaZi V2 remains separate: hidden stems, seasonal/Day-Master strength,
+Useful God, polarity-specific Ten Gods, combinations/clashes, Da Yun and annual
+timing need astrologer-reviewed sources and new Unknown rules. They are not
+silently inferred from V1.
+
+## Prior sourced-reading roadmap (2026-09-13)
 
 **CALCULATION, SOURCED SYMBOLIC READING AND TECHNICAL VALIDATION COMPLETE IN
 STACKED DRAFT PR #122; OWNER TESTING IS THE REMAINING PRODUCT GATE.**

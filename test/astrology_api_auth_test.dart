@@ -1,35 +1,39 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:knowme/services/bazi_api_service.dart';
+import 'package:knowme/services/astrology_api_service.dart';
 
 void main() {
-  group('BaziApiService authentication', () {
+  group('AstrologyApiService authentication', () {
     test('rejects a session uid that does not match the request uid', () async {
       expect(
-        () => BaziApiService.generateBazi(
+        () => AstrologyApiService.generateChart(
           uid: 'victim',
           birthDate: '1990-05-12',
-          birthTime: null,
-          timezone: 'Asia/Bangkok',
+          birthTime: '15:30',
+          latitude: 13.7563,
+          longitude: 100.5018,
           loadAuthSession: () async =>
-              const BaziAuthSession(uid: 'attacker', idToken: 'valid-token'),
+              const WesternAuthSession(uid: 'attacker', idToken: 'valid-token'),
           postJson: _unexpectedPost,
         ),
         throwsStateError,
       );
     });
 
-    test('binds Bearer token and uid and sends Unknown time as null', () async {
+    test('binds bearer token and uses the versioned endpoint', () async {
+      Uri? capturedEndpoint;
       Map<String, dynamic>? capturedBody;
       Map<String, String>? capturedHeaders;
-      Uri? capturedEndpoint;
 
-      await BaziApiService.generateBazi(
+      await AstrologyApiService.generateChart(
         uid: 'uid-1',
         birthDate: '1990-05-12',
-        birthTime: null,
-        timezone: 'Asia/Bangkok',
-        loadAuthSession: () async =>
-            const BaziAuthSession(uid: 'uid-1', idToken: 'firebase-id-token'),
+        birthTime: '15:30',
+        latitude: 13.7563,
+        longitude: 100.5018,
+        loadAuthSession: () async => const WesternAuthSession(
+          uid: 'uid-1',
+          idToken: 'firebase-id-token',
+        ),
         postJson:
             ({
               required endpoint,
@@ -43,9 +47,9 @@ void main() {
             },
       );
 
+      expect(capturedEndpoint?.path, '/v1/generate-chart');
       expect(capturedBody?['uid'], 'uid-1');
-      expect(capturedBody?['birth_time'], isNull);
-      expect(capturedEndpoint?.path, '/v1/generate-bazi');
+      expect(capturedBody?['birth_time'], '15:30');
       expect(capturedHeaders, {'Authorization': 'Bearer firebase-id-token'});
     });
   });

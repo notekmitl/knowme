@@ -18,31 +18,74 @@ class BaziCompatibilityReportView extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Text(
-            report.title,
-            key: const Key('bazi-report-title'),
-            style: Theme.of(
-              context,
-            ).textTheme.headlineSmall?.copyWith(fontWeight: FontWeight.w800),
-          ),
-          const SizedBox(height: 8),
-          Text(report.subtitle, style: const TextStyle(height: 1.45)),
-          if (onExport != null) ...[
-            const SizedBox(height: 14),
-            Align(
-              alignment: Alignment.centerLeft,
-              child: FilledButton.icon(
-                key: const Key('bazi-export-pdf'),
-                onPressed: () => onExport!(),
-                icon: const Icon(Icons.picture_as_pdf_outlined),
-                label: const Text('ส่งออก PDF'),
+          Container(
+            padding: const EdgeInsets.all(22),
+            decoration: BoxDecoration(
+              gradient: const LinearGradient(
+                colors: [Color(0xFF6E1D32), Color(0xFF3D245F)],
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
               ),
+              borderRadius: BorderRadius.circular(22),
+              boxShadow: const [
+                BoxShadow(
+                  color: Color(0x22000000),
+                  blurRadius: 18,
+                  offset: Offset(0, 8),
+                ),
+              ],
             ),
-          ],
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text(
+                  '八字 · FOUR PILLARS',
+                  style: TextStyle(
+                    color: Color(0xFFFFD88A),
+                    fontWeight: FontWeight.w700,
+                    letterSpacing: 1.2,
+                  ),
+                ),
+                const SizedBox(height: 10),
+                Text(
+                  report.title,
+                  key: const Key('bazi-report-title'),
+                  style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+                    color: Colors.white,
+                    fontWeight: FontWeight.w800,
+                    height: 1.25,
+                  ),
+                ),
+                const SizedBox(height: 9),
+                Text(
+                  report.subtitle,
+                  style: const TextStyle(color: Color(0xFFF4EAF4), height: 1.5),
+                ),
+                if (onExport != null) ...[
+                  const SizedBox(height: 16),
+                  FilledButton.icon(
+                    key: const Key('bazi-export-pdf'),
+                    style: FilledButton.styleFrom(
+                      backgroundColor: const Color(0xFFFFD88A),
+                      foregroundColor: const Color(0xFF3D245F),
+                    ),
+                    onPressed: () => onExport!(),
+                    icon: const Icon(Icons.picture_as_pdf_outlined),
+                    label: const Text('เก็บคำทำนายเป็น PDF'),
+                  ),
+                ],
+              ],
+            ),
+          ),
           const SizedBox(height: 8),
           for (final section in report.sections) ...[
             const SizedBox(height: 12),
-            _SectionCard(section: section),
+            _SectionCard(
+              section: section,
+              highlighted:
+                  section.title.contains('คำทำนายพื้นดวง') ||
+                  section.title.contains('Natal tendencies'),
+            ),
           ],
         ],
       ),
@@ -51,14 +94,20 @@ class BaziCompatibilityReportView extends StatelessWidget {
 }
 
 class _SectionCard extends StatelessWidget {
-  const _SectionCard({required this.section});
+  const _SectionCard({required this.section, required this.highlighted});
 
   final BaziCompatibilityReportSection section;
+  final bool highlighted;
 
   @override
   Widget build(BuildContext context) {
     return Card(
       margin: EdgeInsets.zero,
+      color: highlighted
+          ? Theme.of(
+              context,
+            ).colorScheme.primaryContainer.withValues(alpha: 0.42)
+          : null,
       child: Padding(
         padding: const EdgeInsets.all(16),
         child: Column(

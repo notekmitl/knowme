@@ -3,15 +3,15 @@
 **Status:** IMPLEMENTED FOR OWNER TESTING — stacked Draft PR #122 — not Ready,
 not merged, not deployed
 
-**Date:** 2026-09-13
+**Date:** 2026-09-14
 
 **Product contract:** `KnowMe BaZi Compatibility V1`
 
 **Interpretation contract:** `knowme_bazi_symbolic_reading_v1`
 
-**Validated application:** commit
-`afaa3a97b3a6ce82f555efbfbd79917567ebc339`, tree
-`3b56c98a3d03552246acc66ca7e6830b256ba957`
+**Validated application:** the runtime commit containing the 2026-09-14
+three-system handoff and natal-reading expansion; its exact commit/tree are
+recorded in the final docs-only closeout.
 
 ## What the system actually uses
 
@@ -38,6 +38,10 @@ can be audited against the governed facts:
   practical reflection;
 - visible elements are grouped into five broad relationships relative to the
   Day Master: Resource, Companion, Output, Wealth and Authority; and
+- complete Known or ordinary Unknown charts receive five reader-facing natal
+  areas—usable strengths, work/roles, money/resources, relationships/shared
+  space and cautions/development—derived from the Day Master plus every
+  joint-highest visible relationship family; and
 - the report separates calculation sources from interpretation sources and
   identifies both versioned contracts.
 
@@ -53,6 +57,12 @@ visible, never strong/favourable or good/bad. Zero is not treated as absence
 because V1 does not include hidden stems, roots, seasonality or strength
 weighting. Exact wording and mappings are in
 `CHINESE_ASTROLOGY_INTERPRETATION_V1.md`.
+
+Each natal-area paragraph carries an evidence line naming the Day Master and
+family/count used. Ties are retained instead of resolved arbitrarily. The
+money area also discloses the visible Wealth-family count and explicitly
+refuses a good/bad conclusion when that count is zero. These are natal
+reflection prompts, not timed events or outcome guarantees.
 
 ## Approved compatibility policy
 
@@ -91,6 +101,14 @@ Authentication is enforced twice: the client requires a current Firebase user
 and ID token, and the backend verifies the bearer token with revocation checking,
 rejects UID mismatch, and writes only to the authenticated UID paths. Tests use
 stubs; they do not write Production data.
+
+The `/beta/thai` form now supplies a product handoff into this profile model.
+After form validation, one screen offers Thai, Chinese BaZi and Western natal.
+Thai stays on its accepted anonymous calculation path. Chinese and Western
+require sign-in before saving the profile. Unknown time is stored as an empty
+string rather than the Thai normalization layer's internal noon sentinel.
+Chinese can proceed under this contract; Western is disabled unless a real
+time and province are available.
 
 ## Outputs
 
@@ -131,6 +149,8 @@ For interpretation, ordinary Unknown time uses the six visible slots from
 Year/Month/Day and explicitly excludes Hour. A Li Chun/Jie boundary fixture may
 have too few complete pillars for a chart-wide relationship summary, so it
 shows only the invariant Day Master reflection and does not fill the gap.
+The five natal-area readings follow the same boundary: shown for complete
+four-/three-pillar context and omitted for boundary-partial Unknown.
 
 The generation coordinator fingerprints the current profile before accepting a
 stored chart. A missing, legacy-version or changed fingerprint triggers a new
@@ -148,11 +168,15 @@ the Day Master itself is unchanged.
 ## Product surfaces
 
 - Signed-in BaZi result page: authenticated chart freshness check, then the
-  canonical sourced symbolic reading and PDF export.
+  canonical sourced natal reading and PDF export.
+- Post-form selection: `/beta/thai` validates the existing form, then presents
+  Thai, Chinese BaZi and Western natal without rerunning or changing the Thai
+  calculation. The selected non-Thai system is prepared before its result page
+  opens.
 - Owner fixture route: `/beta/chinese?case=known`, `unknown`,
   `lichun-unknown`, or `jie-unknown`. It is visibly marked as a fixture, calls no
   API and performs no user-data write.
-- Owner PDFs: `output/pdf/knowme-bazi-symbolic-reading-linux-20260913/`
+- Owner PDFs: `output/pdf/knowme-bazi-natal-reading-v1/`
   contains `known`, `unknown`, `lichun-unknown` and `jie-unknown`. Each is
   reproducible from the same canonical report object and ignored by Git.
   Chinese glyphs use the checked-in static `NotoSansSC-Regular` font; the Thin
@@ -191,10 +215,13 @@ pairs, UID mismatch, missing/invalid tokens, stale-profile regeneration,
 Fusion Known -> Unknown invalidation, cross-surface report leakage and four PDF
 fixture variants. The interpretation suite additionally covers all ten Day
 Masters, all five Day Master element cycles, Known/ordinary Unknown/boundary
-projection and forbidden outcome promises. Authoritative Flutter 3.41.1 / Dart
-3.11.0 results with `TZ=Asia/Bangkok` are backend 18/18, focused Flutter 57/57,
-full Flutter 3,055/3,055, analyzer exit 0 with 282 inherited non-fatal
-diagnostics and scoped analyzer 0.
+projection and forbidden outcome promises. The current suite also covers the
+three-system chooser, anonymous Thai preservation, authenticated profile
+handoff, versioned BaZi/Western APIs, Western input gating, and forced-Western
+Fusion invalidation. Authoritative Flutter 3.41.1 / Dart 3.11.0 results with
+`TZ=Asia/Bangkok` are backend 22/22, focused Flutter 79/79, full Flutter
+3,070/3,070, analyzer exit 0 with 282 inherited non-fatal diagnostics and
+scoped analyzer 0.
 
 ## Known limitations and separate blockers
 
@@ -214,23 +241,28 @@ diagnostics and scoped analyzer 0.
 
 ## Release sequencing (not authorized by this PR)
 
-The prior client-first then immediate backend-enforcement proposal is withdrawn:
-it does not safely cover cached or already-open legacy clients that omit the
-bearer token. Release remains blocked on a compatibility migration that is not
-implemented in PR #122:
+The prior client-first then immediate backend-enforcement proposal remains
+withdrawn because it does not cover cached or already-open clients. PR #122 now
+implements the compatibility code but does not deploy it:
 
-1. add an authenticated versioned endpoint in parallel with the legacy
-   endpoint;
-2. move the new bearer-capable client to that versioned endpoint;
-3. observe and verify client adoption; and
-4. retire the legacy endpoint only after the adoption gate passes.
+1. authenticated `/v1/generate-bazi` and `/v1/generate-chart` routes exist in
+   parallel with explicit compatibility routes;
+2. the new clients send Firebase bearer tokens to the v1 routes;
+3. Production must deploy the backend v1 routes before releasing this client;
+4. adoption must then be observed and verified; and
+5. the legacy Western route may be retired only after that gate passes.
 
-This is a recommended future release design, not authorization or completed
-work. Draft PR #122 performs no backend, Hosting or Production deployment.
+The existing BaZi compatibility route remains authenticated. The pre-existing
+Western compatibility route remains unauthenticated only for already-released
+clients and is not used by the new code. This is implementation evidence, not
+release authorization. Draft PR #122 performs no backend, Hosting or
+Production deployment.
 
 ## Scope protection
 
 PR #122 remains stacked on Open + Draft PR #120 at
-`4ce29747fee66d08637dbe0b16b982b17071526d`. This work does not modify Thai
-astrology source, Thai goldens, `product-acceptance/`, Firebase Hosting,
-Production data, Production services, merge state or readiness state.
+`4ce29747fee66d08637dbe0b16b982b17071526d`. This work modifies only the Thai
+route's post-submit navigation seam; it does not modify Thai calculation/report
+logic or Thai goldens. It also leaves `product-acceptance/`, Firebase Hosting,
+Production data, Production services, merge state and readiness state
+unchanged.

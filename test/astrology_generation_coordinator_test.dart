@@ -220,6 +220,42 @@ void main() {
       expect(westernCalls, 1);
     });
 
+    test(
+      'forced western handoff refreshes an existing chart and invalidates fusion',
+      () async {
+        var baziCalls = 0;
+        var westernCalls = 0;
+        final repository = _StubFusionRepository(hasFusion: true);
+        final coordinator = AstrologyGenerationCoordinator(
+          profileService: ProfileService.testing(
+            (_) async => _completeProfile(),
+          ),
+          lensProbe: _FakeLensProbe([
+            AstrologyLens.thaiAstrology.lensId,
+            AstrologyLens.chineseBazi.lensId,
+            AstrologyLens.westernNatal.lensId,
+          ]),
+          fusionRepository: repository,
+          fusionService: noopFusionService(),
+          generateBazi: (_, _) async => baziCalls++,
+          generateWestern: (_, _) async => westernCalls++,
+          loadBaziInputHash: (_) async => _knownHash,
+        );
+
+        final snapshot = await coordinator.ensureGenerated(
+          'uid-force-western',
+          retrySystemId: 'western',
+          forceSystemId: 'western',
+        );
+
+        expect(baziCalls, 0);
+        expect(westernCalls, 1);
+        expect(repository.deleteCount, 1);
+        expect(snapshot.system('western').isReady, isTrue);
+        expect(snapshot.system('fusion').isReady, isFalse);
+      },
+    );
+
     test('API failure preserves error details on failed systems', () async {
       final coordinator = AstrologyGenerationCoordinator(
         profileService: ProfileService.testing((_) async => _completeProfile()),

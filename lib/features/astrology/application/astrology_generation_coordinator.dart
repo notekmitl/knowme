@@ -57,12 +57,13 @@ class AstrologyGenerationCoordinator {
     String uid, {
     AstrologyGenerationProgress? onProgress,
     String? retrySystemId,
+    String? forceSystemId,
   }) {
     if (uid.isEmpty) {
       return Future.value(_notReadySnapshot());
     }
 
-    final key = retrySystemId == null ? uid : '$uid:$retrySystemId';
+    final key = [uid, retrySystemId, forceSystemId].whereType<String>().join(':');
     final existing = _inFlight[key];
     if (existing != null) return existing;
 
@@ -70,6 +71,7 @@ class AstrologyGenerationCoordinator {
       uid,
       onProgress: onProgress,
       retrySystemId: retrySystemId,
+      forceSystemId: forceSystemId,
     );
     _inFlight[key] = future;
     future.whenComplete(() => _inFlight.remove(key));
@@ -100,6 +102,7 @@ class AstrologyGenerationCoordinator {
     String uid, {
     AstrologyGenerationProgress? onProgress,
     String? retrySystemId,
+    String? forceSystemId,
   }) async {
     final profile = await _profileService.loadProfileForUid(uid);
     if (profile == null || !BirthProfileReadiness.isBaziCompatible(profile)) {
@@ -114,9 +117,9 @@ class AstrologyGenerationCoordinator {
     var baziFreshForFusion = !baziInputChanged;
 
     // Invalidate the saved cross-system result before refreshing a stale BaZi
-    // lens. This prevents a Known-time Fusion snapshot from surviving a
-    // transition to Unknown time, including when the BaZi refresh itself fails.
-    if (baziInputChanged) {
+    // lens or a profile-form-forced Western lens. This prevents Fusion from
+    // surviving a source-profile change, including when refresh itself fails.
+    if (baziInputChanged || forceSystemId == 'western') {
       try {
         await _fusionRepository.deleteFusion(uid);
       } catch (e, stack) {
@@ -143,7 +146,7 @@ class AstrologyGenerationCoordinator {
         snapshot,
         'bazi',
         retrySystemId,
-        force: baziInputChanged,
+        force: baziInputChanged || forceSystemId == 'bazi',
       )) {
         return;
       }
@@ -166,7 +169,14 @@ class AstrologyGenerationCoordinator {
 
     Future<void> runWestern() async {
       if (!fullProfileReady) return;
-      if (!_shouldGenerate(snapshot, 'western', retrySystemId)) return;
+      if (!_shouldGenerate(
+        snapshot,
+        'western',
+        retrySystemId,
+        force: forceSystemId == 'western',
+      )) {
+        return;
+      }
       snapshot = snapshot.withSystem(
         const AstrologySystemSnapshot(
           systemId: 'western',

@@ -167,6 +167,9 @@ void main() {
       await tester.ensureVisible(find.text('เริ่มวิเคราะห์'));
       await tester.tap(find.text('เริ่มวิเคราะห์'));
       await tester.pumpAndSettle();
+      expect(find.text('เลือกศาสตร์ที่ต้องการดู'), findsOneWidget);
+      await tester.tap(find.byKey(const Key('astrology-select-thai')));
+      await tester.pumpAndSettle();
 
       expect(capturedStartedAt, openedAt);
       expect(capturedAsOf, DateTime(2026, 8, 17, 0, 0, 10));

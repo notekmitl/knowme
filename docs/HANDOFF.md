@@ -1,6 +1,47 @@
 # Handoff — Chinese Astrology Report V1
 
-## Current handoff — KnowMe Chinese Astrology · BaZi V1 (2026-09-13)
+## Current handoff — three-system chooser + BaZi natal reading (2026-09-14)
+
+**READY FOR OWNER TESTING — KEEP STACKED PR #122 DRAFT — DO NOT MARK READY,
+MERGE OR DEPLOY.**
+
+- Entry: submit the existing `/beta/thai` birth form, then choose Thai,
+  Chinese BaZi or Western astrology.
+- Chinese fixture route: `/beta/chinese?case=known|unknown|lichun-unknown|jie-unknown`.
+- Final PDFs: `output/pdf/knowme-bazi-natal-reading-v1/`.
+- Calculation contract: `knowme_bazi_compatibility_v1`.
+- Reading contract: `knowme_bazi_symbolic_reading_v1`.
+- Stack dependency: Draft PR #120 at
+  `4ce29747fee66d08637dbe0b16b982b17071526d`.
+
+Owner-visible behavior is now complete: the same submitted birth data leads to
+one choice screen; Thai keeps its prior result, Chinese opens a reader-first
+natal report, and Western opens the existing natal chart only when birth time
+and province are known. Chinese/Western sign-in is intentional because the
+generated chart is saved under a verified Firebase UID.
+
+The BaZi report contains overview, strengths, work, money/resources,
+relationships and cautions/development before technical facts. The copy is
+fixed from Day Master and visible relationship families, shows its basis, and
+is identical in Web/PDF semantics. Ordinary Unknown excludes Hour. Boundary
+Unknown omits the whole-chart life areas. No AI, timed-event prediction,
+strength score or guessed input is introduced.
+
+Engineering gates: backend 22/22, focused Flutter 79/79, full Flutter
+3,070/3,070, repository analyzer 282 inherited diagnostics and scoped 0, Web
+release build PASS, and 15/15 PDF pages visually passed. The exact PDF hashes
+and bundle identity are in `CHINESE_ASTROLOGY_VALIDATION_V1.md`.
+
+Release is not part of Owner QA. The branch contains parallel authenticated v1
+routes and migrated clients, but backend v1 must be deployed before any client
+release; adoption and legacy retirement follow later. The inherited strict
+`localhost` hostname-comparison blocker also remains. Do not change Thai
+calculation/report/goldens or `product-acceptance/` while resolving either.
+
+Application commit/tree and the final remote Draft HEAD are recorded by the
+docs-only closeout commit after the validated runtime commit.
+
+## Prior sourced-reading handoff (2026-09-13)
 
 **READY FOR OWNER TESTING — KEEP PR #122 DRAFT — DO NOT MARK READY, MERGE OR
 DEPLOY.**

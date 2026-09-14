@@ -47,11 +47,17 @@ with them.
 
 ## API security contract
 
-- `Authorization: Bearer <Firebase ID token>` is mandatory.
+- New clients call `/v1/generate-bazi` and `/v1/generate-chart`.
+- `Authorization: Bearer <Firebase ID token>` is mandatory on both v1 routes.
 - The backend verifies the ID token with revoked-token checking.
 - The body UID must match the verified UID or the request is rejected with 403.
 - Both Firestore writes use only the verified UID.
 - Missing or invalid authentication returns 401 without disclosing token detail.
+
+The compatibility `/generate-bazi` path remains authenticated. The older
+Western `/generate-chart` path predates this contract and remains temporarily
+available for released clients; the new client never calls it. Retirement is a
+post-adoption release action, not part of this Draft.
 
 ## Report contract
 
@@ -63,7 +69,12 @@ and limitations. It also projects the separately versioned
 - one deterministic profile for each of the ten Day Master stems;
 - a natural-image metaphor, symbolic tendency, constructive expression,
   balance point and practical reflection; and
-- five broad visible-element relationship families relative to the Day Master.
+- five broad visible-element relationship families relative to the Day Master;
+  and
+- five reader-facing natal areas (strengths, work, money/resources,
+  relationships and cautions/development) for complete four-/three-pillar
+  context, with the exact Day Master and joint-highest visible family/count
+  disclosed beneath every area.
 
 This interpretation never changes a chart fact. A visible count is not a
 strength or favourability score, and the copy does not assert that the reader
@@ -99,13 +110,16 @@ time-dependent lens data.
 
 No release is authorized by this contract. The earlier client-first then
 immediate backend-enforcement proposal is insufficient because cached or
-already-open legacy clients may continue to omit the Firebase bearer token.
-Release is blocked pending an implementation outside PR #122 that:
+already-open legacy clients may continue to use the old Western write route.
+PR #122 now contains the migration implementation:
 
-1. adds an authenticated versioned endpoint beside the legacy endpoint;
-2. moves the new bearer-capable client to the versioned endpoint;
-3. verifies adoption; and
-4. retires the legacy endpoint only after the adoption gate passes.
+1. authenticated versioned endpoints exist beside compatibility endpoints;
+2. new BaZi and Western clients send bearer tokens to those endpoints;
+3. the backend must be deployed and verified before the client is released;
+4. adoption must be verified after the client release; and
+5. the legacy Western endpoint is retired only after that gate passes.
+
+No step in that deployment sequence is authorized or performed by this PR.
 
 ## Explicit exclusions
 

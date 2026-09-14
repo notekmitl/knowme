@@ -1,6 +1,57 @@
 # Task: Chinese Astrology Report V1
 
-## KnowMe Chinese Astrology · BaZi V1 — sourced reading complete (2026-09-13)
+## KnowMe multi-astrology handoff + BaZi natal reading (2026-09-14)
+
+**IMPLEMENTED AND VALIDATED FOR OWNER TESTING ON STACKED DRAFT PR #122 — KEEP
+DRAFT; NOT READY FOR REVIEW, NOT MERGED, NOT DEPLOYED.**
+
+The `/beta/thai` birth form now stops at a three-way choice after validation:
+Thai, Chinese BaZi, or the existing Western natal chart. Thai continues through
+the previously accepted Thai analysis unchanged. Chinese and Western require a
+verified signed-in user before the canonical birth profile is saved and only
+the selected lens is generated. Unknown birth time remains an empty profile
+value: Chinese uses its fail-closed three-pillar path, while Western is disabled
+because its ascendant/houses require a known clock time and province.
+
+The Chinese surface is now reader-first rather than a calculation dump. Its
+deterministic report opens with a personal overview and five clearly labelled
+natal areas: usable strengths, work/roles, money/resources, relationships, and
+watch-outs/development. Every paragraph is a checked-in mapping from the
+calculated Day Master plus the joint-highest visible elemental relationship
+families. Each area prints its basis. No AI writes request-time text, ties are
+preserved, a zero count is not called bad, and boundary-partial Unknown cases
+omit these whole-chart areas instead of filling missing pillars.
+
+The branch also implements the release migration that was previously only a
+plan: authenticated `/v1/generate-bazi` and `/v1/generate-chart` endpoints,
+Bearer/UID-bound clients, and explicit legacy paths. The existing BaZi legacy
+route stays authenticated; the pre-existing Western legacy route remains
+available solely for released-client compatibility. No endpoint or Hosting
+change has been deployed. Safe release order remains backend v1 first, then the
+new client, adoption verification, and legacy Western retirement in a separate
+authorization.
+
+Validation on Flutter 3.41.1 / Dart 3.11.0 with `TZ=Asia/Bangkok`: backend
+focused **22/22**, Flutter focused **79/79**, full Flutter **3,070/3,070**,
+repository analyzer exit 0 with 282 inherited non-fatal diagnostics, and
+changed-scope diagnostics **0**. Web release build passes and contains both
+versioned endpoints, `/beta/thai`, `/beta/chinese`, and the Production API;
+actual loopback URLs and forbidden service/secret strings are 0. The existing
+single `localhost` hostname comparison remains the separate strict-policy
+blocker.
+
+Four final A4 PDFs contain 5/4/3/3 pages (15 pages total). Every page was
+rendered and inspected after the pagination repair; missing text, broken
+Thai/Chinese glyphs, clipping, overlap, blank pages and Known-to-Unknown Hour
+leakage are 0. Exact hashes are in
+`docs/CHINESE_ASTROLOGY_VALIDATION_V1.md`.
+
+The only Thai-route source delta is the post-submit navigation seam and its
+date-aware regression assertion. Thai calculation, Thai report output, Thai
+goldens and `product-acceptance/` remain unchanged. Production source/release,
+Firebase data/services, PR readiness, merge state and deployment are unchanged.
+
+## Prior sourced-reading checkpoint (2026-09-13)
 
 **READY FOR OWNER TESTING ON STACKED DRAFT PR #122 — NOT READY FOR REVIEW,
 NOT MERGED, NOT DEPLOYED.**

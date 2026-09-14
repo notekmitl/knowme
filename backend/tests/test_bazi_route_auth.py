@@ -50,7 +50,7 @@ def test_verified_token_returns_uid_and_checks_revocation(monkeypatch):
 
 def test_route_rejects_authenticated_uid_mismatch():
     with pytest.raises(HTTPException) as mismatch:
-        bazi_route.generate_bazi(_request(uid="victim"), "attacker")
+        bazi_route.generate_bazi_v1(_request(uid="victim"), "attacker")
 
     assert mismatch.value.status_code == 403
     assert mismatch.value.detail["code"] == "UID_MISMATCH"
@@ -64,7 +64,7 @@ def test_route_writes_only_verified_uid_and_supports_unknown_time(monkeypatch):
         return True
 
     monkeypatch.setattr(bazi_route, "save_bazi", save)
-    response = bazi_route.generate_bazi(_request(birth_time=None), "uid-1")
+    response = bazi_route.generate_bazi_v1(_request(birth_time=None), "uid-1")
 
     assert response["success"] is True
     assert response["chart"]["time_known"] is False
@@ -75,3 +75,19 @@ def test_route_writes_only_verified_uid_and_supports_unknown_time(monkeypatch):
     }
     assert saved[0][0] == "uid-1"
     assert saved[0][1]["input_hash"] == saved[0][2]["input_hash"]
+
+
+def test_legacy_route_remains_available_for_released_clients(monkeypatch):
+    saved = []
+
+    def save(uid, chart, snapshot):
+        saved.append(uid)
+        return True
+
+    monkeypatch.setattr(bazi_route, "save_bazi", save)
+    response = bazi_route.generate_bazi_legacy(
+        _request(uid="legacy-user"), "legacy-user"
+    )
+
+    assert response["success"] is True
+    assert saved == ["legacy-user"]

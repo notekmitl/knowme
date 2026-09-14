@@ -1,16 +1,13 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 
 import '../../application/thai_beta_analysis.dart';
-import '../../application/thai_beta_analysis_clock.dart';
 import '../../application/thai_beta_current_analysis.dart';
 import '../../domain/thai_beta_input.dart';
 import '../thai_beta_province_options.dart';
 import '../widgets/thai_beta_progress_bar.dart';
 import '../widgets/thai_beta_province_field.dart';
 import '../widgets/thai_beta_time_picker.dart';
-import 'thai_beta_summary_page.dart';
+import 'thai_beta_astrology_selection_page.dart';
 
 DateTime _systemNow() => DateTime.now();
 
@@ -116,26 +113,17 @@ class _ThaiBetaInputPageState extends State<ThaiBetaInputPage> {
       gender: _gender,
     );
 
-    unawaited(_submitAnalysis(input, submittedAt: submittedAt));
-  }
-
-  Future<void> _submitAnalysis(
-    ThaiBetaInput input, {
-    required DateTime submittedAt,
-  }) async {
-    // New attempt must not leave a prior success exportable if this run fails.
+    // A newly submitted profile must not leave an older Thai result exportable
+    // while the user is deciding which system to open.
     ThaiBetaCurrentAnalysis.clear();
-    final analysis = await widget.analysisExecutor(
-      input,
-      startedAt: _startedAt,
-      asOf: ThaiBetaAnalysisClock.asBangkokCivil(submittedAt),
-    );
-    if (!mounted) return;
-    ThaiBetaCurrentAnalysis.set(analysis);
-
     Navigator.of(context).push(
       MaterialPageRoute<void>(
-        builder: (_) => ThaiBetaSummaryPage(analysis: analysis),
+        builder: (_) => ThaiBetaAstrologySelectionPage(
+          input: input,
+          startedAt: _startedAt,
+          submittedAt: submittedAt,
+          analysisExecutor: widget.analysisExecutor,
+        ),
       ),
     );
   }

@@ -14,21 +14,46 @@ abstract final class BaziCompatibilityReportBuilder {
     );
     return BaziCompatibilityReport(
       title: th
-          ? 'KnowMe โหราศาสตร์จีน · BaZi V1'
-          : 'KnowMe Chinese Astrology · BaZi V1',
+          ? 'คำทำนายพื้นดวงจีน · ปาจื้อ (BaZi)'
+          : 'Chinese natal reading · BaZi',
       subtitle: th
-          ? 'คำอ่านพื้นดวงเชิงสัญลักษณ์จาก Day Master และความสัมพันธ์ของธาตุที่มองเห็น พร้อมแสดงกติกาและที่มาให้ตรวจสอบได้'
-          : 'A symbolic natal reading from the Day Master and visible element relationships, with reproducible rules and sources.',
+          ? 'อ่านภาพรวม จุดแข็ง การงาน การเงิน ความสัมพันธ์ และสิ่งที่ควรระวัง จาก Day Master และความสัมพันธ์ของธาตุที่คำนวณได้'
+          : 'A calculated Day Master reading covering strengths, work, money, relationships, and points to watch.',
       sections: [
-        _inputSection(chart, th),
         _readingOverviewSection(reading, th),
+        if (reading.natalAreas.isNotEmpty) _natalAreasSection(reading, th),
         _dayMasterSection(reading, th),
         if (reading.hasChartEmphasis) _relationshipSection(chart, reading, th),
+        _inputSection(chart, th),
         _pillarsSection(chart, th),
         _elementSection(chart, th),
         _methodSection(chart, th),
         _sourcesSection(th),
         _limitationsSection(chart, th),
+      ],
+    );
+  }
+
+  static BaziCompatibilityReportSection _natalAreasSection(
+    BaziSymbolicReading reading,
+    bool th,
+  ) {
+    return BaziCompatibilityReportSection(
+      title: th ? 'คำทำนายพื้นดวงแบบรายด้าน' : 'Natal tendencies by life area',
+      intro: th
+          ? 'แปล Day Master และกลุ่มความสัมพันธ์ที่เห็นมากในดวงให้เป็นภาษาชีวิตประจำวัน คำว่า “ทำนาย” ในส่วนนี้หมายถึงแนวโน้มพื้นดวง ไม่ใช่การระบุเหตุการณ์หรือช่วงเวลาในอนาคต'
+          : 'Translates the Day Master and most visible relationship families into everyday language. These are natal tendencies, not timed future events.',
+      rows: [
+        for (final area in reading.natalAreas)
+          BaziCompatibilityReportRow(
+            label: area.title,
+            value: '${area.reading}\n\n${area.evidence}',
+          ),
+      ],
+      notes: [
+        th
+            ? 'กลุ่มที่ “เห็นมาก” หมายถึงจำนวนบนก้านฟ้าและกิ่งดินที่แสดงใน V1 เท่านั้น ไม่ใช่คะแนนความแข็งแรงหรือคำตัดสินดี–ร้าย'
+            : '“Most visible” refers only to V1 surface stem/branch counts, not strength, favourability, or a good/bad score.',
       ],
     );
   }

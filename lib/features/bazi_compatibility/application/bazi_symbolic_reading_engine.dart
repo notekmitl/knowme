@@ -38,10 +38,25 @@ class BaziRelationshipFamilyReading {
   final String meaning;
 }
 
+class BaziNatalAreaReading {
+  const BaziNatalAreaReading({
+    required this.id,
+    required this.title,
+    required this.reading,
+    required this.evidence,
+  });
+
+  final String id;
+  final String title;
+  final String reading;
+  final String evidence;
+}
+
 class BaziSymbolicReading {
   const BaziSymbolicReading({
     required this.dayMaster,
     required this.relationships,
+    required this.natalAreas,
     required this.overview,
     required this.coverageNote,
     required this.hasChartEmphasis,
@@ -49,6 +64,7 @@ class BaziSymbolicReading {
 
   final BaziDayMasterReading dayMaster;
   final List<BaziRelationshipFamilyReading> relationships;
+  final List<BaziNatalAreaReading> natalAreas;
   final String overview;
   final String coverageNote;
   final bool hasChartEmphasis;
@@ -93,6 +109,9 @@ abstract final class BaziSymbolicReadingEngine {
     return BaziSymbolicReading(
       dayMaster: profile,
       relationships: relationships,
+      natalAreas: hasCompleteNatalContext
+          ? _natalAreas(profile, relationships, th)
+          : const <BaziNatalAreaReading>[],
       overview: _overview(
         chart,
         profile,
@@ -255,6 +274,118 @@ abstract final class BaziSymbolicReadingEngine {
         : 'Some pillars are ambiguous without a birth time, so no chart-wide emphasis is inferred from incomplete data.';
   }
 
+  static List<BaziNatalAreaReading> _natalAreas(
+    BaziDayMasterReading profile,
+    List<BaziRelationshipFamilyReading> relationships,
+    bool th,
+  ) {
+    final maxCount = relationships
+        .map((item) => item.count)
+        .fold<int>(0, (left, right) => left > right ? left : right);
+    final top = relationships
+        .where((item) => item.count == maxCount)
+        .toList(growable: false);
+    final wealth = relationships.firstWhere((item) => item.id == 'wealth');
+    final familyNames = th
+        ? _joinThai(top.map((item) => item.label).toList())
+        : _joinEnglish(top.map((item) => item.label).toList());
+    final basis = th
+        ? 'หลักที่ใช้: Day Master ${profile.name}; $familyNames '
+              '$maxCount ช่อง (มากที่สุดร่วมในชั้นธาตุที่มองเห็น)'
+        : 'Basis: Day Master ${profile.name}; $familyNames at $maxCount visible slots (joint-highest where tied)';
+
+    String topCopy(Map<String, String> catalog) {
+      final parts = [for (final family in top) catalog[family.id]!];
+      return th ? _joinThai(parts) : _joinEnglish(parts);
+    }
+
+    final strength = th
+        ? '${profile.strengths.first} เมื่อเชื่อมกับโครงสร้างดวงที่มองเห็น '
+              'พลังที่หยิบใช้ได้มากคือ ${topCopy(_strengthCopyTh)}'
+        : '${profile.strengths.first}. In the visible chart structure, the most available working modes are ${topCopy(_strengthCopyEn)}.';
+    final work = th
+        ? 'รูปแบบงานที่สอดคล้องกับกลุ่มที่เห็นมากคือ ${topCopy(_workCopyTh)} '
+              'ใช้เป็นคำถามเลือกบทบาทและสภาพแวดล้อมการทำงาน ไม่ใช่คำสั่งว่าอาชีพใดถูกกำหนดไว้แล้ว'
+        : 'Work patterns aligned with the most visible families are ${topCopy(_workCopyEn)}. Use this to evaluate roles and work environments, not as a fixed career assignment.';
+    final finance = _financeReading(wealth: wealth, top: top, th: th);
+    final relationshipsReading = th
+        ? 'เวลาอยู่กับคนอื่น ประเด็นที่ควรสังเกตเป็นพิเศษคือ ${topCopy(_relationshipCopyTh)} '
+              'นี่อธิบายรูปแบบปฏิสัมพันธ์ที่ใช้ทบทวนตนเอง ไม่ได้ทำนายคู่ครองหรือผลของความสัมพันธ์'
+        : 'With other people, the main themes to observe are ${topCopy(_relationshipCopyEn)}. This is a reflection on interaction style, not a prediction of partners or relationship outcomes.';
+    final caution = th
+        ? '${profile.cautions.first} และเมื่อใช้กลุ่มที่เห็นมากเกินสมดุล '
+              'ควรเฝ้าดู ${topCopy(_cautionCopyTh)} แนวทางทดลองคือ ${profile.practices.first}'
+        : '${profile.cautions.first}. When the most visible modes are overused, watch for ${topCopy(_cautionCopyEn)}. A practical experiment is: ${profile.practices.first}.';
+
+    return [
+      BaziNatalAreaReading(
+        id: 'strengths',
+        title: th ? 'จุดแข็งที่หยิบใช้ได้' : 'Usable strengths',
+        reading: strength,
+        evidence: basis,
+      ),
+      BaziNatalAreaReading(
+        id: 'work',
+        title: th ? 'การงานและบทบาท' : 'Work and roles',
+        reading: work,
+        evidence: basis,
+      ),
+      BaziNatalAreaReading(
+        id: 'finance',
+        title: th ? 'การเงินและทรัพยากร' : 'Money and resources',
+        reading: finance,
+        evidence: th
+            ? '$basis; พลังการจัดการทรัพยากร ${wealth.count} ช่อง'
+            : '$basis; Resources and execution ${wealth.count} visible slots',
+      ),
+      BaziNatalAreaReading(
+        id: 'relationships',
+        title: th
+            ? 'ความสัมพันธ์และการอยู่ร่วมกัน'
+            : 'Relationships and shared space',
+        reading: relationshipsReading,
+        evidence: basis,
+      ),
+      BaziNatalAreaReading(
+        id: 'cautions',
+        title: th
+            ? 'สิ่งที่ควรระวังและแนวทางพัฒนา'
+            : 'Watch-outs and development',
+        reading: caution,
+        evidence: basis,
+      ),
+    ];
+  }
+
+  static String _financeReading({
+    required BaziRelationshipFamilyReading wealth,
+    required List<BaziRelationshipFamilyReading> top,
+    required bool th,
+  }) {
+    final wealthIsTop = top.any((item) => item.id == 'wealth');
+    final practices = top
+        .map((item) => (th ? _financePracticeTh : _financePracticeEn)[item.id]!)
+        .toList();
+    final practice = th ? _joinThai(practices) : _joinEnglish(practices);
+
+    if (wealth.count == 0) {
+      return th
+          ? 'ชั้นธาตุที่ V1 มองเห็นยังไม่พบพลังการจัดการทรัพยากร จึงไม่สรุปว่าเรื่องเงินดีหรือร้าย '
+                'วิธีใช้กลุ่มที่เห็นมากมาช่วยวางระบบคือ $practice'
+          : 'The V1 surface layer shows no Resources-and-execution slots, so it does not label money as good or bad. Use the most visible modes to build a system by $practice.';
+    }
+    if (wealthIsTop) {
+      return th
+          ? 'พลังการจัดการทรัพยากรอยู่ในกลุ่มที่มองเห็นมากที่สุด จึงชวนอ่านเรื่องเงินผ่านการจัดสรรเวลา งบ และภาระให้เกิดผลที่ตรวจได้ '
+                'วิธีใช้เชิงสร้างสรรค์คือ $practice'
+          : 'Resources and execution is among the most visible families. Read money through how time, budget, and obligations are turned into trackable results. A constructive practice is $practice.';
+    }
+    return th
+        ? 'พลังการจัดการทรัพยากรปรากฏ ${wealth.count} ช่อง แต่ไม่ใช่กลุ่มที่เห็นมากที่สุด '
+              'จึงควรใช้เป็นจุดตรวจเรื่องงบและภาระควบคู่กับวิธีหลักของคุณคือ $practice'
+        : 'Resources and execution appears in ${wealth.count} visible slots but is not the most visible family. Treat budget and obligations as a checkpoint alongside your primary mode: $practice.';
+  }
+
   static String _joinThai(List<String> values) {
     if (values.length == 1) return values.first;
     if (values.length == 2) return '${values.first}และ${values.last}';
@@ -294,6 +425,86 @@ abstract final class BaziSymbolicReadingEngine {
     'earth': 'wood',
     'metal': 'fire',
     'water': 'earth',
+  };
+
+  static const _strengthCopyTh = <String, String>{
+    'resource': 'เรียนรู้ จัดข้อมูล และรับแรงสนับสนุน',
+    'peer': 'ริเริ่ม ยืนจุดยืน และร่วมมือแบบมีพื้นที่ของตนเอง',
+    'output': 'สื่อสารความคิดและสร้างผลงานให้คนอื่นเห็น',
+    'wealth': 'จัดสรรทรัพยากรและทำงานให้เกิดผลเป็นรูปธรรม',
+    'authority': 'วางมาตรฐาน ขอบเขต และรับผิดชอบสิ่งที่ชัดเจน',
+  };
+  static const _strengthCopyEn = <String, String>{
+    'resource': 'learning, organising information, and receiving support',
+    'peer': 'initiating, holding a position, and collaborating with autonomy',
+    'output': 'communicating ideas and making visible work',
+    'wealth': 'allocating resources and turning work into concrete results',
+    'authority': 'setting standards, boundaries, and clear responsibility',
+  };
+  static const _workCopyTh = <String, String>{
+    'resource':
+        'งานที่ให้เวลาเรียนรู้ เตรียมข้อมูล หรือสนับสนุนให้คนและระบบพร้อม',
+    'peer': 'งานที่ได้ตัดสินใจเอง เจรจาพื้นที่ และทำกับเพื่อนร่วมวิชาชีพ',
+    'output': 'งานที่ต้องคิด สื่อสาร ออกแบบ หรือส่งผลงานออกสู่คนอื่น',
+    'wealth': 'งานที่ต้องบริหารเวลา งบ ของที่มี และทำสิ่งที่รับผิดชอบให้เสร็จ',
+    'authority': 'งานที่มีกรอบ มาตรฐาน ขอบเขต และความรับผิดชอบที่ชัด',
+  };
+  static const _workCopyEn = <String, String>{
+    'resource':
+        'work with room to learn, prepare information, or support readiness',
+    'peer': 'work with autonomy, negotiated space, and professional peers',
+    'output':
+        'work that develops, communicates, designs, or publishes an output',
+    'wealth': 'work that manages time, budget, assets, and completion',
+    'authority':
+        'work with clear rules, standards, boundaries, and accountability',
+  };
+  static const _financePracticeTh = <String, String>{
+    'resource': 'รวบรวมข้อมูลก่อนตัดสินใจและกันงบสำหรับการเติมความพร้อม',
+    'peer': 'แยกเงินส่วนตัว เงินร่วม และอำนาจตัดสินใจให้ชัด',
+    'output': 'ผูกไอเดียหรือผลงานกับงบ เวลา และผลลัพธ์ที่วัดได้',
+    'wealth': 'ทำงบ แบ่งภาระ และติดตามสิ่งที่ต้องดูแลเป็นรอบ',
+    'authority': 'ตั้งเพดาน กติกา และจุดตรวจความเสี่ยงล่วงหน้า',
+  };
+  static const _financePracticeEn = <String, String>{
+    'resource':
+        'gathering information before decisions and budgeting for readiness',
+    'peer': 'separating personal money, shared money, and decision rights',
+    'output':
+        'linking ideas and output to budget, time, and measurable results',
+    'wealth':
+        'budgeting, assigning obligations, and reviewing what must be maintained',
+    'authority': 'setting limits, rules, and risk checkpoints in advance',
+  };
+  static const _relationshipCopyTh = <String, String>{
+    'resource': 'การรับฟัง การให้แรงสนับสนุน และการมีพื้นที่เติมพลัง',
+    'peer': 'ความเท่าเทียม พื้นที่ส่วนตัว และการแบ่งบทบาทกับอีกฝ่าย',
+    'output': 'การพูดสิ่งที่คิดให้ชัดพร้อมเปิดพื้นที่ฟังการตอบกลับ',
+    'wealth': 'ความสม่ำเสมอ การลงมือดูแล และการแบ่งภาระที่จับต้องได้',
+    'authority': 'ขอบเขต ความคาดหวัง และความรับผิดชอบที่ตกลงร่วมกัน',
+  };
+  static const _relationshipCopyEn = <String, String>{
+    'resource': 'listening, mutual support, and room to replenish',
+    'peer': 'equality, personal space, and negotiated roles',
+    'output': 'clear expression with room to hear the response',
+    'wealth': 'consistency, practical care, and tangible shared obligations',
+    'authority': 'boundaries, expectations, and mutually agreed responsibility',
+  };
+  static const _cautionCopyTh = <String, String>{
+    'resource': 'การเก็บข้อมูลหรือรอความพร้อมนานจนยังไม่เริ่ม',
+    'peer': 'การยืนพื้นที่ของตนจนกลายเป็นแข่งขันหรือแบ่งบทบาทไม่ลงตัว',
+    'output': 'การพูดหรือสร้างต่อเนื่องจนเวลาฟังและเวลาพักหายไป',
+    'wealth': 'การรับภาระจัดการมากเกินไปหรือผูกคุณค่าตนกับผลลัพธ์',
+    'authority': 'การใช้มาตรฐานเข้มจนกลายเป็นแรงกดดันต่อตนเองและผู้อื่น',
+  };
+  static const _cautionCopyEn = <String, String>{
+    'resource':
+        'collecting information or waiting for readiness until action stalls',
+    'peer':
+        'protecting autonomy until collaboration turns competitive or unclear',
+    'output': 'expressing and producing until listening and recovery disappear',
+    'wealth': 'carrying too much management or tying self-worth to results',
+    'authority': 'turning standards into pressure on yourself or other people',
   };
 
   static const _profiles = <String, _LocalizedDayMasterProfile>{

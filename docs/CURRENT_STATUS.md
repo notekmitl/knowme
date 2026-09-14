@@ -1,6 +1,49 @@
 # KnowMe Current Status+
 
-## KnowMe Chinese Astrology · BaZi V1 — complete for Owner testing (2026-09-13)
+## Chinese result is now a reader-facing natal report (2026-09-14)
+
+**CURRENT: THREE-SYSTEM POST-FORM CHOICE AND USEFUL BAIZI NATAL READING ARE
+IMPLEMENTED AND VALIDATED ON STACKED DRAFT PR #122; NOT READY, MERGED OR
+DEPLOYED.**
+
+Submitting the birth form at `/beta/thai` now opens one choice screen for Thai,
+Chinese BaZi and Western astrology. Choosing Thai runs the existing accepted
+Thai path. Chinese and Western verify authentication, map the same birth input
+to the canonical profile, generate only the selected system and fail closed if
+the fresh result is not ready. Unknown time is stored as empty, works for BaZi
+under its omission contract, and disables Western rather than inventing an
+ascendant/hour.
+
+The Chinese result now reads as a natal horoscope while remaining auditable:
+it starts with a calculated overview, then gives separate strengths, work,
+money/resources, relationships and cautions/development readings. Copy is
+deterministic and checked in. Each area discloses the Day Master and
+joint-highest visible relationship family/count behind it. It does not use AI,
+claim timed events or label surface counts as strength, favourability or fate.
+Li-Chun/Jie boundary-partial Unknown omits all whole-chart life-area readings.
+
+Authenticated versioned BaZi and Western endpoints and bearer-capable clients
+are now implemented in the branch. They have not been deployed. Compatibility
+routes remain during rollout; the existing BaZi compatibility route is still
+authenticated, while the pre-existing Western legacy route remains isolated
+from the new client. Required release order is backend v1, then client,
+adoption verification, then separately authorized legacy retirement.
+
+Final validation on Flutter 3.41.1 / Dart 3.11.0: backend **22/22**, focused
+Flutter **79/79**, full Flutter **3,070/3,070**, full analyzer exit 0 with 282
+inherited non-fatal diagnostics and scoped diagnostics 0. The Web release build
+passes route/API scans at 8,511,596 bytes and SHA-256
+`B0C183CBB39FFB965DD2DC7CC53E2B6E7FDF8FFCB89E5EADE0221B1BDA95FD9A`.
+Actual loopback URL and forbidden-service/secret findings are 0; the inherited
+single `localhost` hostname comparison remains a separate strict-policy blocker.
+
+The final Known/Unknown/Li-Chun/Jie PDFs are 5/4/3/3 A4 pages. All 15 pages
+were inspected with no missing text, broken Thai/Chinese glyph, clipping,
+overlap, blank page or Known-to-Unknown Hour leak. Thai calculation/report
+source, Thai goldens and `product-acceptance/` have zero delta; the only Thai
+route change is the new post-submit navigation seam.
+
+## Prior sourced-reading checkpoint (2026-09-13)
 
 **CURRENT: SOURCED SYMBOLIC READING IMPLEMENTED AND VALIDATED ON STACKED DRAFT
 PR #122; NOT READY FOR REVIEW, NOT MERGED AND NOT DEPLOYED.**

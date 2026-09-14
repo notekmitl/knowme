@@ -24,8 +24,22 @@ class GenerateBaziRequest(BaseModel):
     longitude: float | None = None
 
 
-@router.post("/generate-bazi")
-def generate_bazi(
+@router.post("/generate-bazi", deprecated=True)
+def generate_bazi_legacy(
+    request: GenerateBaziRequest,
+    authenticated_uid: str = Depends(current_firebase_uid),
+):
+    """Authenticated compatibility endpoint for already-released clients.
+
+    New clients use the authenticated versioned endpoint below. The legacy
+    route remains available until adoption can be measured and retired in a
+    separately authorized release.
+    """
+    return generate_bazi_v1(request, authenticated_uid)
+
+
+@router.post("/v1/generate-bazi")
+def generate_bazi_v1(
     request: GenerateBaziRequest,
     authenticated_uid: str = Depends(current_firebase_uid),
 ):
@@ -42,6 +56,16 @@ def generate_bazi(
                 "code": "UID_MISMATCH",
                 "message": "Authenticated user cannot write another user's chart",
             },
+        )
+
+    return _generate_bazi(request, write_uid=authenticated_uid)
+
+
+def _generate_bazi(request: GenerateBaziRequest, *, write_uid: str):
+    if not write_uid:
+        raise HTTPException(
+            status_code=400,
+            detail={"code": "MISSING_UID", "message": "uid is required"},
         )
 
     if not request.birth_date.strip():
@@ -75,7 +99,7 @@ def generate_bazi(
     results_snapshot = build_results_snapshot(chart)
 
     try:
-        save_bazi(authenticated_uid, chart, results_snapshot)
+        save_bazi(write_uid, chart, results_snapshot)
     except Exception as exc:
         raise HTTPException(
             status_code=500,
@@ -88,7 +112,7 @@ def generate_bazi(
         "completeness": chart["completeness"],
         "chart": chart,
         "saved_paths": {
-            "astrology": f"users/{authenticated_uid}/astrology/chinese_bazi",
-            "results": f"users/{authenticated_uid}/results/chinese_bazi",
+            "astrology": f"users/{write_uid}/astrology/chinese_bazi",
+            "results": f"users/{write_uid}/results/chinese_bazi",
         },
     }

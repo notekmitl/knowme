@@ -74,6 +74,31 @@ weak, favourable, or predictive. A zero count is explicitly not treated as an
 absent life function because hidden stems, seasonality, rooting, and strength
 weighting are outside V1.
 
+## Reader-facing natal areas
+
+Complete Known and ordinary Unknown charts project the same governed facts into
+five everyday reading areas:
+
+| Area | Deterministic basis | Allowed claim |
+|---|---|---|
+| Usable strengths | Day Master constructive expression + every joint-highest visible family | working modes the reader can try using |
+| Work and roles | every joint-highest visible family | role/environment questions, never a fixed occupation |
+| Money and resources | joint-highest families + explicit visible Wealth count | budgeting/execution reflection, never gain/loss or wealth fate |
+| Relationships and shared space | every joint-highest visible family | interaction themes, never a partner or relationship outcome |
+| Watch-outs and development | Day Master balance/practice + every joint-highest visible family | overuse pattern and one practical experiment |
+
+Every area prints the exact Day Master, relationship-family label and count that
+selected its copy. A tie emits all tied mappings in stable order. The finance
+area additionally prints the Wealth-family count; zero produces an explicit
+“no good/bad conclusion” message. The engine does not use randomness, current
+time, API text generation or an AI model.
+
+“Natal reading” here means a static reflection over the birth-chart facts. V1
+does not have the hidden-stem, seasonal-strength, luck-pillar or annual-timing
+inputs needed to claim when an event will occur. Boundary-partial Unknown
+therefore omits all five areas rather than treating one or two pillars as a
+whole chart.
+
 ## Known/Unknown fail-closed matrix
 
 | Input case | Day Master reading | Relationship reading | Hour contribution |
@@ -129,7 +154,7 @@ relationship mappings, four Owner fixture behaviors, forbidden promises, and
 Web/PDF use of the canonical report. Thai astrology and `product-acceptance/`
 are outside this contract and must have zero diff.
 
-Final evidence on Flutter 3.41.1 / Dart 3.11.0 is focused Flutter 57/57, full
-Flutter 3,055/3,055, analyzer scoped findings 0, and 12/12 visually inspected
+Final evidence on Flutter 3.41.1 / Dart 3.11.0 is focused Flutter 79/79, full
+Flutter 3,070/3,070, analyzer scoped findings 0, and 15/15 visually inspected
 PDF pages. Exact artifact hashes and environment controls are recorded in
 `CHINESE_ASTROLOGY_VALIDATION_V1.md`.

@@ -56,6 +56,27 @@ void main() {
       });
       expect(reading.hasChartEmphasis, isTrue);
       expect(reading.overview, contains('8 ช่อง'));
+      expect(reading.natalAreas.map((area) => area.id), [
+        'strengths',
+        'work',
+        'finance',
+        'relationships',
+        'cautions',
+      ]);
+      expect(
+        reading.natalAreas.firstWhere((area) => area.id == 'work').reading,
+        contains('รูปแบบงาน'),
+      );
+      expect(
+        reading.natalAreas.firstWhere((area) => area.id == 'finance').reading,
+        contains('จัดสรรเวลา งบ'),
+      );
+      expect(
+        reading.natalAreas
+            .firstWhere((area) => area.id == 'relationships')
+            .reading,
+        contains('รูปแบบปฏิสัมพันธ์'),
+      );
     });
 
     test('maps the five relationship cycles for every Day Master element', () {
@@ -145,6 +166,11 @@ void main() {
       });
       expect(reading.coverageNote, contains('ไม่รวมบทบาทจากเสาชั่วโมง'));
       expect(reading.overview, contains('6 ช่อง'));
+      expect(reading.natalAreas, hasLength(5));
+      expect(
+        reading.natalAreas.map((area) => area.evidence).join('\n'),
+        isNot(contains('เสาชั่วโมง')),
+      );
     });
 
     test('boundary-partial Unknown does not claim a chart-wide emphasis', () {
@@ -158,6 +184,7 @@ void main() {
 
         expect(reading.hasChartEmphasis, isFalse, reason: ownerCase.id);
         expect(reading.relationships, isEmpty, reason: ownerCase.id);
+        expect(reading.natalAreas, isEmpty, reason: ownerCase.id);
         expect(
           reading.overview,
           contains('ไม่พอสำหรับสรุปภาพรวมของดวง'),
@@ -167,7 +194,7 @@ void main() {
     });
 
     test('catalog does not promise events or domain outcomes', () {
-      final text = BaziSymbolicReadingEngine.supportedStems
+      final profileText = BaziSymbolicReadingEngine.supportedStems
           .map((stem) => BaziSymbolicReadingEngine.profileFor(stem))
           .expand(
             (profile) => [
@@ -178,6 +205,15 @@ void main() {
             ],
           )
           .join('\n');
+      final reading = BaziSymbolicReadingEngine.build(
+        BaziCompatibilityOwnerFixtures.chart(BaziOwnerCase.known),
+      );
+      final text = [
+        profileText,
+        ...reading.natalAreas.expand(
+          (area) => [area.title, area.reading, area.evidence],
+        ),
+      ].join('\n');
 
       for (final forbidden in [
         'คุณจะรวย',

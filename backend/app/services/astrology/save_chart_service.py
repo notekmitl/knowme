@@ -1,12 +1,14 @@
 from datetime import datetime
 
-from app.services.firebase_service import db
-
 
 def save_chart(
     uid,
     chart_data
 ):
+    # Firestore must not initialize merely because an API route is imported.
+    # This keeps calculation/auth unit tests offline and defers credentials to
+    # the actual persistence call.
+    from app.services.firebase_service import db
 
     user_ref = db.collection(
         "users"

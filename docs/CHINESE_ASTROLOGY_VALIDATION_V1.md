@@ -2,11 +2,11 @@
 
 **Status:** ready for Owner testing; Draft PR #122; not deployed
 
-**Date:** 2026-09-13
+**Date:** 2026-09-14
 
-**Validated application:** commit
-`afaa3a97b3a6ce82f555efbfbd79917567ebc339`, tree
-`3b56c98a3d03552246acc66ca7e6830b256ba957`
+**Validated application:** the runtime commit containing the post-form chooser,
+versioned API migration and natal-reading expansion; exact commit/tree are
+recorded in the final docs-only closeout.
 
 ## Coverage statement
 
@@ -43,35 +43,43 @@ not instructions for Owner fixture testing.
 - All five visible-element relationship mappings for each Day Master element.
 - Known four-pillar versus ordinary Unknown three-pillar relationship counts.
 - Boundary-partial Unknown omission of chart-wide relationship emphasis.
+- Five reader-facing natal areas with Day Master/family/count evidence,
+  joint-highest tie preservation, zero-Wealth caution and boundary omission.
 - Deterministic reading catalog scan for forbidden event/domain promises.
 - Signed-in report view and Owner fixture route.
 - PDF build for all four fixtures from the same report object.
 - Forbidden old personality/prediction section leakage and stale-chart hiding.
+- `/beta/thai` submit-to-selector navigation and preservation of the accepted
+  Thai executor/start/as-of contract.
+- Authenticated canonical-profile handoff for BaZi/Western, empty Unknown-time
+  storage, Western Unknown/province gate and cancelled-sign-in no-write path.
+- Versioned BaZi/Western client paths, bearer/UID binding, explicit legacy path
+  identities and verified-UID backend writes.
+- Forced Western regeneration and pre-refresh Fusion invalidation.
 
 ## Results
 
-- Backend focused: **18/18 passed** in 0.23 seconds. The offline rerun used the
-  pinned calculation/FastAPI dependencies and a minimal test-only
-  `firebase_admin` import stub; route tests monkeypatched token verification and
-  made no Firebase call or write.
-- Flutter focused auth/freshness/Fusion/model/reading/report/PDF/routes: **57/57
-  passed**.
-- Full Flutter 3.41.1 / Dart 3.11.0 suite on Linux with `CI=true`, analytics
-  suppressed and repository-required `TZ=Asia/Bangkok`: **3,055/3,055 passed**,
-  failures 0. A preliminary invocation without the required timezone produced
-  11 environment-driven Thai date/hash mismatches and is not counted as a gate;
-  no Thai code, fixture or golden was changed.
+- Backend focused calculation/BaZi-auth/Western-auth: **22/22 passed** in 0.42
+  seconds. Route tests stub calculations and persistence and make no Firebase
+  call or write. Firestore initialization is now lazy at the Western
+  persistence boundary, so importing the route cannot trigger metadata
+  credentials.
+- Flutter focused auth/handoff/chooser/freshness/Fusion/model/reading/report/
+  PDF/routes: **79/79 passed**.
+- Full Flutter 3.41.1 / Dart 3.11.0 suite on Linux with the
+  repository-required `TZ=Asia/Bangkok`: **3,070/3,070 passed**, failures 0.
 - Repository analyzer: exit 0 with **282 existing non-fatal warning/info
   diagnostics**; scoped changed-Dart diagnostics: **0**.
-- PreCommit component gates: PASS for base/scope, forbidden-text scan,
-  analyzer, both focused commands and required full suite.
+- PreCommit-equivalent component gates: PASS for base/scope, forbidden-text
+  scan, analyzer, both focused commands and required full suite.
 - The full suite rewrote 22 tracked generated validation outputs. Each exact
   path was restored individually to HEAD; no broad restore was used.
-- Web release build: PASS on Flutter 3.41.1. `main.dart.js` is **8,469,824
+- Web release build: PASS on Flutter 3.41.1. `main.dart.js` is **8,511,596
   bytes**, SHA-256
-  `3DFF3095890C8EF72E00F499AA44EC6BFA7292CF0F02B548B439699E40C5FCE8`.
-  The exact Production API URL and `/beta/chinese` each occur once. Counts for
-  `http://localhost`, `127.0.0.1`, `10.0.2.2` and `0.0.0.0` are zero.
+  `B0C183CBB39FFB965DD2DC7CC53E2B6E7FDF8FFCB89E5EADE0221B1BDA95FD9A`.
+  The bundle contains `/beta/thai`, `/beta/chinese`, both `/v1` endpoint paths
+  and the exact Production API URL. Actual loopback URL count and forbidden
+  service/secret count are zero.
 
 The earlier Windows full-suite result is not used as a passing gate. The
 authoritative result above comes from the pinned framework/engine, correct
@@ -81,36 +89,38 @@ golden was edited.
 ## PDF visual QA
 
 Final PDFs are ignored by Git under
-`output/pdf/knowme-bazi-symbolic-reading-linux-20260913/`:
+`output/pdf/knowme-bazi-natal-reading-v1/`:
 
 | Fixture | Pages | Bytes | SHA-256 |
 |---|---:|---:|---|
-| `knowme-bazi-known.pdf` | 3 | 40,887 | `3140A215B36F7B6072F98FC0C85A4AF48D4F3C6A0885923EBF73DC784CD36ADB` |
-| `knowme-bazi-unknown.pdf` | 3 | 41,040 | `553546D11B0928343FB65317F205AB238EF5D2DB6B149974FAB396A9DAF7E0DC` |
-| `knowme-bazi-lichun-unknown.pdf` | 3 | 36,338 | `7AAF410FA75C0299AF160F5DAB06C0F0615EAB8661BA99210A66A201C748B666` |
-| `knowme-bazi-jie-unknown.pdf` | 3 | 36,448 | `AD4678F3D396E02389980D45E0A2BDB3AED77632CBB7A5D90A0068D0DE9F27C5` |
+| `knowme-bazi-known.pdf` | 5 | 45,343 | `1B25943D15A6BCA5A423844A4C2A3C1469D087734FDA929AA9C149E266D0935B` |
+| `knowme-bazi-unknown.pdf` | 4 | 44,509 | `A9BB90A7AB320E0353BC481CDFCA2465BAEEA775B47BC3763937FD4BBB100AC5` |
+| `knowme-bazi-lichun-unknown.pdf` | 3 | 36,123 | `D41924C063A380072C47C047B2968AFA1CB979A94F1BDA255DFD0F10860E9139` |
+| `knowme-bazi-jie-unknown.pdf` | 3 | 36,263 | `330D2763A2CF329D34B72A84F06F443863C260F22D8F001C1693DC011713B1D3` |
 
-All 12 latest pages were rendered with Poppler at 144 DPI and opened at original
+All 15 latest pages were rendered with Poppler and opened at original
 resolution. Missing sections, broken Thai/Chinese glyphs, clipping, overlap,
-overflow, blank pages and sparse trailing pages are all **0**. Page numbering is
-complete at `1 / 3` through `3 / 3`, and the 64-character input hashes fit one
-line. The final raster set is byte-identical to the visually inspected set even
-though PDF metadata makes independently generated PDF bytes differ.
+overflow and blank pages are all **0**. A first render exposed unsupported
+bullet-glyph substitution and a dense two-column life-area layout; the final
+export replaces PDF bullets with an embedded-font dash and lets each life area
+flow as its own labelled card. The 15-page set above is the post-repair set that
+was inspected.
 
-`pdfinfo` reports three A4 pages for every file. `pdffonts` reports embedded CID
-TrueType `NotoSansSC-Regular` for all four PDFs and no Thin font. Poppler text
-extraction is non-empty on every page. Known contains `15:30` and its `wu/shen`
-Hour. Ordinary Unknown, Li Chun Unknown and Jie Unknown contain neither. The
-ordinary Unknown report retains the three-pillar relationship section; the Li
-Chun/Jie variants omit it as well as their boundary-ambiguous facts.
+`pdfinfo` reports A4 for every file. `pdffonts` reports embedded
+`NotoSansThai-Regular`, `NotoSansThai-Bold` and `NotoSansSC-Regular`, with no
+Thin font. Poppler text extraction is non-empty on every page. Known contains
+`15:30`, `戊申` and all five natal areas. Ordinary Unknown contains all five
+natal areas but neither `戊申` nor any Hour result. Li Chun/Jie variants contain
+no natal-area section and omit their boundary-ambiguous facts.
 
 ## Owner manual checklist
 
-Owner manually reads Known, ordinary Unknown, Li Chun Unknown and Jie Unknown,
-including the Day Master wording, visible relationship section where allowed,
-source ledger and Web/PDF parity. Token/UID/revoked-token behavior,
-regeneration and Fusion freshness are already automated engineering gates and
-are not exercised by the no-write fixture route.
+Owner manually submits one birth form to confirm the Thai/Chinese/Western
+choice, then reads Known, ordinary Unknown, Li Chun Unknown and Jie Unknown.
+The content check covers the overview, five natal areas where allowed, evidence
+lines, source ledger and Web/PDF parity. Token/UID/revoked-token behavior,
+profile persistence, regeneration and Fusion freshness are automated
+engineering gates and are not exercised by the no-write fixture route.
 
 ## Production guard
 
@@ -122,14 +132,14 @@ this strict classification is a future shared guard-quality task that policy
 still requires before Production. Draft PR #122 does not repair shared runtime
 or deploy it.
 
-The release build is evidence only. Client-first followed by immediate backend
-enforcement is not accepted sequencing because cached/open legacy clients may
-still omit the token. Release remains blocked pending a separately implemented
-parallel authenticated versioned endpoint, new-client migration, adoption
-verification and later legacy-endpoint retirement.
+The release build is evidence only. PR #122 contains parallel authenticated v1
+endpoints and migrated bearer clients, but no release occurred. Backend v1 must
+be deployed before the client, followed by adoption verification and later
+legacy-Western retirement under separate authorization.
 
 ## Regression boundary
 
-The changed-file inventory contains zero Thai astrology source, zero Thai
-golden, zero `product-acceptance/` and zero generated validation-output delta.
-The branch remains Draft, unmerged and undeployed.
+The changed-file inventory contains one intentional Thai-route navigation seam
+and one date-aware assertion. Thai calculation/report source, Thai goldens,
+`product-acceptance/` and generated validation-output deltas are zero. The
+branch remains Draft, unmerged and undeployed.

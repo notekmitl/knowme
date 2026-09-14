@@ -8,7 +8,9 @@ import 'package:flutter/foundation.dart';
 /// Release builds fall back to production Cloud Run when the define is omitted,
 /// so a plain `flutter build web --release` cannot silently ship localhost.
 class ApiConfig {
-  static const String _fromEnv = String.fromEnvironment('ASTROLOGY_API_BASE_URL');
+  static const String _fromEnv = String.fromEnvironment(
+    'ASTROLOGY_API_BASE_URL',
+  );
   static const String _productionFallback =
       'https://knowme-astrology-api-avbyttircq-as.a.run.app';
 
@@ -19,10 +21,20 @@ class ApiConfig {
   }
 
   static Uri astrologyGenerateChartUri() {
-    return Uri.parse('$astrologyBaseUrl/generate-chart');
+    return Uri.parse('$astrologyBaseUrl/v1/generate-chart');
   }
 
   static Uri baziGenerateUri() {
+    return Uri.parse('$astrologyBaseUrl/v1/generate-bazi');
+  }
+
+  /// Compatibility paths used only by already-released clients. New code must
+  /// use the authenticated versioned endpoints above.
+  static Uri legacyAstrologyGenerateChartUri() {
+    return Uri.parse('$astrologyBaseUrl/generate-chart');
+  }
+
+  static Uri legacyBaziGenerateUri() {
     return Uri.parse('$astrologyBaseUrl/generate-bazi');
   }
 }
