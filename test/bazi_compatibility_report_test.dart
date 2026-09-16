@@ -106,12 +106,42 @@ void main() {
 
       expect(
         BaziInputFingerprint.forProfile(profile),
-        '7e5deacba21e9abc250024b1448bcf902b6efd41f1c4f4a121be0bdcc1a0154b',
+        '6761b7d68e2a7112202e4764fbeaea0492d30695119c28053a708718ee630b0b',
       );
       expect(
         BaziInputFingerprint.forProfile(unknown),
-        '140f0798ba12b456a449d4adf44cda3d2364d9b0c90af5a68520ca12f8409e37',
+        '31398fcc4237ba2d008ccd62c3259f5391176959bfa09c57fd2a98655e656e77',
       );
+    });
+  });
+
+  group('KnowMe BaZi Reader V2 report', () {
+    test('leads with readable Thai and includes current timing', () {
+      final report = BaziCompatibilityReportBuilder.build(
+        BaziCompatibilityOwnerFixtures.readerV2Chart(),
+        asOf: DateTime(2026, 9, 16),
+      );
+      final text = report.plainText;
+
+      expect(report.title, 'คำทำนายดวงจีน · ปาจื้อ (BaZi)');
+      expect(report.sections.first.title, 'ผังปาจื้อของคุณ');
+      expect(text, contains('庚午 (geng/wu)'));
+      expect(text, contains('辛巳 (xin/si)'));
+      expect(text, contains('丁丑 (ding/chou)'));
+      expect(text, contains('戊申 (wu/shen)'));
+      expect(text, contains('แกนดวงของคุณคือ 丁 Ding · ไฟหยิน'));
+      expect(text, contains('การงาน'));
+      expect(text, contains('การเงิน'));
+      expect(text, contains('ความรักและความสัมพันธ์'));
+      expect(text, contains('จังหวะชีวิตปัจจุบัน · 甲申 (2561–2570)'));
+      expect(text, contains('ปี 2569 · 丙午'));
+      expect(text, contains('ปีนี้เด่นเรื่องทีม คู่แข่ง หุ้นส่วน'));
+      expect(text, contains('ก้านซ่อนเสาเดือน'));
+      expect(text, contains('丙 (劫财) · 庚 (正财) · 戊 (伤官)'));
+      expect(text, contains('Reader V2'));
+      expect(text, isNot(contains(' ช่อง')));
+      expect(text, isNot(contains('หลักที่ใช้: Day Master')));
+      expect(report.sections.last.title, 'ข้อจำกัดและคำเตือน');
     });
   });
 }

@@ -1,5 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:knowme/data/models/bazi_chart_model.dart';
+import 'package:knowme/features/bazi_compatibility/application/bazi_compatibility_owner_fixtures.dart';
 
 /// Fixture aligned with backend runtime verification (1990-05-12 15:30 Bangkok).
 Map<String, dynamic> _sampleChineseBaziDoc() {
@@ -174,6 +175,20 @@ void main() {
       expect(unknown.pillars.day.isAvailable, isTrue);
       expect(unknown.yearAnimal.isAvailable, isFalse);
       expect(unknown.ambiguities['year'], isTrue);
+    });
+
+    test('parses Reader V2 hidden stems, relations and timing', () {
+      final reader = BaziCompatibilityOwnerFixtures.readerV2Chart();
+
+      expect(reader.contractId, 'knowme_bazi_reader_v2');
+      expect(reader.pillars.month.hiddenStems, ['丙', '庚', '戊']);
+      expect(reader.pillars.month.hiddenTenGods, ['劫财', '正财', '伤官']);
+      expect(reader.tenGodBalance.topFamilies, ['wealth']);
+      expect(reader.dayMasterSupport.band, 'balanced');
+      expect(reader.natalRelations, hasLength(2));
+      expect(reader.luck.direction, 'forward');
+      expect(reader.luck.cycles.single.pillarLabel, '甲申');
+      expect(reader.luck.cycles.single.annual.single.pillarLabel, '丙午');
     });
   });
 }

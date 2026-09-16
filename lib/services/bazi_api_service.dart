@@ -24,6 +24,7 @@ class BaziApiService {
     required String birthDate,
     required String? birthTime,
     required String timezone,
+    String? gender,
     double? latitude,
     double? longitude,
     BaziAuthSessionLoader? loadAuthSession,
@@ -42,6 +43,7 @@ class BaziApiService {
       'birth_date': birthDate,
       'birth_time': birthTime,
       'timezone': timezone,
+      'gender': gender?.trim().isEmpty == true ? null : gender?.trim(),
     };
 
     if (latitude != null) {

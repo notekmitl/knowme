@@ -12,7 +12,7 @@ abstract final class BirthProfileReadiness {
     return BirthProfileFormat.parseStoredDate(profile.birthDate.trim()) != null;
   }
 
-  /// Minimum governed input for KnowMe BaZi Compatibility V1.
+  /// Minimum governed input for KnowMe BaZi Reader V2.
   ///
   /// Birth time and coordinates are deliberately optional. The backend
   /// validates the supplied IANA zone and fails closed for Unknown time.

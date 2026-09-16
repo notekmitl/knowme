@@ -1,4 +1,5 @@
 import 'package:knowme/data/models/bazi_chart_model.dart';
+import 'package:knowme/features/bazi_compatibility/application/bazi_reader_v2.dart';
 import 'package:knowme/features/bazi_compatibility/application/bazi_symbolic_reading_engine.dart';
 import 'package:knowme/features/bazi_compatibility/domain/bazi_compatibility_report.dart';
 
@@ -6,8 +7,12 @@ abstract final class BaziCompatibilityReportBuilder {
   static BaziCompatibilityReport build(
     BaziChartModel chart, {
     String languageCode = 'th',
+    DateTime? asOf,
   }) {
     final th = languageCode != 'en';
+    if (th && chart.contractId == 'knowme_bazi_reader_v2') {
+      return _buildThaiReaderV2(chart, asOf: asOf);
+    }
     final reading = BaziSymbolicReadingEngine.build(
       chart,
       languageCode: languageCode,
@@ -30,6 +35,153 @@ abstract final class BaziCompatibilityReportBuilder {
         _methodSection(chart, th),
         _sourcesSection(th),
         _limitationsSection(chart, th),
+      ],
+    );
+  }
+
+  static BaziCompatibilityReport _buildThaiReaderV2(
+    BaziChartModel chart, {
+    DateTime? asOf,
+  }) {
+    final reading = BaziReaderV2.build(chart, asOf: asOf);
+    return BaziCompatibilityReport(
+      title: 'คำทำนายดวงจีน · ปาจื้อ (BaZi)',
+      subtitle:
+          'อ่านพื้นดวง ตัวตน การงาน การเงิน ความสัมพันธ์ ดวงจรสิบปี และจังหวะปีปัจจุบันจากผังปาจื้อที่คำนวณได้',
+      sections: [
+        _readerPillarsSection(chart),
+        BaziCompatibilityReportSection(
+          title: 'ภาพรวมดวง',
+          paragraphs: [reading.overview],
+        ),
+        BaziCompatibilityReportSection(
+          title: 'ตัวตนและวิธีใช้พลัง',
+          paragraphs: [reading.identity],
+        ),
+        BaziCompatibilityReportSection(
+          title: 'การงาน',
+          paragraphs: [reading.work],
+        ),
+        BaziCompatibilityReportSection(
+          title: 'การเงิน',
+          paragraphs: [reading.money],
+        ),
+        BaziCompatibilityReportSection(
+          title: 'ความรักและความสัมพันธ์',
+          paragraphs: [reading.relationships],
+        ),
+        BaziCompatibilityReportSection(
+          title: 'สิ่งที่ควรระวังและการรักษาสมดุล',
+          paragraphs: [reading.balance],
+        ),
+        BaziCompatibilityReportSection(
+          title: reading.currentCycleTitle,
+          paragraphs: [reading.currentCycle],
+        ),
+        BaziCompatibilityReportSection(
+          title: reading.annualTitle,
+          paragraphs: [reading.annual],
+        ),
+        _readerFactsSection(chart),
+        _inputSection(chart, true),
+        _methodSection(chart, true),
+        _sourcesSection(true),
+        _limitationsSection(chart, true),
+      ],
+    );
+  }
+
+  static BaziCompatibilityReportSection _readerPillarsSection(
+    BaziChartModel chart,
+  ) {
+    String pillar(BaziPillar value) {
+      if (!value.isAvailable) return 'ไม่ทราบ';
+      return '${value.pillarLabel} (${value.stemRoman}/${value.branchRoman}) · '
+          '${_element(value.stemElement, true)}–${_element(value.branchElement, true)}';
+    }
+
+    return BaziCompatibilityReportSection(
+      title: 'ผังปาจื้อของคุณ',
+      rows: [
+        BaziCompatibilityReportRow(
+          label: 'เสาปี',
+          value: pillar(chart.pillars.year),
+        ),
+        BaziCompatibilityReportRow(
+          label: 'เสาเดือน',
+          value: pillar(chart.pillars.month),
+        ),
+        BaziCompatibilityReportRow(
+          label: 'เสาวัน · Day Master',
+          value: pillar(chart.pillars.day),
+        ),
+        BaziCompatibilityReportRow(
+          label: 'เสาชั่วโมง',
+          value: pillar(chart.pillars.hour),
+        ),
+      ],
+      notes: [
+        'Day Master คือ ${chart.dayMaster.stem} ${chart.dayMaster.stemRoman} · ${_element(chart.dayMaster.element, true)}${chart.dayMaster.polarity == 'yang' ? 'หยาง' : 'หยิน'}',
+        if (!chart.timeKnown)
+          'ไม่ทราบเวลาเกิด จึงไม่แสดงเสาชั่วโมงและดวงจรที่ต้องใช้เวลา',
+      ],
+    );
+  }
+
+  static BaziCompatibilityReportSection _readerFactsSection(
+    BaziChartModel chart,
+  ) {
+    String hidden(BaziPillar pillar) {
+      if (!pillar.isAvailable || pillar.hiddenStems.isEmpty) return '—';
+      final values = <String>[];
+      for (var index = 0; index < pillar.hiddenStems.length; index++) {
+        final god = index < pillar.hiddenTenGods.length
+            ? pillar.hiddenTenGods[index]
+            : '';
+        values.add('${pillar.hiddenStems[index]}${god.isEmpty ? '' : ' ($god)'}');
+      }
+      return values.join(' · ');
+    }
+
+    final topFamilies = chart.tenGodBalance.topFamilies
+        .map(_familyLabel)
+        .join(' · ');
+    return BaziCompatibilityReportSection(
+      title: 'ข้อมูลดวงที่ใช้ประกอบคำอ่าน',
+      intro:
+          'ส่วนนี้แสดงข้อเท็จจริงที่ระบบใช้สร้างคำอ่าน เพื่อให้ตรวจได้โดยไม่แทรกศัพท์เทคนิคไว้ในเนื้อหาหลัก',
+      rows: [
+        BaziCompatibilityReportRow(
+          label: 'แรงหนุน Day Master',
+          value:
+              '${_supportLabel(chart.dayMasterSupport.band)} · ${chart.dayMasterSupport.score}/${chart.dayMasterSupport.maxScore}',
+        ),
+        BaziCompatibilityReportRow(
+          label: 'กลุ่มพลังเด่น',
+          value: topFamilies.isEmpty ? 'ข้อมูลไม่พอ' : topFamilies,
+        ),
+        BaziCompatibilityReportRow(
+          label: 'ก้านซ่อนเสาปี',
+          value: hidden(chart.pillars.year),
+        ),
+        BaziCompatibilityReportRow(
+          label: 'ก้านซ่อนเสาเดือน',
+          value: hidden(chart.pillars.month),
+        ),
+        BaziCompatibilityReportRow(
+          label: 'ก้านซ่อนเสาวัน',
+          value: hidden(chart.pillars.day),
+        ),
+        BaziCompatibilityReportRow(
+          label: 'ก้านซ่อนเสาชั่วโมง',
+          value: hidden(chart.pillars.hour),
+        ),
+        BaziCompatibilityReportRow(
+          label: 'ความสัมพันธ์ผสม/ปะทะ',
+          value: chart.natalRelations.isEmpty
+              ? 'ไม่พบรูปแบบหลักในชุดที่ V2 ตรวจ'
+              : chart.natalRelations.map(_relationLabel).join(' · '),
+        ),
       ],
     );
   }
@@ -171,6 +323,11 @@ abstract final class BaziCompatibilityReportBuilder {
           label: th ? 'เขตเวลา IANA' : 'IANA timezone',
           value: _text(chart.input['timezone'], fallback: '—'),
         ),
+        if (_text(chart.input['gender']).isNotEmpty)
+          BaziCompatibilityReportRow(
+            label: th ? 'เพศที่ใช้กำหนดทิศดวงจร' : 'Gender used for luck direction',
+            value: _genderLabel(_text(chart.input['gender']), th),
+          ),
       ],
       notes: chart.timeKnown
           ? const []
@@ -290,6 +447,7 @@ abstract final class BaziCompatibilityReportBuilder {
     BaziChartModel chart,
     bool th,
   ) {
+    final isReaderV2 = chart.contractId == 'knowme_bazi_reader_v2';
     return BaziCompatibilityReportSection(
       title: th
           ? 'กติกาและข้อมูลสำหรับตรวจซ้ำ'
@@ -330,8 +488,8 @@ abstract final class BaziCompatibilityReportBuilder {
         BaziCompatibilityReportRow(
           label: th ? 'สถานที่และพิกัด' : 'Location and coordinates',
           value: th
-              ? 'บันทึกเป็นบริบท แต่ไม่ใช้เปลี่ยนผลคำนวณใน V1'
-              : 'Recorded as context but do not alter the V1 calculation',
+              ? 'บันทึกเป็นบริบท แต่ไม่ใช้เปลี่ยนผลคำนวณใน ${isReaderV2 ? 'Reader V2' : 'V1'}'
+              : 'Recorded as context but do not alter the ${isReaderV2 ? 'Reader V2' : 'V1'} calculation',
         ),
         BaziCompatibilityReportRow(
           label: th ? 'รหัสตรวจ input' : 'Input fingerprint',
@@ -339,7 +497,9 @@ abstract final class BaziCompatibilityReportBuilder {
         ),
         BaziCompatibilityReportRow(
           label: th ? 'สัญญาคำอ่าน' : 'Reading contract',
-          value: BaziSymbolicReadingEngine.interpretationContractId,
+          value: isReaderV2
+              ? BaziReaderV2.interpretationContractId
+              : BaziSymbolicReadingEngine.interpretationContractId,
         ),
       ],
     );
@@ -400,19 +560,30 @@ abstract final class BaziCompatibilityReportBuilder {
     BaziChartModel chart,
     bool th,
   ) {
+    final isReaderV2 = chart.contractId == 'knowme_bazi_reader_v2';
     return BaziCompatibilityReportSection(
       title: th ? 'ข้อจำกัดและคำเตือน' : 'Limitations and cautions',
       notes: [
-        th
-            ? 'รายงานนี้ใช้กติกา KnowMe BaZi Compatibility V1 และคำอ่านเชิงสัญลักษณ์ที่ระบุที่มา ไม่ได้อ้างว่าเป็นมาตรฐานสากลของทุกสำนักหรือข้อพิสูจน์บุคลิก'
-            : 'This report uses the KnowMe BaZi Compatibility V1 rules and sourced symbolic interpretation; it is neither a universal school standard nor proof of personality.',
+        if (isReaderV2)
+          th
+              ? 'รายงานนี้ใช้กติกา KnowMe BaZi Reader V2 และคำอ่านเชิงสัญลักษณ์ที่ระบุที่มา ไม่ได้อ้างว่าเป็นมาตรฐานสากลของทุกสำนักหรือข้อพิสูจน์บุคลิก'
+              : 'This report uses the KnowMe BaZi Reader V2 rules and sourced symbolic interpretation; it is neither a universal school standard nor proof of personality.'
+        else
+          th
+              ? 'รายงานนี้ใช้กติกา KnowMe BaZi Compatibility V1 และคำอ่านเชิงสัญลักษณ์ที่ระบุที่มา ไม่ได้อ้างว่าเป็นมาตรฐานสากลของทุกสำนักหรือข้อพิสูจน์บุคลิก'
+              : 'This report uses the KnowMe BaZi Compatibility V1 rules and sourced symbolic interpretation; it is neither a universal school standard nor proof of personality.',
         if (!chart.timeKnown)
           th
               ? 'ผล Unknown time เป็นแบบ fail-closed: ข้อมูลที่ต้องใช้เวลาและค่าปี/เดือนที่กำกวมจะไม่ถูกแสดง'
               : 'Unknown-time results fail closed: time-dependent and ambiguous Year/Month values are not shown.',
-        th
-            ? 'V1 ยังไม่คำนวณก้านซ่อน ความแข็งแรงตามฤดูกาล Useful God การผสม/ปะทะ ดวงจรสิบปี หรือจังหวะรายปี จึงไม่ทำนายเหตุการณ์ อาชีพเฉพาะ ความรัก สุขภาพ หรือผลการเงิน'
-            : 'V1 does not calculate hidden stems, seasonal strength, Useful God, combinations/clashes, ten-year luck pillars, or annual timing, so it does not predict events, specific careers, relationships, health, or financial outcomes.',
+        if (isReaderV2)
+          th
+              ? 'V2 คำนวณก้านซ่อน สิบเทพ แรงหนุนตามฤดูกาลแบบเปิดเผยกติกา การผสม/ปะทะ ดวงจรสิบปี และรายปี แต่ยังไม่ประกาศ Useful God หรือรับรองว่าเหตุการณ์ใดต้องเกิดขึ้น'
+              : 'V2 calculates hidden stems, Ten Gods, a disclosed seasonal-support heuristic, combinations/clashes, ten-year cycles, and annual timing, but does not declare a Useful God or guarantee events.'
+        else
+          th
+              ? 'V1 ยังไม่คำนวณก้านซ่อน ฤดูกาล ราก Useful God การผสม/ปะทะ ดวงจรสิบปี หรือรายปี จึงเป็นคำอ่านพื้นดวงระดับเบื้องต้นเท่านั้น'
+              : 'V1 does not calculate hidden stems, seasonality, rooting, Useful God, combinations/clashes, ten-year cycles, or annual timing, so it remains a basic natal reading.',
         th
             ? 'ห้ามใช้รายงานนี้แทนคำแนะนำจากผู้เชี่ยวชาญด้านสุขภาพ การแพทย์ การเงิน การลงทุน หรือกฎหมาย และไม่ควรใช้เพื่อรับประกันเหตุการณ์ในอนาคต'
             : 'Do not use this report as health, medical, financial, investment, or legal advice, or as a guarantee of future events.',
@@ -429,6 +600,52 @@ abstract final class BaziCompatibilityReportBuilder {
       'water': 'น้ำ',
     };
     return th ? (thai[value] ?? value) : value;
+  }
+
+  static String _genderLabel(String value, bool th) {
+    if (value == 'male') return th ? 'ชาย' : 'Male';
+    if (value == 'female') return th ? 'หญิง' : 'Female';
+    return value;
+  }
+
+  static String _familyLabel(String value) {
+    const labels = {
+      'resource': 'การเรียนรู้และแรงสนับสนุน',
+      'peer': 'ตัวตนและผู้ร่วมทาง',
+      'output': 'ความคิด การสื่อสาร และผลงาน',
+      'wealth': 'เงินและการจัดการทรัพยากร',
+      'authority': 'มาตรฐาน ความรับผิดชอบ และแรงกดดัน',
+    };
+    return labels[value] ?? value;
+  }
+
+  static String _supportLabel(String value) {
+    return switch (value) {
+      'lean' => 'แรงหนุนค่อนข้างบาง',
+      'balanced' => 'แรงหนุนระดับกลาง',
+      'supported' => 'แรงหนุนสูง',
+      _ => 'ยังประเมินไม่ได้',
+    };
+  }
+
+  static String _relationLabel(BaziRelation relation) {
+    final symbols = relation.symbols.join('–');
+    final label = switch (relation.kind) {
+      'stem_combine' => 'ก้านฟ้าผสาน',
+      'stem_clash' => 'ก้านฟ้าปะทะ',
+      'branch_combine' => 'กิ่งดินผสาน',
+      'branch_clash' => 'กิ่งดินปะทะ',
+      'branch_harm' => 'กิ่งดินให้โทษ',
+      'branch_break' => 'กิ่งดินแตกร้าว',
+      'branch_punishment' => 'กิ่งดินลงโทษ',
+      'branch_self_punishment' => 'กิ่งดินลงโทษตนเอง',
+      'branch_three_harmony' => 'สามประสาน',
+      _ => relation.kind,
+    };
+    final target = relation.targetElement.isEmpty
+        ? ''
+        : 'ไปทางธาตุ${_element(relation.targetElement, true)}';
+    return '$label $symbols${target.isEmpty ? '' : ' $target'}';
   }
 
   static String _yearAnimal(BaziYearAnimal animal, bool th) {

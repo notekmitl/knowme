@@ -101,7 +101,7 @@ class _BaziResultPageState extends State<BaziResultPage> {
       );
       await Printing.sharePdf(
         bytes: bytes,
-        filename: 'knowme-chinese-astrology-bazi-v1.pdf',
+        filename: 'knowme-chinese-astrology-bazi-reader-v2.pdf',
       );
     } catch (error) {
       if (!mounted) return;

@@ -67,7 +67,7 @@ AstrologyGenerationCoordinator _readyCoordinator({
     generateWestern: (_, _) async {},
     loadBaziInputHash: (_) async => generationFails
         ? 'stale-input-hash'
-        : '7e5deacba21e9abc250024b1448bcf902b6efd41f1c4f4a121be0bdcc1a0154b',
+        : '3b37f200a97686ab552395d92bc237d40aa63d73fcb9785dcfd9a492c8d2a221',
   );
 }
 

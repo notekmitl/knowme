@@ -1,0 +1,115 @@
+# KnowMe BaZi Reader V2
+
+**Calculation contract:** `knowme_bazi_reader_v2`
+
+**Thai reading contract:** `knowme_bazi_reader_th_v2`
+
+**Status:** implemented on `codex/bazi-reader-v2`; release evidence is recorded
+in `CURRENT_STATUS.md` and `HANDOFF.md` when the branch is closed.
+
+## Purpose
+
+Reader V2 replaces the V1 surface-count-first report with a reader-first Thai
+horoscope. The calculation remains deterministic, but the first pages now
+answer the questions a person expects from a BaZi reading before showing the
+technical audit trail.
+
+The visible order is:
+
+1. the four-pillar chart and Day Master;
+2. a direct overall reading;
+3. identity and constructive use of the Day Master;
+4. work;
+5. money;
+6. love and relationships;
+7. cautions and balance;
+8. the active ten-year luck cycle;
+9. the current annual influence; and
+10. calculated facts, input, rules, sources and limitations.
+
+The primary prose does not describe a person as a count of “slots.” Counts and
+method identifiers remain available only in the audit sections.
+
+## Calculation policy
+
+Reader V2 preserves the released local-civil calculation policy:
+
+| Concern | Rule |
+|---|---|
+| Calendar input | Gregorian local civil date and optional time |
+| Timezone | supplied IANA zone validates the local-civil context |
+| Year boundary | Li Chun (`立春`) |
+| Month boundary | Jie (`節`) |
+| Day boundary | local civil 00:00, `sect=2` |
+| True-solar correction | none |
+| Coordinates | recorded as context, not used to change pillars |
+| Unknown time | omit Hour and every time-dependent output |
+
+The client now sends normalized gender because the traditional Da Yun direction
+depends on gender together with the birth-year stem. Gender is part of the
+Reader V2 input fingerprint. If gender or time is unavailable, Reader V2 does
+not invent a ten-year direction or annual sequence.
+
+## New governed fact layers
+
+The backend derives these facts from the same pinned
+`lunar_python==1.4.8` EightChar instance:
+
+- hidden stems and their polarity-specific Ten Gods for every available
+  pillar;
+- visible and hidden Ten-God family weights, with disclosed weighting of two
+  points for a visible stem and one for a hidden stem;
+- a disclosed Day Master support heuristic using month primary qi, grounding
+  and visible support;
+- stem combinations/clashes and branch combinations, clashes, harms,
+  punishments and three-harmony groups;
+- Da Yun onset, direction and ten-year cycles when gender and time are known;
+  and
+- annual pillars and their main relationships with the natal chart.
+
+When one branch pair appears in both traditional combination and break tables,
+Reader V2 gives the direct combination precedence. It does not show two
+contradictory labels for one pair.
+
+Reader V2 does not declare a Useful God (`用神`), diagnose health, recommend an
+investment, or guarantee a career, money or relationship event. Its strength
+band is a named, reviewable heuristic rather than a claim that all BaZi schools
+must reach the same conclusion.
+
+## Synthetic regression case
+
+The checked-in regression reuses the repository's synthetic 1990 Bangkok case
+with male luck-cycle direction. Real user birth data is not added to source
+control:
+
+| Layer | Expected result |
+|---|---|
+| Four pillars | `庚午 · 辛巳 · 丁丑 · 戊申` |
+| Day Master | `丁 Ding`, Yin Fire |
+| Hidden stems | `丁己 · 丙庚戊 · 己癸辛 · 庚壬戊` |
+| Leading family | Wealth |
+| Support band | `balanced`, score `4/9` under `three_gains_primary_qi_v2` |
+| Natal headline relations | `午–丑` harm, `巳–申` combine |
+| Active cycle in 2026 | `甲申`, 2018–2027 |
+| Annual influence in 2026 | `丙午` |
+
+The real profile that prompted Reader V2 is checked locally against the same
+engine policy, but its date, clock time and place are deliberately absent from
+this change set.
+
+## Projection and regression rules
+
+- Backend chart storage and the results mirror carry the same V2 facts.
+- Signed-in Web, plain text and dedicated PDF read the same
+  `BaziCompatibilityReport` object.
+- V1 charts retain the legacy renderer; a new V2 chart selects Reader V2 by
+  `contract_id`.
+- Birth date, normalized time, normalized gender, timezone and V2 contract id
+  form the cross-language SHA-256 input fingerprint. Coordinates remain outside
+  the hash because they do not alter this calculation policy.
+- Unknown time remains fail-closed and does not expose luck cycles.
+
+Backend tests pin boundaries, authentication, mirror projection and the golden
+owner case. Flutter tests pin the natural Thai section order, exact pillars,
+current cycle/year, hidden-stem evidence, final cautions and the absence of the
+old “slot count” wording from the V2 report.

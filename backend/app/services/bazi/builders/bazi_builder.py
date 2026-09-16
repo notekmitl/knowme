@@ -1,8 +1,16 @@
-"""Build KnowMe BaZi Compatibility V1 from governed birth input."""
+"""Build KnowMe BaZi Reader V2 from governed birth input."""
 
 from datetime import datetime
 from datetime import timezone as dt_timezone
 
+from app.services.bazi.analysis import (
+    build_luck_cycles,
+    compute_day_master_support,
+    compute_natal_relations,
+    compute_ten_god_balance,
+    enrich_pillars,
+    normalize_gender,
+)
 from app.services.bazi.calculators.lunar_engine import compute_eight_char
 from app.services.bazi.constants import (
     BAZI_VERSION,
@@ -27,7 +35,7 @@ from app.services.bazi.utils.input_hash import compute_input_hash
 
 
 class BaziInvariantError(RuntimeError):
-    """Raised when an approved Compatibility V1 invariant is violated."""
+    """Raised when a governed BaZi calculation invariant is violated."""
 
 
 def build_bazi(
@@ -36,11 +44,12 @@ def build_bazi(
     timezone: str,
     latitude: float | None = None,
     longitude: float | None = None,
+    gender: str | None = None,
 ) -> dict:
     """
-    Build Known- or Unknown-time Compatibility V1 output.
+    Build Known- or Unknown-time Reader V2 output.
 
-    The IANA zone validates the recorded local-civil context. Compatibility V1
+    The IANA zone validates the recorded local-civil context. Reader V2
     intentionally does not convert the wall clock or apply true-solar time.
     """
     if has_known_birth_time(birth_time):
@@ -50,12 +59,14 @@ def build_bazi(
             timezone=timezone,
             latitude=latitude,
             longitude=longitude,
+            gender=gender,
         )
     return _build_unknown_time(
         birth_date=birth_date,
         timezone=timezone,
         latitude=latitude,
         longitude=longitude,
+        gender=gender,
     )
 
 
@@ -66,6 +77,7 @@ def _build_known_time(
     timezone: str,
     latitude: float | None,
     longitude: float | None,
+    gender: str | None,
 ) -> dict:
     y, m, d, h, mi, s = parse_birth_datetime(
         birth_date,
@@ -73,7 +85,10 @@ def _build_known_time(
         timezone,
     )
     lunar, eight_char = compute_eight_char(y, m, d, h, mi, s)
-    pillars = map_pillars_from_eight_char(eight_char)
+    pillars = enrich_pillars(
+        map_pillars_from_eight_char(eight_char),
+        eight_char,
+    )
 
     return _assemble_chart(
         birth_date=birth_date,
@@ -86,6 +101,8 @@ def _build_known_time(
         completeness="four_pillars",
         ambiguities={"year": False, "month": False, "day": False},
         suppressed_fields=[],
+        gender=gender,
+        eight_char=eight_char,
     )
 
 
@@ -95,13 +112,20 @@ def _build_unknown_time(
     timezone: str,
     latitude: float | None,
     longitude: float | None,
+    gender: str | None,
 ) -> dict:
     y, m, d = parse_birth_date(birth_date, timezone)
 
     start_lunar, start_eight_char = compute_eight_char(y, m, d, 0, 0, 0)
     end_lunar, end_eight_char = compute_eight_char(y, m, d, 23, 59, 59)
-    start = map_pillars_from_eight_char(start_eight_char)
-    end = map_pillars_from_eight_char(end_eight_char)
+    start = enrich_pillars(
+        map_pillars_from_eight_char(start_eight_char),
+        start_eight_char,
+    )
+    end = enrich_pillars(
+        map_pillars_from_eight_char(end_eight_char),
+        end_eight_char,
+    )
 
     if start["day"]["pillar_label"] != end["day"]["pillar_label"]:
         raise BaziInvariantError(
@@ -150,6 +174,8 @@ def _build_unknown_time(
             "day": False,
         },
         suppressed_fields=suppressed_fields,
+        gender=gender,
+        eight_char=None,
     )
 
 
@@ -175,16 +201,30 @@ def _assemble_chart(
     completeness: str,
     ambiguities: dict,
     suppressed_fields: list[str],
+    gender: str | None,
+    eight_char,
 ) -> dict:
     day_pillar = pillars.get("day")
     if not isinstance(day_pillar, dict):
-        raise BaziInvariantError("Compatibility V1 requires an invariant Day pillar")
+        raise BaziInvariantError("Reader V2 requires an invariant Day pillar")
 
     day_master = summarize_day_master(day_pillar["stem"])
     day_master["pillar_label"] = day_pillar["pillar_label"]
 
     element_balance = compute_element_balance(pillars)
     dominant_element = compute_dominant_element(element_balance)
+    normalized_gender = normalize_gender(gender)
+    ten_god_balance = compute_ten_god_balance(pillars)
+    day_master_support = compute_day_master_support(
+        pillars,
+        day_master["element"],
+    )
+    natal_relations = compute_natal_relations(pillars)
+    luck = (
+        build_luck_cycles(eight_char, normalized_gender, pillars)
+        if eight_char is not None
+        else None
+    )
     generated_at = datetime.now(dt_timezone.utc).isoformat()
 
     return {
@@ -193,7 +233,12 @@ def _assemble_chart(
         "contract_name": CONTRACT_NAME,
         "engine_version": ENGINE_VERSION,
         "generated_at": generated_at,
-        "input_hash": compute_input_hash(birth_date, birth_time, timezone),
+        "input_hash": compute_input_hash(
+            birth_date,
+            birth_time,
+            timezone,
+            normalized_gender,
+        ),
         "completeness": completeness,
         "time_known": birth_time is not None,
         "engine_policy": dict(ENGINE_POLICY),
@@ -203,6 +248,7 @@ def _assemble_chart(
             "timezone": str(timezone).strip(),
             "latitude": latitude,
             "longitude": longitude,
+            "gender": normalized_gender,
             "coordinates_used_in_calculation": False,
         },
         "pillars": pillars,
@@ -210,6 +256,10 @@ def _assemble_chart(
         "year_animal": year_animal,
         "element_balance": element_balance,
         "dominant_element": dominant_element,
+        "ten_god_balance": ten_god_balance,
+        "day_master_support": day_master_support,
+        "natal_relations": natal_relations,
+        "luck": luck,
         "ambiguities": ambiguities,
         "suppressed_fields": suppressed_fields,
     }
@@ -232,6 +282,10 @@ def build_results_snapshot(chart: dict) -> dict:
         "year_animal": chart["year_animal"],
         "dominant_element": chart["dominant_element"],
         "element_balance": chart["element_balance"],
+        "ten_god_balance": chart["ten_god_balance"],
+        "day_master_support": chart["day_master_support"],
+        "natal_relations": chart["natal_relations"],
+        "luck": chart["luck"],
         "pillars": chart["pillars"],
         "ambiguities": chart["ambiguities"],
         "suppressed_fields": chart["suppressed_fields"],

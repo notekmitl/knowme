@@ -321,6 +321,7 @@ class AstrologyGenerationCoordinator {
           ? null
           : profile.birthTime.trim(),
       timezone: profile.timezone.isNotEmpty ? profile.timezone : 'Asia/Bangkok',
+      gender: profile.gender,
       latitude: profile.latitude,
       longitude: profile.longitude,
     );
