@@ -1,5 +1,18 @@
 # Task Result — Chinese Astrology Report V1
 
+## Production release completed (2026-09-16)
+**KNOWME ASTROLOGY V1 IS LIVE AND PRODUCTION QA PASSED.**
+- Release provenance: remote `https://github.com/notekmitl/knowme.git`, commit `664c8656a2028cf266745f9c1c3a0567989266ec`, tree `bee0a7c8ea07035920bc58b2524aa9b68ab96df6`, project `knowme-app-694e1`.
+- Final Cloud Run revision: `knowme-astrology-api-00003-b29` in `asia-southeast1`, created `2026-09-16T05:00:07.320990Z`, image digest `sha256:99c1831eb7bda8135cfa9593bf39d074b059588196bc5736aaeb26946701e0df`.
+- Firebase Hosting release: `sites/knowme-app-694e1/releases/1789470114786000`, version `sites/knowme-app-694e1/versions/e915f14591fb48f2`, released `2026-09-15T11:01:54.786Z`.
+- API QA: `/health` 200; unauthenticated `/v1/generate-bazi` 401; unauthenticated `/v1/generate-chart` 401; authenticated empty-payload probe 422, proving token verification completed before body validation; focused repository auth/UID tests 8/8.
+- Production browser QA: Thai, BaZi and Western choices were visible; authenticated BaZi generation returned 200 at `2026-09-16T05:01:45.265470Z` and the full Thai-language BaZi report rendered. No Flutter/API application exception was observed; browser-extension message-channel noise was excluded.
+- Flutter Web was built with Flutter 3.41.1 / Dart 3.11.0, the Production API define, `THAI_PUBLIC_EVIDENCE_BADGE_BETA=public_beta` and `--no-tree-shake-icons`. Bundle size is 8,511,604 bytes; SHA-256 is `ee11caf2001c75aa86f9cb0018e893d0d76f60ea479d35c8a7a818071e3b874d`.
+- Both Hosting domains returned 200 for root and `/beta/thai`; both served `flutter_bootstrap.js?v=664c865` and `main.dart.js?v=664c865`. The bundle contains the Production API plus both v1 paths and no loopback API endpoint.
+- The first source deploy created revision `knowme-astrology-api-00002-p8b`. Real authenticated QA exposed lazy Firebase Admin initialization before auth verification. The final revision keeps the exact same release image/tree and adds a startup initialization wrapper before Uvicorn.
+- Deployment changed only Cloud Run service configuration and Firebase Hosting. No Firestore rules, Functions, Auth configuration, Storage configuration or bulk Production data were deployed or edited; the signed-in BaZi artifact was created only by the required acceptance flow.
+
+
 ## Merge closeout and release status (2026-09-14)
 
 **IMPLEMENTATION COMPLETE AND MERGED TO `main`; PRODUCTION DEPLOYMENT NOT

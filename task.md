@@ -1,5 +1,16 @@
 # Task: Chinese Astrology Report V1
 
+## Production completion checkpoint (2026-09-16)
+**COMPLETE — BACKEND, HOSTING AND SIGNED-IN BAIZI PRODUCTION QA PASSED.**
+- Release provenance: remote `https://github.com/notekmitl/knowme.git`, commit `664c8656a2028cf266745f9c1c3a0567989266ec`, tree `bee0a7c8ea07035920bc58b2524aa9b68ab96df6`, project `knowme-app-694e1`.
+- Final Cloud Run revision: `knowme-astrology-api-00003-b29` in `asia-southeast1`, created `2026-09-16T05:00:07.320990Z`, image digest `sha256:99c1831eb7bda8135cfa9593bf39d074b059588196bc5736aaeb26946701e0df`.
+- Firebase Hosting release: `sites/knowme-app-694e1/releases/1789470114786000`, version `sites/knowme-app-694e1/versions/e915f14591fb48f2`, released `2026-09-15T11:01:54.786Z`.
+- API QA: `/health` 200; unauthenticated `/v1/generate-bazi` 401; unauthenticated `/v1/generate-chart` 401; authenticated empty-payload probe 422, proving token verification completed before body validation; focused repository auth/UID tests 8/8.
+- Production browser QA: Thai, BaZi and Western choices were visible; authenticated BaZi generation returned 200 at `2026-09-16T05:01:45.265470Z` and the full Thai-language BaZi report rendered. No Flutter/API application exception was observed; browser-extension message-channel noise was excluded.
+The release Web build uses Flutter 3.41.1 / Dart 3.11.0, Production API `https://knowme-astrology-api-avbyttircq-as.a.run.app`, `public_beta`, `--no-tree-shake-icons`, and cache pin `664c865`. Both Hosting domains and `/beta/thai` returned 200 with both pinned asset references. Bundle inspection found both v1 paths and no loopback API endpoint.
+The final revision uses the unchanged release image and initializes Firebase Admin before Uvicorn. This runtime wrapper closes the lazy-initialization 401 found by real browser QA without mixing any other repository or changing the release commit/tree. No full test suite was rerun; the accepted 22/22, 79/79 and 3,070/3,070 evidence remains authoritative.
+
+
 ## Completion checkpoint (2026-09-14)
 
 **CODE COMPLETE, VALIDATED AND MERGED; PRODUCTION DEPLOYMENT REQUIRES AN
