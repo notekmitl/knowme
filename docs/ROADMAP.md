@@ -1,6 +1,18 @@
 # KnowMe Roadmap+
 
-## Active release operation — deploy merged BaZi V1 (2026-09-14)
+## Completed release operation — BaZi V1 Production (2026-09-16)
+**DONE: PR #122 RELEASE SOURCE IS LIVE AND SIGNED-IN BAIZI QA PASSED.**
+- Release provenance: remote `https://github.com/notekmitl/knowme.git`, commit `664c8656a2028cf266745f9c1c3a0567989266ec`, tree `bee0a7c8ea07035920bc58b2524aa9b68ab96df6`, project `knowme-app-694e1`.
+- Final Cloud Run revision: `knowme-astrology-api-00003-b29` in `asia-southeast1`, created `2026-09-16T05:00:07.320990Z`, image digest `sha256:99c1831eb7bda8135cfa9593bf39d074b059588196bc5736aaeb26946701e0df`.
+- Firebase Hosting release: `sites/knowme-app-694e1/releases/1789470114786000`, version `sites/knowme-app-694e1/versions/e915f14591fb48f2`, released `2026-09-15T11:01:54.786Z`.
+- API QA: `/health` 200; unauthenticated `/v1/generate-bazi` 401; unauthenticated `/v1/generate-chart` 401; authenticated empty-payload probe 422, proving token verification completed before body validation; focused repository auth/UID tests 8/8.
+- Production browser QA: Thai, BaZi and Western choices were visible; authenticated BaZi generation returned 200 at `2026-09-16T05:01:45.265470Z` and the full Thai-language BaZi report rendered. No Flutter/API application exception was observed; browser-extension message-channel noise was excluded.
+The Production Hosting bundle is pinned to `664c865` on both Firebase domains and passed `/beta/thai`, three-system chooser, bundle endpoint and loopback scans.
+Next release work is limited to: (1) observe adoption, latency and error rate; (2) land a source-level Firebase Admin initialization fix under a separately validated release, then remove the current Cloud Run startup wrapper; and (3) consider legacy-route retirement only after measured adoption and separate authorization.
+BaZi V2 and any new interpretive scope remain separately sourced and versioned.
+
+
+## Prior active release operation — deploy merged BaZi V1 (2026-09-14)
 
 **PR #120 AND PR #122 ARE MERGED; NO PRODUCT OR ENGINEERING DECISION REMAINS
 FOR BAIZI V1. PRODUCTION DEPLOYMENT IS THE ONLY OPEN RELEASE OPERATION.**

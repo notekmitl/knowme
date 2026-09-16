@@ -1,6 +1,19 @@
 # Handoff — Chinese Astrology Report V1
 
-## Current handoff — merged release candidate; deploy pending (2026-09-14)
+## Current handoff — Production live (2026-09-16)
+**RELEASE COMPLETE; HANDOFF IS POST-RELEASE OBSERVATION, NOT DEPLOYMENT.**
+- Release provenance: remote `https://github.com/notekmitl/knowme.git`, commit `664c8656a2028cf266745f9c1c3a0567989266ec`, tree `bee0a7c8ea07035920bc58b2524aa9b68ab96df6`, project `knowme-app-694e1`.
+- Final Cloud Run revision: `knowme-astrology-api-00003-b29` in `asia-southeast1`, created `2026-09-16T05:00:07.320990Z`, image digest `sha256:99c1831eb7bda8135cfa9593bf39d074b059588196bc5736aaeb26946701e0df`.
+- Firebase Hosting release: `sites/knowme-app-694e1/releases/1789470114786000`, version `sites/knowme-app-694e1/versions/e915f14591fb48f2`, released `2026-09-15T11:01:54.786Z`.
+- API QA: `/health` 200; unauthenticated `/v1/generate-bazi` 401; unauthenticated `/v1/generate-chart` 401; authenticated empty-payload probe 422, proving token verification completed before body validation; focused repository auth/UID tests 8/8.
+- Production browser QA: Thai, BaZi and Western choices were visible; authenticated BaZi generation returned 200 at `2026-09-16T05:01:45.265470Z` and the full Thai-language BaZi report rendered. No Flutter/API application exception was observed; browser-extension message-channel noise was excluded.
+Hosting release `1789470114786000` / version `e915f14591fb48f2` serves pin `664c865` from both Firebase domains. Root, bootstrap and `/beta/thai` cache-bypass checks returned 200.
+Operational note: revision `00003-b29` runs the unchanged release image with a startup wrapper that calls `firebase_admin.initialize_app()` before Uvicorn. Do not clear the Cloud Run command override until an explicitly reviewed source release initializes Firebase Admin before the auth dependency.
+No full regression suite was repeated. Accepted release-candidate evidence remains backend 22/22, focused Flutter 79/79 and full Flutter 3,070/3,070; this release added only focused auth/UID 8/8 plus real Production smoke and browser QA.
+No Firestore rules, Functions, Auth or Storage deployment occurred. Continue with adoption/latency/error observation and separately authorize any legacy-route retirement or source-level startup change.
+
+
+## Prior handoff — merged release candidate; deploy pending (2026-09-14)
 
 **PR #120 AND PR #122 ARE MERGED. RELEASE VALIDATION IS GREEN. PRODUCTION
 DEPLOYMENT IS THE ONLY REMAINING ACTION.**

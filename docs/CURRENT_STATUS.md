@@ -1,6 +1,18 @@
 # KnowMe Current Status+
 
-## BaZi V1 merged; Production deploy needs an authenticated runner (2026-09-14)
+## Production current status (2026-09-16)
+**LIVE: KNOWME ASTROLOGY V1 IS DEPLOYED TO CLOUD RUN AND FIREBASE HOSTING; PRODUCTION QA PASSED.**
+- Release provenance: remote `https://github.com/notekmitl/knowme.git`, commit `664c8656a2028cf266745f9c1c3a0567989266ec`, tree `bee0a7c8ea07035920bc58b2524aa9b68ab96df6`, project `knowme-app-694e1`.
+- Final Cloud Run revision: `knowme-astrology-api-00003-b29` in `asia-southeast1`, created `2026-09-16T05:00:07.320990Z`, image digest `sha256:99c1831eb7bda8135cfa9593bf39d074b059588196bc5736aaeb26946701e0df`.
+- Firebase Hosting release: `sites/knowme-app-694e1/releases/1789470114786000`, version `sites/knowme-app-694e1/versions/e915f14591fb48f2`, released `2026-09-15T11:01:54.786Z`.
+- API QA: `/health` 200; unauthenticated `/v1/generate-bazi` 401; unauthenticated `/v1/generate-chart` 401; authenticated empty-payload probe 422, proving token verification completed before body validation; focused repository auth/UID tests 8/8.
+- Production browser QA: Thai, BaZi and Western choices were visible; authenticated BaZi generation returned 200 at `2026-09-16T05:01:45.265470Z` and the full Thai-language BaZi report rendered. No Flutter/API application exception was observed; browser-extension message-channel noise was excluded.
+Hosting serves cache pin `664c865` on both `web.app` and `firebaseapp.com`; `/beta/thai` returns 200. The release bundle uses Flutter 3.41.1 / Dart 3.11.0, contains the Production API and both v1 routes, and contains no localhost/loopback API endpoint.
+The final Cloud Run revision retains the exact release image. Its command initializes Firebase Admin before Uvicorn because the merged source initializes Admin only at the persistence boundary; real signed-in QA proved that the original startup path rejected an otherwise valid project token. This runtime mitigation is active and verified.
+No Firestore rules, Functions, Auth configuration or Storage configuration was deployed. Remaining work is post-release observation and a separately reviewed source-level replacement for the startup wrapper before that wrapper is removed.
+
+
+## Prior status — BaZi V1 merged; Production deploy pending (2026-09-14)
 
 **CURRENT: PR #120 AND PR #122 ARE MERGED TO `main`. THE BAIZI V1 RELEASE
 CANDIDATE IS VALIDATED, BUT THIS CLOSEOUT DID NOT DEPLOY CLOUD RUN OR FIREBASE

@@ -1,9 +1,33 @@
 # KnowMe BaZi Compatibility V1 Validation
 
-**Status:** validated and merged in PR #122; Production deploy pending an
-authenticated runner
+## Production release evidence (2026-09-16)
+**Status:** deployed and verified in Production.
+- Release provenance: remote `https://github.com/notekmitl/knowme.git`, commit `664c8656a2028cf266745f9c1c3a0567989266ec`, tree `bee0a7c8ea07035920bc58b2524aa9b68ab96df6`, project `knowme-app-694e1`.
+- Final Cloud Run revision: `knowme-astrology-api-00003-b29` in `asia-southeast1`, created `2026-09-16T05:00:07.320990Z`, image digest `sha256:99c1831eb7bda8135cfa9593bf39d074b059588196bc5736aaeb26946701e0df`.
+- Firebase Hosting release: `sites/knowme-app-694e1/releases/1789470114786000`, version `sites/knowme-app-694e1/versions/e915f14591fb48f2`, released `2026-09-15T11:01:54.786Z`.
+- API QA: `/health` 200; unauthenticated `/v1/generate-bazi` 401; unauthenticated `/v1/generate-chart` 401; authenticated empty-payload probe 422, proving token verification completed before body validation; focused repository auth/UID tests 8/8.
+- Production browser QA: Thai, BaZi and Western choices were visible; authenticated BaZi generation returned 200 at `2026-09-16T05:01:45.265470Z` and the full Thai-language BaZi report rendered. No Flutter/API application exception was observed; browser-extension message-channel noise was excluded.
+### Deployment record
+- Cloud Run source deploy started `2026-09-15T10:41:25Z`; Cloud Build `3403ae33-b227-476a-aa70-2e170c5fbf1a` completed `2026-09-15T10:45:18.323052Z`; source revision `knowme-astrology-api-00002-p8b` used the release image above.
+- Real browser QA found that the valid Firebase project token was rejected before persistence because Firebase Admin was initialized lazily only inside the save service. The final configuration-only mitigation initializes Admin before Uvicorn and created revision `knowme-astrology-api-00003-b29` at `2026-09-16T05:00:07.320990Z`; the image digest and release tree remain unchanged.
+- Hosting deployment ran `2026-09-15T11:01:39Z`–`11:02:17Z`; release time was `2026-09-15T11:01:54.786Z`. Only Hosting was deployed.
+### Web artifact
+- Flutter `3.41.1`, Dart `3.11.0`; `ASTROLOGY_API_BASE_URL=https://knowme-astrology-api-avbyttircq-as.a.run.app`; `THAI_PUBLIC_EVIDENCE_BADGE_BETA=public_beta`; `--no-tree-shake-icons`.
+- `main.dart.js`: 8,511,604 bytes; SHA-256 `ee11caf2001c75aa86f9cb0018e893d0d76f60ea479d35c8a7a818071e3b874d`.
+- `flutter_bootstrap.js?v=664c865` and `main.dart.js?v=664c865` were present on `web.app` and `firebaseapp.com`. Both domains returned 200 for root, bootstrap and `/beta/thai` cache-bypass checks.
+- The bundle contains the Production API exactly once and both `/v1/generate-bazi` and `/v1/generate-chart`; the loopback endpoint scan returned no match.
+### Production QA
+- Missing-token checks returned 401 for both v1 routes, not 404. Authenticated empty-payload probing returned 422, confirming successful token verification without a data write.
+- Focused repository QA `test_bazi_route_auth.py` plus `test_astrology_route_auth.py`: 8/8 passed. This verifies bearer validation, revoked-token checking, UID mismatch rejection and verified-UID persistence binding.
+- Signed-in UI showed Thai, BaZi and Western systems. BaZi generation completed with HTTP 200 in 7.382 seconds and the full report rendered, including overview, five life areas, Day Master evidence, calculated pillars, source ledger and limitations.
+- No Flutter/API application exception appeared during the passing flow. The only console noise was unrelated browser-extension message-channel logging.
+- No Firestore rules, Functions, Auth configuration or Storage configuration was deployed. The only Production data write was the signed-in BaZi result required by the explicit acceptance test.
 
-**Date:** 2026-09-14
+
+**Pre-release status (2026-09-14):** validated and merged in PR #122;
+Production deployment was still pending an authenticated runner.
+
+**Pre-release validation date:** 2026-09-14
 
 **Merged release source:** commit
 `664c8656a2028cf266745f9c1c3a0567989266ec`, tree
