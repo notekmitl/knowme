@@ -38,7 +38,10 @@ jobs:
         run: flutter pub get
 
       - name: Install full-suite PDF dependency
-        run: sudo apt-get update && sudo apt-get install --yes poppler-utils
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes poppler-utils
+          python -m pip install pypdf
 
       - name: Format changed Dart scope
         run: >-
