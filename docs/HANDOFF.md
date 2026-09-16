@@ -1,6 +1,17 @@
+## Handoff - Reader V2 is live (2026-09-16)
+
+There is no pending Reader V2 production deployment. Application commit `fc7e56c8647fdcbddc08885bf853b74a287c4056` is live in project `knowme-app-694e1`.
+
+- Cloud Run `knowme-astrology-api-00005-r87` is Ready and receives 100% traffic; image digest is `sha256:a1495d512376e81f424c47e0256645d455cd0db72628c51840eb16d37c93f25a`. Preserve the existing `sh -c` startup override that initializes Firebase Admin before Uvicorn on future deploys unless application startup takes over that responsibility.
+- Hosting release `1789557959784000`, version `02ad04dcd6116530`, serves cache pin `fc7e56c` on both Production domains.
+- API acceptance: health 200; unauthenticated generation endpoints 401. Browser acceptance: `/beta/thai` loads and `/beta/chinese?case=known` renders BaZi Reader V2 on both domains with the documented reader-first order and no application console error.
+- PDF acceptance: 4 pages, complete Reader V2 and Thai V2 contracts, readable Thai/Chinese, no clipping or overlap; SHA-256 `1e247ec57753a61ccc8facdb01e81b549f8587e4553557f595849b58443d5ca1`.
+- PR #126 is the application hotfix that routed the known no-write Owner fixture and its PDF export to the existing V2 fixture. It was merged before the final deploy. Focused tests passed 9/9; no full-suite rerun was needed.
+- Do not redeploy Firestore rules, Functions, Auth, or Storage for this release. No Production data migration is required.
+
 # Handoff — Chinese Astrology Report
 
-## Current handoff — BaZi Reader V2 release candidate (2026-09-16)
+## Archived pre-release handoff - BaZi Reader V2 candidate (2026-09-16)
 
 **PR #125 IS THE VALIDATED SOURCE CHANGE. PRODUCTION STILL SERVES V1 UNTIL
 BACKEND AND HOSTING ARE DEPLOYED FROM THE MERGED V2 COMMIT.**
@@ -25,9 +36,9 @@ authentication and a fresh Reader V2 response; then build/deploy Firebase
 Hosting from the same commit and verify Web/PDF parity. Do not deploy Firestore
 rules. The current runner has no authenticated Google Cloud/Firebase toolchain,
 so production deployment is an operational handoff rather than part of PR
-#125.
+PR #125.
 
-## Current handoff — Production live (2026-09-16)
+## Archived V1 Production handoff (2026-09-16)
 **RELEASE COMPLETE; HANDOFF IS POST-RELEASE OBSERVATION, NOT DEPLOYMENT.**
 - Release provenance: remote `https://github.com/notekmitl/knowme.git`, commit `664c8656a2028cf266745f9c1c3a0567989266ec`, tree `bee0a7c8ea07035920bc58b2524aa9b68ab96df6`, project `knowme-app-694e1`.
 - Final Cloud Run revision: `knowme-astrology-api-00003-b29` in `asia-southeast1`, created `2026-09-16T05:00:07.320990Z`, image digest `sha256:99c1831eb7bda8135cfa9593bf39d074b059588196bc5736aaeb26946701e0df`.
