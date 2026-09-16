@@ -63,7 +63,11 @@ class AstrologyGenerationCoordinator {
       return Future.value(_notReadySnapshot());
     }
 
-    final key = [uid, retrySystemId, forceSystemId].whereType<String>().join(':');
+    final key = [
+      uid,
+      retrySystemId,
+      forceSystemId,
+    ].whereType<String>().join(':');
     final existing = _inFlight[key];
     if (existing != null) return existing;
 
@@ -321,6 +325,7 @@ class AstrologyGenerationCoordinator {
           ? null
           : profile.birthTime.trim(),
       timezone: profile.timezone.isNotEmpty ? profile.timezone : 'Asia/Bangkok',
+      gender: profile.gender,
       latitude: profile.latitude,
       longitude: profile.longitude,
     );

@@ -1,4 +1,31 @@
-# Handoff — Chinese Astrology Report V1
+# Handoff — Chinese Astrology Report
+
+## Current handoff — BaZi Reader V2 release candidate (2026-09-16)
+
+**PR #125 IS THE VALIDATED SOURCE CHANGE. PRODUCTION STILL SERVES V1 UNTIL
+BACKEND AND HOSTING ARE DEPLOYED FROM THE MERGED V2 COMMIT.**
+
+- Branch/PR: `codex/bazi-reader-v2` / #125.
+- Contracts: `knowme_bazi_reader_v2` and `knowme_bazi_reader_th_v2`.
+- The main reading is natural Thai in this order: overview, identity, work,
+  money, relationships, balance, current 10-year cycle and current year.
+  Technical evidence, calculation policy, sources and limitations remain in
+  later sections for auditability.
+- The API/client transport now includes normalized gender for luck-cycle
+  direction and invalidates old fingerprints. V1 snapshots keep their legacy
+  renderer.
+- Validation: backend 24/24, scoped analyzer pass, focused Flutter/report/PDF
+  35/35, full Flutter 3,072/3,072, and all four PDF pages visually inspected
+  without missing glyphs, clipping or overlap.
+- Fixtures and documentation contain synthetic birth data only. Do not add the
+  Owner's personal birth details to repository history or CI fixtures.
+
+Release order after merge: deploy `backend/` first, verify `/health`, bearer
+authentication and a fresh Reader V2 response; then build/deploy Firebase
+Hosting from the same commit and verify Web/PDF parity. Do not deploy Firestore
+rules. The current runner has no authenticated Google Cloud/Firebase toolchain,
+so production deployment is an operational handoff rather than part of PR
+#125.
 
 ## Current handoff — Production live (2026-09-16)
 **RELEASE COMPLETE; HANDOFF IS POST-RELEASE OBSERVATION, NOT DEPLOYMENT.**

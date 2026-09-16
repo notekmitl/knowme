@@ -108,6 +108,7 @@ void main() {
               required String birthDate,
               required String? birthTime,
               required String timezone,
+              String? gender,
               double? latitude,
               double? longitude,
             }) async {

@@ -15,8 +15,9 @@ def _known(
     zone="Asia/Bangkok",
     latitude=13.7563,
     longitude=100.5018,
+    gender=None,
 ):
-    return build_bazi(date, time, zone, latitude, longitude)
+    return build_bazi(date, time, zone, latitude, longitude, gender)
 
 
 def _without_generated_at(chart):
@@ -28,9 +29,9 @@ def _without_generated_at(chart):
 def test_known_time_four_pillars_and_contract_metadata():
     chart = _known()
 
-    assert chart["version"] == "knowme_bazi_compatibility_v1"
-    assert chart["contract_id"] == "knowme_bazi_compatibility_v1"
-    assert chart["contract_name"] == "KnowMe BaZi Compatibility V1"
+    assert chart["version"] == "knowme_bazi_reader_v2"
+    assert chart["contract_id"] == "knowme_bazi_reader_v2"
+    assert chart["contract_name"] == "KnowMe BaZi Reader V2"
     assert chart["engine_version"] == "lunar_python@1.4.8"
     assert chart["completeness"] == "four_pillars"
     assert chart["time_known"] is True
@@ -71,6 +72,71 @@ def test_known_time_day_master_year_animal_and_surface_count():
         3,
         0,
     ]
+
+
+def test_reader_v2_reference_profile_has_structured_facts_and_current_timing():
+    chart = _known(
+        gender="male",
+    )
+
+    assert [
+        chart["pillars"][key]["pillar_label"]
+        for key in ("year", "month", "day", "hour")
+    ] == ["庚午", "辛巳", "丁丑", "戊申"]
+    assert chart["day_master"]["stem"] == "丁"
+    assert chart["pillars"]["year"]["hidden_stems"] == ["丁", "己"]
+    assert chart["pillars"]["month"]["hidden_ten_gods"] == [
+        "劫财",
+        "正财",
+        "伤官",
+    ]
+    assert chart["ten_god_balance"]["family_weight"] == {
+        "resource": 0,
+        "peer": 2,
+        "output": 6,
+        "wealth": 7,
+        "authority": 2,
+    }
+    assert chart["ten_god_balance"]["top_families"] == ["wealth"]
+    assert chart["day_master_support"] == {
+        "score": 4,
+        "max_score": 9,
+        "band": "balanced",
+        "season_score": 3,
+        "ground_score": 1,
+        "visible_support_score": 0,
+        "resource_element": "wood",
+        "method": "three_gains_primary_qi_v2",
+    }
+    assert [relation["kind"] for relation in chart["natal_relations"]] == [
+        "branch_harm",
+        "branch_combine",
+    ]
+    assert chart["luck"]["direction"] == "forward"
+    assert chart["luck"]["onset"] == {
+        "years": 8,
+        "months": 2,
+        "days": 10,
+        "date": "1998-07-22",
+    }
+    current = next(
+        cycle
+        for cycle in chart["luck"]["cycles"]
+        if cycle["start_year"] <= 2026 <= cycle["end_year"]
+    )
+    assert current["pillar_label"] == "甲申"
+    assert current["stem_ten_god"] == "正印"
+    annual = next(item for item in current["annual"] if item["year"] == 2026)
+    assert annual["pillar_label"] == "丙午"
+    assert annual["stem_ten_god"] == "劫财"
+    assert [relation["kind"] for relation in annual["natal_relations"]] == [
+        "branch_self_punishment",
+        "stem_combine",
+        "branch_harm",
+    ]
+    assert chart["input_hash"] == (
+        "3b37f200a97686ab552395d92bc237d40aa63d73fcb9785dcfd9a492c8d2a221"
+    )
 
 
 def test_lichun_exact_minute_changes_year_and_month():
@@ -177,6 +243,16 @@ def test_coordinates_are_recorded_but_do_not_change_calculation_or_hash():
     assert bangkok["input"]["coordinates_used_in_calculation"] is False
 
 
+def test_gender_is_normalized_and_changes_reader_v2_fingerprint_and_luck():
+    male = _known(gender="ชาย")
+    female = _known(gender="female")
+
+    assert male["input"]["gender"] == "male"
+    assert female["input"]["gender"] == "female"
+    assert male["input_hash"] != female["input_hash"]
+    assert male["luck"]["direction"] != female["luck"]["direction"]
+
+
 def test_leap_day_and_repeated_input_are_deterministic():
     first = _known("2000-02-29", "00:00")
     second = _known("2000-02-29", "00:00")
@@ -201,6 +277,10 @@ def test_results_snapshot_preserves_projection_and_suppressions():
         "time_known",
         "pillars",
         "element_balance",
+        "ten_god_balance",
+        "day_master_support",
+        "natal_relations",
+        "luck",
         "ambiguities",
         "suppressed_fields",
     ):

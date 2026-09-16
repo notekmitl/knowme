@@ -7,6 +7,11 @@ class BaziPillar {
     required this.stemElement,
     required this.branchElement,
     required this.pillarLabel,
+    this.hiddenStems = const [],
+    this.stemTenGod = '',
+    this.hiddenTenGods = const [],
+    this.growthStage = '',
+    this.nayin = '',
   });
 
   final String stem;
@@ -16,6 +21,11 @@ class BaziPillar {
   final String stemElement;
   final String branchElement;
   final String pillarLabel;
+  final List<String> hiddenStems;
+  final String stemTenGod;
+  final List<String> hiddenTenGods;
+  final String growthStage;
+  final String nayin;
 
   bool get isAvailable => pillarLabel.trim().isNotEmpty;
 
@@ -28,6 +38,200 @@ class BaziPillar {
       stemElement: _string(map['stem_element']),
       branchElement: _string(map['branch_element']),
       pillarLabel: _string(map['pillar_label']),
+      hiddenStems: _stringList(map['hidden_stems']),
+      stemTenGod: _string(map['stem_ten_god']),
+      hiddenTenGods: _stringList(map['hidden_ten_gods']),
+      growthStage: _string(map['growth_stage']),
+      nayin: _string(map['nayin']),
+    );
+  }
+}
+
+class BaziTenGodBalance {
+  const BaziTenGodBalance({
+    this.visible = const {},
+    this.hidden = const {},
+    this.familyWeight = const {},
+    this.topFamilies = const [],
+    this.method = '',
+  });
+
+  final Map<String, int> visible;
+  final Map<String, int> hidden;
+  final Map<String, int> familyWeight;
+  final List<String> topFamilies;
+  final String method;
+
+  factory BaziTenGodBalance.fromMap(Map<String, dynamic> map) {
+    return BaziTenGodBalance(
+      visible: _intMap(map['visible']),
+      hidden: _intMap(map['hidden']),
+      familyWeight: _intMap(map['family_weight']),
+      topFamilies: _stringList(map['top_families']),
+      method: _string(map['method']),
+    );
+  }
+}
+
+class BaziDayMasterSupport {
+  const BaziDayMasterSupport({
+    this.score = 0,
+    this.maxScore = 0,
+    this.band = '',
+    this.seasonScore = 0,
+    this.groundScore = 0,
+    this.visibleSupportScore = 0,
+    this.resourceElement = '',
+    this.method = '',
+  });
+
+  final int score;
+  final int maxScore;
+  final String band;
+  final int seasonScore;
+  final int groundScore;
+  final int visibleSupportScore;
+  final String resourceElement;
+  final String method;
+
+  factory BaziDayMasterSupport.fromMap(Map<String, dynamic> map) {
+    return BaziDayMasterSupport(
+      score: _int(map['score']),
+      maxScore: _int(map['max_score']),
+      band: _string(map['band']),
+      seasonScore: _int(map['season_score']),
+      groundScore: _int(map['ground_score']),
+      visibleSupportScore: _int(map['visible_support_score']),
+      resourceElement: _string(map['resource_element']),
+      method: _string(map['method']),
+    );
+  }
+}
+
+class BaziRelation {
+  const BaziRelation({
+    required this.kind,
+    this.roles = const [],
+    this.symbols = const [],
+    this.targetElement = '',
+  });
+
+  final String kind;
+  final List<String> roles;
+  final List<String> symbols;
+  final String targetElement;
+
+  factory BaziRelation.fromMap(Map<String, dynamic> map) {
+    return BaziRelation(
+      kind: _string(map['kind']),
+      roles: _stringList(map['roles']),
+      symbols: _stringList(map['symbols']),
+      targetElement: _string(map['target_element']),
+    );
+  }
+}
+
+class BaziAnnualInfluence {
+  const BaziAnnualInfluence({
+    required this.year,
+    required this.age,
+    required this.pillarLabel,
+    required this.stem,
+    required this.branch,
+    required this.stemTenGod,
+    this.natalRelations = const [],
+  });
+
+  final int year;
+  final int age;
+  final String pillarLabel;
+  final String stem;
+  final String branch;
+  final String stemTenGod;
+  final List<BaziRelation> natalRelations;
+
+  factory BaziAnnualInfluence.fromMap(Map<String, dynamic> map) {
+    return BaziAnnualInfluence(
+      year: _int(map['year']),
+      age: _int(map['age']),
+      pillarLabel: _string(map['pillar_label']),
+      stem: _string(map['stem']),
+      branch: _string(map['branch']),
+      stemTenGod: _string(map['stem_ten_god']),
+      natalRelations: _relationList(map['natal_relations']),
+    );
+  }
+}
+
+class BaziLuckCycle {
+  const BaziLuckCycle({
+    required this.startYear,
+    required this.endYear,
+    required this.startAge,
+    required this.endAge,
+    required this.pillarLabel,
+    required this.stem,
+    required this.branch,
+    required this.stemTenGod,
+    this.natalRelations = const [],
+    this.annual = const [],
+  });
+
+  final int startYear;
+  final int endYear;
+  final int startAge;
+  final int endAge;
+  final String pillarLabel;
+  final String stem;
+  final String branch;
+  final String stemTenGod;
+  final List<BaziRelation> natalRelations;
+  final List<BaziAnnualInfluence> annual;
+
+  factory BaziLuckCycle.fromMap(Map<String, dynamic> map) {
+    return BaziLuckCycle(
+      startYear: _int(map['start_year']),
+      endYear: _int(map['end_year']),
+      startAge: _int(map['start_age']),
+      endAge: _int(map['end_age']),
+      pillarLabel: _string(map['pillar_label']),
+      stem: _string(map['stem']),
+      branch: _string(map['branch']),
+      stemTenGod: _string(map['stem_ten_god']),
+      natalRelations: _relationList(map['natal_relations']),
+      annual: _mapList(
+        map['annual'],
+      ).map(BaziAnnualInfluence.fromMap).toList(growable: false),
+    );
+  }
+}
+
+class BaziLuck {
+  const BaziLuck({
+    this.gender = '',
+    this.direction = '',
+    this.onset = const {},
+    this.cycles = const [],
+    this.method = '',
+  });
+
+  final String gender;
+  final String direction;
+  final Map<String, dynamic> onset;
+  final List<BaziLuckCycle> cycles;
+  final String method;
+
+  bool get isAvailable => cycles.isNotEmpty;
+
+  factory BaziLuck.fromMap(Map<String, dynamic> map) {
+    return BaziLuck(
+      gender: _string(map['gender']),
+      direction: _string(map['direction']),
+      onset: _map(map['onset']),
+      cycles: _mapList(
+        map['cycles'],
+      ).map(BaziLuckCycle.fromMap).toList(growable: false),
+      method: _string(map['method']),
     );
   }
 }
@@ -154,6 +358,10 @@ class BaziChartModel {
     this.input = const {},
     this.ambiguities = const {},
     this.suppressedFields = const [],
+    this.tenGodBalance = const BaziTenGodBalance(),
+    this.dayMasterSupport = const BaziDayMasterSupport(),
+    this.natalRelations = const [],
+    this.luck = const BaziLuck(),
   });
 
   final String version;
@@ -173,6 +381,10 @@ class BaziChartModel {
   final Map<String, dynamic> input;
   final Map<String, bool> ambiguities;
   final List<String> suppressedFields;
+  final BaziTenGodBalance tenGodBalance;
+  final BaziDayMasterSupport dayMasterSupport;
+  final List<BaziRelation> natalRelations;
+  final BaziLuck luck;
 
   factory BaziChartModel.fromMap(Map<String, dynamic> map) {
     return BaziChartModel(
@@ -182,7 +394,7 @@ class BaziChartModel {
           : _string(map['version']),
       contractName: _string(map['contract_name']).isNotEmpty
           ? _string(map['contract_name'])
-          : 'KnowMe BaZi Compatibility V1',
+          : 'KnowMe BaZi Reader',
       engineVersion: _string(map['engine_version']),
       generatedAt: _string(map['generated_at']),
       inputHash: _string(map['input_hash']),
@@ -201,8 +413,31 @@ class BaziChartModel {
       input: Map<String, dynamic>.from(map['input'] ?? {}),
       ambiguities: _boolMap(map['ambiguities']),
       suppressedFields: _stringList(map['suppressed_fields']),
+      tenGodBalance: BaziTenGodBalance.fromMap(_map(map['ten_god_balance'])),
+      dayMasterSupport: BaziDayMasterSupport.fromMap(
+        _map(map['day_master_support']),
+      ),
+      natalRelations: _relationList(map['natal_relations']),
+      luck: BaziLuck.fromMap(_map(map['luck'])),
     );
   }
+}
+
+List<BaziRelation> _relationList(dynamic value) {
+  return _mapList(value).map(BaziRelation.fromMap).toList(growable: false);
+}
+
+List<Map<String, dynamic>> _mapList(dynamic value) {
+  if (value is! List) return const [];
+  return value.map(_map).toList(growable: false);
+}
+
+Map<String, int> _intMap(dynamic value) {
+  if (value is! Map) return const {};
+  return {
+    for (final entry in value.entries)
+      if (entry.key is String) entry.key as String: _int(entry.value),
+  };
 }
 
 Map<String, bool> _boolMap(dynamic value) {

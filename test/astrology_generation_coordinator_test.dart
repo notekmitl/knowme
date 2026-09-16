@@ -15,7 +15,7 @@ import 'package:knowme/features/home_cohesion/validation/home_cohesion_golden_sc
 import 'package:knowme/services/profile_service.dart';
 
 const _knownHash =
-    '7e5deacba21e9abc250024b1448bcf902b6efd41f1c4f4a121be0bdcc1a0154b';
+    '3b37f200a97686ab552395d92bc237d40aa63d73fcb9785dcfd9a492c8d2a221';
 
 ProfileModel _completeProfile() {
   return const ProfileModel(

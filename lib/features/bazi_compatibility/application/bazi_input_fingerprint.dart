@@ -4,18 +4,30 @@ import 'package:crypto/crypto.dart';
 import 'package:knowme/domain/models/profile_model.dart';
 import 'package:knowme/features/astrology/application/birth_profile_readiness.dart';
 
-/// Client-side mirror of the backend Compatibility V1 input hash contract.
+/// Client-side mirror of the backend Reader V2 input hash contract.
 abstract final class BaziInputFingerprint {
-  static const String version = 'knowme_bazi_compatibility_v1';
+  static const String version = 'knowme_bazi_reader_v2';
 
   static String forProfile(ProfileModel profile) {
     final time = profile.birthTime.trim();
     final payload = <String, dynamic>{
       'birth_date': BirthProfileReadiness.apiBirthDate(profile),
       'birth_time': time.isEmpty ? null : time,
+      'gender': _normalizedGender(profile.gender),
       'timezone': profile.timezone.trim(),
       'version': version,
     };
     return sha256.convert(utf8.encode(jsonEncode(payload))).toString();
+  }
+
+  static String? _normalizedGender(String value) {
+    final normalized = value.trim().toLowerCase();
+    if (const {'ชาย', 'ช', 'male', 'man', 'm', '1'}.contains(normalized)) {
+      return 'male';
+    }
+    if (const {'หญิง', 'ญ', 'female', 'woman', 'f', '0'}.contains(normalized)) {
+      return 'female';
+    }
+    return null;
   }
 }

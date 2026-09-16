@@ -1,15 +1,15 @@
-"""KnowMe BaZi Compatibility V1 constants — isolated from Western astrology."""
+"""KnowMe BaZi Reader V2 constants — isolated from Western astrology."""
 
-BAZI_VERSION = "knowme_bazi_compatibility_v1"
-CONTRACT_ID = "knowme_bazi_compatibility_v1"
-CONTRACT_NAME = "KnowMe BaZi Compatibility V1"
+BAZI_VERSION = "knowme_bazi_reader_v2"
+CONTRACT_ID = "knowme_bazi_reader_v2"
+CONTRACT_NAME = "KnowMe BaZi Reader V2"
 ENGINE_VERSION = "lunar_python@1.4.8"
 ELEMENT_BALANCE_METHOD = "surface_stem_branch_compatibility_v1"
 
 ENGINE_POLICY = {
     "contract_id": CONTRACT_ID,
     "contract_name": CONTRACT_NAME,
-    "scope": "knowme_compatibility_not_universal_school_standard",
+    "scope": "knowme_reader_v2_not_universal_school_standard",
     "calendar_input": "gregorian_local_civil",
     "timezone_role": "iana_zone_validates_local_civil_context",
     "year_boundary": "lichun",
@@ -20,6 +20,13 @@ ENGINE_POLICY = {
     "coordinates_role": "recorded_not_used_in_calculation",
     "birth_time_required": False,
     "unknown_time_policy": "omit_hour_and_transition_ambiguous_fields",
+    "reader_fact_layers": [
+        "hidden_stems",
+        "ten_gods",
+        "day_master_support",
+        "stem_branch_relations",
+        "luck_cycles_when_gender_and_time_are_known",
+    ],
 }
 
 YANG_STEMS = frozenset({"甲", "丙", "戊", "庚", "壬"})

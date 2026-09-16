@@ -10,6 +10,7 @@ def compute_input_hash(
     birth_date: str,
     birth_time: str | None,
     timezone: str,
+    gender: str | None = None,
 ) -> str:
     normalized_time = (
         str(birth_time).strip()
@@ -20,6 +21,7 @@ def compute_input_hash(
         "birth_date": str(birth_date).strip(),
         "birth_time": normalized_time,
         "timezone": str(timezone).strip(),
+        "gender": str(gender).strip() if gender else None,
         "version": CONTRACT_ID,
     }
     canonical = json.dumps(payload, sort_keys=True, separators=(",", ":"))

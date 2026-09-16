@@ -28,6 +28,7 @@ void main() {
         birthDate: '1990-05-12',
         birthTime: null,
         timezone: 'Asia/Bangkok',
+        gender: 'male',
         loadAuthSession: () async =>
             const BaziAuthSession(uid: 'uid-1', idToken: 'firebase-id-token'),
         postJson:
@@ -45,6 +46,7 @@ void main() {
 
       expect(capturedBody?['uid'], 'uid-1');
       expect(capturedBody?['birth_time'], isNull);
+      expect(capturedBody?['gender'], 'male');
       expect(capturedEndpoint?.path, '/v1/generate-bazi');
       expect(capturedHeaders, {'Authorization': 'Bearer firebase-id-token'});
     });

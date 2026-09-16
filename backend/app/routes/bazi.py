@@ -22,6 +22,7 @@ class GenerateBaziRequest(BaseModel):
     timezone: str = "Asia/Bangkok"
     latitude: float | None = None
     longitude: float | None = None
+    gender: str | None = None
 
 
 @router.post("/generate-bazi", deprecated=True)
@@ -84,6 +85,7 @@ def _generate_bazi(request: GenerateBaziRequest, *, write_uid: str):
             timezone=request.timezone,
             latitude=request.latitude,
             longitude=request.longitude,
+            gender=request.gender,
         )
     except InvalidBirthDatetime as exc:
         raise HTTPException(

@@ -48,6 +48,24 @@ void main() {
           expect(report.plainText, isNot(contains('戊申')), reason: ownerCase.id);
         }
       }
+
+      final readerV2Report = BaziCompatibilityReportBuilder.build(
+        BaziCompatibilityOwnerFixtures.readerV2Chart(),
+        asOf: DateTime(2026, 9, 16),
+      );
+      final readerV2Bytes = await BaziCompatibilityPdfExporter.build(
+        report: readerV2Report,
+        fonts: fonts,
+      );
+      expect(readerV2Bytes.length, greaterThan(1000));
+      expect(String.fromCharCodes(readerV2Bytes.take(5)), '%PDF-');
+
+      final outputDirectory = Platform.environment['BAZI_OWNER_PDF_DIRECTORY'];
+      if (outputDirectory != null) {
+        final output = File('$outputDirectory/knowme-bazi-reader-v2.pdf');
+        output.parent.createSync(recursive: true);
+        output.writeAsBytesSync(readerV2Bytes, flush: true);
+      }
     },
   );
 }

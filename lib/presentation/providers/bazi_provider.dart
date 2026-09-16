@@ -12,6 +12,7 @@ typedef BaziGenerateFn =
       required String birthDate,
       required String? birthTime,
       required String timezone,
+      String? gender,
       double? latitude,
       double? longitude,
     });
@@ -43,6 +44,7 @@ class BaziProvider extends ChangeNotifier {
     required String birthDate,
     required String? birthTime,
     required String timezone,
+    String? gender,
     double? latitude,
     double? longitude,
   }) {
@@ -51,6 +53,7 @@ class BaziProvider extends ChangeNotifier {
       birthDate: birthDate,
       birthTime: birthTime,
       timezone: timezone,
+      gender: gender,
       latitude: latitude,
       longitude: longitude,
     );
@@ -76,6 +79,7 @@ class BaziProvider extends ChangeNotifier {
     required String birthDate,
     required String? birthTime,
     required String timezone,
+    String? gender,
     double? latitude,
     double? longitude,
   }) async {
@@ -89,6 +93,7 @@ class BaziProvider extends ChangeNotifier {
         birthDate: birthDate,
         birthTime: birthTime,
         timezone: timezone,
+        gender: gender,
         latitude: latitude,
         longitude: longitude,
       );

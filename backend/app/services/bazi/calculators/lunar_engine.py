@@ -1,4 +1,4 @@
-"""Thin wrapper around lunar_python for KnowMe BaZi V1."""
+"""Thin wrapper around lunar_python for the governed KnowMe BaZi engine."""
 
 from lunar_python import Solar
 

@@ -1,4 +1,4 @@
-"""Day Master, element balance, and dominant element for BaZi V1."""
+"""Day Master and visible-element compatibility summaries for KnowMe BaZi."""
 
 from app.services.bazi.constants import (
     ELEMENT_BALANCE_METHOD,

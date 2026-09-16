@@ -1,5 +1,32 @@
 # KnowMe Current Status+
 
+## BaZi Reader V2 release candidate (2026-09-16)
+
+**SOURCE READY: PR #125 REPLACES THE TECHNICAL, COUNT-FIRST BAIZI READING WITH
+A READER-FIRST THAI REPORT. PRODUCTION REMAINS ON V1 UNTIL A SEPARATE CLOUD RUN
+AND FIREBASE HOSTING DEPLOYMENT COMPLETES.**
+
+- Contract: `knowme_bazi_reader_v2`; Thai interpretation contract:
+  `knowme_bazi_reader_th_v2`.
+- Reader order: Four Pillars, overview, identity, work, money, relationships,
+  balance, current 10-year cycle and current year; auditable technical facts,
+  methods, sources and limitations follow the reading.
+- Calculation now exposes hidden stems, polarity-specific Ten Gods, a disclosed
+  Day Master support heuristic, natal interactions, 10-year luck cycles and
+  annual influences. It retains local civil time, Li Chun/Jie boundaries,
+  `sect=2` and no true-solar correction.
+- Gender is normalized and included in the fingerprint because it determines
+  luck-cycle direction. Existing V1 charts remain renderable with the V1
+  report path.
+- Regression fixtures are synthetic. Personal birth details supplied during
+  diagnosis were not added to source, tests, workflow artifacts or docs.
+- Validation: backend 24/24; changed Dart formatting and scoped analyzer pass;
+  focused Flutter/report/PDF 35/35; full Flutter 3,072/3,072. The generated
+  four-page A4 PDF was inspected with no broken Thai/Chinese glyph, clipping or
+  overlap.
+- PR #125 is source-only. No Cloud Run revision, Firebase Hosting release,
+  Firestore rules change or Firebase data mutation is part of this change.
+
 ## Production current status (2026-09-16)
 **LIVE: KNOWME ASTROLOGY V1 IS DEPLOYED TO CLOUD RUN AND FIREBASE HOSTING; PRODUCTION QA PASSED.**
 - Release provenance: remote `https://github.com/notekmitl/knowme.git`, commit `664c8656a2028cf266745f9c1c3a0567989266ec`, tree `bee0a7c8ea07035920bc58b2524aa9b68ab96df6`, project `knowme-app-694e1`.

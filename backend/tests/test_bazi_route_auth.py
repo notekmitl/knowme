@@ -16,6 +16,7 @@ def _request(uid="uid-1", birth_time="15:30"):
         birth_date="1990-05-12",
         birth_time=birth_time,
         timezone="Asia/Bangkok",
+        gender="male",
     )
 
 
@@ -69,6 +70,8 @@ def test_route_writes_only_verified_uid_and_supports_unknown_time(monkeypatch):
     assert response["success"] is True
     assert response["chart"]["time_known"] is False
     assert response["chart"]["pillars"]["hour"] is None
+    assert response["chart"]["input"]["gender"] == "male"
+    assert response["chart"]["luck"] is None
     assert response["saved_paths"] == {
         "astrology": "users/uid-1/astrology/chinese_bazi",
         "results": "users/uid-1/results/chinese_bazi",

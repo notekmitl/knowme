@@ -66,6 +66,7 @@ abstract final class BaziCompatibilityOwnerFixtures {
         'birth_date': date,
         'birth_time': known ? '15:30' : null,
         'timezone': 'Asia/Bangkok',
+        'gender': known ? 'male' : null,
         'coordinates_used_in_calculation': false,
       },
       'ambiguities': {'year': lichun, 'month': lichun || jie, 'day': false},
@@ -101,6 +102,203 @@ abstract final class BaziCompatibilityOwnerFixtures {
     });
   }
 
+  /// Reader V2 reference case using the existing synthetic 1990 fixture.
+  ///
+  /// The fixture intentionally keeps only the active decade and annual year;
+  /// production responses include the complete deterministic cycle list.
+  static BaziChartModel readerV2Chart() {
+    return BaziChartModel.fromMap({
+      'version': 'knowme_bazi_reader_v2',
+      'contract_id': 'knowme_bazi_reader_v2',
+      'contract_name': 'KnowMe BaZi Reader V2',
+      'engine_version': 'lunar_python@1.4.8',
+      'generated_at': '2026-09-16T00:00:00+00:00',
+      'input_hash':
+          '3b37f200a97686ab552395d92bc237d40aa63d73fcb9785dcfd9a492c8d2a221',
+      'completeness': 'four_pillars',
+      'time_known': true,
+      'input': {
+        'birth_date': '1990-05-12',
+        'birth_time': '15:30',
+        'timezone': 'Asia/Bangkok',
+        'latitude': 13.7563,
+        'longitude': 100.5018,
+        'gender': 'male',
+        'coordinates_used_in_calculation': false,
+      },
+      'ambiguities': {'year': false, 'month': false, 'day': false},
+      'suppressed_fields': <String>[],
+      'day_master': {
+        'stem': '丁',
+        'stem_roman': 'ding',
+        'element': 'fire',
+        'polarity': 'yin',
+        'pillar_label': '丁丑',
+      },
+      'year_animal': {'zh': '马', 'roman': 'horse', 'en': 'Horse'},
+      'dominant_element': 'fire',
+      'element_balance': {
+        'wood': 0,
+        'fire': 3,
+        'earth': 2,
+        'metal': 3,
+        'water': 0,
+        'total_slots': 8,
+        'method': 'surface_stem_branch_compatibility_v1',
+      },
+      'pillars': {
+        'year': _readerPillar(
+          '庚',
+          '午',
+          'geng',
+          'wu',
+          'metal',
+          'fire',
+          ['丁', '己'],
+          '正财',
+          ['比肩', '食神'],
+        ),
+        'month': _readerPillar(
+          '辛',
+          '巳',
+          'xin',
+          'si',
+          'metal',
+          'fire',
+          ['丙', '庚', '戊'],
+          '偏财',
+          ['劫财', '正财', '伤官'],
+        ),
+        'day': _readerPillar(
+          '丁',
+          '丑',
+          'ding',
+          'chou',
+          'fire',
+          'earth',
+          ['己', '癸', '辛'],
+          '日主',
+          ['食神', '七杀', '偏财'],
+        ),
+        'hour': _readerPillar(
+          '戊',
+          '申',
+          'wu',
+          'shen',
+          'earth',
+          'metal',
+          ['庚', '壬', '戊'],
+          '伤官',
+          ['正财', '正官', '伤官'],
+        ),
+      },
+      'ten_god_balance': {
+        'visible': {'伤官': 1, '正财': 1, '偏财': 1},
+        'hidden': {
+          '比肩': 1,
+          '劫财': 1,
+          '食神': 2,
+          '伤官': 2,
+          '正财': 2,
+          '偏财': 1,
+          '正官': 1,
+          '七杀': 1,
+        },
+        'family_weight': {
+          'resource': 0,
+          'peer': 2,
+          'output': 6,
+          'wealth': 7,
+          'authority': 2,
+        },
+        'top_families': ['wealth'],
+        'method': 'visible_stem_2_hidden_stem_1_v2',
+      },
+      'day_master_support': {
+        'score': 4,
+        'max_score': 9,
+        'band': 'balanced',
+        'season_score': 3,
+        'ground_score': 1,
+        'visible_support_score': 0,
+        'resource_element': 'wood',
+        'method': 'three_gains_primary_qi_v2',
+      },
+      'natal_relations': [
+        {
+          'kind': 'branch_harm',
+          'roles': ['year', 'day'],
+          'symbols': ['午', '丑'],
+        },
+        {
+          'kind': 'branch_combine',
+          'roles': ['month', 'hour'],
+          'symbols': ['巳', '申'],
+          'target_element': 'water',
+        },
+      ],
+      'luck': {
+        'gender': 'male',
+        'direction': 'forward',
+        'onset': {'years': 8, 'months': 2, 'days': 10, 'date': '1998-07-22'},
+        'method': 'lunar_python_yun_traditional_sect_1_v2',
+        'cycles': [
+          {
+            'start_year': 2018,
+            'end_year': 2027,
+            'start_age': 29,
+            'end_age': 38,
+            'pillar_label': '甲申',
+            'stem': '甲',
+            'branch': '申',
+            'stem_ten_god': '正印',
+            'natal_relations': [
+              {
+                'kind': 'stem_clash',
+                'roles': ['decade', 'year'],
+                'symbols': ['甲', '庚'],
+              },
+              {
+                'kind': 'branch_combine',
+                'roles': ['decade', 'month'],
+                'symbols': ['申', '巳'],
+                'target_element': 'water',
+              },
+            ],
+            'annual': [
+              {
+                'year': 2026,
+                'age': 37,
+                'pillar_label': '丙午',
+                'stem': '丙',
+                'branch': '午',
+                'stem_ten_god': '劫财',
+                'natal_relations': [
+                  {
+                    'kind': 'branch_self_punishment',
+                    'roles': ['annual', 'year'],
+                    'symbols': ['午', '午'],
+                  },
+                  {
+                    'kind': 'stem_combine',
+                    'roles': ['annual', 'month'],
+                    'symbols': ['丙', '辛'],
+                    'target_element': 'water',
+                  },
+                  {
+                    'kind': 'branch_harm',
+                    'roles': ['annual', 'day'],
+                    'symbols': ['午', '丑'],
+                  },
+                ],
+              },
+            ],
+          },
+        ],
+      },
+    });
+  }
+
   static Map<String, dynamic> _pillar(
     String stem,
     String branch,
@@ -120,14 +318,40 @@ abstract final class BaziCompatibilityOwnerFixtures {
     };
   }
 
+  static Map<String, dynamic> _readerPillar(
+    String stem,
+    String branch,
+    String stemRoman,
+    String branchRoman,
+    String stemElement,
+    String branchElement,
+    List<String> hiddenStems,
+    String stemTenGod,
+    List<String> hiddenTenGods,
+  ) {
+    return {
+      ..._pillar(
+        stem,
+        branch,
+        stemRoman,
+        branchRoman,
+        stemElement,
+        branchElement,
+      ),
+      'hidden_stems': hiddenStems,
+      'stem_ten_god': stemTenGod,
+      'hidden_ten_gods': hiddenTenGods,
+    };
+  }
+
   static String _hash(BaziOwnerCase ownerCase) => switch (ownerCase) {
     BaziOwnerCase.known =>
-      '7e5deacba21e9abc250024b1448bcf902b6efd41f1c4f4a121be0bdcc1a0154b',
+      '3b37f200a97686ab552395d92bc237d40aa63d73fcb9785dcfd9a492c8d2a221',
     BaziOwnerCase.unknown =>
-      '140f0798ba12b456a449d4adf44cda3d2364d9b0c90af5a68520ca12f8409e37',
+      '31398fcc4237ba2d008ccd62c3259f5391176959bfa09c57fd2a98655e656e77',
     BaziOwnerCase.lichunUnknown =>
-      '1e283227a84adc21f91975a981753d15ec9c57d038b18674d1bc41d912615947',
+      '41fdb6267689f89f469f086753e874819810463323340671a0c9631a8f305834',
     BaziOwnerCase.jieUnknown =>
-      '24a2ab8421661f939a7394183afb2543ec21b0838bcf60ad0db975053d2db55a',
+      '65ac946d5765a0f430dcf968d6cce651d579ebc9dfccf472b0767ece992a1116',
   };
 }

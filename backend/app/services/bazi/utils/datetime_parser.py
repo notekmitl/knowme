@@ -1,4 +1,4 @@
-"""Parse Compatibility V1 birth input as local civil calendar fields."""
+"""Parse governed BaZi birth input as local civil calendar fields."""
 
 from datetime import datetime
 from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
@@ -53,7 +53,7 @@ def parse_birth_datetime(
     """
     Returns (year, month, day, hour, minute, second) in local civil time.
 
-    Compatibility V1 calls this only for Known-time input.
+    The known-time calculation path calls this only when time is present.
     """
     if not has_known_birth_time(birth_time):
         raise MissingBirthTime("birth_time is required for Known-time BaZi")
