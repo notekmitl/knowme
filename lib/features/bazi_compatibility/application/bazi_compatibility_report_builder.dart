@@ -138,7 +138,9 @@ abstract final class BaziCompatibilityReportBuilder {
         final god = index < pillar.hiddenTenGods.length
             ? pillar.hiddenTenGods[index]
             : '';
-        values.add('${pillar.hiddenStems[index]}${god.isEmpty ? '' : ' ($god)'}');
+        values.add(
+          '${pillar.hiddenStems[index]}${god.isEmpty ? '' : ' ($god)'}',
+        );
       }
       return values.join(' · ');
     }
@@ -325,7 +327,9 @@ abstract final class BaziCompatibilityReportBuilder {
         ),
         if (_text(chart.input['gender']).isNotEmpty)
           BaziCompatibilityReportRow(
-            label: th ? 'เพศที่ใช้กำหนดทิศดวงจร' : 'Gender used for luck direction',
+            label: th
+                ? 'เพศที่ใช้กำหนดทิศดวงจร'
+                : 'Gender used for luck direction',
             value: _genderLabel(_text(chart.input['gender']), th),
           ),
       ],

@@ -63,7 +63,11 @@ class AstrologyGenerationCoordinator {
       return Future.value(_notReadySnapshot());
     }
 
-    final key = [uid, retrySystemId, forceSystemId].whereType<String>().join(':');
+    final key = [
+      uid,
+      retrySystemId,
+      forceSystemId,
+    ].whereType<String>().join(':');
     final existing = _inFlight[key];
     if (existing != null) return existing;
 

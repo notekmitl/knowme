@@ -37,6 +37,9 @@ jobs:
       - name: Install Flutter dependencies
         run: flutter pub get
 
+      - name: Install full-suite PDF dependency
+        run: sudo apt-get update && sudo apt-get install --yes poppler-utils
+
       - name: Format changed Dart scope
         run: >-
           dart format
@@ -114,5 +117,6 @@ jobs:
         env:
           CI: 'true'
           FLUTTER_SUPPRESS_ANALYTICS: 'true'
+          KNOWME_PDFTOPPM: /usr/bin/pdftoppm
           TZ: Asia/Bangkok
         run: flutter test --no-pub --reporter compact

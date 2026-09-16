@@ -199,9 +199,9 @@ class BaziLuckCycle {
       branch: _string(map['branch']),
       stemTenGod: _string(map['stem_ten_god']),
       natalRelations: _relationList(map['natal_relations']),
-      annual: _mapList(map['annual'])
-          .map(BaziAnnualInfluence.fromMap)
-          .toList(growable: false),
+      annual: _mapList(
+        map['annual'],
+      ).map(BaziAnnualInfluence.fromMap).toList(growable: false),
     );
   }
 }
@@ -228,9 +228,9 @@ class BaziLuck {
       gender: _string(map['gender']),
       direction: _string(map['direction']),
       onset: _map(map['onset']),
-      cycles: _mapList(map['cycles'])
-          .map(BaziLuckCycle.fromMap)
-          .toList(growable: false),
+      cycles: _mapList(
+        map['cycles'],
+      ).map(BaziLuckCycle.fromMap).toList(growable: false),
       method: _string(map['method']),
     );
   }
@@ -413,9 +413,7 @@ class BaziChartModel {
       input: Map<String, dynamic>.from(map['input'] ?? {}),
       ambiguities: _boolMap(map['ambiguities']),
       suppressedFields: _stringList(map['suppressed_fields']),
-      tenGodBalance: BaziTenGodBalance.fromMap(
-        _map(map['ten_god_balance']),
-      ),
+      tenGodBalance: BaziTenGodBalance.fromMap(_map(map['ten_god_balance'])),
       dayMasterSupport: BaziDayMasterSupport.fromMap(
         _map(map['day_master_support']),
       ),
