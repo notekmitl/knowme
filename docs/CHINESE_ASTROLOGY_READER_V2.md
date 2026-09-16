@@ -1,10 +1,22 @@
+## Production release evidence (2026-09-16)
+
+BaZi Reader V2 is live on `knowme-app-694e1` from application commit `fc7e56c8647fdcbddc08885bf853b74a287c4056` and tree `07235acdbdd7bb71986302c816d879cbf62e3144`. The original V2 merge remains `0c8eec05f6741068ef9bd87a5a651f75941eb86d`; PR #126 corrected the Production no-write known fixture so that browser and PDF QA exercise the V2 contract rather than the legacy V1 fixture.
+
+Production evidence:
+
+- Cloud Run revision `knowme-astrology-api-00005-r87`, image `sha256:a1495d512376e81f424c47e0256645d455cd0db72628c51840eb16d37c93f25a`, Ready and 100% traffic.
+- Firebase Hosting release `1789557959784000`, version `02ad04dcd6116530`, cache pin `fc7e56c`.
+- Browser semantics on both Hosting domains confirmed the exact reader-first order required by this specification and contracts `knowme_bazi_reader_v2` / `knowme_bazi_reader_th_v2`. The rendered report does not use the V1 count-first slot/group copy.
+- The Production-generated PDF is 4 pages. Visual inspection confirmed complete sections, readable Thai and Chinese glyphs, wrapping contained inside report cards, and no clipping or overlap. SHA-256: `1e247ec57753a61ccc8facdb01e81b549f8587e4553557f595849b58443d5ca1`.
+- API checks passed with health 200 and unauthenticated generation requests rejected with 401. No Production data was written during the fixture QA.
+
 # KnowMe BaZi Reader V2
 
 **Calculation contract:** `knowme_bazi_reader_v2`
 
 **Thai reading contract:** `knowme_bazi_reader_th_v2`
 
-**Status:** implemented on `codex/bazi-reader-v2`; release evidence is recorded
+**Status:** Production live from application commit `fc7e56c8647fdcbddc08885bf853b74a287c4056`; release evidence is recorded
 in `CURRENT_STATUS.md` and `HANDOFF.md` when the branch is closed.
 
 ## Purpose

@@ -1,6 +1,21 @@
-# KnowMe Current Status+
+## Production status - BaZi Reader V2 live (2026-09-16)
 
-## BaZi Reader V2 release candidate (2026-09-16)
+Status: **PASS - Production release complete**
+
+- Release baseline: Reader V2 merge `0c8eec05f6741068ef9bd87a5a651f75941eb86d`; production QA found the known no-write fixture still selected V1, fixed separately in PR #126. Final application commit is `fc7e56c8647fdcbddc08885bf853b74a287c4056`, tree `07235acdbdd7bb71986302c816d879cbf62e3144`.
+- Cloud Run: `knowme-astrology-api-00005-r87`, image digest `sha256:a1495d512376e81f424c47e0256645d455cd0db72628c51840eb16d37c93f25a`, created `2026-09-16T11:22:35.948120Z`, Ready, traffic 100%. Firebase Admin initialization command override is retained.
+- API QA: `/health` returned 200 with status ok; unauthenticated `/v1/generate-bazi` and `/v1/generate-chart` both returned 401.
+- Web build: Flutter 3.41.1 / Dart 3.11.0, Production API `https://knowme-astrology-api-avbyttircq-as.a.run.app`, public beta badge, no tree-shaken icons, cache pin `fc7e56c`. Bundle SHA-256 is `dc741c252a2b510b39c2adab39138802a10698193811205f38aa4a9774287c0c`; no localhost or loopback URL was found.
+- Firebase Hosting only: release `sites/knowme-app-694e1/releases/1789557959784000`, version `sites/knowme-app-694e1/versions/02ad04dcd6116530`, released `2026-09-16T11:25:59.784Z`.
+- Production QA: both `web.app` and `firebaseapp.com` returned 200 for root, `/beta/thai`, and `/beta/chinese?case=known`; both served `flutter_bootstrap.js?v=fc7e56c` and `main.dart.js?v=fc7e56c`. Browser accessibility inspection confirmed Reader V2 order: pillars, overview, identity, work, money, relationships, cautions, ten-year cycle, current year, then technical data, method, sources, and limitations. No V1 slot/group-count report appeared.
+- PDF QA: Production button generated a 4-page Reader V2 PDF, SHA-256 `1e247ec57753a61ccc8facdb01e81b549f8587e4553557f595849b58443d5ca1`. All required sections and both contracts were present; Thai and Chinese glyphs rendered correctly; citation wrapping stayed within card bounds; no clipping or overlap was observed.
+- Verification reused the accepted Reader V2 candidate results because the baseline tree matched. The production-route hotfix was additionally checked with focused route/report/PDF tests 9/9 and static analysis with no issues.
+- Scope guard: only Cloud Run service and Firebase Hosting were deployed. Firestore rules, Functions, Auth, Storage, IAM, and Production data were not changed.
+
+# KnowMe Current Status
+
+
+## Archived pre-release snapshot - BaZi Reader V2 candidate (2026-09-16)
 
 **SOURCE READY: PR #125 REPLACES THE TECHNICAL, COUNT-FIRST BAIZI READING WITH
 A READER-FIRST THAI REPORT. PRODUCTION REMAINS ON V1 UNTIL A SEPARATE CLOUD RUN
@@ -27,7 +42,7 @@ AND FIREBASE HOSTING DEPLOYMENT COMPLETES.**
 - PR #125 is source-only. No Cloud Run revision, Firebase Hosting release,
   Firestore rules change or Firebase data mutation is part of this change.
 
-## Production current status (2026-09-16)
+## Archived V1 Production snapshot (2026-09-16)
 **LIVE: KNOWME ASTROLOGY V1 IS DEPLOYED TO CLOUD RUN AND FIREBASE HOSTING; PRODUCTION QA PASSED.**
 - Release provenance: remote `https://github.com/notekmitl/knowme.git`, commit `664c8656a2028cf266745f9c1c3a0567989266ec`, tree `bee0a7c8ea07035920bc58b2524aa9b68ab96df6`, project `knowme-app-694e1`.
 - Final Cloud Run revision: `knowme-astrology-api-00003-b29` in `asia-southeast1`, created `2026-09-16T05:00:07.320990Z`, image digest `sha256:99c1831eb7bda8135cfa9593bf39d074b059588196bc5736aaeb26946701e0df`.

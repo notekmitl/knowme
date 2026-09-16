@@ -1,4 +1,35 @@
-# Task Result — Chinese Astrology Report V1
+# Task Result - KnowMe BaZi Reader V2 Production Release
+
+**Result: PASS - completed end to end on 2026-09-16.**
+
+## Release identity
+
+- Repository: `https://github.com/notekmitl/knowme.git`
+- Reader V2 merge: `0c8eec05f6741068ef9bd87a5a651f75941eb86d`
+- Final application commit after Production QA hotfix PR #126: `fc7e56c8647fdcbddc08885bf853b74a287c4056`
+- Application tree: `07235acdbdd7bb71986302c816d879cbf62e3144`
+- Project: `knowme-app-694e1`
+
+## Production deployment
+
+- Cloud Run revision: `knowme-astrology-api-00005-r87`; image digest `sha256:a1495d512376e81f424c47e0256645d455cd0db72628c51840eb16d37c93f25a`; traffic 100%; created `2026-09-16T11:22:35.948120Z`. Startup override that initializes Firebase Admin before Uvicorn was preserved.
+- Hosting release: `sites/knowme-app-694e1/releases/1789557959784000`; version `sites/knowme-app-694e1/versions/02ad04dcd6116530`; release time `2026-09-16T11:25:59.784Z`. Only Hosting was deployed.
+- Flutter Web: Flutter 3.41.1 / Dart 3.11.0, Production API, public beta badge, `--no-tree-shake-icons`, cache pin `fc7e56c`. Bundle SHA-256 `dc741c252a2b510b39c2adab39138802a10698193811205f38aa4a9774287c0c`; loopback endpoint count 0.
+
+## QA
+
+- API: health 200; unauthenticated BaZi and chart endpoints 401.
+- Web: root, `/beta/thai`, and `/beta/chinese?case=known` returned 200 on both Production domains. Both pins were present. Accessibility inspection confirmed Reader V2 wording and the required section order through technical facts, sources, and limitations. No build-specific console error was recorded.
+- PDF: Production export produced 4 pages; all required headings, both V2 contracts, and Chinese pillars were present. No replacement glyph, clipping, or overlap was found; long citations remained contained. SHA-256 `1e247ec57753a61ccc8facdb01e81b549f8587e4553557f595849b58443d5ca1`.
+- Hotfix verification: focused route/report/PDF tests 9/9; analyzer no issues. Accepted candidate evidence was reused for the unchanged Reader V2 baseline, avoiding a redundant full-suite run.
+
+## Scope
+
+Firestore rules, Functions, Auth, Storage, IAM, and Production data were not changed. Cloud Run rollback was not required because the new revision became Ready and healthy.
+
+---
+
+# Archived Task Result - Chinese Astrology Report V1
 
 ## Production release completed (2026-09-16)
 **KNOWME ASTROLOGY V1 IS LIVE AND PRODUCTION QA PASSED.**
@@ -19,7 +50,7 @@
 COMPLETED BY THIS RUNNER.**
 
 PR #120 merged as `d8245cd29e94641151988da33800670acbb8866a` and PR
-#122 merged as `664c8656a2028cf266745f9c1c3a0567989266ec`. The merged
+PR #122 merged as `664c8656a2028cf266745f9c1c3a0567989266ec`. The merged
 tree is `bee0a7c8ea07035920bc58b2524aa9b68ab96df6`, identical to the
 validated PR head tree.
 

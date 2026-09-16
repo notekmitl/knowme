@@ -1,4 +1,23 @@
-# Task: Chinese Astrology Report V1
+# Completed - KnowMe BaZi Reader V2 Production Release (2026-09-16)
+
+- [x] Fetched official `notekmitl/knowme` main and retained Reader V2 merge `0c8eec05f6741068ef9bd87a5a651f75941eb86d`.
+- [x] Read CURRENT_STATUS, HANDOFF, Reader V2 specification, TASK_RESULT, and task notes.
+- [x] Reused accepted candidate tests because the Reader V2 baseline tree matched; did not rerun the full suite.
+- [x] Preserved Cloud Run Firebase Admin startup override and deployed backend first.
+- [x] Confirmed revision `knowme-astrology-api-00005-r87` Ready with 100% traffic and health 200; unauthenticated generation endpoints returned 401.
+- [x] Built Flutter Web with Flutter 3.41.1 / Dart 3.11.0, Production API, public beta badge, no tree-shaken icons, and application pin `fc7e56c`.
+- [x] Deployed only Firebase Hosting release `1789557959784000`, version `02ad04dcd6116530`.
+- [x] Verified both Production domains, `/beta/thai`, and `/beta/chinese?case=known`; Reader V2 is displayed in reader-first order, not V1 slot/group-count copy.
+- [x] Downloaded and visually inspected the real Production Reader V2 PDF: 4 pages, Thai/Chinese readable, complete content, no clipping or overlap.
+- [x] Merged application QA hotfix PR #126 before the final same-commit deploy.
+- [x] Updated release documentation on a docs-only branch.
+- [x] Did not deploy Firestore rules, Functions, Auth, Storage, IAM changes, or Production data changes.
+
+Final application commit: `fc7e56c8647fdcbddc08885bf853b74a287c4056`; tree: `07235acdbdd7bb71986302c816d879cbf62e3144`.
+
+---
+
+# Archived Task - Chinese Astrology Report V1
 
 ## Production completion checkpoint (2026-09-16)
 **COMPLETE — BACKEND, HOSTING AND SIGNED-IN BAIZI PRODUCTION QA PASSED.**
