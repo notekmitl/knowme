@@ -30,4 +30,18 @@ void main() {
     expect(find.textContaining('己巳'), findsNothing);
     expect(find.textContaining('戊寅'), findsNothing);
   });
+
+  testWidgets("known owner route renders Reader V2", (tester) async {
+    final widget = WebLaunchRouter.resolveLaunchWidget(
+      "/beta/chinese?case=known",
+    );
+    await tester.pumpWidget(MaterialApp(home: widget));
+    await tester.pumpAndSettle();
+    expect(
+      find.text("โหราศาสตร์จีน · BaZi Reader V2 · Owner Testing"),
+      findsOneWidget,
+    );
+    expect(find.text("คำทำนายดวงจีน · ปาจื้อ (BaZi)"), findsOneWidget);
+    expect(find.textContaining("BaZi V1"), findsNothing);
+  });
 }

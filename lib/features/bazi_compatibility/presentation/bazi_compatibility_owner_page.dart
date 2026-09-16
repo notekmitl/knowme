@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:knowme/data/models/bazi_chart_model.dart';
 import 'package:knowme/features/bazi_compatibility/application/bazi_compatibility_owner_fixtures.dart';
 import 'package:knowme/features/bazi_compatibility/application/bazi_compatibility_pdf_assets.dart';
 import 'package:knowme/features/bazi_compatibility/application/bazi_compatibility_pdf_exporter.dart';
@@ -23,10 +24,12 @@ class _BaziCompatibilityOwnerPageState
     extends State<BaziCompatibilityOwnerPage> {
   late BaziOwnerCase _ownerCase = widget.initialCase;
 
+  BaziChartModel get _chart => _ownerCase == BaziOwnerCase.known
+      ? BaziCompatibilityOwnerFixtures.readerV2Chart()
+      : BaziCompatibilityOwnerFixtures.chart(_ownerCase);
+
   Future<void> _export() async {
-    final report = BaziCompatibilityReportBuilder.build(
-      BaziCompatibilityOwnerFixtures.chart(_ownerCase),
-    );
+    final report = BaziCompatibilityReportBuilder.build(_chart);
     final bytes = await BaziCompatibilityPdfExporter.build(
       report: report,
       fonts: await BaziCompatibilityPdfAssets.load(),
@@ -39,10 +42,14 @@ class _BaziCompatibilityOwnerPageState
 
   @override
   Widget build(BuildContext context) {
-    final chart = BaziCompatibilityOwnerFixtures.chart(_ownerCase);
+    final chart = _chart;
     return Scaffold(
       appBar: AppBar(
-        title: const Text('โหราศาสตร์จีน · BaZi V1 · Owner Testing'),
+        title: Text(
+          chart.contractId == 'knowme_bazi_reader_v2'
+              ? 'โหราศาสตร์จีน · BaZi Reader V2 · Owner Testing'
+              : 'โหราศาสตร์จีน · BaZi V1 · Owner Testing',
+        ),
       ),
       body: Column(
         children: [
