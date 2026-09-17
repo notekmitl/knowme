@@ -1,5 +1,35 @@
 # KnowMe Roadmap+
 
+## Active release - BaZi Reader V3 (2026-09-17)
+
+Reader V3 is the authorized successor to the live Reader V2 contract. Its
+implementation covers historical IANA offset resolution, coordinates, NOAA
+Equation of Time, strict known/unknown-time behavior, complete practical Thai
+reading sections, and dedicated PDF visual QA. Remaining work is operational:
+complete all gates, merge, deploy Cloud Run before Hosting, and verify the live
+web/PDF without changing Firestore rules, Functions, Auth, Storage, IAM, or
+Production data.
+
+## Active release follow-up - Firebase Admin startup source fix (2026-09-17)
+
+**SOURCE COMPLETE; REVIEW, MERGE AND DEPLOYMENT REMAIN SEPARATE.**
+
+The explicit post-release startup follow-up now has a minimal source candidate:
+FastAPI initializes the default Firebase Admin app in its lifespan before
+accepting requests, while Firestore stays lazy and reuses the same idempotent
+initializer. Existing credential selection and API/auth contracts are unchanged.
+Focused startup/auth/UID tests pass 13/13 and the full backend suite passes
+29/29. No Production or Firebase resource changed.
+
+Remaining release steps are deliberately separate:
+
+1. review and merge the source candidate;
+2. deploy the backend while retaining the existing Cloud Run startup override;
+3. verify health, missing/invalid-token rejection and a real authenticated
+   request on the new revision; and
+4. only after that proof, authorize removal of the command override and repeat
+   the same QA. Hosting and Firestore rules are not part of this backend fix.
+
 ## Completed release operation — BaZi V1 Production (2026-09-16)
 **DONE: PR #122 RELEASE SOURCE IS LIVE AND SIGNED-IN BAIZI QA PASSED.**
 - Release provenance: remote `https://github.com/notekmitl/knowme.git`, commit `664c8656a2028cf266745f9c1c3a0567989266ec`, tree `bee0a7c8ea07035920bc58b2524aa9b68ab96df6`, project `knowme-app-694e1`.

@@ -1,3 +1,4 @@
+from contextlib import asynccontextmanager
 import logging
 import time
 
@@ -6,6 +7,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from app.routes.astrology import router as astrology_router
 from app.routes.bazi import router as bazi_router
+from app.services.firebase_admin_service import initialize_firebase_admin
 
 logging.basicConfig(
     level=logging.INFO,
@@ -25,7 +27,19 @@ LOCAL_DEV_ORIGINS = [
     "http://127.0.0.1:8080",
 ]
 
-app = FastAPI(title="KnowMe Astrology API", version="1.0.0")
+
+@asynccontextmanager
+async def lifespan(_app: FastAPI):
+    """Initialize process-wide dependencies before accepting API requests."""
+    initialize_firebase_admin()
+    yield
+
+
+app = FastAPI(
+    title="KnowMe Astrology API",
+    version="1.0.0",
+    lifespan=lifespan,
+)
 
 app.add_middleware(
     CORSMiddleware,

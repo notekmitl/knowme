@@ -1,3 +1,40 @@
+# Active Task - Firebase Admin API Startup Initialization (2026-09-17)
+
+Status: **CODE COMPLETE AND LOCALLY VALIDATED - SOURCE/TEST/DOCS ONLY; DO NOT DEPLOY.**
+
+## Goal
+
+Replace the Cloud Run-only Firebase Admin startup workaround with an explicit,
+idempotent application startup responsibility. The FastAPI process must
+initialize the default Firebase Admin app before it accepts requests, so bearer
+token verification does not depend on a Firestore persistence import or a
+custom Cloud Run command wrapper.
+
+## Acceptance
+
+- FastAPI lifespan initializes Firebase Admin before serving requests.
+- Initialization is idempotent and reuses an existing default app.
+- The existing configured service-account-file and application-default-
+  credentials paths are preserved.
+- Firestore remains lazy: importing an API route does not create a Firestore
+  client, and persistence reuses the shared initializer when first called.
+- Existing auth/UID behavior and API routes remain unchanged.
+- Focused startup/auth tests and the full backend test suite pass through the
+  repository Local Gate.
+- Documentation records the source-ready state honestly. Production remains on
+  the current command override until this source change is separately reviewed,
+  merged, deployed, and verified.
+
+## Boundaries
+
+- No Flutter, calculation, report, Firestore schema/rules, IAM, Firebase Auth,
+  Production data, Cloud Run, Hosting, merge, push, or deployment change.
+- Do not remove or modify the live Cloud Run command override in this task.
+- Preserve the existing dirty legacy worktree and its uncommitted PDF-exporter
+  change; this task runs only in `codex/firebase-admin-startup-fix`.
+
+---
+
 # Completed - KnowMe BaZi Reader V2 Production Release (2026-09-16)
 
 - [x] Fetched official `notekmitl/knowme` main and retained Reader V2 merge `0c8eec05f6741068ef9bd87a5a651f75941eb86d`.
@@ -1047,3 +1084,31 @@ Evidence passes: parity 262/262; captures 18/18; copy audit 300 profiles / 30,00
 ## PR108 Owner Acceptance — 2026-08-29
 
 Owner independently verified ZIP CRC/SHA256SUMS and accepted OR2 scope, copy and evidence. Inline/stale hits 0; parity 262/262 with all error counters 0; geometry 18/18; PDFs Dedicated 8/7 and Browser-print 7/7; page 5 is an image-only infographic; visual defects 0. This acceptance update is one docs-only commit (exact commit SHA is the final PR HEAD). Required final PR state: Open + Ready for Review. Do not merge, deploy, regenerate artifacts, change Firebase/Production or modify `product-acceptance/`.
+
+# KnowMe BaZi Reader V3 Production Release — 2026-09-17
+
+Status: **LOCAL RELEASE GATES PASSED — OWNER AUTHORIZED PUSH, MERGE, AND PRODUCTION DEPLOYMENT.**
+
+## Goal and acceptance
+
+- Ship from `27f1f8ae7ceffb154955cac458b8b985cd7e404f` through Production.
+- Known birth times use apparent solar time from coordinates, the historical
+  IANA timezone offset, and NOAA's Equation of Time approximation.
+- Invalid, nonexistent, or ambiguous civil times fail closed.
+- Unknown birth times remain unknown; no fabricated time, Hour pillar, or
+  time-dependent luck output is allowed.
+- Thai Reader V3 covers overview, identity, work, money, relationships,
+  cautions, the active ten-year cycle, and the current year.
+- PDF Thai/CJK output must be readable with no clipping, overflow, overlap,
+  accidental blank page, or broken glyph.
+- Cloud Run must deploy and verify before Firebase Hosting. Do not modify or
+  deploy Firestore rules, Functions, Auth, Storage, IAM, or Production data.
+
+## Gate policy
+
+Focused Reader V3 tests, all backend tests, the full non-golden Flutter suite,
+analyzer, Local Gate PreCommit, and Local Gate PostCommit are required. Four
+unrelated Thai Mirror screenshot files are excluded from the Windows full-suite
+command because their checked-in rasters are renderer-dependent. Reader V3 PDF
+bytes, extracted text, embedded fonts, and every rendered page are verified
+separately.

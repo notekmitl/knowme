@@ -106,19 +106,19 @@ void main() {
 
       expect(
         BaziInputFingerprint.forProfile(profile),
-        '6761b7d68e2a7112202e4764fbeaea0492d30695119c28053a708718ee630b0b',
+        '6a9fdd28dadb984f38f15ca566d5778b2e3b51b05568f798572a5813f73063c4',
       );
       expect(
         BaziInputFingerprint.forProfile(unknown),
-        '31398fcc4237ba2d008ccd62c3259f5391176959bfa09c57fd2a98655e656e77',
+        '96019a96d3bfb9fc7084bb6f53b8301c347f501ed2d7d977e524531ddaf28d58',
       );
     });
   });
 
-  group('KnowMe BaZi Reader V2 report', () {
+  group('KnowMe BaZi Reader V3 report', () {
     test('leads with readable Thai and includes current timing', () {
       final report = BaziCompatibilityReportBuilder.build(
-        BaziCompatibilityOwnerFixtures.readerV2Chart(),
+        BaziCompatibilityOwnerFixtures.readerV3Chart(),
         asOf: DateTime(2026, 9, 16),
       );
       final text = report.plainText;
@@ -138,7 +138,12 @@ void main() {
       expect(text, contains('ปีนี้เด่นเรื่องทีม คู่แข่ง หุ้นส่วน'));
       expect(text, contains('ก้านซ่อนเสาเดือน'));
       expect(text, contains('丙 (劫财) · 庚 (正财) · 戊 (伤官)'));
-      expect(text, contains('Reader V2'));
+      expect(text, contains('Reader V3'));
+      expect(text, contains('เวลาสุริยะจริง'));
+      expect(text, contains('1990-05-12T15:15:54'));
+      expect(text, contains('knowme_bazi_reader_th_v3'));
+      expect(text, contains('NOAA Global Monitoring Laboratory'));
+      expect(text, contains('IANA Time Zone Database'));
       expect(text, isNot(contains(' ช่อง')));
       expect(text, isNot(contains('หลักที่ใช้: Day Master')));
       expect(report.sections.last.title, 'ข้อจำกัดและคำเตือน');

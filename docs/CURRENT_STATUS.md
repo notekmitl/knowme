@@ -1,3 +1,26 @@
+## Release candidate - BaZi Reader V3 (2026-09-17)
+
+Status: **IMPLEMENTED AND UNDER FULL RELEASE VALIDATION**
+
+- Contract `knowme_bazi_reader_v3` converts known birth times to apparent
+  solar time with the historical IANA-zone UTC offset, coordinates, and the
+  NOAA Equation of Time approximation. The response exposes every correction
+  component and includes coordinates in the known-time input fingerprint.
+- Historical DST gaps and folds fail closed instead of selecting a time.
+  Unknown birth time remains null; no Hour pillar, apparent-solar timestamp,
+  luck onset, or other time-dependent value is fabricated.
+- Thai contract `knowme_bazi_reader_th_v3` keeps the practical reader order:
+  overview, identity, work, money, love, cautions, current ten-year cycle, and
+  current year, followed by calculation evidence and limitations.
+- The dedicated PDF embeds Thai and CJK fonts, normalizes dash glyphs, and
+  stacks long source rows. Five offline fixtures render as 3/5/3/4/4 A4 pages;
+  all rendered pages are readable with zero replacement glyphs, clipping,
+  overlap, or overflow.
+- Production release remains gated on the repository tests, analyzer, Local
+  Gate, merge, Cloud Run-first deployment, Hosting-only deployment, and live
+  Production web/PDF QA. No Firestore rules, Functions, Auth, Storage, IAM, or
+  Production data are in scope.
+
 ## Production status - BaZi Reader V2 live (2026-09-16)
 
 Status: **PASS - Production release complete**
@@ -11,6 +34,34 @@ Status: **PASS - Production release complete**
 - PDF QA: Production button generated a 4-page Reader V2 PDF, SHA-256 `1e247ec57753a61ccc8facdb01e81b549f8587e4553557f595849b58443d5ca1`. All required sections and both contracts were present; Thai and Chinese glyphs rendered correctly; citation wrapping stayed within card bounds; no clipping or overlap was observed.
 - Verification reused the accepted Reader V2 candidate results because the baseline tree matched. The production-route hotfix was additionally checked with focused route/report/PDF tests 9/9 and static analysis with no issues.
 - Scope guard: only Cloud Run service and Firebase Hosting were deployed. Firestore rules, Functions, Auth, Storage, IAM, and Production data were not changed.
+
+## Source-ready Firebase Admin startup fix (2026-09-17)
+
+Status: **CODE COMPLETE AND LOCALLY VALIDATED; NOT MERGED OR DEPLOYED**
+
+- Root cause: Firebase Admin was initialized only when a persistence module
+  lazily created the Firestore client. Authenticated endpoints verify the ID
+  token before that persistence path, so Production needed a Cloud Run command
+  override that initialized the default app before Uvicorn.
+- The FastAPI lifespan now calls one shared, idempotent Firebase Admin
+  initializer before serving requests. It reuses an existing default app and
+  preserves both the configured service-account-file path and Application
+  Default Credentials path.
+- Firestore remains lazy. Importing the API app does not initialize Firebase
+  Admin or import `firebase_service`; the first persistence call reuses the
+  shared initializer before creating the Firestore client.
+- Focused startup/auth/UID tests pass 13/13; the complete backend suite passes
+  29/29. Python compile validation passes. The Windows Python 3.12 test venv
+  used the `pysweph` 2.10.3.6 compatibility wheel for the `swisseph` module
+  because the Production-pinned `pyswisseph` 2.10.3.2 release has no CPython
+  3.12 Windows wheel; repository requirements and Production dependencies were
+  not changed.
+- Scope guard: no API contract, calculation, report, Flutter, Firestore schema
+  or rules, Firebase Auth/IAM, Production data, Cloud Run, Hosting or deployment
+  change is included.
+- Keep the live Cloud Run startup override until this source change is reviewed,
+  merged, deployed and authenticated Production QA proves the source-owned
+  startup path. Remove the override only in that separately authorized release.
 
 # KnowMe Current Status
 

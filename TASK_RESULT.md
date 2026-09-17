@@ -1153,3 +1153,34 @@ Owner Review: `PR108_OR2_WORK\OWNER_REVIEW_THAI_REPORT_INLINE_ASTROLOGY_BASIS_DE
 Owner independently verified and accepted PR108 OR2 scope, copy and evidence. ZIP SHA-256 `D47AE77CAC12E4D924E5FF4A200786251F34B4646AE5DEAAA373D8C483F41EB1`; CRC and SHA256SUMS pass. Accepted implementation is `d78c5f641563ca5810c8952191e217cd31502d57`; previous evidence/docs HEAD is `ec2ecbaa1f9f21fe69df6476f9d0fed0a39f5120`; the acceptance docs commit is this single docs-only commit (exact SHA is the final PR HEAD/Git commit metadata).
 
 Accepted evidence: actual PR108 changed fields 1,587 (A=1,125, B=462, C=0, E=0, F=0); D=11,587 unchanged pre-PR108 fields; historical/raw classified total 13,174. Inline-basis and stale-phrase final hits 0; parity 262/262 with mismatch/missing/truncated/duplicate 0; scroll geometry 18/18; Dedicated PDF 8/7 and Browser-print 7/7; Browser-print page 5 is image-only, not blank; no clipping, overlap or overflow. Status: **OWNER ACCEPTED — READY FOR REVIEW — NOT MERGED — NOT DEPLOYED**.
+
+# KnowMe BaZi Reader V3 — 2026-09-17
+
+## Implementation outcome
+
+- Added the versioned `knowme_bazi_reader_v3` calculation and reading
+  contracts.
+- Known birth times now use apparent solar time from coordinates, historical
+  IANA timezone offsets, and NOAA's Equation of Time approximation.
+- Ambiguous or nonexistent historical civil times fail closed.
+- Unknown birth times remain unknown and do not receive an Hour pillar or
+  time-dependent luck output.
+- Thai Reader V3 covers overview, identity, work, money, relationships,
+  cautions, the active ten-year cycle, and the current year.
+- PDF output embeds Thai/CJK-capable fonts and was checked from real bytes,
+  extracted text, embedded fonts, and rendered pages.
+
+## Local verification
+
+- Backend suite: 32 passed.
+- Focused Flutter Reader V3 suite: 17 passed.
+- Full non-golden Flutter suite: 3,030 passed.
+- Python compile check and Flutter analyzer completed; the repository's 282
+  pre-existing analyzer warnings/info remain non-fatal, with no Reader V3
+  analyzer error.
+- Local Gate PreCommit: passed.
+- Renderer-dependent Thai Mirror screenshot suites are outside this task and
+  excluded from the Windows full-suite command.
+
+No Firestore rules, Functions, Auth, Storage, IAM, or Production data changes
+are included.

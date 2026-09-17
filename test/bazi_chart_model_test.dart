@@ -177,10 +177,15 @@ void main() {
       expect(unknown.ambiguities['year'], isTrue);
     });
 
-    test('parses Reader V2 hidden stems, relations and timing', () {
-      final reader = BaziCompatibilityOwnerFixtures.readerV2Chart();
+    test('parses Reader V3 hidden stems, relations and timing', () {
+      final reader = BaziCompatibilityOwnerFixtures.readerV3Chart();
 
-      expect(reader.contractId, 'knowme_bazi_reader_v2');
+      expect(reader.contractId, 'knowme_bazi_reader_v3');
+      expect(reader.solarTime['status'], 'computed');
+      expect(
+        reader.solarTime['apparent_solar_datetime'],
+        '1990-05-12T15:15:54',
+      );
       expect(reader.pillars.month.hiddenStems, ['丙', '庚', '戊']);
       expect(reader.pillars.month.hiddenTenGods, ['劫财', '正财', '伤官']);
       expect(reader.tenGodBalance.topFamilies, ['wealth']);

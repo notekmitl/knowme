@@ -15,7 +15,7 @@ import 'package:knowme/features/home_cohesion/validation/home_cohesion_golden_sc
 import 'package:knowme/services/profile_service.dart';
 
 const _knownHash =
-    '3b37f200a97686ab552395d92bc237d40aa63d73fcb9785dcfd9a492c8d2a221';
+    'a30a41564cbfccc72891e75bb463c7157622f8c5832a4625dd4bc81d072bd287';
 
 ProfileModel _completeProfile() {
   return const ProfileModel(
@@ -461,11 +461,9 @@ void main() {
       },
     );
 
-    test('Fusion accepts only a BaZi chart matching the current profile', () {
-      final knownChart = BaziCompatibilityOwnerFixtures.chart(
-        BaziOwnerCase.known,
-      );
-      final unknownChart = BaziCompatibilityOwnerFixtures.chart(
+    test('Fusion accepts only a Reader V3 chart matching the profile', () {
+      final knownChart = BaziCompatibilityOwnerFixtures.readerV3Chart();
+      final legacyUnknownChart = BaziCompatibilityOwnerFixtures.chart(
         BaziOwnerCase.unknown,
       );
 
@@ -485,10 +483,10 @@ void main() {
       );
       expect(
         FirestoreAstrologyFusionLensProbe.isBaziFreshForProfile(
-          unknownChart,
+          legacyUnknownChart,
           _unknownTimeProfile(),
         ),
-        isTrue,
+        isFalse,
       );
     });
   });

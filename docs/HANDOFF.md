@@ -1,3 +1,41 @@
+## Handoff - BaZi Reader V3 release candidate (2026-09-17)
+
+Branch `codex/bazi-reader-v3` starts at
+`27f1f8ae7ceffb154955cac458b8b985cd7e404f`, including the source-level
+Firebase Admin startup fix. Reader V3 adds historical-timezone apparent solar
+time for known birth times, strict DST gap/fold rejection, coordinate-aware
+fingerprints, explicit audit metadata, the Thai V3 report route, and verified
+Thai/CJK PDF layout. See `docs/CHINESE_ASTROLOGY_READER_V3.md` for the contract.
+
+Release order is mandatory: tests and Local Gate, merge, Cloud Run, verify the
+new Ready revision, Firebase Hosting only, then live web and PDF QA. Do not use
+the existing deploy scripts as written because one enables services and grants
+IAM while the other deploys Firestore rules. Use direct Cloud Run and Hosting
+commands that preserve all out-of-scope resources. Do not mutate Production
+data during QA; the no-write Owner fixture is the governed browser/PDF path.
+
+## Handoff - Firebase Admin startup source fix (2026-09-17)
+
+Branch `codex/firebase-admin-startup-fix` moves Firebase Admin initialization
+into the FastAPI lifespan and centralizes the existing credential selection in
+an idempotent initializer. The API module remains safe to import offline:
+Firebase Admin and the Firestore client stay uninitialized until application
+startup and persistence respectively.
+
+Local evidence is focused startup/auth/UID 13/13, complete backend 29/29 and
+Python compile validation PASS. The Windows Python 3.12 validation environment
+used `pysweph` 2.10.3.6 as the `swisseph` compatibility wheel because the
+Production-pinned `pyswisseph` 2.10.3.2 has no Windows CPython 3.12 wheel; no
+repository dependency changed.
+
+This is source/test/documentation only. It is not merged or deployed. Preserve
+the live Cloud Run command override on every deployment until this source
+change is separately reviewed, merged, deployed and verified with `/health`,
+missing/invalid bearer rejection and a real authenticated request. Only after
+that QA passes may a separately authorized operation remove the override. Do
+not deploy Firestore rules, Functions, Auth, Storage or IAM and do not mutate
+Production data for this fix.
+
 ## Handoff - Reader V2 is live (2026-09-16)
 
 There is no pending Reader V2 production deployment. Application commit `fc7e56c8647fdcbddc08885bf853b74a287c4056` is live in project `knowme-app-694e1`.

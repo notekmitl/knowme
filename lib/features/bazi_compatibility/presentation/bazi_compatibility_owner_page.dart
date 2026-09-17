@@ -25,7 +25,7 @@ class _BaziCompatibilityOwnerPageState
   late BaziOwnerCase _ownerCase = widget.initialCase;
 
   BaziChartModel get _chart => _ownerCase == BaziOwnerCase.known
-      ? BaziCompatibilityOwnerFixtures.readerV2Chart()
+      ? BaziCompatibilityOwnerFixtures.readerV3Chart()
       : BaziCompatibilityOwnerFixtures.chart(_ownerCase);
 
   Future<void> _export() async {
@@ -46,8 +46,8 @@ class _BaziCompatibilityOwnerPageState
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          chart.contractId == 'knowme_bazi_reader_v2'
-              ? 'โหราศาสตร์จีน · BaZi Reader V2 · Owner Testing'
+          chart.contractId == 'knowme_bazi_reader_v3'
+              ? 'โหราศาสตร์จีน · BaZi Reader V3 · Owner Testing'
               : 'โหราศาสตร์จีน · BaZi V1 · Owner Testing',
         ),
       ),

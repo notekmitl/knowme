@@ -102,19 +102,19 @@ abstract final class BaziCompatibilityOwnerFixtures {
     });
   }
 
-  /// Reader V2 reference case using the existing synthetic 1990 fixture.
+  /// Reader V3 reference case using the existing synthetic 1990 fixture.
   ///
   /// The fixture intentionally keeps only the active decade and annual year;
   /// production responses include the complete deterministic cycle list.
-  static BaziChartModel readerV2Chart() {
+  static BaziChartModel readerV3Chart() {
     return BaziChartModel.fromMap({
-      'version': 'knowme_bazi_reader_v2',
-      'contract_id': 'knowme_bazi_reader_v2',
-      'contract_name': 'KnowMe BaZi Reader V2',
-      'engine_version': 'lunar_python@1.4.8',
+      'version': 'knowme_bazi_reader_v3',
+      'contract_id': 'knowme_bazi_reader_v3',
+      'contract_name': 'KnowMe BaZi Reader V3',
+      'engine_version': 'lunar_python@1.4.8+tzdata@2025.2+noaa_eot_v1',
       'generated_at': '2026-09-16T00:00:00+00:00',
       'input_hash':
-          '3b37f200a97686ab552395d92bc237d40aa63d73fcb9785dcfd9a492c8d2a221',
+          'a30a41564cbfccc72891e75bb463c7157622f8c5832a4625dd4bc81d072bd287',
       'completeness': 'four_pillars',
       'time_known': true,
       'input': {
@@ -124,7 +124,22 @@ abstract final class BaziCompatibilityOwnerFixtures {
         'latitude': 13.7563,
         'longitude': 100.5018,
         'gender': 'male',
-        'coordinates_used_in_calculation': false,
+        'coordinates_used_in_calculation': true,
+      },
+      'solar_time': {
+        'status': 'computed',
+        'method': 'noaa_fractional_year_eot_v1',
+        'local_civil_datetime': '1990-05-12T15:30:00+07:00',
+        'timezone': 'Asia/Bangkok',
+        'historical_utc_offset_minutes': 420.0,
+        'standard_meridian_degrees': 105.0,
+        'latitude_degrees': 13.7563,
+        'longitude_degrees': 100.5018,
+        'longitude_correction_minutes': -17.9928,
+        'equation_of_time_minutes': 3.897586,
+        'total_correction_minutes': -14.095214,
+        'apparent_solar_datetime': '1990-05-12T15:15:54',
+        'rounding': 'nearest_second_half_up',
       },
       'ambiguities': {'year': false, 'month': false, 'day': false},
       'suppressed_fields': <String>[],
