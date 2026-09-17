@@ -12,6 +12,34 @@ Status: **PASS - Production release complete**
 - Verification reused the accepted Reader V2 candidate results because the baseline tree matched. The production-route hotfix was additionally checked with focused route/report/PDF tests 9/9 and static analysis with no issues.
 - Scope guard: only Cloud Run service and Firebase Hosting were deployed. Firestore rules, Functions, Auth, Storage, IAM, and Production data were not changed.
 
+## Source-ready Firebase Admin startup fix (2026-09-17)
+
+Status: **CODE COMPLETE AND LOCALLY VALIDATED; NOT MERGED OR DEPLOYED**
+
+- Root cause: Firebase Admin was initialized only when a persistence module
+  lazily created the Firestore client. Authenticated endpoints verify the ID
+  token before that persistence path, so Production needed a Cloud Run command
+  override that initialized the default app before Uvicorn.
+- The FastAPI lifespan now calls one shared, idempotent Firebase Admin
+  initializer before serving requests. It reuses an existing default app and
+  preserves both the configured service-account-file path and Application
+  Default Credentials path.
+- Firestore remains lazy. Importing the API app does not initialize Firebase
+  Admin or import `firebase_service`; the first persistence call reuses the
+  shared initializer before creating the Firestore client.
+- Focused startup/auth/UID tests pass 13/13; the complete backend suite passes
+  29/29. Python compile validation passes. The Windows Python 3.12 test venv
+  used the `pysweph` 2.10.3.6 compatibility wheel for the `swisseph` module
+  because the Production-pinned `pyswisseph` 2.10.3.2 release has no CPython
+  3.12 Windows wheel; repository requirements and Production dependencies were
+  not changed.
+- Scope guard: no API contract, calculation, report, Flutter, Firestore schema
+  or rules, Firebase Auth/IAM, Production data, Cloud Run, Hosting or deployment
+  change is included.
+- Keep the live Cloud Run startup override until this source change is reviewed,
+  merged, deployed and authenticated Production QA proves the source-owned
+  startup path. Remove the override only in that separately authorized release.
+
 # KnowMe Current Status
 
 

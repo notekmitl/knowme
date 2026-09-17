@@ -1,3 +1,40 @@
+# Active Task - Firebase Admin API Startup Initialization (2026-09-17)
+
+Status: **CODE COMPLETE AND LOCALLY VALIDATED - SOURCE/TEST/DOCS ONLY; DO NOT DEPLOY.**
+
+## Goal
+
+Replace the Cloud Run-only Firebase Admin startup workaround with an explicit,
+idempotent application startup responsibility. The FastAPI process must
+initialize the default Firebase Admin app before it accepts requests, so bearer
+token verification does not depend on a Firestore persistence import or a
+custom Cloud Run command wrapper.
+
+## Acceptance
+
+- FastAPI lifespan initializes Firebase Admin before serving requests.
+- Initialization is idempotent and reuses an existing default app.
+- The existing configured service-account-file and application-default-
+  credentials paths are preserved.
+- Firestore remains lazy: importing an API route does not create a Firestore
+  client, and persistence reuses the shared initializer when first called.
+- Existing auth/UID behavior and API routes remain unchanged.
+- Focused startup/auth tests and the full backend test suite pass through the
+  repository Local Gate.
+- Documentation records the source-ready state honestly. Production remains on
+  the current command override until this source change is separately reviewed,
+  merged, deployed, and verified.
+
+## Boundaries
+
+- No Flutter, calculation, report, Firestore schema/rules, IAM, Firebase Auth,
+  Production data, Cloud Run, Hosting, merge, push, or deployment change.
+- Do not remove or modify the live Cloud Run command override in this task.
+- Preserve the existing dirty legacy worktree and its uncommitted PDF-exporter
+  change; this task runs only in `codex/firebase-admin-startup-fix`.
+
+---
+
 # Completed - KnowMe BaZi Reader V2 Production Release (2026-09-16)
 
 - [x] Fetched official `notekmitl/knowme` main and retained Reader V2 merge `0c8eec05f6741068ef9bd87a5a651f75941eb86d`.

@@ -1,3 +1,25 @@
+## Handoff - Firebase Admin startup source fix (2026-09-17)
+
+Branch `codex/firebase-admin-startup-fix` moves Firebase Admin initialization
+into the FastAPI lifespan and centralizes the existing credential selection in
+an idempotent initializer. The API module remains safe to import offline:
+Firebase Admin and the Firestore client stay uninitialized until application
+startup and persistence respectively.
+
+Local evidence is focused startup/auth/UID 13/13, complete backend 29/29 and
+Python compile validation PASS. The Windows Python 3.12 validation environment
+used `pysweph` 2.10.3.6 as the `swisseph` compatibility wheel because the
+Production-pinned `pyswisseph` 2.10.3.2 has no Windows CPython 3.12 wheel; no
+repository dependency changed.
+
+This is source/test/documentation only. It is not merged or deployed. Preserve
+the live Cloud Run command override on every deployment until this source
+change is separately reviewed, merged, deployed and verified with `/health`,
+missing/invalid bearer rejection and a real authenticated request. Only after
+that QA passes may a separately authorized operation remove the override. Do
+not deploy Firestore rules, Functions, Auth, Storage or IAM and do not mutate
+Production data for this fix.
+
 ## Handoff - Reader V2 is live (2026-09-16)
 
 There is no pending Reader V2 production deployment. Application commit `fc7e56c8647fdcbddc08885bf853b74a287c4056` is live in project `knowme-app-694e1`.
