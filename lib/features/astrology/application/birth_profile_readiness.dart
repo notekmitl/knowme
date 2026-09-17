@@ -12,14 +12,19 @@ abstract final class BirthProfileReadiness {
     return BirthProfileFormat.parseStoredDate(profile.birthDate.trim()) != null;
   }
 
-  /// Minimum governed input for KnowMe BaZi Reader V2.
+  /// Minimum governed input for KnowMe BaZi Reader V3.
   ///
-  /// Birth time and coordinates are deliberately optional. The backend
-  /// validates the supplied IANA zone and fails closed for Unknown time.
+  /// Unknown time stays valid without coordinates. When time is known, V3
+  /// requires coordinates for the apparent-solar-time correction.
   static bool isBaziCompatible(ProfileModel? profile) {
     if (profile == null) return false;
     if (profile.birthDate.trim().isEmpty) return false;
     if (profile.timezone.trim().isEmpty) return false;
+    if (profile.birthTime.trim().isNotEmpty &&
+        profile.latitude == 0 &&
+        profile.longitude == 0) {
+      return false;
+    }
     return BirthProfileFormat.parseStoredDate(profile.birthDate.trim()) != null;
   }
 

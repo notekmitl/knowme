@@ -1,5 +1,6 @@
 import 'package:knowme/data/models/bazi_chart_model.dart';
 import 'package:knowme/features/bazi_compatibility/application/bazi_reader_v2.dart';
+import 'package:knowme/features/bazi_compatibility/application/bazi_reader_v3.dart';
 import 'package:knowme/features/bazi_compatibility/application/bazi_symbolic_reading_engine.dart';
 import 'package:knowme/features/bazi_compatibility/domain/bazi_compatibility_report.dart';
 
@@ -10,8 +11,12 @@ abstract final class BaziCompatibilityReportBuilder {
     DateTime? asOf,
   }) {
     final th = languageCode != 'en';
-    if (th && chart.contractId == 'knowme_bazi_reader_v2') {
-      return _buildThaiReaderV2(chart, asOf: asOf);
+    if (th &&
+        const {
+          'knowme_bazi_reader_v2',
+          'knowme_bazi_reader_v3',
+        }.contains(chart.contractId)) {
+      return _buildThaiReader(chart, asOf: asOf);
     }
     final reading = BaziSymbolicReadingEngine.build(
       chart,
@@ -39,11 +44,14 @@ abstract final class BaziCompatibilityReportBuilder {
     );
   }
 
-  static BaziCompatibilityReport _buildThaiReaderV2(
+  static BaziCompatibilityReport _buildThaiReader(
     BaziChartModel chart, {
     DateTime? asOf,
   }) {
-    final reading = BaziReaderV2.build(chart, asOf: asOf);
+    final isReaderV3 = chart.contractId == 'knowme_bazi_reader_v3';
+    final reading = isReaderV3
+        ? BaziReaderV3.build(chart, asOf: asOf)
+        : BaziReaderV2.build(chart, asOf: asOf);
     return BaziCompatibilityReport(
       title: 'คำทำนายดวงจีน · ปาจื้อ (BaZi)',
       subtitle:
@@ -85,7 +93,7 @@ abstract final class BaziCompatibilityReportBuilder {
         _readerFactsSection(chart),
         _inputSection(chart, true),
         _methodSection(chart, true),
-        _sourcesSection(true),
+        _sourcesSection(true, readerV3: isReaderV3),
         _limitationsSection(chart, true),
       ],
     );
@@ -452,6 +460,10 @@ abstract final class BaziCompatibilityReportBuilder {
     bool th,
   ) {
     final isReaderV2 = chart.contractId == 'knowme_bazi_reader_v2';
+    final isReaderV3 = chart.contractId == 'knowme_bazi_reader_v3';
+    final solar = chart.solarTime;
+    final solarKnown = solar['status'] == 'computed';
+    String solarValue(String key) => '${solar[key] ?? '—'}';
     return BaziCompatibilityReportSection(
       title: th
           ? 'กติกาและข้อมูลสำหรับตรวจซ้ำ'
@@ -467,9 +479,17 @@ abstract final class BaziCompatibilityReportBuilder {
         ),
         BaziCompatibilityReportRow(
           label: th ? 'ฐานเวลา' : 'Time basis',
-          value: th
-              ? 'เวลาท้องถิ่นตาม IANA zone ที่ระบุ โดยไม่แปลงเป็น UTC'
-              : 'Local civil time in the supplied IANA zone, without UTC conversion',
+          value: isReaderV3
+              ? chart.timeKnown
+                    ? (th
+                          ? 'เวลาสุริยะจริงจากเวลาท้องถิ่น พิกัด และ offset ของ IANA zone ณ วันเกิด'
+                          : 'Apparent solar time from local civil time, coordinates, and the historical IANA offset')
+                    : (th
+                          ? 'ไม่ทราบเวลาเกิด จึงไม่สร้างเวลาสุริยะหรือเสาชั่วโมงขึ้นเอง'
+                          : 'Birth time is unknown, so no solar time or Hour pillar is imputed')
+              : (th
+                    ? 'เวลาท้องถิ่นตาม IANA zone ที่ระบุ โดยไม่แปลงเป็น UTC'
+                    : 'Local civil time in the supplied IANA zone, without UTC conversion'),
         ),
         BaziCompatibilityReportRow(
           label: th ? 'เส้นแบ่งปี' : 'Year boundary',
@@ -481,19 +501,62 @@ abstract final class BaziCompatibilityReportBuilder {
         ),
         BaziCompatibilityReportRow(
           label: th ? 'เส้นแบ่งวัน' : 'Day boundary',
-          value: th
-              ? '00:00 ตามเวลาท้องถิ่น (sect=2)'
-              : '00:00 local civil time (sect=2)',
+          value: isReaderV3 && chart.timeKnown
+              ? (th
+                    ? '00:00 ตามเวลาสุริยะจริง (sect=2)'
+                    : '00:00 apparent solar time (sect=2)')
+              : (th
+                    ? '00:00 ตามเวลาท้องถิ่น (sect=2)'
+                    : '00:00 local civil time (sect=2)'),
         ),
         BaziCompatibilityReportRow(
           label: th ? 'การปรับเวลาสุริยะจริง' : 'True-solar correction',
-          value: th ? 'ไม่ปรับ' : 'None',
+          value: isReaderV3
+              ? solarKnown
+                    ? '${solarValue('total_correction_minutes')} ${th ? 'นาที' : 'minutes'} · NOAA EoT + longitude'
+                    : (th
+                          ? 'ไม่คำนวณ เพราะไม่ทราบเวลาเกิด'
+                          : 'Not calculated because birth time is unknown')
+              : (th ? 'ไม่ปรับ' : 'None'),
         ),
+        if (isReaderV3 && solarKnown) ...[
+          BaziCompatibilityReportRow(
+            label: th ? 'เวลาท้องถิ่นที่รับมา' : 'Recorded civil time',
+            value: solarValue('local_civil_datetime'),
+          ),
+          BaziCompatibilityReportRow(
+            label: th ? 'UTC offset ในวันเกิด' : 'Historical UTC offset',
+            value:
+                '${solarValue('historical_utc_offset_minutes')} ${th ? 'นาที' : 'minutes'}',
+          ),
+          BaziCompatibilityReportRow(
+            label: th ? 'Equation of Time' : 'Equation of Time',
+            value:
+                '${solarValue('equation_of_time_minutes')} ${th ? 'นาที' : 'minutes'}',
+          ),
+          BaziCompatibilityReportRow(
+            label: th ? 'ผลแก้จากเส้นแวง' : 'Longitude correction',
+            value:
+                '${solarValue('longitude_correction_minutes')} ${th ? 'นาที' : 'minutes'}',
+          ),
+          BaziCompatibilityReportRow(
+            label: th ? 'เวลาสุริยะที่ใช้จริง' : 'Applied solar time',
+            value: solarValue('apparent_solar_datetime'),
+          ),
+        ],
         BaziCompatibilityReportRow(
           label: th ? 'สถานที่และพิกัด' : 'Location and coordinates',
-          value: th
-              ? 'บันทึกเป็นบริบท แต่ไม่ใช้เปลี่ยนผลคำนวณใน ${isReaderV2 ? 'Reader V2' : 'V1'}'
-              : 'Recorded as context but do not alter the ${isReaderV2 ? 'Reader V2' : 'V1'} calculation',
+          value: isReaderV3
+              ? chart.timeKnown
+                    ? (th
+                          ? 'ใช้เส้นแวงคำนวณเวลาสุริยะจริง และเก็บละติจูดไว้ตรวจสอบพิกัด'
+                          : 'Longitude drives the solar-time correction; latitude is retained for coordinate traceability')
+                    : (th
+                          ? 'ไม่ใช้พิกัดเปลี่ยนผล เพราะไม่ทราบเวลาเกิดและระบบไม่สร้างเวลาขึ้นเอง'
+                          : 'Coordinates do not alter the result because birth time is unknown and no time is imputed')
+              : (th
+                    ? 'บันทึกเป็นบริบท แต่ไม่ใช้เปลี่ยนผลคำนวณใน ${isReaderV2 ? 'Reader V2' : 'V1'}'
+                    : 'Recorded as context but do not alter the ${isReaderV2 ? 'Reader V2' : 'V1'} calculation'),
         ),
         BaziCompatibilityReportRow(
           label: th ? 'รหัสตรวจ input' : 'Input fingerprint',
@@ -501,7 +564,9 @@ abstract final class BaziCompatibilityReportBuilder {
         ),
         BaziCompatibilityReportRow(
           label: th ? 'สัญญาคำอ่าน' : 'Reading contract',
-          value: isReaderV2
+          value: isReaderV3
+              ? BaziReaderV3.interpretationContractId
+              : isReaderV2
               ? BaziReaderV2.interpretationContractId
               : BaziSymbolicReadingEngine.interpretationContractId,
         ),
@@ -509,7 +574,10 @@ abstract final class BaziCompatibilityReportBuilder {
     );
   }
 
-  static BaziCompatibilityReportSection _sourcesSection(bool th) {
+  static BaziCompatibilityReportSection _sourcesSection(
+    bool th, {
+    bool readerV3 = false,
+  }) {
     return BaziCompatibilityReportSection(
       title: th
           ? 'ที่มาของผลคำนวณและคำอ่าน'
@@ -537,6 +605,17 @@ abstract final class BaziCompatibilityReportBuilder {
           value:
               '6tail · lunar-python v1.4.8 · https://github.com/6tail/lunar-python/tree/v1.4.8',
         ),
+        if (readerV3) ...[
+          BaziCompatibilityReportRow(
+            label: th ? '[C4] สมการเวลาสุริยะ' : '[C4] Solar-time equation',
+            value:
+                'NOAA Global Monitoring Laboratory · General Solar Position Calculations · https://gml.noaa.gov/grad/solcalc/solareqns.PDF',
+          ),
+          BaziCompatibilityReportRow(
+            label: th ? '[C5] ประวัติเขตเวลา' : '[C5] Historical timezone data',
+            value: 'IANA Time Zone Database · https://www.iana.org/time-zones',
+          ),
+        ],
         BaziCompatibilityReportRow(
           label: th
               ? '[I1] กรอบ Ten Day Masters'
@@ -565,10 +644,15 @@ abstract final class BaziCompatibilityReportBuilder {
     bool th,
   ) {
     final isReaderV2 = chart.contractId == 'knowme_bazi_reader_v2';
+    final isReaderV3 = chart.contractId == 'knowme_bazi_reader_v3';
     return BaziCompatibilityReportSection(
       title: th ? 'ข้อจำกัดและคำเตือน' : 'Limitations and cautions',
       notes: [
-        if (isReaderV2)
+        if (isReaderV3)
+          th
+              ? 'รายงานนี้ใช้กติกา KnowMe BaZi Reader V3 และคำอ่านเชิงสัญลักษณ์ที่ระบุที่มา ไม่ได้อ้างว่าเป็นมาตรฐานสากลของทุกสำนักหรือข้อพิสูจน์บุคลิก'
+              : 'This report uses the KnowMe BaZi Reader V3 rules and sourced symbolic interpretation; it is neither a universal school standard nor proof of personality.'
+        else if (isReaderV2)
           th
               ? 'รายงานนี้ใช้กติกา KnowMe BaZi Reader V2 และคำอ่านเชิงสัญลักษณ์ที่ระบุที่มา ไม่ได้อ้างว่าเป็นมาตรฐานสากลของทุกสำนักหรือข้อพิสูจน์บุคลิก'
               : 'This report uses the KnowMe BaZi Reader V2 rules and sourced symbolic interpretation; it is neither a universal school standard nor proof of personality.'
@@ -580,10 +664,10 @@ abstract final class BaziCompatibilityReportBuilder {
           th
               ? 'ผล Unknown time เป็นแบบ fail-closed: ข้อมูลที่ต้องใช้เวลาและค่าปี/เดือนที่กำกวมจะไม่ถูกแสดง'
               : 'Unknown-time results fail closed: time-dependent and ambiguous Year/Month values are not shown.',
-        if (isReaderV2)
+        if (isReaderV3 || isReaderV2)
           th
-              ? 'V2 คำนวณก้านซ่อน สิบเทพ แรงหนุนตามฤดูกาลแบบเปิดเผยกติกา การผสม/ปะทะ ดวงจรสิบปี และรายปี แต่ยังไม่ประกาศ Useful God หรือรับรองว่าเหตุการณ์ใดต้องเกิดขึ้น'
-              : 'V2 calculates hidden stems, Ten Gods, a disclosed seasonal-support heuristic, combinations/clashes, ten-year cycles, and annual timing, but does not declare a Useful God or guarantee events.'
+              ? '${isReaderV3 ? 'V3' : 'V2'} คำนวณก้านซ่อน สิบเทพ แรงหนุนตามฤดูกาลแบบเปิดเผยกติกา การผสม/ปะทะ ดวงจรสิบปี และรายปี แต่ยังไม่ประกาศ Useful God หรือรับรองว่าเหตุการณ์ใดต้องเกิดขึ้น'
+              : '${isReaderV3 ? 'V3' : 'V2'} calculates hidden stems, Ten Gods, a disclosed seasonal-support heuristic, combinations/clashes, ten-year cycles, and annual timing, but does not declare a Useful God or guarantee events.'
         else
           th
               ? 'V1 ยังไม่คำนวณก้านซ่อน ฤดูกาล ราก Useful God การผสม/ปะทะ ดวงจรสิบปี หรือรายปี จึงเป็นคำอ่านพื้นดวงระดับเบื้องต้นเท่านั้น'

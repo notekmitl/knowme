@@ -356,6 +356,7 @@ class BaziChartModel {
     required this.timeKnown,
     this.enginePolicy = const {},
     this.input = const {},
+    this.solarTime = const {},
     this.ambiguities = const {},
     this.suppressedFields = const [],
     this.tenGodBalance = const BaziTenGodBalance(),
@@ -379,6 +380,7 @@ class BaziChartModel {
   final bool timeKnown;
   final Map<String, dynamic> enginePolicy;
   final Map<String, dynamic> input;
+  final Map<String, dynamic> solarTime;
   final Map<String, bool> ambiguities;
   final List<String> suppressedFields;
   final BaziTenGodBalance tenGodBalance;
@@ -411,6 +413,7 @@ class BaziChartModel {
           : _map(map['pillars'])['hour'] is Map,
       enginePolicy: Map<String, dynamic>.from(map['engine_policy'] ?? {}),
       input: Map<String, dynamic>.from(map['input'] ?? {}),
+      solarTime: Map<String, dynamic>.from(map['solar_time'] ?? {}),
       ambiguities: _boolMap(map['ambiguities']),
       suppressedFields: _stringList(map['suppressed_fields']),
       tenGodBalance: BaziTenGodBalance.fromMap(_map(map['ten_god_balance'])),

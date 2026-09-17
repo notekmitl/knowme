@@ -1084,3 +1084,31 @@ Evidence passes: parity 262/262; captures 18/18; copy audit 300 profiles / 30,00
 ## PR108 Owner Acceptance — 2026-08-29
 
 Owner independently verified ZIP CRC/SHA256SUMS and accepted OR2 scope, copy and evidence. Inline/stale hits 0; parity 262/262 with all error counters 0; geometry 18/18; PDFs Dedicated 8/7 and Browser-print 7/7; page 5 is an image-only infographic; visual defects 0. This acceptance update is one docs-only commit (exact commit SHA is the final PR HEAD). Required final PR state: Open + Ready for Review. Do not merge, deploy, regenerate artifacts, change Firebase/Production or modify `product-acceptance/`.
+
+# KnowMe BaZi Reader V3 Production Release — 2026-09-17
+
+Status: **LOCAL RELEASE GATES PASSED — OWNER AUTHORIZED PUSH, MERGE, AND PRODUCTION DEPLOYMENT.**
+
+## Goal and acceptance
+
+- Ship from `27f1f8ae7ceffb154955cac458b8b985cd7e404f` through Production.
+- Known birth times use apparent solar time from coordinates, the historical
+  IANA timezone offset, and NOAA's Equation of Time approximation.
+- Invalid, nonexistent, or ambiguous civil times fail closed.
+- Unknown birth times remain unknown; no fabricated time, Hour pillar, or
+  time-dependent luck output is allowed.
+- Thai Reader V3 covers overview, identity, work, money, relationships,
+  cautions, the active ten-year cycle, and the current year.
+- PDF Thai/CJK output must be readable with no clipping, overflow, overlap,
+  accidental blank page, or broken glyph.
+- Cloud Run must deploy and verify before Firebase Hosting. Do not modify or
+  deploy Firestore rules, Functions, Auth, Storage, IAM, or Production data.
+
+## Gate policy
+
+Focused Reader V3 tests, all backend tests, the full non-golden Flutter suite,
+analyzer, Local Gate PreCommit, and Local Gate PostCommit are required. Four
+unrelated Thai Mirror screenshot files are excluded from the Windows full-suite
+command because their checked-in rasters are renderer-dependent. Reader V3 PDF
+bytes, extracted text, embedded fonts, and every rendered page are verified
+separately.

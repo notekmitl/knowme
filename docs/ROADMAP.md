@@ -1,5 +1,15 @@
 # KnowMe Roadmap+
 
+## Active release - BaZi Reader V3 (2026-09-17)
+
+Reader V3 is the authorized successor to the live Reader V2 contract. Its
+implementation covers historical IANA offset resolution, coordinates, NOAA
+Equation of Time, strict known/unknown-time behavior, complete practical Thai
+reading sections, and dedicated PDF visual QA. Remaining work is operational:
+complete all gates, merge, deploy Cloud Run before Hosting, and verify the live
+web/PDF without changing Firestore rules, Functions, Auth, Storage, IAM, or
+Production data.
+
 ## Active release follow-up - Firebase Admin startup source fix (2026-09-17)
 
 **SOURCE COMPLETE; REVIEW, MERGE AND DEPLOYMENT REMAIN SEPARATE.**

@@ -1,25 +1,25 @@
-"""KnowMe BaZi Reader V2 constants — isolated from Western astrology."""
+"""KnowMe BaZi Reader V3 constants - isolated from Western astrology."""
 
-BAZI_VERSION = "knowme_bazi_reader_v2"
-CONTRACT_ID = "knowme_bazi_reader_v2"
-CONTRACT_NAME = "KnowMe BaZi Reader V2"
-ENGINE_VERSION = "lunar_python@1.4.8"
+BAZI_VERSION = "knowme_bazi_reader_v3"
+CONTRACT_ID = "knowme_bazi_reader_v3"
+CONTRACT_NAME = "KnowMe BaZi Reader V3"
+ENGINE_VERSION = "lunar_python@1.4.8+tzdata@2025.2+noaa_eot_v1"
 ELEMENT_BALANCE_METHOD = "surface_stem_branch_compatibility_v1"
 
 ENGINE_POLICY = {
     "contract_id": CONTRACT_ID,
     "contract_name": CONTRACT_NAME,
-    "scope": "knowme_reader_v2_not_universal_school_standard",
-    "calendar_input": "gregorian_local_civil",
-    "timezone_role": "iana_zone_validates_local_civil_context",
+    "scope": "knowme_reader_v3_not_universal_school_standard",
+    "calendar_input": "gregorian_apparent_solar_time_when_time_known",
+    "timezone_role": "historical_iana_utc_offset_at_birth",
     "year_boundary": "lichun",
     "month_boundary": "jieqi_jie",
     "eight_char_sect": 2,
-    "day_boundary": "local_civil_00:00",
-    "solar_time_correction": "none",
-    "coordinates_role": "recorded_not_used_in_calculation",
+    "day_boundary": "apparent_solar_00:00_when_time_known",
+    "solar_time_correction": "noaa_fractional_year_eot_v1_plus_longitude",
+    "coordinates_role": "known_time_requires_coordinates_longitude_used",
     "birth_time_required": False,
-    "unknown_time_policy": "omit_hour_and_transition_ambiguous_fields",
+    "unknown_time_policy": "never_impute_time_omit_hour_and_time_outputs",
     "reader_fact_layers": [
         "hidden_stems",
         "ten_gods",

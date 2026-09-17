@@ -1,6 +1,6 @@
-"""Parse governed BaZi birth input as local civil calendar fields."""
+"""Parse governed BaZi birth input with strict IANA-zone resolution."""
 
-from datetime import datetime
+from datetime import datetime, timezone as dt_timezone
 from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
 
 
@@ -69,7 +69,7 @@ def parse_birth_datetime(
             f"Invalid birth_date/birth_time: {birth_date} {time_part}"
         ) from exc
 
-    dt = dt.replace(tzinfo=_validate_timezone(timezone))
+    dt = resolve_local_datetime(dt, _validate_timezone(timezone))
     return (
         dt.year,
         dt.month,
@@ -78,3 +78,47 @@ def parse_birth_datetime(
         dt.minute,
         dt.second,
     )
+
+
+def parse_birth_datetime_aware(
+    birth_date: str,
+    birth_time: str | None,
+    timezone: str,
+) -> datetime:
+    """Return one unambiguous, existing historical local civil datetime."""
+    if not has_known_birth_time(birth_time):
+        raise MissingBirthTime("birth_time is required for Known-time BaZi")
+
+    time_part = str(birth_time).strip()
+    try:
+        naive = datetime.strptime(
+            f"{birth_date} {time_part}",
+            "%Y-%m-%d %H:%M",
+        )
+    except ValueError as exc:
+        raise InvalidBirthDatetime(
+            f"Invalid birth_date/birth_time: {birth_date} {time_part}"
+        ) from exc
+    return resolve_local_datetime(naive, _validate_timezone(timezone))
+
+
+def resolve_local_datetime(naive: datetime, zone: ZoneInfo) -> datetime:
+    """Resolve a local clock reading without choosing a DST fold by guess."""
+    candidates: list[datetime] = []
+    for fold in (0, 1):
+        aware = naive.replace(tzinfo=zone, fold=fold)
+        round_trip = aware.astimezone(dt_timezone.utc).astimezone(zone)
+        if round_trip.replace(tzinfo=None) == naive:
+            candidates.append(aware)
+
+    if not candidates:
+        raise InvalidBirthDatetime(
+            "birth time does not exist in the historical timezone transition"
+        )
+
+    offsets = {candidate.utcoffset() for candidate in candidates}
+    if len(offsets) > 1:
+        raise InvalidBirthDatetime(
+            "birth time is ambiguous in the historical timezone transition"
+        )
+    return candidates[0]

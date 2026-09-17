@@ -1,4 +1,4 @@
-"""Build KnowMe BaZi Reader V2 from governed birth input."""
+"""Build KnowMe BaZi Reader V3 from governed birth input."""
 
 from datetime import datetime
 from datetime import timezone as dt_timezone
@@ -29,9 +29,13 @@ from app.services.bazi.summarizers.bazi_summarizer import (
 from app.services.bazi.utils.datetime_parser import (
     has_known_birth_time,
     parse_birth_date,
-    parse_birth_datetime,
+    parse_birth_datetime_aware,
 )
 from app.services.bazi.utils.input_hash import compute_input_hash
+from app.services.bazi.utils.solar_time import (
+    apparent_solar_time,
+    unknown_time_audit,
+)
 
 
 class BaziInvariantError(RuntimeError):
@@ -47,10 +51,10 @@ def build_bazi(
     gender: str | None = None,
 ) -> dict:
     """
-    Build Known- or Unknown-time Reader V2 output.
+    Build Known- or Unknown-time Reader V3 output.
 
-    The IANA zone validates the recorded local-civil context. Reader V2
-    intentionally does not convert the wall clock or apply true-solar time.
+    Known time resolves the historical IANA offset and converts the supplied
+    civil clock to apparent solar time. Unknown time is never imputed.
     """
     if has_known_birth_time(birth_time):
         return _build_known_time(
@@ -79,12 +83,24 @@ def _build_known_time(
     longitude: float | None,
     gender: str | None,
 ) -> dict:
-    y, m, d, h, mi, s = parse_birth_datetime(
+    local_civil = parse_birth_datetime_aware(
         birth_date,
         birth_time,
         timezone,
     )
-    lunar, eight_char = compute_eight_char(y, m, d, h, mi, s)
+    apparent, solar_time = apparent_solar_time(
+        local_civil,
+        latitude=latitude,
+        longitude=longitude,
+    )
+    lunar, eight_char = compute_eight_char(
+        apparent.year,
+        apparent.month,
+        apparent.day,
+        apparent.hour,
+        apparent.minute,
+        apparent.second,
+    )
     pillars = enrich_pillars(
         map_pillars_from_eight_char(eight_char),
         eight_char,
@@ -103,6 +119,7 @@ def _build_known_time(
         suppressed_fields=[],
         gender=gender,
         eight_char=eight_char,
+        solar_time=solar_time,
     )
 
 
@@ -176,6 +193,7 @@ def _build_unknown_time(
         suppressed_fields=suppressed_fields,
         gender=gender,
         eight_char=None,
+        solar_time=unknown_time_audit(timezone),
     )
 
 
@@ -203,10 +221,11 @@ def _assemble_chart(
     suppressed_fields: list[str],
     gender: str | None,
     eight_char,
+    solar_time: dict,
 ) -> dict:
     day_pillar = pillars.get("day")
     if not isinstance(day_pillar, dict):
-        raise BaziInvariantError("Reader V2 requires an invariant Day pillar")
+        raise BaziInvariantError("Reader V3 requires an invariant Day pillar")
 
     day_master = summarize_day_master(day_pillar["stem"])
     day_master["pillar_label"] = day_pillar["pillar_label"]
@@ -238,6 +257,8 @@ def _assemble_chart(
             birth_time,
             timezone,
             normalized_gender,
+            latitude if birth_time is not None else None,
+            longitude if birth_time is not None else None,
         ),
         "completeness": completeness,
         "time_known": birth_time is not None,
@@ -249,8 +270,9 @@ def _assemble_chart(
             "latitude": latitude,
             "longitude": longitude,
             "gender": normalized_gender,
-            "coordinates_used_in_calculation": False,
+            "coordinates_used_in_calculation": birth_time is not None,
         },
+        "solar_time": solar_time,
         "pillars": pillars,
         "day_master": day_master,
         "year_animal": year_animal,
@@ -278,6 +300,7 @@ def build_results_snapshot(chart: dict) -> dict:
         "time_known": chart["time_known"],
         "engine_policy": chart["engine_policy"],
         "input": chart["input"],
+        "solar_time": chart["solar_time"],
         "day_master": chart["day_master"],
         "year_animal": chart["year_animal"],
         "dominant_element": chart["dominant_element"],

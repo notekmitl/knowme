@@ -1,3 +1,26 @@
+## Release candidate - BaZi Reader V3 (2026-09-17)
+
+Status: **IMPLEMENTED AND UNDER FULL RELEASE VALIDATION**
+
+- Contract `knowme_bazi_reader_v3` converts known birth times to apparent
+  solar time with the historical IANA-zone UTC offset, coordinates, and the
+  NOAA Equation of Time approximation. The response exposes every correction
+  component and includes coordinates in the known-time input fingerprint.
+- Historical DST gaps and folds fail closed instead of selecting a time.
+  Unknown birth time remains null; no Hour pillar, apparent-solar timestamp,
+  luck onset, or other time-dependent value is fabricated.
+- Thai contract `knowme_bazi_reader_th_v3` keeps the practical reader order:
+  overview, identity, work, money, love, cautions, current ten-year cycle, and
+  current year, followed by calculation evidence and limitations.
+- The dedicated PDF embeds Thai and CJK fonts, normalizes dash glyphs, and
+  stacks long source rows. Five offline fixtures render as 3/5/3/4/4 A4 pages;
+  all rendered pages are readable with zero replacement glyphs, clipping,
+  overlap, or overflow.
+- Production release remains gated on the repository tests, analyzer, Local
+  Gate, merge, Cloud Run-first deployment, Hosting-only deployment, and live
+  Production web/PDF QA. No Firestore rules, Functions, Auth, Storage, IAM, or
+  Production data are in scope.
+
 ## Production status - BaZi Reader V2 live (2026-09-16)
 
 Status: **PASS - Production release complete**

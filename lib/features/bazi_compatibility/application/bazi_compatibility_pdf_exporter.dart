@@ -27,7 +27,7 @@ abstract final class BaziCompatibilityPdfExporter {
     final document = pw.Document(
       title: report.title,
       author: 'KnowMe',
-      subject: 'KnowMe Chinese Astrology BaZi Reader V2',
+      subject: 'KnowMe Chinese Astrology BaZi Reader V3',
     );
 
     document.addPage(
@@ -51,11 +51,14 @@ abstract final class BaziCompatibilityPdfExporter {
         ),
         build: (_) => [
           pw.Text(
-            report.title,
+            _safe(report.title),
             style: pw.TextStyle(fontSize: 22, fontWeight: pw.FontWeight.bold),
           ),
           pw.SizedBox(height: 8),
-          pw.Text(report.subtitle, style: const pw.TextStyle(fontSize: 11.5)),
+          pw.Text(
+            _safe(report.subtitle),
+            style: const pw.TextStyle(fontSize: 11.5),
+          ),
           pw.SizedBox(height: 14),
           for (var index = 0; index < report.sections.length; index++) ...[
             ..._sectionWidgets(report.sections[index]),
@@ -70,7 +73,9 @@ abstract final class BaziCompatibilityPdfExporter {
   static List<pw.Widget> _sectionWidgets(
     BaziCompatibilityReportSection section,
   ) {
-    final hasLongRows = section.rows.any((row) => row.value.contains('\n\n'));
+    final hasLongRows = section.rows.any(
+      (row) => row.value.contains('\n\n') || row.value.length > 120,
+    );
     if (!hasLongRows) {
       return [pw.Inseparable(child: _section(section))];
     }
@@ -108,16 +113,19 @@ abstract final class BaziCompatibilityPdfExporter {
         crossAxisAlignment: pw.CrossAxisAlignment.start,
         children: [
           pw.Text(
-            section.title,
+            _safe(section.title),
             style: pw.TextStyle(fontSize: 14, fontWeight: pw.FontWeight.bold),
           ),
           if (section.intro case final intro?) ...[
             pw.SizedBox(height: 5),
-            pw.Text(intro, style: const pw.TextStyle(fontSize: 10.5)),
+            pw.Text(_safe(intro), style: const pw.TextStyle(fontSize: 10.5)),
           ],
           for (final paragraph in section.paragraphs) ...[
             pw.SizedBox(height: 6),
-            pw.Text(paragraph, style: const pw.TextStyle(fontSize: 10.5)),
+            pw.Text(
+              _safe(paragraph),
+              style: const pw.TextStyle(fontSize: 10.5),
+            ),
           ],
           if (firstRow != null) ...[
             pw.SizedBox(height: 9),
@@ -143,15 +151,15 @@ abstract final class BaziCompatibilityPdfExporter {
       crossAxisAlignment: pw.CrossAxisAlignment.start,
       children: [
         pw.Text(
-          row.label,
+          _safe(row.label),
           style: pw.TextStyle(fontSize: 10, fontWeight: pw.FontWeight.bold),
         ),
         pw.SizedBox(height: 4),
-        pw.Text(parts.first, style: const pw.TextStyle(fontSize: 10.5)),
+        pw.Text(_safe(parts.first), style: const pw.TextStyle(fontSize: 10.5)),
         for (final evidence in parts.skip(1)) ...[
           pw.SizedBox(height: 5),
           pw.Text(
-            evidence,
+            _safe(evidence),
             style: const pw.TextStyle(fontSize: 9.5, color: PdfColors.grey700),
           ),
         ],
@@ -170,7 +178,7 @@ abstract final class BaziCompatibilityPdfExporter {
           for (var index = 0; index < notes.length; index++) ...[
             if (index > 0) pw.SizedBox(height: 4),
             pw.Text(
-              '— ${notes[index]}',
+              '- ${_safe(notes[index])}',
               style: const pw.TextStyle(fontSize: 10.5),
             ),
           ],
@@ -193,16 +201,19 @@ abstract final class BaziCompatibilityPdfExporter {
         crossAxisAlignment: pw.CrossAxisAlignment.start,
         children: [
           pw.Text(
-            section.title,
+            _safe(section.title),
             style: pw.TextStyle(fontSize: 14, fontWeight: pw.FontWeight.bold),
           ),
           if (section.intro case final intro?) ...[
             pw.SizedBox(height: 5),
-            pw.Text(intro, style: const pw.TextStyle(fontSize: 10.5)),
+            pw.Text(_safe(intro), style: const pw.TextStyle(fontSize: 10.5)),
           ],
           for (final paragraph in section.paragraphs) ...[
             pw.SizedBox(height: 6),
-            pw.Text(paragraph, style: const pw.TextStyle(fontSize: 10.5)),
+            pw.Text(
+              _safe(paragraph),
+              style: const pw.TextStyle(fontSize: 10.5),
+            ),
           ],
           for (final row in section.rows) ...[
             pw.SizedBox(height: 6),
@@ -212,7 +223,7 @@ abstract final class BaziCompatibilityPdfExporter {
                 pw.SizedBox(
                   width: 112,
                   child: pw.Text(
-                    row.label,
+                    _safe(row.label),
                     style: pw.TextStyle(
                       fontSize: 9,
                       color: PdfColors.grey700,
@@ -223,7 +234,7 @@ abstract final class BaziCompatibilityPdfExporter {
                 pw.SizedBox(width: 8),
                 pw.Expanded(
                   child: pw.Text(
-                    row.value,
+                    _safe(row.value),
                     style: const pw.TextStyle(fontSize: 10),
                   ),
                 ),
@@ -232,10 +243,16 @@ abstract final class BaziCompatibilityPdfExporter {
           ],
           for (final note in section.notes) ...[
             pw.SizedBox(height: 4),
-            pw.Text('— $note', style: const pw.TextStyle(fontSize: 10.5)),
+            pw.Text(
+              '- ${_safe(note)}',
+              style: const pw.TextStyle(fontSize: 10.5),
+            ),
           ],
         ],
       ),
     );
   }
+
+  static String _safe(String value) =>
+      value.replaceAll('\u2013', '-').replaceAll('\u2014', '-');
 }

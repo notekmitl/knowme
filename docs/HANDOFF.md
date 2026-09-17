@@ -1,3 +1,19 @@
+## Handoff - BaZi Reader V3 release candidate (2026-09-17)
+
+Branch `codex/bazi-reader-v3` starts at
+`27f1f8ae7ceffb154955cac458b8b985cd7e404f`, including the source-level
+Firebase Admin startup fix. Reader V3 adds historical-timezone apparent solar
+time for known birth times, strict DST gap/fold rejection, coordinate-aware
+fingerprints, explicit audit metadata, the Thai V3 report route, and verified
+Thai/CJK PDF layout. See `docs/CHINESE_ASTROLOGY_READER_V3.md` for the contract.
+
+Release order is mandatory: tests and Local Gate, merge, Cloud Run, verify the
+new Ready revision, Firebase Hosting only, then live web and PDF QA. Do not use
+the existing deploy scripts as written because one enables services and grants
+IAM while the other deploys Firestore rules. Use direct Cloud Run and Hosting
+commands that preserve all out-of-scope resources. Do not mutate Production
+data during QA; the no-write Owner fixture is the governed browser/PDF path.
+
 ## Handoff - Firebase Admin startup source fix (2026-09-17)
 
 Branch `codex/firebase-admin-startup-fix` moves Firebase Admin initialization
