@@ -1,6 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:knowme/features/astrology/application/astrology_generation_coordinator.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_analysis.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_analysis_clock.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_astrology_handoff.dart';
@@ -355,10 +354,7 @@ Widget _buildDestination(
         ChangeNotifierProvider(create: (_) => BaziProvider()),
         ChangeNotifierProvider(create: (_) => LocaleProvider()),
       ],
-      child: BaziResultPage(
-        userId: userId,
-        generationCoordinator: AstrologyGenerationCoordinator(),
-      ),
+      child: BaziResultPage(userId: userId, preparedResult: true),
     ),
     ThaiBetaAstrologySystem.western => MultiProvider(
       providers: [

@@ -13,10 +13,20 @@ import 'package:printing/printing.dart';
 import 'package:provider/provider.dart';
 
 class BaziResultPage extends StatefulWidget {
-  const BaziResultPage({super.key, this.userId, this.generationCoordinator});
+  const BaziResultPage({
+    super.key,
+    this.userId,
+    this.preparedResult = false,
+    this.generationCoordinator,
+  });
 
   /// When set (for example in tests), skips the Firebase Auth uid lookup.
   final String? userId;
+
+  /// True only when the preceding route has already completed the BaZi API
+  /// request. The result page can then load the saved chart once instead of
+  /// probing and generating the same system a second time.
+  final bool preparedResult;
   final AstrologyGenerationCoordinator? generationCoordinator;
 
   @override
@@ -49,6 +59,12 @@ class _BaziResultPageState extends State<BaziResultPage> {
     final provider = context.read<BaziProvider>();
     await provider.loadChart(uid);
     if (!mounted) return;
+
+    if (widget.preparedResult) {
+      _baziReady = provider.error == null && provider.chart != null;
+      setState(() => _autoGenerating = false);
+      return;
+    }
 
     try {
       final snapshot = await _generationCoordinator.ensureGenerated(

@@ -2,15 +2,18 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:knowme/core/profile/birth_profile_format.dart';
 import 'package:knowme/domain/models/profile_model.dart';
 import 'package:knowme/features/astrology/application/astrology_generation_coordinator.dart';
+import 'package:knowme/features/astrology/application/birth_profile_readiness.dart';
+import 'package:knowme/features/astrology/fusion/application/astrology_fusion_repository.dart';
 import 'package:knowme/features/birth_normalization/application/birth_normalizer.dart';
 import 'package:knowme/features/birth_normalization/domain/raw_birth_input.dart';
 import 'package:knowme/features/thai_beta/domain/thai_beta_input.dart';
+import 'package:knowme/services/bazi_api_service.dart';
 import 'package:knowme/services/profile_service.dart';
 
 typedef ThaiBetaProfileSaver =
     Future<void> Function(String userId, ProfileModel profile);
 typedef ThaiBetaSelectedSystemGenerator =
-    Future<bool> Function(String userId, String systemId);
+    Future<bool> Function(String userId, String systemId, ProfileModel profile);
 
 /// Converts the anonymous Thai-beta form into the canonical signed-in profile
 /// used by the Chinese and Western engines, then generates only the selected
@@ -50,7 +53,7 @@ class ThaiBetaAstrologyHandoff {
     }
 
     await _saveProfile(uid, profile);
-    final ready = await _generateSelectedSystem(uid, systemId);
+    final ready = await _generateSelectedSystem(uid, systemId, profile);
     if (!ready) {
       throw StateError('Selected astrology result is not ready');
     }
@@ -113,7 +116,31 @@ class ThaiBetaAstrologyHandoff {
   static Future<bool> _generateWithCoordinator(
     String userId,
     String systemId,
+    ProfileModel profile,
   ) async {
+    if (systemId == 'bazi') {
+      // The form has just saved the exact profile used by this request. Calling
+      // the cross-system coordinator here would re-read that profile and probe
+      // every astrology lens before and after the API request. Generate only
+      // the selected BaZi result, while invalidating a possibly stale Fusion
+      // snapshot before the new chart becomes visible.
+      await AstrologyFusionRepositoryImpl().deleteFusion(userId);
+      await BaziApiService.generateBazi(
+        uid: userId,
+        birthDate: BirthProfileReadiness.apiBirthDate(profile),
+        birthTime: profile.birthTime.trim().isEmpty
+            ? null
+            : profile.birthTime.trim(),
+        timezone: profile.timezone.isNotEmpty
+            ? profile.timezone
+            : 'Asia/Bangkok',
+        gender: profile.gender,
+        latitude: profile.latitude,
+        longitude: profile.longitude,
+      );
+      return true;
+    }
+
     final snapshot = await AstrologyGenerationCoordinator().ensureGenerated(
       userId,
       retrySystemId: systemId,
