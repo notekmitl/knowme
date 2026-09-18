@@ -1,6 +1,6 @@
 # Active Task - BaZi Reader V3 concise reader surface (2026-09-18)
 
-Status: **LOCAL VALIDATION PASSED - PENDING PR, HOSTING DEPLOYMENT, AND PRODUCTION QA.**
+Status: **COMPLETE - PR #129 MERGED, HOSTING DEPLOYED, AND PRODUCTION QA PASSED.**
 
 ## Goal
 
@@ -26,6 +26,29 @@ reader-facing technical clutter from both the Web report and its PDF export.
   for Thai/Chinese glyphs, clipping, overlap, overflow, and blank pages.
 - The changed-path audit contains no backend, calculation, fingerprint, or
   chart-model file.
+
+## Production release
+
+- PR #129 merged to `main` as
+  `32cd548a0af4135b25f234144df963be3b1e8ca3`.
+- The clean merged worktree built against the existing Production astrology
+  API and passed the localhost/API-host bundle guards.
+- Deployment used only
+  `firebase deploy --only hosting --project knowme-app-694e1`; Backend,
+  Firestore rules/indexes, Functions, Auth, Storage, IAM, and Production data
+  were not deployed or changed.
+- Both Hosting domains and the Reader V3 deep link returned HTTP 200. The live
+  `index.html`, `flutter_bootstrap.js`, and `main.dart.js` matched the local
+  release bundle byte-for-byte and pinned `32cd548`.
+- Production Web QA confirmed the known-time sentence and all four technical
+  headings are absent, while the concise `ข้อมูลที่ใช้คำนวณ` card remains.
+- The real Production download is a 27,422-byte, 2-page A4 PDF with SHA-256
+  `21F0776BD0F1F259852C1FD252D7723E6C5C43BB35BACB20A04CBE54E552E6EE`.
+  Extracted-text gates found zero forbidden headings, and both rendered pages
+  passed visual review for Thai/Chinese glyphs, clipping, overlap, overflow,
+  and blank pages.
+- The exact Unknown-time sentence remains in the Reader implementation and the
+  focused Unknown fail-closed regression tests pass.
 
 ---
 
