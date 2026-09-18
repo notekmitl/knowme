@@ -59,6 +59,18 @@ void main() {
       );
       expect(readerV3Bytes.length, greaterThan(1000));
       expect(String.fromCharCodes(readerV3Bytes.take(5)), '%PDF-');
+      expect(
+        readerV3Report.plainText,
+        isNot(contains('คำอ่านนี้ใช้สี่เสาครบ รวมเสาชั่วโมง')),
+      );
+      for (final hiddenTitle in const [
+        'ข้อมูลดวงที่ใช้ประกอบคำอ่าน',
+        'กติกาและข้อมูลสำหรับตรวจซ้ำ',
+        'ที่มาของผลคำนวณและคำอ่าน',
+        'ข้อจำกัดและคำเตือน',
+      ]) {
+        expect(readerV3Report.plainText, isNot(contains(hiddenTitle)));
+      }
 
       final outputDirectory = Platform.environment['BAZI_OWNER_PDF_DIRECTORY'];
       if (outputDirectory != null) {

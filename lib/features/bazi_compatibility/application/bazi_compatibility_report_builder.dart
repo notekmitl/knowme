@@ -90,11 +90,11 @@ abstract final class BaziCompatibilityReportBuilder {
           title: reading.annualTitle,
           paragraphs: [reading.annual],
         ),
-        _readerFactsSection(chart),
+        if (!isReaderV3) _readerFactsSection(chart),
         _inputSection(chart, true),
-        _methodSection(chart, true),
-        _sourcesSection(true, readerV3: isReaderV3),
-        _limitationsSection(chart, true),
+        if (!isReaderV3) _methodSection(chart, true),
+        if (!isReaderV3) _sourcesSection(true),
+        if (!isReaderV3) _limitationsSection(chart, true),
       ],
     );
   }

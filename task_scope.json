@@ -1,33 +1,19 @@
 {
   "schema_version": 1,
-  "task_id": "knowme-bazi-reader-v3-production",
-  "expected_branch": "codex/bazi-reader-v3",
-  "expected_worktree": "C:\\Users\\USER\\Documents\\Codex\\2026-09-17\\new-chat\\work\\knowme-v3",
-  "base_ref": "27f1f8ae7ceffb154955cac458b8b985cd7e404f",
+  "task_id": "knowme-bazi-reader-v3-concise-surface",
+  "expected_branch": "codex/bazi-v3-hide-technical-sections",
+  "expected_worktree": "C:\\Users\\USER\\Documents\\Codex\\km",
+  "base_ref": "f58fd66a2c6f6e9af37d1010a9830fa68166d37d",
   "allowed_files": [
     "task.md",
     "task_scope.json",
-    "TASK_RESULT.md",
-    "backend/app/routes/bazi.py",
-    "lib/data/models/bazi_chart_model.dart",
-    "lib/features/astrology/application/birth_profile_readiness.dart",
-    "lib/features/bazi_compatibility/presentation/bazi_compatibility_owner_page.dart",
-    "test/bazi_chart_model_test.dart",
+    "lib/features/bazi_compatibility/application/bazi_compatibility_report_builder.dart",
+    "lib/features/bazi_compatibility/application/bazi_reader_v2.dart",
     "test/bazi_compatibility_report_test.dart",
     "test/bazi_compatibility_pdf_test.dart",
-    "test/bazi_compatibility_routes_test.dart",
-    "test/astrology_generation_coordinator_test.dart",
-    "test/bazi_result_page_test.dart",
-    "docs/CHINESE_ASTROLOGY_READER_V3.md",
-    "docs/CURRENT_STATUS.md",
-    "docs/HANDOFF.md",
-    "docs/ROADMAP.md"
+    "test/bazi_compatibility_routes_test.dart"
   ],
-  "allowed_globs": [
-    "backend/app/services/bazi/**",
-    "backend/tests/test_bazi*.py",
-    "lib/features/bazi_compatibility/application/**"
-  ],
+  "allowed_globs": [],
   "forbidden_files": [
     ".env",
     ".env.*",
@@ -59,16 +45,14 @@
     "final_result.json",
     "round_[0-9]+_review\\.json",
     "[A-Za-z]:\\\\Users\\\\",
-    "C:/Users/",
-    "/workspace/"
+    "C:/Users/"
   ],
   "focused_tests": [
-    "& (Join-Path $env:TEMP 'knowme-bazi-v1-py\\Scripts\\python.exe') -m pytest -q backend/tests/test_bazi_builder.py backend/tests/test_bazi_route_auth.py",
-    "& 'C:\\src\\flutter\\bin\\flutter.bat' test test/bazi_chart_model_test.dart test/bazi_compatibility_report_test.dart test/bazi_compatibility_pdf_test.dart test/bazi_compatibility_routes_test.dart"
+    "flutter test --no-pub --concurrency=1 --reporter compact test/bazi_compatibility_report_test.dart test/bazi_compatibility_pdf_test.dart test/bazi_compatibility_routes_test.dart"
   ],
-  "full_test_policy": "required",
-  "full_test_command": "& (Join-Path $env:TEMP 'knowme-bazi-v1-py\\Scripts\\python.exe') -m pytest -q backend/tests; if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }; $env:KNOWME_PDF_PYTHON=(Join-Path $env:TEMP 'knowme-bazi-v1-py\\Scripts\\python.exe'); $env:KNOWME_PDFTOPPM=(Join-Path (Split-Path (Get-Location).Path -Parent) 'tools\\poppler-26.09.0\\poppler-26.09.0\\Library\\bin\\pdftoppm.exe'); $fixture='test/evidence/fixtures/or5r_known_baseline.json'; $fixtureBytes=[IO.File]::ReadAllBytes($fixture); $fixtureText=[Text.Encoding]::UTF8.GetString($fixtureBytes).Replace(([string][char]13 + [char]10),[string][char]10); [IO.File]::WriteAllText($fixture,$fixtureText,[Text.UTF8Encoding]::new($false)); $goldens=@('test/validation/thai_mirror_qa_harness/screenshot_regression_test.dart','test/validation/thai_mirror_consumer_ux/consumer_section_screenshot_test.dart','test/validation/thai_beta/narrative/thai_consumer_narrative_acceptance_artifact_test.dart','test/thai_mirror_consumer_presenter_test.dart'); foreach ($golden in $goldens) { Move-Item -LiteralPath $golden -Destination ($golden + '.gate-disabled') }; try { & 'C:\\src\\flutter\\bin\\flutter.bat' test; $flutterExit=$LASTEXITCODE } finally { foreach ($golden in $goldens) { Move-Item -LiteralPath ($golden + '.gate-disabled') -Destination $golden }; [IO.File]::WriteAllBytes($fixture,$fixtureBytes) }; exit $flutterExit",
-  "analyze_command": "& (Join-Path $env:TEMP 'knowme-bazi-v1-py\\Scripts\\python.exe') -m compileall -q backend/app backend/tests; if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }; & 'C:\\src\\flutter\\bin\\flutter.bat' analyze --no-fatal-infos --no-fatal-warnings",
-  "commit_message_regex": "^(feat: .{10,72}|fix: .{10,72}|test: .{10,72}|docs: .{10,72})$",
+  "full_test_policy": "skip",
+  "full_test_command": "SKIP",
+  "analyze_command": "flutter analyze --no-pub --no-fatal-warnings --no-fatal-infos lib/features/bazi_compatibility/application/bazi_compatibility_report_builder.dart lib/features/bazi_compatibility/application/bazi_reader_v2.dart test/bazi_compatibility_report_test.dart test/bazi_compatibility_pdf_test.dart test/bazi_compatibility_routes_test.dart",
+  "commit_message_regex": "^(fix: .{10,72}|test: .{10,72}|docs: .{10,72})$",
   "require_clean_tree_after_commit": true
 }

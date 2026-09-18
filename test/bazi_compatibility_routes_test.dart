@@ -43,5 +43,13 @@ void main() {
     );
     expect(find.text("คำทำนายดวงจีน · ปาจื้อ (BaZi)"), findsOneWidget);
     expect(find.textContaining("BaZi V1"), findsNothing);
+    expect(
+      find.textContaining("คำอ่านนี้ใช้สี่เสาครบ รวมเสาชั่วโมง"),
+      findsNothing,
+    );
+    expect(find.text("ข้อมูลดวงที่ใช้ประกอบคำอ่าน"), findsNothing);
+    expect(find.text("กติกาและข้อมูลสำหรับตรวจซ้ำ"), findsNothing);
+    expect(find.text("ที่มาของผลคำนวณและคำอ่าน"), findsNothing);
+    expect(find.text("ข้อจำกัดและคำเตือน"), findsNothing);
   });
 }
