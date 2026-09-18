@@ -1,6 +1,37 @@
-# Active Task - Firebase Admin API Startup Initialization (2026-09-17)
+# Active Task - BaZi Reader V3 concise reader surface (2026-09-18)
 
-Status: **CODE COMPLETE AND LOCALLY VALIDATED - SOURCE/TEST/DOCS ONLY; DO NOT DEPLOY.**
+Status: **LOCAL VALIDATION PASSED - PENDING PR, HOSTING DEPLOYMENT, AND PRODUCTION QA.**
+
+## Goal
+
+Keep the Reader V3 calculation and audit data unchanged while removing
+reader-facing technical clutter from both the Web report and its PDF export.
+
+## Acceptance
+
+- Remove the known-time sentence `คำอ่านนี้ใช้สี่เสาครบ รวมเสาชั่วโมง` from
+  the overview.
+- Hide these Reader V3 sections: chart facts, reproducibility rules, sources,
+  and limitations.
+- Retain the concise birth-input confirmation section and all internal chart
+  data.
+- Preserve Reader V1/V2 output and Unknown-time fail-closed wording.
+- Verify focused report, route, and PDF tests plus visual PDF layout.
+
+## Local validation
+
+- Focused Reader V3 report, route, and PDF tests pass: 9/9.
+- Focused Flutter analyzer reports no issues.
+- The real Reader V3 PDF is 2 A4 pages; both rendered pages pass visual review
+  for Thai/Chinese glyphs, clipping, overlap, overflow, and blank pages.
+- The changed-path audit contains no backend, calculation, fingerprint, or
+  chart-model file.
+
+---
+
+# Completed - Firebase Admin API Startup Initialization (2026-09-17)
+
+Status: **MERGED IN PR #128 AND RELEASED TO PRODUCTION.**
 
 ## Goal
 

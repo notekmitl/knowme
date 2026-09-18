@@ -48,14 +48,15 @@ abstract final class BaziReaderV2 {
         'มีแรงหนุนหลายด้านปะปนกัน จึงต้องอ่านจากบริบทของแต่ละช่วงชีวิต';
     final relationCopy = _natalRelationCopy(chart.natalRelations);
     final completeness = chart.timeKnown
-        ? 'คำอ่านนี้ใช้สี่เสาครบ รวมเสาชั่วโมง'
+        ? ''
         : 'คำอ่านนี้ไม่มีเสาชั่วโมง จึงไม่เติมเรื่องที่ขึ้นกับเวลาเกิด';
 
     final overview =
         'แกนดวงของคุณคือ ${profile.name} เปรียบเหมือน “${profile.symbol}” '
         '$supportCopy ในโครงสร้างดวง พลังที่เด่นร่วมกันคือ $topNames '
         'จึงเป็นดวงที่เติบโตได้ดีเมื่อเปลี่ยนแรงกดดันและความคิดให้กลายเป็นผลงานที่จับต้องได้'
-        '${relationCopy.isEmpty ? '' : ' $relationCopy'} — $completeness';
+        '${relationCopy.isEmpty ? '' : ' $relationCopy'}'
+        '${completeness.isEmpty ? '' : ' $completeness'}';
 
     final identity =
         '${profile.overview} จุดแข็งคือ ${profile.strengths.first} '
