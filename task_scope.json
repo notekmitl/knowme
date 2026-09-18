@@ -1,17 +1,12 @@
 {
   "schema_version": 1,
-  "task_id": "knowme-bazi-reader-v3-concise-surface",
-  "expected_branch": "codex/bazi-v3-hide-technical-sections",
-  "expected_worktree": "C:\\Users\\USER\\Documents\\Codex\\km",
-  "base_ref": "f58fd66a2c6f6e9af37d1010a9830fa68166d37d",
+  "task_id": "knowme-bazi-reader-v3-concise-production-closeout",
+  "expected_branch": "docs/bazi-v3-concise-production-release-20260918",
+  "expected_worktree": "C:\\Users\\USER\\Documents\\Codex\\r129",
+  "base_ref": "32cd548a0af4135b25f234144df963be3b1e8ca3",
   "allowed_files": [
     "task.md",
-    "task_scope.json",
-    "lib/features/bazi_compatibility/application/bazi_compatibility_report_builder.dart",
-    "lib/features/bazi_compatibility/application/bazi_reader_v2.dart",
-    "test/bazi_compatibility_report_test.dart",
-    "test/bazi_compatibility_pdf_test.dart",
-    "test/bazi_compatibility_routes_test.dart"
+    "task_scope.json"
   ],
   "allowed_globs": [],
   "forbidden_files": [
@@ -47,12 +42,10 @@
     "[A-Za-z]:\\\\Users\\\\",
     "C:/Users/"
   ],
-  "focused_tests": [
-    "flutter test --no-pub --concurrency=1 --reporter compact test/bazi_compatibility_report_test.dart test/bazi_compatibility_pdf_test.dart test/bazi_compatibility_routes_test.dart"
-  ],
+  "focused_tests": [],
   "full_test_policy": "skip",
   "full_test_command": "SKIP",
-  "analyze_command": "flutter analyze --no-pub --no-fatal-warnings --no-fatal-infos lib/features/bazi_compatibility/application/bazi_compatibility_report_builder.dart lib/features/bazi_compatibility/application/bazi_reader_v2.dart test/bazi_compatibility_report_test.dart test/bazi_compatibility_pdf_test.dart test/bazi_compatibility_routes_test.dart",
-  "commit_message_regex": "^(fix: .{10,72}|test: .{10,72}|docs: .{10,72})$",
+  "analyze_command": "SKIP",
+  "commit_message_regex": "^docs: .{10,72}$",
   "require_clean_tree_after_commit": true
 }
