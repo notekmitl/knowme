@@ -11,13 +11,20 @@ def save_bazi(
     from app.services.firebase_service import db
 
     user_ref = db.collection("users").document(uid)
-
-    user_ref.set(
+    batch = db.batch()
+    batch.set(
+        user_ref,
         {"updatedAt": datetime.utcnow()},
         merge=True,
     )
-
-    user_ref.collection("astrology").document("chinese_bazi").set(chart_data)
-    user_ref.collection("results").document("chinese_bazi").set(results_snapshot)
+    batch.set(
+        user_ref.collection("astrology").document("chinese_bazi"),
+        chart_data,
+    )
+    batch.set(
+        user_ref.collection("results").document("chinese_bazi"),
+        results_snapshot,
+    )
+    batch.commit()
 
     return True

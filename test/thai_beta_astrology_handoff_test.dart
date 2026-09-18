@@ -33,8 +33,9 @@ void main() {
           events.add('save:$uid');
           savedProfile = profile;
         },
-        generateSelectedSystem: (uid, systemId) async {
+        generateSelectedSystem: (uid, systemId, profile) async {
           events.add('generate:$uid:$systemId');
+          expect(identical(profile, savedProfile), isTrue);
           return true;
         },
       );
@@ -55,7 +56,7 @@ void main() {
         saveProfile: (_, _) async {
           saveCalls++;
         },
-        generateSelectedSystem: (_, _) async => true,
+        generateSelectedSystem: (_, _, _) async => true,
       );
 
       await expectLater(
@@ -72,7 +73,7 @@ void main() {
     test('fails closed when the selected result is not ready', () async {
       final handoff = ThaiBetaAstrologyHandoff(
         saveProfile: (_, _) async {},
-        generateSelectedSystem: (_, _) async => false,
+        generateSelectedSystem: (_, _, _) async => false,
       );
 
       await expectLater(
