@@ -28,6 +28,7 @@ class BaziApiService {
     String? gender,
     double? latitude,
     double? longitude,
+    Map<String, dynamic>? canonicalProfile,
     BaziAuthSessionLoader? loadAuthSession,
     BaziPostJson? postJson,
   }) async {
@@ -52,6 +53,9 @@ class BaziApiService {
     }
     if (longitude != null) {
       body['longitude'] = longitude;
+    }
+    if (canonicalProfile != null) {
+      body['profile'] = canonicalProfile;
     }
 
     final send = postJson ?? _postJson;

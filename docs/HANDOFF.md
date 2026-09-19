@@ -7,11 +7,21 @@ HTTP 200, and 22.578 seconds total. Exactly one versioned generation POST
 succeeded; no duplicate, coordinator, late chart reload, or application
 console error was observed.
 
-Branch `codex/bazi-generation-latency-production-acceptance` removes the two
-client-side critical-path round trips and changes the Cloud Run minimum from
-zero to one. Focused tests pass 22/22 and the release Web bundle guard passes.
-The Windows full suite is 3,036 passed / 40 existing Thai screenshot-golden
-failures; the goldens remain unchanged and the result is not a suite pass.
+PR #132 / merge `cf06bd2` removed the initial pre-API sequence and result-page
+reload, and revision `knowme-astrology-api-00008-gcq` keeps one instance warm.
+The first Production rerun measured about 0.029 seconds click-to-API, 4.893
+seconds POST, 1.770 seconds response-to-final-font and 6.690 seconds total. A
+second warm POST was 3.076 seconds, but separate browser profile/Fusion writes
+continued for about 6.240 seconds and still delayed navigation.
+
+Branch `codex/bazi-generation-latency-atomic-save` is the narrow follow-up.
+The authenticated endpoint validates the canonical profile against calculation
+input and atomically writes profile, chart and result plus Fusion invalidation.
+The BaZi client no longer issues the separate freshness writes. Backend tests
+pass 35/35, focused Flutter tests pass 22/22, scoped analyzer and the release
+Web bundle guard pass. The Windows full suite is 3,036 passed / 40 existing
+Thai screenshot-golden failures; goldens remain unchanged and this is not a
+suite pass.
 
 Release in this order only: merge the reviewed PR, deploy `backend/` directly
 to Cloud Run without service-enable or IAM commands, verify the new Ready
@@ -19,8 +29,9 @@ revision and minimum instance, then build from the merge commit and deploy only
 Firebase Hosting. Do not run `scripts/deploy_astrology_api.ps1` or
 `scripts/deploy_web.ps1` end to end because their unrelated side effects are
 outside this authorization. Repeat the signed-in `/beta/thai` fresh-generation
-timing and require total time no greater than five seconds with one POST and no
-post-navigation chart reload.
+timing using a direct browser click. Require total time no greater than five
+seconds with one POST, zero separate browser profile/Fusion writes, no
+generation duplicate and no post-navigation chart reload.
 
 ## Handoff - BaZi Reader V3 release candidate (2026-09-17)
 

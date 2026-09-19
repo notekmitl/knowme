@@ -1,6 +1,6 @@
 # Active Task - BaZi generation Production latency (2026-09-19)
 
-Status: **SCOPED FIX VALIDATED; PR, DEPLOYMENT, AND FINAL QA PENDING.**
+Status: **FIRST REPAIR RELEASED; ATOMIC FOLLOW-UP VALIDATED; PR/RELEASE/QA PENDING.**
 
 - [x] Confirm live source `2d2125c`, Cloud Run revision
   `knowme-astrology-api-00007-qkk`, and Hosting pin `2d2125c`.
@@ -10,14 +10,22 @@ Status: **SCOPED FIX VALIDATED; PR, DEPLOYMENT, AND FINAL QA PENDING.**
 - [x] Prove exactly one successful versioned BaZi POST, no coordinator or
   generation duplicate, no settled-page chart reload, and no application
   console error.
-- [x] Implement concurrent profile/Fusion/API work, direct response-chart
-  rendering, and one Cloud Run minimum instance.
+- [x] Release PR #132 / `cf06bd2`, Cloud Run revision
+  `knowme-astrology-api-00008-gcq`, and Hosting pin `cf06bd2`.
+- [x] Measure first repair at approximately 0.029 seconds click-to-API, 4.893
+  seconds POST, 1.770 seconds API-to-final-font and 6.690 seconds total.
+- [x] Confirm a warm POST at 3.076 seconds while separate browser freshness
+  writes continued for about 6.240 seconds.
+- [x] Implement authenticated canonical-profile validation and one atomic
+  backend batch for profile/chart/result/Fusion freshness.
 - [x] Pass focused tests 22/22, scoped analyzer, formatting, diff check, and
   release Web bundle guards.
-- [ ] Review and merge the implementation PR.
+- [x] Pass backend tests 35/35 and keep the release Web bundle guard passing.
+- [ ] Review and merge the atomic follow-up PR.
 - [ ] Deploy Cloud Run first without IAM or other Firebase changes.
 - [ ] Deploy Firebase Hosting only from the merge commit.
-- [ ] Repeat Production acceptance and require total time at most five seconds.
+- [ ] Repeat direct-click Production acceptance and require total time at most
+  five seconds, one generation POST and zero separate client freshness writes.
 
 The complete Windows suite recorded 3,036 passed / 40 failures, all in the
 existing Windows Thai screenshot-golden comparison. No golden was changed and

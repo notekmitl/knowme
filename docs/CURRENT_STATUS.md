@@ -1,6 +1,6 @@
 ## Active release - BaZi generation latency acceptance (2026-09-19)
 
-Status: **PRODUCTION BASELINE FAILED; SCOPED REPAIR VALIDATED; RELEASE PENDING**
+Status: **FIRST REPAIR RELEASED BUT STILL ABOVE FIVE SECONDS; ATOMIC FOLLOW-UP VALIDATED**
 
 - Live baseline `2d2125c` / `knowme-astrology-api-00007-qkk` took 22.578
   seconds from selection click to readable BaZi result. The measured phases
@@ -9,18 +9,25 @@ Status: **PRODUCTION BASELINE FAILED; SCOPED REPAIR VALIDATED; RELEASE PENDING**
 - Exactly one authenticated `POST /v1/generate-bazi` returned 200. There was no
   coordinator, legacy/generate duplicate, settled-page chart reload, or
   application console error.
-- Root causes were sequential client-side profile/Fusion work before the API,
-  a 5.593-second scale-from-zero preflight delay, and a redundant Firestore
-  chart read after API success.
-- The candidate runs independent freshness work concurrently, renders the
-  authenticated response chart directly, and configures Cloud Run with one
-  minimum instance. Focused tests pass 22/22, scoped analyzer has zero issues,
-  and the Production Web bundle guard passes.
+- PR #132 / `cf06bd2` removed the pre-API sequencing and post-API chart reload,
+  and revision `knowme-astrology-api-00008-gcq` now keeps one instance warm.
+  The first post-release run measured about 0.029 seconds click-to-API, 4.893
+  seconds POST, 1.770 seconds response-to-final-font and 6.690 seconds total;
+  Cloud Run measured 4.568 seconds. A warm POST measured 3.076 seconds, while
+  the still-awaited client profile/Fusion requests continued for about 6.240
+  seconds. The five-second target therefore remains unmet.
+- The atomic follow-up moves the canonical profile write and Fusion deletion
+  into the authenticated backend batch that already writes the chart and
+  result. The backend rejects profile/calculation input disagreement; the
+  BaZi browser path performs no separate freshness write. Backend tests pass
+  35/35, focused Flutter tests pass 22/22, scoped analyzer has zero issues, and
+  the Production Web bundle guard passes.
 - The complete Windows suite is 3,036 passed / 40 existing Thai
   screenshot-golden failures. No Thai golden changed and the suite is not
-  represented as passing. Release still requires PR review/merge, Cloud Run
-  first, Hosting only second, and a fresh signed-in timing run at no more than
-  five seconds.
+  represented as passing. The follow-up still requires PR review/merge, Cloud
+  Run first, Hosting only second, and a fresh direct-click signed-in timing run
+  at no more than five seconds with one generation POST and zero client
+  Firestore freshness writes.
 
 ## Release candidate - BaZi Reader V3 (2026-09-17)
 

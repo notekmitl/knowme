@@ -1,6 +1,6 @@
 # BaZi generation latency repair — 2026-09-18
 
-Status: **PRODUCTION BASELINE FAILED; CLIENT FIX VALIDATED; RELEASE PENDING**
+Status: **FIRST PRODUCTION REPAIR STILL MISSES TARGET; ATOMIC SAVE FOLLOW-UP VALIDATED; RELEASE PENDING**
 
 ## Authenticated Production baseline (2026-09-19)
 
@@ -28,34 +28,61 @@ Run had scaled to zero, so the CORS preflight waited 5.593 seconds while a new
 instance started. After the API succeeded, the result page read the just-saved
 chart back from Firestore before rendering it.
 
-## Release candidate
+## First repair Production result
 
-The scoped repair starts the profile write, Fusion invalidation, and BaZi API
-generation concurrently; returns the authenticated API chart to the result
-page; and renders that chart without a Firestore reload. The result still waits
-for all freshness operations and fails closed if any of them fails. The Cloud
-Run deployment setting changes from zero to one minimum instance so the public
-preflight and authenticated POST are not gated by scale-from-zero startup.
-Calculation, report copy, PDF, Thai astrology, Firestore rules, Functions,
-Auth, Storage, and IAM are unchanged.
+PR #132 was merged as `cf06bd268ecaa231a5aa294fa5771d4d4168aeee` and
+released Cloud Run first, then Hosting only. Cloud Run revision
+`knowme-astrology-api-00008-gcq` is Ready with 100% traffic and one minimum
+instance; Hosting release `1789797139609000` / version
+`55c6a7b5191d34d4` serves pin `cf06bd2`.
 
-Candidate validation on Flutter 3.41.1:
+The first post-release fresh run improved the phases to approximately 0.029
+seconds click-to-API, 4.893 seconds for the browser POST, 1.770 seconds from
+HTTP response to the final result font asset, and 6.690 seconds total. Cloud
+Run measured the same successful POST at 4.568 seconds and the application at
+4,565.1 ms. Exactly one generation POST succeeded; no coordinator, legacy
+generation, repeated generation, late chart reload, or application console
+error was observed. There was no scale-from-zero delay.
 
+A second warm request measured the versioned POST at 3.076 seconds, but the
+browser-side profile write and Fusion deletion continued for approximately
+6.240 seconds and still gated navigation. Its click-total is not accepted as
+timing evidence because the Playwright locator added about two seconds before
+the click. The useful evidence is the independent POST and Firestore request
+timing, which identifies the remaining critical path without overstating the
+end-to-end number.
+
+## Atomic save follow-up candidate
+
+The follow-up sends the exact canonical profile with the authenticated BaZi
+request. The backend verifies that every calculation-relevant profile field
+matches the top-level request and then persists the profile, user marker,
+chart and result while deleting stale Fusion in one Firestore batch. A
+mismatch fails closed with `PROFILE_INPUT_MISMATCH`. The BaZi client no longer
+performs or awaits separate Firestore profile/Fusion operations; Western keeps
+its existing profile write. Calculation, report copy, PDF, Thai astrology,
+Firestore rules, Functions, Auth, Storage and IAM are unchanged.
+
+Candidate validation on Flutter 3.41.1 / Dart 3.11.0:
+
+- complete backend suite: 35/35;
 - focused API/provider/handoff/result/selection tests: 22/22;
-- scoped analyzer: no issues; complete analyzer exits successfully with the
-  unchanged 282 warning/info baseline;
+- scoped analyzer: no issues;
 - complete Windows suite: 3,036 passed / 40 failed, with all failures confined
   to the existing Windows Thai screenshot-golden comparison; no golden was
   changed and this result is not claimed as a full-suite pass;
 - release Web build and Production endpoint/loopback bundle guard: pass;
-- `main.dart.js`: 8,576,633 bytes, SHA-256
-  `0CDDA3F3C0F1AE0EB12C7A1DB43C461D8736B72AC7C76CECEBDC6901EA7EE137`.
+- `main.dart.js`: 8,576,087 bytes, SHA-256
+  `3A3125ACA50FC65DDD4A85EB8F97F5A296BF626FFC48F15A40E34F6FF0E9E3BA`.
 
-Post-merge Production acceptance remains required. Deploy Cloud Run first with
-minimum instances set to one, verify the Ready revision, then build and deploy
-Firebase Hosting only from the merge commit. Do not run the repository deploy
-wrappers as written because they also enable services, grant IAM, or deploy
-Firestore rules.
+Post-merge Production acceptance remains required. Deploy Cloud Run first,
+verify the Ready revision, then build and deploy Firebase Hosting only from the
+merge commit. Repeat the signed-in flow using direct browser click timing and
+require at most five seconds total, exactly one successful versioned POST,
+zero client Firestore freshness writes, no coordinator/generation duplicate,
+no late chart reload and no application console error. Do not run the
+repository deploy wrappers as written because they also enable services, grant
+IAM, or deploy Firestore rules.
 
 ## Earlier source repair
 

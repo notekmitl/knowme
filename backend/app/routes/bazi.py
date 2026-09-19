@@ -1,5 +1,5 @@
 from fastapi import APIRouter, Depends, HTTPException
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict, Field
 
 from app.security.firebase_auth import current_firebase_uid
 
@@ -15,6 +15,22 @@ from app.services.bazi.utils.datetime_parser import InvalidBirthDatetime
 router = APIRouter()
 
 
+class CanonicalProfileRequest(BaseModel):
+    model_config = ConfigDict(populate_by_name=True)
+
+    name: str
+    gender: str
+    birth_date: str = Field(alias="birthDate")
+    birth_time: str = Field(alias="birthTime")
+    birth_place: str = Field(alias="birthPlace")
+    latitude: float
+    longitude: float
+    timezone: str
+
+    def firestore_payload(self) -> dict:
+        return self.model_dump(by_alias=True)
+
+
 class GenerateBaziRequest(BaseModel):
     uid: str
     birth_date: str
@@ -23,6 +39,7 @@ class GenerateBaziRequest(BaseModel):
     latitude: float | None = None
     longitude: float | None = None
     gender: str | None = None
+    profile: CanonicalProfileRequest | None = None
 
 
 @router.post("/generate-bazi", deprecated=True)
@@ -78,6 +95,8 @@ def _generate_bazi(request: GenerateBaziRequest, *, write_uid: str):
             },
         )
 
+    profile_data = _validated_profile(request)
+
     try:
         chart = build_bazi(
             birth_date=request.birth_date,
@@ -101,7 +120,12 @@ def _generate_bazi(request: GenerateBaziRequest, *, write_uid: str):
     results_snapshot = build_results_snapshot(chart)
 
     try:
-        save_bazi(write_uid, chart, results_snapshot)
+        save_bazi(
+            write_uid,
+            chart,
+            results_snapshot,
+            profile_data=profile_data,
+        )
     except Exception as exc:
         raise HTTPException(
             status_code=500,
@@ -118,3 +142,35 @@ def _generate_bazi(request: GenerateBaziRequest, *, write_uid: str):
             "results": f"users/{write_uid}/results/chinese_bazi",
         },
     }
+
+
+def _validated_profile(request: GenerateBaziRequest) -> dict | None:
+    if request.profile is None:
+        return None
+
+    profile = request.profile
+    expected = {
+        "birthDate": request.birth_date.strip(),
+        "birthTime": (request.birth_time or "").strip(),
+        "gender": (request.gender or "").strip(),
+        "latitude": request.latitude,
+        "longitude": request.longitude,
+        "timezone": request.timezone.strip(),
+    }
+    actual = {
+        "birthDate": profile.birth_date.strip(),
+        "birthTime": profile.birth_time.strip(),
+        "gender": profile.gender.strip(),
+        "latitude": profile.latitude,
+        "longitude": profile.longitude,
+        "timezone": profile.timezone.strip(),
+    }
+    if actual != expected:
+        raise HTTPException(
+            status_code=400,
+            detail={
+                "code": "PROFILE_INPUT_MISMATCH",
+                "message": "profile birth fields must match BaZi calculation input",
+            },
+        )
+    return profile.firestore_payload()

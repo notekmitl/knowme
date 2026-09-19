@@ -4,7 +4,6 @@ import 'package:knowme/data/models/bazi_chart_model.dart';
 import 'package:knowme/domain/models/profile_model.dart';
 import 'package:knowme/features/astrology/application/astrology_generation_coordinator.dart';
 import 'package:knowme/features/astrology/application/birth_profile_readiness.dart';
-import 'package:knowme/features/astrology/fusion/application/astrology_fusion_repository.dart';
 import 'package:knowme/features/birth_normalization/application/birth_normalizer.dart';
 import 'package:knowme/features/birth_normalization/domain/raw_birth_input.dart';
 import 'package:knowme/features/thai_beta/domain/thai_beta_input.dart';
@@ -58,15 +57,9 @@ class ThaiBetaAstrologyHandoff {
     }
 
     if (systemId == 'bazi') {
-      BaziChartModel? chart;
-      await Future.wait<void>([
-        _saveProfile(uid, profile),
-        _generateBazi(uid, profile).then((value) => chart = value),
-      ]);
-      if (chart == null) {
-        throw StateError('Selected astrology result is not ready');
-      }
-      return chart;
+      // The authenticated endpoint persists this exact canonical profile,
+      // chart, result snapshot, and Fusion invalidation in one server batch.
+      return _generateBazi(uid, profile);
     }
 
     await _saveProfile(uid, profile);
@@ -135,27 +128,18 @@ class ThaiBetaAstrologyHandoff {
     String userId,
     ProfileModel profile,
   ) async {
-    // The API already receives the canonical birth input, so saving the profile
-    // and invalidating Fusion do not need to delay the generation request. The
-    // caller still waits for all three operations before showing the result.
-    BaziChartModel? chart;
-    await Future.wait<void>([
-      AstrologyFusionRepositoryImpl().deleteFusion(userId),
-      BaziApiService.generateBazi(
-        uid: userId,
-        birthDate: BirthProfileReadiness.apiBirthDate(profile),
-        birthTime: profile.birthTime.trim().isEmpty
-            ? null
-            : profile.birthTime.trim(),
-        timezone: profile.timezone.isNotEmpty
-            ? profile.timezone
-            : 'Asia/Bangkok',
-        gender: profile.gender,
-        latitude: profile.latitude,
-        longitude: profile.longitude,
-      ).then((value) => chart = value),
-    ]);
-    return chart!;
+    return BaziApiService.generateBazi(
+      uid: userId,
+      birthDate: BirthProfileReadiness.apiBirthDate(profile),
+      birthTime: profile.birthTime.trim().isEmpty
+          ? null
+          : profile.birthTime.trim(),
+      timezone: profile.timezone.isNotEmpty ? profile.timezone : 'Asia/Bangkok',
+      gender: profile.gender,
+      latitude: profile.latitude,
+      longitude: profile.longitude,
+      canonicalProfile: profile.toMap(),
+    );
   }
 
   static Future<bool> _generateWesternOnly(
