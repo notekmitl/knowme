@@ -14,24 +14,22 @@ seconds POST, 1.770 seconds response-to-final-font and 6.690 seconds total. A
 second warm POST was 3.076 seconds, but separate browser profile/Fusion writes
 continued for about 6.240 seconds and still delayed navigation.
 
-Branch `codex/bazi-generation-latency-atomic-save` is the narrow follow-up.
-The authenticated endpoint validates the canonical profile against calculation
-input and atomically writes profile, chart and result plus Fusion invalidation.
-The BaZi client no longer issues the separate freshness writes. Backend tests
-pass 35/35, focused Flutter tests pass 22/22, scoped analyzer and the release
-Web bundle guard pass. The Windows full suite is 3,036 passed / 40 existing
-Thai screenshot-golden failures; goldens remain unchanged and this is not a
-suite pass.
+PR #133 merged the narrow atomic follow-up as `839534c3`. Cloud Run revision
+`knowme-astrology-api-00009-bpw` was released first and is Ready with 100%
+traffic and one minimum instance. Hosting release `1789799510184000` / version
+`6ab2558866d0be41` followed as Hosting-only and serves pin `839534c`.
 
-Release in this order only: merge the reviewed PR, deploy `backend/` directly
-to Cloud Run without service-enable or IAM commands, verify the new Ready
-revision and minimum instance, then build from the merge commit and deploy only
-Firebase Hosting. Do not run `scripts/deploy_astrology_api.ps1` or
-`scripts/deploy_web.ps1` end to end because their unrelated side effects are
-outside this authorization. Repeat the signed-in `/beta/thai` fresh-generation
-timing using a direct browser click. Require total time no greater than five
-seconds with one POST, zero separate browser profile/Fusion writes, no
-generation duplicate and no post-navigation chart reload.
+Production acceptance is closed. The signed-in direct-click run measured
+0.038 seconds click-to-API, 4.721 seconds POST, 0.131 seconds from API success
+to final result font and 4.890 seconds total. There was exactly one successful
+generation POST, one preflight, and zero legacy/generate-chart/coordinator,
+browser Firestore freshness, late chart reload or console error events.
+
+Backend tests pass 35/35, focused Flutter tests pass 22/22, scoped analyzer and
+the release Web bundle guard pass. The Windows full suite remains 3,036 passed
+/ 40 existing Thai screenshot-golden failures; goldens are unchanged and this
+is not represented as a suite pass. No release action remains for this latency
+acceptance. Firestore rules, Functions, Auth, Storage and IAM were unchanged.
 
 ## Handoff - BaZi Reader V3 release candidate (2026-09-17)
 

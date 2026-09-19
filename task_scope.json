@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
   "task_id": "knowme-bazi-generation-latency",
-  "expected_branch": "codex/bazi-generation-latency-atomic-save",
+  "expected_branch": "codex/bazi-generation-latency-production-closeout",
   "expected_worktree": "C:/Users/USER/Documents/Knowme/bazi-latency-production-acceptance",
-  "base_ref": "cf06bd268ecaa231a5aa294fa5771d4d4168aeee",
+  "base_ref": "839534c3a5369ca9c111412f2ff4742fbaa6a99b",
   "allowed_files": [
     "backend/app/services/bazi/save_bazi_service.py",
     "backend/app/routes/bazi.py",

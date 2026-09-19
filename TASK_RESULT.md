@@ -1,7 +1,7 @@
 # Task Result - BaZi generation latency acceptance
 
-**Result: IN PROGRESS - first repair improved Production but remains above the
-target; atomic follow-up is validated.**
+**Result: PASS - Production completed in 4.890 seconds with one generation
+POST and no duplicate or chart reload.**
 
 Production at application commit `2d2125cbbf2b5e8ec9fc44fa4bb46846604cd6f2`,
 Cloud Run revision `knowme-astrology-api-00007-qkk`, and Hosting pin `2d2125c`
@@ -18,16 +18,24 @@ seconds response-to-final-font and 6.690 seconds total. A warm POST measured
 3.076 seconds, but separate client profile/Fusion writes continued for about
 6.240 seconds and still gated navigation.
 
-The follow-up validates the canonical profile against calculation input and
-persists profile, chart and result plus Fusion invalidation in one authenticated
-backend batch. The BaZi client no longer issues separate freshness writes.
+The atomic follow-up merged in PR #133 as
+`839534c3a5369ca9c111412f2ff4742fbaa6a99b`. Cloud Run revision
+`knowme-astrology-api-00009-bpw` was deployed first and is Ready with 100%
+traffic and one minimum instance. Hosting release `1789799510184000`, version
+`6ab2558866d0be41`, then deployed only Hosting with pin `839534c`.
+
+The final signed-in direct-click run measured 0.038 seconds click-to-API, 4.721
+seconds POST, 0.131 seconds API-to-final-result-font and 4.890 seconds total.
+Cloud Run measured the single successful POST at 4.448 seconds and the app at
+4,445.1 ms. There was one POST plus one preflight, and zero legacy generation,
+generate-chart, coordinator, browser Firestore freshness, late reload and
+browser console error events.
+
 Backend tests pass 35/35, focused Flutter tests pass 22/22, scoped analyzer and
 release bundle guards pass, and Thai goldens remain unchanged. The Windows
 full suite is 3,036 passed / 40 existing Thai screenshot-golden failures and
-is not claimed as passing. Final PASS requires follow-up PR merge, Cloud
-Run-first and Hosting-only deployment, and a direct-click signed-in Production
-run at no more than five seconds with exactly one generation POST and zero
-separate client freshness writes.
+is not claimed as passing. No Firestore rules, Functions, Auth, Storage or IAM
+change was made; only the authorized BaZi test artifact was created.
 
 ---
 

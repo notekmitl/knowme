@@ -1,6 +1,6 @@
 # BaZi generation latency repair — 2026-09-18
 
-Status: **FIRST PRODUCTION REPAIR STILL MISSES TARGET; ATOMIC SAVE FOLLOW-UP VALIDATED; RELEASE PENDING**
+Status: **PASS — PRODUCTION TOTAL 4.890 SECONDS WITH ONE GENERATION POST**
 
 ## Authenticated Production baseline (2026-09-19)
 
@@ -75,14 +75,41 @@ Candidate validation on Flutter 3.41.1 / Dart 3.11.0:
 - `main.dart.js`: 8,576,087 bytes, SHA-256
   `3A3125ACA50FC65DDD4A85EB8F97F5A296BF626FFC48F15A40E34F6FF0E9E3BA`.
 
-Post-merge Production acceptance remains required. Deploy Cloud Run first,
-verify the Ready revision, then build and deploy Firebase Hosting only from the
-merge commit. Repeat the signed-in flow using direct browser click timing and
-require at most five seconds total, exactly one successful versioned POST,
-zero client Firestore freshness writes, no coordinator/generation duplicate,
-no late chart reload and no application console error. Do not run the
-repository deploy wrappers as written because they also enable services, grant
-IAM, or deploy Firestore rules.
+## Final Production acceptance
+
+PR #133 merged as application commit
+`839534c3a5369ca9c111412f2ff4742fbaa6a99b`, tree
+`9c306806725ad6d2eec4f1462d567c498b5a8cac`. Release order was Cloud Run
+first, then Hosting only:
+
+- Cloud Run revision `knowme-astrology-api-00009-bpw`, Ready, 100% traffic,
+  minimum instances 1, image digest
+  `sha256:1a0e349ce57dd5f217afdc3782b605fdf6236e9b4b406b31bba6ecf5554533cf`;
+- Hosting release `1789799510184000`, version `6ab2558866d0be41`, released
+  `2026-09-19T06:31:50.184Z`, cache pin `839534c`;
+- live `main.dart.js` matched the local build at 8,576,087 bytes and SHA-256
+  `3A3125ACA50FC65DDD4A85EB8F97F5A296BF626FFC48F15A40E34F6FF0E9E3BA`.
+
+The accepted signed-in run used the real `/beta/thai` user flow and a new
+synthetic known-time fixture. Direct-click timing at
+`2026-09-19T07:20:44.510Z` was:
+
+- click to API start: 0.038 seconds;
+- browser POST start to HTTP 200: 4.721 seconds;
+- HTTP 200 to final result font completion: 0.131 seconds;
+- click to readable result: 4.890 seconds.
+
+Cloud Run independently recorded one successful POST at 4.448 seconds, with
+application timing 4,445.1 ms. Network inspection recorded exactly one POST
+and one CORS preflight. Legacy generation, `/v1/generate-chart`, coordinator,
+browser Firestore freshness requests, late network events and post-navigation
+chart reloads were all zero. Browser application console errors after the
+click were zero. The final report exposed the full reader sections and the
+calculation-input card.
+
+Only the authorized BaZi artifact for the signed-in test account was created.
+Firestore rules, Functions, Auth users/configuration, Storage, IAM and other
+Production data were not changed.
 
 ## Earlier source repair
 

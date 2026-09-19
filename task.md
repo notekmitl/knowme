@@ -1,6 +1,6 @@
-# Active Task - BaZi generation Production latency (2026-09-19)
+# Completed Task - BaZi generation Production latency (2026-09-19)
 
-Status: **FIRST REPAIR RELEASED; ATOMIC FOLLOW-UP VALIDATED; PR/RELEASE/QA PENDING.**
+Status: **COMPLETE — PRODUCTION ACCEPTANCE PASSED AT 4.890 SECONDS.**
 
 - [x] Confirm live source `2d2125c`, Cloud Run revision
   `knowme-astrology-api-00007-qkk`, and Hosting pin `2d2125c`.
@@ -21,11 +21,14 @@ Status: **FIRST REPAIR RELEASED; ATOMIC FOLLOW-UP VALIDATED; PR/RELEASE/QA PENDI
 - [x] Pass focused tests 22/22, scoped analyzer, formatting, diff check, and
   release Web bundle guards.
 - [x] Pass backend tests 35/35 and keep the release Web bundle guard passing.
-- [ ] Review and merge the atomic follow-up PR.
-- [ ] Deploy Cloud Run first without IAM or other Firebase changes.
-- [ ] Deploy Firebase Hosting only from the merge commit.
-- [ ] Repeat direct-click Production acceptance and require total time at most
-  five seconds, one generation POST and zero separate client freshness writes.
+- [x] Merge atomic follow-up PR #133 as `839534c3`.
+- [x] Deploy Cloud Run first as `knowme-astrology-api-00009-bpw` without IAM or
+  other Firebase changes.
+- [x] Deploy Firebase Hosting only with pin `839534c`.
+- [x] Pass direct-click Production acceptance at 0.038 seconds click-to-API,
+  4.721 seconds POST, 0.131 seconds API-to-result and 4.890 seconds total.
+- [x] Prove exactly one successful POST and zero client freshness requests,
+  generation duplicates, coordinator calls, chart reloads and console errors.
 
 The complete Windows suite recorded 3,036 passed / 40 failures, all in the
 existing Windows Thai screenshot-golden comparison. No golden was changed and
