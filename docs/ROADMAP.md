@@ -1,5 +1,16 @@
 # KnowMe Roadmap+
 
+## Active baseline unblock - Windows Thai Mirror goldens (2026-09-19)
+
+The narrow baseline candidate closes all 40 unchanged-main Windows failures
+without changing the accepted Linux images or product behavior. It adds exact
+Windows siblings for 174 comparisons, preserves strict pixel matching, pins
+one immutable JSON fixture to LF, and passes 46/46 focused tests on both native
+operating systems plus Local Gate PreCommit and the Windows full suite at
+3,080/3,080. The remaining sequence is commit/PostCommit, separate baseline PR
+merge, PR #135 rebase, BaZi V4 Web/PDF QA, PR #135 merge, and Hosting-only
+release.
+
 ## Completed production acceptance - BaZi generation latency (2026-09-19)
 
 The original Production release was correct but took 22.578 seconds. PR #132

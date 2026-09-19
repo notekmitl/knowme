@@ -4,6 +4,7 @@ import 'package:knowme/features/astrology/thai/mirror/presentation/ui/pages/thai
 
 import 'analysis/consumer_ux_validation_runner.dart';
 import '../../ui/thai_mirror_consumer_fixtures.dart';
+import '../../support/thai_mirror_golden_path.dart';
 
 /// Real Flutter renders saved as PNG (via golden comparator, not pixel diff).
 /// Run: flutter test .../consumer_section_screenshot_test.dart --update-goldens
@@ -37,7 +38,9 @@ void main() {
 
       await expectLater(
         find.byKey(const Key('thai_consumer_hero')),
-        matchesGoldenFile('screenshots/profile_a_01_hero.png'),
+        matchesGoldenFile(
+          thaiMirrorGoldenPath('screenshots/profile_a_01_hero.png'),
+        ),
       );
       expect(
         find.byKey(const Key('thai_consumer_birth_confidence')),
@@ -45,27 +48,39 @@ void main() {
       );
       await expectLater(
         find.byKey(const Key('thai_consumer_strengths')),
-        matchesGoldenFile('screenshots/profile_a_03_strengths.png'),
+        matchesGoldenFile(
+          thaiMirrorGoldenPath('screenshots/profile_a_03_strengths.png'),
+        ),
       );
       await expectLater(
         find.byKey(const Key('thai_consumer_cautions')),
-        matchesGoldenFile('screenshots/profile_a_04_cautions.png'),
+        matchesGoldenFile(
+          thaiMirrorGoldenPath('screenshots/profile_a_04_cautions.png'),
+        ),
       );
       await expectLater(
         find.byKey(const Key('thai_consumer_advice')),
-        matchesGoldenFile('screenshots/profile_a_05_advice.png'),
+        matchesGoldenFile(
+          thaiMirrorGoldenPath('screenshots/profile_a_05_advice.png'),
+        ),
       );
       await expectLater(
         find.byKey(const Key('thai_consumer_life_dashboard')),
-        matchesGoldenFile('screenshots/profile_a_06_life_dashboard.png'),
+        matchesGoldenFile(
+          thaiMirrorGoldenPath('screenshots/profile_a_06_life_dashboard.png'),
+        ),
       );
       await expectLater(
         find.byKey(const Key('thai_consumer_source')),
-        matchesGoldenFile('screenshots/profile_a_07_source.png'),
+        matchesGoldenFile(
+          thaiMirrorGoldenPath('screenshots/profile_a_07_source.png'),
+        ),
       );
       await expectLater(
         find.byKey(const Key('thai_consumer_footer')),
-        matchesGoldenFile('screenshots/profile_a_08_footer.png'),
+        matchesGoldenFile(
+          thaiMirrorGoldenPath('screenshots/profile_a_08_footer.png'),
+        ),
       );
     });
 
@@ -84,7 +99,9 @@ void main() {
       expect(consumer.hero.identitySubtitle, contains('ไม่มีเวลาเกิด'));
       await expectLater(
         find.byKey(const Key('thai_consumer_hero')),
-        matchesGoldenFile('screenshots/profile_a_no_birth_time_hero.png'),
+        matchesGoldenFile(
+          thaiMirrorGoldenPath('screenshots/profile_a_no_birth_time_hero.png'),
+        ),
       );
     });
 
@@ -92,7 +109,9 @@ void main() {
       await pumpConsumer(tester, sampleConsumerViewState());
       await expectLater(
         find.byType(ThaiMirrorResultPage),
-        matchesGoldenFile('screenshots/full_page_fixture.png'),
+        matchesGoldenFile(
+          thaiMirrorGoldenPath('screenshots/full_page_fixture.png'),
+        ),
       );
     });
 
@@ -106,11 +125,15 @@ void main() {
         final id = profile.id.toLowerCase();
         await expectLater(
           find.byKey(const Key('thai_consumer_hero')),
-          matchesGoldenFile('screenshots/profile_${id}_hero.png'),
+          matchesGoldenFile(
+            thaiMirrorGoldenPath('screenshots/profile_${id}_hero.png'),
+          ),
         );
         await expectLater(
           find.byKey(const Key('thai_consumer_life_dashboard')),
-          matchesGoldenFile('screenshots/profile_${id}_dashboard.png'),
+          matchesGoldenFile(
+            thaiMirrorGoldenPath('screenshots/profile_${id}_dashboard.png'),
+          ),
         );
       });
     }

@@ -11,6 +11,8 @@ import 'package:knowme/features/astrology/thai/mirror/thai_mirror_assembler.dart
 import 'package:knowme/features/astrology/thai/theme/models/thai_presented_theme.dart';
 import 'package:knowme/features/astrology/thai/theme/models/thai_theme_confidence_level.dart';
 
+import 'support/thai_mirror_golden_path.dart';
+
 ThaiPresentedTheme _theme({
   required String themeId,
   required ThemeCategory category,
@@ -64,7 +66,10 @@ void main() {
           profile: const ThaiAstrologyProfile(),
           presentedThemes: [
             _theme(themeId: 'disciplined', category: ThemeCategory.coreSelf),
-            _theme(themeId: 'analytical', category: ThemeCategory.thinkingStyle),
+            _theme(
+              themeId: 'analytical',
+              category: ThemeCategory.thinkingStyle,
+            ),
             _theme(themeId: 'builder', category: ThemeCategory.workAndAmbition),
             _theme(themeId: 'reliability', category: ThemeCategory.strengths),
             _theme(
@@ -85,8 +90,14 @@ void main() {
       expect(consumer.strengths.cards.length, greaterThanOrEqualTo(1));
       expect(consumer.hero.summary, isNot(contains('หลายครั้ง')));
       expect(consumer.disclaimers, ThaiMirrorConsumerCopy.consumerDisclaimers);
-      expect(consumer.strengths.title, ThaiMirrorConsumerCopy.strengthsSectionTitle);
-      expect(consumer.cautions.title, ThaiMirrorConsumerCopy.cautionsSectionTitle);
+      expect(
+        consumer.strengths.title,
+        ThaiMirrorConsumerCopy.strengthsSectionTitle,
+      );
+      expect(
+        consumer.cautions.title,
+        ThaiMirrorConsumerCopy.cautionsSectionTitle,
+      );
       expect(consumer.cautions.cards.length, 3);
       expect(consumer.lifeDashboard, hasLength(5));
 
@@ -133,9 +144,15 @@ void main() {
         ThaiMirrorInput(
           profile: const ThaiAstrologyProfile(),
           presentedThemes: [
-            _theme(themeId: 'reflective', category: ThemeCategory.thinkingStyle),
+            _theme(
+              themeId: 'reflective',
+              category: ThemeCategory.thinkingStyle,
+            ),
             _theme(themeId: 'visionary', category: ThemeCategory.coreSelf),
-            _theme(themeId: 'big_picture', category: ThemeCategory.thinkingStyle),
+            _theme(
+              themeId: 'big_picture',
+              category: ThemeCategory.thinkingStyle,
+            ),
             _theme(themeId: 'curious', category: ThemeCategory.coreSelf),
             _theme(themeId: 'avoidance', category: ThemeCategory.growthAreas),
             _theme(
@@ -183,7 +200,10 @@ void main() {
           profile: const ThaiAstrologyProfile(),
           presentedThemes: [
             _theme(themeId: 'disciplined', category: ThemeCategory.coreSelf),
-            _theme(themeId: 'analytical', category: ThemeCategory.thinkingStyle),
+            _theme(
+              themeId: 'analytical',
+              category: ThemeCategory.thinkingStyle,
+            ),
             _theme(themeId: 'loyal', category: ThemeCategory.relationships),
             _theme(themeId: 'builder', category: ThemeCategory.workAndAmbition),
             _theme(themeId: 'reliability', category: ThemeCategory.strengths),
@@ -207,7 +227,9 @@ void main() {
       await tester.pumpWidget(
         MaterialApp(
           theme: ThemeData(
-            colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF7E57C2)),
+            colorScheme: ColorScheme.fromSeed(
+              seedColor: const Color(0xFF7E57C2),
+            ),
             useMaterial3: true,
           ),
           home: ThaiMirrorResultPage(consumerState: consumer),
@@ -217,7 +239,9 @@ void main() {
 
       await expectLater(
         find.byType(ThaiMirrorResultPage),
-        matchesGoldenFile('goldens/thai_mirror_consumer_page.png'),
+        matchesGoldenFile(
+          thaiMirrorGoldenPath('goldens/thai_mirror_consumer_page.png'),
+        ),
       );
     });
   });

@@ -1,3 +1,17 @@
+## Active baseline repair - Windows Thai Mirror goldens (2026-09-19)
+
+Status: **LOCAL PRECOMMIT PASS; SEPARATE PR PENDING.**
+
+The 40 unchanged-main Windows failures are fully classified: 38 golden test
+cases covered 174 PNG comparisons, while two OR5R checks hashed CRLF worktree
+bytes instead of the canonical LF fixture. Linux keeps all accepted originals.
+Windows selects same-name, same-dimension strict sibling baselines; the OR5R
+fixture alone is pinned to LF. Windows and native Linux focused suites pass
+46/46 each, OR5R/PDF focused tests pass 9/9, and Local Gate PreCommit passes
+with the full Windows suite at 3,080/3,080. No product source, Thai
+calculation/copy/visual, comparator,
+threshold, Gate, Backend, Firebase, or Production resource changed.
+
 ## Completed release - BaZi generation latency acceptance (2026-09-19)
 
 Status: **PASS — RELEASED AND PRODUCTION-VERIFIED AT 4.890 SECONDS**
