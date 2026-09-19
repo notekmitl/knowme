@@ -29,7 +29,7 @@ API-to-final-result-font. Evidence records one successful versioned POST and
 zero client freshness, coordinator/generate duplicate, chart reload and
 console error events. The latency acceptance has no remaining release step.
 
-## Release candidate - BaZi Reader V4 life timeline (2026-09-19)
+## Completed release - BaZi Reader V4 life timeline (2026-09-19)
 
 Reader V4 expands the Chinese report from natal/current-only reading to a
 bounded past-present-future timeline. It reuses the complete Da Yun and Liu
@@ -41,8 +41,11 @@ merge, Hosting-only deployment, and live Web/PDF QA. Focused tests pass 17/17,
 the Windows full suite passes 3,080/3,080, analyzer passes policy, and the
 four-page PDF and local Web route pass full content/layout review. Local
 browser QA also corrected the stale `Reader V3` Owner header to `Reader V4`.
-Local Gate PreCommit passes. The remaining sequence is commit/PostCommit, PR
-#135 merge, exact-merge Hosting build/deploy, and live Web/PDF QA.
+Local Gate PreCommit/PostCommit pass; PR #135 merged as `63c790d8`. Firebase
+Hosting release `1789821517363000` / version `e08803aacc812816` now serves cache
+pin `63c790d`. Live Web/PDF QA passes, including all bounded timeline sections,
+Thai/CJK rendering, zero console errors, and four pixel-identical PDF pages.
+No release action remains, and no Backend or other Firebase resource changed.
 
 ## Active release - BaZi Reader V3 (2026-09-17)
 

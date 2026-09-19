@@ -1,6 +1,6 @@
-## Active release - BaZi Reader V4 life timeline (2026-09-19)
+## Completed release - BaZi Reader V4 life timeline (2026-09-19)
 
-Status: **RELEASE CANDIDATE — LOCAL VALIDATION PASS; NOT YET MERGED OR DEPLOYED**
+Status: **PASS — PR #135 MERGED, HOSTING RELEASED, PRODUCTION-VERIFIED**
 
 - Reader V4 keeps calculation contract `knowme_bazi_reader_v3` and versions
   only the Thai interpretation as `knowme_bazi_reader_th_v4`.
@@ -31,8 +31,23 @@ Status: **RELEASE CANDIDATE — LOCAL VALIDATION PASS; NOT YET MERGED OR DEPLOYE
   SC Regular.
 - Browser QA found and closed one presentation-only gap: the Owner fixture
   header now says `BaZi Reader V4`; calculation and report content are
-  unchanged. Local Gate PreCommit passes. Commit/PostCommit, merge,
-  Hosting-only deploy, and live QA remain.
+  unchanged. Local Gate PreCommit/PostCommit pass. PR #135 merged as
+  `63c790d8ffca03bb5b6d776d6e9f9dad9c703b68`, tree
+  `b9fa82a516fa125c04fb819820f8f1fc97ff0201`.
+- Exact-merge Hosting-only release `1789821517363000`, version
+  `e08803aacc812816`, is live with cache pin `63c790d`; no Backend, Firestore,
+  Functions, Auth, Storage, IAM, or Production data was changed.
+- Both Firebase domains return HTTP 200. Live `main.dart.js` matches the local
+  8,601,936-byte exact-merge bundle at SHA-256
+  `62BB3DE78672506E80DFAF4ED61FA098250CEA9F5D18D46617473A5589ECCC8F`;
+  it contains the Production API and zero loopback endpoint strings.
+- Production browser QA confirms the V4 label, past and present, years
+  2570–2574, and the next two decade cycles with normal Thai/Chinese text and
+  zero console errors. The real downloaded PDF is 4 A4 pages / 33,437 bytes /
+  SHA-256
+  `CF0B1CB8ACDD7D95BBDC124185945F3E96D92AF1C6623D0F68C827D03D1B7266`.
+  All four rendered pages match the candidate PNGs pixel-for-pixel and have no
+  missing content, broken glyph, clipping, overlap, overflow, or blank page.
 
 ## Completed baseline repair - Windows Thai Mirror goldens (2026-09-19)
 

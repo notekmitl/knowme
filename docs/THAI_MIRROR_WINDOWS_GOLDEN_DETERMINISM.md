@@ -8,7 +8,9 @@ Toolchain: Flutter 3.41.1 / Dart 3.11.0 on native Windows and native Linux
 PR #136 merged to `main` as
 `e1426fcfd0f51d4681d56f1426e9788e4fc36fd7` after Local Gate PreCommit and
 PostCommit passed. PR #135 was then rebased onto that merge; its Windows full
-suite passes 3,080/3,080 with the same strict platform baselines.
+suite passes 3,080/3,080 with the same strict platform baselines. PR #135 later
+merged as `63c790d8` and released to Firebase Hosting without changing Thai
+runtime, Thai accepted visuals, comparators, thresholds, or golden files.
 
 ## What failed on unchanged main
 

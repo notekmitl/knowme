@@ -6,9 +6,10 @@ The fix is test-only: Linux retains the 174 accepted PNG paths, Windows selects
 fixture is checked out as LF. Strict focused suites pass 46/46 on native
 Windows and Linux, the OR5R/PDF regression passes 9/9, Local Gate PreCommit
 and PostCommit pass, and the Windows full suite passes 3,080/3,080. PR #135
-has been rebased onto this merge and its three formatting changes were
-restored with the original patch ID and file hashes. The test-font boxes in
-these PNGs are inherited layout fixtures, not Production typography.
+was rebased onto this merge and its three formatting changes were restored
+with the original patch ID and file hashes. It later merged as `63c790d8` and
+released to Hosting without a Thai delta. The test-font boxes in these PNGs
+are inherited layout fixtures, not Production typography.
 
 ## Handoff - BaZi generation latency repair (2026-09-19)
 
@@ -61,9 +62,13 @@ two-cycle sections with zero console errors. The real 4-page V4 PDF is 33,262
 bytes, SHA-256
 `4E76DB104848DB94FD12014BBC158387BE3EEA93844AB26A483DC669E9D2666E`;
 all pages pass rendered Thai/CJK, clipping, overlap, overflow, and blank-page
-review. Local Gate PreCommit passes. Next steps are commit/PostCommit, PR #135
-merge, exact merged-source Hosting build/deploy, then live Web/PDF QA. Do not deploy or
-change Backend, Firestore, Functions, Auth, Storage, IAM, or Production data.
+review. Local Gate PreCommit/PostCommit pass. PR #135 merged as `63c790d8`
+with tree `b9fa82a5`; Firebase Hosting release `1789821517363000` / version
+`e08803aacc812816` serves pin `63c790d` on both domains. The live bundle hash
+matches the exact-merge build, and Production Web/PDF QA passes with zero
+console errors and four pixel-identical rendered PDF pages. No release action
+remains. Backend, Firestore, Functions, Auth, Storage, IAM, and Production data
+were not deployed or changed.
 
 ## Handoff - BaZi Reader V3 release candidate (2026-09-17)
 
