@@ -128,30 +128,35 @@ void main() {
     expect(find.text('ที่มาของผลคำนวณและคำอ่าน'), findsOneWidget);
   });
 
-  testWidgets('prepared handoff loads the saved chart only once', (
-    tester,
-  ) async {
-    final chart = BaziCompatibilityOwnerFixtures.chart(BaziOwnerCase.known);
-    var loadCount = 0;
-    final provider = BaziProvider(
-      loadChartFn: (_) async {
-        loadCount++;
-        return chart;
-      },
-    );
+  testWidgets(
+    'prepared handoff uses the API chart without a Firestore reload',
+    (tester) async {
+      final chart = BaziCompatibilityOwnerFixtures.chart(BaziOwnerCase.known);
+      var loadCount = 0;
+      final provider = BaziProvider(
+        loadChartFn: (_) async {
+          loadCount++;
+          return chart;
+        },
+      );
 
-    await tester.pumpWidget(
-      _wrap(
-        const BaziResultPage(userId: 'prepared-test-uid', preparedResult: true),
-        provider,
-      ),
-    );
-    await tester.pumpAndSettle();
+      await tester.pumpWidget(
+        _wrap(
+          BaziResultPage(
+            userId: 'prepared-test-uid',
+            preparedResult: true,
+            preparedChart: chart,
+          ),
+          provider,
+        ),
+      );
+      await tester.pumpAndSettle();
 
-    expect(loadCount, 1);
-    expect(find.text('ดวงจีนของฉัน · BaZi'), findsOneWidget);
-    expect(find.text('ผลเสาหลักที่ยืนยันได้'), findsOneWidget);
-  });
+      expect(loadCount, 0);
+      expect(find.text('ดวงจีนของฉัน · BaZi'), findsOneWidget);
+      expect(find.text('ผลเสาหลักที่ยืนยันได้'), findsOneWidget);
+    },
+  );
 
   testWidgets('does not expose a stale chart when regeneration fails', (
     tester,

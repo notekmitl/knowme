@@ -1,3 +1,30 @@
+# Active Task - BaZi generation Production latency (2026-09-19)
+
+Status: **SCOPED FIX VALIDATED; PR, DEPLOYMENT, AND FINAL QA PENDING.**
+
+- [x] Confirm live source `2d2125c`, Cloud Run revision
+  `knowme-astrology-api-00007-qkk`, and Hosting pin `2d2125c`.
+- [x] Run one fresh signed-in BaZi generation through `/beta/thai`.
+- [x] Measure 6.875 seconds click-to-API, 10.201 seconds POST, 5.503 seconds
+  API-to-readable, and 22.578 seconds total.
+- [x] Prove exactly one successful versioned BaZi POST, no coordinator or
+  generation duplicate, no settled-page chart reload, and no application
+  console error.
+- [x] Implement concurrent profile/Fusion/API work, direct response-chart
+  rendering, and one Cloud Run minimum instance.
+- [x] Pass focused tests 22/22, scoped analyzer, formatting, diff check, and
+  release Web bundle guards.
+- [ ] Review and merge the implementation PR.
+- [ ] Deploy Cloud Run first without IAM or other Firebase changes.
+- [ ] Deploy Firebase Hosting only from the merge commit.
+- [ ] Repeat Production acceptance and require total time at most five seconds.
+
+The complete Windows suite recorded 3,036 passed / 40 failures, all in the
+existing Windows Thai screenshot-golden comparison. No golden was changed and
+the suite is not claimed as passing.
+
+---
+
 # Active Task - BaZi Reader V3 concise reader surface (2026-09-18)
 
 Status: **COMPLETE - PR #129 MERGED, HOSTING DEPLOYED, AND PRODUCTION QA PASSED.**

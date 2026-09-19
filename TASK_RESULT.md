@@ -1,3 +1,26 @@
+# Task Result - BaZi generation latency acceptance
+
+**Result: IN PROGRESS - live baseline failed; scoped release candidate is
+validated.**
+
+Production at application commit `2d2125cbbf2b5e8ec9fc44fa4bb46846604cd6f2`,
+Cloud Run revision `knowme-astrology-api-00007-qkk`, and Hosting pin `2d2125c`
+took 6.875 seconds from click to API start, 10.201 seconds for
+`POST /v1/generate-bazi`, 5.503 seconds from HTTP 200 to the final
+result-specific asset, and 22.578 seconds overall. The request returned 200;
+there was exactly one POST and no coordinator/generate duplicate, settled-page
+chart reload, or application console error.
+
+The release candidate removes sequential client round trips, renders the API
+chart directly, and keeps one Cloud Run instance warm. Focused tests pass
+22/22, scoped analyzer and release bundle guards pass, and Thai goldens remain
+unchanged. The Windows full suite is 3,036 passed / 40 existing Thai
+screenshot-golden failures and is not claimed as passing. Final PASS requires
+PR merge, Cloud Run-first and Hosting-only deployment, and a fresh signed-in
+Production run at no more than five seconds.
+
+---
+
 # Task Result - KnowMe BaZi Reader V2 Production Release
 
 **Result: PASS - completed end to end on 2026-09-16.**

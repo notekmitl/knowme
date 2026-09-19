@@ -95,6 +95,38 @@ void main() {
   });
 
   group('BaziProvider.generateBazi', () {
+    test('uses the API response without a Firestore reload', () async {
+      final sample = _sampleChart();
+      var loadCalls = 0;
+      final provider = BaziProvider(
+        loadChartFn: (_) async {
+          loadCalls++;
+          return _sampleChart();
+        },
+        generateBaziFn:
+            ({
+              required String uid,
+              required String birthDate,
+              required String? birthTime,
+              required String timezone,
+              String? gender,
+              double? latitude,
+              double? longitude,
+            }) async => sample,
+      );
+
+      await provider.generateBazi(
+        uid: 'uid-1',
+        birthDate: '1990-05-12',
+        birthTime: '15:30',
+        timezone: 'Asia/Bangkok',
+      );
+
+      expect(provider.chart, same(sample));
+      expect(provider.error, isNull);
+      expect(loadCalls, 0);
+    });
+
     test('api error sets error and skips chart reload', () async {
       var loadCalls = 0;
       final provider = BaziProvider(

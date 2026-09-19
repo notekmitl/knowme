@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:knowme/data/models/bazi_chart_model.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_analysis.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_analysis_clock.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_astrology_handoff.dart';
@@ -26,7 +27,7 @@ typedef ThaiBetaSelectionAnalysisExecutor =
 typedef ThaiBetaAstrologyUserResolver =
     Future<String?> Function(BuildContext context);
 typedef ThaiBetaAstrologySystemPreparer =
-    Future<void> Function(
+    Future<BaziChartModel?> Function(
       String userId,
       ThaiBetaInput input,
       ThaiBetaAstrologySystem system,
@@ -36,6 +37,7 @@ typedef ThaiBetaAstrologyDestinationBuilder =
       BuildContext context,
       String userId,
       ThaiBetaAstrologySystem system,
+      BaziChartModel? preparedBaziChart,
     );
 
 /// The single post-form decision point for Thai, Chinese BaZi, and the existing
@@ -97,12 +99,20 @@ class _ThaiBetaAstrologySelectionPageState
 
       final userId = await widget.resolveUser(context);
       if (!mounted || userId == null || userId.trim().isEmpty) return;
-      await widget.prepareSystem(userId, widget.input, system);
+      final preparedBaziChart = await widget.prepareSystem(
+        userId,
+        widget.input,
+        system,
+      );
       if (!mounted) return;
       await Navigator.of(context).push(
         MaterialPageRoute<void>(
-          builder: (context) =>
-              widget.destinationBuilder(context, userId, system),
+          builder: (context) => widget.destinationBuilder(
+            context,
+            userId,
+            system,
+            preparedBaziChart,
+          ),
         ),
       );
     } catch (error, stack) {
@@ -325,7 +335,7 @@ Future<String?> _resolveAuthenticatedUser(BuildContext context) async {
   return userId != null && verified?.uid == userId ? userId : null;
 }
 
-Future<void> _prepareSelectedSystem(
+Future<BaziChartModel?> _prepareSelectedSystem(
   String userId,
   ThaiBetaInput input,
   ThaiBetaAstrologySystem system,
@@ -347,6 +357,7 @@ Widget _buildDestination(
   BuildContext _,
   String userId,
   ThaiBetaAstrologySystem system,
+  BaziChartModel? preparedBaziChart,
 ) {
   return switch (system) {
     ThaiBetaAstrologySystem.bazi => MultiProvider(
@@ -354,7 +365,11 @@ Widget _buildDestination(
         ChangeNotifierProvider(create: (_) => BaziProvider()),
         ChangeNotifierProvider(create: (_) => LocaleProvider()),
       ],
-      child: BaziResultPage(userId: userId, preparedResult: true),
+      child: BaziResultPage(
+        userId: userId,
+        preparedResult: true,
+        preparedChart: preparedBaziChart,
+      ),
     ),
     ThaiBetaAstrologySystem.western => MultiProvider(
       providers: [

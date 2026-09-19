@@ -15,6 +15,22 @@ abstract final class AstrologyApiClient {
     Map<String, String> headers = const {},
     Duration timeout = defaultTimeout,
   }) async {
+    await postJsonMap(
+      endpoint: endpoint,
+      body: body,
+      failureLabel: failureLabel,
+      headers: headers,
+      timeout: timeout,
+    );
+  }
+
+  static Future<Map<String, dynamic>> postJsonMap({
+    required Uri endpoint,
+    required Map<String, dynamic> body,
+    required String failureLabel,
+    Map<String, String> headers = const {},
+    Duration timeout = defaultTimeout,
+  }) async {
     try {
       final response = await http
           .post(
@@ -25,7 +41,10 @@ abstract final class AstrologyApiClient {
           .timeout(timeout);
 
       if (response.statusCode == 200) {
-        return;
+        final decoded = jsonDecode(response.body);
+        if (decoded is Map<String, dynamic>) return decoded;
+        if (decoded is Map) return Map<String, dynamic>.from(decoded);
+        throw const FormatException('API response must be a JSON object');
       }
 
       final failure = AstrologyApiFailure(

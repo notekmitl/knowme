@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:knowme/features/astrology/application/astrology_generation_coordinator.dart';
+import 'package:knowme/data/models/bazi_chart_model.dart';
 import 'package:knowme/features/astrology/shared/astrology_flow_state.dart';
 import 'package:knowme/features/astrology/shared/astrology_flow_widgets.dart';
 import 'package:knowme/features/bazi_compatibility/application/bazi_compatibility_pdf_assets.dart';
@@ -17,6 +18,7 @@ class BaziResultPage extends StatefulWidget {
     super.key,
     this.userId,
     this.preparedResult = false,
+    this.preparedChart,
     this.generationCoordinator,
   });
 
@@ -27,6 +29,7 @@ class BaziResultPage extends StatefulWidget {
   /// request. The result page can then load the saved chart once instead of
   /// probing and generating the same system a second time.
   final bool preparedResult;
+  final BaziChartModel? preparedChart;
   final AstrologyGenerationCoordinator? generationCoordinator;
 
   @override
@@ -57,6 +60,13 @@ class _BaziResultPageState extends State<BaziResultPage> {
     }
 
     final provider = context.read<BaziProvider>();
+    if (widget.preparedResult && widget.preparedChart != null) {
+      provider.usePreparedChart(widget.preparedChart!);
+      _baziReady = true;
+      setState(() => _autoGenerating = false);
+      return;
+    }
+
     await provider.loadChart(uid);
     if (!mounted) return;
 

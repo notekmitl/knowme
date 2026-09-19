@@ -41,7 +41,7 @@ Write-Host "Deploying to Cloud Run ($ServiceName)..."
     --allow-unauthenticated `
     --memory 512Mi `
     --cpu 1 `
-    --min-instances 0 `
+    --min-instances 1 `
     --max-instances 10 `
     --timeout 120 `
     --port 8080 `
