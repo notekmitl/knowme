@@ -6,6 +6,8 @@ import 'package:knowme/features/astrology/thai/mirror/presentation/ui/pages/thai
 import 'package:knowme/features/astrology/thai/mirror/runtime/thai_mirror_pipeline.dart';
 import 'package:knowme/features/astrology/thai/qa/harness/thai_qa_harness_profiles.dart';
 
+import '../../support/thai_mirror_golden_path.dart';
+
 /// Screenshot Regression Harness.
 ///
 /// Renders the **production** consumer report (same pipeline + page) for every
@@ -51,8 +53,7 @@ void main() {
       MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
-          colorScheme:
-              ColorScheme.fromSeed(seedColor: const Color(0xFF7E57C2)),
+          colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF7E57C2)),
           useMaterial3: true,
         ),
         home: ThaiMirrorResultPage(consumerState: consumer),
@@ -65,8 +66,11 @@ void main() {
     for (final vp in viewports) {
       testWidgets('profile ${profile.id} · ${vp.id}', (tester) async {
         final result = ThaiMirrorPipeline.generate(profile.birthData);
-        expect(result.mirrorResult, isNotNull,
-            reason: 'pipeline produced no result for ${profile.id}');
+        expect(
+          result.mirrorResult,
+          isNotNull,
+          reason: 'pipeline produced no result for ${profile.id}',
+        );
 
         final lifePeriods = LifePeriodEngine.fromBirthDate(
           profile.birthData.dateOnly,
@@ -85,7 +89,9 @@ void main() {
           if (finder.evaluate().isEmpty) continue; // section optional
           await expectLater(
             finder.first,
-            matchesGoldenFile('screenshots/${id}_${vp.id}_$section.png'),
+            matchesGoldenFile(
+              thaiMirrorGoldenPath('screenshots/${id}_${vp.id}_$section.png'),
+            ),
           );
         }
       });

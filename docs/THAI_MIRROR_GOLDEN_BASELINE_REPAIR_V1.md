@@ -48,3 +48,15 @@ its test is modified here.
 - Story coverage passed for profiles A-H.
 - Gate self-test passed 9/9; scoped required PreCommit Gate passed, including
   analyze (no fatal errors), focused tests, and full scoped suite.
+
+## Windows determinism follow-up (2026-09-19)
+
+The accepted Linux PNGs above remain unchanged. A later Windows audit found
+that the same Flutter 3.41.1 framework and engine rasterize the existing test
+font differently across operating systems. The narrow follow-up stores 174
+strict Windows siblings and selects them only on Windows; Linux continues to
+use these original paths. Comparator tolerance, test coverage, Thai runtime,
+reader copy, and production visuals are unchanged. See
+`docs/THAI_MIRROR_WINDOWS_GOLDEN_DETERMINISM.md` for the complete 40-failure
+classification, filename/dimension proof, pixel-difference ranges, and
+cross-platform validation.

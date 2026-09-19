@@ -1,3 +1,19 @@
+## Handoff - Windows Thai Mirror golden determinism (2026-09-19)
+
+Branch `codex/thai-mirror-windows-golden-determinism` is based on
+`efc63c61b672dd79ec3fc8f9f5e1eb8c16d205d3`. The fix is test-only: Linux
+retains the 174 accepted PNG paths, Windows selects 174 same-name/same-size
+siblings under `windows/`, and the immutable OR5R fixture is checked out as LF.
+Strict focused suites pass 46/46 on native Windows and Linux, the OR5R/PDF
+regression passes 9/9, and Local Gate PreCommit passes with the full Windows
+suite at 3,080/3,080.
+
+Commit, complete Local Gate PostCommit, merge this baseline PR, then rebase PR
+#135 and restore its three preserved formatting changes. Do not regenerate
+Linux goldens, lower tolerance, skip tests, or touch Thai runtime/copy/visuals.
+The test-font boxes in these PNGs are inherited layout fixtures and are not
+Production typography acceptance.
+
 ## Handoff - BaZi generation latency repair (2026-09-19)
 
 Production baseline `2d2125c` / revision

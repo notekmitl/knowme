@@ -1,3 +1,22 @@
+# Task Result - Thai Mirror Windows golden determinism
+
+**Result: PRECOMMIT PASS — BASELINE PR CLOSEOUT PENDING.**
+
+On unchanged `origin/main` at `efc63c61`, Windows produced the documented 40
+failures: 38 golden test cases covering 174 images and two raw fixture-hash
+checks affected by CRLF checkout. The repair leaves every accepted Linux PNG
+and all product source unchanged, selects 174 exact Windows siblings through a
+test-only path helper, and pins only the immutable OR5R JSON fixture to LF.
+
+Windows and native Linux focused suites both pass 46/46. The two OR5R/PDF
+tests pass 9/9 with pinned workspace Python/Poppler, and Local Gate PreCommit
+passes with the Windows full suite at 3,080/3,080. Analyzer reports the
+inherited 282 non-fatal diagnostics.
+No comparator tolerance, test skip, Gate, Thai calculation, reader copy,
+production UI, Backend, Firebase, or Production change is included.
+
+---
+
 # Task Result - BaZi generation latency acceptance
 
 **Result: PASS - Production completed in 4.890 seconds with one generation

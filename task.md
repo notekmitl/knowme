@@ -1,3 +1,24 @@
+# Active Task - Thai Mirror Windows golden determinism (2026-09-19)
+
+Status: **IMPLEMENTED AND VALIDATED; SEPARATE BASELINE PR PENDING.**
+
+- [x] Preserve the three uncommitted formatting files in PR #135 without
+  touching its worktree.
+- [x] Reproduce unchanged-main Windows failures as 38 golden test cases over
+  174 PNG comparisons plus two CRLF-sensitive OR5R fixture hash tests.
+- [x] Keep Linux baselines unchanged and add exact Windows siblings selected
+  by a test-only platform path helper.
+- [x] Keep Flutter's strict comparator, thresholds, tests, Gate, Thai runtime,
+  reader copy, and production visuals unchanged.
+- [x] Pin the OR5R fixture to LF without changing its repository blob.
+- [x] Pass native Windows and Linux focused suites at 46/46 each.
+- [x] Pass the Windows full Flutter suite and Local Gate PreCommit at
+  3,080/3,080 after the completeness test was added.
+- [ ] Commit, pass Local Gate PostCommit, merge the separate baseline PR, then
+  rebase and complete PR #135.
+
+---
+
 # Completed Task - BaZi generation Production latency (2026-09-19)
 
 Status: **COMPLETE — PRODUCTION ACCEPTANCE PASSED AT 4.890 SECONDS.**
