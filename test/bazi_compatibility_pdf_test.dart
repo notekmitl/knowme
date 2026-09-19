@@ -64,10 +64,7 @@ void main() {
         isNot(contains('คำอ่านนี้ใช้สี่เสาครบ รวมเสาชั่วโมง')),
       );
       expect(readerV4Report.plainText, contains('แนวโน้ม 5 ปีข้างหน้า'));
-      expect(
-        readerV4Report.plainText,
-        contains('ภาพระยะยาว · สองดวงจรถัดไป'),
-      );
+      expect(readerV4Report.plainText, contains('ภาพระยะยาว · สองดวงจรถัดไป'));
       for (final hiddenTitle in const [
         'ข้อมูลดวงที่ใช้ประกอบคำอ่าน',
         'กติกาและข้อมูลสำหรับตรวจซ้ำ',

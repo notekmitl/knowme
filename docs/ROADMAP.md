@@ -1,15 +1,14 @@
 # KnowMe Roadmap+
 
-## Active baseline unblock - Windows Thai Mirror goldens (2026-09-19)
+## Completed baseline unblock - Windows Thai Mirror goldens (2026-09-19)
 
 The narrow baseline candidate closes all 40 unchanged-main Windows failures
 without changing the accepted Linux images or product behavior. It adds exact
 Windows siblings for 174 comparisons, preserves strict pixel matching, pins
 one immutable JSON fixture to LF, and passes 46/46 focused tests on both native
-operating systems plus Local Gate PreCommit and the Windows full suite at
-3,080/3,080. The remaining sequence is commit/PostCommit, separate baseline PR
-merge, PR #135 rebase, BaZi V4 Web/PDF QA, PR #135 merge, and Hosting-only
-release.
+operating systems plus Local Gate PreCommit/PostCommit and the Windows full
+suite at 3,080/3,080. PR #136 merged as `e1426fc`; PR #135 is rebased onto it
+with its three formatting changes preserved.
 
 ## Completed production acceptance - BaZi generation latency (2026-09-19)
 
@@ -30,7 +29,7 @@ API-to-final-result-font. Evidence records one successful versioned POST and
 zero client freshness, coordinator/generate duplicate, chart reload and
 console error events. The latency acceptance has no remaining release step.
 
-## Active release - BaZi Reader V4 life timeline (2026-09-19)
+## Release candidate - BaZi Reader V4 life timeline (2026-09-19)
 
 Reader V4 expands the Chinese report from natal/current-only reading to a
 bounded past-present-future timeline. It reuses the complete Da Yun and Liu
@@ -38,7 +37,12 @@ Nian facts already returned by calculation contract V3, showing at most three
 completed decade cycles, the active cycle and year, five future years, and two
 future decade cycles. Monthly and daily timing stay out of scope. Release is
 gated on focused and full tests, analyzer, Local Gate, PDF render inspection,
-merge, Hosting-only deployment, and live Web/PDF QA.
+merge, Hosting-only deployment, and live Web/PDF QA. Focused tests pass 17/17,
+the Windows full suite passes 3,080/3,080, analyzer passes policy, and the
+four-page PDF and local Web route pass full content/layout review. Local
+browser QA also corrected the stale `Reader V3` Owner header to `Reader V4`.
+Local Gate PreCommit passes. The remaining sequence is commit/PostCommit, PR
+#135 merge, exact-merge Hosting build/deploy, and live Web/PDF QA.
 
 ## Active release - BaZi Reader V3 (2026-09-17)
 

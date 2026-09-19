@@ -47,7 +47,7 @@ class _BaziCompatibilityOwnerPageState
       appBar: AppBar(
         title: Text(
           chart.contractId == 'knowme_bazi_reader_v3'
-              ? 'โหราศาสตร์จีน · BaZi Reader V3 · Owner Testing'
+              ? 'โหราศาสตร์จีน · BaZi Reader V4 · Owner Testing'
               : 'โหราศาสตร์จีน · BaZi V1 · Owner Testing',
         ),
       ),

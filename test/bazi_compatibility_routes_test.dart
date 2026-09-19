@@ -40,7 +40,7 @@ void main() {
     await tester.pumpWidget(MaterialApp(home: widget));
     await tester.pumpAndSettle();
     expect(
-      find.text("โหราศาสตร์จีน · BaZi Reader V3 · Owner Testing"),
+      find.text("โหราศาสตร์จีน · BaZi Reader V4 · Owner Testing"),
       findsOneWidget,
     );
     expect(find.text("คำทำนายดวงจีน · ปาจื้อ (BaZi)"), findsOneWidget);

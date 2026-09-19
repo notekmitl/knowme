@@ -54,11 +54,12 @@ abstract final class BaziReaderV4 {
         ? completed
         : completed.sublist(completed.length - 3);
 
-    final annual = cycles
-        .expand((cycle) => cycle.annual)
-        .where((year) => year.year > date.year)
-        .toList(growable: false)
-      ..sort((left, right) => left.year.compareTo(right.year));
+    final annual =
+        cycles
+            .expand((cycle) => cycle.annual)
+            .where((year) => year.year > date.year)
+            .toList(growable: false)
+          ..sort((left, right) => left.year.compareTo(right.year));
 
     final laterCycles = cycles
         .where((cycle) => cycle.startYear > current.endYear)
@@ -91,10 +92,7 @@ abstract final class BaziReaderV4 {
     );
   }
 
-  static BaziLuckCycle? _currentCycle(
-    List<BaziLuckCycle> cycles,
-    int year,
-  ) {
+  static BaziLuckCycle? _currentCycle(List<BaziLuckCycle> cycles, int year) {
     for (final cycle in cycles) {
       if (year >= cycle.startYear && year <= cycle.endYear) return cycle;
     }
@@ -137,8 +135,7 @@ abstract final class BaziReaderV4 {
           item.kind.contains('punishment'),
     );
     final combine = relations.any(
-      (item) =>
-          item.kind.contains('combine') || item.kind.contains('harmony'),
+      (item) => item.kind.contains('combine') || item.kind.contains('harmony'),
     );
     if (clash && combine) {
       return 'มีทั้งแรงเปลี่ยนและแรงร่วมมือ จึงควรเปิดทางเลือกใหม่โดยตกลงบทบาทและขอบเขตให้ชัด';

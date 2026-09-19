@@ -49,9 +49,7 @@ abstract final class BaziCompatibilityReportBuilder {
     DateTime? asOf,
   }) {
     final isReaderV3 = chart.contractId == 'knowme_bazi_reader_v3';
-    final timeline = isReaderV3
-        ? BaziReaderV4.build(chart, asOf: asOf)
-        : null;
+    final timeline = isReaderV3 ? BaziReaderV4.build(chart, asOf: asOf) : null;
     final reading = timeline?.natal ?? BaziReaderV2.build(chart, asOf: asOf);
     return BaziCompatibilityReport(
       title: 'คำทำนายดวงจีน · ปาจื้อ (BaZi)',

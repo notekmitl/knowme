@@ -1,9 +1,14 @@
 # Thai Mirror Windows Golden Determinism
 
-Status: **PRECOMMIT PASS — BASELINE CANDIDATE — NO PRODUCT DELTA**
+Status: **MERGED AS PR #136 — NO PRODUCT DELTA**
 
 Base: `efc63c61b672dd79ec3fc8f9f5e1eb8c16d205d3` (`origin/main`)
 Toolchain: Flutter 3.41.1 / Dart 3.11.0 on native Windows and native Linux
+
+PR #136 merged to `main` as
+`e1426fcfd0f51d4681d56f1426e9788e4fc36fd7` after Local Gate PreCommit and
+PostCommit passed. PR #135 was then rebased onto that merge; its Windows full
+suite passes 3,080/3,080 with the same strict platform baselines.
 
 ## What failed on unchanged main
 

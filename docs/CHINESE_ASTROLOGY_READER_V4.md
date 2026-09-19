@@ -57,3 +57,25 @@ rendering and inspecting every page, including Thai and Chinese glyphs.
 Reader V4 reuses the sources and rules documented in
 `CHINESE_ASTROLOGY_READER_V3.md`. No calculation dependency or data source is
 added in this release.
+
+## Release-candidate validation (2026-09-19)
+
+- PR #135 is rebased onto Thai Mirror baseline merge `e1426fc`; the baseline
+  is isolated in merged PR #136 and has zero product delta.
+- Focused chart/report/route/PDF tests pass 17/17. The complete Windows suite
+  passes 3,080/3,080. Analyzer passes repository policy with 282 inherited
+  non-fatal diagnostics. Local Gate PreCommit passes its scope guard,
+  forbidden-text scan, analyzer, focused tests, and full suite.
+- The Web release bundle contains the Production Cloud Run API and
+  `/beta/chinese`, with zero loopback endpoint strings. Local Firebase Hosting
+  SPA QA confirms the `BaZi Reader V4` header, past and current sections, five
+  future years, two future cycles, normal Thai/Chinese rendering, and zero
+  console errors.
+- The generated Owner PDF is 4 A4 pages / 33,262 bytes / SHA-256
+  `4E76DB104848DB94FD12014BBC158387BE3EEA93844AB26A483DC669E9D2666E`.
+  Poppler rendering and original-resolution review cover all four pages. No
+  text is missing; no page is blank; no clipping, overlap, or overflow is
+  visible. Embedded fonts are Noto Sans Thai Regular/Bold and Noto Sans SC
+  Regular.
+- Calculation, Backend, Firestore, Functions, Auth, Storage, IAM, Thai
+  astrology, Thai golden originals, and Production data remain unchanged.

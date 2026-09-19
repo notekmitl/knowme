@@ -1,18 +1,14 @@
 ## Handoff - Windows Thai Mirror golden determinism (2026-09-19)
 
-Branch `codex/thai-mirror-windows-golden-determinism` is based on
-`efc63c61b672dd79ec3fc8f9f5e1eb8c16d205d3`. The fix is test-only: Linux
-retains the 174 accepted PNG paths, Windows selects 174 same-name/same-size
-siblings under `windows/`, and the immutable OR5R fixture is checked out as LF.
-Strict focused suites pass 46/46 on native Windows and Linux, the OR5R/PDF
-regression passes 9/9, and Local Gate PreCommit passes with the full Windows
-suite at 3,080/3,080.
-
-Commit, complete Local Gate PostCommit, merge this baseline PR, then rebase PR
-#135 and restore its three preserved formatting changes. Do not regenerate
-Linux goldens, lower tolerance, skip tests, or touch Thai runtime/copy/visuals.
-The test-font boxes in these PNGs are inherited layout fixtures and are not
-Production typography acceptance.
+PR #136 is merged as `e1426fcfd0f51d4681d56f1426e9788e4fc36fd7`.
+The fix is test-only: Linux retains the 174 accepted PNG paths, Windows selects
+174 same-name/same-size siblings under `windows/`, and the immutable OR5R
+fixture is checked out as LF. Strict focused suites pass 46/46 on native
+Windows and Linux, the OR5R/PDF regression passes 9/9, Local Gate PreCommit
+and PostCommit pass, and the Windows full suite passes 3,080/3,080. PR #135
+has been rebased onto this merge and its three formatting changes were
+restored with the original patch ID and file hashes. The test-font boxes in
+these PNGs are inherited layout fixtures, not Production typography.
 
 ## Handoff - BaZi generation latency repair (2026-09-19)
 
@@ -56,6 +52,18 @@ cycle/year and concise natal reading. Do not change backend calculation,
 apparent solar time, input fingerprint, persistence, Unknown fail-closed
 behavior, or hidden technical-section policy. Deployment scope is Firebase
 Hosting only after the application commit is merged and verified.
+
+Local release evidence: focused V4 tests 17/17, analyzer policy pass with 282
+inherited diagnostics, and full Windows suite 3,080/3,080. The Web release
+bundle uses the Production API and has zero loopback endpoint strings; local
+SPA QA shows the corrected V4 header plus past, current, five-year, and next
+two-cycle sections with zero console errors. The real 4-page V4 PDF is 33,262
+bytes, SHA-256
+`4E76DB104848DB94FD12014BBC158387BE3EEA93844AB26A483DC669E9D2666E`;
+all pages pass rendered Thai/CJK, clipping, overlap, overflow, and blank-page
+review. Local Gate PreCommit passes. Next steps are commit/PostCommit, PR #135
+merge, exact merged-source Hosting build/deploy, then live Web/PDF QA. Do not deploy or
+change Backend, Firestore, Functions, Auth, Storage, IAM, or Production data.
 
 ## Handoff - BaZi Reader V3 release candidate (2026-09-17)
 

@@ -1,6 +1,6 @@
 # Active Task - BaZi Reader V4 life timeline (2026-09-19)
 
-Status: **IMPLEMENTING — NOT YET MERGED OR DEPLOYED.**
+Status: **RELEASE CANDIDATE — LOCAL VALIDATION PASS; NOT YET MERGED OR DEPLOYED.**
 
 ## Goal
 
@@ -26,6 +26,27 @@ using the complete Da Yun and Liu Nian data already calculated by Reader V3.
   Production data change.
 - Do not add monthly or daily predictions.
 - Deploy Firebase Hosting only after merge and exact-commit release build.
+
+## Validation progress
+
+- [x] Rebase PR #135 onto merged baseline PR #136 / `e1426fc`.
+- [x] Restore all three formatting changes with original patch ID and hashes.
+- [x] Pass V4 focused tests 17/17 and analyzer policy (282 inherited non-fatal
+  diagnostics).
+- [x] Pass the Windows full suite 3,080/3,080 with strict Thai Mirror goldens.
+- [x] Build Web release against the Production API; route/API guards pass and
+  loopback endpoint count is zero.
+- [x] Inspect the Known Web report: past, present, five future years, and two
+  future cycles are complete; Thai/Chinese text is normal and console errors
+  are zero.
+- [x] Render and inspect every page of the 4-page V4 PDF; no clipping,
+  overlap, overflow, blank page, or Thai/CJK glyph defect is present.
+- [x] Correct the stale Owner fixture heading from Reader V3 to Reader V4.
+- [x] Pass Local Gate PreCommit, including focused tests, analyzer, full suite,
+  scope guard, and forbidden-text scan.
+- [ ] Commit and pass Local Gate PostCommit.
+- [ ] Push, mark PR #135 ready, merge, deploy Firebase Hosting only, and pass
+  live Web/PDF QA.
 
 ---
 
