@@ -1,5 +1,8 @@
+import 'dart:async';
+
 import 'package:flutter_test/flutter_test.dart';
 import 'package:knowme/domain/models/profile_model.dart';
+import 'package:knowme/features/bazi_compatibility/application/bazi_compatibility_owner_fixtures.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_astrology_handoff.dart';
 import 'package:knowme/features/thai_beta/domain/thai_beta_input.dart';
 
@@ -25,22 +28,29 @@ void main() {
       expect(profile.toMap().values, isNot(contains('12:00')));
     });
 
-    test('saves then generates only the selected BaZi system', () async {
+    test('saves and generates the selected BaZi system concurrently', () async {
       final events = <String>[];
       ProfileModel? savedProfile;
+      final saveStarted = Completer<void>();
+      final generateStarted = Completer<void>();
+      final chart = BaziCompatibilityOwnerFixtures.chart(BaziOwnerCase.known);
       final handoff = ThaiBetaAstrologyHandoff(
         saveProfile: (uid, profile) async {
           events.add('save:$uid');
           savedProfile = profile;
+          saveStarted.complete();
+          await generateStarted.future;
         },
-        generateSelectedSystem: (uid, systemId, profile) async {
-          events.add('generate:$uid:$systemId');
+        generateBazi: (uid, profile) async {
+          events.add('generate:$uid:bazi');
+          generateStarted.complete();
+          await saveStarted.future;
           expect(identical(profile, savedProfile), isTrue);
-          return true;
+          return chart;
         },
       );
 
-      await handoff.prepare(
+      final prepared = await handoff.prepare(
         userId: 'uid-1',
         input: _unknownInput,
         systemId: 'bazi',
@@ -48,6 +58,7 @@ void main() {
 
       expect(events, ['save:uid-1', 'generate:uid-1:bazi']);
       expect(savedProfile?.birthTime, isEmpty);
+      expect(prepared, same(chart));
     });
 
     test('rejects Unknown-time Western before saving profile', () async {
@@ -56,7 +67,7 @@ void main() {
         saveProfile: (_, _) async {
           saveCalls++;
         },
-        generateSelectedSystem: (_, _, _) async => true,
+        generateWestern: (_, _) async => true,
       );
 
       await expectLater(
@@ -70,10 +81,10 @@ void main() {
       expect(saveCalls, 0);
     });
 
-    test('fails closed when the selected result is not ready', () async {
+    test('fails closed when selected BaZi generation fails', () async {
       final handoff = ThaiBetaAstrologyHandoff(
         saveProfile: (_, _) async {},
-        generateSelectedSystem: (_, _, _) async => false,
+        generateBazi: (_, _) async => throw StateError('generation failed'),
       );
 
       await expectLater(

@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:knowme/core/profile/birth_profile_format.dart';
+import 'package:knowme/data/models/bazi_chart_model.dart';
 import 'package:knowme/domain/models/profile_model.dart';
 import 'package:knowme/features/astrology/application/astrology_generation_coordinator.dart';
 import 'package:knowme/features/astrology/application/birth_profile_readiness.dart';
@@ -12,8 +13,10 @@ import 'package:knowme/services/profile_service.dart';
 
 typedef ThaiBetaProfileSaver =
     Future<void> Function(String userId, ProfileModel profile);
-typedef ThaiBetaSelectedSystemGenerator =
-    Future<bool> Function(String userId, String systemId, ProfileModel profile);
+typedef ThaiBetaBaziGenerator =
+    Future<BaziChartModel> Function(String userId, ProfileModel profile);
+typedef ThaiBetaWesternGenerator =
+    Future<bool> Function(String userId, ProfileModel profile);
 
 /// Converts the anonymous Thai-beta form into the canonical signed-in profile
 /// used by the Chinese and Western engines, then generates only the selected
@@ -25,15 +28,17 @@ typedef ThaiBetaSelectedSystemGenerator =
 class ThaiBetaAstrologyHandoff {
   ThaiBetaAstrologyHandoff({
     ThaiBetaProfileSaver? saveProfile,
-    ThaiBetaSelectedSystemGenerator? generateSelectedSystem,
+    ThaiBetaBaziGenerator? generateBazi,
+    ThaiBetaWesternGenerator? generateWestern,
   }) : _saveProfile = saveProfile ?? _saveForAuthenticatedUser,
-       _generateSelectedSystem =
-           generateSelectedSystem ?? _generateWithCoordinator;
+       _generateBazi = generateBazi ?? _generateBaziOnly,
+       _generateWestern = generateWestern ?? _generateWesternOnly;
 
   final ThaiBetaProfileSaver _saveProfile;
-  final ThaiBetaSelectedSystemGenerator _generateSelectedSystem;
+  final ThaiBetaBaziGenerator _generateBazi;
+  final ThaiBetaWesternGenerator _generateWestern;
 
-  Future<void> prepare({
+  Future<BaziChartModel?> prepare({
     required String userId,
     required ThaiBetaInput input,
     required String systemId,
@@ -52,11 +57,24 @@ class ThaiBetaAstrologyHandoff {
       );
     }
 
+    if (systemId == 'bazi') {
+      BaziChartModel? chart;
+      await Future.wait<void>([
+        _saveProfile(uid, profile),
+        _generateBazi(uid, profile).then((value) => chart = value),
+      ]);
+      if (chart == null) {
+        throw StateError('Selected astrology result is not ready');
+      }
+      return chart;
+    }
+
     await _saveProfile(uid, profile);
-    final ready = await _generateSelectedSystem(uid, systemId, profile);
+    final ready = await _generateWestern(uid, profile);
     if (!ready) {
       throw StateError('Selected astrology result is not ready');
     }
+    return null;
   }
 
   static ProfileModel profileFromInput(ThaiBetaInput input) {
@@ -113,19 +131,17 @@ class ThaiBetaAstrologyHandoff {
     await ProfileService().saveProfile(profile);
   }
 
-  static Future<bool> _generateWithCoordinator(
+  static Future<BaziChartModel> _generateBaziOnly(
     String userId,
-    String systemId,
     ProfileModel profile,
   ) async {
-    if (systemId == 'bazi') {
-      // The form has just saved the exact profile used by this request. Calling
-      // the cross-system coordinator here would re-read that profile and probe
-      // every astrology lens before and after the API request. Generate only
-      // the selected BaZi result, while invalidating a possibly stale Fusion
-      // snapshot before the new chart becomes visible.
-      await AstrologyFusionRepositoryImpl().deleteFusion(userId);
-      await BaziApiService.generateBazi(
+    // The API already receives the canonical birth input, so saving the profile
+    // and invalidating Fusion do not need to delay the generation request. The
+    // caller still waits for all three operations before showing the result.
+    BaziChartModel? chart;
+    await Future.wait<void>([
+      AstrologyFusionRepositoryImpl().deleteFusion(userId),
+      BaziApiService.generateBazi(
         uid: userId,
         birthDate: BirthProfileReadiness.apiBirthDate(profile),
         birthTime: profile.birthTime.trim().isEmpty
@@ -137,15 +153,20 @@ class ThaiBetaAstrologyHandoff {
         gender: profile.gender,
         latitude: profile.latitude,
         longitude: profile.longitude,
-      );
-      return true;
-    }
+      ).then((value) => chart = value),
+    ]);
+    return chart!;
+  }
 
+  static Future<bool> _generateWesternOnly(
+    String userId,
+    ProfileModel profile,
+  ) async {
     final snapshot = await AstrologyGenerationCoordinator().ensureGenerated(
       userId,
-      retrySystemId: systemId,
-      forceSystemId: systemId == 'western' ? 'western' : null,
+      retrySystemId: 'western',
+      forceSystemId: 'western',
     );
-    return snapshot.system(systemId).isReady;
+    return snapshot.system('western').isReady;
   }
 }

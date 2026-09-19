@@ -1,3 +1,27 @@
+## Active release - BaZi generation latency acceptance (2026-09-19)
+
+Status: **PRODUCTION BASELINE FAILED; SCOPED REPAIR VALIDATED; RELEASE PENDING**
+
+- Live baseline `2d2125c` / `knowme-astrology-api-00007-qkk` took 22.578
+  seconds from selection click to readable BaZi result. The measured phases
+  were 6.875 seconds click-to-API, 10.201 seconds POST, and 5.503 seconds from
+  API success to the final result-specific asset.
+- Exactly one authenticated `POST /v1/generate-bazi` returned 200. There was no
+  coordinator, legacy/generate duplicate, settled-page chart reload, or
+  application console error.
+- Root causes were sequential client-side profile/Fusion work before the API,
+  a 5.593-second scale-from-zero preflight delay, and a redundant Firestore
+  chart read after API success.
+- The candidate runs independent freshness work concurrently, renders the
+  authenticated response chart directly, and configures Cloud Run with one
+  minimum instance. Focused tests pass 22/22, scoped analyzer has zero issues,
+  and the Production Web bundle guard passes.
+- The complete Windows suite is 3,036 passed / 40 existing Thai
+  screenshot-golden failures. No Thai golden changed and the suite is not
+  represented as passing. Release still requires PR review/merge, Cloud Run
+  first, Hosting only second, and a fresh signed-in timing run at no more than
+  five seconds.
+
 ## Release candidate - BaZi Reader V3 (2026-09-17)
 
 Status: **IMPLEMENTED AND UNDER FULL RELEASE VALIDATION**

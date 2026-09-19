@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:knowme/data/models/bazi_chart_model.dart';
+import 'package:knowme/features/bazi_compatibility/application/bazi_compatibility_owner_fixtures.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_analysis.dart';
 import 'package:knowme/features/thai_beta/domain/thai_beta_input.dart';
 import 'package:knowme/features/thai_beta/presentation/pages/thai_beta_astrology_selection_page.dart';
@@ -55,11 +57,18 @@ void main() {
       tester,
     ) async {
       ThaiBetaAstrologySystem? prepared;
+      BaziChartModel? deliveredChart;
+      final chart = BaziCompatibilityOwnerFixtures.chart(BaziOwnerCase.unknown);
       await _pumpSelection(
         tester,
         input: _unknownInput,
         prepareSystem: (uid, input, system) async {
           prepared = system;
+          return chart;
+        },
+        destinationBuilder: (_, _, system, preparedChart) {
+          deliveredChart = preparedChart;
+          return Scaffold(body: Text('destination:${system.name}'));
         },
       );
 
@@ -67,6 +76,7 @@ void main() {
       await tester.pumpAndSettle();
 
       expect(prepared, ThaiBetaAstrologySystem.bazi);
+      expect(deliveredChart, same(chart));
       expect(find.text('destination:bazi'), findsOneWidget);
     });
 
@@ -90,6 +100,7 @@ void main() {
         input: _knownInput,
         prepareSystem: (uid, input, system) async {
           prepared = system;
+          return null;
         },
       );
       await _scrollToWestern(tester);
@@ -109,6 +120,7 @@ void main() {
         resolveUser: (_) async => null,
         prepareSystem: (_, _, _) async {
           prepareCalls++;
+          return null;
         },
       );
 
@@ -139,12 +151,19 @@ Future<void> _pumpSelection(
   })?
   analysisExecutor,
   Future<String?> Function(BuildContext context)? resolveUser,
-  Future<void> Function(
+  Future<BaziChartModel?> Function(
     String userId,
     ThaiBetaInput input,
     ThaiBetaAstrologySystem system,
   )?
   prepareSystem,
+  Widget Function(
+    BuildContext context,
+    String userId,
+    ThaiBetaAstrologySystem system,
+    BaziChartModel? preparedBaziChart,
+  )?
+  destinationBuilder,
 }) async {
   await tester.pumpWidget(
     MaterialApp(
@@ -161,9 +180,11 @@ Future<void> _pumpSelection(
                   asOf: asOf,
                 ),
         resolveUser: resolveUser ?? (_) async => 'uid-1',
-        prepareSystem: prepareSystem ?? (_, _, _) async {},
-        destinationBuilder: (_, _, system) =>
-            Scaffold(body: Text('destination:${system.name}')),
+        prepareSystem: prepareSystem ?? (_, _, _) async => null,
+        destinationBuilder:
+            destinationBuilder ??
+            (_, _, system, _) =>
+                Scaffold(body: Text('destination:${system.name}')),
       ),
     ),
   );

@@ -1,5 +1,20 @@
 # KnowMe Roadmap+
 
+## Active production acceptance - BaZi generation latency (2026-09-19)
+
+The current Production release is correct but misses the five-second target:
+22.578 seconds total in the measured signed-in fresh-generation run. Network
+and Cloud Run evidence identified sequential client work, scale-to-zero, and a
+redundant result read rather than duplicate generation. The scoped repair is
+locally validated and preserves calculation, report, PDF, Thai astrology, and
+Firebase security configuration.
+
+Remaining steps are PR review and merge, direct Cloud Run deployment with one
+minimum instance, Hosting-only deployment from the same application commit,
+then a fresh Production timing run proving no more than five seconds, exactly
+one successful versioned BaZi POST, no coordinator/generate duplicate, no
+post-navigation chart reload, and no application console error.
+
 ## Active release - BaZi Reader V3 (2026-09-17)
 
 Reader V3 is the authorized successor to the live Reader V2 contract. Its

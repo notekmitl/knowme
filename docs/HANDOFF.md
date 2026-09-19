@@ -1,3 +1,27 @@
+## Handoff - BaZi generation latency repair (2026-09-19)
+
+Production baseline `2d2125c` / revision
+`knowme-astrology-api-00007-qkk` is functionally correct but fails latency:
+6.875 seconds click-to-API, 10.201 seconds for the POST, 5.503 seconds after
+HTTP 200, and 22.578 seconds total. Exactly one versioned generation POST
+succeeded; no duplicate, coordinator, late chart reload, or application
+console error was observed.
+
+Branch `codex/bazi-generation-latency-production-acceptance` removes the two
+client-side critical-path round trips and changes the Cloud Run minimum from
+zero to one. Focused tests pass 22/22 and the release Web bundle guard passes.
+The Windows full suite is 3,036 passed / 40 existing Thai screenshot-golden
+failures; the goldens remain unchanged and the result is not a suite pass.
+
+Release in this order only: merge the reviewed PR, deploy `backend/` directly
+to Cloud Run without service-enable or IAM commands, verify the new Ready
+revision and minimum instance, then build from the merge commit and deploy only
+Firebase Hosting. Do not run `scripts/deploy_astrology_api.ps1` or
+`scripts/deploy_web.ps1` end to end because their unrelated side effects are
+outside this authorization. Repeat the signed-in `/beta/thai` fresh-generation
+timing and require total time no greater than five seconds with one POST and no
+post-navigation chart reload.
+
 ## Handoff - BaZi Reader V3 release candidate (2026-09-17)
 
 Branch `codex/bazi-reader-v3` starts at

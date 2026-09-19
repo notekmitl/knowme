@@ -23,7 +23,7 @@ void main() {
       Map<String, String>? capturedHeaders;
       Uri? capturedEndpoint;
 
-      await BaziApiService.generateBazi(
+      final chart = await BaziApiService.generateBazi(
         uid: 'uid-1',
         birthDate: '1990-05-12',
         birthTime: null,
@@ -41,6 +41,7 @@ void main() {
               capturedEndpoint = endpoint;
               capturedBody = body;
               capturedHeaders = headers;
+              return _response;
             },
       );
 
@@ -49,11 +50,33 @@ void main() {
       expect(capturedBody?['gender'], 'male');
       expect(capturedEndpoint?.path, '/v1/generate-bazi');
       expect(capturedHeaders, {'Authorization': 'Bearer firebase-id-token'});
+      expect(chart.inputHash, 'test-input-hash');
+    });
+
+    test('fails closed when a successful response omits chart data', () async {
+      await expectLater(
+        BaziApiService.generateBazi(
+          uid: 'uid-1',
+          birthDate: '1990-05-12',
+          birthTime: '15:00',
+          timezone: 'Asia/Bangkok',
+          loadAuthSession: () async =>
+              const BaziAuthSession(uid: 'uid-1', idToken: 'token'),
+          postJson:
+              ({
+                required endpoint,
+                required body,
+                required failureLabel,
+                required headers,
+              }) async => {'success': true},
+        ),
+        throwsFormatException,
+      );
     });
   });
 }
 
-Future<void> _unexpectedPost({
+Future<Map<String, dynamic>> _unexpectedPost({
   required Uri endpoint,
   required Map<String, dynamic> body,
   required String failureLabel,
@@ -61,3 +84,18 @@ Future<void> _unexpectedPost({
 }) async {
   fail('HTTP should not be called when uid binding fails');
 }
+
+final _response = <String, dynamic>{
+  'success': true,
+  'chart': {
+    'version': 'knowme_bazi_reader_v3',
+    'engine_version': 'test',
+    'generated_at': '2026-09-19T00:00:00Z',
+    'input_hash': 'test-input-hash',
+    'completeness': 'four_pillars',
+    'day_master': <String, dynamic>{},
+    'year_animal': <String, dynamic>{},
+    'pillars': <String, dynamic>{},
+    'element_balance': <String, dynamic>{},
+  },
+};

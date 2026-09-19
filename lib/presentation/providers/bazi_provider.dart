@@ -7,7 +7,7 @@ import '../../services/bazi_firestore_service.dart';
 typedef BaziChartLoader = Future<BaziChartModel?> Function(String uid);
 
 typedef BaziGenerateFn =
-    Future<void> Function({
+    Future<BaziChartModel> Function({
       required String uid,
       required String birthDate,
       required String? birthTime,
@@ -39,7 +39,14 @@ class BaziProvider extends ChangeNotifier {
   bool get isLoading => _isLoading;
   String? get error => _error;
 
-  static Future<void> _defaultGenerateBazi({
+  void usePreparedChart(BaziChartModel chart) {
+    _chart = chart;
+    _isLoading = false;
+    _error = null;
+    notifyListeners();
+  }
+
+  static Future<BaziChartModel> _defaultGenerateBazi({
     required String uid,
     required String birthDate,
     required String? birthTime,
@@ -88,7 +95,7 @@ class BaziProvider extends ChangeNotifier {
       _error = null;
       notifyListeners();
 
-      await _generateBaziFn(
+      _chart = await _generateBaziFn(
         uid: uid,
         birthDate: birthDate,
         birthTime: birthTime,
@@ -97,8 +104,6 @@ class BaziProvider extends ChangeNotifier {
         latitude: latitude,
         longitude: longitude,
       );
-
-      _chart = await _loadChartFn(uid);
     } catch (e) {
       _error = e.toString();
     } finally {
