@@ -1,7 +1,7 @@
 # Task Result - BaZi generation latency acceptance
 
-**Result: IN PROGRESS - live baseline failed; scoped release candidate is
-validated.**
+**Result: IN PROGRESS - first repair improved Production but remains above the
+target; atomic follow-up is validated.**
 
 Production at application commit `2d2125cbbf2b5e8ec9fc44fa4bb46846604cd6f2`,
 Cloud Run revision `knowme-astrology-api-00007-qkk`, and Hosting pin `2d2125c`
@@ -11,13 +11,23 @@ result-specific asset, and 22.578 seconds overall. The request returned 200;
 there was exactly one POST and no coordinator/generate duplicate, settled-page
 chart reload, or application console error.
 
-The release candidate removes sequential client round trips, renders the API
-chart directly, and keeps one Cloud Run instance warm. Focused tests pass
-22/22, scoped analyzer and release bundle guards pass, and Thai goldens remain
-unchanged. The Windows full suite is 3,036 passed / 40 existing Thai
-screenshot-golden failures and is not claimed as passing. Final PASS requires
-PR merge, Cloud Run-first and Hosting-only deployment, and a fresh signed-in
-Production run at no more than five seconds.
+PR #132 / `cf06bd2` removed the initial sequential work and result reload and
+keeps revision `knowme-astrology-api-00008-gcq` warm. Its first Production run
+measured approximately 0.029 seconds click-to-API, 4.893 seconds POST, 1.770
+seconds response-to-final-font and 6.690 seconds total. A warm POST measured
+3.076 seconds, but separate client profile/Fusion writes continued for about
+6.240 seconds and still gated navigation.
+
+The follow-up validates the canonical profile against calculation input and
+persists profile, chart and result plus Fusion invalidation in one authenticated
+backend batch. The BaZi client no longer issues separate freshness writes.
+Backend tests pass 35/35, focused Flutter tests pass 22/22, scoped analyzer and
+release bundle guards pass, and Thai goldens remain unchanged. The Windows
+full suite is 3,036 passed / 40 existing Thai screenshot-golden failures and
+is not claimed as passing. Final PASS requires follow-up PR merge, Cloud
+Run-first and Hosting-only deployment, and a direct-click signed-in Production
+run at no more than five seconds with exactly one generation POST and zero
+separate client freshness writes.
 
 ---
 

@@ -6,6 +6,8 @@ def save_bazi(
     uid: str,
     chart_data: dict,
     results_snapshot: dict,
+    *,
+    profile_data: dict | None = None,
 ) -> bool:
     # Import lazily so pure calculation/auth tests never initialize Firestore.
     from app.services.firebase_service import db
@@ -17,6 +19,11 @@ def save_bazi(
         {"updatedAt": datetime.utcnow()},
         merge=True,
     )
+    if profile_data is not None:
+        batch.set(
+            user_ref.collection("profile").document("main"),
+            profile_data,
+        )
     batch.set(
         user_ref.collection("astrology").document("chinese_bazi"),
         chart_data,
@@ -24,6 +31,9 @@ def save_bazi(
     batch.set(
         user_ref.collection("results").document("chinese_bazi"),
         results_snapshot,
+    )
+    batch.delete(
+        user_ref.collection("results").document("astrology_fusion"),
     )
     batch.commit()
 

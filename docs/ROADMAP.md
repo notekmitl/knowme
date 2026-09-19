@@ -2,18 +2,21 @@
 
 ## Active production acceptance - BaZi generation latency (2026-09-19)
 
-The current Production release is correct but misses the five-second target:
-22.578 seconds total in the measured signed-in fresh-generation run. Network
-and Cloud Run evidence identified sequential client work, scale-to-zero, and a
-redundant result read rather than duplicate generation. The scoped repair is
-locally validated and preserves calculation, report, PDF, Thai astrology, and
-Firebase security configuration.
+The original Production release was correct but took 22.578 seconds. PR #132
+removed the initial sequencing, redundant result read and scale-to-zero delay,
+but its first Production rerun still took approximately 6.690 seconds. A warm
+POST measured 3.076 seconds while the separate client profile/Fusion writes
+continued for about 6.240 seconds. The remaining repair atomically performs
+those freshness mutations in the authenticated backend save. It is locally
+validated and preserves calculation, report, PDF, Thai astrology and Firebase
+security configuration.
 
-Remaining steps are PR review and merge, direct Cloud Run deployment with one
-minimum instance, Hosting-only deployment from the same application commit,
-then a fresh Production timing run proving no more than five seconds, exactly
-one successful versioned BaZi POST, no coordinator/generate duplicate, no
-post-navigation chart reload, and no application console error.
+Remaining steps are atomic follow-up PR review and merge, direct Cloud Run
+deployment, Hosting-only deployment from the same application commit, then a
+fresh direct-click Production timing run proving no more than five seconds,
+exactly one successful versioned BaZi POST, zero client-side freshness writes,
+no coordinator/generate duplicate, no post-navigation chart reload and no
+application console error.
 
 ## Active release - BaZi Reader V3 (2026-09-17)
 

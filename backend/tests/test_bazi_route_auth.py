@@ -10,7 +10,20 @@ def _credentials(token="valid-token", scheme="Bearer"):
     return HTTPAuthorizationCredentials(scheme=scheme, credentials=token)
 
 
-def _request(uid="uid-1", birth_time="15:30"):
+def _profile(birth_time="15:30"):
+    return bazi_route.CanonicalProfileRequest(
+        name="Test User",
+        gender="male",
+        birthDate="1990-05-12",
+        birthTime=birth_time or "",
+        birthPlace="Bangkok",
+        latitude=13.7563,
+        longitude=100.5018,
+        timezone="Asia/Bangkok",
+    )
+
+
+def _request(uid="uid-1", birth_time="15:30", profile=None):
     return bazi_route.GenerateBaziRequest(
         uid=uid,
         birth_date="1990-05-12",
@@ -19,6 +32,7 @@ def _request(uid="uid-1", birth_time="15:30"):
         latitude=13.7563,
         longitude=100.5018,
         gender="male",
+        profile=profile,
     )
 
 
@@ -62,8 +76,8 @@ def test_route_rejects_authenticated_uid_mismatch():
 def test_route_writes_only_verified_uid_and_supports_unknown_time(monkeypatch):
     saved = []
 
-    def save(uid, chart, snapshot):
-        saved.append((uid, chart, snapshot))
+    def save(uid, chart, snapshot, *, profile_data=None):
+        saved.append((uid, chart, snapshot, profile_data))
         return True
 
     monkeypatch.setattr(bazi_route, "save_bazi", save)
@@ -83,12 +97,58 @@ def test_route_writes_only_verified_uid_and_supports_unknown_time(monkeypatch):
     }
     assert saved[0][0] == "uid-1"
     assert saved[0][1]["input_hash"] == saved[0][2]["input_hash"]
+    assert saved[0][3] is None
+
+
+def test_route_saves_matching_profile_in_the_authenticated_batch(monkeypatch):
+    saved = []
+
+    def save(uid, chart, snapshot, *, profile_data=None):
+        saved.append((uid, profile_data))
+        return True
+
+    monkeypatch.setattr(bazi_route, "save_bazi", save)
+    response = bazi_route.generate_bazi_v1(
+        _request(profile=_profile()),
+        "uid-1",
+    )
+
+    assert response["success"] is True
+    assert saved == [
+        (
+            "uid-1",
+            {
+                "name": "Test User",
+                "gender": "male",
+                "birthDate": "1990-05-12",
+                "birthTime": "15:30",
+                "birthPlace": "Bangkok",
+                "latitude": 13.7563,
+                "longitude": 100.5018,
+                "timezone": "Asia/Bangkok",
+            },
+        )
+    ]
+
+
+def test_route_rejects_profile_that_disagrees_with_calculation_input(monkeypatch):
+    mismatched = _profile()
+    mismatched.birth_date = "1991-01-01"
+
+    with pytest.raises(HTTPException) as error:
+        bazi_route.generate_bazi_v1(
+            _request(profile=mismatched),
+            "uid-1",
+        )
+
+    assert error.value.status_code == 400
+    assert error.value.detail["code"] == "PROFILE_INPUT_MISMATCH"
 
 
 def test_legacy_route_remains_available_for_released_clients(monkeypatch):
     saved = []
 
-    def save(uid, chart, snapshot):
+    def save(uid, chart, snapshot, *, profile_data=None):
         saved.append(uid)
         return True
 

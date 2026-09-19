@@ -29,6 +29,7 @@ void main() {
         birthTime: null,
         timezone: 'Asia/Bangkok',
         gender: 'male',
+        canonicalProfile: _profile,
         loadAuthSession: () async =>
             const BaziAuthSession(uid: 'uid-1', idToken: 'firebase-id-token'),
         postJson:
@@ -48,6 +49,7 @@ void main() {
       expect(capturedBody?['uid'], 'uid-1');
       expect(capturedBody?['birth_time'], isNull);
       expect(capturedBody?['gender'], 'male');
+      expect(capturedBody?['profile'], _profile);
       expect(capturedEndpoint?.path, '/v1/generate-bazi');
       expect(capturedHeaders, {'Authorization': 'Bearer firebase-id-token'});
       expect(chart.inputHash, 'test-input-hash');
@@ -98,4 +100,15 @@ final _response = <String, dynamic>{
     'pillars': <String, dynamic>{},
     'element_balance': <String, dynamic>{},
   },
+};
+
+final _profile = <String, dynamic>{
+  'name': 'Test User',
+  'gender': 'male',
+  'birthDate': '1990-05-12',
+  'birthTime': '',
+  'birthPlace': 'Bangkok',
+  'latitude': 13.7563,
+  'longitude': 100.5018,
+  'timezone': 'Asia/Bangkok',
 };
