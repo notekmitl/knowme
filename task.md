@@ -1,6 +1,6 @@
-# Active Task - BaZi Reader V4 life timeline (2026-09-19)
+# Completed Task - BaZi Reader V4 life timeline (2026-09-19)
 
-Status: **RELEASE CANDIDATE — LOCAL VALIDATION PASS; NOT YET MERGED OR DEPLOYED.**
+Status: **COMPLETE — PR #135 MERGED, HOSTING DEPLOYED, PRODUCTION QA PASSED.**
 
 ## Goal
 
@@ -44,9 +44,30 @@ using the complete Da Yun and Liu Nian data already calculated by Reader V3.
 - [x] Correct the stale Owner fixture heading from Reader V3 to Reader V4.
 - [x] Pass Local Gate PreCommit, including focused tests, analyzer, full suite,
   scope guard, and forbidden-text scan.
-- [ ] Commit and pass Local Gate PostCommit.
-- [ ] Push, mark PR #135 ready, merge, deploy Firebase Hosting only, and pass
-  live Web/PDF QA.
+- [x] Commit and pass Local Gate PostCommit.
+- [x] Push, mark PR #135 ready, and merge as
+  `63c790d8ffca03bb5b6d776d6e9f9dad9c703b68`.
+- [x] Deploy Firebase Hosting only with cache pin `63c790d`; Backend and all
+  other Firebase resources remain unchanged.
+- [x] Pass live Web/PDF QA on `/beta/chinese?case=known`: complete V4 timeline,
+  normal Thai/Chinese text, zero browser console errors, and four visually
+  accepted PDF pages.
+
+## Production release
+
+- Application merge/tree: `63c790d8ffca03bb5b6d776d6e9f9dad9c703b68` /
+  `b9fa82a516fa125c04fb819820f8f1fc97ff0201`.
+- Firebase Hosting release/version:
+  `1789821517363000` / `e08803aacc812816`, released at
+  `2026-09-19T12:38:37.363Z`.
+- Both Hosting domains return HTTP 200 and pin `63c790d`. Live
+  `main.dart.js` is 8,601,936 bytes, SHA-256
+  `62BB3DE78672506E80DFAF4ED61FA098250CEA9F5D18D46617473A5589ECCC8F`,
+  matches the exact-merge build, contains the Production API, and has zero
+  loopback endpoints.
+- The real browser-downloaded V4 PDF is 4 A4 pages / 33,437 bytes / SHA-256
+  `CF0B1CB8ACDD7D95BBDC124185945F3E96D92AF1C6623D0F68C827D03D1B7266`.
+  Every rendered page is pixel-identical to the accepted candidate rendering.
 
 ---
 

@@ -1,6 +1,6 @@
 # KnowMe BaZi Reader V4
 
-Status: implementation contract for Thai interpretation
+Status: Production-released interpretation contract
 `knowme_bazi_reader_th_v4` over the unchanged calculation contract
 `knowme_bazi_reader_v3`.
 
@@ -79,3 +79,21 @@ added in this release.
   Regular.
 - Calculation, Backend, Firestore, Functions, Auth, Storage, IAM, Thai
   astrology, Thai golden originals, and Production data remain unchanged.
+
+## Production closeout (2026-09-19)
+
+- PR #135 merged as `63c790d8ffca03bb5b6d776d6e9f9dad9c703b68`,
+  tree `b9fa82a516fa125c04fb819820f8f1fc97ff0201`.
+- Firebase Hosting-only release `1789821517363000`, version
+  `e08803aacc812816`, serves cache pin `63c790d` on both Production domains.
+- The live 8,601,936-byte bundle SHA-256 is
+  `62BB3DE78672506E80DFAF4ED61FA098250CEA9F5D18D46617473A5589ECCC8F`;
+  it matches the exact-merge build and contains zero loopback endpoints.
+- Production `/beta/chinese?case=known` displays Reader V4 with past,
+  present, years 2570–2574, and the next two decade cycles. Thai/Chinese text
+  is normal and browser console errors are zero.
+- The browser-downloaded Production PDF is 4 A4 pages / 33,437 bytes /
+  SHA-256
+  `CF0B1CB8ACDD7D95BBDC124185945F3E96D92AF1C6623D0F68C827D03D1B7266`.
+  Its four rendered PNGs are byte-identical to the accepted candidate pages;
+  embedded fonts remain Noto Sans Thai Regular/Bold and Noto Sans SC Regular.
