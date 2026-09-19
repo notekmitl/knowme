@@ -2,7 +2,7 @@
   "schema_version": 1,
   "task_id": "knowme-bazi-reader-v4-life-timeline",
   "expected_branch": "codex/bazi-reader-life-timeline-v4",
-  "expected_worktree": "/workspace/scratch/591293a8d783/knowme-bazi-v4",
+  "expected_worktree": "/home/note018/knowme-bazi-reader-v4",
   "base_ref": "efc63c61b672dd79ec3fc8f9f5e1eb8c16d205d3",
   "allowed_files": [
     "docs/CHINESE_ASTROLOGY_READER_V4.md",
