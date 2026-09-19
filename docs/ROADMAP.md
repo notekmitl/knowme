@@ -1,6 +1,6 @@
 # KnowMe Roadmap+
 
-## Active production acceptance - BaZi generation latency (2026-09-19)
+## Completed production acceptance - BaZi generation latency (2026-09-19)
 
 The original Production release was correct but took 22.578 seconds. PR #132
 removed the initial sequencing, redundant result read and scale-to-zero delay,
@@ -11,12 +11,13 @@ those freshness mutations in the authenticated backend save. It is locally
 validated and preserves calculation, report, PDF, Thai astrology and Firebase
 security configuration.
 
-Remaining steps are atomic follow-up PR review and merge, direct Cloud Run
-deployment, Hosting-only deployment from the same application commit, then a
-fresh direct-click Production timing run proving no more than five seconds,
-exactly one successful versioned BaZi POST, zero client-side freshness writes,
-no coordinator/generate duplicate, no post-navigation chart reload and no
-application console error.
+PR #133 merged as `839534c3`; Cloud Run revision
+`knowme-astrology-api-00009-bpw` was deployed first and Hosting pin `839534c`
+second. Final signed-in direct-click Production timing passed at 4.890 seconds
+total: 0.038 seconds click-to-API, 4.721 seconds POST and 0.131 seconds
+API-to-final-result-font. Evidence records one successful versioned POST and
+zero client freshness, coordinator/generate duplicate, chart reload and
+console error events. The latency acceptance has no remaining release step.
 
 ## Active release - BaZi Reader V3 (2026-09-17)
 

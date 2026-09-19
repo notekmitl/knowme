@@ -1,6 +1,6 @@
-## Active release - BaZi generation latency acceptance (2026-09-19)
+## Completed release - BaZi generation latency acceptance (2026-09-19)
 
-Status: **FIRST REPAIR RELEASED BUT STILL ABOVE FIVE SECONDS; ATOMIC FOLLOW-UP VALIDATED**
+Status: **PASS — RELEASED AND PRODUCTION-VERIFIED AT 4.890 SECONDS**
 
 - Live baseline `2d2125c` / `knowme-astrology-api-00007-qkk` took 22.578
   seconds from selection click to readable BaZi result. The measured phases
@@ -16,18 +16,27 @@ Status: **FIRST REPAIR RELEASED BUT STILL ABOVE FIVE SECONDS; ATOMIC FOLLOW-UP V
   Cloud Run measured 4.568 seconds. A warm POST measured 3.076 seconds, while
   the still-awaited client profile/Fusion requests continued for about 6.240
   seconds. The five-second target therefore remains unmet.
-- The atomic follow-up moves the canonical profile write and Fusion deletion
-  into the authenticated backend batch that already writes the chart and
-  result. The backend rejects profile/calculation input disagreement; the
-  BaZi browser path performs no separate freshness write. Backend tests pass
-  35/35, focused Flutter tests pass 22/22, scoped analyzer has zero issues, and
-  the Production Web bundle guard passes.
+- PR #133 merged the atomic follow-up as application commit `839534c3` and
+  tree `9c306806`. Cloud Run revision `knowme-astrology-api-00009-bpw` was
+  deployed first and is Ready at 100% traffic with one minimum instance.
+  Hosting release `1789799510184000` / version `6ab2558866d0be41` then
+  deployed only Hosting with pin `839534c`.
+- Final signed-in direct-click Production timing was 0.038 seconds
+  click-to-API, 4.721 seconds POST, 0.131 seconds API-to-final-result-font and
+  4.890 seconds total. Cloud Run measured the single successful POST at 4.448
+  seconds and the application at 4,445.1 ms.
+- Network evidence recorded one POST and one preflight, with zero legacy
+  generation, generate-chart, coordinator, browser Firestore freshness, late
+  events or post-navigation chart reloads. Browser console errors were zero.
+- Backend tests pass 35/35, focused Flutter tests pass 22/22, scoped analyzer
+  has zero issues, and the Production Web bundle guard passes. Live
+  `main.dart.js` matches the local 8,576,087-byte bundle at SHA-256
+  `3A3125ACA50FC65DDD4A85EB8F97F5A296BF626FFC48F15A40E34F6FF0E9E3BA`.
 - The complete Windows suite is 3,036 passed / 40 existing Thai
   screenshot-golden failures. No Thai golden changed and the suite is not
-  represented as passing. The follow-up still requires PR review/merge, Cloud
-  Run first, Hosting only second, and a fresh direct-click signed-in timing run
-  at no more than five seconds with one generation POST and zero client
-  Firestore freshness writes.
+  represented as passing. No Thai golden, Firestore rules, Functions, Auth,
+  Storage or IAM changed; Production data mutation was limited to the
+  authorized BaZi test artifact.
 
 ## Release candidate - BaZi Reader V3 (2026-09-17)
 
