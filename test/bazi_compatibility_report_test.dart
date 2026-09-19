@@ -115,8 +115,8 @@ void main() {
     });
   });
 
-  group('KnowMe BaZi Reader V3 report', () {
-    test('leads with readable Thai and includes current timing', () {
+  group('KnowMe BaZi Reader V4 interpretation', () {
+    test('reads past, present, five future years, and long-term cycles', () {
       final report = BaziCompatibilityReportBuilder.build(
         BaziCompatibilityOwnerFixtures.readerV3Chart(),
         asOf: DateTime(2026, 9, 16),
@@ -134,9 +134,22 @@ void main() {
       expect(text, contains('การงาน'));
       expect(text, contains('การเงิน'));
       expect(text, contains('ความรักและความสัมพันธ์'));
+      expect(text, contains('เส้นทางที่ผ่านมา · ดวงจรสิบปี'));
+      expect(text, contains('壬午 · 2541–2550'));
+      expect(text, contains('癸未 · 2551–2560'));
       expect(text, contains('จังหวะชีวิตปัจจุบัน · 甲申 (2561–2570)'));
       expect(text, contains('ปี 2569 · 丙午'));
       expect(text, contains('ปีนี้เด่นเรื่องทีม คู่แข่ง หุ้นส่วน'));
+      expect(text, contains('แนวโน้ม 5 ปีข้างหน้า'));
+      expect(text, contains('ปี 2570 · 丁未'));
+      expect(text, contains('ปี 2571 · 戊申'));
+      expect(text, contains('ปี 2572 · 己酉'));
+      expect(text, contains('ปี 2573 · 庚戌'));
+      expect(text, contains('ปี 2574 · 辛亥'));
+      expect(text, contains('ภาพระยะยาว · สองดวงจรถัดไป'));
+      expect(text, contains('乙酉 · 2571–2580'));
+      expect(text, contains('丙戌 · 2581–2590'));
+      expect(text, isNot(contains('จะเกิด')));
       expect(text, contains('ข้อมูลที่ใช้คำนวณ'));
       expect(text, isNot(contains('ข้อมูลดวงที่ใช้ประกอบคำอ่าน')));
       expect(text, isNot(contains('กติกาและข้อมูลสำหรับตรวจซ้ำ')));

@@ -104,8 +104,8 @@ abstract final class BaziCompatibilityOwnerFixtures {
 
   /// Reader V3 reference case using the existing synthetic 1990 fixture.
   ///
-  /// The fixture intentionally keeps only the active decade and annual year;
-  /// production responses include the complete deterministic cycle list.
+  /// The fixture includes recent, active, and future cycles so Reader V4 can
+  /// exercise its past-present-future timeline without personal data.
   static BaziChartModel readerV3Chart() {
     return BaziChartModel.fromMap({
       'version': 'knowme_bazi_reader_v3',
@@ -259,6 +259,36 @@ abstract final class BaziCompatibilityOwnerFixtures {
         'method': 'lunar_python_yun_traditional_sect_1_v2',
         'cycles': [
           {
+            'start_year': 1998,
+            'end_year': 2007,
+            'start_age': 9,
+            'end_age': 18,
+            'pillar_label': '壬午',
+            'stem': '壬',
+            'branch': '午',
+            'stem_ten_god': '正官',
+            'natal_relations': <Map<String, dynamic>>[],
+            'annual': <Map<String, dynamic>>[],
+          },
+          {
+            'start_year': 2008,
+            'end_year': 2017,
+            'start_age': 19,
+            'end_age': 28,
+            'pillar_label': '癸未',
+            'stem': '癸',
+            'branch': '未',
+            'stem_ten_god': '七杀',
+            'natal_relations': [
+              {
+                'kind': 'branch_clash',
+                'roles': ['decade', 'day'],
+                'symbols': ['未', '丑'],
+              },
+            ],
+            'annual': <Map<String, dynamic>>[],
+          },
+          {
             'start_year': 2018,
             'end_year': 2027,
             'start_age': 29,
@@ -307,7 +337,96 @@ abstract final class BaziCompatibilityOwnerFixtures {
                   },
                 ],
               },
+              {
+                'year': 2027,
+                'age': 38,
+                'pillar_label': '丁未',
+                'stem': '丁',
+                'branch': '未',
+                'stem_ten_god': '比肩',
+                'natal_relations': [
+                  {
+                    'kind': 'branch_clash',
+                    'roles': ['annual', 'day'],
+                    'symbols': ['未', '丑'],
+                  },
+                ],
+              },
             ],
+          },
+          {
+            'start_year': 2028,
+            'end_year': 2037,
+            'start_age': 39,
+            'end_age': 48,
+            'pillar_label': '乙酉',
+            'stem': '乙',
+            'branch': '酉',
+            'stem_ten_god': '偏印',
+            'natal_relations': <Map<String, dynamic>>[],
+            'annual': [
+              {
+                'year': 2028,
+                'age': 39,
+                'pillar_label': '戊申',
+                'stem': '戊',
+                'branch': '申',
+                'stem_ten_god': '伤官',
+                'natal_relations': [
+                  {
+                    'kind': 'branch_combine',
+                    'roles': ['annual', 'month'],
+                    'symbols': ['申', '巳'],
+                    'target_element': 'water',
+                  },
+                ],
+              },
+              {
+                'year': 2029,
+                'age': 40,
+                'pillar_label': '己酉',
+                'stem': '己',
+                'branch': '酉',
+                'stem_ten_god': '食神',
+                'natal_relations': <Map<String, dynamic>>[],
+              },
+              {
+                'year': 2030,
+                'age': 41,
+                'pillar_label': '庚戌',
+                'stem': '庚',
+                'branch': '戌',
+                'stem_ten_god': '正财',
+                'natal_relations': <Map<String, dynamic>>[],
+              },
+              {
+                'year': 2031,
+                'age': 42,
+                'pillar_label': '辛亥',
+                'stem': '辛',
+                'branch': '亥',
+                'stem_ten_god': '偏财',
+                'natal_relations': [
+                  {
+                    'kind': 'branch_clash',
+                    'roles': ['annual', 'month'],
+                    'symbols': ['亥', '巳'],
+                  },
+                ],
+              },
+            ],
+          },
+          {
+            'start_year': 2038,
+            'end_year': 2047,
+            'start_age': 49,
+            'end_age': 58,
+            'pillar_label': '丙戌',
+            'stem': '丙',
+            'branch': '戌',
+            'stem_ten_god': '劫财',
+            'natal_relations': <Map<String, dynamic>>[],
+            'annual': <Map<String, dynamic>>[],
           },
         ],
       },

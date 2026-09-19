@@ -31,7 +31,9 @@ void main() {
     expect(find.textContaining('戊寅'), findsNothing);
   });
 
-  testWidgets("known owner route renders Reader V3", (tester) async {
+  testWidgets("known owner route renders Reader V4 life timeline", (
+    tester,
+  ) async {
     final widget = WebLaunchRouter.resolveLaunchWidget(
       "/beta/chinese?case=known",
     );
@@ -42,6 +44,9 @@ void main() {
       findsOneWidget,
     );
     expect(find.text("คำทำนายดวงจีน · ปาจื้อ (BaZi)"), findsOneWidget);
+    expect(find.text("เส้นทางที่ผ่านมา · ดวงจรสิบปี"), findsOneWidget);
+    expect(find.text("แนวโน้ม 5 ปีข้างหน้า"), findsOneWidget);
+    expect(find.text("ภาพระยะยาว · สองดวงจรถัดไป"), findsOneWidget);
     expect(find.textContaining("BaZi V1"), findsNothing);
     expect(
       find.textContaining("คำอ่านนี้ใช้สี่เสาครบ รวมเสาชั่วโมง"),

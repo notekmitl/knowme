@@ -30,6 +30,16 @@ API-to-final-result-font. Evidence records one successful versioned POST and
 zero client freshness, coordinator/generate duplicate, chart reload and
 console error events. The latency acceptance has no remaining release step.
 
+## Active release - BaZi Reader V4 life timeline (2026-09-19)
+
+Reader V4 expands the Chinese report from natal/current-only reading to a
+bounded past-present-future timeline. It reuses the complete Da Yun and Liu
+Nian facts already returned by calculation contract V3, showing at most three
+completed decade cycles, the active cycle and year, five future years, and two
+future decade cycles. Monthly and daily timing stay out of scope. Release is
+gated on focused and full tests, analyzer, Local Gate, PDF render inspection,
+merge, Hosting-only deployment, and live Web/PDF QA.
+
 ## Active release - BaZi Reader V3 (2026-09-17)
 
 Reader V3 is the authorized successor to the live Reader V2 contract. Its

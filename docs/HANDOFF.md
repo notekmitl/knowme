@@ -47,6 +47,16 @@ the release Web bundle guard pass. The Windows full suite remains 3,036 passed
 is not represented as a suite pass. No release action remains for this latency
 acceptance. Firestore rules, Functions, Auth, Storage and IAM were unchanged.
 
+## Handoff - BaZi Reader V4 life timeline (2026-09-19)
+
+Reader V4 is a frontend interpretation expansion over the unchanged Reader V3
+calculation contract. It consumes existing chart luck cycles to add recent
+past, five future years, and two future decade cycles while keeping the active
+cycle/year and concise natal reading. Do not change backend calculation,
+apparent solar time, input fingerprint, persistence, Unknown fail-closed
+behavior, or hidden technical-section policy. Deployment scope is Firebase
+Hosting only after the application commit is merged and verified.
+
 ## Handoff - BaZi Reader V3 release candidate (2026-09-17)
 
 Branch `codex/bazi-reader-v3` starts at

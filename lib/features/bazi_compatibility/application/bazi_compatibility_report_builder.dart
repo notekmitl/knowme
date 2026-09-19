@@ -1,6 +1,6 @@
 import 'package:knowme/data/models/bazi_chart_model.dart';
 import 'package:knowme/features/bazi_compatibility/application/bazi_reader_v2.dart';
-import 'package:knowme/features/bazi_compatibility/application/bazi_reader_v3.dart';
+import 'package:knowme/features/bazi_compatibility/application/bazi_reader_v4.dart';
 import 'package:knowme/features/bazi_compatibility/application/bazi_symbolic_reading_engine.dart';
 import 'package:knowme/features/bazi_compatibility/domain/bazi_compatibility_report.dart';
 
@@ -49,13 +49,15 @@ abstract final class BaziCompatibilityReportBuilder {
     DateTime? asOf,
   }) {
     final isReaderV3 = chart.contractId == 'knowme_bazi_reader_v3';
-    final reading = isReaderV3
-        ? BaziReaderV3.build(chart, asOf: asOf)
-        : BaziReaderV2.build(chart, asOf: asOf);
+    final timeline = isReaderV3
+        ? BaziReaderV4.build(chart, asOf: asOf)
+        : null;
+    final reading = timeline?.natal ?? BaziReaderV2.build(chart, asOf: asOf);
     return BaziCompatibilityReport(
       title: 'คำทำนายดวงจีน · ปาจื้อ (BaZi)',
-      subtitle:
-          'อ่านพื้นดวง ตัวตน การงาน การเงิน ความสัมพันธ์ ดวงจรสิบปี และจังหวะปีปัจจุบันจากผังปาจื้อที่คำนวณได้',
+      subtitle: isReaderV3
+          ? 'อ่านพื้นดวง พร้อมเส้นทางที่ผ่านมา จังหวะปัจจุบัน แนวโน้ม 5 ปี และภาพระยะยาวจากผังปาจื้อที่คำนวณได้'
+          : 'อ่านพื้นดวง ตัวตน การงาน การเงิน ความสัมพันธ์ ดวงจรสิบปี และจังหวะปีปัจจุบันจากผังปาจื้อที่คำนวณได้',
       sections: [
         _readerPillarsSection(chart),
         BaziCompatibilityReportSection(
@@ -82,6 +84,19 @@ abstract final class BaziCompatibilityReportBuilder {
           title: 'สิ่งที่ควรระวังและการรักษาสมดุล',
           paragraphs: [reading.balance],
         ),
+        if (timeline != null && timeline.pastCycles.isNotEmpty)
+          BaziCompatibilityReportSection(
+            title: 'เส้นทางที่ผ่านมา · ดวงจรสิบปี',
+            intro:
+                'ส่วนนี้อ่านย้อนหลังเป็นธีมของแต่ละช่วง เพื่อให้คุณเทียบกับชีวิตจริง ไม่ได้ระบุว่าเหตุการณ์ใดต้องเกิดขึ้น',
+            rows: [
+              for (final entry in timeline.pastCycles)
+                BaziCompatibilityReportRow(
+                  label: entry.label,
+                  value: entry.reading,
+                ),
+            ],
+          ),
         BaziCompatibilityReportSection(
           title: reading.currentCycleTitle,
           paragraphs: [reading.currentCycle],
@@ -90,6 +105,32 @@ abstract final class BaziCompatibilityReportBuilder {
           title: reading.annualTitle,
           paragraphs: [reading.annual],
         ),
+        if (timeline != null && timeline.futureYears.isNotEmpty)
+          BaziCompatibilityReportSection(
+            title: 'แนวโน้ม 5 ปีข้างหน้า',
+            intro:
+                'อ่านจากพลังรายปีซ้อนกับพื้นดวง เพื่อใช้วางลำดับงาน เงิน และความสัมพันธ์ โดยไม่ฟันธงเหตุการณ์ล่วงหน้า',
+            rows: [
+              for (final entry in timeline.futureYears)
+                BaziCompatibilityReportRow(
+                  label: entry.label,
+                  value: entry.reading,
+                ),
+            ],
+          ),
+        if (timeline != null && timeline.futureCycles.isNotEmpty)
+          BaziCompatibilityReportSection(
+            title: 'ภาพระยะยาว · สองดวงจรถัดไป',
+            intro:
+                'ดวงจรสิบปีใช้ดูทิศทางใหญ่ของชีวิต แต่ละรอบจึงควรอ่านเป็นช่วงเตรียมตัว ไม่ใช่คำรับรองผล',
+            rows: [
+              for (final entry in timeline.futureCycles)
+                BaziCompatibilityReportRow(
+                  label: entry.label,
+                  value: entry.reading,
+                ),
+            ],
+          ),
         if (!isReaderV3) _readerFactsSection(chart),
         _inputSection(chart, true),
         if (!isReaderV3) _methodSection(chart, true),
@@ -565,7 +606,7 @@ abstract final class BaziCompatibilityReportBuilder {
         BaziCompatibilityReportRow(
           label: th ? 'สัญญาคำอ่าน' : 'Reading contract',
           value: isReaderV3
-              ? BaziReaderV3.interpretationContractId
+              ? BaziReaderV4.interpretationContractId
               : isReaderV2
               ? BaziReaderV2.interpretationContractId
               : BaziSymbolicReadingEngine.interpretationContractId,

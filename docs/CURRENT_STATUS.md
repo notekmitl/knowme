@@ -1,16 +1,34 @@
-## Active baseline repair - Windows Thai Mirror goldens (2026-09-19)
+## Active release - BaZi Reader V4 life timeline (2026-09-19)
 
-Status: **LOCAL PRECOMMIT PASS; SEPARATE PR PENDING.**
+Status: **IMPLEMENTING — NOT YET MERGED OR DEPLOYED**
 
-The 40 unchanged-main Windows failures are fully classified: 38 golden test
+- Reader V4 keeps calculation contract `knowme_bazi_reader_v3` and versions
+  only the Thai interpretation as `knowme_bazi_reader_th_v4`.
+- The report adds up to three completed Da Yun cycles, five future Liu Nian
+  years, and two future Da Yun cycles around the accepted current timing.
+- Past wording is reflective rather than a claim that an event occurred;
+  future wording describes tendencies and planning priorities without a
+  guaranteed outcome.
+- The Reader V3 apparent-solar-time rules, API, saved chart, fingerprint,
+  Unknown fail-closed behavior, hidden technical sections, and concise input
+  card remain unchanged.
+- Scope is Flutter report, fixture, tests, PDF metadata, and documentation.
+  Backend and non-Hosting Firebase resources are out of scope.
+
+## Completed baseline repair - Windows Thai Mirror goldens (2026-09-19)
+
+Status: **MERGED THROUGH SEPARATE PR #136.**
+
+The 40 unchanged-main Windows failures were fully classified: 38 golden test
 cases covered 174 PNG comparisons, while two OR5R checks hashed CRLF worktree
 bytes instead of the canonical LF fixture. Linux keeps all accepted originals.
 Windows selects same-name, same-dimension strict sibling baselines; the OR5R
 fixture alone is pinned to LF. Windows and native Linux focused suites pass
-46/46 each, OR5R/PDF focused tests pass 9/9, and Local Gate PreCommit passes
-with the full Windows suite at 3,080/3,080. No product source, Thai
-calculation/copy/visual, comparator,
-threshold, Gate, Backend, Firebase, or Production resource changed.
+46/46 each, OR5R/PDF focused tests pass 9/9, and Local Gate PreCommit and
+PostCommit pass with the full Windows suite at 3,080/3,080. PR #136 merged as
+`e1426fcfd0f51d4681d56f1426e9788e4fc36fd7`. No product source, Thai
+calculation/copy/visual, comparator, threshold, Gate, Backend, Firebase, or
+Production resource changed.
 
 ## Completed release - BaZi generation latency acceptance (2026-09-19)
 
