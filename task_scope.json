@@ -1,36 +1,35 @@
 {
   "schema_version": 1,
-  "task_id": "thai-mirror-windows-golden-determinism",
-  "expected_branch": "codex/thai-mirror-windows-golden-determinism",
-  "expected_worktree": "C:/Users/USER/Documents/Knowme/thai-mirror-windows-golden-determinism",
-  "base_ref": "efc63c61b672dd79ec3fc8f9f5e1eb8c16d205d3",
+  "task_id": "knowme-bazi-reader-v4-life-timeline",
+  "expected_branch": "codex/bazi-reader-life-timeline-v4",
+  "expected_worktree": "C:/Users/USER/Documents/Knowme/bazi-reader-v4-life-timeline",
+  "base_ref": "e1426fcfd0f51d4681d56f1426e9788e4fc36fd7",
   "allowed_files": [
-    ".gitattributes",
+    "docs/CHINESE_ASTROLOGY_READER_V4.md",
     "docs/CURRENT_STATUS.md",
     "docs/HANDOFF.md",
     "docs/ROADMAP.md",
-    "docs/THAI_MIRROR_GOLDEN_BASELINE_REPAIR_V1.md",
     "docs/THAI_MIRROR_WINDOWS_GOLDEN_DETERMINISM.md",
+    "lib/features/bazi_compatibility/application/bazi_compatibility_owner_fixtures.dart",
+    "lib/features/bazi_compatibility/application/bazi_compatibility_pdf_exporter.dart",
+    "lib/features/bazi_compatibility/application/bazi_compatibility_report_builder.dart",
+    "lib/features/bazi_compatibility/application/bazi_reader_v4.dart",
+    "lib/features/bazi_compatibility/presentation/bazi_compatibility_owner_page.dart",
     "task.md",
     "task_scope.json",
-    "TASK_RESULT.md",
-    "test/support/thai_mirror_golden_path.dart",
-    "test/support/thai_mirror_golden_path_test.dart",
-    "test/thai_mirror_consumer_presenter_test.dart",
-    "test/validation/thai_mirror_consumer_ux/consumer_section_screenshot_test.dart",
-    "test/validation/thai_mirror_qa_harness/screenshot_regression_test.dart"
+    "test/bazi_chart_model_test.dart",
+    "test/bazi_compatibility_pdf_test.dart",
+    "test/bazi_compatibility_report_test.dart",
+    "test/bazi_compatibility_routes_test.dart"
   ],
-  "allowed_globs": [
-    "test/goldens/windows/*.png",
-    "test/validation/thai_mirror_consumer_ux/screenshots/windows/*.png",
-    "test/validation/thai_mirror_qa_harness/screenshots/windows/*.png"
-  ],
+  "allowed_globs": [],
   "forbidden_files": [
     "backend/**",
     "firebase.json",
     "firestore.rules",
     "functions/**",
-    "lib/**",
+    "lib/features/astrology/thai/**",
+    "lib/features/thai_beta/**",
     "product-acceptance/**"
   ],
   "generated_output_globs": [
@@ -55,11 +54,14 @@
     "C:/Users/"
   ],
   "focused_tests": [
-    "flutter test --no-pub test/support/thai_mirror_golden_path_test.dart test/thai_mirror_consumer_presenter_test.dart test/validation/thai_mirror_consumer_ux/consumer_section_screenshot_test.dart test/validation/thai_mirror_qa_harness/screenshot_regression_test.dart"
+    "flutter test --no-pub test/bazi_chart_model_test.dart",
+    "flutter test --no-pub test/bazi_compatibility_report_test.dart",
+    "flutter test --no-pub test/bazi_compatibility_routes_test.dart",
+    "flutter test --no-pub test/bazi_compatibility_pdf_test.dart"
   ],
   "full_test_policy": "required",
   "full_test_command": "flutter test --no-pub --concurrency=4 --reporter compact",
   "analyze_command": "flutter analyze --no-pub --no-fatal-warnings --no-fatal-infos",
-  "commit_message_regex": "^test: .{10,72}$",
+  "commit_message_regex": "^feat: .{10,72}$",
   "require_clean_tree_after_commit": true
 }

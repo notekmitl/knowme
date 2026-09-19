@@ -27,7 +27,7 @@ abstract final class BaziCompatibilityPdfExporter {
     final document = pw.Document(
       title: report.title,
       author: 'KnowMe',
-      subject: 'KnowMe Chinese Astrology BaZi Reader V3',
+      subject: 'KnowMe Chinese Astrology BaZi Reader V4',
     );
 
     document.addPage(

@@ -49,34 +49,36 @@ void main() {
         }
       }
 
-      final readerV3Report = BaziCompatibilityReportBuilder.build(
+      final readerV4Report = BaziCompatibilityReportBuilder.build(
         BaziCompatibilityOwnerFixtures.readerV3Chart(),
         asOf: DateTime(2026, 9, 16),
       );
-      final readerV3Bytes = await BaziCompatibilityPdfExporter.build(
-        report: readerV3Report,
+      final readerV4Bytes = await BaziCompatibilityPdfExporter.build(
+        report: readerV4Report,
         fonts: fonts,
       );
-      expect(readerV3Bytes.length, greaterThan(1000));
-      expect(String.fromCharCodes(readerV3Bytes.take(5)), '%PDF-');
+      expect(readerV4Bytes.length, greaterThan(1000));
+      expect(String.fromCharCodes(readerV4Bytes.take(5)), '%PDF-');
       expect(
-        readerV3Report.plainText,
+        readerV4Report.plainText,
         isNot(contains('คำอ่านนี้ใช้สี่เสาครบ รวมเสาชั่วโมง')),
       );
+      expect(readerV4Report.plainText, contains('แนวโน้ม 5 ปีข้างหน้า'));
+      expect(readerV4Report.plainText, contains('ภาพระยะยาว · สองดวงจรถัดไป'));
       for (final hiddenTitle in const [
         'ข้อมูลดวงที่ใช้ประกอบคำอ่าน',
         'กติกาและข้อมูลสำหรับตรวจซ้ำ',
         'ที่มาของผลคำนวณและคำอ่าน',
         'ข้อจำกัดและคำเตือน',
       ]) {
-        expect(readerV3Report.plainText, isNot(contains(hiddenTitle)));
+        expect(readerV4Report.plainText, isNot(contains(hiddenTitle)));
       }
 
       final outputDirectory = Platform.environment['BAZI_OWNER_PDF_DIRECTORY'];
       if (outputDirectory != null) {
-        final output = File('$outputDirectory/knowme-bazi-reader-v3.pdf');
+        final output = File('$outputDirectory/knowme-bazi-reader-v4.pdf');
         output.parent.createSync(recursive: true);
-        output.writeAsBytesSync(readerV3Bytes, flush: true);
+        output.writeAsBytesSync(readerV4Bytes, flush: true);
       }
     },
   );

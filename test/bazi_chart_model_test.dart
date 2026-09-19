@@ -192,8 +192,11 @@ void main() {
       expect(reader.dayMasterSupport.band, 'balanced');
       expect(reader.natalRelations, hasLength(2));
       expect(reader.luck.direction, 'forward');
-      expect(reader.luck.cycles.single.pillarLabel, '甲申');
-      expect(reader.luck.cycles.single.annual.single.pillarLabel, '丙午');
+      expect(reader.luck.cycles, hasLength(5));
+      expect(reader.luck.cycles[2].pillarLabel, '甲申');
+      expect(reader.luck.cycles[2].annual, hasLength(2));
+      expect(reader.luck.cycles[2].annual.first.pillarLabel, '丙午');
+      expect(reader.luck.cycles[3].annual, hasLength(4));
     });
   });
 }

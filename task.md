@@ -1,21 +1,72 @@
-# Active Task - Thai Mirror Windows golden determinism (2026-09-19)
+# Active Task - BaZi Reader V4 life timeline (2026-09-19)
 
-Status: **IMPLEMENTED AND VALIDATED; SEPARATE BASELINE PR PENDING.**
+Status: **RELEASE CANDIDATE — LOCAL VALIDATION PASS; NOT YET MERGED OR DEPLOYED.**
+
+## Goal
+
+Expand the concise BaZi report into a readable past-present-future reading by
+using the complete Da Yun and Liu Nian data already calculated by Reader V3.
+
+## Acceptance
+
+- Keep the Reader V3 Four Pillars, apparent-solar-time calculation, API,
+  persistence, fingerprint, and unknown-time fail-closed behavior unchanged.
+- Add up to three recent completed ten-year cycles as a reflective past view.
+- Retain the active ten-year cycle and current annual influence.
+- Add the next five annual influences and next two ten-year cycles.
+- Use clear Thai with practical planning guidance and no guaranteed event.
+- Keep the four previously hidden technical sections hidden on Web and PDF.
+- Keep concise calculation input as the last section.
+- Pass focused report/model/route/PDF tests, analyzer, full suite, Local Gate,
+  Web build, PDF visual QA, Hosting-only Production release, and live QA.
+
+## Boundaries
+
+- No backend, calculation, Firestore rules, Functions, Auth, Storage, IAM, or
+  Production data change.
+- Do not add monthly or daily predictions.
+- Deploy Firebase Hosting only after merge and exact-commit release build.
+
+## Validation progress
+
+- [x] Rebase PR #135 onto merged baseline PR #136 / `e1426fc`.
+- [x] Restore all three formatting changes with original patch ID and hashes.
+- [x] Pass V4 focused tests 17/17 and analyzer policy (282 inherited non-fatal
+  diagnostics).
+- [x] Pass the Windows full suite 3,080/3,080 with strict Thai Mirror goldens.
+- [x] Build Web release against the Production API; route/API guards pass and
+  loopback endpoint count is zero.
+- [x] Inspect the Known Web report: past, present, five future years, and two
+  future cycles are complete; Thai/Chinese text is normal and console errors
+  are zero.
+- [x] Render and inspect every page of the 4-page V4 PDF; no clipping,
+  overlap, overflow, blank page, or Thai/CJK glyph defect is present.
+- [x] Correct the stale Owner fixture heading from Reader V3 to Reader V4.
+- [x] Pass Local Gate PreCommit, including focused tests, analyzer, full suite,
+  scope guard, and forbidden-text scan.
+- [ ] Commit and pass Local Gate PostCommit.
+- [ ] Push, mark PR #135 ready, merge, deploy Firebase Hosting only, and pass
+  live Web/PDF QA.
+
+---
+
+# Completed Task - Thai Mirror Windows golden determinism (2026-09-19)
+
+Status: **COMPLETE — SEPARATE BASELINE PR #136 MERGED.**
 
 - [x] Preserve the three uncommitted formatting files in PR #135 without
-  touching its worktree.
-- [x] Reproduce unchanged-main Windows failures as 38 golden test cases over
-  174 PNG comparisons plus two CRLF-sensitive OR5R fixture hash tests.
+  changing their content.
+- [x] Reproduce the unchanged-main Windows failures as 38 golden test cases
+  over 174 PNG comparisons plus two CRLF-sensitive OR5R fixture hash tests.
 - [x] Keep Linux baselines unchanged and add exact Windows siblings selected
   by a test-only platform path helper.
 - [x] Keep Flutter's strict comparator, thresholds, tests, Gate, Thai runtime,
-  reader copy, and production visuals unchanged.
+  reader copy, and Production visuals unchanged.
 - [x] Pin the OR5R fixture to LF without changing its repository blob.
 - [x] Pass native Windows and Linux focused suites at 46/46 each.
-- [x] Pass the Windows full Flutter suite and Local Gate PreCommit at
-  3,080/3,080 after the completeness test was added.
-- [ ] Commit, pass Local Gate PostCommit, merge the separate baseline PR, then
-  rebase and complete PR #135.
+- [x] Pass the Windows full Flutter suite and Local Gate PreCommit/PostCommit
+  at 3,080/3,080.
+- [x] Merge the isolated baseline repair as PR #136 / `e1426fcfd0f51d4681d56f1426e9788e4fc36fd7`.
 
 ---
 
