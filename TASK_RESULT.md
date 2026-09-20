@@ -1,3 +1,47 @@
+# Task Result - BaZi Reader V4 Owner copy acceptance repair
+
+**Result: RELEASE CANDIDATE VALIDATED — PRECOMMIT PASS, DELIVERY PENDING.**
+
+The five Owner-approved repairs are implemented in the shared Reader V4
+composer, not in fixture-specific branches. The audit also removes evidenced
+unsupported certainty, repeated current/year transit wording, repeated past
+cycle advice, and the unnatural phrase `สัญญาณรายปีมีสัญญาณปะทะ`. The report
+keeps its accepted headings and layout and does not expose location,
+coordinates, timezone internals, or apparent-solar-time details.
+
+Three-location regression covers Bangkok, Chiang Mai, and Phuket through the
+form handoff, canonical profile, authenticated request payload, engine input,
+and apparent-solar calculation. The engine retains the original local civil
+times and `Asia/Bangkok`, uses the submitted coordinates, and produces distinct
+apparent-solar times of 15:21:09, 00:12:46, and 23:06:08 respectively. No
+calculation, pillar, API, persistence, or backend application source changed.
+
+Current validation: focused Flutter 21/21, backend 38/38, complete Flutter
+3,084/3,084, and three Web/PDF projection cases pass. The 12 rendered PDF pages
+have no missing section, blank page, clipping, overlap, overflow, or broken
+Thai/CJK glyph. PDF metadata is:
+
+- Bangkok: 4 pages, 34,520 bytes, SHA-256
+  `BB54D7EB501ABC589EE37DE6CC42505084ADA8E0D9A3D6A337C8A4B98E1070B5`;
+- Chiang Mai: 4 pages, 34,388 bytes, SHA-256
+  `5FFF88917DA655BBEE4F185E2C68B66471107A4F70CC23F899DB0CD4A420A43C`;
+- Phuket: 4 pages, 33,128 bytes, SHA-256
+  `6B9E7E1D5600C9DEC436B6C13FC24207B090CA9B5582DC75189DDFB238E48A3B`.
+
+All PDFs embed Noto Sans Thai Regular/Bold and Noto Sans SC Regular; Thin is
+absent. The first full-suite attempt correctly failed one real-PDF test because
+the shell PATH lacked `pypdf`; the isolated test and the authoritative full
+rerun both pass with the repository-bundled Python. Generated tracked validator
+outputs are restored by exact path and are not part of the candidate.
+
+Local Gate PreCommit passes its scope and forbidden-text guards, analyzer
+policy (282 inherited non-fatal diagnostics), all 21 focused Flutter tests,
+and the complete 3,084-test Flutter suite. Remaining delivery steps are
+PostCommit, PR review checks, merge, Hosting-only release, and live Web/PDF
+verification. No Production mutation has occurred.
+
+---
+
 # Task Result - Thai Mirror Windows golden determinism
 
 **Result: PRECOMMIT PASS — BASELINE PR CLOSEOUT PENDING.**

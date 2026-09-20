@@ -55,6 +55,83 @@ void main() {
       expect(chart.inputHash, 'test-input-hash');
     });
 
+    test(
+      'sends all three QA locations to the versioned calculation API',
+      () async {
+        final cases = [
+          (
+            place: 'กรุงเทพมหานคร',
+            date: '1990-12-05',
+            time: '15:30',
+            latitude: 13.7563,
+            longitude: 100.5018,
+          ),
+          (
+            place: 'เชียงใหม่',
+            date: '1982-06-06',
+            time: '00:35',
+            latitude: 18.7883,
+            longitude: 98.9853,
+          ),
+          (
+            place: 'ภูเก็ต',
+            date: '2001-03-03',
+            time: '23:45',
+            latitude: 7.8804,
+            longitude: 98.3923,
+          ),
+        ];
+
+        for (final fixture in cases) {
+          Map<String, dynamic>? capturedBody;
+          final profile = <String, dynamic>{
+            'name': 'Owner QA',
+            'gender': 'male',
+            'birthDate': fixture.date,
+            'birthTime': fixture.time,
+            'birthPlace': fixture.place,
+            'latitude': fixture.latitude,
+            'longitude': fixture.longitude,
+            'timezone': 'Asia/Bangkok',
+          };
+
+          await BaziApiService.generateBazi(
+            uid: 'uid-1',
+            birthDate: fixture.date,
+            birthTime: fixture.time,
+            timezone: 'Asia/Bangkok',
+            gender: 'male',
+            latitude: fixture.latitude,
+            longitude: fixture.longitude,
+            canonicalProfile: profile,
+            loadAuthSession: () async =>
+                const BaziAuthSession(uid: 'uid-1', idToken: 'token'),
+            postJson:
+                ({
+                  required endpoint,
+                  required body,
+                  required failureLabel,
+                  required headers,
+                }) async {
+                  capturedBody = body;
+                  return _response;
+                },
+          );
+
+          expect(capturedBody?['birth_date'], fixture.date);
+          expect(capturedBody?['birth_time'], fixture.time);
+          expect(capturedBody?['timezone'], 'Asia/Bangkok');
+          expect(capturedBody?['latitude'], fixture.latitude);
+          expect(capturedBody?['longitude'], fixture.longitude);
+          expect(capturedBody?['profile'], profile);
+          expect(
+            (capturedBody?['profile'] as Map<String, dynamic>)['birthPlace'],
+            fixture.place,
+          );
+        }
+      },
+    );
+
     test('fails closed when a successful response omits chart data', () async {
       await expectLater(
         BaziApiService.generateBazi(

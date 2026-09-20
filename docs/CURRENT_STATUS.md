@@ -1,3 +1,31 @@
+## Active release - BaZi Reader V4 Owner copy acceptance repair (2026-09-20)
+
+Status: **CANDIDATE QA PASS — PRECOMMIT PASS, PR AND RELEASE PENDING**
+
+- The five accepted Owner wording repairs are centralized in the deterministic
+  Reader V2/V4 composers. No case-specific copy branch was added.
+- The additional report-wide audit removes unsupported certainty, repetitive
+  past-cycle advice, current/year repetition, and one unnatural doubled phrase.
+  Existing headings, visual structure, hidden technical sections, calculation,
+  pillars, persistence, and API behavior remain unchanged.
+- Bangkok, Chiang Mai, and Phuket now have explicit automated coverage from
+  UI handoff through authenticated payload and backend apparent-solar input.
+  Submitted place labels, coordinates, timezone, and civil time are preserved;
+  the engine uses longitude plus Equation of Time and passes 38/38 tests.
+- Focused Flutter passes 21/21 and the full Flutter suite passes 3,084/3,084
+  with Flutter 3.41.1 and bundled PDF dependencies.
+- Local Gate PreCommit passes the final candidate: scope and forbidden-text
+  guards, analyzer policy with 282 inherited non-fatal diagnostics, focused
+  tests 21/21, and full suite 3,084/3,084.
+- All 12 pages across the three four-page candidate PDFs were rendered and
+  inspected. Web/PDF semantics match, all required timeline sections are
+  present, Regular Thai/CJK fonts are embedded, and missing text, blank page,
+  clipping, overlap, overflow, or broken-glyph findings are zero.
+- Thai runtime, Thai goldens, `product-acceptance/`, backend application code,
+  Firebase configuration, and Production data have zero intended delta.
+- PostCommit, PR review/merge, Hosting-only deployment, and Production QA are
+  not yet complete. Production still serves the prior Reader V4 release.
+
 ## Completed release - BaZi Reader V4 life timeline (2026-09-19)
 
 Status: **PASS — PR #135 MERGED, HOSTING RELEASED, PRODUCTION-VERIFIED**

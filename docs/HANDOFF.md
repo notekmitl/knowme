@@ -1,3 +1,33 @@
+## Handoff - BaZi Reader V4 Owner copy repair (2026-09-20)
+
+Work continues on `codex/bazi-reader-v4-owner-copy-fixes` from `f955952`.
+The source candidate applies the five Owner-approved changes in the shared
+Reader composer and additionally fixes only evidenced overclaim, repetition,
+and unnatural joins. It does not change calculation rules, Four Pillars,
+report headings/layout, backend application code, Thai astrology, or
+Production data.
+
+Three-location automation proves Bangkok, Chiang Mai, and Phuket place labels,
+coordinates, `Asia/Bangkok`, and civil time survive form handoff and the
+authenticated request. Backend tests prove that the same coordinate/timezone
+values reach the apparent-solar calculation and are actually used. Current
+results are focused Flutter 21/21, backend 38/38, and full Flutter
+3,084/3,084. Local Gate PreCommit passes, including analyzer policy with 282
+inherited non-fatal diagnostics. The full suite must run with the bundled
+Python on PATH so its real-PDF test can import `pypdf`; no test or golden
+workaround was added.
+
+Candidate Web/PDF parity is verified for all three locations. Each PDF has four
+A4 pages; all 12 pages and extracted text were inspected with no missing
+section, blank page, clipping, overlap, overflow, duplicate accepted phrase,
+or broken Thai/Chinese glyph. Embedded fonts are Noto Sans Thai Regular/Bold
+and Noto Sans SC Regular.
+
+Next: commit, pass PostCommit, open the PR, wait for review checks, merge,
+build the exact merge for Production, deploy Firebase Hosting only, and
+verify the live bundle plus a real downloaded PDF. Do not deploy backend or
+any other Firebase resource.
+
 ## Handoff - Windows Thai Mirror golden determinism (2026-09-19)
 
 PR #136 is merged as `e1426fcfd0f51d4681d56f1426e9788e4fc36fd7`.

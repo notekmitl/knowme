@@ -86,7 +86,7 @@ abstract final class BaziCompatibilityReportBuilder {
           BaziCompatibilityReportSection(
             title: 'เส้นทางที่ผ่านมา · ดวงจรสิบปี',
             intro:
-                'ส่วนนี้อ่านย้อนหลังเป็นธีมของแต่ละช่วง เพื่อให้คุณเทียบกับชีวิตจริง ไม่ได้ระบุว่าเหตุการณ์ใดต้องเกิดขึ้น',
+                'ส่วนนี้อ่านย้อนหลังเป็นธีมของแต่ละช่วง เพื่อให้คุณเทียบกับชีวิตจริง ไม่ได้ระบุว่าเหตุการณ์ใดต้องเกิดขึ้น อ่านแต่ละช่วงเพื่อทบทวนว่า คุณได้เรียนรู้อะไร และวิธีรับมือใดยังนำมาใช้ได้ในปัจจุบัน',
             rows: [
               for (final entry in timeline.pastCycles)
                 BaziCompatibilityReportRow(
@@ -107,7 +107,7 @@ abstract final class BaziCompatibilityReportBuilder {
           BaziCompatibilityReportSection(
             title: 'แนวโน้ม 5 ปีข้างหน้า',
             intro:
-                'อ่านจากพลังรายปีซ้อนกับพื้นดวง เพื่อใช้วางลำดับงาน เงิน และความสัมพันธ์ โดยไม่ฟันธงเหตุการณ์ล่วงหน้า',
+                'หัวข้อนี้อ่านสัญญาณรายปีเทียบกับพื้นดวง ส่วนดวงจรสิบปีด้านล่างเป็นภาพระยะยาวอีกชั้นหนึ่ง หากช่วงปีทับกัน ให้ใช้รายปีเป็นหัวข้อระยะสั้นและดวงจรสิบปีเป็นกรอบกว้าง ไม่ถือว่าเป็นคำรับรองเหตุการณ์',
             rows: [
               for (final entry in timeline.futureYears)
                 BaziCompatibilityReportRow(

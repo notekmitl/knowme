@@ -1,8 +1,10 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:knowme/data/models/bazi_chart_model.dart';
 import 'package:knowme/domain/models/profile_model.dart';
 import 'package:knowme/features/bazi_compatibility/application/bazi_compatibility_owner_fixtures.dart';
 import 'package:knowme/features/bazi_compatibility/application/bazi_compatibility_report_builder.dart';
 import 'package:knowme/features/bazi_compatibility/application/bazi_input_fingerprint.dart';
+import 'package:knowme/features/bazi_compatibility/application/bazi_reader_v2.dart';
 
 void main() {
   group('KnowMe BaZi Compatibility V1 report', () {
@@ -157,7 +159,214 @@ void main() {
       expect(text, isNot(contains('ข้อจำกัดและคำเตือน')));
       expect(text, isNot(contains(' ช่อง')));
       expect(text, isNot(contains('หลักที่ใช้: Day Master')));
+      expect(
+        RegExp(
+          'อ่านแต่ละช่วงเพื่อทบทวนว่า คุณได้เรียนรู้อะไร และวิธีรับมือใดยังนำมาใช้ได้ในปัจจุบัน',
+        ).allMatches(text),
+        hasLength(1),
+      );
+      expect(
+        text,
+        isNot(
+          contains(
+            'จุดสำคัญของรอบนี้คือสิ่งที่ได้เรียนรู้และวิธีรับมือที่ยังนำมาใช้ได้ในปัจจุบัน',
+          ),
+        ),
+      );
+      expect(
+        text,
+        contains(
+          'หัวข้อนี้อ่านสัญญาณรายปีเทียบกับพื้นดวง ส่วนดวงจรสิบปีด้านล่างเป็นภาพระยะยาวอีกชั้นหนึ่ง',
+        ),
+      );
+      expect(text, contains('ไม่ถือว่าเป็นคำรับรองเหตุการณ์'));
       expect(report.sections.last.title, 'ข้อมูลที่ใช้คำนวณ');
     });
+
+    test('central composer fixes joins and unsupported certainty', () {
+      final reading = BaziReaderV2.build(
+        _copyChart(
+          topFamilies: const ['authority', 'output'],
+          familyWeight: const {
+            'resource': 0,
+            'peer': 1,
+            'output': 5,
+            'wealth': 4,
+            'authority': 6,
+          },
+          dayHiddenTenGod: '比肩',
+          supportBand: 'lean',
+        ),
+        asOf: DateTime(2026, 9, 16),
+      );
+
+      expect(
+        reading.overview,
+        contains(
+          'ในโครงสร้างดวงมีพลังเด่น 2 กลุ่ม: มาตรฐาน ความรับผิดชอบ และแรงกดดัน; กับความคิด การสื่อสาร และผลงาน',
+        ),
+      );
+      expect(
+        reading.overview,
+        contains(
+          'จึงควรใช้ข้อมูลและระบบช่วยเปลี่ยนแรงกดดันให้เป็นผลงานที่ตรวจสอบได้',
+        ),
+      );
+      expect(
+        reading.work,
+        contains(
+          'แนวโน้มของดวงสนับสนุนงานที่ต้องตัดสินใจภายใต้ข้อจำกัด ตั้งมาตรฐาน และรับผิดชอบผลลัพธ์ รวมถึงงานที่ต้องคิด อธิบาย ออกแบบ หรือแก้ปัญหาให้เกิดผลงานที่นำไปใช้ได้',
+        ),
+      );
+      expect(
+        reading.relationships,
+        contains('ในแบบจำลองนี้ หมวดคู่ครองมีน้ำหนักเด่น'),
+      );
+      expect(
+        reading.relationships,
+        contains('หัวข้อที่ควรทบทวนคือความเท่าเทียม พื้นที่ส่วนตัว'),
+      );
+      expect(reading.relationships, isNot(contains('เมื่อคบจริง คุณ')));
+      expect(reading.relationships, isNot(contains('ความสัมพันธ์จึงมีผล')));
+      expect(reading.money, isNot(contains('จุดทำเงินเด่น')));
+      expect(reading.identity, isNot(contains('คุณมักตัดสินใจได้ดี')));
+      expect(reading.annual, isNot(contains('สัญญาณรายปีมีสัญญาณ')));
+    });
+
+    test('current and annual clash copy is complementary, not repeated', () {
+      final clash = BaziRelation(
+        kind: 'branch_clash',
+        roles: const ['decade', 'day'],
+        symbols: const ['未', '丑'],
+      );
+      final base = BaziCompatibilityOwnerFixtures.readerV3Chart();
+      final active = base.luck.cycles.firstWhere(
+        (cycle) => cycle.startYear <= 2026 && cycle.endYear >= 2026,
+      );
+      final annual = BaziAnnualInfluence(
+        year: 2026,
+        age: 45,
+        pillarLabel: '丙午',
+        stem: '丙',
+        branch: '午',
+        stemTenGod: '七杀',
+        natalRelations: [clash],
+      );
+      final reading = BaziReaderV2.build(
+        _copyChart(
+          luck: BaziLuck(
+            gender: base.luck.gender,
+            direction: base.luck.direction,
+            onset: base.luck.onset,
+            method: base.luck.method,
+            cycles: [
+              BaziLuckCycle(
+                startYear: active.startYear,
+                endYear: active.endYear,
+                startAge: active.startAge,
+                endAge: active.endAge,
+                pillarLabel: active.pillarLabel,
+                stem: active.stem,
+                branch: active.branch,
+                stemTenGod: active.stemTenGod,
+                natalRelations: [clash],
+                annual: [annual],
+              ),
+            ],
+          ),
+        ),
+        asOf: DateTime(2026, 9, 16),
+      );
+
+      expect(
+        reading.currentCycle,
+        contains(
+          'ช่วงปัจจุบันมีสัญญาณปะทะกับพื้นดวง จึงควรวางแผนปรับระบบ ตาราง หรือบทบาท และเว้นจังหวะก่อนตัดสินใจเรื่องสำคัญ',
+        ),
+      );
+      expect(
+        reading.annual,
+        'ปีนี้แรงกดดันและเส้นตายเด่น '
+        'สัญญาณรายปีย้ำธีมการปรับระบบของช่วงปัจจุบัน '
+        'จึงควรเลือกงานสำคัญหนึ่งเรื่องและกำหนดแผนดำเนินงานให้ชัด',
+      );
+      expect(
+        reading.annual,
+        isNot(contains('ไม่ควรตัดสินใจเพราะความกดดันชั่วคราว')),
+      );
+    });
   });
+}
+
+BaziChartModel _copyChart({
+  List<String>? topFamilies,
+  Map<String, int>? familyWeight,
+  String? dayHiddenTenGod,
+  String? supportBand,
+  BaziLuck? luck,
+}) {
+  final base = BaziCompatibilityOwnerFixtures.readerV3Chart();
+  final day = base.pillars.day;
+  return BaziChartModel(
+    version: base.version,
+    contractId: base.contractId,
+    contractName: base.contractName,
+    engineVersion: base.engineVersion,
+    generatedAt: base.generatedAt,
+    inputHash: base.inputHash,
+    completeness: base.completeness,
+    dayMaster: base.dayMaster,
+    yearAnimal: base.yearAnimal,
+    dominantElement: base.dominantElement,
+    pillars: BaziPillars(
+      year: base.pillars.year,
+      month: base.pillars.month,
+      day: BaziPillar(
+        stem: day.stem,
+        branch: day.branch,
+        stemRoman: day.stemRoman,
+        branchRoman: day.branchRoman,
+        stemElement: day.stemElement,
+        branchElement: day.branchElement,
+        pillarLabel: day.pillarLabel,
+        hiddenStems: day.hiddenStems,
+        stemTenGod: day.stemTenGod,
+        hiddenTenGods: [
+          if (dayHiddenTenGod != null)
+            dayHiddenTenGod
+          else
+            ...day.hiddenTenGods,
+        ],
+        growthStage: day.growthStage,
+        nayin: day.nayin,
+      ),
+      hour: base.pillars.hour,
+    ),
+    elementBalance: base.elementBalance,
+    timeKnown: base.timeKnown,
+    enginePolicy: base.enginePolicy,
+    input: base.input,
+    solarTime: base.solarTime,
+    ambiguities: base.ambiguities,
+    suppressedFields: base.suppressedFields,
+    tenGodBalance: BaziTenGodBalance(
+      visible: base.tenGodBalance.visible,
+      hidden: base.tenGodBalance.hidden,
+      familyWeight: familyWeight ?? base.tenGodBalance.familyWeight,
+      topFamilies: topFamilies ?? base.tenGodBalance.topFamilies,
+      method: base.tenGodBalance.method,
+    ),
+    dayMasterSupport: BaziDayMasterSupport(
+      score: base.dayMasterSupport.score,
+      maxScore: base.dayMasterSupport.maxScore,
+      band: supportBand ?? base.dayMasterSupport.band,
+      seasonScore: base.dayMasterSupport.seasonScore,
+      groundScore: base.dayMasterSupport.groundScore,
+      visibleSupportScore: base.dayMasterSupport.visibleSupportScore,
+      resourceElement: base.dayMasterSupport.resourceElement,
+      method: base.dayMasterSupport.method,
+    ),
+    natalRelations: base.natalRelations,
+    luck: luck ?? base.luck,
+  );
 }
