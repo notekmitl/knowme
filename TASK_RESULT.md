@@ -1,6 +1,3 @@
-Warning: truncated output (original token count: 50223)
-Total output lines: 1404
-
 # Task Result - Western Astrology Reader V2 and generation performance
 
 **Result: IMPLEMENTED — RELEASE VALIDATION IN PROGRESS.**
@@ -854,7 +851,11 @@ Repository gates: git diff --check, final PreCommit and PostCommit PASS. PostCom
 
 ## Historical snapshot — superseded post-gate PDF blocker (2026-09-06)
 
-**NOT COMPLETE — STOPPED BEFORE ZIP / COMMIT / PUSH — OPEN + DRAFT — NOT MERGED — NOT DEPLOYED.** This …223 tokens truncated…er/export metadata with regression tests, not relaxed expectations. Before/After ledger: docs/OR5R_ASSERTION_MIGRATION_LEDGER.json and docs/OR5R_ASSERTION_MIGRATION.md; per-failure PASS resolution: docs/OR5R_FAILURE_RESOLUTION.json. Removed assertions without replacement=0; original test declaration delta=0. The ledger preserves full assertions/diffs and replacement groups; it does not claim that token counting proves semantic equivalence.
+**NOT COMPLETE — STOPPED BEFORE ZIP / COMMIT / PUSH — OPEN + DRAFT — NOT MERGED — NOT DEPLOYED.** This latest entry supersedes the historical gate failure below.
+
+Original OR5 defect: placeholder 00:00 changed the astrological day and public timeline/export while 12:00/23:59 agreed (dedicated 4/5; mismatch 1). The restricted repair now gates sunrise/exact lunar lookup on known-time authority, marks the internal sentinel non-authoritative, omits Unknown life periods/predictions, and presents civil date/location with one omission notice. Eight runtime containment source files plus one empty-label audit-validator root-cause fix changed; Known reader branches and the PDF renderer were not changed.
+
+The 76 failures were reconfirmed and classified exactly once: A=68, B=7, C=0, D=0, E=1; unclassified=0, duplicate accounting=0. Only 34 proven A/E test files were migrated, with explicit helper/validator paths in task_scope.json, not all 40 files. Seven B failures were repaired in presenter/export metadata with regression tests, not relaxed expectations. Before/After ledger: docs/OR5R_ASSERTION_MIGRATION_LEDGER.json and docs/OR5R_ASSERTION_MIGRATION.md; per-failure PASS resolution: docs/OR5R_FAILURE_RESOLUTION.json. Removed assertions without replacement=0; original test declaration delta=0. The ledger preserves full assertions/diffs and replacement groups; it does not claim that token counting proves semantic equivalence.
 
 Actual validation: dedicated 11/11; migrated-direct 374/374; focused Flutter 56/56; Node oracle 2/2; full required suite **1,649/1,649, failures 0, skips 0**, repeated successfully by PreCommit. Commands are in task_scope.json and validation evidence; logs: build/or5r-final-dedicated.log, build/or5r-final-migrated-direct.log, build/or5r-final-focused.log, build/or5r-final-full.jsonl, build/or5r-final-precommit.log. The count reconciliation from the old 1,644 visible results is +4 new tests +2 previously setup-blocked tests -1 failed setUpAll result = 1,649; no original test was deleted. Analyzer freshly compared against archived baseline: 298/298 diagnostics, added=0, removed=0; post-artifact-tooling analyzer also returns the exact same 298. PreCommit passed before artifact tooling was added; a final package/commit gate has not been claimed.
 

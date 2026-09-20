@@ -1,6 +1,3 @@
-Warning: truncated output (original token count: 51954)
-Total output lines: 1238
-
 # Handoff - Western Astrology Reader V2 (2026-09-20)
 
 The source candidate is implemented and Backend validation passes. Do not
@@ -795,7 +792,45 @@ Owner authorized a restricted runtime repair after OR5's actual public-placehold
 
 Eight source files changed: ThaiBirthAdapter gates sunrise comparison on known time; BirthNormalizer/reasons mark the legacy sentinel non-authoritative and suppress before/after-sunrise and exact-instant assertions; ThaiLunarCalendarProvider refuses exact-time lookup for Unknown; ThaiMirrorPipeline omits Unknown life periods; consumer presenter and narrative composer expose an Unknown-safe civil-input/omission view; report export uses explicit four-section omission output with no infographic prediction. Known branches are retained. No sentinel coercion, fixture branch, title scrub or Canon edit is used.
 
-Runtime evidence: dedicated 5/5; focused Flutter 52/52; lower-level lunar/lagna/house checks 2/2; Node oracle tests 2/2. Unknown 75 profiles × 3 placeholders = 225 variants, all public/snapshot/hash/export/omission comparisons invariant. Internal sentinel present=true, value=12:00; semantic leakage, timeline, future prediction, legacy prediction-section and persisted/exported-birth-time counters are zero over these tested boundaries. Exact pre-repair Known 00:03/00:35 public contracts match; …1954 tokens truncated…DIDATE READY — OR2 PRODUCT CONTENT REJECTED — PENDING OWNER CONTENT REVIEW — DRAFT — NOT MERGED — NOT DEPLOYED**.
+Runtime evidence: dedicated 5/5; focused Flutter 52/52; lower-level lunar/lagna/house checks 2/2; Node oracle tests 2/2. Unknown 75 profiles × 3 placeholders = 225 variants, all public/snapshot/hash/export/omission comparisons invariant. Internal sentinel present=true, value=12:00; semantic leakage, timeline, future prediction, legacy prediction-section and persisted/exported-birth-time counters are zero over these tested boundaries. Exact pre-repair Known 00:03/00:35 public contracts match; degrees remain Aquarius 9°24′ / 19°19′. Candidate0011 immutable reader SHA passes. Actual Known00:35 materials=12; contexts=49; profiles=300; deterministic pairs=301, mismatch=0; tampering controls rejected=10/10. Omission is not predictive coverage.
+
+Full suite first attempt: 1,566 passed / 78 failed. Two focused Unknown assertions were then migrated to the authorized omission contract without changing Known assertions. Further full-suite failures include legacy requirements for Unknown timelines/4×3 predictions, exact R7.1 Unknown oracle equality, and old mixed-profile evidence aggregate counts. The complete first-run failure inventory is docs/OR5R_FULL_SUITE_FIRST_RUN_FAILURES.json. Not every remaining failure has been semantically adjudicated. Historical acceptance artifacts must not be rewritten to force equality.
+
+Analyzer command passes (299 non-fatal diagnostics after removing the two new extractor lint findings); no claim of a freshly rerun baseline comparison. Final PreCommit passes scope, forbidden-text, analyzer and focused gates, then FAILS at full suite: 1,568 passed / 76 failed (gate exit 22, Flutter exit 1). No commit/PostCommit/push while the complete gate fails. Full Known Web/PDF visual QA, 22-claim authority adjudication and new Owner Review package are not complete; no authority count or Owner Acceptance is claimed. Final failure inventory: docs/OR5R_FULL_SUITE_GATE_FAILURES.json. An explicit legacy Unknown acceptance-test/validator migration is needed, preserving Known equality and frozen product-acceptance artifacts rather than rewriting or weakening them.
+
+All changes remain local/uncommitted. PR115 remains Open + Draft; no Ready, Merge or Deploy. Firebase/Production configuration and product-acceptance/ delta remain zero. Source/test changes are limited to the runtime repair and explicit tests; test-generated historical outputs are preserved separately and restored, not adopted as accepted evidence.
+
+## PR115 OR5 continuation — BLOCKED: sentinel containment runtime defect (2026-09-06)
+
+Owner allows the internal legacy 12:00 non-null sentinel only while hasBirthTime=false remains authoritative and no sentinel-derived value affects public Unknown output. This is not permission to use synthetic time as birth-time evidence.
+
+The new read-only metamorphic test injects 00:00, 12:00 and 23:59 through the existing ThaiBirthAdapter, ThaiEngineAdapter, ThaiMirrorPipeline, consumer presenter and candidate export boundary. All six tested birth-time flags remain false. The 12:00 injection exactly reproduces the real runner output; 23:59 also matches. **00:00 changes public export text, sections and persisted reader snapshot (1/3 placeholder variants mismatch).** The birth-day explanation changes from Sunday to Saturday, age-period headings change, and an omitted core-reading topic reappears. This exceeds permitted internal audit-metadata variation. No production source has been modified.
+
+Before Owner decision: dedicated tests 4 passed / 1 failed on literal sentinel presence. After contract migration: 4 passed / 1 failed on actual public-output invariance. The failing assertion is preserved. No gate is waived. Internal sentinel present=true, value=12:00; treated as provided birth time=0; persisted/exported as birth time=0 in tested fields; V2 plan prediction claims=0; lagna/degree absent. Remaining semantic counters are not certified and must not be reported as zero or as containment PASS.
+
+00:35 raw typed materials=12. Read-only extraction retains 49 contexts, 300 profiles (225 Known/75 Unknown), 301 deterministic pairs with mismatch=0 and 10/10 rejected tampering controls. These results do not establish 22-claim authority or Unknown containment. OR4's 0/22 came from empty typedMaterials/evidenceBindings, not proof that the engine lacks evidence.
+
+Evidence: build/or5/OR5_SENTINEL_CONTAINMENT.json, build/or5/OR5_UNKNOWN_CONTROL.json and docs/OR5_SENTINEL_CONTAINMENT_BLOCKER.md. Test: flutter test --no-pub --concurrency=1 test/evidence/predictive_runtime_v2_or5_actual_input_export_test.dart. Candidate0011 SHA regression passes. Full Flutter suite/analyzer/PreCommit/PostCommit, authority matrix, package and commit/push closeout are not completed: Owner explicitly requires stopping on this runtime defect. No new ZIP or commit. Local HEAD remains 8e6d168baf8378068260fbbb39500d5eb4491b37; local test/status edits are uncommitted. PR115 remains Open + Draft. No Merge, Deploy, Firebase/Production or product-acceptance change. Owner Product Acceptance is not claimed.
+
+## PR115 OR4 — Owner rejected OR3; content foundation NO-GO (2026-09-06)
+
+Status: **PR115 OR4 CONTENT FOUNDATION NO-GO — SINGLE-PATH OR DOMAIN AUTHORITY BLOCKER RECORDED — DRAFT — NOT MERGED — NOT DEPLOYED**.
+
+OR3 passed only part of the machine structure work. Its Candidate0019 was Golden-derived presentation, not generalized generation, and its negative-control results were stored constants. OR4 independently reproduces past section/body age mismatch 76/101 across 35/49 contexts; current heading/body mismatch 43/49; text reuse work 2 distinct/max48, finance 1/49, relationship 2/48, health 2/48, rolling12 2/47. Historical OR3 files, tests, ZIP and records below are retained unchanged; their prior PASS statements are superseded by this correction. Owner Content Acceptance has not occurred.
+
+Truth/validator commit `2ec9550`; renderer/evidence commit `ddc81af`. Candidate0020 and all 49 contexts now use the same pure `buildReaderReport` function, bind ages at render time and record inputs, periods, components and omissions. Actual00:35 age44 resolves source past 0–10 (display 1–10), 11–29, 30–41; current42–62; next63–79. Candidate0011 reader SHA remains `6AA94C7A01555310C5189FAAF711597057C5DF2F102246A0DF3946DAB2B62A1E` and is read only after generation for comparison. Known11/Unknown1 representative outputs are included.
+
+**Full predictive content is not ready:** Candidate0020 emits 0/22 prediction paragraphs and complete predictive coverage is 0/49 contexts. Only age/period facts are emitted; unverified domain text is omitted. The 00:35 export lacks typed-material signatures/claim bindings; available typed resolution is 00:03 at 2026-08-07 and the rem0 Saturday sample is age30. Metadata or similar prose cannot prove the required input-bound domain/direction/timing/conflict/certainty chain. Existing Owner-authorized interpretation authority remains recognized. Runtime on the PR branch still has its old golden special case; OR4 neither changes nor inspects deployed runtime.
+
+Evidence Node tests 48/48; actual mutation controls 27/27 rejected; deterministic generation two passes equal; all eight age counters zero with inspected-row details. Five domain counters are zero over **zero emitted predictions**, not a content coverage PASS. `machineContentAudit=FAIL`, `ownerHumanReview=PENDING`, `productContentStatus=NO_GO`. PreCommit/PostCommit and diff-check passed for the evidence commit. Full Flutter/analyzer were not rerun because Dart/application/Flutter-test delta is 0.
+
+Package: `OWNER_REVIEW_THAI_PREDICTIVE_NARRATIVE_V2_RUNTIME_V2_OR4_SINGLE_PATH_ddc81af.zip`; SHA-256 `A83157D811B515C7D841D1ACF306AF8595123DA6E8A2C75FBDEE8A711FBA515B`. Manifest25; extracted27; CRC/extraction/missing/extra/hash/size/secret-pattern/absolute-path errors0. See `docs/OR4_CLOSEOUT.md` and `docs/OR4_SEMANTIC_FEASIBILITY.md`. The package/status commit is the commit containing this entry. PR115 remains Open + Draft. No runtime/UI/export/PDF/infographic/Flutter-test/Production Canon/product-acceptance changes, no Product artifact regeneration, no Merge/Ready/Deploy or Firebase/Production change.
+
+
+
+## PR115 OR3 — content contract gate candidate (2026-09-03)
+
+Status: **PR115 OR3 CONTENT CONTRACT CANDIDATE READY — OR2 PRODUCT CONTENT REJECTED — PENDING OWNER CONTENT REVIEW — DRAFT — NOT MERGED — NOT DEPLOYED**.
 
 Owner rejected OR2 at the Product Content gate. OR2 is now recorded accurately as **ENGINEERING COVERAGE PASS / PRODUCT CONTENT FAIL / OWNER ACCEPTANCE NOT GRANTED**. The former 49-context “human review” file is reclassified as `MACHINE_CONTENT_AUDIT`; its historical rows are preserved, while `ownerHumanReview=PENDING` and `productContentStatus=NO_GO` are explicit. Recomputed OR2 findings are: future-tense past copy 39/49 contexts, unresolved “จะเดินหน้า” plus “เดินช้าลง” in work copy 43/49, Current-domain risk clauses reused in rolling-12 copy 98 and next-period copy 33, and the phrase “ด้านสุขภาพและการพัก” 47 actual hits (34 health-owner + 13 rolling-12), not the cited estimate 46. Reuse remains work 6 distinct/max 29, finance 5/26, relationship 6/17 and health 6/19.
 
