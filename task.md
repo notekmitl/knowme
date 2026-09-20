@@ -1,6 +1,6 @@
 # Active Task - BaZi Reader V4 Owner copy acceptance repair (2026-09-20)
 
-Status: **RELEASE CANDIDATE VALIDATED — PRECOMMIT PASS, DELIVERY PENDING**
+Status: **COMPLETE — PR #138 MERGED, HOSTING RELEASED, PRODUCTION QA PASSED**
 
 ## Goal
 
@@ -36,10 +36,11 @@ location data reaches the Reader V3 apparent-solar-time calculation.
 - [x] Analyzer policy and Local Gate PreCommit pass on the final source and
       documentation candidate; analyzer reports 282 inherited non-fatal
       diagnostics and the Gate full suite passes 3,084/3,084.
-- [ ] Local Gate PostCommit passes on the committed tree.
-- [ ] PR is pushed, checked, merged, and only Firebase Hosting is deployed.
-- [ ] Production bundle and a real Production PDF pass final QA.
-- [ ] CURRENT_STATUS, HANDOFF, ROADMAP, and Reader V4 documentation match the
+- [x] Local Gate PostCommit passes on the committed application tree.
+- [x] PR #138 is pushed and merged; GitHub reported the PR mergeable/clean and
+      no repository checks were configured. Only Firebase Hosting was deployed.
+- [x] Production bundle and a real Production PDF pass final QA.
+- [x] CURRENT_STATUS, HANDOFF, ROADMAP, and Reader V4 documentation match the
       released state.
 
 ---

@@ -11,7 +11,7 @@ returned by Reader V3 into a readable past-present-future life timeline. It
 does not change the Four Pillars, apparent-solar-time policy, input
 fingerprint, luck-cycle direction, chart persistence, or API contract.
 
-## Owner-copy acceptance repair candidate (2026-09-20)
+## Owner-copy acceptance repair release (2026-09-20)
 
 The follow-up keeps the same interpretation and calculation contract while
 repairing the shared Thai copy composer:
@@ -45,8 +45,20 @@ analyzer policy with 282 inherited non-fatal diagnostics. Three Web projections
 and three PDF projections use the same report object. The PDFs contain 12
 visually inspected A4 pages with no missing section, blank page, clipping,
 overlap, overflow, or Thai/CJK glyph defect; embedded fonts remain Noto Sans
-Thai Regular/Bold and Noto Sans SC Regular. PostCommit, PR delivery,
-Hosting-only release, and live QA remain pending at this checkpoint.
+Thai Regular/Bold and Noto Sans SC Regular. Local Gate PreCommit/PostCommit
+pass, and PR #138 merged as `949c6d16`, tree `04ca7169`.
+
+Hosting-only release `1789886487340000` / version `b89bf52264152570` serves
+cache pin `949c6d1`. The live 8,611,124-byte bundle matches the exact-merge
+build at SHA-256
+`369AFF2D8B1BF7DED42075C9750A6E8CE667158A7E40FE1464DE910AEDD1D06D`,
+contains the Production API and `/beta/chinese`, and has zero actual loopback
+endpoint. Production Web QA confirms the repaired copy and complete bounded
+timeline with zero application console errors. The browser-downloaded PDF is
+four A4 pages / 33,082 bytes / SHA-256
+`AD7AE0A7E370CE8398648A1A22F95BB277677D7E6CD652004C6D56759009D69E`;
+all pages pass parity, font, glyph, clipping, overlap, overflow, and blank-page
+review. No Backend or other Firebase resource was deployed.
 
 ## Reader order
 

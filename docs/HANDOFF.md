@@ -1,7 +1,6 @@
 ## Handoff - BaZi Reader V4 Owner copy repair (2026-09-20)
 
-Work continues on `codex/bazi-reader-v4-owner-copy-fixes` from `f955952`.
-The source candidate applies the five Owner-approved changes in the shared
+The release is complete. PR #138 applies the five Owner-approved changes in the shared
 Reader composer and additionally fixes only evidenced overclaim, repetition,
 and unnatural joins. It does not change calculation rules, Four Pillars,
 report headings/layout, backend application code, Thai astrology, or
@@ -23,10 +22,16 @@ section, blank page, clipping, overlap, overflow, duplicate accepted phrase,
 or broken Thai/Chinese glyph. Embedded fonts are Noto Sans Thai Regular/Bold
 and Noto Sans SC Regular.
 
-Next: commit, pass PostCommit, open the PR, wait for review checks, merge,
-build the exact merge for Production, deploy Firebase Hosting only, and
-verify the live bundle plus a real downloaded PDF. Do not deploy backend or
-any other Firebase resource.
+Local Gate PreCommit/PostCommit pass. PR #138 merged as `949c6d16`, tree
+`04ca7169`. Hosting-only release `1789886487340000` / version
+`b89bf52264152570` serves pin `949c6d1`; the live bundle hash matches the
+exact-merge build and has zero actual loopback endpoint. Production Web QA
+passes with zero application console errors. The real 4-page PDF is 33,082
+bytes, SHA-256
+`AD7AE0A7E370CE8398648A1A22F95BB277677D7E6CD652004C6D56759009D69E`;
+every rendered page passes content, font, glyph, clipping, overlap, overflow,
+and blank-page review. No release action remains. Do not deploy Backend or any
+non-Hosting Firebase resource for this closeout.
 
 ## Handoff - Windows Thai Mirror golden determinism (2026-09-19)
 

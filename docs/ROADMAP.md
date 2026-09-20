@@ -1,6 +1,6 @@
 # KnowMe Roadmap+
 
-## Active release - BaZi Reader V4 Owner copy acceptance repair (2026-09-20)
+## Completed release - BaZi Reader V4 Owner copy acceptance repair (2026-09-20)
 
 The Owner-approved copy follow-up is implemented centrally and has no BaZi
 calculation or product-layout delta. It calibrates claims to calculated signals,
@@ -10,11 +10,13 @@ and keeps all previously hidden technical details hidden.
 Bangkok, Chiang Mai, and Phuket have end-to-end input-propagation and
 apparent-solar regression coverage. Focused Flutter 21/21, backend 38/38, full
 Flutter 3,084/3,084, three Web projections, and three PDFs / 12 inspected pages
-pass. Local Gate PreCommit also passes the final candidate, including analyzer
-policy with 282 inherited non-fatal diagnostics. Remaining work is PostCommit,
-PR review and merge, exact-merge Hosting-only deployment, and Production
-Web/PDF QA. Backend, Firebase data, and Thai astrology remain outside this
-release.
+pass. Local Gate PreCommit/PostCommit pass, including analyzer policy with 282
+inherited non-fatal diagnostics. PR #138 merged as `949c6d16`; Hosting-only
+release `1789886487340000` / version `b89bf52264152570` serves pin `949c6d1`.
+The live bundle matches the exact merge, and Production Web/PDF QA passes all
+content, console, font, glyph, clipping, overlap, overflow, and blank-page
+checks. Backend, non-Hosting Firebase resources, Production data, and Thai
+astrology remain unchanged. No release action remains.
 
 ## Completed baseline unblock - Windows Thai Mirror goldens (2026-09-19)
 
