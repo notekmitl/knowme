@@ -39,7 +39,10 @@ void main() {
       await tester.scrollUntilVisible(
         find.byKey(const Key('western-reader-v2-method')),
         500,
-        scrollable: find.byKey(const Key('western-reader-v2-scroll')),
+        scrollable: find.descendant(
+          of: find.byKey(const Key('western-reader-v2-scroll')),
+          matching: find.byType(Scrollable),
+        ),
       );
       expect(find.text('วิธีคำนวณ'), findsOneWidget);
       expect(find.text('ข้อจำกัดของคำอ่าน'), findsOneWidget);
