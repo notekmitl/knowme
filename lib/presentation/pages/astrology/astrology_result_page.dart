@@ -25,8 +25,11 @@ class _AstrologyResultPageState extends State<AstrologyResultPage> {
   static const _violet = Color(0xFF8B7CF6);
   static const _gold = Color(0xFFF2C66D);
 
-  final _coordinator = AstrologyGenerationCoordinator();
+  AstrologyGenerationCoordinator? _generationCoordinator;
   bool _autoGenerating = false;
+
+  AstrologyGenerationCoordinator get _coordinator =>
+      _generationCoordinator ??= AstrologyGenerationCoordinator();
 
   @override
   void initState() {
