@@ -81,3 +81,9 @@ copy tests, direct-handoff/provider tests, legacy Fusion fingerprint regression,
 responsive result-page widget tests at 390 px and 1280 px, full Flutter tests,
 analyzer, benchmark, Production Web build, and live authenticated desktop/mobile
 timing after Backend-first deployment.
+
+The source candidate passes backend 46/46, focused Flutter 51/51, complete
+Flutter 3,093/3,093, analyzer policy with 275 inherited non-fatal diagnostics
+and no task-source diagnostic, the three-case benchmark, and the
+Production-configured Web build in GitHub CI run `35508539559`. Live timing is
+not inferred from the pure-engine benchmark and remains a post-deployment gate.

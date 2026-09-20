@@ -1,6 +1,6 @@
 # Active Task - Western Astrology Reader V2 and generation performance (2026-09-20)
 
-Status: **IN PROGRESS**
+Status: **SOURCE VALIDATED — PR #142 OPEN — DEPLOYMENT PENDING**
 
 ## Goal
 
@@ -54,7 +54,18 @@ without redundant Firestore round trips.
 - [ ] Pass backend tests, focused Flutter tests, analyzer policy, complete
       Flutter suite, Production Web build, PR checks, merge, Backend-first
       deploy, Hosting deploy, and live desktop/mobile QA.
-- [ ] Update CURRENT_STATUS, HANDOFF, ROADMAP, task result, and V2 documentation.
+- [x] Update CURRENT_STATUS, HANDOFF, ROADMAP, task result, and V2 documentation.
+
+## Candidate evidence
+
+- Backend: 46/46 tests pass.
+- Pure engine benchmark: three Thai cases × 500 iterations, median
+  0.118–0.123 ms against the 25 ms threshold.
+- GitHub CI run `35508539559`: focused Flutter 51/51; full Flutter
+  3,093/3,093; analyzer policy passes with 275 inherited non-fatal diagnostics
+  and no task-source diagnostic; Production-configured Web build passes.
+- Draft PR: #142. Merge, Backend-first deploy, Hosting deploy, and live
+  one-POST desktop/mobile timing remain intentionally unclaimed.
 
 ---
 

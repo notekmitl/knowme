@@ -9,9 +9,12 @@ dominance, house and aspect synthesis, complete fallback planet copy, direct
 API handoff, and one authenticated atomic persistence batch.
 
 Backend validation passes 46/46 and the pure engine measures 0.118–0.123 ms
-median over three 500-iteration Thai cases. Remaining work is the governed
-Flutter/analyzer/full/Web gate, review and merge, Backend-first rollout,
-Hosting rollout, and authenticated Production timing/desktop/mobile QA.
+median over three 500-iteration Thai cases. GitHub CI run `35508539559` passes
+focused Flutter 51/51, full Flutter 3,093/3,093, analyzer policy with 275
+inherited non-fatal diagnostics and no task-source diagnostic, and the
+Production-configured Web build. Remaining work is PR #142 review and merge,
+Backend-first rollout, Hosting rollout, and authenticated Production timing/
+desktop/mobile QA.
 
 ## Completed release - BaZi Reader V4 conversational Thai (2026-09-20)
 

@@ -1,6 +1,6 @@
 ## Active release - Western Astrology Reader V2 and performance (2026-09-20)
 
-Status: **IMPLEMENTED — RELEASE VALIDATION IN PROGRESS**
+Status: **SOURCE VALIDATED — PR #142 OPEN — DEPLOYMENT PENDING**
 
 - V2 resolves local civil time through the submitted IANA timezone before
   Swiss Ephemeris calculation. The Owner case now uses
@@ -15,8 +15,13 @@ Status: **IMPLEMENTED — RELEASE VALIDATION IN PROGRESS**
   Canonical profile fields must match the calculation input.
 - Backend regression passes 46/46. The three-case, 500-iteration engine
   benchmark passes with 0.118–0.123 ms medians against a 25 ms threshold.
-- Flutter/analyzer/Web/PR/release and live Production timing gates remain open;
-  no deployment is claimed yet.
+- GitHub CI run `35508539559` passes the governed PreCommit gate: focused
+  Flutter 51/51, complete Flutter 3,093/3,093, analyzer policy with 275
+  inherited non-fatal diagnostics and no task-source diagnostic, plus the
+  Production-configured Web build and endpoint guards.
+- Draft PR #142 contains the exact validated source. Review/merge,
+  Backend-first rollout, Hosting rollout, and authenticated Production
+  desktop/mobile timing remain open; no deployment is claimed yet.
 
 See `docs/WESTERN_ASTROLOGY_READER_V2.md` for the contract and release gates.
 

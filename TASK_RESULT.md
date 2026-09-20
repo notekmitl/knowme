@@ -1,6 +1,6 @@
 # Task Result - Western Astrology Reader V2 and generation performance
 
-**Result: IMPLEMENTED — RELEASE VALIDATION IN PROGRESS.**
+**Result: SOURCE VALIDATED — PR #142 OPEN — DEPLOYMENT PENDING.**
 
 Western Natal V2 now resolves the historical local civil time before UTC/Julian
 conversion, returns a deterministic whole-chart contract and conversational
@@ -12,9 +12,14 @@ Gemini/Sagittarius/Pisces. Backend regression passes 46/46. The repeatable
 three-case benchmark passes with 0.118–0.123 ms medians over 500 iterations,
 well below the 25 ms release threshold.
 
-Flutter/analyzer/full-suite/Web validation, PR review/merge, Backend-first
-deployment, Hosting deployment, and authenticated live timing/visual QA remain
-open. No Production release is claimed at this stage.
+GitHub CI run `35508539559` passes the governed PreCommit gate, including
+focused Flutter 51/51, complete Flutter 3,093/3,093, analyzer policy with 275
+inherited non-fatal diagnostics and no task-source diagnostic, and the
+Production-configured Web build. PR #142 carries the exact validated source.
+
+PR review/merge, Backend-first deployment, Hosting deployment, and
+authenticated live timing/visual QA remain open. No Production release is
+claimed at this stage.
 
 ---
 

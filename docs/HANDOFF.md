@@ -1,7 +1,8 @@
 # Handoff - Western Astrology Reader V2 (2026-09-20)
 
-The source candidate is implemented and Backend validation passes. Do not
-release Hosting before the authenticated backend revision is Ready.
+The source candidate is implemented and the governed release gate passes. Do
+not release Hosting before the authenticated backend revision is deployed and
+verified.
 
 - Calculation contract `western_natal_v2` converts IANA local civil time to
   the exact UTC instant before Swiss Ephemeris tropical/Placidus calculation.
@@ -12,12 +13,17 @@ release Hosting before the authenticated backend revision is Ready.
 - The selected flow returns the API chart directly and persists profile, chart,
   Fusion snapshot, and invalidation in one authenticated batch.
 - Backend tests pass 46/46; the repeatable three-case engine benchmark passes
-  at 0.118–0.123 ms median. Flutter/full/analyzer/Web/live gates remain open.
+  at 0.118–0.123 ms median. GitHub CI run `35508539559` passes focused Flutter
+  51/51, the complete Flutter suite 3,093/3,093, analyzer policy with 275
+  inherited non-fatal diagnostics and no task-source diagnostic, and the
+  Production-configured Web build.
+- PR #142 remains Draft pending final review. Merge, Backend/Hosting rollout,
+  and authenticated live desktop/mobile timing remain open.
 - Scope excludes Thai astrology, BaZi calculation/report, Thai goldens,
   `product-acceptance/`, Firestore rules, Functions, Storage, IAM, and existing
   Production data.
 
-Release order: validate final source, merge, deploy Cloud Run, verify health and
+Release order: review and merge, deploy Cloud Run, verify health and
 authenticated generation, build exact merge, deploy Hosting only, then measure
 one-POST desktop/mobile click-to-result behavior and inspect the live reader.
 
