@@ -1,3 +1,73 @@
+# Active Task - BaZi Reader V4 conversational Thai (2026-09-20)
+
+Status: **PRECOMMIT PASSED — COMMIT/POSTCOMMIT/RELEASE PENDING**
+
+## Goal
+
+Rewrite the shared Reader V4 Thai composer so the report reads like a careful
+fortune reader speaking directly to the chart owner: answer first, use short
+ordinary sentences, follow with practical guidance, and avoid unsupported
+certainty. Keep the accepted headings and layout while hiding calculation-input
+details from both Web and PDF.
+
+## Boundaries
+
+- Do not change Four Pillars, Day Master, Da Yun, Liu Nian, apparent-solar
+  time, fingerprints, persistence, API, or backend application source.
+- Do not change Thai astrology, Thai goldens, `product-acceptance/`, Firestore,
+  Functions, Auth, Storage, IAM, or Production data.
+- Make shared deterministic copy changes only; do not hardcode any QA fixture.
+- Deploy Firebase Hosting only after all local gates, PR checks, and merge pass.
+
+## Acceptance checklist
+
+- [x] Replace report-like system terms and long indirect sentences with short,
+      direct Thai in the shared Reader V2/V4 composers.
+- [x] State the trend disclaimer once in the introduction and remove repeated
+      caution boilerplate from individual cards.
+- [x] Suppress duplicate past/year/cycle paragraphs deterministically without
+      changing their underlying calculated signals.
+- [x] Hide `ข้อมูลที่ใช้คำนวณ` from Reader V4 Web and PDF while keeping input
+      data available to calculation and automated tests.
+- [x] Cover Bangkok, Chiang Mai, Phuket, and Owner case 1982-06-06 00:03
+      Chiang Mai male with actual chart data.
+- [x] Pass focused Flutter 12/12 and backend 23/23 tests.
+- [x] Pass the complete Flutter suite 3,085/3,085 with Flutter 3.41.1 and the
+      bundled Python/PDF dependencies.
+- [x] Pass analyzer policy with 282 inherited non-fatal diagnostics and no
+      task-source diagnostic.
+- [x] Pass four Web projections at desktop/mobile widths and four PDF
+      projections with shared report semantics.
+- [x] Render and inspect all 12 PDF pages: no missing content, blank page,
+      clipping, overlap, overflow, or broken Thai/CJK glyph; CJK remains
+      Noto Sans SC Regular, not Thin.
+- [x] Build the release Web bundle and pass the Production API/route/loopback
+      endpoint guards.
+- [x] Pass Local Gate PreCommit on the documented final candidate: scope,
+      forbidden-text scan, analyzer, focused tests, and full 3,085/3,085.
+- [ ] Commit, pass Local Gate PostCommit, push, open PR, wait for checks, merge,
+      and deploy Firebase Hosting only.
+- [ ] Verify the live route and real Production PDF, then record release
+      identity and closeout evidence.
+
+## Candidate evidence
+
+- Web bundle: 8,609,231 bytes; SHA-256
+  `0C160CECC4914FAA6CDF52F63BB7A643A9605998154659B26184108DC5592B8B`;
+  `/beta/chinese` and the Production API are present once; actual loopback
+  endpoints are zero. The remaining `localhost` literal is the existing
+  hostname comparison, not an endpoint.
+- Bangkok PDF: 3 pages / 32,145 bytes / SHA-256
+  `F327759EEBE0AE5B2E204D1B1502782E42E16874582F5D6074E58B7FC03CCE2B`.
+- Chiang Mai PDF: 3 pages / 31,218 bytes / SHA-256
+  `4A7F32121F5A51D4FBD08BA310E7C38DAF24210588FA64E0FE0741ADCD3EA5A6`.
+- Owner Chiang Mai 00:03 PDF: 3 pages / 31,113 bytes / SHA-256
+  `792ABFEB052F8EEC785274F998D75BBC7DF7199515721053F50029D57AA02D58`.
+- Phuket PDF: 3 pages / 30,925 bytes / SHA-256
+  `B67BBC46DC6364F101351809428A6F7CD0BC115B8CD0794D599588208A72CE54`.
+
+---
+
 # Active Task - BaZi Reader V4 Owner copy acceptance repair (2026-09-20)
 
 Status: **COMPLETE — PR #138 MERGED, HOSTING RELEASED, PRODUCTION QA PASSED**

@@ -1,3 +1,31 @@
+## Active release - BaZi Reader V4 conversational Thai (2026-09-20)
+
+Status: **PRECOMMIT PASS — COMMIT/POSTCOMMIT/PR/RELEASE PENDING**
+
+- Shared Reader V2/V4 copy now uses short, direct Thai and practical guidance
+  without fixture-specific branches or unsupported event certainty.
+- The trend disclaimer appears once in the Reader V4 introduction. Duplicate
+  past, annual, and future-cycle paragraphs are suppressed deterministically.
+- `ข้อมูลที่ใช้คำนวณ` is hidden from Reader V4 Web and PDF; the chart input and
+  location/time evidence remain intact internally and under test.
+- Actual-chart QA covers Bangkok, Chiang Mai, Phuket, and Owner case
+  1982-06-06 00:03 Chiang Mai male. Web passes at 1440px and 390px.
+- Focused Flutter 12/12, backend 23/23, and complete Flutter 3,085/3,085 pass
+  with Flutter 3.41.1. Analyzer exits 0 under policy with 282 inherited
+  non-fatal diagnostics.
+- Four PDFs / 12 pages pass semantic, font, blank-page, clipping, overlap,
+  overflow, and glyph review. They use Noto Sans Thai Regular/Bold and Noto
+  Sans SC Regular; Thin is absent.
+- Release Web build passes the Production API and route checks. The bundle is
+  8,609,231 bytes / SHA-256
+  `0C160CECC4914FAA6CDF52F63BB7A643A9605998154659B26184108DC5592B8B`;
+  actual loopback endpoints are zero.
+- Calculation, Backend application, Thai astrology, Firebase resources, and
+  Production data remain unchanged.
+- Local Gate PreCommit passes scope, forbidden-text, analyzer, focused, and
+  full-suite checks. Commit, PostCommit, PR, merge, Hosting-only deployment,
+  and live Web/PDF QA are still pending.
+
 ## Completed release - BaZi Reader V4 Owner copy acceptance repair (2026-09-20)
 
 Status: **PASS — PR #138 MERGED, HOSTING RELEASED, PRODUCTION-VERIFIED**

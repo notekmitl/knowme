@@ -1,17 +1,24 @@
 {
   "schema_version": 1,
-  "task_id": "knowme-bazi-reader-v4-owner-copy-closeout",
-  "expected_branch": "codex/bazi-reader-v4-owner-copy-closeout",
-  "expected_worktree": "C:/Users/USER/Documents/Knowme/bazi-reader-v4-owner-copy-release",
-  "base_ref": "949c6d16f4d99a3029ded28f2f524521def5d9d2",
+  "task_id": "knowme-bazi-reader-v4-conversational-thai",
+  "expected_branch": "codex/bazi-reader-v4-conversational-thai",
+  "expected_worktree": "C:/Users/USER/Documents/Knowme/bazi-reader-v4-conversational-thai",
+  "base_ref": "90e59316a9d785829faca1ef583406ad735c4dd9",
   "allowed_files": [
     "TASK_RESULT.md",
+    "backend/tests/test_bazi_builder.py",
     "docs/CHINESE_ASTROLOGY_READER_V4.md",
     "docs/CURRENT_STATUS.md",
     "docs/HANDOFF.md",
     "docs/ROADMAP.md",
+    "lib/features/bazi_compatibility/application/bazi_compatibility_report_builder.dart",
+    "lib/features/bazi_compatibility/application/bazi_reader_v2.dart",
+    "lib/features/bazi_compatibility/application/bazi_reader_v4.dart",
     "task.md",
-    "task_scope.json"
+    "task_scope.json",
+    "test/bazi_compatibility_pdf_test.dart",
+    "test/bazi_compatibility_report_test.dart",
+    "test/bazi_compatibility_routes_test.dart"
   ],
   "allowed_globs": [],
   "forbidden_files": [
@@ -49,10 +56,15 @@
     "[A-Za-z]:\\\\Users\\\\",
     "C:/Users/"
   ],
-  "focused_tests": [],
-  "full_test_policy": "skip",
-  "full_test_command": "SKIP",
-  "analyze_command": "SKIP",
-  "commit_message_regex": "^docs: .{10,72}$",
+  "focused_tests": [
+    "flutter test --no-pub test/bazi_compatibility_report_test.dart",
+    "flutter test --no-pub test/bazi_compatibility_routes_test.dart",
+    "flutter test --no-pub test/bazi_compatibility_pdf_test.dart",
+    "& (Join-Path $env:TEMP 'knowme-bazi-reader-v4-py\\Scripts\\python.exe') -m pytest -q backend/tests/test_bazi_builder.py"
+  ],
+  "full_test_policy": "required",
+  "full_test_command": "flutter test --no-pub --concurrency=4 --reporter compact",
+  "analyze_command": "flutter analyze --no-pub --no-fatal-warnings --no-fatal-infos",
+  "commit_message_regex": "^fix: .{10,72}$",
   "require_clean_tree_after_commit": true
 }

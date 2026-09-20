@@ -1,3 +1,52 @@
+# Task Result - BaZi Reader V4 conversational Thai
+
+**Result: PRECOMMIT PASS — COMMIT/POSTCOMMIT/PR/RELEASE PENDING.**
+
+The shared deterministic Reader V2/V4 composers now speak to the chart owner
+in short, ordinary Thai. Each section leads with the useful point, follows with
+a practical action, and avoids report-like terms, repeated system labels, and
+claims that an event must happen. The single Reader V4 introduction explains
+that the reading is a trend for planning, not a guarantee; individual cards do
+not repeat that warning.
+
+Reader V4 no longer emits `ข้อมูลที่ใช้คำนวณ` on Web or PDF. The birth input,
+coordinates, timezone, local civil time, and apparent-solar evidence remain
+inside the chart and tests. Four actual charts cover Bangkok, Chiang Mai,
+Phuket, and the Owner case 1982-06-06 00:03 Chiang Mai male. No calculation,
+pillar, API, persistence, backend application, Thai astrology, Firebase, or
+Production-data source changed.
+
+Focused Flutter tests pass 12/12 and backend tests pass 23/23. The complete
+Flutter suite passes 3,085/3,085 with Flutter 3.41.1 and bundled Python/PDF
+dependencies. Analyzer exits 0 under repository policy with 282 inherited
+non-fatal diagnostics. Four real Web projections pass at 1440px and 390px.
+
+The four PDFs contain three pages each. All 12 pages were rendered with
+Poppler and inspected at page and contact-sheet level. Missing section, blank
+page, clipping, overlap, overflow, and damaged Thai/CJK glyph findings are
+zero. Embedded fonts are Noto Sans Thai Regular/Bold and Noto Sans SC Regular;
+Thin is absent. PDF SHA-256 values are:
+
+- Bangkok: `F327759EEBE0AE5B2E204D1B1502782E42E16874582F5D6074E58B7FC03CCE2B`;
+- Chiang Mai: `4A7F32121F5A51D4FBD08BA310E7C38DAF24210588FA64E0FE0741ADCD3EA5A6`;
+- Owner Chiang Mai 00:03:
+  `792ABFEB052F8EEC785274F998D75BBC7DF7199515721053F50029D57AA02D58`;
+- Phuket: `B67BBC46DC6364F101351809428A6F7CD0BC115B8CD0794D599588208A72CE54`.
+
+The release Web bundle is 8,609,231 bytes at SHA-256
+`0C160CECC4914FAA6CDF52F63BB7A643A9605998154659B26184108DC5592B8B`.
+It contains the Production API and `/beta/chinese` once and contains zero
+actual loopback endpoint. The one generic `localhost` literal remains an
+inherited hostname comparison. Local Gate, PR, merge, Hosting-only deployment,
+and Production Web/PDF QA remain release steps.
+
+Local Gate PreCommit passes its branch/worktree/scope and forbidden-text
+guards, analyzer policy, focused Flutter 12/12, backend 23/23, and complete
+Flutter 3,085/3,085. Generated tracked validator outputs were restored one by
+one and are excluded from the candidate.
+
+---
+
 # Task Result - BaZi Reader V4 Owner copy acceptance repair
 
 **Result: COMPLETE — PR #138 MERGED, HOSTING RELEASED, PRODUCTION QA PASSED.**

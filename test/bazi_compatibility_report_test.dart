@@ -151,8 +151,13 @@ void main() {
       expect(text, contains('ภาพระยะยาว · สองดวงจรถัดไป'));
       expect(text, contains('乙酉 · 2571–2580'));
       expect(text, contains('丙戌 · 2581–2590'));
-      expect(text, isNot(contains('จะเกิด')));
-      expect(text, contains('ข้อมูลที่ใช้คำนวณ'));
+      expect(
+        RegExp(
+          'คำอ่านนี้เป็นแนวโน้มเพื่อช่วยวางแผน ไม่ได้หมายความว่าเหตุการณ์จะต้องเกิดขึ้น',
+        ).allMatches(text),
+        hasLength(1),
+      );
+      expect(text, isNot(contains('ข้อมูลที่ใช้คำนวณ')));
       expect(text, isNot(contains('ข้อมูลดวงที่ใช้ประกอบคำอ่าน')));
       expect(text, isNot(contains('กติกาและข้อมูลสำหรับตรวจซ้ำ')));
       expect(text, isNot(contains('ที่มาของผลคำนวณและคำอ่าน')));
@@ -160,27 +165,32 @@ void main() {
       expect(text, isNot(contains(' ช่อง')));
       expect(text, isNot(contains('หลักที่ใช้: Day Master')));
       expect(
-        RegExp(
-          'อ่านแต่ละช่วงเพื่อทบทวนว่า คุณได้เรียนรู้อะไร และวิธีรับมือใดยังนำมาใช้ได้ในปัจจุบัน',
-        ).allMatches(text),
-        hasLength(1),
-      );
-      expect(
-        text,
-        isNot(
-          contains(
-            'จุดสำคัญของรอบนี้คือสิ่งที่ได้เรียนรู้และวิธีรับมือที่ยังนำมาใช้ได้ในปัจจุบัน',
-          ),
-        ),
-      );
-      expect(
         text,
         contains(
-          'หัวข้อนี้อ่านสัญญาณรายปีเทียบกับพื้นดวง ส่วนดวงจรสิบปีด้านล่างเป็นภาพระยะยาวอีกชั้นหนึ่ง',
+          'แต่ละปีมีเรื่องเด่นต่างกัน ถ้าช่วงปีทับกับดวงจรสิบปี ให้อ่านรายปีเป็นเรื่องใกล้ตัว',
         ),
       );
-      expect(text, contains('ไม่ถือว่าเป็นคำรับรองเหตุการณ์'));
-      expect(report.sections.last.title, 'ข้อมูลที่ใช้คำนวณ');
+      expect(report.sections.last.title, 'ภาพระยะยาว · สองดวงจรถัดไป');
+      for (final phrase in const [
+        'แบบจำลอง',
+        'กรอบคำอ่าน',
+        'สัญญาณรายปี',
+        'สัญญาณเสียดทาน',
+        'แนวทางที่ควรพิจารณา',
+      ]) {
+        expect(text, isNot(contains(phrase)), reason: phrase);
+      }
+
+      final readerParagraphs = <String>[
+        report.subtitle,
+        for (final section in report.sections) ...[
+          if (section.intro != null && section.intro!.isNotEmpty)
+            section.intro!,
+          ...section.paragraphs,
+          ...section.rows.map((row) => row.value),
+        ],
+      ].where((value) => value.length >= 40).toList(growable: false);
+      expect(readerParagraphs.toSet(), hasLength(readerParagraphs.length));
     });
 
     test('central composer fixes joins and unsupported certainty', () {
@@ -203,28 +213,28 @@ void main() {
       expect(
         reading.overview,
         contains(
-          'ในโครงสร้างดวงมีพลังเด่น 2 กลุ่ม: มาตรฐาน ความรับผิดชอบ และแรงกดดัน; กับความคิด การสื่อสาร และผลงาน',
+          'เรื่องที่เด่นในดวงนี้มี 2 ด้าน คือ มาตรฐาน ความรับผิดชอบ และแรงกดดัน กับความคิด การสื่อสาร และผลงาน',
         ),
       );
       expect(
         reading.overview,
         contains(
-          'จึงควรใช้ข้อมูลและระบบช่วยเปลี่ยนแรงกดดันให้เป็นผลงานที่ตรวจสอบได้',
+          'คุณใช้จุดเด่นนี้ได้ดีเมื่อมีข้อมูลและระบบช่วยเปลี่ยนแรงกดดันให้เป็นผลงานที่ตรวจสอบได้',
         ),
       );
       expect(
         reading.work,
         contains(
-          'แนวโน้มของดวงสนับสนุนงานที่ต้องตัดสินใจภายใต้ข้อจำกัด ตั้งมาตรฐาน และรับผิดชอบผลลัพธ์ รวมถึงงานที่ต้องคิด อธิบาย ออกแบบ หรือแก้ปัญหาให้เกิดผลงานที่นำไปใช้ได้',
+          'เรื่องงาน ดวงนี้หนุนงานที่ต้องตัดสินใจภายใต้ข้อจำกัด ตั้งมาตรฐาน และรับผิดชอบผลลัพธ์ และงานที่ต้องคิด อธิบาย ออกแบบ หรือแก้ปัญหาให้เกิดผลงานที่นำไปใช้ได้',
         ),
       );
       expect(
         reading.relationships,
-        contains('ในแบบจำลองนี้ หมวดคู่ครองมีน้ำหนักเด่น'),
+        contains('ความสัมพันธ์เป็นเรื่องเด่นในดวงนี้'),
       );
       expect(
         reading.relationships,
-        contains('หัวข้อที่ควรทบทวนคือความเท่าเทียม พื้นที่ส่วนตัว'),
+        contains('ควรรักษาความเท่าเทียม พื้นที่ส่วนตัว'),
       );
       expect(reading.relationships, isNot(contains('เมื่อคบจริง คุณ')));
       expect(reading.relationships, isNot(contains('ความสัมพันธ์จึงมีผล')));
@@ -281,13 +291,13 @@ void main() {
       expect(
         reading.currentCycle,
         contains(
-          'ช่วงปัจจุบันมีสัญญาณปะทะกับพื้นดวง จึงควรวางแผนปรับระบบ ตาราง หรือบทบาท และเว้นจังหวะก่อนตัดสินใจเรื่องสำคัญ',
+          'แผนเดิมอาจต้องปรับ ทั้งเรื่องงาน บทบาท หรือตารางชีวิต ควรเว้นจังหวะก่อนตัดสินใจเรื่องสำคัญ',
         ),
       );
       expect(
         reading.annual,
         'ปีนี้แรงกดดันและเส้นตายเด่น '
-        'สัญญาณรายปีย้ำธีมการปรับระบบของช่วงปัจจุบัน '
+        'ปีนี้ย้ำว่าควรปรับระบบและเผื่อแผนสำรองจากช่วงปัจจุบัน '
         'จึงควรเลือกงานสำคัญหนึ่งเรื่องและกำหนดแผนดำเนินงานให้ชัด',
       );
       expect(
