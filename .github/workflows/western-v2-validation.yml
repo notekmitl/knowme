@@ -1,0 +1,68 @@
+name: Western V2 temporary validation
+
+on:
+  push:
+    branches: [codex/western-reader-v2-performance]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          lfs: true
+
+      - name: Install system and Python dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y poppler-utils
+          python3 -m pip install --disable-pip-version-check -r backend/requirements.txt pypdf Pillow
+
+      - name: Install pinned Flutter SDK
+        run: |
+          archive="$RUNNER_TEMP/flutter_linux_3.41.1-stable.tar.xz"
+          curl --fail --location --retry 3 \
+            --output "$archive" \
+            https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_3.41.1-stable.tar.xz
+          echo "68f51b1bb3728d3be5a756f23a38af1f776e05c0729dd3a91d3dcf2c20d78138  $archive" | sha256sum --check
+          tar --no-same-owner -xf "$archive" -C "$RUNNER_TEMP"
+          echo "$RUNNER_TEMP/flutter/bin" >> "$GITHUB_PATH"
+
+      - name: Resolve Flutter packages
+        env:
+          CI: "true"
+        run: |
+          flutter config --no-analytics
+          flutter pub get
+
+      - name: Run governed pre-commit gate
+        env:
+          CI: "true"
+        run: |
+          sudo mkdir -p /workspace/scratch/c2cf99c56abf
+          sudo chown -R "$USER":"$USER" /workspace/scratch
+          cp -a "$GITHUB_WORKSPACE" /workspace/scratch/c2cf99c56abf/knowme
+          cd /workspace/scratch/c2cf99c56abf/knowme
+          git checkout -B codex/western-reader-v2-performance "$GITHUB_SHA"
+          sudo ln -sf "$(command -v pwsh)" /usr/local/bin/powershell.exe
+          pwsh -NoProfile -File scripts/knowme_task_gate.ps1 \
+            -ScopeFile task_scope.json -Phase PreCommit
+
+      - name: Build production Web bundle
+        env:
+          CI: "true"
+        run: |
+          flutter build web --release --no-wasm-dry-run \
+            --dart-define=ASTROLOGY_API_BASE_URL=https://knowme-astrology-api-avbyttircq-as.a.run.app \
+            --dart-define=THAI_PUBLIC_EVIDENCE_BADGE_BETA=public_beta
+          test -s build/web/main.dart.js
+          ! grep -E 'http://(127\.0\.0\.1|localhost)' build/web/main.dart.js
+          grep -q 'knowme-astrology-api' build/web/main.dart.js

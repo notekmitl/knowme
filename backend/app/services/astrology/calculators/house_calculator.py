@@ -39,5 +39,7 @@ def calculate_houses(
 
     return {
         "cusps": houses_data[0],
-        "ascendant": houses_data[1][0]
+        "ascendant": houses_data[1][0],
+        "midheaven": houses_data[1][1],
+        "system": "Placidus",
     }

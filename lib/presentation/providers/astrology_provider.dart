@@ -2,17 +2,33 @@ import 'package:flutter/material.dart';
 
 import '../../data/models/astrology_chart_model.dart';
 
-import 'package:knowme/features/tests/fusion/application/fusion_astrology_mirror.dart';
-
 import '../../services/astrology_firestore_service.dart';
 
 import '../../services/astrology_api_service.dart';
 
-class AstrologyProvider extends ChangeNotifier {
-  final AstrologyFirestoreService _firestoreService =
-      AstrologyFirestoreService();
+typedef WesternChartLoader = Future<AstrologyChartModel?> Function(String uid);
+typedef WesternProviderGenerateFn =
+    Future<AstrologyChartModel> Function({
+      required String uid,
+      required String birthDate,
+      required String birthTime,
+      required double latitude,
+      required double longitude,
+    });
 
-  final AstrologyApiService _apiService = AstrologyApiService();
+class AstrologyProvider extends ChangeNotifier {
+  AstrologyProvider({
+    AstrologyFirestoreService? firestoreService,
+    WesternChartLoader? loadChartFn,
+    WesternProviderGenerateFn? generateChartFn,
+  }) : _loadChartFn =
+           loadChartFn ??
+           ((uid) => (firestoreService ?? AstrologyFirestoreService())
+               .getWesternNatalChart(uid)),
+       _generateChartFn = generateChartFn ?? _defaultGenerateChart;
+
+  final WesternChartLoader _loadChartFn;
+  final WesternProviderGenerateFn _generateChartFn;
 
   AstrologyChartModel? _chart;
 
@@ -26,6 +42,13 @@ class AstrologyProvider extends ChangeNotifier {
 
   String? get error => _error;
 
+  void usePreparedChart(AstrologyChartModel chart) {
+    _chart = chart;
+    _isLoading = false;
+    _error = null;
+    notifyListeners();
+  }
+
   Future<void> loadChart(String uid) async {
     try {
       _isLoading = true;
@@ -34,7 +57,7 @@ class AstrologyProvider extends ChangeNotifier {
 
       notifyListeners();
 
-      _chart = await _firestoreService.getWesternNatalChart(uid);
+      _chart = await _loadChartFn(uid);
     } catch (e) {
       _error = e.toString();
     } finally {
@@ -58,20 +81,13 @@ class AstrologyProvider extends ChangeNotifier {
 
       notifyListeners();
 
-      await AstrologyApiService.generateChart(
+      _chart = await _generateChartFn(
         uid: uid,
         birthDate: birthDate,
         birthTime: birthTime,
         latitude: latitude,
         longitude: longitude,
       );
-
-      _chart = await _firestoreService.getWesternNatalChart(uid);
-
-      final chart = _chart;
-      if (chart != null) {
-        await FusionAstrologyMirror.mirrorFromChart(uid: uid, chart: chart);
-      }
     } catch (e) {
       _error = e.toString();
     } finally {
@@ -79,5 +95,21 @@ class AstrologyProvider extends ChangeNotifier {
 
       notifyListeners();
     }
+  }
+
+  static Future<AstrologyChartModel> _defaultGenerateChart({
+    required String uid,
+    required String birthDate,
+    required String birthTime,
+    required double latitude,
+    required double longitude,
+  }) {
+    return AstrologyApiService.generateChart(
+      uid: uid,
+      birthDate: birthDate,
+      birthTime: birthTime,
+      latitude: latitude,
+      longitude: longitude,
+    );
   }
 }

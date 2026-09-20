@@ -1,4 +1,64 @@
-# Active Task - BaZi Reader V4 conversational Thai (2026-09-20)
+# Active Task - Western Astrology Reader V2 and generation performance (2026-09-20)
+
+Status: **IN PROGRESS**
+
+## Goal
+
+Replace the legacy Western Natal V1 experience with a deterministic Western
+Reader V2 that calculates the actual UTC birth instant, exposes the required
+whole-chart signals, reads naturally in Thai, and reaches the readable result
+without redundant Firestore round trips.
+
+## Confirmed baseline defects
+
+- V1 treats the supplied local civil clock as UTC. Owner case
+  `1982-06-06 00:03 Asia/Bangkok, Chiang Mai` therefore returns Cancer rising;
+  resolving the historical timezone first returns Pisces rising.
+- The pure Swiss Ephemeris chart build is approximately `0.06 ms` median, so
+  observed wait time is orchestration and persistence, not planet calculation.
+- The selected Western flow discards the API chart, performs repeated reads,
+  mirrors Fusion from the browser, probes again, and reloads after navigation.
+- V1 Thai planet copy is populated for only a small set of planet/sign pairs
+  and does not cover element, modality, polarity, dominance, house emphasis,
+  or major-aspect synthesis.
+
+## Boundaries
+
+- Preserve Thai astrology, BaZi calculation/report, Thai goldens,
+  `product-acceptance/`, Firestore rules, Functions, Storage, and IAM.
+- Use the existing deterministic Swiss Ephemeris backend; no external AI and
+  no Firestore-dependent calculation.
+- Known birth time and a resolved location remain mandatory. Never invent a
+  time, timezone, or coordinates.
+- Keep claims as tendencies and practical planning guidance, not guaranteed
+  events or medical/financial certainty.
+- Deploy Backend before Hosting, only after focused/full/analyzer/release gates
+  and merged exact source pass.
+
+## Acceptance checklist
+
+- [x] Resolve local civil time through the submitted IANA timezone and calculate
+      all planets/houses from the exact UTC instant.
+- [x] Cover Sun, Moon, Ascendant, element/modality/polarity balance, planet
+      dominance, house emphasis, and major aspects.
+- [x] Add a conversational Thai Reader V2 with overview, work, money, love,
+      energy/wellbeing, strengths, cautions, and practical guidance.
+- [x] Persist profile, Western chart, Fusion snapshot, and Fusion invalidation
+      in one authenticated server batch.
+- [x] Return the chart from the API and hand it directly to the destination;
+      no post-response Firestore freshness read or browser mirror on this path.
+- [x] Add correctness, auth, atomic-save, model, handoff, provider, copy, and
+      responsive UI regression coverage.
+- [ ] Benchmark pure calculation and end-to-end Production generation, proving
+      exactly one authenticated POST and no duplicate chart reload.
+- [ ] Pass backend tests, focused Flutter tests, analyzer policy, complete
+      Flutter suite, Production Web build, PR checks, merge, Backend-first
+      deploy, Hosting deploy, and live desktop/mobile QA.
+- [ ] Update CURRENT_STATUS, HANDOFF, ROADMAP, task result, and V2 documentation.
+
+---
+
+# Completed Task - BaZi Reader V4 conversational Thai (2026-09-20)
 
 Status: **COMPLETE — PR #140 MERGED, HOSTING RELEASED, PRODUCTION QA PASSED**
 

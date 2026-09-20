@@ -1,5 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:knowme/features/bazi_compatibility/application/bazi_compatibility_owner_fixtures.dart';
+import 'package:knowme/data/models/astrology_chart_model.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_astrology_handoff.dart';
 import 'package:knowme/features/thai_beta/domain/thai_beta_input.dart';
 
@@ -87,10 +88,8 @@ void main() {
       'delegates BaZi profile persistence to the authenticated API',
       () async {
         final events = <String>[];
-        var saveCalls = 0;
         final chart = BaziCompatibilityOwnerFixtures.chart(BaziOwnerCase.known);
         final handoff = ThaiBetaAstrologyHandoff(
-          saveProfile: (_, _) async => saveCalls++,
           generateBazi: (uid, profile) async {
             events.add('generate:$uid:bazi');
             expect(profile.birthTime, isEmpty);
@@ -105,18 +104,18 @@ void main() {
         );
 
         expect(events, ['generate:uid-1:bazi']);
-        expect(saveCalls, 0);
-        expect(prepared, same(chart));
+        expect(prepared.baziChart, same(chart));
+        expect(prepared.westernChart, isNull);
       },
     );
 
-    test('rejects Unknown-time Western before saving profile', () async {
-      var saveCalls = 0;
+    test('rejects Unknown-time Western before generation', () async {
+      var generateCalls = 0;
       final handoff = ThaiBetaAstrologyHandoff(
-        saveProfile: (_, _) async {
-          saveCalls++;
+        generateWestern: (_, _) async {
+          generateCalls++;
+          return _westernChart;
         },
-        generateWestern: (_, _) async => true,
       );
 
       await expectLater(
@@ -127,12 +126,34 @@ void main() {
         ),
         throwsStateError,
       );
-      expect(saveCalls, 0);
+      expect(generateCalls, 0);
+    });
+
+    test('returns Western API chart directly for the destination', () async {
+      var generateCalls = 0;
+      final handoff = ThaiBetaAstrologyHandoff(
+        generateWestern: (uid, profile) async {
+          generateCalls++;
+          expect(uid, 'uid-1');
+          expect(profile.birthTime, '00:35');
+          expect(profile.timezone, 'Asia/Bangkok');
+          return _westernChart;
+        },
+      );
+
+      final prepared = await handoff.prepare(
+        userId: 'uid-1',
+        input: _knownInput,
+        systemId: 'western',
+      );
+
+      expect(generateCalls, 1);
+      expect(prepared.westernChart, same(_westernChart));
+      expect(prepared.baziChart, isNull);
     });
 
     test('fails closed when selected BaZi generation fails', () async {
       final handoff = ThaiBetaAstrologyHandoff(
-        saveProfile: (_, _) async {},
         generateBazi: (_, _) async => throw StateError('generation failed'),
       );
 
@@ -153,6 +174,18 @@ final _knownInput = ThaiBetaInput(
   province: 'เชียงใหม่',
   provinceKey: 'chiang mai',
   gender: 'หญิง',
+);
+
+final _westernChart = AstrologyChartModel(
+  version: 'western_natal_v2',
+  contractId: 'knowme_western_reader_v2',
+  engineVersion: 'engine-v2',
+  inputHash: 'hash',
+  big3: const {'sun': 'Gemini', 'moon': 'Sagittarius', 'rising': 'Pisces'},
+  planets: const {},
+  insight: const {},
+  overallSummary: const {},
+  reader: const {'version': 'western_reader_th_v2'},
 );
 
 final _unknownInput = ThaiBetaInput(

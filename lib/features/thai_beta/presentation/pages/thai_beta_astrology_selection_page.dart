@@ -1,6 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:knowme/data/models/bazi_chart_model.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_analysis.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_analysis_clock.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_astrology_handoff.dart';
@@ -27,7 +26,7 @@ typedef ThaiBetaSelectionAnalysisExecutor =
 typedef ThaiBetaAstrologyUserResolver =
     Future<String?> Function(BuildContext context);
 typedef ThaiBetaAstrologySystemPreparer =
-    Future<BaziChartModel?> Function(
+    Future<ThaiBetaPreparedAstrology> Function(
       String userId,
       ThaiBetaInput input,
       ThaiBetaAstrologySystem system,
@@ -37,7 +36,7 @@ typedef ThaiBetaAstrologyDestinationBuilder =
       BuildContext context,
       String userId,
       ThaiBetaAstrologySystem system,
-      BaziChartModel? preparedBaziChart,
+      ThaiBetaPreparedAstrology preparedResult,
     );
 
 /// The single post-form decision point for Thai, Chinese BaZi, and the existing
@@ -99,7 +98,7 @@ class _ThaiBetaAstrologySelectionPageState
 
       final userId = await widget.resolveUser(context);
       if (!mounted || userId == null || userId.trim().isEmpty) return;
-      final preparedBaziChart = await widget.prepareSystem(
+      final preparedResult = await widget.prepareSystem(
         userId,
         widget.input,
         system,
@@ -111,7 +110,7 @@ class _ThaiBetaAstrologySelectionPageState
             context,
             userId,
             system,
-            preparedBaziChart,
+            preparedResult,
           ),
         ),
       );
@@ -215,7 +214,7 @@ class _ThaiBetaAstrologySelectionPageState
                   icon: Icons.public_outlined,
                   title: 'โหราศาสตร์ตะวันตก (ยุโรป)',
                   description: _westernReady
-                      ? 'อ่าน Natal Chart เดิมของ KnowMe จากเวลาและพิกัดเกิด'
+                      ? 'อ่านดวงกำเนิดแบบตะวันตกทั้ง Big 3 ธาตุ ดาวเด่น เรือนชีวิต และมุมดาวสำคัญ'
                       : 'ต้องทราบเวลาเกิดและเลือกจังหวัดก่อน จึงคำนวณลัคนาและเรือนได้โดยไม่เดา',
                   buttonKey: const Key('astrology-select-western'),
                   buttonLabel: 'ดูโหราตะวันตก',
@@ -335,7 +334,7 @@ Future<String?> _resolveAuthenticatedUser(BuildContext context) async {
   return userId != null && verified?.uid == userId ? userId : null;
 }
 
-Future<BaziChartModel?> _prepareSelectedSystem(
+Future<ThaiBetaPreparedAstrology> _prepareSelectedSystem(
   String userId,
   ThaiBetaInput input,
   ThaiBetaAstrologySystem system,
@@ -357,7 +356,7 @@ Widget _buildDestination(
   BuildContext _,
   String userId,
   ThaiBetaAstrologySystem system,
-  BaziChartModel? preparedBaziChart,
+  ThaiBetaPreparedAstrology preparedResult,
 ) {
   return switch (system) {
     ThaiBetaAstrologySystem.bazi => MultiProvider(
@@ -368,7 +367,7 @@ Widget _buildDestination(
       child: BaziResultPage(
         userId: userId,
         preparedResult: true,
-        preparedChart: preparedBaziChart,
+        preparedChart: preparedResult.baziChart,
       ),
     ),
     ThaiBetaAstrologySystem.western => MultiProvider(
@@ -376,7 +375,10 @@ Widget _buildDestination(
         ChangeNotifierProvider(create: (_) => AstrologyProvider()),
         ChangeNotifierProvider(create: (_) => LocaleProvider()),
       ],
-      child: const AstrologyResultPage(),
+      child: AstrologyResultPage(
+        userId: userId,
+        preparedChart: preparedResult.westernChart,
+      ),
     ),
     ThaiBetaAstrologySystem.thai => throw StateError(
       'Thai analysis has its own destination',

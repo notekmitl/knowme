@@ -7,7 +7,6 @@ import 'package:knowme/features/astrology/fusion/application/astrology_fusion_re
 import 'package:knowme/features/astrology/fusion/application/astrology_fusion_repository.dart';
 import 'package:knowme/features/astrology/fusion/domain/entities/astrology_lens.dart';
 import 'package:knowme/features/bazi_compatibility/application/bazi_input_fingerprint.dart';
-import 'package:knowme/features/tests/fusion/application/fusion_astrology_mirror.dart';
 import 'package:knowme/services/astrology_api_service.dart';
 import 'package:knowme/services/astrology_firestore_service.dart';
 import 'package:knowme/services/bazi_api_service.dart';
@@ -344,13 +343,10 @@ class AstrologyGenerationCoordinator {
       uid: uid,
       birthDate: BirthProfileReadiness.apiBirthDate(profile),
       birthTime: profile.birthTime.trim(),
+      timezone: profile.timezone.isNotEmpty ? profile.timezone : 'Asia/Bangkok',
       latitude: profile.latitude,
       longitude: profile.longitude,
     );
-    final chart = await AstrologyFirestoreService().getWesternNatalChart(uid);
-    if (chart != null) {
-      await FusionAstrologyMirror.mirrorFromChart(uid: uid, chart: chart);
-    }
   }
 
   AstrologyGenerationSnapshot _snapshotFromProbe(

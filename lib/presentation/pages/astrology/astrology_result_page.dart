@@ -1,962 +1,718 @@
-import 'package:flutter/material.dart';
-
-
-
-import 'package:provider/provider.dart';
-
-
-
 import 'package:firebase_auth/firebase_auth.dart';
-
-import 'package:knowme/core/i18n/app_text.dart';
+import 'package:flutter/material.dart';
+import 'package:knowme/data/models/astrology_chart_model.dart';
 import 'package:knowme/features/astrology/application/astrology_generation_coordinator.dart';
 import 'package:knowme/features/astrology/shared/astrology_flow_state.dart';
 import 'package:knowme/features/astrology/shared/astrology_flow_widgets.dart';
-import 'package:knowme/data/models/astrology_chart_model.dart';
-
-import 'package:knowme/features/tests/mbti/mbti_routes.dart';
-
-
-
-import 'astrology_big3_microcopy.dart';
-import 'astrology_deep_lens.dart';
-import 'astrology_hero_synthesis.dart';
-import 'astrology_result_copy.dart';
-import 'astrology_result_locale.dart';
+import 'package:provider/provider.dart';
 
 import '../../providers/astrology_provider.dart';
-
-import '../../providers/locale_provider.dart';
-
-
+import 'western_reader_v2_copy.dart';
 
 class AstrologyResultPage extends StatefulWidget {
+  const AstrologyResultPage({super.key, this.userId, this.preparedChart});
 
-  const AstrologyResultPage({super.key});
-
-
+  final String? userId;
+  final AstrologyChartModel? preparedChart;
 
   @override
-
   State<AstrologyResultPage> createState() => _AstrologyResultPageState();
-
 }
 
-
-
 class _AstrologyResultPageState extends State<AstrologyResultPage> {
+  static const _background = Color(0xFF09101F);
+  static const _navy = Color(0xFF111B34);
+  static const _violet = Color(0xFF8B7CF6);
+  static const _gold = Color(0xFFF2C66D);
+
   final _coordinator = AstrologyGenerationCoordinator();
   bool _autoGenerating = false;
 
   @override
   void initState() {
     super.initState();
-    Future.microtask(() => _bootstrap());
+    Future.microtask(_bootstrap);
+  }
+
+  String? get _uid {
+    final supplied = widget.userId?.trim();
+    if (supplied != null && supplied.isNotEmpty) return supplied;
+    return FirebaseAuth.instance.currentUser?.uid;
   }
 
   Future<void> _bootstrap() async {
     if (!mounted) return;
-    final uid = FirebaseAuth.instance.currentUser?.uid;
-    if (uid == null || uid.isEmpty) return;
-
-    AstrologyResultLocale.apply(
-      context.read<LocaleProvider>().locale.languageCode,
-    );
-
     final provider = context.read<AstrologyProvider>();
+    final prepared = widget.preparedChart;
+    if (prepared != null && WesternReaderV2Copy.isV2(prepared)) {
+      provider.usePreparedChart(prepared);
+      return;
+    }
+
+    final uid = _uid;
+    if (uid == null || uid.isEmpty) return;
     await provider.loadChart(uid);
-    if (!mounted || provider.chart != null) return;
+    if (!mounted) return;
+    final loaded = provider.chart;
+    if (loaded != null && WesternReaderV2Copy.isV2(loaded)) return;
 
     setState(() => _autoGenerating = true);
-    await _coordinator.ensureGenerated(uid, retrySystemId: 'western');
+    await _coordinator.ensureGenerated(
+      uid,
+      retrySystemId: 'western',
+      forceSystemId: 'western',
+    );
     if (!mounted) return;
     await provider.loadChart(uid);
     if (mounted) setState(() => _autoGenerating = false);
   }
 
   Future<void> _retryGeneration() async {
-    if (!mounted) return;
-    final uid = FirebaseAuth.instance.currentUser?.uid;
-    if (uid == null || uid.isEmpty) return;
-
+    final uid = _uid;
+    if (!mounted || uid == null || uid.isEmpty) return;
     setState(() => _autoGenerating = true);
-    await _coordinator.ensureGenerated(uid, retrySystemId: 'western');
+    await _coordinator.ensureGenerated(
+      uid,
+      retrySystemId: 'western',
+      forceSystemId: 'western',
+    );
     if (!mounted) return;
     await context.read<AstrologyProvider>().loadChart(uid);
     if (mounted) setState(() => _autoGenerating = false);
   }
 
-
-
-  void _setLanguage(String languageCode) {
-
-    context.read<LocaleProvider>().setLocale(languageCode);
-
-    AstrologyResultLocale.apply(languageCode);
-
-    setState(() {});
-
-  }
-
-
-
-  String _planetPlacementLine(Map<String, dynamic> data, String lang) {
-
-    final sign = AstrologyResultCopy.signLabel('${data['sign'] ?? ''}', lang);
-
-    final house = '${data['house'] ?? '—'}';
-
-    return AppText.t('astro_planet_placement')
-
-        .replaceAll('{sign}', sign)
-
-        .replaceAll('{house}', house);
-
-  }
-
-
-
-  Widget _sectionTitle(String title, {String? subtitle}) {
-
-    return Column(
-
-      crossAxisAlignment: CrossAxisAlignment.start,
-
-      children: [
-
-        Text(
-
-          title,
-
-          style: const TextStyle(
-
-            color: Colors.white,
-
-            fontSize: 26,
-
-            fontWeight: FontWeight.bold,
-
-          ),
-
-        ),
-
-        if (subtitle != null) ...[
-
-          const SizedBox(height: 10),
-
-          Text(
-
-            subtitle,
-
-            style: const TextStyle(
-
-              color: Colors.white70,
-
-              fontSize: 15,
-
-              height: 1.45,
-
-            ),
-
-          ),
-
-        ],
-
-      ],
-
-    );
-
-  }
-
-
-
-  String _deepLensText(AstrologyChartModel chart, String lang) {
-    final local = AstrologyDeepLens.fromBig3(chart.big3, lang);
-    if (local.trim().isNotEmpty) return local.trim();
-    return AstrologyResultLocale.bilingualField(
-      chart.overallSummary,
-      lang,
-      preparingKey: 'astro_deep_preparing',
-    );
-  }
-
-  Widget _mirrorCard(String body, String lang, String debugLabel) {
-
-    AstrologyResultLocale.assertLocaleIntegrity(lang, debugLabel, body);
-
-    return Container(
-
-      width: double.infinity,
-
-      padding: const EdgeInsets.all(22),
-
-      decoration: BoxDecoration(
-
-        color: Colors.white.withOpacity(0.08),
-
-        borderRadius: BorderRadius.circular(24),
-
-      ),
-
-      child: Text(
-
-        body,
-
-        style: const TextStyle(
-
-          color: Colors.white,
-
-          fontSize: 17,
-
-          height: 1.75,
-
-        ),
-
-      ),
-
-    );
-
-  }
-
-
-
   @override
-
   Widget build(BuildContext context) {
-
     final provider = context.watch<AstrologyProvider>();
-
-    final localeProvider = context.watch<LocaleProvider>();
-
     final chart = provider.chart;
 
-    final lang = AstrologyResultLocale.langFromProvider(localeProvider);
-
-    final planetInterpretations = chart != null
-        ? AstrologyResultLocale.planetInterpretationsMap(chart, lang)
-        : const <String, String>{};
-
     return Scaffold(
-
-      backgroundColor: const Color(0xFF0B1020),
-
+      backgroundColor: _background,
       appBar: AppBar(
-
-        backgroundColor: Colors.transparent,
-
+        backgroundColor: _background,
+        foregroundColor: Colors.white,
         elevation: 0,
-
-        title: Text(AppText.t('astro_app_bar_title')),
-
-        actions: [
-
-          TextButton(
-
-            onPressed: () => _setLanguage('th'),
-
-            child: Text(
-
-              'TH',
-
-              style: TextStyle(
-
-                color: lang == 'th' ? Colors.white : Colors.white54,
-
-                fontWeight:
-
-                    lang == 'th' ? FontWeight.bold : FontWeight.normal,
-
-              ),
-
-            ),
-
-          ),
-
-          TextButton(
-
-            onPressed: () => _setLanguage('en'),
-
-            child: Text(
-
-              'EN',
-
-              style: TextStyle(
-
-                color: lang == 'en' ? Colors.white : Colors.white54,
-
-                fontWeight:
-
-                    lang == 'en' ? FontWeight.bold : FontWeight.normal,
-
-              ),
-
-            ),
-
-          ),
-
-          const SizedBox(width: 12),
-
-        ],
-
+        title: const Text('ดวงตะวันตกของคุณ'),
       ),
-
       body: provider.isLoading || _autoGenerating
           ? AstrologyGenerationBody(
               title: AstrologyFlowCopy.generationTitle('ดวงตะวันตก'),
-              body: AstrologyFlowCopy.generationBody('ดวงตะวันตก'),
+              body: 'กำลังคำนวณตำแหน่งดาว เรือนชีวิต และมุมสัมพันธ์สำคัญ',
             )
-          : provider.error != null
-              ? AstrologyFlowStateBody(
-                  state: AstrologyFlowState.failed,
-                  onPrimaryAction: _retryGeneration,
-                  primaryActionLabel: AstrologyFlowCopy.retryCta,
-                )
-              : chart == null
-                  ? AstrologyFlowStateBody(
-                      state: AstrologyFlowState.failed,
-                      onPrimaryAction: _retryGeneration,
-                      primaryActionLabel: AstrologyFlowCopy.retryCta,
-                    )
-                  : Container(
-
-                      decoration: const BoxDecoration(
-
-                        gradient: LinearGradient(
-
-                          colors: [
-
-                            Color(0xFF0B1020),
-
-                            Color(0xFF1A2340),
-
-                            Color(0xFF2D1B4E),
-
-                          ],
-
-                          begin: Alignment.topCenter,
-
-                          end: Alignment.bottomCenter,
-
-                        ),
-
-                      ),
-
-                      child: SingleChildScrollView(
-
-                        padding: const EdgeInsets.all(24),
-
-                        child: Column(
-
-                          crossAxisAlignment: CrossAxisAlignment.start,
-
-                          children: [
-
-                            const SizedBox(height: 8),
-
-                            Text(
-
-                              AppText.t('astro_hero_eyebrow'),
-
-                              style: TextStyle(
-
-                                color: Colors.purple.shade100.withOpacity(0.9),
-
-                                fontSize: 13,
-
-                                fontWeight: FontWeight.w600,
-
-                                letterSpacing: 0.6,
-
-                              ),
-
-                            ),
-
-                            const SizedBox(height: 8),
-
-                            Text(
-
-                              AppText.t('astro_hero_supporting'),
-
-                              style: const TextStyle(
-
-                                color: Colors.white60,
-
-                                fontSize: 15,
-
-                              ),
-
-                            ),
-
-                            const SizedBox(height: 20),
-
-                            Builder(
-
-                              builder: (context) {
-
-                                final hero = AstrologyHeroSynthesis.build(
-
-                                  chart,
-
-                                  lang: lang,
-
-                                );
-
-                                AstrologyResultLocale.assertLocaleIntegrity(
-
-                                  lang,
-
-                                  'hero',
-
-                                  hero,
-
-                                );
-
-                                return Text(
-
-                                  hero,
-
-                                  style: TextStyle(
-
-                                    color: Colors.white.withOpacity(0.92),
-
-                                    fontSize: 19,
-
-                                    height: 1.65,
-
-                                    fontWeight: FontWeight.w400,
-
-                                  ),
-
-                                );
-
-                              },
-
-                            ),
-
-                            const SizedBox(height: 44),
-
-                            _sectionTitle(
-
-                              AppText.t('astro_big3_title'),
-
-                              subtitle: AppText.t('astro_big3_subtitle'),
-
-                            ),
-
-                            const SizedBox(height: 22),
-
-                            Row(
-
-                              children: [
-
-                                Expanded(
-
-                                  child: _big3Card(
-
-                                    '☀',
-
-                                    AppText.t('astro_big3_sun'),
-
-                                    AstrologyResultCopy.signLabel(
-
-                                      chart.big3['sun']?.toString(),
-
-                                      lang,
-
-                                    ),
-
-                                    AstrologyBig3Microcopy.forRole(
-
-                                      AstroBig3Role.sun,
-
-                                      chart.big3['sun'],
-
-                                      lang,
-
-                                    ),
-
-                                  ),
-
-                                ),
-
-                                const SizedBox(width: 12),
-
-                                Expanded(
-
-                                  child: _big3Card(
-
-                                    '🌙',
-
-                                    AppText.t('astro_big3_inner'),
-
-                                    AstrologyResultCopy.signLabel(
-
-                                      chart.big3['moon']?.toString(),
-
-                                      lang,
-
-                                    ),
-
-                                    AstrologyBig3Microcopy.forRole(
-
-                                      AstroBig3Role.moon,
-
-                                      chart.big3['moon'],
-
-                                      lang,
-
-                                    ),
-
-                                  ),
-
-                                ),
-
-                                const SizedBox(width: 12),
-
-                                Expanded(
-
-                                  child: _big3Card(
-
-                                    '⬆',
-
-                                    AppText.t('astro_big3_rising'),
-
-                                    AstrologyResultCopy.signLabel(
-
-                                      chart.big3['rising']?.toString(),
-
-                                      lang,
-
-                                    ),
-
-                                    AstrologyBig3Microcopy.forRole(
-
-                                      AstroBig3Role.rising,
-
-                                      chart.big3['rising'],
-
-                                      lang,
-
-                                    ),
-
-                                  ),
-
-                                ),
-
-                              ],
-
-                            ),
-
-                            const SizedBox(height: 40),
-
-                            _sectionTitle(
-
-                              AppText.t('astro_insight_title'),
-
-                              subtitle: AppText.t('astro_insight_subtitle'),
-
-                            ),
-
-                            const SizedBox(height: 18),
-
-                            _mirrorCard(
-
-                              AstrologyResultLocale.bilingualField(
-
-                                chart.insight,
-
-                                lang,
-
-                                preparingKey: 'astro_insight_preparing',
-
-                              ),
-
-                              lang,
-
-                              'insight',
-
-                            ),
-
-                            const SizedBox(height: 36),
-
-                            _sectionTitle(
-
-                              AppText.t('astro_deep_title'),
-
-                              subtitle: AppText.t('astro_deep_subtitle'),
-
-                            ),
-
-                            const SizedBox(height: 18),
-
-                            _mirrorCard(
-
-                              _deepLensText(chart, lang),
-
-                              lang,
-
-                              'overall_summary',
-
-                            ),
-
-                            const SizedBox(height: 44),
-
-                            _sectionTitle(
-
-                              AppText.t('astro_planets_title'),
-
-                              subtitle: AppText.t('astro_planets_subtitle'),
-
-                            ),
-
-                            const SizedBox(height: 14),
-
-                            Text(
-
-                              AppText.t('astro_planets_intro'),
-
-                              style: const TextStyle(
-
-                                color: Colors.white54,
-
-                                fontSize: 14,
-
-                                height: 1.4,
-
-                              ),
-
-                            ),
-
-                            const SizedBox(height: 28),
-
-                            ...chart.planets.entries.map((entry) {
-
-                              final planet = entry.key;
-
-                              final data = entry.value;
-
-                              final planetName =
-
-                                  AstrologyResultCopy.planetLabel(planet, lang);
-
-                              final interpretation =
-
-                                  AstrologyResultLocale.planetInterpretation(
-
-                                chart,
-
-                                planet,
-
-                                lang,
-
-                                planetData: data,
-
-                                precomputedBig7: planetInterpretations,
-
-                              );
-
-                              AstrologyResultLocale.assertLocaleIntegrity(
-
-                                lang,
-
-                                'planet_$planet',
-
-                                interpretation,
-
-                              );
-
-
-
-                              return Container(
-
-                                margin: const EdgeInsets.only(bottom: 20),
-
-                                padding: const EdgeInsets.all(20),
-
-                                decoration: BoxDecoration(
-
-                                  color: Colors.white.withOpacity(0.08),
-
-                                  borderRadius: BorderRadius.circular(20),
-
-                                ),
-
-                                child: Row(
-
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-
-                                  children: [
-
-                                    Container(
-
-                                      width: 52,
-
-                                      height: 52,
-
-                                      decoration: BoxDecoration(
-
-                                        color: Colors.purpleAccent
-
-                                            .withOpacity(0.25),
-
-                                        borderRadius: BorderRadius.circular(16),
-
-                                      ),
-
-                                      child: Center(
-
-                                        child: Text(
-
-                                          planetName.isNotEmpty
-
-                                              ? planetName[0]
-
-                                              : '?',
-
-                                          style: const TextStyle(
-
-                                            color: Colors.white,
-
-                                            fontSize: 22,
-
-                                            fontWeight: FontWeight.bold,
-
-                                          ),
-
-                                        ),
-
-                                      ),
-
-                                    ),
-
-                                    const SizedBox(width: 16),
-
-                                    Expanded(
-
-                                      child: Column(
-
-                                        crossAxisAlignment:
-
-                                            CrossAxisAlignment.start,
-
-                                        children: [
-
-                                          Text(
-
-                                            planetName,
-
-                                            style: const TextStyle(
-
-                                              color: Colors.white,
-
-                                              fontSize: 20,
-
-                                              fontWeight: FontWeight.bold,
-
-                                            ),
-
-                                          ),
-
-                                          const SizedBox(height: 6),
-
-                                          Text(
-
-                                            _planetPlacementLine(data, lang),
-
-                                            style: const TextStyle(
-
-                                              color: Colors.white70,
-
-                                              fontSize: 15,
-
-                                            ),
-
-                                          ),
-
-                                          const SizedBox(height: 14),
-
-                                          Text(
-
-                                            interpretation,
-
-                                            style: const TextStyle(
-
-                                              color: Colors.white,
-
-                                              fontSize: 15,
-
-                                              height: 1.7,
-
-                                            ),
-
-                                          ),
-
-                                        ],
-
-                                      ),
-
-                                    ),
-
-                                  ],
-
-                                ),
-
-                              );
-
-                            }),
-
-                            const SizedBox(height: 48),
-
-                            Text(
-
-                              AppText.t('astro_result_cta_mbti'),
-
-                              style: const TextStyle(
-
-                                color: Colors.white,
-
-                                fontSize: 20,
-
-                                fontWeight: FontWeight.w600,
-
-                                height: 1.4,
-
-                              ),
-
-                            ),
-
-                            const SizedBox(height: 10),
-
-                            Text(
-
-                              AppText.t('astro_result_cta_mbti_support'),
-
-                              style: const TextStyle(
-
-                                color: Colors.white70,
-
-                                fontSize: 15,
-
-                                height: 1.5,
-
-                              ),
-
-                            ),
-
-                            const SizedBox(height: 18),
-
-                            SizedBox(
-
-                              width: double.infinity,
-
-                              child: ElevatedButton(
-
-                                onPressed: () {
-
-                                  Navigator.push(
-
-                                    context,
-
-                                    MbtiRoutes.miniTestRoute(),
-
-                                  );
-
-                                },
-
-                                style: ElevatedButton.styleFrom(
-
-                                  backgroundColor: Colors.purpleAccent,
-
-                                  foregroundColor: Colors.white,
-
-                                  padding: const EdgeInsets.symmetric(
-
-                                    vertical: 16,
-
-                                  ),
-
-                                  shape: RoundedRectangleBorder(
-
-                                    borderRadius: BorderRadius.circular(16),
-
-                                  ),
-
-                                ),
-
-                                child: Text(
-
-                                  AppText.t('astro_result_cta_mbti_action'),
-
-                                ),
-
-                              ),
-
-                            ),
-
-                            const SizedBox(height: 24),
-
-                          ],
-
-                        ),
-
-                      ),
-
-                    ),
-
+          : provider.error != null ||
+                chart == null ||
+                !WesternReaderV2Copy.isV2(chart)
+          ? AstrologyFlowStateBody(
+              state: AstrologyFlowState.failed,
+              onPrimaryAction: _retryGeneration,
+              primaryActionLabel: AstrologyFlowCopy.retryCta,
+            )
+          : _WesternReaderBody(chart: chart),
     );
-
   }
+}
 
+class _WesternReaderBody extends StatelessWidget {
+  const _WesternReaderBody({required this.chart});
 
+  final AstrologyChartModel chart;
 
-  Widget _big3Card(
-    String emoji,
-    String title,
-    String value,
-    String microInsight,
-  ) {
-    return Container(
-      padding: const EdgeInsets.all(20),
-      decoration: BoxDecoration(
-        color: Colors.white.withOpacity(0.08),
-        borderRadius: BorderRadius.circular(24),
+  static const _navy = Color(0xFF111B34);
+  static const _violet = Color(0xFF8B7CF6);
+  static const _gold = Color(0xFFF2C66D);
+
+  @override
+  Widget build(BuildContext context) {
+    final sections = WesternReaderV2Copy.sections(chart);
+    return DecoratedBox(
+      decoration: const BoxDecoration(
+        gradient: LinearGradient(
+          colors: [Color(0xFF09101F), Color(0xFF121D38), Color(0xFF21183C)],
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+        ),
       ),
-      child: Column(
-        children: [
-          Text(emoji, style: const TextStyle(fontSize: 28)),
-          const SizedBox(height: 12),
-          Text(
-            title,
-            textAlign: TextAlign.center,
-            style: const TextStyle(color: Colors.white70, fontSize: 14),
-          ),
-          const SizedBox(height: 8),
-          Text(
-            value,
-            textAlign: TextAlign.center,
-            style: const TextStyle(
-              color: Colors.white,
-              fontSize: 18,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-          if (microInsight.isNotEmpty) ...[
-            const SizedBox(height: 10),
-            Text(
-              microInsight,
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                color: Colors.white.withOpacity(0.62),
-                fontSize: 13,
-                height: 1.45,
+      child: SelectionArea(
+        child: SingleChildScrollView(
+          key: const Key('western-reader-v2-scroll'),
+          padding: const EdgeInsets.fromLTRB(18, 18, 18, 48),
+          child: Center(
+            child: ConstrainedBox(
+              constraints: const BoxConstraints(maxWidth: 880),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  _hero(),
+                  const SizedBox(height: 18),
+                  _bigThree(),
+                  const SizedBox(height: 30),
+                  const _SectionHeading(
+                    eyebrow: 'LIFE READING',
+                    title: 'คำอ่านชีวิตจากดวงกำเนิด',
+                    subtitle:
+                        'เรียงจากสิ่งที่มีผลกับชีวิตประจำวันก่อน แล้วจึงเปิดดูโครงสร้างดาว',
+                  ),
+                  const SizedBox(height: 14),
+                  for (final section in sections) ...[
+                    _ReadingCard(section: section),
+                    const SizedBox(height: 12),
+                  ],
+                  const SizedBox(height: 20),
+                  const _SectionHeading(
+                    eyebrow: 'CHART STRUCTURE',
+                    title: 'โครงสร้างพลังในดวง',
+                    subtitle:
+                        'สรุปจากดาวหลัก ลัคนา เรือนชีวิต และมุมสัมพันธ์ ไม่ได้ดูแค่ราศีอาทิตย์',
+                  ),
+                  const SizedBox(height: 14),
+                  _balances(),
+                  const SizedBox(height: 12),
+                  _dominance(),
+                  const SizedBox(height: 12),
+                  _aspects(),
+                  const SizedBox(height: 12),
+                  _planetDetails(),
+                  const SizedBox(height: 24),
+                  _methodAndDisclaimer(),
+                ],
               ),
             ),
-          ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _hero() {
+    return Container(
+      key: const Key('western-reader-v2-hero'),
+      padding: const EdgeInsets.all(24),
+      decoration: BoxDecoration(
+        color: _navy.withValues(alpha: 0.94),
+        borderRadius: BorderRadius.circular(24),
+        border: Border.all(color: _violet.withValues(alpha: 0.28)),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withValues(alpha: 0.2),
+            blurRadius: 24,
+            offset: const Offset(0, 12),
+          ),
+        ],
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Text(
+            'WESTERN READER V2',
+            style: TextStyle(
+              color: _gold,
+              fontSize: 12,
+              fontWeight: FontWeight.w800,
+              letterSpacing: 1.4,
+            ),
+          ),
+          const SizedBox(height: 10),
+          const Text(
+            'แผนที่ชีวิตแบบตะวันตก',
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 30,
+              height: 1.2,
+              fontWeight: FontWeight.w800,
+            ),
+          ),
+          const SizedBox(height: 14),
+          Text(
+            WesternReaderV2Copy.overview(chart),
+            style: TextStyle(
+              color: Colors.white.withValues(alpha: 0.9),
+              fontSize: 17,
+              height: 1.7,
+            ),
+          ),
         ],
       ),
     );
   }
 
+  Widget _bigThree() {
+    final cards = [
+      (
+        icon: '☀',
+        title: 'ตัวตนหลัก',
+        value: WesternReaderV2Copy.signLabel(chart.big3['sun']),
+      ),
+      (
+        icon: '☾',
+        title: 'ความต้องการทางใจ',
+        value: WesternReaderV2Copy.signLabel(chart.big3['moon']),
+      ),
+      (
+        icon: '↑',
+        title: 'ภาพที่คนอื่นเห็น',
+        value: WesternReaderV2Copy.signLabel(chart.big3['rising']),
+      ),
+    ];
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final width = constraints.maxWidth >= 720
+            ? (constraints.maxWidth - 24) / 3
+            : constraints.maxWidth;
+        return Wrap(
+          spacing: 12,
+          runSpacing: 12,
+          children: [
+            for (final card in cards)
+              SizedBox(
+                width: width,
+                child: Container(
+                  padding: const EdgeInsets.all(18),
+                  decoration: BoxDecoration(
+                    color: Colors.white.withValues(alpha: 0.07),
+                    borderRadius: BorderRadius.circular(18),
+                    border: Border.all(
+                      color: Colors.white.withValues(alpha: 0.08),
+                    ),
+                  ),
+                  child: Row(
+                    children: [
+                      Text(card.icon, style: const TextStyle(fontSize: 27)),
+                      const SizedBox(width: 12),
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              card.title,
+                              style: const TextStyle(
+                                color: Colors.white60,
+                                fontSize: 13,
+                              ),
+                            ),
+                            const SizedBox(height: 4),
+                            Text(
+                              'ราศี${card.value}',
+                              style: const TextStyle(
+                                color: Colors.white,
+                                fontSize: 20,
+                                fontWeight: FontWeight.w800,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+          ],
+        );
+      },
+    );
+  }
+
+  Widget _balances() {
+    return _SurfaceCard(
+      key: const Key('western-reader-v2-balances'),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Text('สมดุลพลังหลัก', style: _cardTitleStyle),
+          const SizedBox(height: 6),
+          const Text(
+            'เปอร์เซ็นต์คือสัดส่วนน้ำหนักภายในดวงนี้ ใช้เปรียบเทียบกันเอง ไม่ใช่คะแนนดี–ไม่ดี',
+            style: _supportStyle,
+          ),
+          const SizedBox(height: 18),
+          _BalanceGroup(
+            title: 'ธาตุ',
+            values: WesternReaderV2Copy.balance(chart, 'elements'),
+            label: WesternReaderV2Copy.elementLabel,
+          ),
+          const SizedBox(height: 18),
+          _BalanceGroup(
+            title: 'จังหวะการขับเคลื่อน',
+            values: WesternReaderV2Copy.balance(chart, 'modalities'),
+            label: WesternReaderV2Copy.modalityLabel,
+          ),
+          const SizedBox(height: 18),
+          _BalanceGroup(
+            title: 'ทิศทางพลัง',
+            values: WesternReaderV2Copy.balance(chart, 'polarities'),
+            label: WesternReaderV2Copy.polarityLabel,
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _dominance() {
+    final planets = WesternReaderV2Copy.analysisList(chart, 'dominant_planets');
+    final houses = WesternReaderV2Copy.analysisList(chart, 'house_emphasis');
+    return _SurfaceCard(
+      key: const Key('western-reader-v2-dominance'),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Text('ดาวและเรือนที่มีน้ำหนัก', style: _cardTitleStyle),
+          const SizedBox(height: 14),
+          Wrap(
+            spacing: 8,
+            runSpacing: 8,
+            children: [
+              for (final item in planets.take(3))
+                _Tag(
+                  text:
+                      '${WesternReaderV2Copy.planetLabel(item['planet'])} · '
+                      'ราศี${WesternReaderV2Copy.signLabel(item['sign'])}',
+                  highlighted: item == planets.first,
+                ),
+            ],
+          ),
+          const SizedBox(height: 16),
+          for (final item in houses.take(3))
+            Padding(
+              padding: const EdgeInsets.only(bottom: 8),
+              child: Text(
+                'เรือน ${item['house']} · '
+                '${WesternReaderV2Copy.houseLabel((item['house'] as num).round())}',
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 15,
+                  height: 1.45,
+                ),
+              ),
+            ),
+        ],
+      ),
+    );
+  }
+
+  Widget _aspects() {
+    final aspects = chart.aspects.take(6).toList();
+    return _SurfaceCard(
+      key: const Key('western-reader-v2-aspects'),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Text('มุมดาวสำคัญ', style: _cardTitleStyle),
+          const SizedBox(height: 6),
+          const Text(
+            'เรียงจากมุมที่ใกล้จุดสมบูรณ์ที่สุด จึงมีน้ำหนักต่อรูปแบบชีวิตมากกว่า',
+            style: _supportStyle,
+          ),
+          const SizedBox(height: 14),
+          if (aspects.isEmpty)
+            const Text('ไม่พบมุมดาวหลักในระยะที่กำหนด', style: _bodyStyle)
+          else
+            for (final item in aspects)
+              Padding(
+                padding: const EdgeInsets.only(bottom: 12),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Padding(
+                      padding: EdgeInsets.only(top: 7),
+                      child: CircleAvatar(radius: 3, backgroundColor: _gold),
+                    ),
+                    const SizedBox(width: 10),
+                    Expanded(
+                      child: Text(
+                        '${WesternReaderV2Copy.planetLabel(item['planet1'])} '
+                        '${WesternReaderV2Copy.aspectLabel(item['aspect'])} '
+                        '${WesternReaderV2Copy.planetLabel(item['planet2'])} '
+                        '· คลาด ${(item['orb'] as num?)?.toStringAsFixed(1) ?? '—'}°',
+                        style: _bodyStyle,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+        ],
+      ),
+    );
+  }
+
+  Widget _planetDetails() {
+    return _SurfaceCard(
+      key: const Key('western-reader-v2-planets'),
+      padding: EdgeInsets.zero,
+      child: Theme(
+        data: ThemeData.dark().copyWith(dividerColor: Colors.transparent),
+        child: ExpansionTile(
+          tilePadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 6),
+          childrenPadding: const EdgeInsets.fromLTRB(20, 0, 20, 16),
+          iconColor: _gold,
+          collapsedIconColor: Colors.white70,
+          title: const Text('ตำแหน่งดาวทั้งหมด', style: _cardTitleStyle),
+          subtitle: const Text(
+            'เปิดดูราศี เรือน และสถานะถอยหลังของดาว',
+            style: _supportStyle,
+          ),
+          children: [
+            for (final entry in chart.planets.entries)
+              _PlanetRow(planet: entry.key, data: entry.value),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _methodAndDisclaimer() {
+    return Container(
+      key: const Key('western-reader-v2-method'),
+      padding: const EdgeInsets.all(20),
+      decoration: BoxDecoration(
+        color: Colors.black.withValues(alpha: 0.2),
+        borderRadius: BorderRadius.circular(18),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Text('วิธีคำนวณ', style: _cardTitleStyle),
+          const SizedBox(height: 8),
+          Text(WesternReaderV2Copy.method(chart), style: _supportStyle),
+          const SizedBox(height: 18),
+          const Text('ข้อจำกัดของคำอ่าน', style: _cardTitleStyle),
+          const SizedBox(height: 8),
+          Text(WesternReaderV2Copy.disclaimer(chart), style: _supportStyle),
+        ],
+      ),
+    );
+  }
 }
 
+class _ReadingCard extends StatelessWidget {
+  const _ReadingCard({required this.section});
 
+  final WesternReaderSection section;
+
+  @override
+  Widget build(BuildContext context) {
+    return _SurfaceCard(
+      key: Key('western-reader-v2-section-${section.id}'),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(section.title, style: _cardTitleStyle),
+          const SizedBox(height: 9),
+          Text(section.body, style: _bodyStyle),
+        ],
+      ),
+    );
+  }
+}
+
+class _SectionHeading extends StatelessWidget {
+  const _SectionHeading({
+    required this.eyebrow,
+    required this.title,
+    required this.subtitle,
+  });
+
+  final String eyebrow;
+  final String title;
+  final String subtitle;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          eyebrow,
+          style: const TextStyle(
+            color: _WesternReaderBody._gold,
+            fontSize: 11,
+            fontWeight: FontWeight.w800,
+            letterSpacing: 1.3,
+          ),
+        ),
+        const SizedBox(height: 6),
+        Text(
+          title,
+          style: const TextStyle(
+            color: Colors.white,
+            fontSize: 24,
+            fontWeight: FontWeight.w800,
+          ),
+        ),
+        const SizedBox(height: 6),
+        Text(subtitle, style: _supportStyle),
+      ],
+    );
+  }
+}
+
+class _BalanceGroup extends StatelessWidget {
+  const _BalanceGroup({
+    required this.title,
+    required this.values,
+    required this.label,
+  });
+
+  final String title;
+  final Map<String, int> values;
+  final String Function(String) label;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          title,
+          style: const TextStyle(
+            color: Colors.white,
+            fontSize: 15,
+            fontWeight: FontWeight.w700,
+          ),
+        ),
+        const SizedBox(height: 10),
+        for (final entry in values.entries)
+          Padding(
+            padding: const EdgeInsets.only(bottom: 9),
+            child: Row(
+              children: [
+                SizedBox(
+                  width: 72,
+                  child: Text(label(entry.key), style: _supportStyle),
+                ),
+                Expanded(
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(20),
+                    child: LinearProgressIndicator(
+                      minHeight: 8,
+                      value: entry.value.clamp(0, 100) / 100,
+                      backgroundColor: Colors.white.withValues(alpha: 0.08),
+                      valueColor: const AlwaysStoppedAnimation(
+                        _WesternReaderBody._violet,
+                      ),
+                    ),
+                  ),
+                ),
+                const SizedBox(width: 10),
+                SizedBox(
+                  width: 38,
+                  child: Text(
+                    '${entry.value}%',
+                    textAlign: TextAlign.end,
+                    style: const TextStyle(color: Colors.white70, fontSize: 13),
+                  ),
+                ),
+              ],
+            ),
+          ),
+      ],
+    );
+  }
+}
+
+class _PlanetRow extends StatelessWidget {
+  const _PlanetRow({required this.planet, required this.data});
+
+  final String planet;
+  final dynamic data;
+
+  @override
+  Widget build(BuildContext context) {
+    final map = data is Map ? data as Map : const {};
+    final degree = map['degree'];
+    final retrograde = map['retrograde'] == true;
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 9),
+      child: Row(
+        children: [
+          Expanded(
+            flex: 3,
+            child: Text(
+              WesternReaderV2Copy.planetLabel(planet),
+              style: const TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.w700,
+              ),
+            ),
+          ),
+          Expanded(
+            flex: 5,
+            child: Text(
+              'ราศี${WesternReaderV2Copy.signLabel(map['sign'])} '
+              '${degree is num ? degree.toStringAsFixed(1) : '—'}° '
+              '· เรือน ${map['house'] ?? '—'}${retrograde ? ' · ถอยหลัง' : ''}',
+              textAlign: TextAlign.end,
+              style: _supportStyle,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _Tag extends StatelessWidget {
+  const _Tag({required this.text, this.highlighted = false});
+
+  final String text;
+  final bool highlighted;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 9),
+      decoration: BoxDecoration(
+        color: highlighted
+            ? _WesternReaderBody._gold.withValues(alpha: 0.18)
+            : Colors.white.withValues(alpha: 0.07),
+        borderRadius: BorderRadius.circular(999),
+        border: Border.all(
+          color: highlighted
+              ? _WesternReaderBody._gold.withValues(alpha: 0.42)
+              : Colors.white.withValues(alpha: 0.08),
+        ),
+      ),
+      child: Text(
+        text,
+        style: TextStyle(
+          color: highlighted ? _WesternReaderBody._gold : Colors.white,
+          fontSize: 13,
+          fontWeight: FontWeight.w700,
+        ),
+      ),
+    );
+  }
+}
+
+class _SurfaceCard extends StatelessWidget {
+  const _SurfaceCard({super.key, required this.child, this.padding});
+
+  final Widget child;
+  final EdgeInsets? padding;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: padding ?? const EdgeInsets.all(20),
+      decoration: BoxDecoration(
+        color: _WesternReaderBody._navy.withValues(alpha: 0.88),
+        borderRadius: BorderRadius.circular(20),
+        border: Border.all(color: Colors.white.withValues(alpha: 0.08)),
+      ),
+      child: child,
+    );
+  }
+}
+
+const _cardTitleStyle = TextStyle(
+  color: Colors.white,
+  fontSize: 18,
+  fontWeight: FontWeight.w800,
+  height: 1.35,
+);
+
+const _bodyStyle = TextStyle(color: Colors.white, fontSize: 15.5, height: 1.7);
+
+const _supportStyle = TextStyle(
+  color: Colors.white70,
+  fontSize: 13.5,
+  height: 1.55,
+);
