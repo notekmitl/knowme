@@ -1,8 +1,6 @@
 # Handoff - BaZi Reader V4 conversational Thai (2026-09-20)
 
-The release candidate is implemented on
-`codex/bazi-reader-v4-conversational-thai` from `origin/main` at `90e59316`.
-Continue from this exact worktree; do not reimplement the copy work.
+The release is complete. PR #140 merged as `24eaef1`, tree `19856f8a`.
 
 - Shared Reader V2/V4 copy is conversational, brief, deterministic, and does
   not promise events. The trend disclaimer appears once in the introduction.
@@ -16,19 +14,20 @@ Continue from this exact worktree; do not reimplement the copy work.
 - Candidate PDF hashes are recorded in `TASK_RESULT.md`; fonts are Regular,
   and visual findings for clipping, overlap, overflow, blank pages, and broken
   Thai/CJK glyphs are zero.
-- Release bundle SHA-256 is
-  `0C160CECC4914FAA6CDF52F63BB7A643A9605998154659B26184108DC5592B8B`;
+- Live exact-merge bundle SHA-256 is
+  `FF070AFFE07F8441155D84E33F12A3A177D9E1EA2A0615C8B059A990DBCB5562`;
   Production API and route are present, actual loopback endpoints are zero.
 - The full suite rewrote tracked validator outputs; each affected output was
   restored by exact path. Thai runtime, Thai goldens, `product-acceptance/`,
   backend application source, and Firebase configuration have zero delta.
 
-Local Gate PreCommit passes scope, forbidden-text, analyzer, focused Flutter
-12/12, backend 23/23, and full Flutter 3,085/3,085. Remaining sequence: commit;
-PostCommit; push/open PR; wait for checks and merge; build the exact merge;
-deploy Firebase Hosting only; then verify Production Web, bundle, and a real
-downloaded PDF. Stop before any Backend, non-Hosting Firebase, or calculation
-change.
+Local Gate PreCommit/PostCommit pass. Hosting release `1789891789495000` /
+version `b5d2cde74c2e1fd6` serves pin `24eaef1`. Both domains and the Known route
+return 200. Production Web shows the accepted copy and hides calculation input;
+the real three-page PDF passes full visual/text/font review at SHA-256
+`341786FB69F5941E802D24777855985329BA61A72A2C2CD36E898083992B3655`.
+No Backend, non-Hosting Firebase, calculation, Thai astrology, or Production
+data change was made. No release action remains.
 
 ---
 

@@ -1,6 +1,6 @@
 # KnowMe Roadmap+
 
-## Active release - BaZi Reader V4 conversational Thai (2026-09-20)
+## Completed release - BaZi Reader V4 conversational Thai (2026-09-20)
 
 The shared copy composer now reads like a careful fortune reader speaking to
 the chart owner: short direct sentences, ordinary Thai, one introduction-level
@@ -12,9 +12,11 @@ Four actual charts cover Bangkok, Chiang Mai, Phuket, and Owner case
 1982-06-06 00:03 Chiang Mai male. Focused Flutter 12/12, backend 23/23, full
 Flutter 3,085/3,085, analyzer policy, desktop/mobile Web projection, and four
 PDFs / 12 rendered pages pass. The release bundle passes its API, route, and
-loopback-endpoint guards. Local Gate PreCommit passes. Remaining work is
-commit/PostCommit, PR review/merge, Firebase Hosting-only release, and
-Production Web/PDF QA.
+loopback-endpoint guards. Local Gate PreCommit/PostCommit pass. PR #140 merged
+as `24eaef1`; Hosting-only release `1789891789495000` / version
+`b5d2cde74c2e1fd6` serves that pin. Live Web/PDF QA passes all copy, hidden
+section, content, font, glyph, clipping, overlap, overflow, blank-page, and
+application-console checks. No release action remains.
 Backend, Thai astrology, other Firebase resources, and Production data are out
 of scope.
 

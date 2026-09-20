@@ -1,6 +1,6 @@
 # Active Task - BaZi Reader V4 conversational Thai (2026-09-20)
 
-Status: **PRECOMMIT PASSED — COMMIT/POSTCOMMIT/RELEASE PENDING**
+Status: **COMPLETE — PR #140 MERGED, HOSTING RELEASED, PRODUCTION QA PASSED**
 
 ## Goal
 
@@ -45,15 +45,15 @@ details from both Web and PDF.
       endpoint guards.
 - [x] Pass Local Gate PreCommit on the documented final candidate: scope,
       forbidden-text scan, analyzer, focused tests, and full 3,085/3,085.
-- [ ] Commit, pass Local Gate PostCommit, push, open PR, wait for checks, merge,
-      and deploy Firebase Hosting only.
-- [ ] Verify the live route and real Production PDF, then record release
-      identity and closeout evidence.
+- [x] Commit, pass Local Gate PostCommit, push, open PR #140, confirm GitHub
+      MERGEABLE/CLEAN with no configured checks, and merge.
+- [x] Deploy Firebase Hosting only from exact merge `24eaef1`, then verify the
+      live route, pinned bundle, and real Production PDF.
 
 ## Candidate evidence
 
-- Web bundle: 8,609,231 bytes; SHA-256
-  `0C160CECC4914FAA6CDF52F63BB7A643A9605998154659B26184108DC5592B8B`;
+- Exact-merge Production bundle: 8,609,239 bytes; SHA-256
+  `FF070AFFE07F8441155D84E33F12A3A177D9E1EA2A0615C8B059A990DBCB5562`;
   `/beta/chinese` and the Production API are present once; actual loopback
   endpoints are zero. The remaining `localhost` literal is the existing
   hostname comparison, not an endpoint.
@@ -65,6 +65,12 @@ details from both Web and PDF.
   `792ABFEB052F8EEC785274F998D75BBC7DF7199515721053F50029D57AA02D58`.
 - Phuket PDF: 3 pages / 30,925 bytes / SHA-256
   `B67BBC46DC6364F101351809428A6F7CD0BC115B8CD0794D599588208A72CE54`.
+- PR #140 merge/tree: `24eaef1bc0e8a84be72b27388d3ce1d38b827ba4` /
+  `19856f8a707d85f32c89bd87af488152bb132e10`.
+- Hosting release/version: `1789891789495000` / `b5d2cde74c2e1fd6`, cache
+  pin `24eaef1`, released `2026-09-20T08:09:49Z`.
+- Real Production PDF: 3 A4 pages / 30,939 bytes / SHA-256
+  `341786FB69F5941E802D24777855985329BA61A72A2C2CD36E898083992B3655`.
 
 ---
 

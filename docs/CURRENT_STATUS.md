@@ -1,6 +1,6 @@
-## Active release - BaZi Reader V4 conversational Thai (2026-09-20)
+## Completed release - BaZi Reader V4 conversational Thai (2026-09-20)
 
-Status: **PRECOMMIT PASS — COMMIT/POSTCOMMIT/PR/RELEASE PENDING**
+Status: **PASS — PR #140 MERGED, HOSTING RELEASED, PRODUCTION-VERIFIED**
 
 - Shared Reader V2/V4 copy now uses short, direct Thai and practical guidance
   without fixture-specific branches or unsupported event certainty.
@@ -16,15 +16,22 @@ Status: **PRECOMMIT PASS — COMMIT/POSTCOMMIT/PR/RELEASE PENDING**
 - Four PDFs / 12 pages pass semantic, font, blank-page, clipping, overlap,
   overflow, and glyph review. They use Noto Sans Thai Regular/Bold and Noto
   Sans SC Regular; Thin is absent.
-- Release Web build passes the Production API and route checks. The bundle is
-  8,609,231 bytes / SHA-256
-  `0C160CECC4914FAA6CDF52F63BB7A643A9605998154659B26184108DC5592B8B`;
+- Exact-merge Web build passes the Production API and route checks. The live
+  bundle is 8,609,239 bytes / SHA-256
+  `FF070AFFE07F8441155D84E33F12A3A177D9E1EA2A0615C8B059A990DBCB5562`;
   actual loopback endpoints are zero.
 - Calculation, Backend application, Thai astrology, Firebase resources, and
   Production data remain unchanged.
-- Local Gate PreCommit passes scope, forbidden-text, analyzer, focused, and
-  full-suite checks. Commit, PostCommit, PR, merge, Hosting-only deployment,
-  and live Web/PDF QA are still pending.
+- Local Gate PreCommit/PostCommit pass. PR #140 merged as `24eaef1`, tree
+  `19856f8a`; GitHub reported MERGEABLE/CLEAN with no configured checks.
+- Hosting-only release `1789891789495000` / version `b5d2cde74c2e1fd6`
+  serves pin `24eaef1`; both domains and the Known route return HTTP 200.
+- Production Web has the complete conversational report, hides calculation
+  input, and has zero application-origin console errors. The real PDF is three
+  A4 pages / 30,939 bytes / SHA-256
+  `341786FB69F5941E802D24777855985329BA61A72A2C2CD36E898083992B3655`;
+  all pages pass content, font, clipping, overlap, overflow, blank, and glyph
+  review. No release action remains.
 
 ## Completed release - BaZi Reader V4 Owner copy acceptance repair (2026-09-20)
 
