@@ -21,9 +21,6 @@ class AstrologyResultPage extends StatefulWidget {
 
 class _AstrologyResultPageState extends State<AstrologyResultPage> {
   static const _background = Color(0xFF09101F);
-  static const _navy = Color(0xFF111B34);
-  static const _violet = Color(0xFF8B7CF6);
-  static const _gold = Color(0xFFF2C66D);
 
   AstrologyGenerationCoordinator? _generationCoordinator;
   bool _autoGenerating = false;
