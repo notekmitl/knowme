@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Startup verification for KnowMe astrology API (health + generation endpoints)."""
+"""Read-only startup verification for health and authenticated generation routes."""
 
 from __future__ import annotations
 
@@ -11,19 +11,11 @@ import urllib.request
 from typing import Any
 
 
-SAMPLE_UID = "knowme-api-verify-smoke"
-SAMPLE_BAZI = {
-    "uid": SAMPLE_UID,
+AUTH_PROBE = {
+    "uid": "knowme-api-auth-probe",
     "birth_date": "1990-05-12",
     "birth_time": "15:30",
     "timezone": "Asia/Bangkok",
-    "latitude": 13.7563,
-    "longitude": 100.5018,
-}
-SAMPLE_CHART = {
-    "uid": SAMPLE_UID,
-    "birth_date": "1990-05-12",
-    "birth_time": "15:30",
     "latitude": 13.7563,
     "longitude": 100.5018,
 }
@@ -79,25 +71,21 @@ def main() -> int:
     except Exception as exc:  # noqa: BLE001
         all_ok &= _check("health", False, str(exc))
 
-    try:
-        code, body = _request("POST", f"{base}/generate-bazi", SAMPLE_BAZI)
-        all_ok &= _check(
-            "generate-bazi",
-            code == 200 and '"success"' in body,
-            f"HTTP {code} {body[:200]}",
-        )
-    except Exception as exc:  # noqa: BLE001
-        all_ok &= _check("generate-bazi", False, str(exc))
-
-    try:
-        code, body = _request("POST", f"{base}/generate-chart", SAMPLE_CHART)
-        all_ok &= _check(
-            "generate-chart",
-            code == 200 and '"success"' in body,
-            f"HTTP {code} {body[:200]}",
-        )
-    except Exception as exc:  # noqa: BLE001
-        all_ok &= _check("generate-chart", False, str(exc))
+    for path in (
+        "/v1/generate-bazi",
+        "/v1/generate-chart",
+        "/generate-bazi",
+        "/generate-chart",
+    ):
+        try:
+            code, body = _request("POST", f"{base}{path}", AUTH_PROBE)
+            all_ok &= _check(
+                f"auth {path}",
+                code == 401,
+                f"HTTP {code} {body[:200]}",
+            )
+        except Exception as exc:  # noqa: BLE001
+            all_ok &= _check(f"auth {path}", False, str(exc))
 
     print("OVERALL:", "PASS" if all_ok else "FAIL")
     return 0 if all_ok else 1

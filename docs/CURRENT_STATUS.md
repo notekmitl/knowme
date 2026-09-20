@@ -1,3 +1,30 @@
+## Active release - Western Astrology Reader V2 and performance (2026-09-20)
+
+Status: **SOURCE VALIDATED — PR #142 OPEN — DEPLOYMENT PENDING**
+
+- V2 resolves local civil time through the submitted IANA timezone before
+  Swiss Ephemeris calculation. The Owner case now uses
+  `1982-06-05T17:03:00Z` and returns Pisces, not Cancer, rising.
+- Whole-chart output now includes Big 3, weighted element/modality/polarity,
+  dominant planets, house emphasis, ordered major aspects, complete planet
+  copy, and eight practical Thai reading sections.
+- The selected flow uses one authenticated request, one atomic server batch,
+  and the returned chart directly. Its former browser save/read/mirror/probe/
+  reload chain is removed from the primary path.
+- Both generation routes now require Firebase authentication and UID binding.
+  Canonical profile fields must match the calculation input.
+- Backend regression passes 46/46. The three-case, 500-iteration engine
+  benchmark passes with 0.118–0.123 ms medians against a 25 ms threshold.
+- GitHub CI run `35508539559` passes the governed PreCommit gate: focused
+  Flutter 51/51, complete Flutter 3,093/3,093, analyzer policy with 275
+  inherited non-fatal diagnostics and no task-source diagnostic, plus the
+  Production-configured Web build and endpoint guards.
+- Draft PR #142 contains the exact validated source. Review/merge,
+  Backend-first rollout, Hosting rollout, and authenticated Production
+  desktop/mobile timing remain open; no deployment is claimed yet.
+
+See `docs/WESTERN_ASTROLOGY_READER_V2.md` for the contract and release gates.
+
 ## Completed release - BaZi Reader V4 conversational Thai (2026-09-20)
 
 Status: **PASS — PR #140 MERGED, HOSTING RELEASED, PRODUCTION-VERIFIED**

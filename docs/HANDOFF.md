@@ -1,3 +1,34 @@
+# Handoff - Western Astrology Reader V2 (2026-09-20)
+
+The source candidate is implemented and the governed release gate passes. Do
+not release Hosting before the authenticated backend revision is deployed and
+verified.
+
+- Calculation contract `western_natal_v2` converts IANA local civil time to
+  the exact UTC instant before Swiss Ephemeris tropical/Placidus calculation.
+- Owner input `1982-06-06 00:03` Chiang Mai resolves to
+  `1982-06-05T17:03:00Z` and Gemini/Sagittarius/Pisces Big 3.
+- Reader V2 covers whole-chart balance, dominance, houses, aspects, and eight
+  practical Thai sections without external AI or event certainty.
+- The selected flow returns the API chart directly and persists profile, chart,
+  Fusion snapshot, and invalidation in one authenticated batch.
+- Backend tests pass 46/46; the repeatable three-case engine benchmark passes
+  at 0.118–0.123 ms median. GitHub CI run `35508539559` passes focused Flutter
+  51/51, the complete Flutter suite 3,093/3,093, analyzer policy with 275
+  inherited non-fatal diagnostics and no task-source diagnostic, and the
+  Production-configured Web build.
+- PR #142 remains Draft pending final review. Merge, Backend/Hosting rollout,
+  and authenticated live desktop/mobile timing remain open.
+- Scope excludes Thai astrology, BaZi calculation/report, Thai goldens,
+  `product-acceptance/`, Firestore rules, Functions, Storage, IAM, and existing
+  Production data.
+
+Release order: review and merge, deploy Cloud Run, verify health and
+authenticated generation, build exact merge, deploy Hosting only, then measure
+one-POST desktop/mobile click-to-result behavior and inspect the live reader.
+
+---
+
 # Handoff - BaZi Reader V4 conversational Thai (2026-09-20)
 
 The release is complete. PR #140 merged as `24eaef1`, tree `19856f8a`.

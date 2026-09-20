@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:knowme/data/models/bazi_chart_model.dart';
+import 'package:knowme/data/models/astrology_chart_model.dart';
+import 'package:knowme/features/thai_beta/application/thai_beta_astrology_handoff.dart';
 import 'package:knowme/features/bazi_compatibility/application/bazi_compatibility_owner_fixtures.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_analysis.dart';
 import 'package:knowme/features/thai_beta/domain/thai_beta_input.dart';
@@ -64,10 +66,10 @@ void main() {
         input: _unknownInput,
         prepareSystem: (uid, input, system) async {
           prepared = system;
-          return chart;
+          return ThaiBetaPreparedAstrology.bazi(chart);
         },
-        destinationBuilder: (_, _, system, preparedChart) {
-          deliveredChart = preparedChart;
+        destinationBuilder: (_, _, system, preparedResult) {
+          deliveredChart = preparedResult.baziChart;
           return Scaffold(body: Text('destination:${system.name}'));
         },
       );
@@ -100,7 +102,7 @@ void main() {
         input: _knownInput,
         prepareSystem: (uid, input, system) async {
           prepared = system;
-          return null;
+          return ThaiBetaPreparedAstrology.western(_westernChart);
         },
       );
       await _scrollToWestern(tester);
@@ -120,7 +122,9 @@ void main() {
         resolveUser: (_) async => null,
         prepareSystem: (_, _, _) async {
           prepareCalls++;
-          return null;
+          return ThaiBetaPreparedAstrology.bazi(
+            BaziCompatibilityOwnerFixtures.chart(BaziOwnerCase.known),
+          );
         },
       );
 
@@ -151,7 +155,7 @@ Future<void> _pumpSelection(
   })?
   analysisExecutor,
   Future<String?> Function(BuildContext context)? resolveUser,
-  Future<BaziChartModel?> Function(
+  Future<ThaiBetaPreparedAstrology> Function(
     String userId,
     ThaiBetaInput input,
     ThaiBetaAstrologySystem system,
@@ -161,7 +165,7 @@ Future<void> _pumpSelection(
     BuildContext context,
     String userId,
     ThaiBetaAstrologySystem system,
-    BaziChartModel? preparedBaziChart,
+    ThaiBetaPreparedAstrology preparedResult,
   )?
   destinationBuilder,
 }) async {
@@ -180,7 +184,16 @@ Future<void> _pumpSelection(
                   asOf: asOf,
                 ),
         resolveUser: resolveUser ?? (_) async => 'uid-1',
-        prepareSystem: prepareSystem ?? (_, _, _) async => null,
+        prepareSystem:
+            prepareSystem ??
+            (_, _, system) async => switch (system) {
+              ThaiBetaAstrologySystem.bazi => ThaiBetaPreparedAstrology.bazi(
+                BaziCompatibilityOwnerFixtures.chart(BaziOwnerCase.known),
+              ),
+              ThaiBetaAstrologySystem.western =>
+                ThaiBetaPreparedAstrology.western(_westernChart),
+              ThaiBetaAstrologySystem.thai => throw StateError('not used'),
+            },
         destinationBuilder:
             destinationBuilder ??
             (_, _, system, _) =>
@@ -208,4 +221,16 @@ final _unknownInput = ThaiBetaInput(
   birthTimeUnknown: true,
   province: 'เชียงใหม่',
   provinceKey: 'chiang mai',
+);
+
+final _westernChart = AstrologyChartModel(
+  version: 'western_natal_v2',
+  contractId: 'knowme_western_reader_v2',
+  engineVersion: 'engine-v2',
+  inputHash: 'hash',
+  big3: const {'sun': 'Gemini', 'moon': 'Sagittarius', 'rising': 'Pisces'},
+  planets: const {},
+  insight: const {},
+  overallSummary: const {},
+  reader: const {'version': 'western_reader_th_v2'},
 );

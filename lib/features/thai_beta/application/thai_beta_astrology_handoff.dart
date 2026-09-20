@@ -1,21 +1,31 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:knowme/core/profile/birth_profile_format.dart';
 import 'package:knowme/data/models/bazi_chart_model.dart';
+import 'package:knowme/data/models/astrology_chart_model.dart';
 import 'package:knowme/domain/models/profile_model.dart';
-import 'package:knowme/features/astrology/application/astrology_generation_coordinator.dart';
 import 'package:knowme/features/astrology/application/birth_profile_readiness.dart';
 import 'package:knowme/features/birth_normalization/application/birth_normalizer.dart';
 import 'package:knowme/features/birth_normalization/domain/raw_birth_input.dart';
 import 'package:knowme/features/thai_beta/domain/thai_beta_input.dart';
 import 'package:knowme/services/bazi_api_service.dart';
-import 'package:knowme/services/profile_service.dart';
+import 'package:knowme/services/astrology_api_service.dart';
 
-typedef ThaiBetaProfileSaver =
-    Future<void> Function(String userId, ProfileModel profile);
 typedef ThaiBetaBaziGenerator =
     Future<BaziChartModel> Function(String userId, ProfileModel profile);
 typedef ThaiBetaWesternGenerator =
-    Future<bool> Function(String userId, ProfileModel profile);
+    Future<AstrologyChartModel> Function(String userId, ProfileModel profile);
+
+class ThaiBetaPreparedAstrology {
+  const ThaiBetaPreparedAstrology._({this.baziChart, this.westernChart});
+
+  factory ThaiBetaPreparedAstrology.bazi(BaziChartModel chart) =>
+      ThaiBetaPreparedAstrology._(baziChart: chart);
+
+  factory ThaiBetaPreparedAstrology.western(AstrologyChartModel chart) =>
+      ThaiBetaPreparedAstrology._(westernChart: chart);
+
+  final BaziChartModel? baziChart;
+  final AstrologyChartModel? westernChart;
+}
 
 /// Converts the anonymous Thai-beta form into the canonical signed-in profile
 /// used by the Chinese and Western engines, then generates only the selected
@@ -26,18 +36,15 @@ typedef ThaiBetaWesternGenerator =
 /// BaZi.
 class ThaiBetaAstrologyHandoff {
   ThaiBetaAstrologyHandoff({
-    ThaiBetaProfileSaver? saveProfile,
     ThaiBetaBaziGenerator? generateBazi,
     ThaiBetaWesternGenerator? generateWestern,
-  }) : _saveProfile = saveProfile ?? _saveForAuthenticatedUser,
-       _generateBazi = generateBazi ?? _generateBaziOnly,
+  }) : _generateBazi = generateBazi ?? _generateBaziOnly,
        _generateWestern = generateWestern ?? _generateWesternOnly;
 
-  final ThaiBetaProfileSaver _saveProfile;
   final ThaiBetaBaziGenerator _generateBazi;
   final ThaiBetaWesternGenerator _generateWestern;
 
-  Future<BaziChartModel?> prepare({
+  Future<ThaiBetaPreparedAstrology> prepare({
     required String userId,
     required ThaiBetaInput input,
     required String systemId,
@@ -59,15 +66,14 @@ class ThaiBetaAstrologyHandoff {
     if (systemId == 'bazi') {
       // The authenticated endpoint persists this exact canonical profile,
       // chart, result snapshot, and Fusion invalidation in one server batch.
-      return _generateBazi(uid, profile);
+      return ThaiBetaPreparedAstrology.bazi(await _generateBazi(uid, profile));
     }
 
-    await _saveProfile(uid, profile);
-    final ready = await _generateWestern(uid, profile);
-    if (!ready) {
-      throw StateError('Selected astrology result is not ready');
-    }
-    return null;
+    // Western V2 uses the same authenticated atomic path as BaZi: profile,
+    // chart, Fusion snapshot, and invalidation commit together on the server.
+    return ThaiBetaPreparedAstrology.western(
+      await _generateWestern(uid, profile),
+    );
   }
 
   static ProfileModel profileFromInput(ThaiBetaInput input) {
@@ -113,17 +119,6 @@ class ThaiBetaAstrologyHandoff {
     };
   }
 
-  static Future<void> _saveForAuthenticatedUser(
-    String userId,
-    ProfileModel profile,
-  ) async {
-    final user = FirebaseAuth.instance.currentUser;
-    if (user == null || user.uid != userId) {
-      throw StateError('Authenticated user does not match the profile owner');
-    }
-    await ProfileService().saveProfile(profile);
-  }
-
   static Future<BaziChartModel> _generateBaziOnly(
     String userId,
     ProfileModel profile,
@@ -142,15 +137,18 @@ class ThaiBetaAstrologyHandoff {
     );
   }
 
-  static Future<bool> _generateWesternOnly(
+  static Future<AstrologyChartModel> _generateWesternOnly(
     String userId,
     ProfileModel profile,
   ) async {
-    final snapshot = await AstrologyGenerationCoordinator().ensureGenerated(
-      userId,
-      retrySystemId: 'western',
-      forceSystemId: 'western',
+    return AstrologyApiService.generateChart(
+      uid: userId,
+      birthDate: BirthProfileReadiness.apiBirthDate(profile),
+      birthTime: profile.birthTime.trim(),
+      timezone: profile.timezone.isNotEmpty ? profile.timezone : 'Asia/Bangkok',
+      latitude: profile.latitude,
+      longitude: profile.longitude,
+      canonicalProfile: profile.toMap(),
     );
-    return snapshot.system('western').isReady;
   }
 }

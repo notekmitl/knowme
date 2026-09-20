@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:knowme/core/config/api_config.dart';
 import 'package:knowme/core/network/astrology_api_client.dart';
+import 'package:knowme/data/models/astrology_chart_model.dart';
 
 class WesternAuthSession {
   const WesternAuthSession({required this.uid, required this.idToken});
@@ -11,7 +12,7 @@ class WesternAuthSession {
 
 typedef WesternAuthSessionLoader = Future<WesternAuthSession> Function();
 typedef WesternPostJson =
-    Future<void> Function({
+    Future<Map<String, dynamic>> Function({
       required Uri endpoint,
       required Map<String, dynamic> body,
       required String failureLabel,
@@ -19,12 +20,14 @@ typedef WesternPostJson =
     });
 
 class AstrologyApiService {
-  static Future<void> generateChart({
+  static Future<AstrologyChartModel> generateChart({
     required String uid,
     required String birthDate,
     required String birthTime,
+    String timezone = 'Asia/Bangkok',
     required double latitude,
     required double longitude,
+    Map<String, dynamic>? canonicalProfile,
     WesternAuthSessionLoader? loadAuthSession,
     WesternPostJson? postJson,
   }) async {
@@ -39,18 +42,27 @@ class AstrologyApiService {
     }
 
     final send = postJson ?? _postJson;
-    await send(
+    final body = <String, dynamic>{
+      'uid': uid,
+      'birth_date': birthDate,
+      'birth_time': birthTime,
+      'timezone': timezone,
+      'latitude': latitude,
+      'longitude': longitude,
+    };
+    if (canonicalProfile != null) body['profile'] = canonicalProfile;
+
+    final response = await send(
       endpoint: ApiConfig.astrologyGenerateChartUri(),
-      body: {
-        'uid': uid,
-        'birth_date': birthDate,
-        'birth_time': birthTime,
-        'latitude': latitude,
-        'longitude': longitude,
-      },
+      body: body,
       failureLabel: 'Failed to generate chart',
       headers: {'Authorization': 'Bearer ${session.idToken}'},
     );
+    final rawChart = response['chart'];
+    if (rawChart is! Map) {
+      throw const FormatException('Western API response is missing chart data');
+    }
+    return AstrologyChartModel.fromMap(Map<String, dynamic>.from(rawChart));
   }
 
   static Future<WesternAuthSession> _loadFirebaseSession() async {
@@ -67,13 +79,13 @@ class AstrologyApiService {
     return WesternAuthSession(uid: user.uid, idToken: token);
   }
 
-  static Future<void> _postJson({
+  static Future<Map<String, dynamic>> _postJson({
     required Uri endpoint,
     required Map<String, dynamic> body,
     required String failureLabel,
     required Map<String, String> headers,
   }) {
-    return AstrologyApiClient.postJson(
+    return AstrologyApiClient.postJsonMap(
       endpoint: endpoint,
       body: body,
       failureLabel: failureLabel,

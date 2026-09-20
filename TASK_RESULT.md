@@ -1,3 +1,28 @@
+# Task Result - Western Astrology Reader V2 and generation performance
+
+**Result: SOURCE VALIDATED — PR #142 OPEN — DEPLOYMENT PENDING.**
+
+Western Natal V2 now resolves the historical local civil time before UTC/Julian
+conversion, returns a deterministic whole-chart contract and conversational
+Thai reader, commits related Firestore state atomically, and hands the API chart
+directly to the destination without the previous browser reload/mirror chain.
+
+The Owner case is locked to `1982-06-05T17:03:00Z` and
+Gemini/Sagittarius/Pisces. Backend regression passes 46/46. The repeatable
+three-case benchmark passes with 0.118–0.123 ms medians over 500 iterations,
+well below the 25 ms release threshold.
+
+GitHub CI run `35508539559` passes the governed PreCommit gate, including
+focused Flutter 51/51, complete Flutter 3,093/3,093, analyzer policy with 275
+inherited non-fatal diagnostics and no task-source diagnostic, and the
+Production-configured Web build. PR #142 carries the exact validated source.
+
+PR review/merge, Backend-first deployment, Hosting deployment, and
+authenticated live timing/visual QA remain open. No Production release is
+claimed at this stage.
+
+---
+
 # Task Result - BaZi Reader V4 conversational Thai
 
 **Result: COMPLETE — PR #140 MERGED, HOSTING RELEASED, PRODUCTION QA PASSED.**

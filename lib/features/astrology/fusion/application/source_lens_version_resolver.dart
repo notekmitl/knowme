@@ -7,7 +7,8 @@ import '../domain/models/source_lens_versions.dart';
 
 /// Resolves deterministic source lens fingerprints for regeneration checks.
 abstract final class SourceLensVersionResolver {
-  static const String westernContractVersion = 'western_natal_v1';
+  static const String westernContractVersion = 'western_natal_v2';
+  static const String legacyWesternContractVersion = 'western_natal_v1';
 
   static SourceLensVersions fromInput(AstrologyFusionRealInput input) {
     return SourceLensVersions(
@@ -20,11 +21,20 @@ abstract final class SourceLensVersionResolver {
   static String? westernVersion(AstrologyChartModel? western) {
     if (western == null) return null;
 
+    if (western.inputHash.isNotEmpty) {
+      return <String>[
+        'contract=${western.contractId.isEmpty ? westernContractVersion : western.contractId}',
+        'schema=${western.version.isEmpty ? westernContractVersion : western.version}',
+        'engine=${western.engineVersion}',
+        'input=${western.inputHash}',
+      ].join(';');
+    }
+
     final big3 = western.big3;
     final sun = big3['sun']?.toString() ?? '';
     final moon = big3['moon']?.toString() ?? '';
     final rising = big3['rising']?.toString() ?? '';
-    return '$westernContractVersion|$sun|$moon|$rising';
+    return '$legacyWesternContractVersion|$sun|$moon|$rising';
   }
 
   static String? baziVersion(BaziChartModel? bazi) {
