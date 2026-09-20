@@ -1,6 +1,6 @@
 # Task Result - BaZi Reader V4 conversational Thai
 
-**Result: PRECOMMIT PASS — COMMIT/POSTCOMMIT/PR/RELEASE PENDING.**
+**Result: COMPLETE — PR #140 MERGED, HOSTING RELEASED, PRODUCTION QA PASSED.**
 
 The shared deterministic Reader V2/V4 composers now speak to the chart owner
 in short, ordinary Thai. Each section leads with the useful point, follows with
@@ -37,13 +37,38 @@ The release Web bundle is 8,609,231 bytes at SHA-256
 `0C160CECC4914FAA6CDF52F63BB7A643A9605998154659B26184108DC5592B8B`.
 It contains the Production API and `/beta/chinese` once and contains zero
 actual loopback endpoint. The one generic `localhost` literal remains an
-inherited hostname comparison. Local Gate, PR, merge, Hosting-only deployment,
-and Production Web/PDF QA remain release steps.
+inherited hostname comparison.
 
 Local Gate PreCommit passes its branch/worktree/scope and forbidden-text
 guards, analyzer policy, focused Flutter 12/12, backend 23/23, and complete
 Flutter 3,085/3,085. Generated tracked validator outputs were restored one by
 one and are excluded from the candidate.
+
+Commit `ebc0223066105d6f2a77e699b2cf1d25fb634b65` passed Local Gate
+PostCommit. PR #140 had no configured repository checks, was reported
+MERGEABLE/CLEAN, and squash-merged as
+`24eaef1bc0e8a84be72b27388d3ce1d38b827ba4`, tree
+`19856f8a707d85f32c89bd87af488152bb132e10`.
+
+The exact merge was rebuilt with the Production API and public-beta defines.
+Firebase Hosting only was deployed as release `1789891789495000`, version
+`b5d2cde74c2e1fd6`, at `2026-09-20T08:09:49Z`, with cache pin `24eaef1`.
+Both Hosting domains and `/beta/chinese?case=known` return HTTP 200. Live
+`main.dart.js` is 8,609,239 bytes / SHA-256
+`FF070AFFE07F8441155D84E33F12A3A177D9E1EA2A0615C8B059A990DBCB5562`
+and matches the local exact-merge build byte-for-byte.
+
+Production browser QA shows the conversational Thai, one disclaimer, complete
+past/current/five-year/two-cycle sections, and no calculation-input section.
+There is no KnowMe application console error; the observed message-channel
+noise originates from a Chrome extension. The real browser-downloaded PDF is
+three A4 pages / 30,939 bytes / SHA-256
+`341786FB69F5941E802D24777855985329BA61A72A2C2CD36E898083992B3655`.
+All pages were rendered and inspected: banned wording and hidden-input hits are
+zero, required sections are complete, the disclaimer appears once, fonts are
+Noto Sans Thai Regular/Bold and Noto Sans SC Regular, and clipping, overlap,
+overflow, blank-page, and broken-glyph findings are zero. No Backend, Thai
+astrology, other Firebase resource, or Production data changed.
 
 ---
 

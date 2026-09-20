@@ -11,7 +11,7 @@ returned by Reader V3 into a readable past-present-future life timeline. It
 does not change the Four Pillars, apparent-solar-time policy, input
 fingerprint, luck-cycle direction, chart persistence, or API contract.
 
-## Conversational Thai release candidate (2026-09-20)
+## Conversational Thai production release (2026-09-20)
 
 The shared Reader V2/V4 composer now explains the chart in short, ordinary
 Thai addressed naturally to `คุณ`. Each section starts with its useful answer
@@ -39,9 +39,19 @@ projections and four three-page PDFs share the same report content. All 12 PDF
 pages pass text, font, blank-page, clipping, overlap, overflow, and Thai/CJK
 glyph review; CJK remains Noto Sans SC Regular. The release Web bundle contains
 the Production API and `/beta/chinese`, with zero actual loopback endpoint.
-Local Gate PreCommit passes scope, forbidden-text, analyzer, focused tests, and
-full Flutter 3,085/3,085. Commit/PostCommit, PR, Hosting-only release, and
-Production Web/PDF QA remain pending.
+Local Gate PreCommit/PostCommit pass. PR #140 merged as `24eaef1`, tree
+`19856f8a`. Hosting-only release `1789891789495000` / version
+`b5d2cde74c2e1fd6` serves cache pin `24eaef1`. The live 8,609,239-byte bundle
+matches the exact-merge build at SHA-256
+`FF070AFFE07F8441155D84E33F12A3A177D9E1EA2A0615C8B059A990DBCB5562`.
+
+Production Web QA confirms the copy, complete bounded timeline, single
+disclaimer, and hidden calculation-input section. The browser-downloaded PDF
+is three A4 pages / 30,939 bytes / SHA-256
+`341786FB69F5941E802D24777855985329BA61A72A2C2CD36E898083992B3655`.
+All pages pass visual/text/font QA; embedded fonts remain Noto Sans Thai
+Regular/Bold and Noto Sans SC Regular. Backend and non-Hosting Firebase
+resources were not deployed.
 
 ## Owner-copy acceptance repair release (2026-09-20)
 
