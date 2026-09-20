@@ -18,6 +18,64 @@ void main() {
       expect(profile.timezone, 'Asia/Bangkok');
     });
 
+    test('preserves place, coordinates, timezone, and time for QA cities', () {
+      final cases = [
+        (
+          place: 'กรุงเทพมหานคร',
+          key: 'bangkok',
+          date: DateTime(1990, 12, 5),
+          hour: 15,
+          minute: 30,
+          latitude: 13.7563,
+          longitude: 100.5018,
+        ),
+        (
+          place: 'เชียงใหม่',
+          key: 'chiang mai',
+          date: DateTime(1982, 6, 6),
+          hour: 0,
+          minute: 35,
+          latitude: 18.7883,
+          longitude: 98.9853,
+        ),
+        (
+          place: 'ภูเก็ต',
+          key: 'phuket',
+          date: DateTime(2001, 3, 3),
+          hour: 23,
+          minute: 45,
+          latitude: 7.8804,
+          longitude: 98.3923,
+        ),
+      ];
+
+      for (final fixture in cases) {
+        final profile = ThaiBetaAstrologyHandoff.profileFromInput(
+          ThaiBetaInput(
+            firstName: 'Owner',
+            lastName: 'QA',
+            birthDate: fixture.date,
+            birthHour: fixture.hour,
+            birthMinute: fixture.minute,
+            province: fixture.place,
+            provinceKey: fixture.key,
+            gender: 'ชาย',
+          ),
+        );
+
+        expect(profile.birthPlace, fixture.place, reason: fixture.key);
+        expect(profile.latitude, fixture.latitude, reason: fixture.key);
+        expect(profile.longitude, fixture.longitude, reason: fixture.key);
+        expect(profile.timezone, 'Asia/Bangkok', reason: fixture.key);
+        expect(
+          profile.birthTime,
+          '${fixture.hour.toString().padLeft(2, '0')}:'
+          '${fixture.minute.toString().padLeft(2, '0')}',
+          reason: fixture.key,
+        );
+      }
+    });
+
     test('Unknown time stays empty and never persists noon sentinel', () {
       final profile = ThaiBetaAstrologyHandoff.profileFromInput(_unknownInput);
 

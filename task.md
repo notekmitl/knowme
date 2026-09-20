@@ -1,3 +1,49 @@
+# Active Task - BaZi Reader V4 Owner copy acceptance repair (2026-09-20)
+
+Status: **RELEASE CANDIDATE VALIDATED — PRECOMMIT PASS, DELIVERY PENDING**
+
+## Goal
+
+Apply the five Owner-approved Reader V4 wording repairs at the shared
+deterministic copy-composer layer, audit the remaining report for unsupported
+certainty or repetition, and prove that Bangkok, Chiang Mai, and Phuket birth
+location data reaches the Reader V3 apparent-solar-time calculation.
+
+## Boundaries
+
+- Keep the BaZi calculation contract, Four Pillars, chart structure, API,
+  persistence, and Production data unchanged unless an actual defect is
+  proven.
+- Preserve the existing headings and visual design.
+- Do not restore hidden technical sections or add location/calculation detail
+  to the Web or PDF report.
+- Do not change Thai astrology, Thai goldens, `product-acceptance/`, Firestore
+  rules, Functions, Auth, Storage, or IAM.
+- Deploy Firebase Hosting only after focused/full/analyzer/Local Gate, visual
+  Web/PDF QA, review checks, and merge all pass.
+
+## Acceptance checklist
+
+- [x] Owner-approved copy repairs 1-5 are implemented centrally.
+- [x] Additional wording audit removes only evidenced overclaim, repetition,
+      or unnatural joins.
+- [x] Automated three-location pipeline and apparent-solar-time regression
+      passes for Bangkok, Chiang Mai, and Phuket.
+- [x] Focused tests 21/21, backend tests 38/38, and complete Flutter suite
+      3,084/3,084 pass with Flutter 3.41.1 and bundled PDF dependencies.
+- [x] Candidate Web and PDF for all three cases have canonical parity; all 12
+      A4 pages pass visual, text, font, blank-page, clipping and overflow QA.
+- [x] Analyzer policy and Local Gate PreCommit pass on the final source and
+      documentation candidate; analyzer reports 282 inherited non-fatal
+      diagnostics and the Gate full suite passes 3,084/3,084.
+- [ ] Local Gate PostCommit passes on the committed tree.
+- [ ] PR is pushed, checked, merged, and only Firebase Hosting is deployed.
+- [ ] Production bundle and a real Production PDF pass final QA.
+- [ ] CURRENT_STATUS, HANDOFF, ROADMAP, and Reader V4 documentation match the
+      released state.
+
+---
+
 # Completed Task - BaZi Reader V4 life timeline (2026-09-19)
 
 Status: **COMPLETE — PR #135 MERGED, HOSTING DEPLOYED, PRODUCTION QA PASSED.**

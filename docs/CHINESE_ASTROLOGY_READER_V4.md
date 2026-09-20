@@ -11,6 +11,43 @@ returned by Reader V3 into a readable past-present-future life timeline. It
 does not change the Four Pillars, apparent-solar-time policy, input
 fingerprint, luck-cycle direction, chart persistence, or API contract.
 
+## Owner-copy acceptance repair candidate (2026-09-20)
+
+The follow-up keeps the same interpretation and calculation contract while
+repairing the shared Thai copy composer:
+
+- multi-family overview and work themes join as natural sentences;
+- model-derived strengths, money and relationship statements are framed as
+  tendencies or review prompts, not guaranteed identity or life events;
+- past cycles describe their distinct theme and signal, while the reflective
+  prompt appears once in the section introduction;
+- current-cycle and annual signals complement each other instead of repeating
+  the same advice; and
+- annual and decade-cycle horizons are explicitly distinguished when their
+  calendar years overlap.
+
+The audit also removes the evidenced doubled phrase
+`สัญญาณรายปีมีสัญญาณปะทะ`. No fixture-specific prose is introduced, and no
+location, coordinate, timezone, or apparent-solar diagnostic is added to the
+Web or PDF reader.
+
+Location regression uses Bangkok (1990-12-05 15:30), Chiang Mai (1982-06-06
+00:35), and Phuket (2001-03-03 23:45). Tests cover the form handoff, canonical
+profile, authenticated API payload, engine input, coordinate use, historical
+IANA offset, longitude correction, NOAA Equation of Time, total correction,
+and final apparent-solar datetime. Resulting apparent-solar times are 15:21:09,
+00:12:46, and 23:06:08; these are engineering evidence and remain hidden from
+the consumer report.
+
+Candidate validation passes focused Flutter 21/21, backend 38/38, and full
+Flutter 3,084/3,084. Local Gate PreCommit passes the final candidate, including
+analyzer policy with 282 inherited non-fatal diagnostics. Three Web projections
+and three PDF projections use the same report object. The PDFs contain 12
+visually inspected A4 pages with no missing section, blank page, clipping,
+overlap, overflow, or Thai/CJK glyph defect; embedded fonts remain Noto Sans
+Thai Regular/Bold and Noto Sans SC Regular. PostCommit, PR delivery,
+Hosting-only release, and live QA remain pending at this checkpoint.
+
 ## Reader order
 
 1. Four Pillars and Day Master;

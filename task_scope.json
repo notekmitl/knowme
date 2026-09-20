@@ -1,35 +1,40 @@
 {
   "schema_version": 1,
-  "task_id": "knowme-bazi-reader-v4-life-timeline",
-  "expected_branch": "codex/bazi-reader-life-timeline-v4",
-  "expected_worktree": "C:/Users/USER/Documents/Knowme/bazi-reader-v4-life-timeline",
-  "base_ref": "e1426fcfd0f51d4681d56f1426e9788e4fc36fd7",
+  "task_id": "knowme-bazi-reader-v4-owner-copy-fixes",
+  "expected_branch": "codex/bazi-reader-v4-owner-copy-fixes",
+  "expected_worktree": "C:/Users/USER/Documents/Knowme/bazi-reader-v4-owner-copy-fixes",
+  "base_ref": "f95595238e221667925137f83426bca53031956f",
   "allowed_files": [
+    "TASK_RESULT.md",
+    "backend/tests/test_bazi_builder.py",
     "docs/CHINESE_ASTROLOGY_READER_V4.md",
     "docs/CURRENT_STATUS.md",
     "docs/HANDOFF.md",
     "docs/ROADMAP.md",
-    "docs/THAI_MIRROR_WINDOWS_GOLDEN_DETERMINISM.md",
-    "lib/features/bazi_compatibility/application/bazi_compatibility_owner_fixtures.dart",
-    "lib/features/bazi_compatibility/application/bazi_compatibility_pdf_exporter.dart",
     "lib/features/bazi_compatibility/application/bazi_compatibility_report_builder.dart",
+    "lib/features/bazi_compatibility/application/bazi_reader_v2.dart",
     "lib/features/bazi_compatibility/application/bazi_reader_v4.dart",
-    "lib/features/bazi_compatibility/presentation/bazi_compatibility_owner_page.dart",
     "task.md",
     "task_scope.json",
-    "test/bazi_chart_model_test.dart",
+    "test/bazi_compatibility_api_auth_test.dart",
     "test/bazi_compatibility_pdf_test.dart",
     "test/bazi_compatibility_report_test.dart",
-    "test/bazi_compatibility_routes_test.dart"
+    "test/bazi_compatibility_routes_test.dart",
+    "test/thai_beta_astrology_handoff_test.dart"
   ],
   "allowed_globs": [],
   "forbidden_files": [
-    "backend/**",
+    ".env",
+    ".env.*",
+    "**/*.pem",
+    "**/*.key",
+    "**/google-services.json",
+    "**/GoogleService-Info.plist",
+    "backend/app/**",
     "firebase.json",
     "firestore.rules",
     "functions/**",
     "lib/features/astrology/thai/**",
-    "lib/features/thai_beta/**",
     "product-acceptance/**"
   ],
   "generated_output_globs": [
@@ -54,14 +59,15 @@
     "C:/Users/"
   ],
   "focused_tests": [
-    "flutter test --no-pub test/bazi_chart_model_test.dart",
     "flutter test --no-pub test/bazi_compatibility_report_test.dart",
     "flutter test --no-pub test/bazi_compatibility_routes_test.dart",
-    "flutter test --no-pub test/bazi_compatibility_pdf_test.dart"
+    "flutter test --no-pub test/bazi_compatibility_pdf_test.dart",
+    "flutter test --no-pub test/bazi_compatibility_api_auth_test.dart",
+    "flutter test --no-pub test/thai_beta_astrology_handoff_test.dart"
   ],
   "full_test_policy": "required",
   "full_test_command": "flutter test --no-pub --concurrency=4 --reporter compact",
   "analyze_command": "flutter analyze --no-pub --no-fatal-warnings --no-fatal-infos",
-  "commit_message_regex": "^feat: .{10,72}$",
+  "commit_message_regex": "^fix: .{10,72}$",
   "require_clean_tree_after_commit": true
 }

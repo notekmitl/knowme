@@ -65,6 +65,49 @@ def test_known_time_four_pillars_and_contract_metadata():
     }
 
 
+@pytest.mark.parametrize(
+    ("place", "date", "time", "latitude", "longitude"),
+    [
+        ("Bangkok", "1990-12-05", "15:30", 13.7563, 100.5018),
+        ("Chiang Mai", "1982-06-06", "00:35", 18.7883, 98.9853),
+        ("Phuket", "2001-03-03", "23:45", 7.8804, 98.3923),
+    ],
+)
+def test_owner_qa_locations_reach_apparent_solar_calculation(
+    place,
+    date,
+    time,
+    latitude,
+    longitude,
+):
+    chart = _known(date, time, "Asia/Bangkok", latitude, longitude, "male")
+    solar = chart["solar_time"]
+
+    assert chart["input"]["birth_date"] == date, place
+    assert chart["input"]["birth_time"] == time, place
+    assert chart["input"]["timezone"] == "Asia/Bangkok", place
+    assert chart["input"]["latitude"] == latitude, place
+    assert chart["input"]["longitude"] == longitude, place
+    assert chart["input"]["coordinates_used_in_calculation"] is True, place
+    assert solar["status"] == "computed", place
+    assert solar["timezone"] == "Asia/Bangkok", place
+    assert solar["latitude_degrees"] == latitude, place
+    assert solar["longitude_degrees"] == longitude, place
+    assert solar["historical_utc_offset_minutes"] == 420.0, place
+    assert solar["longitude_correction_minutes"] == pytest.approx(
+        4.0 * longitude - 420.0,
+        abs=1e-6,
+    ), place
+    assert solar["total_correction_minutes"] == pytest.approx(
+        solar["equation_of_time_minutes"]
+        + solar["longitude_correction_minutes"],
+        abs=1e-6,
+    ), place
+    assert solar["apparent_solar_datetime"] != (
+        f"{date}T{time}:00"
+    ), place
+
+
 def test_known_time_day_master_year_animal_and_surface_count():
     chart = _known()
 
