@@ -54,7 +54,7 @@ abstract final class BaziCompatibilityReportBuilder {
     return BaziCompatibilityReport(
       title: 'คำทำนายดวงจีน · ปาจื้อ (BaZi)',
       subtitle: isReaderV3
-          ? 'อ่านพื้นดวง พร้อมเส้นทางที่ผ่านมา จังหวะปัจจุบัน แนวโน้ม 5 ปี และภาพระยะยาวจากผังปาจื้อที่คำนวณได้'
+          ? 'อ่านพื้นดวงและจังหวะชีวิตด้วยภาษาที่เข้าใจง่าย คำอ่านนี้เป็นแนวโน้มเพื่อช่วยวางแผน ไม่ได้หมายความว่าเหตุการณ์จะต้องเกิดขึ้น'
           : 'อ่านพื้นดวง ตัวตน การงาน การเงิน ความสัมพันธ์ ดวงจรสิบปี และจังหวะปีปัจจุบันจากผังปาจื้อที่คำนวณได้',
       sections: [
         _readerPillarsSection(chart),
@@ -86,7 +86,7 @@ abstract final class BaziCompatibilityReportBuilder {
           BaziCompatibilityReportSection(
             title: 'เส้นทางที่ผ่านมา · ดวงจรสิบปี',
             intro:
-                'ส่วนนี้อ่านย้อนหลังเป็นธีมของแต่ละช่วง เพื่อให้คุณเทียบกับชีวิตจริง ไม่ได้ระบุว่าเหตุการณ์ใดต้องเกิดขึ้น อ่านแต่ละช่วงเพื่อทบทวนว่า คุณได้เรียนรู้อะไร และวิธีรับมือใดยังนำมาใช้ได้ในปัจจุบัน',
+                'แต่ละช่วงที่ผ่านมาให้บทเรียนต่างกัน ลองดูว่าเรื่องใดช่วยให้คุณเติบโต และวิธีใดยังนำมาใช้กับชีวิตตอนนี้ได้',
             rows: [
               for (final entry in timeline.pastCycles)
                 BaziCompatibilityReportRow(
@@ -107,7 +107,7 @@ abstract final class BaziCompatibilityReportBuilder {
           BaziCompatibilityReportSection(
             title: 'แนวโน้ม 5 ปีข้างหน้า',
             intro:
-                'หัวข้อนี้อ่านสัญญาณรายปีเทียบกับพื้นดวง ส่วนดวงจรสิบปีด้านล่างเป็นภาพระยะยาวอีกชั้นหนึ่ง หากช่วงปีทับกัน ให้ใช้รายปีเป็นหัวข้อระยะสั้นและดวงจรสิบปีเป็นกรอบกว้าง ไม่ถือว่าเป็นคำรับรองเหตุการณ์',
+                'แต่ละปีมีเรื่องเด่นต่างกัน ถ้าช่วงปีทับกับดวงจรสิบปี ให้อ่านรายปีเป็นเรื่องใกล้ตัว และใช้ดวงจรสิบปีดูทิศทางระยะยาว',
             rows: [
               for (final entry in timeline.futureYears)
                 BaziCompatibilityReportRow(
@@ -120,7 +120,7 @@ abstract final class BaziCompatibilityReportBuilder {
           BaziCompatibilityReportSection(
             title: 'ภาพระยะยาว · สองดวงจรถัดไป',
             intro:
-                'ดวงจรสิบปีใช้ดูทิศทางใหญ่ของชีวิต แต่ละรอบจึงควรอ่านเป็นช่วงเตรียมตัว ไม่ใช่คำรับรองผล',
+                'สองช่วงต่อไปเป็นภาพกว้างของชีวิต ใช้เตรียมตัวและเลือกเรื่องที่คุณอยากให้ความสำคัญ',
             rows: [
               for (final entry in timeline.futureCycles)
                 BaziCompatibilityReportRow(
@@ -130,7 +130,7 @@ abstract final class BaziCompatibilityReportBuilder {
             ],
           ),
         if (!isReaderV3) _readerFactsSection(chart),
-        _inputSection(chart, true),
+        if (!isReaderV3) _inputSection(chart, true),
         if (!isReaderV3) _methodSection(chart, true),
         if (!isReaderV3) _sourcesSection(true),
         if (!isReaderV3) _limitationsSection(chart, true),

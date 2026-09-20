@@ -1,3 +1,37 @@
+# Handoff - BaZi Reader V4 conversational Thai (2026-09-20)
+
+The release candidate is implemented on
+`codex/bazi-reader-v4-conversational-thai` from `origin/main` at `90e59316`.
+Continue from this exact worktree; do not reimplement the copy work.
+
+- Shared Reader V2/V4 copy is conversational, brief, deterministic, and does
+  not promise events. The trend disclaimer appears once in the introduction.
+- Reader V4 hides `ข้อมูลที่ใช้คำนวณ` on both Web and PDF but retains all
+  source inputs in the internal chart/test evidence.
+- Four actual QA charts cover Bangkok, Chiang Mai, Phuket, and Owner case
+  1982-06-06 00:03 Chiang Mai male.
+- Focused Flutter 12/12, backend 23/23, full Flutter 3,085/3,085, analyzer
+  policy, four desktop/mobile Web projections, and four PDFs / 12 rendered
+  pages pass.
+- Candidate PDF hashes are recorded in `TASK_RESULT.md`; fonts are Regular,
+  and visual findings for clipping, overlap, overflow, blank pages, and broken
+  Thai/CJK glyphs are zero.
+- Release bundle SHA-256 is
+  `0C160CECC4914FAA6CDF52F63BB7A643A9605998154659B26184108DC5592B8B`;
+  Production API and route are present, actual loopback endpoints are zero.
+- The full suite rewrote tracked validator outputs; each affected output was
+  restored by exact path. Thai runtime, Thai goldens, `product-acceptance/`,
+  backend application source, and Firebase configuration have zero delta.
+
+Local Gate PreCommit passes scope, forbidden-text, analyzer, focused Flutter
+12/12, backend 23/23, and full Flutter 3,085/3,085. Remaining sequence: commit;
+PostCommit; push/open PR; wait for checks and merge; build the exact merge;
+deploy Firebase Hosting only; then verify Production Web, bundle, and a real
+downloaded PDF. Stop before any Backend, non-Hosting Firebase, or calculation
+change.
+
+---
+
 ## Handoff - BaZi Reader V4 Owner copy repair (2026-09-20)
 
 The release is complete. PR #138 applies the five Owner-approved changes in the shared

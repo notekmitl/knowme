@@ -69,6 +69,7 @@ def test_known_time_four_pillars_and_contract_metadata():
     ("place", "date", "time", "latitude", "longitude"),
     [
         ("Bangkok", "1990-12-05", "15:30", 13.7563, 100.5018),
+        ("Owner Chiang Mai", "1982-06-06", "00:03", 18.7883, 98.9853),
         ("Chiang Mai", "1982-06-06", "00:35", 18.7883, 98.9853),
         ("Phuket", "2001-03-03", "23:45", 7.8804, 98.3923),
     ],

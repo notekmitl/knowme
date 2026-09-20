@@ -11,6 +11,38 @@ returned by Reader V3 into a readable past-present-future life timeline. It
 does not change the Four Pillars, apparent-solar-time policy, input
 fingerprint, luck-cycle direction, chart persistence, or API contract.
 
+## Conversational Thai release candidate (2026-09-20)
+
+The shared Reader V2/V4 composer now explains the chart in short, ordinary
+Thai addressed naturally to `คุณ`. Each section starts with its useful answer
+and follows with what to watch or do. Report-system terms such as
+`แบบจำลอง`, `กรอบคำอ่าน`, `สัญญาณรายปี`, `สัญญาณเสียดทาน`, and
+`แนวทางที่ควรพิจารณา` are removed from reader copy. No fixture-specific text
+or new astrological claim is introduced.
+
+Reader V4 states once in its introduction that the reading is a planning trend,
+not a guarantee. Individual cards do not repeat the same caution. Repeated
+Ten-God and relation signals remain traceable to their calculated source but
+are expressed once per horizon, with deterministic follow-on wording where a
+theme repeats.
+
+`ข้อมูลที่ใช้คำนวณ` is no longer projected to Reader V4 Web or PDF. Birth
+input, coordinates, timezone, local civil time, apparent-solar time, and rule
+provenance remain present in the chart model and automated tests. This is a
+presentation-only correction; pillars, Day Master, Da Yun, Liu Nian, and
+apparent-solar calculation are unchanged.
+
+Validation uses actual charts for Bangkok, Chiang Mai, Phuket, and Owner case
+1982-06-06 00:03 Chiang Mai male. Focused Flutter 12/12, backend 23/23, full
+Flutter 3,085/3,085, and analyzer policy pass. Four desktop/mobile Web
+projections and four three-page PDFs share the same report content. All 12 PDF
+pages pass text, font, blank-page, clipping, overlap, overflow, and Thai/CJK
+glyph review; CJK remains Noto Sans SC Regular. The release Web bundle contains
+the Production API and `/beta/chinese`, with zero actual loopback endpoint.
+Local Gate PreCommit passes scope, forbidden-text, analyzer, focused tests, and
+full Flutter 3,085/3,085. Commit/PostCommit, PR, Hosting-only release, and
+Production Web/PDF QA remain pending.
+
 ## Owner-copy acceptance repair release (2026-09-20)
 
 The follow-up keeps the same interpretation and calculation contract while
@@ -73,12 +105,13 @@ review. No Backend or other Firebase resource was deployed.
 9. the active ten-year cycle;
 10. the current annual influence;
 11. the next five annual influences;
-12. the next two ten-year cycles; and
-13. concise calculation input.
+12. the next two ten-year cycles.
 
 The four technical sections hidden in the accepted concise Reader V3 release
 remain hidden from both Web and PDF: chart facts, reproducibility rules,
-sources, and limitations.
+sources, and limitations. Reader V4 also keeps concise calculation input out
+of the consumer report while retaining it internally for calculation,
+traceability, and automated tests.
 
 ## Timing rules
 
