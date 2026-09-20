@@ -1,6 +1,6 @@
 # Task Result - BaZi Reader V4 Owner copy acceptance repair
 
-**Result: RELEASE CANDIDATE VALIDATED — PRECOMMIT PASS, DELIVERY PENDING.**
+**Result: COMPLETE — PR #138 MERGED, HOSTING RELEASED, PRODUCTION QA PASSED.**
 
 The five Owner-approved repairs are implemented in the shared Reader V4
 composer, not in fixture-specific branches. The audit also removes evidenced
@@ -36,9 +36,29 @@ outputs are restored by exact path and are not part of the candidate.
 
 Local Gate PreCommit passes its scope and forbidden-text guards, analyzer
 policy (282 inherited non-fatal diagnostics), all 21 focused Flutter tests,
-and the complete 3,084-test Flutter suite. Remaining delivery steps are
-PostCommit, PR review checks, merge, Hosting-only release, and live Web/PDF
-verification. No Production mutation has occurred.
+and the complete 3,084-test Flutter suite. PostCommit also passes. PR #138
+merged as `949c6d16f4d99a3029ded28f2f524521def5d9d2`, tree
+`04ca71692278e9bffc5c965ac59852898e5f362c`; GitHub reported the PR
+mergeable/clean and had no configured checks to wait for.
+
+The exact merge was built against the existing Production Cloud Run API and
+released to Firebase Hosting only as release `1789886487340000`, version
+`b89bf52264152570`, with cache pin `949c6d1`. Both Firebase domains and the
+Known Owner route return HTTP 200. The live 8,611,124-byte `main.dart.js`
+matches the exact-merge build at SHA-256
+`369AFF2D8B1BF7DED42075C9750A6E8CE667158A7E40FE1464DE910AEDD1D06D`;
+it contains `/beta/chinese` and the Production API host, with zero actual
+loopback endpoints.
+
+Production Web QA confirms the repaired shared wording and all past, current,
+five-year, and next-two-cycle sections, with normal Thai/Chinese rendering and
+zero application console errors. The real downloaded PDF is four A4 pages,
+33,082 bytes, SHA-256
+`AD7AE0A7E370CE8398648A1A22F95BB277677D7E6CD652004C6D56759009D69E`.
+All pages were rendered and inspected: content matches the Web reading, Regular
+Thai/CJK fonts are embedded, and no clipping, overlap, overflow, blank page,
+or broken glyph is present. Backend, Firestore, Functions, Auth, Storage, IAM,
+Thai astrology, and Production data were not changed.
 
 ---
 

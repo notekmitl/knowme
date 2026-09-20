@@ -1,6 +1,6 @@
-## Active release - BaZi Reader V4 Owner copy acceptance repair (2026-09-20)
+## Completed release - BaZi Reader V4 Owner copy acceptance repair (2026-09-20)
 
-Status: **CANDIDATE QA PASS — PRECOMMIT PASS, PR AND RELEASE PENDING**
+Status: **PASS — PR #138 MERGED, HOSTING RELEASED, PRODUCTION-VERIFIED**
 
 - The five accepted Owner wording repairs are centralized in the deterministic
   Reader V2/V4 composers. No case-specific copy branch was added.
@@ -23,8 +23,22 @@ Status: **CANDIDATE QA PASS — PRECOMMIT PASS, PR AND RELEASE PENDING**
   clipping, overlap, overflow, or broken-glyph findings are zero.
 - Thai runtime, Thai goldens, `product-acceptance/`, backend application code,
   Firebase configuration, and Production data have zero intended delta.
-- PostCommit, PR review/merge, Hosting-only deployment, and Production QA are
-  not yet complete. Production still serves the prior Reader V4 release.
+- Local Gate PostCommit passes. PR #138 merged as `949c6d16`, tree
+  `04ca7169`; GitHub reported it mergeable/clean and no repository checks were
+  configured.
+- Firebase Hosting-only release `1789886487340000`, version
+  `b89bf52264152570`, serves cache pin `949c6d1`. Backend and all other
+  Firebase resources were not deployed.
+- Both Production domains and the Known route return HTTP 200. The live
+  8,611,124-byte bundle matches the exact-merge build at SHA-256
+  `369AFF2D8B1BF7DED42075C9750A6E8CE667158A7E40FE1464DE910AEDD1D06D`,
+  contains the Production API and route, and has zero actual loopback endpoint.
+- Production Web QA shows the repaired copy and complete past/current/five-year/
+  two-cycle timeline with zero application console errors. The downloaded PDF
+  is 4 A4 pages / 33,082 bytes / SHA-256
+  `AD7AE0A7E370CE8398648A1A22F95BB277677D7E6CD652004C6D56759009D69E`;
+  every page passes text, font, glyph, clipping, overlap, overflow, and
+  blank-page review.
 
 ## Completed release - BaZi Reader V4 life timeline (2026-09-19)
 
