@@ -7,9 +7,11 @@ Status: **COMPLETE — CACHE-HIT PASS, GENERATION-PATH PASS, DOCS-ONLY CLOSEOUT*
 - PR #142 delivered Reader V2 and PR #143 removed the fallback browser reload/mirror path.
 - Exact live source is `de0a83bdfbb18532471ba58e539e7d0b6cf553a4` / tree `f902d98d1d70ad39700df14e5406d07374d26f6a`.
 - **Cache-hit PASS:** one `western_natal` read, zero API POSTs, zero browser `astrology_fusion` traffic, correct Gemini/Sagittarius/Pisces.
-- **Generation-path PASS:** each mobile and desktop flow made exactly one authenticated POST; preflight was 1/0 respectively; `western_natal` reads and `astrology_fusion` traffic were zero in both flows.
-- Contract, UTC instant, Big 3, payload, HTTP 200, mobile `390x844`, desktop `1535x863`, overflow, loading-state, and timing evidence all passed.
+- **Generation-path PASS:** three mobile and three desktop runs each made exactly one authenticated POST; preflight was 0/1/0 mobile and 0/0/0 desktop; `western_natal` reads and `astrology_fusion` traffic were zero in all runs.
+- Chrome compositor evidence replaced the superseded Agent-observation timing. Response-complete-to-readable medians are 87.985 ms mobile and 81.950 ms desktop; the six-run maximum is 90.149 ms. Click-to-readable maxima are 1,286.553 ms mobile and 2,953.287 ms desktop.
+- Contract, UTC instant, Big 3, payload, HTTP 200, mobile `390x844`, desktop `1535x863`, overflow, loading-state, console, and timing evidence all passed.
 - The existing Hosting release `1789977665171000` / version `4065a55e03f5aa1e` was not replaced during final acceptance.
+- Root-cause and per-run evidence are in `docs/WESTERN_ASTROLOGY_READER_V2_PERFORMANCE_CLOSEOUT.md`.
 
 Next work is optional adoption observation or a separately authorized legacy-Western retirement; neither is part of this closeout.
 

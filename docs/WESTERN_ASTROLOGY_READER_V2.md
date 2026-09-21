@@ -74,6 +74,17 @@ returned V2 chart to the provider. The cache lookup remains before generation;
 post-response Western reads and browser Fusion work are zero by regression
 contract.
 
+The subsequent user-perceived performance closeout proved that the reported
+14.662-second mobile and 31.251-second desktop waits were measurement
+artifacts caused by Agent/tool wait and visual-observation delay. Three
+Production runs at each required viewport used CDP Network events, a Flutter
+state marker, and the first matching Chrome compositor frame. The
+response-complete-to-readable medians are 87.985 ms mobile and 81.950 ms
+desktop; the six-run maximum is 90.149 ms. The click-to-readable maxima are
+1,286.553 ms mobile and 2,953.287 ms desktop. See
+`docs/WESTERN_ASTROLOGY_READER_V2_PERFORMANCE_CLOSEOUT.md` for the complete
+method and table.
+
 ## Security and persistence
 
 Both the versioned and deprecated generation paths require a verified Firebase
@@ -94,4 +105,5 @@ The source candidate passes backend 46/46, focused Flutter 51/51, complete
 Flutter 3,093/3,093, analyzer policy with 275 inherited non-fatal diagnostics
 and no task-source diagnostic, the three-case benchmark, and the
 Production-configured Web build in GitHub CI run `35508539559`. Live timing is
-not inferred from the pure-engine benchmark and remains a post-deployment gate.
+not inferred from the pure-engine benchmark. The separate compositor-timed
+Production gate passed without an application edit or deployment.
