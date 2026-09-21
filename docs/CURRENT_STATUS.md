@@ -1,17 +1,20 @@
 ## Completed release - Western Astrology Reader V2 and performance (2026-09-21)
 
-Status: **PASS — PR #143 MERGED, HOSTING RELEASED, CACHE-HIT AND GENERATION-PATH PRODUCTION-VERIFIED**
+Status: **PASS — MEASUREMENT ARTIFACT CLOSED; APPLICATION AND HOSTING UNCHANGED**
 
 - Exact source: `de0a83bdfbb18532471ba58e539e7d0b6cf553a4`; tree: `f902d98d1d70ad39700df14e5406d07374d26f6a`; cache pin: `de0a83b`.
 - Owner case: `1982-06-06 00:03`, Chiang Mai, `Asia/Bangkok`, `18.7883, 98.9853` -> `1982-06-05T17:03:00Z`, Gemini/Sagittarius/Pisces, contract `knowme_western_reader_v2`.
 - **Cache-hit PASS:** one `western_natal` read, zero generation POSTs, zero browser `astrology_fusion` traffic, correct Big 3.
-- **Generation-path mobile PASS (390x844):** authenticated POST 1, OPTIONS 1, `western_natal` reads 0, `astrology_fusion` traffic 0; API 3,505.070 ms; click-to-dispatch 43.878 ms; dispatch-to-readable 14,617.622 ms; click-to-readable 14,661.500 ms.
-- **Generation-path desktop PASS (1535x863):** authenticated POST 1, OPTIONS 0, `western_natal` reads 0, `astrology_fusion` traffic 0; API 2,907.469 ms; click-to-dispatch 47.105 ms; dispatch-to-readable 31,203.695 ms; click-to-readable 31,250.800 ms.
+- **Generation-path mobile PASS (390x844, 3 runs):** authenticated POST 1/run, OPTIONS 0/1/0, `western_natal` reads 0, `astrology_fusion` traffic 0; response-complete-to-readable median 87.985 ms / maximum 90.149 ms; click-to-readable median 1,251.186 ms / maximum 1,286.553 ms.
+- **Generation-path desktop PASS (1535x863, 3 runs):** authenticated POST 1/run, OPTIONS 0/0/0, `western_natal` reads 0, `astrology_fusion` traffic 0; response-complete-to-readable median 81.950 ms / maximum 82.005 ms; click-to-readable median 1,361.083 ms / maximum 2,953.287 ms.
+- The superseded 14.662 s mobile and 31.251 s desktop observations included Agent/tool wait and visual-observation delay. CDP Network, Flutter state, and compositor-frame timestamps prove that they were measurement artifacts, not application runtime.
 - Both viewports rendered the complete Reader V2 without overflow, console overflow/error, or stuck loading copy.
 - Hosting release/version remain `1789977665171000` / `4065a55e03f5aa1e`; bundle SHA-256 is `2c8f901f9858211603b4b3689aa04fe5e077c7a4866ca1a5dd83dc48b25b5335`.
-- Final acceptance was read-only against the existing release: no source edit, build, deploy, Backend, IAM, Firestore, Functions, Auth, or Storage change.
+- Final acceptance was read-only against the existing release: no application source edit, build, deploy, Backend, IAM, Firestore, Functions, Auth, or Storage change. Only Markdown closeout documentation changed.
 
-See `docs/WESTERN_ASTROLOGY_READER_V2.md` for the contract and release gates.
+See `docs/WESTERN_ASTROLOGY_READER_V2.md` for the contract and
+`docs/WESTERN_ASTROLOGY_READER_V2_PERFORMANCE_CLOSEOUT.md` for the browser
+instrumentation, six-run table, and root-cause evidence.
 
 ## Completed release - BaZi Reader V4 conversational Thai (2026-09-20)
 

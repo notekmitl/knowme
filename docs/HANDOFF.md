@@ -1,17 +1,21 @@
 # Handoff - Western Astrology Reader V2 (2026-09-21)
 
-Western Reader V2 Production closeout is complete. PR #143 is merged and the existing Hosting release passed both cache-hit and forced generation acceptance.
+Western Reader V2 Production performance closeout is complete. PR #143 remains the live application source, and the existing Hosting release passed cache-hit plus three compositor-timed generation runs per viewport.
 
 - Source `de0a83bdfbb18532471ba58e539e7d0b6cf553a4`; tree `f902d98d1d70ad39700df14e5406d07374d26f6a`; cache pin `de0a83b`.
 - Hosting release `1789977665171000`; version `4065a55e03f5aa1e`; `main.dart.js` SHA-256 `2c8f901f9858211603b4b3689aa04fe5e077c7a4866ca1a5dd83dc48b25b5335`.
 - Owner case resolves to `1982-06-05T17:03:00Z`, Gemini Sun, Sagittarius Moon, Pisces Rising, contract `knowme_western_reader_v2`.
 - **Cache-hit PASS:** `western_natal` read 1; generation POST 0; browser `astrology_fusion` 0; correct Big 3.
-- **Generation-path mobile PASS:** POST 1 authenticated; OPTIONS 1; `western_natal` reads 0; `astrology_fusion` 0; API 3,505.070 ms; dispatch-to-readable 14,617.622 ms; click-to-readable 14,661.500 ms.
-- **Generation-path desktop PASS:** POST 1 authenticated; OPTIONS 0; `western_natal` reads 0; `astrology_fusion` 0; API 2,907.469 ms; dispatch-to-readable 31,203.695 ms; click-to-readable 31,250.800 ms.
-- Mobile `390x844` and desktop `1535x863` show complete readable output with no observed overflow or stuck loading text.
-- The final acceptance reused the live release. No build or deploy occurred, and no application source or Firebase resource changed.
+- **Generation-path mobile PASS (390x844, 3 runs):** POST 1/run authenticated; OPTIONS 0/1/0; `western_natal` reads 0; `astrology_fusion` 0; response-complete-to-readable median 87.985 ms / maximum 90.149 ms; click-to-readable median 1,251.186 ms / maximum 1,286.553 ms.
+- **Generation-path desktop PASS (1535x863, 3 runs):** POST 1/run authenticated; OPTIONS 0/0/0; `western_natal` reads 0; `astrology_fusion` 0; response-complete-to-readable median 81.950 ms / maximum 82.005 ms; click-to-readable median 1,361.083 ms / maximum 2,953.287 ms.
+- CDP `requestWillBeSent`, `responseReceived`, and `loadingFinished`, the Flutter state marker, and the first matching compositor frame used one browser clock. Agent wait and visual-observation delay were excluded.
+- The old 14.662 s / 31.251 s observations were measurement artifacts. Application runtime is within every closeout threshold, so no application change or deployment was allowed or performed.
+- Mobile and desktop first-readable frames show complete output with no overflow, console error, or stuck loading text.
+- Full evidence is in `docs/WESTERN_ASTROLOGY_READER_V2_PERFORMANCE_CLOSEOUT.md`.
 
-No release action remains. Adoption observation and any later legacy-Western retirement are separate follow-up work.
+No application or release action remains. This Markdown closeout records the
+corrected evidence; adoption observation and any later legacy-Western
+retirement are separate follow-up work.
 
 # Handoff - BaZi Reader V4 conversational Thai (2026-09-20)
 

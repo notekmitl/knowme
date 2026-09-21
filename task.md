@@ -1,6 +1,6 @@
 # Active Task - Western Astrology Reader V2 and generation performance (2026-09-21)
 
-Status: **PRODUCTION ACCEPTANCE REPAIR VALIDATED — PR #143 DRAFT — REDEPLOY AND LIVE RE-QA PENDING**
+Status: **COMPLETE — PR #143 LIVE; USER-PERCEIVED PERFORMANCE CLOSEOUT PASSED WITHOUT APPLICATION CHANGE**
 
 ## Goal
 
@@ -49,11 +49,11 @@ without redundant Firestore round trips.
       no post-response Firestore freshness read or browser mirror on this path.
 - [x] Add correctness, auth, atomic-save, model, handoff, provider, copy, and
       responsive UI regression coverage.
-- [ ] Re-run end-to-end Production generation after PR #143, proving
+- [x] Re-run end-to-end Production generation after PR #143, proving
       exactly one authenticated POST and no duplicate chart reload.
 - [x] Pass backend tests, focused Flutter tests, analyzer policy, complete
       Flutter suite, and Production Web build for the repair candidate.
-- [ ] Review and merge PR #143, deploy the exact merge to Hosting, and pass
+- [x] Review and merge PR #143, deploy the exact merge to Hosting, and pass
       live desktop/mobile network and timing QA.
 - [x] Update CURRENT_STATUS, HANDOFF, ROADMAP, task result, and V2 documentation.
 
@@ -77,6 +77,18 @@ without redundant Firestore round trips.
   0.177–0.179 ms, focused Flutter 52/52, full Flutter 3,094/3,094, analyzer
   policy with 275 inherited non-fatal diagnostics, formatting, and the
   Production-configured Web build.
+- PR #143 merged as `de0a83bdfbb18532471ba58e539e7d0b6cf553a4`, tree
+  `f902d98d1d70ad39700df14e5406d07374d26f6a`. Hosting release
+  `1789977665171000` / version `4065a55e03f5aa1e` remains live.
+- User-perceived closeout ran three times at `390x844` and three times at
+  `1535x863`. Response-complete-to-readable medians are 87.985 ms mobile and
+  81.950 ms desktop; the all-run maximum is 90.149 ms. Click-to-readable
+  maximum is 2,953.287 ms. Each run made one authenticated POST, zero
+  `western_natal` browser reads, and zero browser `astrology_fusion` traffic.
+- The superseded 14.662 s / 31.251 s observations included Agent/tool wait and
+  were measurement artifacts. No application edit or deployment was made.
+  Complete evidence is in
+  `docs/WESTERN_ASTROLOGY_READER_V2_PERFORMANCE_CLOSEOUT.md`.
 
 ---
 
