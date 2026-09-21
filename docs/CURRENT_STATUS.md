@@ -1,6 +1,6 @@
-## Active release - Western Astrology Reader V2 and performance (2026-09-20)
+## Active release - Western Astrology Reader V2 and performance (2026-09-21)
 
-Status: **SOURCE VALIDATED — PR #142 OPEN — DEPLOYMENT PENDING**
+Status: **PRODUCTION ACCEPTANCE REPAIR VALIDATED — PR #143 DRAFT — REDEPLOY/RE-QA PENDING**
 
 - V2 resolves local civil time through the submitted IANA timezone before
   Swiss Ephemeris calculation. The Owner case now uses
@@ -19,9 +19,20 @@ Status: **SOURCE VALIDATED — PR #142 OPEN — DEPLOYMENT PENDING**
   Flutter 51/51, complete Flutter 3,093/3,093, analyzer policy with 275
   inherited non-fatal diagnostics and no task-source diagnostic, plus the
   Production-configured Web build and endpoint guards.
-- Draft PR #142 contains the exact validated source. Review/merge,
-  Backend-first rollout, Hosting rollout, and authenticated Production
-  desktop/mobile timing remain open; no deployment is claimed yet.
+- PR #142 merged as `0c54650` and is live on Cloud Run revision
+  `knowme-astrology-api-00010-5m2` and Hosting release
+  `1789965595791000`. Correctness, auth, and visual QA passed, but acceptance
+  stopped on two post-POST `western_natal` reads and Fusion reads before and
+  after generation; dispatch-to-readable was 24.34 seconds versus 4.678
+  seconds for the API.
+- Draft PR #143 removes the result-page fallback coordinator and renders the
+  authenticated API chart directly. Regression coverage locks one initial
+  cache read and zero post-response chart reload/Fusion probe.
+- GitHub Actions run `35570226435` passes backend 10/10, benchmark medians
+  0.177–0.179 ms, focused Flutter 52/52, complete Flutter 3,094/3,094,
+  analyzer policy with 275 inherited diagnostics, formatting, and the
+  Production-configured Web build. Merge, Hosting redeploy, and live network/
+  timing re-QA remain open; Production acceptance is not yet claimed.
 
 See `docs/WESTERN_ASTROLOGY_READER_V2.md` for the contract and release gates.
 

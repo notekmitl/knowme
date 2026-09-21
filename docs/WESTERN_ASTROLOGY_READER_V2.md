@@ -57,14 +57,22 @@ the client hands that object directly to the result page.
 
 This removes the previous client profile save, Firestore freshness read,
 browser Fusion mirror, second lens probe, and destination reload from the
-primary flow. The fallback coordinator also stops re-reading and mirroring the
-chart after a successful Western response.
+primary flow.
 
 `scripts/benchmark_western_v2.py` measures the pure deterministic engine over
 three Thai locations. The release threshold is a median below 25 ms per case;
 the initial 500-iteration local run measured 0.118–0.123 ms medians. Production
 click-to-result latency is a separate acceptance gate because network, Cloud
 Run, Firestore, and browser rendering dominate that number.
+
+The first Production run exposed the remaining fallback case: when the result
+page started without a prepared chart and its cache read missed, it invoked the
+cross-system coordinator. That coordinator probed Western/Fusion before and
+after the POST, then the page reloaded Western once more. PR #143 replaces the
+fallback with a profile-backed authenticated Western API call and feeds the
+returned V2 chart to the provider. The cache lookup remains before generation;
+post-response Western reads and browser Fusion work are zero by regression
+contract.
 
 ## Security and persistence
 

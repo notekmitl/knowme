@@ -1,6 +1,6 @@
 # Task Result - Western Astrology Reader V2 and generation performance
 
-**Result: SOURCE VALIDATED — PR #142 OPEN — DEPLOYMENT PENDING.**
+**Result: PRODUCTION ACCEPTANCE REPAIR VALIDATED — PR #143 DRAFT — REDEPLOY AND LIVE RE-QA PENDING.**
 
 Western Natal V2 now resolves the historical local civil time before UTC/Julian
 conversion, returns a deterministic whole-chart contract and conversational
@@ -12,14 +12,27 @@ Gemini/Sagittarius/Pisces. Backend regression passes 46/46. The repeatable
 three-case benchmark passes with 0.118–0.123 ms medians over 500 iterations,
 well below the 25 ms release threshold.
 
-GitHub CI run `35508539559` passes the governed PreCommit gate, including
-focused Flutter 51/51, complete Flutter 3,093/3,093, analyzer policy with 275
-inherited non-fatal diagnostics and no task-source diagnostic, and the
-Production-configured Web build. PR #142 carries the exact validated source.
+PR #142 merged as `0c54650` and was deployed to Cloud Run revision
+`knowme-astrology-api-00010-5m2` plus Hosting release
+`1789965595791000`. Owner correctness, auth, mobile, desktop, and one-POST
+checks passed, but live acceptance correctly stopped: the fallback result page
+ran the full coordinator after its initial chart miss. That produced the exact
+observed sequence of two `western_natal` reads after the POST and Fusion reads
+before and after it; dispatch-to-readable time was 24.34 seconds even though
+the API itself completed in 4.678 seconds.
 
-PR review/merge, Backend-first deployment, Hosting deployment, and
-authenticated live timing/visual QA remain open. No Production release is
-claimed at this stage.
+Draft PR #143 replaces that fallback coordinator with direct authenticated
+Western generation and renders the returned V2 chart object. Its regression
+locks one pre-generation cache read, one API generation, and zero
+post-response chart reload. Browser Fusion probe/mirror work is no longer on
+this path. GitHub Actions run `35570226435` passes formatting, analyzer policy
+with the unchanged 275 inherited non-fatal diagnostics, backend 10/10,
+benchmark medians 0.177–0.179 ms, focused Flutter 52/52, complete Flutter
+3,094/3,094, and the Production-configured Web build.
+
+PR #143 review/merge, exact-merge Hosting deployment, and authenticated live
+network/timing re-QA remain open. Production still serves the failed-acceptance
+base until those steps pass; no docs-only closeout is claimed.
 
 ---
 

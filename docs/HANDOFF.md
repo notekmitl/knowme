@@ -1,8 +1,8 @@
-# Handoff - Western Astrology Reader V2 (2026-09-20)
+# Handoff - Western Astrology Reader V2 (2026-09-21)
 
-The source candidate is implemented and the governed release gate passes. Do
-not release Hosting before the authenticated backend revision is deployed and
-verified.
+PR #142 is deployed, but Production acceptance remains open. Draft PR #143 is
+the validated client-only repair; do not write a closeout until its exact merge
+is deployed to Hosting and the live request sequence passes.
 
 - Calculation contract `western_natal_v2` converts IANA local civil time to
   the exact UTC instant before Swiss Ephemeris tropical/Placidus calculation.
@@ -17,15 +17,25 @@ verified.
   51/51, the complete Flutter suite 3,093/3,093, analyzer policy with 275
   inherited non-fatal diagnostics and no task-source diagnostic, and the
   Production-configured Web build.
-- PR #142 remains Draft pending final review. Merge, Backend/Hosting rollout,
-  and authenticated live desktop/mobile timing remain open.
+- The live base is merge `0c54650`, Cloud Run revision
+  `knowme-astrology-api-00010-5m2`, and Hosting release
+  `1789965595791000`. API correctness/auth and responsive UI pass.
+- Production acceptance found two `western_natal` reads after the POST and
+  Fusion reads before/after. The old result fallback caused that exact probe →
+  POST → probe → reload sequence.
+- PR #143 removes the coordinator from the Western result fallback, generates
+  through the authenticated API, and displays its returned chart directly.
+  Run `35570226435` passes backend 10/10, benchmark medians 0.177–0.179 ms,
+  focused Flutter 52/52, full Flutter 3,094/3,094, analyzer policy, formatting,
+  and the Production Web build.
 - Scope excludes Thai astrology, BaZi calculation/report, Thai goldens,
   `product-acceptance/`, Firestore rules, Functions, Storage, IAM, and existing
   Production data.
 
-Release order: review and merge, deploy Cloud Run, verify health and
-authenticated generation, build exact merge, deploy Hosting only, then measure
-one-POST desktop/mobile click-to-result behavior and inspect the live reader.
+Remaining order: review and merge PR #143, build the exact merge, deploy
+Hosting only (Backend is unchanged), then repeat authenticated one-POST
+desktop/mobile network and timing QA. Require zero post-response
+`western_natal` read and zero browser Fusion traffic before docs closeout.
 
 ---
 

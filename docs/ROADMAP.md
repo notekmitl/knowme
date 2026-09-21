@@ -1,6 +1,6 @@
 # KnowMe Roadmap+
 
-## Active release - Western Astrology Reader V2 and performance (2026-09-20)
+## Active release - Western Astrology Reader V2 and performance (2026-09-21)
 
 Reader V2 corrects the legacy local-time-as-UTC defect and promotes Western
 Natal from sparse planet cards to a deterministic whole-chart Thai reading.
@@ -8,13 +8,18 @@ The source candidate includes exact IANA-to-UTC resolution, Big 3, balance,
 dominance, house and aspect synthesis, complete fallback planet copy, direct
 API handoff, and one authenticated atomic persistence batch.
 
-Backend validation passes 46/46 and the pure engine measures 0.118–0.123 ms
-median over three 500-iteration Thai cases. GitHub CI run `35508539559` passes
-focused Flutter 51/51, full Flutter 3,093/3,093, analyzer policy with 275
-inherited non-fatal diagnostics and no task-source diagnostic, and the
-Production-configured Web build. Remaining work is PR #142 review and merge,
-Backend-first rollout, Hosting rollout, and authenticated Production timing/
-desktop/mobile QA.
+PR #142 merged and was deployed, but live acceptance stopped on the fallback
+result path: it performed two `western_natal` reads after the POST plus Fusion
+reads before and after, stretching dispatch-to-readable to 24.34 seconds while
+the API itself took 4.678 seconds. Draft PR #143 removes the fallback
+coordinator and displays the authenticated API chart directly.
+
+Repair validation run `35570226435` passes backend 10/10, three 500-iteration
+benchmark medians of 0.177–0.179 ms, focused Flutter 52/52, full Flutter
+3,094/3,094, analyzer policy with 275 inherited non-fatal diagnostics,
+formatting, and the Production-configured Web build. Remaining work is review/
+merge, exact-merge Hosting deployment, and live authenticated network/timing
+re-QA with zero post-response chart reload and zero browser Fusion traffic.
 
 ## Completed release - BaZi Reader V4 conversational Thai (2026-09-20)
 
