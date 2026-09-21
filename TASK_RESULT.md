@@ -1,38 +1,26 @@
 # Task Result - Western Astrology Reader V2 and generation performance
 
-**Result: PRODUCTION ACCEPTANCE REPAIR VALIDATED — PR #143 DRAFT — REDEPLOY AND LIVE RE-QA PENDING.**
+**Result: COMPLETE — PR #143 MERGED, HOSTING RELEASED, CACHE-HIT AND GENERATION-PATH PRODUCTION ACCEPTANCE PASSED.**
 
-Western Natal V2 now resolves the historical local civil time before UTC/Julian
-conversion, returns a deterministic whole-chart contract and conversational
-Thai reader, commits related Firestore state atomically, and hands the API chart
-directly to the destination without the previous browser reload/mirror chain.
+Western Reader V2 is live from source commit `de0a83bdfbb18532471ba58e539e7d0b6cf553a4` (tree `f902d98d1d70ad39700df14e5406d07374d26f6a`). The live contract is `knowme_western_reader_v2`; Owner input `1982-06-06 00:03` Chiang Mai / `Asia/Bangkok` resolves to `1982-06-05T17:03:00Z` with Gemini Sun, Sagittarius Moon, and Pisces Rising.
 
-The Owner case is locked to `1982-06-05T17:03:00Z` and
-Gemini/Sagittarius/Pisces. Backend regression passes 46/46. The repeatable
-three-case benchmark passes with 0.118–0.123 ms medians over 500 iterations,
-well below the 25 ms release threshold.
+### Cache-hit Production acceptance — PASS
 
-PR #142 merged as `0c54650` and was deployed to Cloud Run revision
-`knowme-astrology-api-00010-5m2` plus Hosting release
-`1789965595791000`. Owner correctness, auth, mobile, desktop, and one-POST
-checks passed, but live acceptance correctly stopped: the fallback result page
-ran the full coordinator after its initial chart miss. That produced the exact
-observed sequence of two `western_natal` reads after the POST and Fusion reads
-before and after it; dispatch-to-readable time was 24.34 seconds even though
-the API itself completed in 4.678 seconds.
+- Firestore `western_natal` reads: 1.
+- Authenticated `POST /v1/generate-chart`: 0.
+- Browser `astrology_fusion` traffic: 0.
+- The cached Gemini/Sagittarius/Pisces result rendered correctly.
 
-Draft PR #143 replaces that fallback coordinator with direct authenticated
-Western generation and renders the returned V2 chart object. Its regression
-locks one pre-generation cache read, one API generation, and zero
-post-response chart reload. Browser Fusion probe/mirror work is no longer on
-this path. GitHub Actions run `35570226435` passes formatting, analyzer policy
-with the unchanged 275 inherited non-fatal diagnostics, backend 10/10,
-benchmark medians 0.177–0.179 ms, focused Flutter 52/52, complete Flutter
-3,094/3,094, and the Production-configured Web build.
+### Generation-path Production acceptance — PASS
 
-PR #143 review/merge, exact-merge Hosting deployment, and authenticated live
-network/timing re-QA remain open. Production still serves the failed-acceptance
-base until those steps pass; no docs-only closeout is claimed.
+- Mobile `390x844`: authenticated POST 1, OPTIONS 1, Firestore `western_natal` reads 0, browser `astrology_fusion` traffic 0. API duration 3,505.070 ms; click-to-dispatch 43.878 ms; dispatch-to-readable 14,617.622 ms; click-to-readable 14,661.500 ms.
+- Desktop `1535x863`: authenticated POST 1, OPTIONS 0, Firestore `western_natal` reads 0, browser `astrology_fusion` traffic 0. API duration 2,907.469 ms; click-to-dispatch 47.105 ms; dispatch-to-readable 31,203.695 ms; click-to-readable 31,250.800 ms.
+- Both responses returned HTTP 200, the exact Owner payload, `knowme_western_reader_v2`, `1982-06-05T17:03:00Z`, and Gemini/Sagittarius/Pisces.
+- Mobile and desktop rendered with no observed overflow, console overflow/error, or stuck loading text.
+
+### Release identity and scope
+
+Firebase Hosting release `sites/knowme-app-694e1/releases/1789977665171000` points to version `sites/knowme-app-694e1/versions/4065a55e03f5aa1e`. The deployed `main.dart.js` SHA-256 is `2c8f901f9858211603b4b3689aa04fe5e077c7a4866ca1a5dd83dc48b25b5335` with cache pin `de0a83b`. This final acceptance run changed no application source, build, Hosting release, Backend, IAM, Firestore, Functions, Auth, or Storage.
 
 ---
 
