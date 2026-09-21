@@ -6,6 +6,44 @@ import 'package:knowme/presentation/providers/astrology_provider.dart';
 import 'package:provider/provider.dart';
 
 void main() {
+  testWidgets(
+    'fallback uses API chart directly without post-response Firestore reload',
+    (tester) async {
+      var loadCalls = 0;
+      var generateCalls = 0;
+      final chart = _chart();
+      final provider = AstrologyProvider(
+        loadChartFn: (_) async {
+          loadCalls++;
+          return null;
+        },
+      );
+
+      await tester.pumpWidget(
+        ChangeNotifierProvider.value(
+          value: provider,
+          child: MaterialApp(
+            home: AstrologyResultPage(
+              userId: 'western-fallback-test',
+              generateChartForUser: (uid) async {
+                generateCalls++;
+                expect(uid, 'western-fallback-test');
+                return chart;
+              },
+            ),
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      expect(generateCalls, 1);
+      expect(loadCalls, 1, reason: 'only the pre-generation cache read remains');
+      expect(provider.chart, same(chart));
+      expect(find.byKey(const Key('western-reader-v2-hero')), findsOneWidget);
+      expect(tester.takeException(), isNull);
+    },
+  );
+
   for (final size in <Size>[const Size(390, 844), const Size(1280, 900)]) {
     testWidgets('renders Western Reader V2 at ${size.width.toInt()}px', (
       tester,
