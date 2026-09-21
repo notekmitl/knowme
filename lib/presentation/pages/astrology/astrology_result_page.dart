@@ -1,19 +1,31 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:knowme/data/models/astrology_chart_model.dart';
-import 'package:knowme/features/astrology/application/astrology_generation_coordinator.dart';
+import 'package:knowme/features/astrology/application/birth_profile_readiness.dart';
 import 'package:knowme/features/astrology/shared/astrology_flow_state.dart';
 import 'package:knowme/features/astrology/shared/astrology_flow_widgets.dart';
+import 'package:knowme/services/astrology_api_service.dart';
+import 'package:knowme/services/profile_service.dart';
 import 'package:provider/provider.dart';
 
 import '../../providers/astrology_provider.dart';
 import 'western_reader_v2_copy.dart';
 
+typedef WesternResultGenerator = Future<AstrologyChartModel> Function(
+  String uid,
+);
+
 class AstrologyResultPage extends StatefulWidget {
-  const AstrologyResultPage({super.key, this.userId, this.preparedChart});
+  const AstrologyResultPage({
+    super.key,
+    this.userId,
+    this.preparedChart,
+    this.generateChartForUser = _generateWesternChartForUser,
+  });
 
   final String? userId;
   final AstrologyChartModel? preparedChart;
+  final WesternResultGenerator generateChartForUser;
 
   @override
   State<AstrologyResultPage> createState() => _AstrologyResultPageState();
@@ -22,11 +34,8 @@ class AstrologyResultPage extends StatefulWidget {
 class _AstrologyResultPageState extends State<AstrologyResultPage> {
   static const _background = Color(0xFF09101F);
 
-  AstrologyGenerationCoordinator? _generationCoordinator;
   bool _autoGenerating = false;
-
-  AstrologyGenerationCoordinator get _coordinator =>
-      _generationCoordinator ??= AstrologyGenerationCoordinator();
+  Object? _generationError;
 
   @override
   void initState() {
@@ -56,29 +65,36 @@ class _AstrologyResultPageState extends State<AstrologyResultPage> {
     final loaded = provider.chart;
     if (loaded != null && WesternReaderV2Copy.isV2(loaded)) return;
 
-    setState(() => _autoGenerating = true);
-    await _coordinator.ensureGenerated(
-      uid,
-      retrySystemId: 'western',
-      forceSystemId: 'western',
-    );
-    if (!mounted) return;
-    await provider.loadChart(uid);
-    if (mounted) setState(() => _autoGenerating = false);
+    await _generateAndUseChart(uid);
   }
 
   Future<void> _retryGeneration() async {
     final uid = _uid;
     if (!mounted || uid == null || uid.isEmpty) return;
-    setState(() => _autoGenerating = true);
-    await _coordinator.ensureGenerated(
-      uid,
-      retrySystemId: 'western',
-      forceSystemId: 'western',
-    );
-    if (!mounted) return;
-    await context.read<AstrologyProvider>().loadChart(uid);
-    if (mounted) setState(() => _autoGenerating = false);
+    await _generateAndUseChart(uid);
+  }
+
+  Future<void> _generateAndUseChart(String uid) async {
+    setState(() {
+      _autoGenerating = true;
+      _generationError = null;
+    });
+    try {
+      final chart = await widget.generateChartForUser(uid);
+      if (!WesternReaderV2Copy.isV2(chart)) {
+        throw const FormatException(
+          'Western API returned an unsupported chart contract',
+        );
+      }
+      if (!mounted) return;
+      context.read<AstrologyProvider>().usePreparedChart(chart);
+    } catch (error, stack) {
+      debugPrint('[AstrologyResultPage] Western generation failed: $error');
+      debugPrint('[AstrologyResultPage] $stack');
+      if (mounted) _generationError = error;
+    } finally {
+      if (mounted) setState(() => _autoGenerating = false);
+    }
   }
 
   @override
@@ -100,6 +116,7 @@ class _AstrologyResultPageState extends State<AstrologyResultPage> {
               body: 'กำลังคำนวณตำแหน่งดาว เรือนชีวิต และมุมสัมพันธ์สำคัญ',
             )
           : provider.error != null ||
+                _generationError != null ||
                 chart == null ||
                 !WesternReaderV2Copy.isV2(chart)
           ? AstrologyFlowStateBody(
@@ -110,6 +127,24 @@ class _AstrologyResultPageState extends State<AstrologyResultPage> {
           : _WesternReaderBody(chart: chart),
     );
   }
+}
+
+Future<AstrologyChartModel> _generateWesternChartForUser(String uid) async {
+  final profile = await ProfileService().loadProfileForUid(uid);
+  if (profile == null || !BirthProfileReadiness.isComplete(profile)) {
+    throw StateError(
+      'Western astrology requires a complete canonical birth profile',
+    );
+  }
+
+  return AstrologyApiService.generateChart(
+    uid: uid,
+    birthDate: BirthProfileReadiness.apiBirthDate(profile),
+    birthTime: profile.birthTime.trim(),
+    timezone: profile.timezone.isNotEmpty ? profile.timezone : 'Asia/Bangkok',
+    latitude: profile.latitude,
+    longitude: profile.longitude,
+  );
 }
 
 class _WesternReaderBody extends StatelessWidget {

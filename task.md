@@ -1,6 +1,6 @@
-# Active Task - Western Astrology Reader V2 and generation performance (2026-09-20)
+# Active Task - Western Astrology Reader V2 and generation performance (2026-09-21)
 
-Status: **SOURCE VALIDATED — PR #142 OPEN — DEPLOYMENT PENDING**
+Status: **PRODUCTION ACCEPTANCE REPAIR VALIDATED — PR #143 DRAFT — REDEPLOY AND LIVE RE-QA PENDING**
 
 ## Goal
 
@@ -49,11 +49,12 @@ without redundant Firestore round trips.
       no post-response Firestore freshness read or browser mirror on this path.
 - [x] Add correctness, auth, atomic-save, model, handoff, provider, copy, and
       responsive UI regression coverage.
-- [ ] Benchmark pure calculation and end-to-end Production generation, proving
+- [ ] Re-run end-to-end Production generation after PR #143, proving
       exactly one authenticated POST and no duplicate chart reload.
-- [ ] Pass backend tests, focused Flutter tests, analyzer policy, complete
-      Flutter suite, Production Web build, PR checks, merge, Backend-first
-      deploy, Hosting deploy, and live desktop/mobile QA.
+- [x] Pass backend tests, focused Flutter tests, analyzer policy, complete
+      Flutter suite, and Production Web build for the repair candidate.
+- [ ] Review and merge PR #143, deploy the exact merge to Hosting, and pass
+      live desktop/mobile network and timing QA.
 - [x] Update CURRENT_STATUS, HANDOFF, ROADMAP, task result, and V2 documentation.
 
 ## Candidate evidence
@@ -64,8 +65,18 @@ without redundant Firestore round trips.
 - GitHub CI run `35508539559`: focused Flutter 51/51; full Flutter
   3,093/3,093; analyzer policy passes with 275 inherited non-fatal diagnostics
   and no task-source diagnostic; Production-configured Web build passes.
-- Draft PR: #142. Merge, Backend-first deploy, Hosting deploy, and live
-  one-POST desktop/mobile timing remain intentionally unclaimed.
+- PR #142 merged as `0c54650` and reached Cloud Run revision
+  `knowme-astrology-api-00010-5m2` plus Hosting release
+  `1789965595791000`. Correctness/auth/visual checks passed, but acceptance
+  stopped on two post-POST `western_natal` reads and Fusion reads before and
+  after generation.
+- Root cause is the result-page fallback coordinator: initial probe, Western
+  POST, post-generation probe, and destination reload. Draft PR #143 removes
+  that chain and uses the API chart directly.
+- GitHub Actions run `35570226435` passes backend 10/10, benchmark medians
+  0.177–0.179 ms, focused Flutter 52/52, full Flutter 3,094/3,094, analyzer
+  policy with 275 inherited non-fatal diagnostics, formatting, and the
+  Production-configured Web build.
 
 ---
 
