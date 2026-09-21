@@ -1,43 +1,17 @@
 # Handoff - Western Astrology Reader V2 (2026-09-21)
 
-PR #142 is deployed, but Production acceptance remains open. Draft PR #143 is
-the validated client-only repair; do not write a closeout until its exact merge
-is deployed to Hosting and the live request sequence passes.
+Western Reader V2 Production closeout is complete. PR #143 is merged and the existing Hosting release passed both cache-hit and forced generation acceptance.
 
-- Calculation contract `western_natal_v2` converts IANA local civil time to
-  the exact UTC instant before Swiss Ephemeris tropical/Placidus calculation.
-- Owner input `1982-06-06 00:03` Chiang Mai resolves to
-  `1982-06-05T17:03:00Z` and Gemini/Sagittarius/Pisces Big 3.
-- Reader V2 covers whole-chart balance, dominance, houses, aspects, and eight
-  practical Thai sections without external AI or event certainty.
-- The selected flow returns the API chart directly and persists profile, chart,
-  Fusion snapshot, and invalidation in one authenticated batch.
-- Backend tests pass 46/46; the repeatable three-case engine benchmark passes
-  at 0.118–0.123 ms median. GitHub CI run `35508539559` passes focused Flutter
-  51/51, the complete Flutter suite 3,093/3,093, analyzer policy with 275
-  inherited non-fatal diagnostics and no task-source diagnostic, and the
-  Production-configured Web build.
-- The live base is merge `0c54650`, Cloud Run revision
-  `knowme-astrology-api-00010-5m2`, and Hosting release
-  `1789965595791000`. API correctness/auth and responsive UI pass.
-- Production acceptance found two `western_natal` reads after the POST and
-  Fusion reads before/after. The old result fallback caused that exact probe →
-  POST → probe → reload sequence.
-- PR #143 removes the coordinator from the Western result fallback, generates
-  through the authenticated API, and displays its returned chart directly.
-  Run `35570226435` passes backend 10/10, benchmark medians 0.177–0.179 ms,
-  focused Flutter 52/52, full Flutter 3,094/3,094, analyzer policy, formatting,
-  and the Production Web build.
-- Scope excludes Thai astrology, BaZi calculation/report, Thai goldens,
-  `product-acceptance/`, Firestore rules, Functions, Storage, IAM, and existing
-  Production data.
+- Source `de0a83bdfbb18532471ba58e539e7d0b6cf553a4`; tree `f902d98d1d70ad39700df14e5406d07374d26f6a`; cache pin `de0a83b`.
+- Hosting release `1789977665171000`; version `4065a55e03f5aa1e`; `main.dart.js` SHA-256 `2c8f901f9858211603b4b3689aa04fe5e077c7a4866ca1a5dd83dc48b25b5335`.
+- Owner case resolves to `1982-06-05T17:03:00Z`, Gemini Sun, Sagittarius Moon, Pisces Rising, contract `knowme_western_reader_v2`.
+- **Cache-hit PASS:** `western_natal` read 1; generation POST 0; browser `astrology_fusion` 0; correct Big 3.
+- **Generation-path mobile PASS:** POST 1 authenticated; OPTIONS 1; `western_natal` reads 0; `astrology_fusion` 0; API 3,505.070 ms; dispatch-to-readable 14,617.622 ms; click-to-readable 14,661.500 ms.
+- **Generation-path desktop PASS:** POST 1 authenticated; OPTIONS 0; `western_natal` reads 0; `astrology_fusion` 0; API 2,907.469 ms; dispatch-to-readable 31,203.695 ms; click-to-readable 31,250.800 ms.
+- Mobile `390x844` and desktop `1535x863` show complete readable output with no observed overflow or stuck loading text.
+- The final acceptance reused the live release. No build or deploy occurred, and no application source or Firebase resource changed.
 
-Remaining order: review and merge PR #143, build the exact merge, deploy
-Hosting only (Backend is unchanged), then repeat authenticated one-POST
-desktop/mobile network and timing QA. Require zero post-response
-`western_natal` read and zero browser Fusion traffic before docs closeout.
-
----
+No release action remains. Adoption observation and any later legacy-Western retirement are separate follow-up work.
 
 # Handoff - BaZi Reader V4 conversational Thai (2026-09-20)
 

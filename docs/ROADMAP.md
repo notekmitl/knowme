@@ -1,25 +1,17 @@
 # KnowMe Roadmap+
 
-## Active release - Western Astrology Reader V2 and performance (2026-09-21)
+## Completed release - Western Astrology Reader V2 and performance (2026-09-21)
 
-Reader V2 corrects the legacy local-time-as-UTC defect and promotes Western
-Natal from sparse planet cards to a deterministic whole-chart Thai reading.
-The source candidate includes exact IANA-to-UTC resolution, Big 3, balance,
-dominance, house and aspect synthesis, complete fallback planet copy, direct
-API handoff, and one authenticated atomic persistence batch.
+Status: **COMPLETE — CACHE-HIT PASS, GENERATION-PATH PASS, DOCS-ONLY CLOSEOUT**
 
-PR #142 merged and was deployed, but live acceptance stopped on the fallback
-result path: it performed two `western_natal` reads after the POST plus Fusion
-reads before and after, stretching dispatch-to-readable to 24.34 seconds while
-the API itself took 4.678 seconds. Draft PR #143 removes the fallback
-coordinator and displays the authenticated API chart directly.
+- PR #142 delivered Reader V2 and PR #143 removed the fallback browser reload/mirror path.
+- Exact live source is `de0a83bdfbb18532471ba58e539e7d0b6cf553a4` / tree `f902d98d1d70ad39700df14e5406d07374d26f6a`.
+- **Cache-hit PASS:** one `western_natal` read, zero API POSTs, zero browser `astrology_fusion` traffic, correct Gemini/Sagittarius/Pisces.
+- **Generation-path PASS:** each mobile and desktop flow made exactly one authenticated POST; preflight was 1/0 respectively; `western_natal` reads and `astrology_fusion` traffic were zero in both flows.
+- Contract, UTC instant, Big 3, payload, HTTP 200, mobile `390x844`, desktop `1535x863`, overflow, loading-state, and timing evidence all passed.
+- The existing Hosting release `1789977665171000` / version `4065a55e03f5aa1e` was not replaced during final acceptance.
 
-Repair validation run `35570226435` passes backend 10/10, three 500-iteration
-benchmark medians of 0.177–0.179 ms, focused Flutter 52/52, full Flutter
-3,094/3,094, analyzer policy with 275 inherited non-fatal diagnostics,
-formatting, and the Production-configured Web build. Remaining work is review/
-merge, exact-merge Hosting deployment, and live authenticated network/timing
-re-QA with zero post-response chart reload and zero browser Fusion traffic.
+Next work is optional adoption observation or a separately authorized legacy-Western retirement; neither is part of this closeout.
 
 ## Completed release - BaZi Reader V4 conversational Thai (2026-09-20)
 
