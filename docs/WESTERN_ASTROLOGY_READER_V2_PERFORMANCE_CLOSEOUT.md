@@ -4,6 +4,11 @@ Date: 2026-09-21
 
 Status: **PASS — MEASUREMENT ARTIFACT CONFIRMED; APPLICATION AND HOSTING UNCHANGED**
 
+This is the historical closeout for the PR #143 release. The later Reader r2
+readability release and its authenticated-generation latency repair supersede
+the Production identity below; current trace-correlated evidence is in
+`docs/WESTERN_ASTROLOGY_READER_V2_LATENCY_REPAIR.md`.
+
 ## Frozen Production identity
 
 - Application commit: `de0a83bdfbb18532471ba58e539e7d0b6cf553a4`

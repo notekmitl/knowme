@@ -1,6 +1,6 @@
 # Western Reader V2 — Thai Readability Revision
 
-Status: **OWNER-ACCEPTED — PR #146 MERGED AND DEPLOYED — LATENCY CLOSEOUT PENDING**
+Status: **OWNER-ACCEPTED — PR #146 MERGED AND DEPLOYED — LATENCY CLOSEOUT PASSED**
 
 ## Scope and source of the old wording
 
@@ -32,7 +32,8 @@ No Firestore schema or cache document path changes.
 
 ## Owner case — generated sample
 
-This sample is generated from the candidate source, not handwritten separately.
+This sample is generated from the shared deterministic composer, not
+handwritten separately.
 
 - Birth: 6 June 1982, 00:03, Chiang Mai
 - Local civil: `1982-06-06T00:03:00+07:00`
@@ -105,8 +106,9 @@ This sample is generated from the candidate source, not handwritten separately.
   the full Flutter suite passes `3,097/3,097`.
 - Repository analyzer policy exits `0` with `275` inherited non-fatal
   diagnostics; analysis of the changed Dart source and tests reports no issues.
-- The Production Web release build passes with the current Production API base
-  URL. This build was a local verification artifact only and was not deployed.
+- The Production Web release build passed with the Production API base URL.
+  The accepted exact merge was subsequently built and deployed through the
+  authorized Backend-then-Hosting release flow.
 - Eight deterministic fixtures cover fire, earth, air, water and cardinal,
   fixed, mutable. Their readings remain distinct after sign names are removed.
 - Tests verify that every displayed planet/sign, relevant house, and aspect basis
@@ -121,7 +123,14 @@ This sample is generated from the candidate source, not handwritten separately.
 - Full chart benchmark: three cases × 500 iterations, medians
   `0.204681–0.206452 ms`, below the `25 ms` gate.
 
-This document is candidate evidence only. Production remains on application
-commit `de0a83bdfbb18532471ba58e539e7d0b6cf553a4`, Hosting release
-`1789977665171000`, version `4065a55e03f5aa1e` until Owner approval and a
-separately authorized merge/deployment flow.
+The Owner accepted this output. PR #146 merged as
+`1a48f234e4720a3e858ca0aa03944e87f6b35609`, tree
+`1aea5730ec4ac6c7c11770836bd51ccd1a8d1456`, and Reader r2 was deployed. The
+later latency-only PR #147 merged as
+`afbcb72e490512d597b69daa6ca4574c5d13c1a8`, tree
+`39f62b5fc6ccc27c1cbde32eaf7b2b8fa59f7c8e`, without changing this reader
+output. Current Production serves Cloud Run revision
+`knowme-astrology-api-00013-zc8`; Hosting remains release
+`1790074568414000`, version `d32e72678324e634`. Final performance and cache
+acceptance are recorded in
+`docs/WESTERN_ASTROLOGY_READER_V2_LATENCY_REPAIR.md`.

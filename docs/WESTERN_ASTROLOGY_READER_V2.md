@@ -7,10 +7,10 @@ whole-chart reading in Thai. Calculation stays local to the authenticated
 KnowMe backend; no LLM or Firestore lookup participates in the astronomical
 calculation.
 
-## Thai readability revision candidate
+## Thai readability revision
 
-The `western_reader_th_v2_r2` candidate keeps the chart schema and reader
-contract unchanged while revising only deterministic Thai composition:
+The Owner-accepted `western_reader_th_v2_r2` release keeps the chart schema and
+reader contract unchanged while revising only deterministic Thai composition:
 
 - observable behavior and its likely effect appear before astrological labels;
 - Sun, Moon, and Rising are synthesized into one opening instead of three
@@ -33,12 +33,9 @@ authenticated POST and overwrite path. The newly saved r2 chart is a normal
 cache hit on subsequent visits. No Firestore schema or path changes.
 
 The full generated Owner sample and revision evidence are in
-`docs/WESTERN_ASTROLOGY_READER_V2_THAI_READABILITY.md`. This candidate is not
-merged or deployed. It is open for Owner review as Draft PR #146:
-`https://github.com/notekmitl/knowme/pull/146`.
-
-Owner-feedback changes remain within the same reader revision
-`western_reader_th_v2_r2`, because that revision has never been deployed.
+`docs/WESTERN_ASTROLOGY_READER_V2_THAI_READABILITY.md`. PR #146 was approved,
+merged as `1a48f234e4720a3e858ca0aa03944e87f6b35609`, and deployed. The subsequent
+latency repair preserves the same reader revision and all reader output.
 
 ## Calculation contract
 
@@ -118,6 +115,18 @@ desktop; the six-run maximum is 90.149 ms. The click-to-readable maxima are
 `docs/WESTERN_ASTROLOGY_READER_V2_PERFORMANCE_CLOSEOUT.md` for the complete
 method and table.
 
+After the r2 readability release, one authenticated request exceeded the
+stricter five-second API gate. PR #147 added PII-free phase timing and a
+read-only Firestore startup probe. The phase evidence isolated remote Auth and
+the awaited cross-region Firestore commit, not calculation or composition;
+the largest observed reader-composition phase was `0.255 ms`. The exact merge
+is live on Cloud Run `knowme-astrology-api-00013-zc8` with instance-based CPU
+allocation. Final Production QA measured six response bodies at
+`0.889–3.303 s` and matching Cloud Run latency at `0.835–3.230 s`, all within
+the required gates. See
+`docs/WESTERN_ASTROLOGY_READER_V2_LATENCY_REPAIR.md` for trace-correlated phase
+evidence and the final cache-hit verification.
+
 ## Security and persistence
 
 Both the versioned and deprecated generation paths require a verified Firebase
@@ -134,9 +143,12 @@ responsive result-page widget tests at 390 px and 1280 px, full Flutter tests,
 analyzer, benchmark, Production Web build, and live authenticated desktop/mobile
 timing after Backend-first deployment.
 
-The source candidate passes backend 46/46, focused Flutter 51/51, complete
-Flutter 3,093/3,093, analyzer policy with 275 inherited non-fatal diagnostics
-and no task-source diagnostic, the three-case benchmark, and the
-Production-configured Web build in GitHub CI run `35508539559`. Live timing is
-not inferred from the pure-engine benchmark. The separate compositor-timed
-Production gate passed without an application edit or deployment.
+The original V2 source passed backend 46/46, focused Flutter 51/51, complete
+Flutter 3,093/3,093, analyzer policy, the three-case benchmark, and the
+Production-configured Web build. The r2 readability release passed backend
+48/48, focused Flutter 24/24, and complete Flutter 3,097/3,097. The latency
+repair passed backend focused 20/20 and full 51/51, Flutter focused 37/37 and
+full 3,097/3,097, Python compilation, analyzer policy with 275 inherited
+non-fatal diagnostics, and the Production Web build/endpoint validator. Live
+latency acceptance comes from browser Network and Cloud Run trace timing, not
+from the pure-engine benchmark.
