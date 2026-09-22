@@ -1,6 +1,6 @@
 ## Active candidate - Western Reader V2 Thai readability revision (2026-09-22)
 
-Status: **DRAFT PR — OWNER REVIEW REQUIRED — NOT MERGED — NOT DEPLOYED**
+Status: **DRAFT PR #146 OPEN — OWNER REVIEW REQUIRED — NOT MERGED — NOT DEPLOYED**
 
 - Root cause is deterministic copy in
   `backend/app/services/astrology/reader.py`, not an AI prompt. The candidate
@@ -26,6 +26,8 @@ Status: **DRAFT PR — OWNER REVIEW REQUIRED — NOT MERGED — NOT DEPLOYED**
   passes. No merge or Production action is authorized.
 - Production remains application `de0a83bdfbb18532471ba58e539e7d0b6cf553a4`,
   Hosting release `1789977665171000`, version `4065a55e03f5aa1e`.
+- Draft PR: `https://github.com/notekmitl/knowme/pull/146`; implementation
+  commit `078ac7c`. Keep it Draft until the Owner decides on the sample.
 
 ## Completed release - Western Astrology Reader V2 and performance (2026-09-21)
 

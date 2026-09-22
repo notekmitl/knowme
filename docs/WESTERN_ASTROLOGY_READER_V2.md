@@ -30,7 +30,8 @@ cache hit on subsequent visits. No Firestore schema or path changes.
 
 The full generated Owner sample and revision evidence are in
 `docs/WESTERN_ASTROLOGY_READER_V2_THAI_READABILITY.md`. This candidate is not
-merged or deployed.
+merged or deployed. It is open for Owner review as Draft PR #146:
+`https://github.com/notekmitl/knowme/pull/146`.
 
 ## Calculation contract
 

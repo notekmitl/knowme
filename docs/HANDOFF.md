@@ -1,7 +1,8 @@
 # Handoff - Western Reader V2 Thai readability revision (2026-09-22)
 
-The candidate is intentionally a Draft PR for Owner review. Do not merge or
-deploy it without a new Owner decision.
+Draft PR #146 is open at `https://github.com/notekmitl/knowme/pull/146` from
+implementation commit `078ac7c`. Keep it Draft; do not merge or deploy it
+without a new Owner decision.
 
 - The old awkward text originates in the deterministic Western reader composer,
   not an AI prompt. No prompt service is involved in chart generation.

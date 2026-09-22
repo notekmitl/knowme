@@ -1,6 +1,6 @@
 # Western Reader V2 — Thai Readability Revision
 
-Status: **DRAFT PR — OWNER REVIEW REQUIRED — NOT MERGED — NOT DEPLOYED**
+Status: **DRAFT PR #146 OPEN — OWNER REVIEW REQUIRED — NOT MERGED — NOT DEPLOYED**
 
 ## Scope and source of the old wording
 

@@ -2,7 +2,7 @@
 
 ## Active candidate - Western Reader V2 Thai readability (2026-09-22)
 
-Status: **DRAFT PR — OWNER REVIEW REQUIRED**
+Status: **DRAFT PR #146 OPEN — OWNER REVIEW REQUIRED**
 
 The deterministic Western Thai composer is being revised so the primary text
 describes behavior and real-life consequences before its astrological basis.
@@ -12,6 +12,9 @@ regression-tested. Cache revision `western_reader_th_v2_r2` refreshes old V2
 once and then restores the existing cache hit. Calculation, contract, schema,
 other sciences, and Production remain unchanged. Merge and deployment are
 explicitly outside this candidate handoff.
+
+Owner decision gate: review the complete generated sample in Draft PR #146;
+keep the PR Draft and Production unchanged until the reading is accepted.
 
 ## Completed release - Western Astrology Reader V2 and performance (2026-09-21)
 

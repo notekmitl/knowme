@@ -1,6 +1,6 @@
 # Task Result - Western Reader V2 Thai readability revision
 
-**Result: CANDIDATE READY FOR DRAFT PR AND OWNER REVIEW — NOT MERGED — NOT DEPLOYED.**
+**Result: DRAFT PR #146 OPEN FOR OWNER REVIEW — NOT MERGED — NOT DEPLOYED.**
 
 The awkward Production wording was traced to the deterministic Western reader
 composer, not an AI prompt. The candidate changes only Western Thai composition,
@@ -25,7 +25,8 @@ three 500-iteration chart benchmarks remain below the 25 ms gate.
 
 Production remains application `de0a83bdfbb18532471ba58e539e7d0b6cf553a4`,
 Hosting release `1789977665171000`, version `4065a55e03f5aa1e`. Merge and
-deployment require a later Owner decision.
+deployment require a later Owner decision. Draft PR:
+`https://github.com/notekmitl/knowme/pull/146`.
 
 ---
 

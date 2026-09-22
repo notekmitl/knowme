@@ -1,6 +1,6 @@
 # Active Task - Western Reader V2 Thai readability revision (2026-09-22)
 
-Status: **DRAFT PR REQUIRED — OWNER REVIEW — NO MERGE OR DEPLOY**
+Status: **DRAFT PR #146 OPEN — OWNER REVIEW — NO MERGE OR DEPLOY**
 
 ## Goal
 
@@ -23,7 +23,9 @@ while preserving every calculated chart fact and the current API/cache shape.
 - [x] Produce the full generated Owner sample for review.
 - [x] Pass backend 48/48, focused Flutter 24/24, full Flutter 3,097/3,097,
       analyzer policy/scoped analysis, and the local Production Web build.
-- [ ] Open Draft PR and wait for Owner decision. Do not merge or deploy.
+- [x] Open Draft PR #146. It remains Draft, unmerged, and undeployed.
+- [ ] Wait for Owner decision on the generated reading before any merge or
+      deployment.
 
 Candidate evidence and the full sample are in
 `docs/WESTERN_ASTROLOGY_READER_V2_THAI_READABILITY.md`.
