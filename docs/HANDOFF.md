@@ -1,3 +1,27 @@
+# Handoff - Western Reader V2 Thai readability revision (2026-09-22)
+
+The candidate is intentionally a Draft PR for Owner review. Do not merge or
+deploy it without a new Owner decision.
+
+- The old awkward text originates in the deterministic Western reader composer,
+  not an AI prompt. No prompt service is involved in chart generation.
+- Scope is limited to `reader.py`, Western result presentation, cache-revision
+  gating, focused regressions, and documentation. Calculations, chart facts,
+  Auth, Firestore schema/path, Fusion, Thai astrology, and BaZi are unchanged.
+- `western_reader_th_v2_r2` is the only cache revision change. Old V2 receives
+  one authenticated refresh; r2 resumes one-read/zero-POST cache hits.
+- Owner output is locked to UTC `1982-06-05T17:03:00Z` and
+  Gemini/Sagittarius/Pisces. Review the complete generated sample in
+  `docs/WESTERN_ASTROLOGY_READER_V2_THAI_READABILITY.md`.
+- Main reading is behavior-first. Technical basis is secondary, and detailed
+  Chart Structure is collapsed by default.
+- Local gates pass: backend 48/48, focused Flutter 24/24, full Flutter
+  3,097/3,097, repository analyzer exit 0 with 275 inherited diagnostics,
+  changed-scope analyzer 0 issues, and Production Web release build. The
+  reader-only latency delta is 0.004543 ms per composition on the same machine.
+- Production identity remains application `de0a83bdfbb18532471ba58e539e7d0b6cf553a4`,
+  Hosting release `1789977665171000`, version `4065a55e03f5aa1e`.
+
 # Handoff - Western Astrology Reader V2 (2026-09-21)
 
 Western Reader V2 Production performance closeout is complete. PR #143 remains the live application source, and the existing Hosting release passed cache-hit plus three compositor-timed generation runs per viewport.

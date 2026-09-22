@@ -37,12 +37,84 @@ void main() {
       await tester.pumpAndSettle();
 
       expect(generateCalls, 1);
-      expect(loadCalls, 1, reason: 'only the pre-generation cache read remains');
+      expect(
+        loadCalls,
+        1,
+        reason: 'only the pre-generation cache read remains',
+      );
       expect(provider.chart, same(chart));
       expect(find.byKey(const Key('western-reader-v2-hero')), findsOneWidget);
       expect(tester.takeException(), isNull);
     },
   );
+
+  testWidgets('stale V2 reader cache regenerates exactly once', (tester) async {
+    var loadCalls = 0;
+    var generateCalls = 0;
+    final provider = AstrologyProvider(
+      loadChartFn: (_) async {
+        loadCalls++;
+        return _chart(readerRevision: 'western_reader_th_v2');
+      },
+    );
+
+    await tester.pumpWidget(
+      ChangeNotifierProvider.value(
+        value: provider,
+        child: MaterialApp(
+          home: AstrologyResultPage(
+            userId: 'stale-reader-cache',
+            generateChartForUser: (_) async {
+              generateCalls++;
+              return _chart();
+            },
+          ),
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+
+    expect(loadCalls, 1);
+    expect(generateCalls, 1);
+    expect(provider.chart?.reader['version'], 'western_reader_th_v2_r2');
+    expect(find.byKey(const Key('western-reader-v2-hero')), findsOneWidget);
+    expect(tester.takeException(), isNull);
+  });
+
+  testWidgets('current reader revision remains a cache hit with no POST', (
+    tester,
+  ) async {
+    var loadCalls = 0;
+    var generateCalls = 0;
+    final current = _chart();
+    final provider = AstrologyProvider(
+      loadChartFn: (_) async {
+        loadCalls++;
+        return current;
+      },
+    );
+
+    await tester.pumpWidget(
+      ChangeNotifierProvider.value(
+        value: provider,
+        child: MaterialApp(
+          home: AstrologyResultPage(
+            userId: 'current-reader-cache',
+            generateChartForUser: (_) async {
+              generateCalls++;
+              return _chart();
+            },
+          ),
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+
+    expect(loadCalls, 1);
+    expect(generateCalls, 0);
+    expect(provider.chart, same(current));
+    expect(tester.takeException(), isNull);
+  });
 
   for (final size in <Size>[const Size(390, 844), const Size(1280, 900)]) {
     testWidgets('renders Western Reader V2 at ${size.width.toInt()}px', (
@@ -69,9 +141,19 @@ void main() {
 
       expect(find.byKey(const Key('western-reader-v2-hero')), findsOneWidget);
       expect(find.text('แผนที่ชีวิตแบบตะวันตก'), findsOneWidget);
-      expect(find.text('ราศีเมถุน'), findsOneWidget);
-      expect(find.text('ราศีธนู'), findsOneWidget);
-      expect(find.text('ราศีมีน'), findsOneWidget);
+      expect(
+        find.text('ดวงอาทิตย์ราศีเมถุน · ดวงจันทร์ราศีธนู · ลัคนาราศีมีน'),
+        findsOneWidget,
+      );
+      expect(
+        find.byKey(const Key('western-reader-v2-chart-structure')),
+        findsOneWidget,
+      );
+      expect(
+        find.text('ข้อมูลทางโหราศาสตร์ที่ใช้ประกอบคำอ่าน'),
+        findsOneWidget,
+      );
+      expect(find.text('สมดุลพลังหลัก'), findsNothing);
       expect(tester.takeException(), isNull);
 
       await tester.scrollUntilVisible(
@@ -89,7 +171,9 @@ void main() {
   }
 }
 
-AstrologyChartModel _chart() => AstrologyChartModel(
+AstrologyChartModel _chart({
+  String readerRevision = 'western_reader_th_v2_r2',
+}) => AstrologyChartModel(
   version: 'western_natal_v2',
   contractId: 'knowme_western_reader_v2',
   engineVersion: 'swiss_ephemeris_tropical_placidus_v2',
@@ -131,8 +215,8 @@ AstrologyChartModel _chart() => AstrologyChartModel(
       {'house': 10, 'count': 2},
     ],
   },
-  reader: const {
-    'version': 'western_reader_th_v2',
+  reader: {
+    'version': readerRevision,
     'overview': {
       'th':
           'คุณคิดไวแบบเมถุน ต้องการอิสระทางใจแบบธนู และเข้าหาโลกด้วยความละเอียดอ่อนแบบมีน',
@@ -142,6 +226,7 @@ AstrologyChartModel _chart() => AstrologyChartModel(
         'id': 'identity',
         'title': 'ตัวตนและแรงขับ',
         'body': 'ตัวตนหลักชอบเรียนรู้และเชื่อมโยงข้อมูลหลายด้าน',
+        'basis': 'ดวงอาทิตย์ราศีเมถุน · ดวงจันทร์ราศีธนู · ลัคนาราศีมีน',
       },
       {
         'id': 'work',

@@ -28,7 +28,7 @@ void main() {
         },
       },
       'reader': {
-        'version': 'western_reader_th_v2',
+        'version': 'western_reader_th_v2_r2',
         'overview': {'th': 'ภาพรวม'},
       },
       'insight': <String, dynamic>{},
@@ -42,6 +42,6 @@ void main() {
     expect(chart.houses['system'], 'Placidus');
     expect(chart.aspects.single['orb'], 1.2);
     expect(chart.analysis['elements'], isA<Map>());
-    expect(chart.reader['version'], 'western_reader_th_v2');
+    expect(chart.reader['version'], 'western_reader_th_v2_r2');
   });
 }

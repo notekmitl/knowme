@@ -1,5 +1,18 @@
 # KnowMe Roadmap+
 
+## Active candidate - Western Reader V2 Thai readability (2026-09-22)
+
+Status: **DRAFT PR — OWNER REVIEW REQUIRED**
+
+The deterministic Western Thai composer is being revised so the primary text
+describes behavior and real-life consequences before its astrological basis.
+Big Three are synthesized, work/money/love/self-care are concrete, technical
+chart structure is secondary, and unsupported house/planet inference is
+regression-tested. Cache revision `western_reader_th_v2_r2` refreshes old V2
+once and then restores the existing cache hit. Calculation, contract, schema,
+other sciences, and Production remain unchanged. Merge and deployment are
+explicitly outside this candidate handoff.
+
 ## Completed release - Western Astrology Reader V2 and performance (2026-09-21)
 
 Status: **COMPLETE — CACHE-HIT PASS, GENERATION-PATH PASS, DOCS-ONLY CLOSEOUT**

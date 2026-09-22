@@ -1,3 +1,34 @@
+# Task Result - Western Reader V2 Thai readability revision
+
+**Result: CANDIDATE READY FOR DRAFT PR AND OWNER REVIEW — NOT MERGED — NOT DEPLOYED.**
+
+The awkward Production wording was traced to the deterministic Western reader
+composer, not an AI prompt. The candidate changes only Western Thai composition,
+secondary basis presentation, collapsed Chart Structure, and reader-revision
+freshness gating. It does not change calculation, chart facts, Auth, Firestore
+schema/path, Fusion, Thai astrology, BaZi, or Production.
+
+The Owner chart remains UTC `1982-06-05T17:03:00Z` with Gemini Sun,
+Sagittarius Moon, and Pisces Rising. Its complete generated reading is recorded
+in `docs/WESTERN_ASTROLOGY_READER_V2_THAI_READABILITY.md`.
+
+Old `western_reader_th_v2` cache refreshes exactly once; the new
+`western_reader_th_v2_r2` chart resumes a one-read/zero-POST cache hit. Eight
+fixtures cover all four elements and three modalities, preserve source-linked
+sign/house/aspect bases, and remain distinct after sign names are removed.
+
+Validation passes backend 48/48, focused Flutter 24/24, full Flutter
+3,097/3,097, repository analyzer policy with 275 inherited non-fatal
+diagnostics and zero changed-scope issues, and a local Production Web release
+build. The same-machine reader delta is 0.004543 ms per composition, and the
+three 500-iteration chart benchmarks remain below the 25 ms gate.
+
+Production remains application `de0a83bdfbb18532471ba58e539e7d0b6cf553a4`,
+Hosting release `1789977665171000`, version `4065a55e03f5aa1e`. Merge and
+deployment require a later Owner decision.
+
+---
+
 # Task Result - Western Astrology Reader V2 and generation performance
 
 **Result: COMPLETE — USER-PERCEIVED PERFORMANCE PASSED; EXCESS WAIT WAS A MEASUREMENT ARTIFACT.**

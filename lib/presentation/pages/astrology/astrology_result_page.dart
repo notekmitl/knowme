@@ -11,9 +11,8 @@ import 'package:provider/provider.dart';
 import '../../providers/astrology_provider.dart';
 import 'western_reader_v2_copy.dart';
 
-typedef WesternResultGenerator = Future<AstrologyChartModel> Function(
-  String uid,
-);
+typedef WesternResultGenerator =
+    Future<AstrologyChartModel> Function(String uid);
 
 class AstrologyResultPage extends StatefulWidget {
   const AstrologyResultPage({
@@ -53,7 +52,7 @@ class _AstrologyResultPageState extends State<AstrologyResultPage> {
     if (!mounted) return;
     final provider = context.read<AstrologyProvider>();
     final prepared = widget.preparedChart;
-    if (prepared != null && WesternReaderV2Copy.isV2(prepared)) {
+    if (prepared != null && WesternReaderV2Copy.isCurrent(prepared)) {
       provider.usePreparedChart(prepared);
       return;
     }
@@ -63,7 +62,7 @@ class _AstrologyResultPageState extends State<AstrologyResultPage> {
     await provider.loadChart(uid);
     if (!mounted) return;
     final loaded = provider.chart;
-    if (loaded != null && WesternReaderV2Copy.isV2(loaded)) return;
+    if (loaded != null && WesternReaderV2Copy.isCurrent(loaded)) return;
 
     await _generateAndUseChart(uid);
   }
@@ -81,7 +80,7 @@ class _AstrologyResultPageState extends State<AstrologyResultPage> {
     });
     try {
       final chart = await widget.generateChartForUser(uid);
-      if (!WesternReaderV2Copy.isV2(chart)) {
+      if (!WesternReaderV2Copy.isCurrent(chart)) {
         throw const FormatException(
           'Western API returned an unsupported chart contract',
         );
@@ -118,7 +117,7 @@ class _AstrologyResultPageState extends State<AstrologyResultPage> {
           : provider.error != null ||
                 _generationError != null ||
                 chart == null ||
-                !WesternReaderV2Copy.isV2(chart)
+                !WesternReaderV2Copy.isCurrent(chart)
           ? AstrologyFlowStateBody(
               state: AstrologyFlowState.failed,
               onPrimaryAction: _retryGeneration,
@@ -182,10 +181,10 @@ class _WesternReaderBody extends StatelessWidget {
                   _bigThree(),
                   const SizedBox(height: 30),
                   const _SectionHeading(
-                    eyebrow: 'LIFE READING',
-                    title: 'คำอ่านชีวิตจากดวงกำเนิด',
+                    eyebrow: 'คำอ่านหลัก',
+                    title: 'อ่านเป็นเรื่องชีวิต ไม่ใช่ป้ายราศี',
                     subtitle:
-                        'เรียงจากสิ่งที่มีผลกับชีวิตประจำวันก่อน แล้วจึงเปิดดูโครงสร้างดาว',
+                        'เริ่มจากพฤติกรรมที่พบได้จริง ผลที่มักเกิด และวิธีใช้ให้เป็นประโยชน์',
                   ),
                   const SizedBox(height: 14),
                   for (final section in sections) ...[
@@ -193,20 +192,7 @@ class _WesternReaderBody extends StatelessWidget {
                     const SizedBox(height: 12),
                   ],
                   const SizedBox(height: 20),
-                  const _SectionHeading(
-                    eyebrow: 'CHART STRUCTURE',
-                    title: 'โครงสร้างพลังในดวง',
-                    subtitle:
-                        'สรุปจากดาวหลัก ลัคนา เรือนชีวิต และมุมสัมพันธ์ ไม่ได้ดูแค่ราศีอาทิตย์',
-                  ),
-                  const SizedBox(height: 14),
-                  _balances(),
-                  const SizedBox(height: 12),
-                  _dominance(),
-                  const SizedBox(height: 12),
-                  _aspects(),
-                  const SizedBox(height: 12),
-                  _planetDetails(),
+                  _chartStructure(),
                   const SizedBox(height: 24),
                   _methodAndDisclaimer(),
                 ],
@@ -238,7 +224,7 @@ class _WesternReaderBody extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const Text(
-            'WESTERN READER V2',
+            'คำอ่านดวงกำเนิดตะวันตก',
             style: TextStyle(
               color: _gold,
               fontSize: 12,
@@ -271,78 +257,60 @@ class _WesternReaderBody extends StatelessWidget {
   }
 
   Widget _bigThree() {
-    final cards = [
-      (
-        icon: '☀',
-        title: 'ตัวตนหลัก',
-        value: WesternReaderV2Copy.signLabel(chart.big3['sun']),
+    return _SurfaceCard(
+      key: const Key('western-reader-v2-big-three-basis'),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Text('ที่มาของภาพรวม', style: _cardTitleStyle),
+          const SizedBox(height: 8),
+          Text(
+            'ดวงอาทิตย์ราศี${WesternReaderV2Copy.signLabel(chart.big3['sun'])} · '
+            'ดวงจันทร์ราศี${WesternReaderV2Copy.signLabel(chart.big3['moon'])} · '
+            'ลัคนาราศี${WesternReaderV2Copy.signLabel(chart.big3['rising'])}',
+            style: _bodyStyle,
+          ),
+          const SizedBox(height: 6),
+          const Text(
+            'คำอ่านด้านบนพิจารณาทั้งสามตำแหน่งร่วมกัน; รายการนี้เป็นข้อมูลอ้างอิง ไม่ใช่คำอ่านแยกสามป้าย',
+            style: _supportStyle,
+          ),
+        ],
       ),
-      (
-        icon: '☾',
-        title: 'ความต้องการทางใจ',
-        value: WesternReaderV2Copy.signLabel(chart.big3['moon']),
-      ),
-      (
-        icon: '↑',
-        title: 'ภาพที่คนอื่นเห็น',
-        value: WesternReaderV2Copy.signLabel(chart.big3['rising']),
-      ),
-    ];
-    return LayoutBuilder(
-      builder: (context, constraints) {
-        final width = constraints.maxWidth >= 720
-            ? (constraints.maxWidth - 24) / 3
-            : constraints.maxWidth;
-        return Wrap(
-          spacing: 12,
-          runSpacing: 12,
+    );
+  }
+
+  Widget _chartStructure() {
+    return _SurfaceCard(
+      key: const Key('western-reader-v2-chart-structure'),
+      padding: EdgeInsets.zero,
+      child: Theme(
+        data: ThemeData.dark().copyWith(dividerColor: Colors.transparent),
+        child: ExpansionTile(
+          initiallyExpanded: false,
+          tilePadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
+          childrenPadding: const EdgeInsets.fromLTRB(14, 0, 14, 16),
+          iconColor: _gold,
+          collapsedIconColor: Colors.white70,
+          title: const Text(
+            'ข้อมูลทางโหราศาสตร์ที่ใช้ประกอบคำอ่าน',
+            style: _cardTitleStyle,
+          ),
+          subtitle: const Text(
+            'เปิดดูสมดุลธาตุ ดาวเด่น เรือน และมุมดาวเมื่ออยากตรวจที่มารายละเอียด',
+            style: _supportStyle,
+          ),
           children: [
-            for (final card in cards)
-              SizedBox(
-                width: width,
-                child: Container(
-                  padding: const EdgeInsets.all(18),
-                  decoration: BoxDecoration(
-                    color: Colors.white.withValues(alpha: 0.07),
-                    borderRadius: BorderRadius.circular(18),
-                    border: Border.all(
-                      color: Colors.white.withValues(alpha: 0.08),
-                    ),
-                  ),
-                  child: Row(
-                    children: [
-                      Text(card.icon, style: const TextStyle(fontSize: 27)),
-                      const SizedBox(width: 12),
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              card.title,
-                              style: const TextStyle(
-                                color: Colors.white60,
-                                fontSize: 13,
-                              ),
-                            ),
-                            const SizedBox(height: 4),
-                            Text(
-                              'ราศี${card.value}',
-                              style: const TextStyle(
-                                color: Colors.white,
-                                fontSize: 20,
-                                fontWeight: FontWeight.w800,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
+            _balances(),
+            const SizedBox(height: 12),
+            _dominance(),
+            const SizedBox(height: 12),
+            _aspects(),
+            const SizedBox(height: 12),
+            _planetDetails(),
           ],
-        );
-      },
+        ),
+      ),
     );
   }
 
@@ -532,6 +500,10 @@ class _ReadingCard extends StatelessWidget {
           Text(section.title, style: _cardTitleStyle),
           const SizedBox(height: 9),
           Text(section.body, style: _bodyStyle),
+          if (section.basis.isNotEmpty) ...[
+            const SizedBox(height: 12),
+            Text('ที่มาทางโหราศาสตร์: ${section.basis}', style: _supportStyle),
+          ],
         ],
       ),
     );
