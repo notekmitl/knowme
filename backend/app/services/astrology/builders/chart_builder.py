@@ -1,5 +1,6 @@
 import hashlib
 import json
+import time
 from datetime import timezone as dt_timezone
 import swisseph as swe
 
@@ -41,7 +42,10 @@ def build_chart(
     latitude,
     longitude,
     timezone="Asia/Bangkok",
+    *,
+    phase_timings: dict[str, float] | None = None,
 ):
+    calculation_started = time.perf_counter()
     _validate_coordinates(latitude, longitude)
     local_civil = parse_birth_datetime_aware(
         birth_date,
@@ -108,7 +112,16 @@ def build_chart(
         "rising": get_sign(houses["ascendant"]),
     }
     analysis = analyze_chart(planets, houses, aspects)
+    if phase_timings is not None:
+        phase_timings["astrology_calculation_ms"] = (
+            time.perf_counter() - calculation_started
+        ) * 1000
+    reader_started = time.perf_counter()
     reader = build_reader(big3, planets, analysis)
+    if phase_timings is not None:
+        phase_timings["reader_composition_ms"] = (
+            time.perf_counter() - reader_started
+        ) * 1000
     normalized_input = {
         "birth_date": birth_date.strip(),
         "birth_time": birth_time.strip(),

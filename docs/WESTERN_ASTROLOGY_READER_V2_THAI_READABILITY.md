@@ -1,6 +1,6 @@
 # Western Reader V2 — Thai Readability Revision
 
-Status: **DRAFT PR #146 OPEN — OWNER REVIEW REQUIRED — NOT MERGED — NOT DEPLOYED**
+Status: **OWNER-ACCEPTED — PR #146 MERGED AND DEPLOYED — LATENCY CLOSEOUT PENDING**
 
 ## Scope and source of the old wording
 

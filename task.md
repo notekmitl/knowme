@@ -1,6 +1,30 @@
-# Active Task - Western Reader V2 Thai readability revision (2026-09-22)
+# Active Task - Western Reader V2 authenticated latency repair (2026-09-22)
 
-Status: **DRAFT PR #146 OPEN — OWNER REVIEW — NO MERGE OR DEPLOY**
+Status: **REPAIR IMPLEMENTED LOCALLY; ALL LOCAL GATES PASS**
+
+- [x] Keep current Production release; do not rollback.
+- [x] Inspect exact Cloud Run revision/config/source and correlate the failed
+      request to its trace and instance.
+- [x] Run three mobile and three desktop selected-generation diagnostics on
+      the current revision without downgrading the Owner cache.
+- [x] Add PII-free timing phases for Auth, profile/input, calculation, reader,
+      response assembly, Firestore save, response serialization, and total
+      request time.
+- [x] Move one read-only Firestore connectivity probe into process startup so
+      every new instance completes persistence initialization before traffic.
+- [x] Pass focused backend 20/20, full backend 51/51, and compile validation.
+- [x] Pass focused Flutter `37/37`, full Flutter `3,097/3,097`, analyzer policy
+      (exit `0`, 275 inherited diagnostics), and Production Web
+      build/validator.
+- [ ] Open, review, and merge the performance-repair PR from `main`.
+- [ ] Deploy exact merge Backend-only, verify readiness/traffic/health/401,
+      and inspect structured warm-up and generation phases.
+- [ ] Pass final mobile/desktop generation plus cache-hit Production QA.
+- [ ] Update final Production evidence and only then open docs-only closeout.
+
+# Historical Task - Western Reader V2 Thai readability revision (2026-09-22)
+
+Status: **HISTORICAL — OWNER-APPROVED — PR #146 MERGED AND DEPLOYED**
 
 ## Goal
 
@@ -24,13 +48,13 @@ while preserving every calculated chart fact and the current API/cache shape.
 - [x] Revise the shared composer after Owner review: separate overview from
       identity, add real decision situations, replace abstract money/love/
       recovery/strength/caution wording, and use the explicit three-step guide.
-- [x] Keep `western_reader_th_v2_r2`; it has never been deployed and no new
-      cache revision is required.
+- [x] Keep `western_reader_th_v2_r2`; it had not been deployed while the Draft
+      was revised, so no additional cache revision was required.
 - [x] Pass backend 48/48, focused Flutter 24/24, full Flutter 3,097/3,097,
       analyzer policy/scoped analysis, and the local Production Web build.
-- [x] Open Draft PR #146. It remains Draft, unmerged, and undeployed.
-- [ ] Wait for Owner decision on the generated reading before any merge or
-      deployment.
+- [x] Open Draft PR #146 for Owner review.
+- [x] Receive Owner approval, mark ready, merge, and deploy the accepted
+      reader revision. The active latency follow-up is tracked above.
 
 Candidate evidence and the full sample are in
 `docs/WESTERN_ASTROLOGY_READER_V2_THAI_READABILITY.md`.

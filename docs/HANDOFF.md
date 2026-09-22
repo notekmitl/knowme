@@ -1,9 +1,39 @@
-# Handoff - Western Reader V2 Thai readability revision (2026-09-22)
+# Handoff - Western Reader V2 authenticated latency repair (2026-09-22)
 
-Draft PR #146 is open at `https://github.com/notekmitl/knowme/pull/146`. The
-Owner-feedback revision is pushed on the same branch and keeps reader revision
-`western_reader_th_v2_r2`. Keep the PR Draft; do not merge or deploy it without
-a new Owner decision.
+PR #146 is merged and live as `1a48f234`, tree `1aea5730`. Current Production
+is Cloud Run `knowme-astrology-api-00011-s5z` and Hosting
+`1790074568414000` / `d32e72678324e634`; the Owner explicitly chose not to
+rollback while latency is investigated.
+
+- The first authenticated stale-cache generation was functionally correct but
+  failed the fixed API gate: Chrome body complete `5.550 s`, Cloud Run server
+  `5.327094231 s`, trace `13b6ce787c62dd81f5af0d6cd433b416`.
+- Three mobile and three desktop selected-generation runs on the same live
+  revision/instance then passed at `0.908–3.135 s` browser body duration and
+  `0.853–3.079 s` server latency. Each used one authenticated POST, r2/V2,
+  correct UTC/Big Three, zero Fusion traffic, and zero runtime errors.
+- The repair branch starts from merged `main`. It adds non-sensitive phase
+  logs and makes the existing shared Firestore client complete one read-only
+  connectivity probe during FastAPI startup, so a new scale-out process cannot
+  accept traffic before persistence is ready.
+- No calculation, copy, revision, contract, cache, schema, Auth policy, Fusion,
+  Thai Astrology, or BaZi behavior changes. The existing atomic write remains
+  awaited.
+- Current local evidence is Backend focused `20/20`, Backend full `51/51`,
+  Python compile, Flutter focused `37/37`, Flutter full `3,097/3,097`, analyzer
+  policy (exit `0`, 275 inherited diagnostics), and Production Web
+  build/validator PASS. PR/merge, exact Backend deployment, and live phase
+  evidence remain pending.
+
+See `docs/WESTERN_ASTROLOGY_READER_V2_LATENCY_REPAIR.md`. Do not open the
+docs-only closeout until Production acceptance is complete.
+
+# Historical handoff - Western Reader V2 Thai readability revision (2026-09-22)
+
+This section preserves the pre-approval handoff. It is superseded: PR #146 was
+approved, merged as `1a48f234e4720a3e858ca0aa03944e87f6b35609`, and deployed
+with reader revision `western_reader_th_v2_r2`; the active latency handoff is
+the first section of this file.
 
 - The old awkward text originates in the deterministic Western reader composer,
   not an AI prompt. No prompt service is involved in chart generation.
@@ -27,8 +57,8 @@ a new Owner decision.
   changed-scope analyzer 0 issues, and Production Web release build. The
   revised reader delta versus pre-feedback PR HEAD is -0.000086 ms per
   composition; three 500-iteration chart medians are 0.204681-0.206452 ms.
-- Production identity remains application `de0a83bdfbb18532471ba58e539e7d0b6cf553a4`,
-  Hosting release `1789977665171000`, version `4065a55e03f5aa1e`.
+- The older Production identity in this historical snapshot is superseded by
+  the active release identity at the top of this file.
 
 # Handoff - Western Astrology Reader V2 (2026-09-21)
 

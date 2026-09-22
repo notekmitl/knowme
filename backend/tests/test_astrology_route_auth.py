@@ -32,7 +32,7 @@ def _stub_calculation(monkeypatch, saved):
     monkeypatch.setattr(
         astrology_route,
         "build_chart",
-        lambda *_args: {
+        lambda *_args, **_kwargs: {
             "version": "western_natal_v2",
             "big3": {"sun": "Taurus", "moon": "Sagittarius", "rising": "Libra"},
             "reader": {"overview": {"th": "summary", "en": "summary"}},

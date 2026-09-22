@@ -44,12 +44,27 @@ def test_api_startup_initializes_firebase_admin_before_serving(monkeypatch):
         "initialize_firebase_admin",
         lambda: calls.append("initialized"),
     )
+    firestore_client = object()
+    monkeypatch.setattr(
+        main_module,
+        "_firestore_client",
+        lambda: calls.append("firestore-client") or firestore_client,
+    )
+    monkeypatch.setattr(
+        main_module,
+        "warm_firestore_connection",
+        lambda db: calls.append(("firestore-warm", db)),
+    )
 
     with TestClient(main_module.app) as client:
         response = client.get("/health")
 
     assert response.status_code == 200
-    assert calls == ["initialized"]
+    assert calls == [
+        "initialized",
+        "firestore-client",
+        ("firestore-warm", firestore_client),
+    ]
 
 
 def test_initialization_reuses_existing_default_app(monkeypatch):
