@@ -1,32 +1,35 @@
-# Handoff - Western Reader V2 authenticated latency repair (2026-09-22)
+# Handoff - Western Reader V2 authenticated latency closeout (2026-09-22)
 
-PR #146 is merged and live as `1a48f234`, tree `1aea5730`. Current Production
-is Cloud Run `knowme-astrology-api-00011-s5z` and Hosting
-`1790074568414000` / `d32e72678324e634`; the Owner explicitly chose not to
-rollback while latency is investigated.
+Production acceptance is complete. PR #147 merged as
+`afbcb72e490512d597b69daa6ca4574c5d13c1a8`, tree
+`39f62b5fc6ccc27c1cbde32eaf7b2b8fa59f7c8e`. Cloud Run revision
+`knowme-astrology-api-00013-zc8` serves 100% with image digest
+`sha256:8f7c41bff70ff238e09263316ffe872b6f32227d4b4f0ffb10dcf72a7dc0070d`.
 
-- The first authenticated stale-cache generation was functionally correct but
-  failed the fixed API gate: Chrome body complete `5.550 s`, Cloud Run server
-  `5.327094231 s`, trace `13b6ce787c62dd81f5af0d6cd433b416`.
-- Three mobile and three desktop selected-generation runs on the same live
-  revision/instance then passed at `0.908–3.135 s` browser body duration and
-  `0.853–3.079 s` server latency. Each used one authenticated POST, r2/V2,
-  correct UTC/Big Three, zero Fusion traffic, and zero runtime errors.
-- The repair branch starts from merged `main`. It adds non-sensitive phase
-  logs and makes the existing shared Firestore client complete one read-only
-  connectivity probe during FastAPI startup, so a new scale-out process cannot
-  accept traffic before persistence is ready.
-- No calculation, copy, revision, contract, cache, schema, Auth policy, Fusion,
-  Thai Astrology, or BaZi behavior changes. The existing atomic write remains
-  awaited.
-- Current local evidence is Backend focused `20/20`, Backend full `51/51`,
-  Python compile, Flutter focused `37/37`, Flutter full `3,097/3,097`, analyzer
-  policy (exit `0`, 275 inherited diagnostics), and Production Web
-  build/validator PASS. PR/merge, exact Backend deployment, and live phase
-  evidence remain pending.
+- The original failure was Chrome body `5.550 s`, Cloud Run `5.327094231 s`,
+  trace `13b6ce787c62dd81f5af0d6cd433b416`. Structured repair evidence separates
+  Auth, input, calculation, reader, assembly, save, serialization, and total.
+- Firestore lives in `africa-south1` while Cloud Run lives in
+  `asia-southeast1`. The measured tail came from revoked-token Auth and the
+  awaited cross-region atomic commit, not calculation or Reader r2.
+- Every new instance now completes a read-only Firestore probe before
+  readiness. Instance-based CPU plus min instance `1` keeps initialized network
+  clients active between requests. No IAM, Auth policy, schema, write
+  atomicity, calculation, copy, revision, cache, Fusion, Thai Astrology, or
+  BaZi behavior changed.
+- Final Mobile/Desktop browser body range is `0.889–3.303 s`; Cloud Run is
+  `0.835–3.230 s`. All six runs used POST 1 and returned r2/V2 with correct UTC
+  and Big Three, no post-response Western read, Fusion 0, and no UI/runtime
+  defect. Cache hit is Western read 1, POST 0, Fusion 0.
+- Backend `20/20` focused and `51/51` full, Flutter `37/37` focused and
+  `3,097/3,097` full, Python compile, analyzer policy, and Production Web
+  build/validator pass.
+- Hosting was not rebuilt or deployed: release/version remain
+  `1790074568414000` / `d32e72678324e634`; live bundle SHA-256 is
+  `46d5b86b87dfddacfbce90fd036d312e1e9372d3a7897c7d8f855fa46232f629`.
 
-See `docs/WESTERN_ASTROLOGY_READER_V2_LATENCY_REPAIR.md`. Do not open the
-docs-only closeout until Production acceptance is complete.
+See `docs/WESTERN_ASTROLOGY_READER_V2_LATENCY_REPAIR.md` for all traces and
+phase timings. No repair or release action remains.
 
 # Historical handoff - Western Reader V2 Thai readability revision (2026-09-22)
 

@@ -1,38 +1,43 @@
-## Active repair - Western Reader V2 authenticated latency (2026-09-22)
+## Completed repair - Western Reader V2 authenticated latency (2026-09-22)
 
-Status: **PRODUCTION FUNCTIONAL; ONE LATENCY FAILURE; REPAIR CANDIDATE NOT DEPLOYED**
+Status: **PASS — PR #147 MERGED — BACKEND LIVE — PRODUCTION ACCEPTED**
 
-- PR #146 merged as `1a48f234e4720a3e858ca0aa03944e87f6b35609`, tree
-  `1aea5730ec4ac6c7c11770836bd51ccd1a8d1456`. Cloud Run revision
-  `knowme-astrology-api-00011-s5z` and Hosting release/version
-  `1790074568414000` / `d32e72678324e634` remain live by Owner decision.
-- Functionality passed: Reader `western_reader_th_v2_r2`, contract
-  `knowme_western_reader_v2`, Owner UTC and Big Three, complete new copy, one
-  authenticated POST, and zero browser Fusion traffic.
-- The first stale-cache generation measured `5.550 s` in Chrome Network and
-  `5.327094231 s` in Cloud Run, above the unchanged `5.000 s` API gate.
-- Six selected-generation runs on the same revision/instance measured browser
-  POST-body durations of `0.908–3.135 s` and server latency of
-  `0.853–3.079 s`. The individual traces are recorded in
-  `docs/WESTERN_ASTROLOGY_READER_V2_LATENCY_REPAIR.md`.
-- Source inspection found that Firebase Admin starts with the process, while
-  the shared Firestore client and first RPC are lazy in the first save request.
-  The narrow candidate moves a read-only Firestore connectivity probe into
-  startup readiness and adds PII-free structured phase timing for Auth,
-  input, calculation, reader, response assembly, save, serialization, and total
-  time.
-- Focused backend `20/20`, full backend `51/51`, Python compilation, focused
-  Flutter `37/37`, full Flutter `3,097/3,097`, analyzer policy (exit `0`, 275
-  inherited diagnostics), and Production Web build/validator pass. PR/merge,
-  Backend-only deployment, phase evidence, complete mobile/desktop QA, and
-  cache-hit acceptance remain pending.
-- Do not open a docs-only closeout until every Production latency and cache
-  gate passes. Do not rollback the current release unless the Owner's stated
-  data/security/availability conditions are met.
+- Performance PR #147 merged as
+  `afbcb72e490512d597b69daa6ca4574c5d13c1a8`, tree
+  `39f62b5fc6ccc27c1cbde32eaf7b2b8fa59f7c8e`. The exact merge image is live
+  on Cloud Run `knowme-astrology-api-00013-zc8` at 100% traffic with digest
+  `sha256:8f7c41bff70ff238e09263316ffe872b6f32227d4b4f0ffb10dcf72a7dc0070d`.
+- Root cause was remote dependency readiness/tail latency, not the reader:
+  the Firestore client/first RPC were lazy, Firestore is in `africa-south1`
+  while Cloud Run is in `asia-southeast1`, and revoked-token Auth plus the
+  awaited atomic commit are sequential. One instrumented pre-config run spent
+  `2,367.287 ms` in Auth and `2,401.013 ms` saving; reader composition was only
+  `0.054 ms`.
+- The repair performs a read-only Firestore startup probe before readiness,
+  adds PII-free phase logs, and uses instance-based CPU allocation with min
+  instance `1` so initialized network clients are not CPU-suspended while idle.
+  Auth policy, write atomicity, schema, calculation, copy, cache contract,
+  Fusion, Thai Astrology, and BaZi are unchanged.
+- Final three Mobile and three Desktop selected-generation runs measured
+  browser body `0.889–3.303 s` and Cloud Run `0.835–3.230 s`. Every run used
+  authenticated POST 1, returned r2/V2 and correct UTC/Big Three, and had zero
+  post-response Western reads, zero Fusion traffic, zero console/runtime error,
+  zero overflow, and no stuck loading.
+- Cache hit passed with `western_natal` read 1, generation POST 0, Fusion 0,
+  correct r2/V2/UTC/Big Three, and no runtime UI defect.
+- Backend focused `20/20`, Backend full `51/51`, Python compilation, Flutter
+  focused `37/37`, Flutter full `3,097/3,097`, analyzer policy (exit `0`, 275
+  inherited diagnostics), and Production Web build/validator pass.
+- Hosting was not rebuilt or deployed. Release/version remain
+  `1790074568414000` / `d32e72678324e634`; live `main.dart.js` SHA-256 is
+  `46d5b86b87dfddacfbce90fd036d312e1e9372d3a7897c7d8f855fa46232f629`.
+- Full traces and phase evidence are in
+  `docs/WESTERN_ASTROLOGY_READER_V2_LATENCY_REPAIR.md`. Rollback was not
+  required.
 
-## Historical candidate - Western Reader V2 Thai readability revision (2026-09-22)
+## Historical release - Western Reader V2 Thai readability revision (2026-09-22)
 
-Status: **OWNER-ACCEPTED; PR #146 MERGED AND DEPLOYED; FINAL LATENCY CLOSEOUT PENDING**
+Status: **OWNER-ACCEPTED; PR #146 MERGED AND DEPLOYED; LATENCY CLOSEOUT PASSED**
 
 - Root cause is deterministic copy in
   `backend/app/services/astrology/reader.py`, not an AI prompt. The candidate

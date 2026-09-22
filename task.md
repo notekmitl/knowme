@@ -1,6 +1,6 @@
 # Active Task - Western Reader V2 authenticated latency repair (2026-09-22)
 
-Status: **REPAIR IMPLEMENTED LOCALLY; ALL LOCAL GATES PASS**
+Status: **COMPLETE — PR #147 MERGED — BACKEND LIVE — PRODUCTION ACCEPTED**
 
 - [x] Keep current Production release; do not rollback.
 - [x] Inspect exact Cloud Run revision/config/source and correlate the failed
@@ -16,11 +16,14 @@ Status: **REPAIR IMPLEMENTED LOCALLY; ALL LOCAL GATES PASS**
 - [x] Pass focused Flutter `37/37`, full Flutter `3,097/3,097`, analyzer policy
       (exit `0`, 275 inherited diagnostics), and Production Web
       build/validator.
-- [ ] Open, review, and merge the performance-repair PR from `main`.
-- [ ] Deploy exact merge Backend-only, verify readiness/traffic/health/401,
+- [x] Open, review, and merge performance PR #147 from `main` as
+      `afbcb72e490512d597b69daa6ca4574c5d13c1a8`, tree `39f62b5f`.
+- [x] Deploy exact merge Backend-only, verify readiness/traffic/health/401,
       and inspect structured warm-up and generation phases.
-- [ ] Pass final mobile/desktop generation plus cache-hit Production QA.
-- [ ] Update final Production evidence and only then open docs-only closeout.
+- [x] Enable instance-based CPU after structured logs isolate sequential Auth
+      and cross-region Firestore RPC tail latency; preserve image/config scope.
+- [x] Pass final mobile/desktop generation plus cache-hit Production QA.
+- [x] Update final Production evidence and only then open docs-only closeout.
 
 # Historical Task - Western Reader V2 Thai readability revision (2026-09-22)
 

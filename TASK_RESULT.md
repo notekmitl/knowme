@@ -1,29 +1,36 @@
-# Task Result - Western Reader V2 latency repair in progress
+# Task Result - Western Reader V2 latency repair closeout
 
-**Current result: FUNCTIONAL PRODUCTION PASS; LATENCY REPAIR CANDIDATE NOT YET DEPLOYED.**
+**Current result: COMPLETE — PR #147 MERGED — BACKEND LIVE — PRODUCTION ACCEPTED.**
 
-PR #146 merged as `1a48f234`, tree `1aea5730`, and is live on Cloud Run
-`knowme-astrology-api-00011-s5z` plus Hosting `1790074568414000` /
-`d32e72678324e634`. The first authenticated stale-cache generation returned the
-correct r2 response but measured `5.550 s` browser body time and `5.327094231 s`
-server latency. Six same-revision selected-generation runs then passed at
-`0.908–3.135 s` browser and `0.853–3.079 s` server.
+Performance PR #147 merged as `afbcb72e490512d597b69daa6ca4574c5d13c1a8`,
+tree `39f62b5fc6ccc27c1cbde32eaf7b2b8fa59f7c8e`, and is live on Cloud Run
+`knowme-astrology-api-00013-zc8` at 100% traffic. Image digest is
+`sha256:8f7c41bff70ff238e09263316ffe872b6f32227d4b4f0ffb10dcf72a7dc0070d`.
 
-The performance-repair candidate adds PII-free phase logs and a read-only
-Firestore startup readiness probe; it does not change product contracts or the
-awaited atomic save. Backend focused `20/20`, Backend full `51/51`, Python
-compile, Flutter focused `37/37`, Flutter full `3,097/3,097`, analyzer policy,
-and Production Web build/validator pass. Remaining PR, release, and Production
-gates are documented in
-`docs/WESTERN_ASTROLOGY_READER_V2_LATENCY_REPAIR.md`. No docs-only closeout has
-been opened.
+The repair adds PII-free phase logs, a read-only Firestore startup readiness
+probe, and instance-based CPU allocation with min instance `1`. It preserves
+revoked-token Auth, the awaited atomic save, calculation, Reader r2, cache and
+schema contracts, Fusion, Thai Astrology, and BaZi. Firestore is in
+`africa-south1` while Cloud Run is in `asia-southeast1`; structured evidence
+proves remote Auth/save RPCs, not the composer, caused the tail.
+
+Final Mobile/Desktop browser body durations are `0.889–3.303 s`; Cloud Run is
+`0.835–3.230 s`. All six runs passed POST1/r2/V2/UTC/Big Three/Fusion0 and UI
+gates. Cache hit passed Western read1/POST0/Fusion0. Backend focused `20/20`,
+Backend full `51/51`, Flutter focused `37/37`, Flutter full `3,097/3,097`,
+Python compile, analyzer policy, and Production Web build/validator pass.
+
+Hosting was not rebuilt or deployed. Release/version remain
+`1790074568414000` / `d32e72678324e634`; live bundle SHA-256 is
+`46d5b86b87dfddacfbce90fd036d312e1e9372d3a7897c7d8f855fa46232f629`.
+Full evidence is in `docs/WESTERN_ASTROLOGY_READER_V2_LATENCY_REPAIR.md`.
 
 # Historical task result - Western Reader V2 Thai readability revision
 
 **Historical result: OWNER-APPROVED — PR #146 MERGED AND DEPLOYED.**
 
 The awkward Production wording was traced to the deterministic Western reader
-composer, not an AI prompt. The candidate changes only Western Thai composition,
+composer, not an AI prompt. The release changes only Western Thai composition,
 secondary basis presentation, collapsed Chart Structure, and reader-revision
 freshness gating. It does not change calculation, chart facts, Auth, Firestore
 schema/path, Fusion, Thai astrology, BaZi, or Production.
@@ -50,7 +57,7 @@ build. On the fresh Owner-feedback run, the composer measures 0.006576 ms
 versus 0.006662 ms at the pre-feedback PR HEAD, and three 500-iteration
 full-chart medians are 0.204681-0.206452 ms, below the 25 ms gate.
 
-The candidate was later approved and merged as
+The revision was approved and merged as
 `1a48f234e4720a3e858ca0aa03944e87f6b35609`; the active Production identity and
 remaining latency work are recorded in the current result above. PR:
 `https://github.com/notekmitl/knowme/pull/146`.
