@@ -13,6 +13,11 @@ once and then restores the existing cache hit. Calculation, contract, schema,
 other sciences, and Production remain unchanged. Merge and deployment are
 explicitly outside this candidate handoff.
 
+The first Owner review direction is implemented on the same Draft PR: overview
+and identity no longer duplicate one another, decision situations are explicit,
+and the requested concrete money, love, recovery, role-selection, caution, and
+three-step guidance wording comes from the shared deterministic composer.
+
 Owner decision gate: review the complete generated sample in Draft PR #146;
 keep the PR Draft and Production unchanged until the reading is accepted.
 

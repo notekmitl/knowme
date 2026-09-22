@@ -41,9 +41,9 @@ def test_owner_case_uses_exact_bangkok_instant_and_correct_rising():
     }
     assert chart["reader"]["overview"]["th"] == (
         "คุณเป็นคนช่างสงสัย เรียนรู้เร็ว และสนใจหลายเรื่อง "
-        "ลึก ๆ ต้องการอิสระในการคิด แต่ภาพแรกที่คนอื่นเห็นเป็นคนอ่อนโยน"
-        "และปรับตัวเก่ง จึงอาจมีคนคิดว่าคุณตามใจง่าย ทั้งที่จริงคุณมีความคิดเห็น"
-        "และต้องการพื้นที่ตัดสินใจของตัวเอง"
+        "คุณต้องการอิสระในการคิด คนรอบตัวมักเห็นคุณเป็นคนอ่อนโยน"
+        "และปรับตัวเก่งก่อน จึงอาจคิดว่าคุณตามใจง่าย "
+        "ทั้งที่จริงคุณมีความคิดเห็นและต้องการพื้นที่ตัดสินใจของตัวเอง"
     )
 
 
@@ -103,6 +103,12 @@ def test_owner_reading_is_behavior_first_and_removes_ambiguous_copy():
         "รับมือเรื่องส่วนตัวผ่านความรู้สึกแบบ",
         "นำเรื่องนี้มารวมในแผน",
         "ใช้จุดนี้จริง",
+        "ตัดสินใจจากตัวตน",
+        "เปลี่ยนจากความถนัดเป็นผลลัพธ์",
+        "เชื่อมความต้องการกับการแสดงออก",
+        "ก่อนความเงียบจะกลายเป็นการยื้อ",
+        "อย่ารีบหนีรายละเอียด",
+        "แรงขับสองด้าน",
     )
     assert all(phrase not in rendered for phrase in forbidden)
     assert "จันทร์ในเรือน" not in rendered
@@ -115,8 +121,48 @@ def test_owner_reading_is_behavior_first_and_removes_ambiguous_copy():
         marker not in main_bodies
         for marker in ("ราศี", "เรือน ", "ทำมุม", "ดาวพุธ", "ดาวศุกร์", "ดาวอังคาร")
     )
-    for section_id in ("identity", "work", "money", "love", "wellbeing"):
-        assert "จุดที่ควรระวัง" in _section(chart, section_id)["body"]
+    overview = chart["reader"]["overview"]["th"]
+    identity = _section(chart, "identity")["body"]
+    assert overview not in identity
+    assert identity not in overview
+    assert len(overview) < len(identity)
+    assert "เมื่อมีหลายทางให้เลือก" in identity
+    assert "ถ้าความคิดกับความรู้สึกไม่ตรงกัน" in identity
+    assert "ลดให้เหลือไม่เกินสามทาง" in identity
+    assert "เขียนผลดีผลเสียของแต่ละทาง" in identity
+
+    money = _section(chart, "money")["body"]
+    assert "คุณอาจรู้สึกมั่นใจขึ้นเมื่อการเงินมั่นคง" in money
+    assert (
+        "ก่อนซื้อให้แยกว่าเป็นของที่ใช้บ่อยจริง "
+        "หรือซื้อเพราะรู้สึกว่าเก็บไว้แล้วอุ่นใจ"
+    ) in money
+
+    love = _section(chart, "love")["body"]
+    assert "เวลาต้องการการดูแล คุณมักบอกออกมาและตอบรับอีกฝ่ายด้วยการกระทำ" in love
+    assert "บอกตรง ๆ ว่าอะไรไม่สบายใจ แทนการเงียบรอให้อีกฝ่ายเดา" in love
+
+    wellbeing = _section(chart, "wellbeing")["body"]
+    assert (
+        "การเปลี่ยนบรรยากาศช่วยพักใจได้ "
+        "แต่ควรกำหนดเวลากลับมาจัดการเรื่องที่ยังค้าง"
+    ) in wellbeing
+
+    strengths = _section(chart, "strengths")["body"]
+    assert "งานหรือบทบาทที่ต้อง" in strengths
+    assert "ใครจะนำผลจากงานนั้นไปใช้ต่อ" in strengths
+
+    cautions = _section(chart, "cautions")["body"]
+    assert "บางครั้งสิ่งที่คิดว่าควรทำกับสิ่งที่รู้สึกจริงอาจไม่ตรงกัน" in cautions
+
+    assert _section(chart, "guidance")["body"] == (
+        "กำหนดเวลาหาข้อมูลและวันที่ต้องตัดสินใจ "
+        "เมื่อเลือกแล้วให้ทำทีละเรื่อง "
+        "ทบทวนผลก่อนเริ่มทางเลือกใหม่"
+    )
+    assert rendered.count(
+        "การคิดหลายทางพร้อมกันอาจทำให้เรื่องสำคัญค้างอยู่ในขั้นวิเคราะห์"
+    ) == 1
 
 
 def test_eight_readability_fixtures_cover_elements_modalities_and_real_chart_bases():
@@ -138,6 +184,7 @@ def test_eight_readability_fixtures_cover_elements_modalities_and_real_chart_bas
     for chart in charts:
         reader = chart["reader"]
         assert reader["version"] == READER_REVISION
+        assert reader["overview"]["th"] not in _section(reader, "identity")["body"]
         assert _section(reader, "identity")["basis"] == (
             f"ดวงอาทิตย์ราศี{SIGN_TH[chart['big3']['sun']]} · "
             f"ดวงจันทร์ราศี{SIGN_TH[chart['big3']['moon']]} · "

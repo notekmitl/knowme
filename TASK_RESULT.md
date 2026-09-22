@@ -8,6 +8,12 @@ secondary basis presentation, collapsed Chart Structure, and reader-revision
 freshness gating. It does not change calculation, chart facts, Auth, Firestore
 schema/path, Fusion, Thai astrology, BaZi, or Production.
 
+The Owner-feedback revision is implemented in the same deterministic composer:
+overview and identity no longer duplicate one another; identity uses a real
+multiple-choice and thought/feeling decision situation; and money, love,
+recovery, strengths, cautions, and guidance use the requested concrete actions.
+No Owner-only branch or hard-coded birth case was added.
+
 The Owner chart remains UTC `1982-06-05T17:03:00Z` with Gemini Sun,
 Sagittarius Moon, and Pisces Rising. Its complete generated reading is recorded
 in `docs/WESTERN_ASTROLOGY_READER_V2_THAI_READABILITY.md`.
@@ -20,8 +26,9 @@ sign/house/aspect bases, and remain distinct after sign names are removed.
 Validation passes backend 48/48, focused Flutter 24/24, full Flutter
 3,097/3,097, repository analyzer policy with 275 inherited non-fatal
 diagnostics and zero changed-scope issues, and a local Production Web release
-build. The same-machine reader delta is 0.004543 ms per composition, and the
-three 500-iteration chart benchmarks remain below the 25 ms gate.
+build. On the fresh Owner-feedback run, the composer measures 0.006576 ms
+versus 0.006662 ms at the pre-feedback PR HEAD, and three 500-iteration
+full-chart medians are 0.204681-0.206452 ms, below the 25 ms gate.
 
 Production remains application `de0a83bdfbb18532471ba58e539e7d0b6cf553a4`,
 Hosting release `1789977665171000`, version `4065a55e03f5aa1e`. Merge and

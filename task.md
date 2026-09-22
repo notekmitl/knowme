@@ -21,6 +21,11 @@ while preserving every calculated chart fact and the current API/cache shape.
 - [x] Add Owner, eight-fixture element/modality, source-basis, cache, and
       responsive presentation regression coverage.
 - [x] Produce the full generated Owner sample for review.
+- [x] Revise the shared composer after Owner review: separate overview from
+      identity, add real decision situations, replace abstract money/love/
+      recovery/strength/caution wording, and use the explicit three-step guide.
+- [x] Keep `western_reader_th_v2_r2`; it has never been deployed and no new
+      cache revision is required.
 - [x] Pass backend 48/48, focused Flutter 24/24, full Flutter 3,097/3,097,
       analyzer policy/scoped analysis, and the local Production Web build.
 - [x] Open Draft PR #146. It remains Draft, unmerged, and undeployed.
