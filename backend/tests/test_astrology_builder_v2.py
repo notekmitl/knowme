@@ -21,15 +21,19 @@ READABILITY_FIXTURES = (
 
 
 def test_owner_case_uses_exact_bangkok_instant_and_correct_rising():
+    timings = {}
     chart = build_chart(
         "1982-06-06",
         "00:03",
         18.7883,
         98.9853,
         "Asia/Bangkok",
+        phase_timings=timings,
     )
 
     assert chart["version"] == "western_natal_v2"
+    assert timings["astrology_calculation_ms"] >= 0
+    assert timings["reader_composition_ms"] >= 0
     assert chart["contract_id"] == "knowme_western_reader_v2"
     assert chart["reader"]["version"] == READER_REVISION
     assert chart["input"]["local_civil"].startswith("1982-06-06T00:03:00+07:00")

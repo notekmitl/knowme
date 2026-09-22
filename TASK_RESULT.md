@@ -1,6 +1,26 @@
-# Task Result - Western Reader V2 Thai readability revision
+# Task Result - Western Reader V2 latency repair in progress
 
-**Result: DRAFT PR #146 OPEN FOR OWNER REVIEW — NOT MERGED — NOT DEPLOYED.**
+**Current result: FUNCTIONAL PRODUCTION PASS; LATENCY REPAIR CANDIDATE NOT YET DEPLOYED.**
+
+PR #146 merged as `1a48f234`, tree `1aea5730`, and is live on Cloud Run
+`knowme-astrology-api-00011-s5z` plus Hosting `1790074568414000` /
+`d32e72678324e634`. The first authenticated stale-cache generation returned the
+correct r2 response but measured `5.550 s` browser body time and `5.327094231 s`
+server latency. Six same-revision selected-generation runs then passed at
+`0.908–3.135 s` browser and `0.853–3.079 s` server.
+
+The performance-repair candidate adds PII-free phase logs and a read-only
+Firestore startup readiness probe; it does not change product contracts or the
+awaited atomic save. Backend focused `20/20`, Backend full `51/51`, Python
+compile, Flutter focused `37/37`, Flutter full `3,097/3,097`, analyzer policy,
+and Production Web build/validator pass. Remaining PR, release, and Production
+gates are documented in
+`docs/WESTERN_ASTROLOGY_READER_V2_LATENCY_REPAIR.md`. No docs-only closeout has
+been opened.
+
+# Historical task result - Western Reader V2 Thai readability revision
+
+**Historical result: OWNER-APPROVED — PR #146 MERGED AND DEPLOYED.**
 
 The awkward Production wording was traced to the deterministic Western reader
 composer, not an AI prompt. The candidate changes only Western Thai composition,
@@ -30,9 +50,9 @@ build. On the fresh Owner-feedback run, the composer measures 0.006576 ms
 versus 0.006662 ms at the pre-feedback PR HEAD, and three 500-iteration
 full-chart medians are 0.204681-0.206452 ms, below the 25 ms gate.
 
-Production remains application `de0a83bdfbb18532471ba58e539e7d0b6cf553a4`,
-Hosting release `1789977665171000`, version `4065a55e03f5aa1e`. Merge and
-deployment require a later Owner decision. Draft PR:
+The candidate was later approved and merged as
+`1a48f234e4720a3e858ca0aa03944e87f6b35609`; the active Production identity and
+remaining latency work are recorded in the current result above. PR:
 `https://github.com/notekmitl/knowme/pull/146`.
 
 ---

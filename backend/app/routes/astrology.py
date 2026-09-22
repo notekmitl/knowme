@@ -1,7 +1,12 @@
-from fastapi import APIRouter, Depends, HTTPException
+import time
+
+from fastapi import APIRouter, Depends, HTTPException, Request
 from pydantic import BaseModel, ConfigDict, Field
 
-from app.security.firebase_auth import current_firebase_uid
+from app.security.firebase_auth import (
+    FirebaseAuthTiming,
+    current_firebase_user_with_timing,
+)
 
 from app.services.overall_summary_service import (
     generate_overall_summary,
@@ -49,23 +54,31 @@ class GenerateChartRequest(BaseModel):
 @router.post("/generate-chart", deprecated=True)
 def generate_chart_legacy(
     request: GenerateChartRequest,
-    authenticated_uid: str = Depends(current_firebase_uid),
+    authenticated_uid: FirebaseAuthTiming = Depends(
+        current_firebase_user_with_timing
+    ),
+    raw_request: Request = None,
 ):
     """Authenticated compatibility alias for the versioned endpoint."""
-    return generate_chart_v1(request, authenticated_uid)
+    return generate_chart_v1(request, authenticated_uid, raw_request)
 
 
 @router.post("/v1/generate-chart")
 def generate_chart_v1(
     request: GenerateChartRequest,
-    authenticated_uid: str = Depends(current_firebase_uid),
+    authenticated_uid: FirebaseAuthTiming = Depends(
+        current_firebase_user_with_timing
+    ),
+    raw_request: Request = None,
 ):
+    auth_timing = _auth_timing(authenticated_uid)
+    verified_uid = auth_timing.uid
     if not request.uid.strip():
         raise HTTPException(
             status_code=400,
             detail={"code": "MISSING_UID", "message": "uid is required"},
         )
-    if request.uid.strip() != authenticated_uid:
+    if request.uid.strip() != verified_uid:
         raise HTTPException(
             status_code=403,
             detail={
@@ -73,10 +86,26 @@ def generate_chart_v1(
                 "message": "Authenticated user cannot write another user's chart",
             },
         )
-    return _generate_chart(request, write_uid=authenticated_uid)
+    timings = {"authentication_ms": auth_timing.duration_ms}
+    response = _generate_chart(
+        request,
+        write_uid=verified_uid,
+        timings=timings,
+    )
+    timings["_handler_completed"] = time.perf_counter()
+    if raw_request is not None:
+        raw_request.state.western_timing = timings
+    return response
 
 
-def _generate_chart(request: GenerateChartRequest, *, write_uid: str):
+def _generate_chart(
+    request: GenerateChartRequest,
+    *,
+    write_uid: str,
+    timings: dict[str, float] | None = None,
+):
+    timings = timings if timings is not None else {}
+    input_started = time.perf_counter()
     if not write_uid:
         raise HTTPException(
             status_code=400,
@@ -93,6 +122,9 @@ def _generate_chart(request: GenerateChartRequest, *, write_uid: str):
         )
 
     profile_data = _validated_profile(request)
+    timings["profile_input_loading_ms"] = (
+        time.perf_counter() - input_started
+    ) * 1000
 
     try:
         chart = build_chart(
@@ -101,6 +133,7 @@ def _generate_chart(request: GenerateChartRequest, *, write_uid: str):
             request.latitude,
             request.longitude,
             request.timezone,
+            phase_timings=timings,
         )
     except (InvalidBirthDatetime, ValueError) as exc:
         raise HTTPException(
@@ -108,6 +141,7 @@ def _generate_chart(request: GenerateChartRequest, *, write_uid: str):
             detail={"code": "INVALID_BIRTH_INPUT", "message": str(exc)},
         ) from exc
 
+    response_assembly_started = time.perf_counter()
     overall_summary = generate_overall_summary(
         chart,
     )
@@ -118,7 +152,11 @@ def _generate_chart(request: GenerateChartRequest, *, write_uid: str):
     )
 
     results_snapshot = build_results_snapshot(chart)
+    timings["response_assembly_ms"] = (
+        time.perf_counter() - response_assembly_started
+    ) * 1000
 
+    save_started = time.perf_counter()
     try:
         save_chart(
             write_uid,
@@ -131,6 +169,7 @@ def _generate_chart(request: GenerateChartRequest, *, write_uid: str):
             status_code=500,
             detail={"code": "FIRESTORE_SAVE_FAILED", "message": str(exc)},
         ) from exc
+    timings["firestore_save_ms"] = (time.perf_counter() - save_started) * 1000
 
     return {
         "success": True,
@@ -141,6 +180,12 @@ def _generate_chart(request: GenerateChartRequest, *, write_uid: str):
             "results": f"users/{write_uid}/results/astrology",
         },
     }
+
+
+def _auth_timing(value) -> FirebaseAuthTiming:
+    if isinstance(value, FirebaseAuthTiming):
+        return value
+    return FirebaseAuthTiming(uid=str(value), duration_ms=0.0)
 
 
 def _validated_profile(request: GenerateChartRequest) -> dict | None:
