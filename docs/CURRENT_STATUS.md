@@ -1,3 +1,40 @@
+## Active candidate - Western Reader V2 Thai readability revision (2026-09-22)
+
+Status: **DRAFT PR #146 OPEN — OWNER REVIEW REQUIRED — NOT MERGED — NOT DEPLOYED**
+
+- Root cause is deterministic copy in
+  `backend/app/services/astrology/reader.py`, not an AI prompt. The candidate
+  rewrites only Western Thai composition and presentation.
+- Main prose now starts from real-life behavior, likely effect, and a caution or
+  practical use. Sun, Moon, and Rising are read together; exact signs, houses,
+  and aspects move to a secondary basis line, and Chart Structure is collapsed.
+- The Owner-feedback revision keeps the overview short and gives the identity
+  section its own concrete decision scenario. Money, love, recovery, strengths,
+  cautions, and guidance now use explicit observable actions; repeated and
+  abstract phrases identified by the Owner are removed at composer source.
+- Chart schema `western_natal_v2`, contract `knowme_western_reader_v2`, all
+  calculations, Auth, Firestore paths, Fusion, Thai astrology, and BaZi are
+  unchanged. Reader revision advances to `western_reader_th_v2_r2` only.
+- Old `western_reader_th_v2` cache is rejected once and regenerated through the
+  existing authenticated path; the saved r2 document then returns to normal
+  cache-hit behavior. Regression tests cover one POST for stale cache and zero
+  POST for current cache.
+- Owner case remains `1982-06-05T17:03:00Z`, Gemini Sun, Sagittarius Moon,
+  Pisces Rising. The generated full Thai sample is in
+  `docs/WESTERN_ASTROLOGY_READER_V2_THAI_READABILITY.md`.
+- Validation covers eight charts across all elements/modalities, source-linked
+  signs/houses/aspects, responsive UI, backend/full Flutter/analyzer/build, and
+  fresh same-machine latency comparison. Backend passes 48/48, focused Flutter
+  24/24, full Flutter 3,097/3,097, analyzer policy exits 0 with 275 inherited
+  diagnostics and no changed-scope issue, and the local Production Web build
+  passes. The revised composer is 0.000086 ms faster than PR HEAD before this
+  feedback on the same-machine benchmark; three full-chart medians are
+  0.204681-0.206452 ms. No merge or Production action is authorized.
+- Production remains application `de0a83bdfbb18532471ba58e539e7d0b6cf553a4`,
+  Hosting release `1789977665171000`, version `4065a55e03f5aa1e`.
+- Draft PR: `https://github.com/notekmitl/knowme/pull/146`. Keep it Draft until
+  the Owner decides on the revised sample.
+
 ## Completed release - Western Astrology Reader V2 and performance (2026-09-21)
 
 Status: **PASS — MEASUREMENT ARTIFACT CLOSED; APPLICATION AND HOSTING UNCHANGED**

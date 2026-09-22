@@ -5,17 +5,24 @@ class WesternReaderSection {
     required this.id,
     required this.title,
     required this.body,
+    required this.basis,
   });
 
   final String id;
   final String title;
   final String body;
+  final String basis;
 }
 
 abstract final class WesternReaderV2Copy {
-  static bool isV2(AstrologyChartModel chart) =>
-      chart.version == 'western_natal_v2' &&
-      chart.reader['version'] == 'western_reader_th_v2';
+  static const chartVersion = 'western_natal_v2';
+  static const contractId = 'knowme_western_reader_v2';
+  static const readerRevision = 'western_reader_th_v2_r2';
+
+  static bool isCurrent(AstrologyChartModel chart) =>
+      chart.version == chartVersion &&
+      chart.contractId == contractId &&
+      chart.reader['version'] == readerRevision;
 
   static String overview(AstrologyChartModel chart) {
     final raw = chart.reader['overview'];
@@ -38,6 +45,9 @@ abstract final class WesternReaderV2Copy {
             id: (value['id'] as String).trim(),
             title: (value['title'] as String).trim(),
             body: (value['body'] as String).trim(),
+            basis: value['basis'] is String
+                ? (value['basis'] as String).trim()
+                : '',
           ),
     ];
   }

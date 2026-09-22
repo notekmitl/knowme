@@ -1,3 +1,42 @@
+# Active Task - Western Reader V2 Thai readability revision (2026-09-22)
+
+Status: **DRAFT PR #146 OPEN — OWNER REVIEW — NO MERGE OR DEPLOY**
+
+## Goal
+
+Replace label-first deterministic Western Thai copy with behavior-first reading
+while preserving every calculated chart fact and the current API/cache shape.
+
+## Acceptance checklist
+
+- [x] Locate the real source of the old phrases; it is the deterministic reader,
+      not an AI prompt.
+- [x] Synthesize Sun, Moon, and Rising and keep technical basis secondary.
+- [x] Rewrite work, money, love, wellbeing, strengths, cautions, and guidance
+      without unsupported house/planet inference.
+- [x] Keep Tropical Zodiac, Swiss Ephemeris, Ascendant, houses, aspects, Auth,
+      Firestore schema/path, Fusion, Thai astrology, and BaZi unchanged.
+- [x] Advance only the reader revision to `western_reader_th_v2_r2`; stale V2
+      refreshes once and current r2 remains a cache hit.
+- [x] Add Owner, eight-fixture element/modality, source-basis, cache, and
+      responsive presentation regression coverage.
+- [x] Produce the full generated Owner sample for review.
+- [x] Revise the shared composer after Owner review: separate overview from
+      identity, add real decision situations, replace abstract money/love/
+      recovery/strength/caution wording, and use the explicit three-step guide.
+- [x] Keep `western_reader_th_v2_r2`; it has never been deployed and no new
+      cache revision is required.
+- [x] Pass backend 48/48, focused Flutter 24/24, full Flutter 3,097/3,097,
+      analyzer policy/scoped analysis, and the local Production Web build.
+- [x] Open Draft PR #146. It remains Draft, unmerged, and undeployed.
+- [ ] Wait for Owner decision on the generated reading before any merge or
+      deployment.
+
+Candidate evidence and the full sample are in
+`docs/WESTERN_ASTROLOGY_READER_V2_THAI_READABILITY.md`.
+
+---
+
 # Active Task - Western Astrology Reader V2 and generation performance (2026-09-21)
 
 Status: **COMPLETE — PR #143 LIVE; USER-PERCEIVED PERFORMANCE CLOSEOUT PASSED WITHOUT APPLICATION CHANGE**

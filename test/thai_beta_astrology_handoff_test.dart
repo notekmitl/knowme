@@ -185,7 +185,7 @@ final _westernChart = AstrologyChartModel(
   planets: const {},
   insight: const {},
   overallSummary: const {},
-  reader: const {'version': 'western_reader_th_v2'},
+  reader: const {'version': 'western_reader_th_v2_r2'},
 );
 
 final _unknownInput = ThaiBetaInput(

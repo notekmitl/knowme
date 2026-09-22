@@ -7,6 +7,39 @@ whole-chart reading in Thai. Calculation stays local to the authenticated
 KnowMe backend; no LLM or Firestore lookup participates in the astronomical
 calculation.
 
+## Thai readability revision candidate
+
+The `western_reader_th_v2_r2` candidate keeps the chart schema and reader
+contract unchanged while revising only deterministic Thai composition:
+
+- observable behavior and its likely effect appear before astrological labels;
+- Sun, Moon, and Rising are synthesized into one opening instead of three
+  independent sign cards;
+- the opening is a short synthesis, while identity separately describes how a
+  person chooses among options and handles thought/feeling conflict;
+- work, money, love, and self-care follow behavior, effect, caution/use;
+- strengths name suitable work or roles, cautions name the conflicting
+  experience directly, and guidance gives three explicit next steps;
+- signs, relevant houses, and real aspects are retained as a secondary basis;
+- Chart Structure is collapsed by default and unnecessary English headings are
+  replaced with Thai;
+- no Moon-house or Saturn-house shortcut is used to invent relationship or
+  health claims.
+
+`western_natal_v2` and `knowme_western_reader_v2` remain stable. Flutter accepts
+only reader revision `western_reader_th_v2_r2`; a saved
+`western_reader_th_v2` chart therefore refreshes once through the existing
+authenticated POST and overwrite path. The newly saved r2 chart is a normal
+cache hit on subsequent visits. No Firestore schema or path changes.
+
+The full generated Owner sample and revision evidence are in
+`docs/WESTERN_ASTROLOGY_READER_V2_THAI_READABILITY.md`. This candidate is not
+merged or deployed. It is open for Owner review as Draft PR #146:
+`https://github.com/notekmitl/knowme/pull/146`.
+
+Owner-feedback changes remain within the same reader revision
+`western_reader_th_v2_r2`, because that revision has never been deployed.
+
 ## Calculation contract
 
 - Chart schema: `western_natal_v2`

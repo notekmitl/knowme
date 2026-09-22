@@ -1,3 +1,42 @@
+# Task Result - Western Reader V2 Thai readability revision
+
+**Result: DRAFT PR #146 OPEN FOR OWNER REVIEW — NOT MERGED — NOT DEPLOYED.**
+
+The awkward Production wording was traced to the deterministic Western reader
+composer, not an AI prompt. The candidate changes only Western Thai composition,
+secondary basis presentation, collapsed Chart Structure, and reader-revision
+freshness gating. It does not change calculation, chart facts, Auth, Firestore
+schema/path, Fusion, Thai astrology, BaZi, or Production.
+
+The Owner-feedback revision is implemented in the same deterministic composer:
+overview and identity no longer duplicate one another; identity uses a real
+multiple-choice and thought/feeling decision situation; and money, love,
+recovery, strengths, cautions, and guidance use the requested concrete actions.
+No Owner-only branch or hard-coded birth case was added.
+
+The Owner chart remains UTC `1982-06-05T17:03:00Z` with Gemini Sun,
+Sagittarius Moon, and Pisces Rising. Its complete generated reading is recorded
+in `docs/WESTERN_ASTROLOGY_READER_V2_THAI_READABILITY.md`.
+
+Old `western_reader_th_v2` cache refreshes exactly once; the new
+`western_reader_th_v2_r2` chart resumes a one-read/zero-POST cache hit. Eight
+fixtures cover all four elements and three modalities, preserve source-linked
+sign/house/aspect bases, and remain distinct after sign names are removed.
+
+Validation passes backend 48/48, focused Flutter 24/24, full Flutter
+3,097/3,097, repository analyzer policy with 275 inherited non-fatal
+diagnostics and zero changed-scope issues, and a local Production Web release
+build. On the fresh Owner-feedback run, the composer measures 0.006576 ms
+versus 0.006662 ms at the pre-feedback PR HEAD, and three 500-iteration
+full-chart medians are 0.204681-0.206452 ms, below the 25 ms gate.
+
+Production remains application `de0a83bdfbb18532471ba58e539e7d0b6cf553a4`,
+Hosting release `1789977665171000`, version `4065a55e03f5aa1e`. Merge and
+deployment require a later Owner decision. Draft PR:
+`https://github.com/notekmitl/knowme/pull/146`.
+
+---
+
 # Task Result - Western Astrology Reader V2 and generation performance
 
 **Result: COMPLETE — USER-PERCEIVED PERFORMANCE PASSED; EXCESS WAIT WAS A MEASUREMENT ARTIFACT.**
