@@ -1,6 +1,7 @@
 # Overall astrology from three traditions — V1 working branch
 
-Status: **Draft PR #149 OPEN; not released**. Branch validation passed in
+Status: **Draft PR #149 OPEN; Hosting Preview created; authenticated generation
+blocked by Production API CORS; not released**. Branch validation passed in
 [GitHub Actions run #35824575799](https://github.com/notekmitl/knowme/actions/runs/35824575799)
 at commit `c33160d4bf01bd2f0a870d2c50925d700645f8b0`: focused tests,
 analyzer, release Web build, PDF dependencies, and the complete Flutter suite.
@@ -65,15 +66,43 @@ Authenticated three-chart browser QA, real endpoint latency, visual review of
 the combined Thai wording, and Owner acceptance are still required before
 Ready, Merge, or deployment.
 
-The Owner's screenshot of the live `/beta/thai` selector on 2026-09-23 shows
-only Thai, BaZi and Western cards. The fourth **โหราศาสตร์โดยรวม** card and
-**ดูดวงรวม** action are present in this draft immediately below Western, but
-the production page has not been updated. An attempt to inspect the Firebase
-Hosting console for a preview was automatically denied at Google Accounts
-authentication; no alternative authentication route was attempted. A live
-review URL remains unavailable until authorized Hosting access and a build
-with the production API configuration are available.
+## Live Hosting Preview verification
+
+The seven-day Preview channel `pr-149-overall-v1` serves
+`https://knowme-app-694e1--pr-149-overall-v1-nr8oa6e0.web.app` until
+`2026-09-30T07:23:50Z`. Its release Web build is from application source
+`d56946d`, uses the configured Production Cloud Run API, passed the official
+bundle validator and four explicit localhost/loopback guards, and has cache pin
+`d56946d`. `main.dart.js` is 8,557,552 bytes with SHA-256
+`8479C6E1A9112F20914280D5834C9001308F0116545BBCEC366FF3638437AFBA`.
+
+Real Chrome QA used viewport `390x844` and a synthetic known-time profile
+(`15/1/1990`, `12:34`, `กรุงเทพมหานคร`). The form reached the selector,
+which rendered Thai, Chinese BaZi, Western, then **โหราศาสตร์โดยรวม** in
+that order. Google Auth completed. The combined click began at
+`2026-09-23T08:51:07.394Z`; BaZi failed at `08:51:07.542Z`, 148 ms later,
+with `ClientException: Failed to fetch`. Western was not called and no combined
+report was rendered.
+
+The failure is not an incorrect build URL or an authentication cancellation.
+An OPTIONS request from the exact Preview origin returns
+`HTTP 400 Disallowed CORS origin`; the same request from
+`https://knowme-app-694e1.web.app` returns `HTTP 200` plus the matching
+`Access-Control-Allow-Origin`. The current live Backend and
+`backend/app/main.py` allow only the Production `web.app` and `firebaseapp.com`
+origins. Under the explicit no-Backend boundary, this Preview cannot complete
+authenticated generation. A Backend CORS policy change or a separately
+reviewed same-origin Hosting proxy/build contract is required before live
+Preview generation can pass.
+
+Local feature-focused tests pass 14/14 for consensus, ordering, known/unknown
+time, sign-in cancellation, safe engine order, and mobile/desktop layouts.
+The additional date-aware file retains the known Windows local-time mismatch
+(three `+07:00` assertion failures); the pinned Ubuntu workflow above passes it
+and the complete suite. This Preview QA remains **FAIL/BLOCKED** despite the
+successful static deploy.
 
 Owner authorized the branch push and opening a Draft PR. GitHub branch
 `codex/three-tradition-overall-v1` and PR #149 exist. No Ready, merge, Backend
-deploy, Hosting deploy, or Production verification has been performed.
+deploy, Production Hosting deploy, or Production verification has been
+performed. Only the expiring Hosting Preview channel changed.

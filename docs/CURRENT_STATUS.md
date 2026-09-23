@@ -1,9 +1,32 @@
 ## Active draft — Overall astrology from three traditions (2026-09-23)
 
-Owner screenshot confirms the production `/beta/thai` selector still shows
-only the three individual traditions. The fourth overall card is in Draft PR
-#149 only. Firebase Console inspection for a preview was automatically denied
-at Google Accounts authentication; no preview or production deployment occurred.
+Status: **HOSTING PREVIEW CREATED; END-TO-END BLOCKED BY PRODUCTION API CORS;
+PRODUCTION UNCHANGED**.
+
+Firebase Hosting Preview channel `pr-149-overall-v1` now serves the exact Web
+build made from application source `d56946d` at
+`https://knowme-app-694e1--pr-149-overall-v1-nr8oa6e0.web.app` until
+`2026-09-30T07:23:50Z`. The build used
+`https://knowme-astrology-api-avbyttircq-as.a.run.app`, passed the same four
+localhost/loopback guards as `scripts/deploy_web.ps1`, and was pinned to
+`main.dart.js?v=d56946d`. Bundle size is 8,557,552 bytes and SHA-256 is
+`8479C6E1A9112F20914280D5834C9001308F0116545BBCEC366FF3638437AFBA`.
+Only the Preview channel changed; Production Hosting, Backend, Firestore rules,
+data, Auth configuration, Functions, Storage, IAM, and indexes were not
+deployed or modified.
+
+Real Chrome QA at `390x844` confirmed the post-birth selector order is Thai,
+Chinese BaZi, Western, then **โหราศาสตร์โดยรวม**. A known-time profile using
+`15/1/1990 12:34` and `กรุงเทพมหานคร` reached the selector and passed the
+Google Auth gate. Clicking **ดูดวงรวม** at `2026-09-23T08:51:07.394Z`
+started the BaZi call, but it failed at `08:51:07.542Z` (148 ms) with
+`ClientException: Failed to fetch`; no Western call or combined report followed.
+An independent preflight proved the cause: the Preview origin receives
+`HTTP 400 Disallowed CORS origin`, while `https://knowme-app-694e1.web.app`
+receives `HTTP 200` with its matching `Access-Control-Allow-Origin`. The live
+Backend and `backend/app/main.py` allow only the two Production Hosting origins.
+The requested no-Backend boundary therefore prevents a working authenticated
+Preview report; this QA is **FAIL/BLOCKED**, not a successful generation.
 
 On Draft PR #149 (`codex/three-tradition-overall-v1`), the post-birth selector now offers a
 three-tradition overall reading. Its source-backed theme comparison requires at

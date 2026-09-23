@@ -1,9 +1,33 @@
 # Active handoff — Three-tradition overall astrology (2026-09-23)
 
-The Owner's live screenshot has three individual selector cards; the new
-overall card is confined to Draft PR #149. Preview access is blocked by an
-automatic denial of Google Accounts authentication for Firebase Console.
-Hosting was not changed.
+Firebase Hosting Preview channel `pr-149-overall-v1` is live at
+`https://knowme-app-694e1--pr-149-overall-v1-nr8oa6e0.web.app` and expires
+`2026-09-30T07:23:50Z`. It contains the release Web build from application
+source `d56946d`, cache pin `d56946d`, bundle size 8,557,552 bytes, and SHA-256
+`8479C6E1A9112F20914280D5834C9001308F0116545BBCEC366FF3638437AFBA`.
+The configured Production API is
+`https://knowme-astrology-api-avbyttircq-as.a.run.app`; the official bundle
+validator and all explicit localhost/loopback guards passed. This was a
+Hosting Preview deploy only. Production Hosting, Backend, Firestore rules,
+data, Auth configuration, Functions, Storage, IAM, and indexes are unchanged.
+
+Mobile Chrome QA at `390x844` passed form and selector rendering with known
+time `12:34` and province `กรุงเทพมหานคร`. Card order is Thai, Chinese
+BaZi, Western, then **โหราศาสตร์โดยรวม**, and Google Auth completed.
+Authenticated generation is blocked before a report: **ดูดวงรวม** was
+clicked at `2026-09-23T08:51:07.394Z`; BaZi failed at `08:51:07.542Z`
+(148 ms) with `ClientException: Failed to fetch`. Direct preflight from the
+Preview origin returns `HTTP 400 Disallowed CORS origin`; the same preflight
+from `https://knowme-app-694e1.web.app` returns `HTTP 200` and the correct
+`Access-Control-Allow-Origin`. The current Backend permits only the two
+Production Hosting origins. No Western request or combined result page was
+reached.
+
+Do not report end-to-end Preview PASS. Making the Preview generate a real
+combined report requires either allowing this Preview-origin pattern in the
+Backend CORS policy or introducing a reviewed same-origin Hosting proxy/build
+contract. Both are outside the Owner's explicit no-Backend instruction for
+this task. Keep PR #149 Draft; do not merge or deploy Production.
 
 The new `/beta/thai` post-birth option lives on
 Draft PR #149, branch `codex/three-tradition-overall-v1`. It compares the independently generated
