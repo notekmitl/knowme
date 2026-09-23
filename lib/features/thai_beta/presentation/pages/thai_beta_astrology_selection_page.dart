@@ -5,6 +5,8 @@ import 'package:knowme/features/thai_beta/application/thai_beta_analysis_clock.d
 import 'package:knowme/features/thai_beta/application/thai_beta_astrology_handoff.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_current_analysis.dart';
 import 'package:knowme/features/thai_beta/domain/thai_beta_input.dart';
+import 'package:knowme/features/astrology/fusion/application/three_tradition_consensus.dart';
+import 'package:knowme/features/astrology/fusion/presentation/pages/three_tradition_report_page.dart';
 import 'package:knowme/presentation/pages/astrology/astrology_result_page.dart';
 import 'package:knowme/presentation/pages/bazi/bazi_result_page.dart';
 import 'package:knowme/presentation/providers/astrology_provider.dart';
@@ -69,13 +71,14 @@ class ThaiBetaAstrologySelectionPage extends StatefulWidget {
 class _ThaiBetaAstrologySelectionPageState
     extends State<ThaiBetaAstrologySelectionPage> {
   ThaiBetaAstrologySystem? _busySystem;
+  bool _overallBusy = false;
 
   bool get _westernReady =>
       widget.input.hasBirthTime &&
       (widget.input.provinceKey?.trim().isNotEmpty ?? false);
 
   Future<void> _select(ThaiBetaAstrologySystem system) async {
-    if (_busySystem != null) return;
+    if (_busySystem != null || _overallBusy) return;
     if (system == ThaiBetaAstrologySystem.western && !_westernReady) return;
     setState(() => _busySystem = system);
 
@@ -129,6 +132,50 @@ class _ThaiBetaAstrologySelectionPageState
       );
     } finally {
       if (mounted) setState(() => _busySystem = null);
+    }
+  }
+
+  Future<void> _selectOverall() async {
+    if (_busySystem != null || _overallBusy || !_westernReady) return;
+    setState(() => _overallBusy = true);
+    try {
+      final uid = await widget.resolveUser(context);
+      if (!mounted || uid == null || uid.trim().isEmpty) return;
+      // These authenticated writes must be sequential: each stores the same
+      // profile and invalidates the earlier legacy Fusion snapshot.
+      final bazi = (await widget.prepareSystem(
+        uid, widget.input, ThaiBetaAstrologySystem.bazi,
+      )).baziChart;
+      if (bazi == null) throw StateError('Missing BaZi result');
+      final western = (await widget.prepareSystem(
+        uid, widget.input, ThaiBetaAstrologySystem.western,
+      )).westernChart;
+      if (western == null) throw StateError('Missing Western result');
+      final thai = await widget.analysisExecutor(
+        widget.input,
+        startedAt: widget.startedAt,
+        asOf: ThaiBetaAnalysisClock.asBangkokCivil(widget.submittedAt),
+      );
+      final mirror = thai.pipelineResult?.mirrorResult;
+      if (!thai.isSuccess || mirror == null) {
+        throw StateError('Missing Thai result');
+      }
+      final agreements = ThreeTraditionConsensus.fromCharts(
+        thai: mirror, bazi: bazi, western: western,
+      );
+      if (!mounted) return;
+      await Navigator.of(context).push(MaterialPageRoute<void>(
+        builder: (_) => ThreeTraditionReportPage(agreements: agreements),
+      ));
+    } catch (error, stack) {
+      debugPrint('[ThreeTraditionConsensus] failed: $error');
+      debugPrint('[ThreeTraditionConsensus] $stack');
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+        content: Text('สร้างดวงรวมไม่สำเร็จ กรุณาลองอีกครั้ง'),
+      ));
+    } finally {
+      if (mounted) setState(() => _overallBusy = false);
     }
   }
 
@@ -191,7 +238,7 @@ class _ThaiBetaAstrologySelectionPageState
                   buttonKey: const Key('astrology-select-thai'),
                   buttonLabel: 'ดูดวงไทย',
                   busy: _busySystem == ThaiBetaAstrologySystem.thai,
-                  enabled: _busySystem == null,
+                  enabled: _busySystem == null && !_overallBusy,
                   onPressed: () => _select(ThaiBetaAstrologySystem.thai),
                 ),
                 const SizedBox(height: 14),
@@ -205,7 +252,7 @@ class _ThaiBetaAstrologySelectionPageState
                   buttonKey: const Key('astrology-select-bazi'),
                   buttonLabel: 'ดูโหราจีน',
                   busy: _busySystem == ThaiBetaAstrologySystem.bazi,
-                  enabled: _busySystem == null,
+                  enabled: _busySystem == null && !_overallBusy,
                   onPressed: () => _select(ThaiBetaAstrologySystem.bazi),
                 ),
                 const SizedBox(height: 14),
@@ -219,12 +266,26 @@ class _ThaiBetaAstrologySelectionPageState
                   buttonKey: const Key('astrology-select-western'),
                   buttonLabel: 'ดูโหราตะวันตก',
                   busy: _busySystem == ThaiBetaAstrologySystem.western,
-                  enabled: _busySystem == null && _westernReady,
+                  enabled: _busySystem == null && !_overallBusy && _westernReady,
                   onPressed: () => _select(ThaiBetaAstrologySystem.western),
+                ),
+                const SizedBox(height: 14),
+                _AstrologySystemCard(
+                  key: const Key('astrology-system-overall'),
+                  icon: Icons.auto_graph_outlined,
+                  title: 'โหราศาสตร์โดยรวม',
+                  description: _westernReady
+                      ? 'ดูประเด็นพื้นดวงที่ดวงไทย จีน และตะวันตกให้ผลตรงหรือสอดคล้องกัน'
+                      : 'ต้องทราบเวลาเกิดและจังหวัดก่อน จึงเปรียบเทียบครบทั้งสามศาสตร์ได้',
+                  buttonKey: const Key('astrology-select-overall'),
+                  buttonLabel: 'ดูดวงรวม',
+                  busy: _overallBusy,
+                  enabled: _busySystem == null && !_overallBusy && _westernReady,
+                  onPressed: _selectOverall,
                 ),
                 const SizedBox(height: 18),
                 Text(
-                  'โหราจีนและโหราตะวันตกจะให้เข้าสู่ระบบก่อน เพื่อผูกผลคำนวณกับเจ้าของข้อมูลและป้องกันการเขียนผลข้ามบัญชี',
+                  'โหราจีน โหราตะวันตก และดวงรวมจะให้เข้าสู่ระบบก่อน เพื่อผูกผลคำนวณกับเจ้าของข้อมูลและป้องกันการเขียนผลข้ามบัญชี',
                   style: theme.textTheme.bodySmall?.copyWith(
                     color: scheme.onSurfaceVariant,
                     height: 1.45,

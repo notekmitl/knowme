@@ -1,3 +1,13 @@
+# Active handoff — Three-tradition overall astrology (2026-09-23)
+
+The new `/beta/thai` post-birth option lives on
+local `codex/three-tradition-overall-v1`. It compares the independently generated
+Thai, Chinese BaZi, and Western charts; shows only evidence-backed two- or
+three-lens shared themes. Status: **Draft, Flutter gates not run, no merge or
+deployment**. The branch push was rejected by automatic approval review; no
+remote branch or PR is verified. Read `docs/THREE_TRADITION_OVERALL_V1.md`
+before continuing.
+
 # Handoff - Western Reader V2 authenticated latency closeout (2026-09-22)
 
 Production acceptance is complete. PR #147 merged as

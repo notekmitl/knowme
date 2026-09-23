@@ -22,6 +22,10 @@ void main() {
       await _scrollToWestern(tester);
       expect(find.text('โหราศาสตร์ตะวันตก (ยุโรป)'), findsOneWidget);
       expect(find.text('ดูโหราตะวันตก'), findsOneWidget);
+      await tester.drag(find.byType(ListView), const Offset(0, -350));
+      await tester.pumpAndSettle();
+      expect(find.text('โหราศาสตร์โดยรวม'), findsOneWidget);
+      expect(find.text('ดูดวงรวม'), findsOneWidget);
     });
 
     testWidgets('Thai choice preserves startedAt and Bangkok submit instant', (
@@ -93,6 +97,11 @@ void main() {
       );
       expect(button.onPressed, isNull);
       expect(find.textContaining('ต้องทราบเวลาเกิด'), findsOneWidget);
+      await tester.drag(find.byType(ListView), const Offset(0, -350));
+      await tester.pumpAndSettle();
+      expect(tester.widget<FilledButton>(
+        find.byKey(const Key('astrology-select-overall')),
+      ).onPressed, isNull);
     });
 
     testWidgets('known time and province can open Western', (tester) async {
@@ -134,6 +143,35 @@ void main() {
       expect(prepareCalls, 0);
       expect(find.text('destination:bazi'), findsNothing);
       expect(find.text('อยากดูดวงแบบไหน?'), findsOneWidget);
+    });
+
+    testWidgets('overall uses one user and both engines in safe order', (
+      tester,
+    ) async {
+      final calls = <ThaiBetaAstrologySystem>[];
+      await _pumpSelection(
+        tester,
+        input: _knownInput,
+        prepareSystem: (_, _, system) async {
+          calls.add(system);
+          return switch (system) {
+            ThaiBetaAstrologySystem.bazi => ThaiBetaPreparedAstrology.bazi(
+              BaziCompatibilityOwnerFixtures.chart(BaziOwnerCase.known)),
+            ThaiBetaAstrologySystem.western =>
+              ThaiBetaPreparedAstrology.western(_westernChart),
+            _ => throw StateError('Unexpected system'),
+          };
+        },
+      );
+      await tester.drag(find.byType(ListView), const Offset(0, -950));
+      await tester.pumpAndSettle();
+      await tester.tap(find.byKey(const Key('astrology-select-overall')));
+      await tester.pumpAndSettle();
+      expect(calls, [ThaiBetaAstrologySystem.bazi,
+        ThaiBetaAstrologySystem.western]);
+      // The injected Thai analysis failed: no partial or fabricated report.
+      expect(find.byType(Scaffold), findsOneWidget);
+      expect(find.text('อ่านภาพรวมจากสามศาสตร์'), findsNothing);
     });
   });
 }
