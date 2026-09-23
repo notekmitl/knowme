@@ -1,8 +1,8 @@
 ## Active draft — Overall astrology from three traditions (2026-09-23)
 
 Status: **CORS-ONLY BACKEND REVISION LIVE; PREVIEW QA PAUSED; FIVE PRODUCTION
-DOCUMENTS HAVE A VERIFIED RECOVERABLE PRE-WRITE SNAPSHOT; RESTORE NOT YET
-AUTHORIZED**.
+DOCUMENTS HAVE A VERIFIED RECOVERABLE PRE-WRITE SNAPSHOT; AUTHORIZED ATOMIC
+RESTORE WAS REJECTED BEFORE WRITE AND WAS NOT RETRIED**.
 
 Firebase Hosting Preview channel `pr-149-overall-v1` now serves the exact Web
 build made from application source `d56946d` at
@@ -44,9 +44,16 @@ repository with SHA-256
 No personal value or UID is recorded in repository documentation. Firestore
 PITR is disabled, managed backups are empty, and no backup schedule exists;
 the recoverable copy came from the standard one-hour version-retention window.
-An Owner-approved, preconditioned atomic restore of only the five paths is the
-next data action. Preview QA remains paused until that decision and a verified
-separate QA account are available.
+The Owner-authorized restore attempt revalidated the snapshot SHA-256 plus all
+five current `updateTime` and canonical field hashes. It then submitted one
+five-write atomic commit with complete historical field maps, no `updateMask`,
+and `currentDocument.updateTime` on every write. Firestore rejected the request
+with `HTTP 400 INVALID_ARGUMENT` during JSON payload validation because nested
+historical map keys were serialized as repeated `??` keys. No `commitTime` or
+`writeResults` were returned, so the atomic commit applied `0/5` writes. The
+stop gate was honored: there was no retry and no further Firestore read. The
+post-write field/create-time verification therefore did not run. Preview QA
+remains paused, and any new restore method requires fresh Owner authorization.
 
 On Draft PR #149 (`codex/three-tradition-overall-v1`), the post-birth selector now offers a
 three-tradition overall reading. Its source-backed theme comparison requires at

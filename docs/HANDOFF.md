@@ -1,7 +1,8 @@
 # Active handoff — Three-tradition overall astrology (2026-09-23)
 
-Status: **Preview QA paused; do not write or delete Firestore until the Owner
-approves the five-document restore plan below.**
+Status: **Preview QA paused. The authorized five-document atomic restore was
+rejected before write and was not retried. Do not attempt another restore or
+touch Firestore without new Owner authorization.**
 
 Firebase Hosting Preview channel `pr-149-overall-v1` is live at
 `https://knowme-app-694e1--pr-149-overall-v1-nr8oa6e0.web.app` and expires
@@ -39,21 +40,27 @@ Repository documentation intentionally omits the UID and all profile values.
 PITR is disabled, managed backups are empty, and no backup schedule exists; the
 historical read was available through the standard one-hour retention window.
 
-Proposed restore, pending explicit Owner approval:
+Restore attempt outcome:
 
-1. Re-read the exact five paths and abort if any `updateTime` or field hash has
-   changed since the saved current snapshot.
-2. Submit one Firestore atomic commit containing the five historical field maps,
-   each guarded by `currentDocument.updateTime` from the current snapshot.
-3. Re-read only those five paths and require field-for-field equality with the
-   historical snapshot; `createTime` must remain unchanged and only restore-time
-   `updateTime` values may differ.
-4. Retain the current snapshot as the bounded rollback source. Do not touch the
-   user root, sibling documents, Auth, rules, indexes, or any other collection.
+1. Snapshot SHA-256 and the five current `updateTime` plus canonical field
+   hashes matched the saved current snapshot (`5/5`).
+2. One atomic request contained exactly five complete historical field maps,
+   no `updateMask`, and a saved `currentDocument.updateTime` precondition on
+   every write.
+3. Firestore rejected the request at JSON payload validation with `HTTP 400
+   INVALID_ARGUMENT`; nested historical map keys had serialized as repeated
+   `??` keys. No `commitTime` or `writeResults` were returned, so the atomic
+   request wrote `0/5` documents.
+4. Per the stop gate, there was no retry and no later Firestore read. The
+   requested post-write field/type/create-time check was not applicable.
+5. The current and before-write snapshot remains intact as the bounded recovery
+   source. A different Unicode-safe serialization approach requires a new
+   explicit approval before any Firestore request.
 
-After restore approval and verification, sign out the reused session, require a
-separately identified QA account, repeat the timed mobile generation, and clean
-up only paths whose QA ownership is proven. After Preview acceptance, remove
+Do not continue Preview QA. After a separately approved restore succeeds, sign
+out the reused session, require a separately identified QA account, repeat the
+timed mobile generation, and clean up only paths whose QA ownership is proven.
+After Preview acceptance, remove
 the exact temporary origin in a new Backend revision, rerun the Production /
 Preview / denied-origin CORS matrix, then close the Preview channel or let it
 expire. Keep PR #149 Draft; do not merge or deploy Production Hosting.
@@ -65,8 +72,8 @@ three-lens shared themes. Status: **Draft, no merge or deployment**. Flutter
 3.41.1 focused tests, analyzer, release Web build and full suite run in GitHub
 Actions with `TZ=Asia/Bangkok`, Poppler and `pypdf`. The selected Thai path
 converts the submit instant once. Run #35824575799 passed the complete Flutter
-suite. A valid separate-account three-chart QA, latency measurement, data
-restoration, and Owner wording acceptance remain open. Read
+suite. A valid separate-account three-chart QA, latency measurement, successful
+data restoration, and Owner wording acceptance remain open. Read
 `docs/THREE_TRADITION_OVERALL_V1.md` for run history and remaining gates.
 
 # Handoff - Western Reader V2 authenticated latency closeout (2026-09-22)
