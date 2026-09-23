@@ -1,7 +1,8 @@
 # Overall astrology from three traditions — V1 working branch
 
-Status: **local implementation committed; Flutter verification unavailable in
-this workspace; push blocked by automatic approval review; not released**.
+Status: **Draft PR #149 OPEN; Flutter verification unavailable in this
+workspace; not released**. Application tree:
+`58083dfacc85122b0a19a53e534778d020ab02fe`.
 
 ## Reader path
 
@@ -45,7 +46,7 @@ unreachable from this environment. `git diff --check` is the only executed
 local gate. Flutter focused tests, analyzer, Web build, actual three-chart QA,
 mobile layout, authenticated latency, and Owner wording acceptance remain open.
 
-No verified remote branch, PR, merge, Backend deploy, Hosting deploy, or
-Production verification. Automatic approval review rejected the GitHub branch
-push twice, stating that this branch push needs explicit owner authorization.
-The local commit is preserved for review; it is not a Draft PR yet.
+Owner authorized the branch push and opening a Draft PR. GitHub branch
+`codex/three-tradition-overall-v1` and PR #149 exist; the application tree
+matches the local implementation byte for byte. No Ready, merge, Backend
+deploy, Hosting deploy, or Production verification has been performed.

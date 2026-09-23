@@ -1,12 +1,13 @@
 ## Active draft — Overall astrology from three traditions (2026-09-23)
 
-On local `codex/three-tradition-overall-v1`, the post-birth selector now offers a
+On Draft PR #149 (`codex/three-tradition-overall-v1`), the post-birth selector now offers a
 three-tradition overall reading. Its source-backed theme comparison requires at
 least two distinct lenses, shows the exact contributors, and avoids unsupported
 event timing. This is **unverified and not released**: Flutter/Dart are absent
 in this workspace. No merge or Production change. Details and pending gates:
-`docs/THREE_TRADITION_OVERALL_V1.md`. The branch push was rejected by automatic
-approval review, so no remote branch or PR has been verified.
+`docs/THREE_TRADITION_OVERALL_V1.md`. The GitHub application tree matches the
+local implementation tree `58083dfacc85122b0a19a53e534778d020ab02fe`.
+PR #149 remains OPEN + DRAFT; no Ready, Merge or Deploy.
 
 ## Completed repair - Western Reader V2 authenticated latency (2026-09-22)
 
