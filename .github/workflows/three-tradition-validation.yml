@@ -8,6 +8,9 @@ on:
 permissions:
   contents: read
 
+env:
+  TZ: Asia/Bangkok
+
 jobs:
   flutter-validation:
     runs-on: ubuntu-latest
