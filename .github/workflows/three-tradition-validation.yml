@@ -1,0 +1,31 @@
+name: Three-tradition draft validation
+
+on:
+  push:
+    branches:
+      - codex/three-tradition-overall-v1
+
+permissions:
+  contents: read
+
+jobs:
+  flutter-validation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.41.1'
+          channel: stable
+          cache: true
+      - name: Dependencies
+        run: flutter pub get
+      - name: Focused tests
+        run: flutter test test/three_tradition_consensus_test.dart test/validation/thai_beta/thai_beta_astrology_selection_test.dart
+      - name: Analyzer
+        run: flutter analyze --no-fatal-infos --no-fatal-warnings
+      - name: Complete Flutter suite
+        run: flutter test --reporter compact
+      - name: Web build
+        run: flutter build web --release
