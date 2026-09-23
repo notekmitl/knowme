@@ -1,5 +1,10 @@
 ## Active draft — Overall astrology from three traditions (2026-09-23)
 
+Owner screenshot confirms the production `/beta/thai` selector still shows
+only the three individual traditions. The fourth overall card is in Draft PR
+#149 only. Firebase Console inspection for a preview was automatically denied
+at Google Accounts authentication; no preview or production deployment occurred.
+
 On Draft PR #149 (`codex/three-tradition-overall-v1`), the post-birth selector now offers a
 three-tradition overall reading. Its source-backed theme comparison requires at
 least two distinct lenses, shows the exact contributors, and avoids unsupported
