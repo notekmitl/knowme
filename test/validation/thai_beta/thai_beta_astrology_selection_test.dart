@@ -28,7 +28,7 @@ void main() {
       expect(find.text('ดูดวงรวม'), findsOneWidget);
     });
 
-    testWidgets('Thai choice preserves startedAt and Bangkok submit instant', (
+    testWidgets('Thai choice sends submit instant for one Bangkok conversion', (
       tester,
     ) async {
       final openedAt = DateTime.utc(2026, 8, 16, 16, 59, 50);
@@ -56,7 +56,12 @@ void main() {
       await tester.pumpAndSettle();
 
       expect(capturedStartedAt, openedAt);
-      expect(capturedAsOf, DateTime(2026, 8, 17, 0, 0, 10));
+      expect(capturedAsOf, submittedAt);
+      expect(ThaiBetaAnalysis.failedForTest(
+        input: _unknownInput,
+        startedAt: openedAt,
+        asOf: capturedAsOf,
+      ).asOf, DateTime(2026, 8, 17, 0, 0, 10));
     });
 
     testWidgets('Unknown time can open BaZi and carries selected system', (
@@ -153,9 +158,18 @@ void main() {
       tester,
     ) async {
       final calls = <ThaiBetaAstrologySystem>[];
+      final submittedAt = DateTime.utc(2026, 8, 16, 17, 0, 10);
+      DateTime? capturedAsOf;
       await _pumpSelection(
         tester,
         input: _knownInput,
+        submittedAt: submittedAt,
+        analysisExecutor: (input, {required startedAt, required asOf}) async {
+          capturedAsOf = asOf;
+          return ThaiBetaAnalysis.failedForTest(
+            input: input, startedAt: startedAt, asOf: asOf,
+          );
+        },
         prepareSystem: (_, _, system) async {
           calls.add(system);
           return switch (system) {
@@ -173,6 +187,7 @@ void main() {
       await tester.pumpAndSettle();
       expect(calls, [ThaiBetaAstrologySystem.bazi,
         ThaiBetaAstrologySystem.western]);
+      expect(capturedAsOf, submittedAt);
       // The injected Thai analysis failed: no partial or fabricated report.
       expect(find.byType(Scaffold), findsOneWidget);
       expect(find.text('อ่านภาพรวมจากสามศาสตร์'), findsNothing);

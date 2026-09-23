@@ -1,7 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_analysis.dart';
-import 'package:knowme/features/thai_beta/application/thai_beta_analysis_clock.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_astrology_handoff.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_current_analysis.dart';
 import 'package:knowme/features/thai_beta/domain/thai_beta_input.dart';
@@ -87,7 +86,8 @@ class _ThaiBetaAstrologySelectionPageState
         final analysis = await widget.analysisExecutor(
           widget.input,
           startedAt: widget.startedAt,
-          asOf: ThaiBetaAnalysisClock.asBangkokCivil(widget.submittedAt),
+          // The runner converts this instant to Bangkok civil time once.
+          asOf: widget.submittedAt,
         );
         if (!mounted) return;
         ThaiBetaCurrentAnalysis.set(analysis);
@@ -154,7 +154,7 @@ class _ThaiBetaAstrologySelectionPageState
       final thai = await widget.analysisExecutor(
         widget.input,
         startedAt: widget.startedAt,
-        asOf: ThaiBetaAnalysisClock.asBangkokCivil(widget.submittedAt),
+        asOf: widget.submittedAt,
       );
       final mirror = thai.pipelineResult?.mirrorResult;
       if (!thai.isSuccess || mirror == null) {
