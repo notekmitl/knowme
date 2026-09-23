@@ -65,6 +65,15 @@ Authenticated three-chart browser QA, real endpoint latency, visual review of
 the combined Thai wording, and Owner acceptance are still required before
 Ready, Merge, or deployment.
 
+The Owner's screenshot of the live `/beta/thai` selector on 2026-09-23 shows
+only Thai, BaZi and Western cards. The fourth **โหราศาสตร์โดยรวม** card and
+**ดูดวงรวม** action are present in this draft immediately below Western, but
+the production page has not been updated. An attempt to inspect the Firebase
+Hosting console for a preview was automatically denied at Google Accounts
+authentication; no alternative authentication route was attempted. A live
+review URL remains unavailable until authorized Hosting access and a build
+with the production API configuration are available.
+
 Owner authorized the branch push and opening a Draft PR. GitHub branch
 `codex/three-tradition-overall-v1` and PR #149 exist. No Ready, merge, Backend
 deploy, Hosting deploy, or Production verification has been performed.
