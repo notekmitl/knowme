@@ -25,7 +25,9 @@ jobs:
         run: flutter test test/three_tradition_consensus_test.dart test/validation/thai_beta/thai_beta_astrology_selection_test.dart
       - name: Analyzer
         run: flutter analyze --no-fatal-infos --no-fatal-warnings
-      - name: Complete Flutter suite
-        run: flutter test --reporter compact
       - name: Web build
         run: flutter build web --release
+      - name: Poppler for PDF regression gates
+        run: sudo apt-get update && sudo apt-get install -y poppler-utils
+      - name: Complete Flutter suite
+        run: flutter test --reporter compact
