@@ -84,8 +84,8 @@ class ThreeTraditionReportPage extends StatelessWidget {
                   const Card(
                     child: Padding(
                       padding: EdgeInsets.all(18),
-                      child: Text('ยังไม่พบประเด็นที่ผลทั้งสามศาสตร์สอดคล้องกัน'
-                          'มากพอ จึงไม่มีคำอ่านรวมสำหรับข้อมูลเกิดชุดนี้'),
+                      child: Text('ยังไม่พบประเด็นที่อย่างน้อยสองศาสตร์'
+                          'สอดคล้องกัน จึงไม่มีคำอ่านรวมสำหรับข้อมูลเกิดชุดนี้'),
                     ),
                   )
                 else ...[
@@ -137,7 +137,7 @@ class ThreeTraditionReportPage extends StatelessWidget {
             if (item.exact)
               Text('ทั้ง ${item.sourceCount} ศาสตร์ให้ประเด็นนี้ตรงกัน')
             else
-              const Text('ทั้งสองหรือสามศาสตร์ชี้ไปในทิศทางใกล้กัน'),
+              Text('ทั้ง ${item.sourceCount} ศาสตร์ชี้ไปในทิศทางใกล้กัน'),
             const SizedBox(height: 12),
             for (final source in item.sources.entries)
               Padding(

@@ -1,8 +1,8 @@
 # Overall astrology from three traditions — V1 working branch
 
-Status: **Draft PR #149 OPEN; Flutter verification unavailable in this
-workspace; not released**. Application tree:
-`58083dfacc85122b0a19a53e534778d020ab02fe`.
+Status: **Draft PR #149 OPEN; not released**. The draft branch is validated
+through its branch-specific GitHub Actions workflow because Flutter/Dart SDKs
+are unavailable in the local workspace.
 
 ## Reader path
 
@@ -28,6 +28,9 @@ analysis. The report is composed only when all three return valid results.
   all three systems. A zero-agreement chart has an explicit empty state.
 - Display the contributing traditions and their distinct meanings on each card.
   The result is calculated in memory and is not written as a new user document.
+- Pass the actual submit instant to the Thai analysis runner, which converts it
+  to Bangkok civil time once. The existing single-Thai choice now does the same;
+  it avoids a second conversion on a device outside the Bangkok time zone.
 
 ## Known boundaries and verification
 
@@ -38,15 +41,28 @@ with the newly submitted form. A failure in any source does not show a partial
 combined report; an earlier successful endpoint may still have persisted its
 individual chart. Old single-system routes remain independent.
 
-Focused tests added for three matching lenses, exact plus similar themes,
-source deduplication, empty evidence, growth-area exclusion, and the selector's
-known/unknown time and failure paths. **These tests have not been run here:**
-Flutter and Dart SDK binaries are absent, and the SDK artifact host is
-unreachable from this environment. `git diff --check` is the only executed
-local gate. Flutter focused tests, analyzer, Web build, actual three-chart QA,
-mobile layout, authenticated latency, and Owner wording acceptance remain open.
+Focused tests cover three matching lenses, exact plus similar themes, source
+deduplication, empty evidence, growth-area exclusion, real Thai engine output,
+the selector's known/unknown time and failure paths, single Bangkok conversion,
+and mobile/desktop widget layouts. The draft workflow uses Flutter 3.41.1,
+`TZ=Asia/Bangkok`, Poppler and Python `pypdf`, focused Flutter tests, the analyzer,
+a release Web build, and the complete Flutter suite. This matches the timezone and PDF
+dependencies used by the repository's earlier successful Flutter workflow.
+
+The first full-suite attempt (run #35822200056) passed focused tests and
+analyzer, then reported seven failures: four Bangkok civil-time assertions,
+two missing-Poppler PDF gates, and one runtime evidence comparison affected by
+the time value. The failing test files and Thai runner were unchanged from
+`main`. Run #35823155332 passed focused tests, analyzer and Web build; installing
+Poppler removed one missing-tool failure, while the real PDF parity script
+then exposed its additional `pypdf` dependency. The final candidate workflow
+includes both PDF dependencies and Bangkok time. See the current PR checks for
+the exact complete-suite result.
+
+Authenticated three-chart browser QA, real endpoint latency, visual review of
+the combined Thai wording, and Owner acceptance are still required before
+Ready, Merge, or deployment.
 
 Owner authorized the branch push and opening a Draft PR. GitHub branch
-`codex/three-tradition-overall-v1` and PR #149 exist; the application tree
-matches the local implementation byte for byte. No Ready, merge, Backend
+`codex/three-tradition-overall-v1` and PR #149 exist. No Ready, merge, Backend
 deploy, Hosting deploy, or Production verification has been performed.

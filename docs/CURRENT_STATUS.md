@@ -3,10 +3,12 @@
 On Draft PR #149 (`codex/three-tradition-overall-v1`), the post-birth selector now offers a
 three-tradition overall reading. Its source-backed theme comparison requires at
 least two distinct lenses, shows the exact contributors, and avoids unsupported
-event timing. This is **unverified and not released**: Flutter/Dart are absent
-in this workspace. No merge or Production change. Details and pending gates:
-`docs/THREE_TRADITION_OVERALL_V1.md`. The GitHub application tree matches the
-local implementation tree `58083dfacc85122b0a19a53e534778d020ab02fe`.
+event timing. GitHub Actions now runs the focused tests, analyzer, release Web
+build and full Flutter suite with Bangkok timezone, Poppler and `pypdf`. A
+duplicate Bangkok conversion in the selected Thai path was corrected. Consult
+the current PR check for the complete-suite result; authenticated chart QA and
+Owner wording acceptance remain open. Details:
+`docs/THREE_TRADITION_OVERALL_V1.md`.
 PR #149 remains OPEN + DRAFT; no Ready, Merge or Deploy.
 
 ## Completed repair - Western Reader V2 authenticated latency (2026-09-22)

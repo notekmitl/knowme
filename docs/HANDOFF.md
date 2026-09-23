@@ -3,10 +3,13 @@
 The new `/beta/thai` post-birth option lives on
 Draft PR #149, branch `codex/three-tradition-overall-v1`. It compares the independently generated
 Thai, Chinese BaZi, and Western charts; shows only evidence-backed two- or
-three-lens shared themes. Status: **Draft, Flutter gates not run, no merge or
-deployment**. The PR application tree matches local tree
-`58083dfacc85122b0a19a53e534778d020ab02fe`. Read
-`docs/THREE_TRADITION_OVERALL_V1.md` before continuing.
+three-lens shared themes. Status: **Draft, no merge or deployment**. Flutter
+3.41.1 focused tests, analyzer, release Web build and full suite run in GitHub
+Actions with `TZ=Asia/Bangkok`, Poppler and `pypdf`. The selected Thai path
+converts the submit instant once. Consult the current PR check for its final
+result. Authenticated three-chart QA, latency and Owner wording acceptance
+remain open. Read `docs/THREE_TRADITION_OVERALL_V1.md` for run history and
+remaining gates.
 
 # Handoff - Western Reader V2 authenticated latency closeout (2026-09-22)
 
