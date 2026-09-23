@@ -96,7 +96,11 @@ void main() {
         find.byKey(const Key('astrology-select-western')),
       );
       expect(button.onPressed, isNull);
-      expect(find.textContaining('ต้องทราบเวลาเกิด'), findsOneWidget);
+      expect(
+        find.text('ต้องทราบเวลาเกิดและเลือกจังหวัดก่อน '
+            'จึงคำนวณลัคนาและเรือนได้โดยไม่เดา'),
+        findsOneWidget,
+      );
       await tester.drag(find.byType(ListView), const Offset(0, -350));
       await tester.pumpAndSettle();
       expect(tester.widget<FilledButton>(

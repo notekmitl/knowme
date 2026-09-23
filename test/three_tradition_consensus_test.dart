@@ -1,8 +1,14 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:knowme/data/models/astrology_chart_model.dart';
 import 'package:knowme/features/astrology/fusion/adapters/adapter_helpers.dart';
 import 'package:knowme/features/astrology/fusion/adapters/lens_theme_output.dart';
 import 'package:knowme/features/astrology/fusion/application/three_tradition_consensus.dart';
+import 'package:knowme/features/astrology/fusion/presentation/pages/three_tradition_report_page.dart';
 import 'package:knowme/features/astrology/fusion/registry/theme_registry.dart';
+import 'package:knowme/features/bazi_compatibility/application/bazi_compatibility_owner_fixtures.dart';
+import 'package:knowme/features/thai_beta/application/thai_beta_analysis.dart';
+import 'package:knowme/features/thai_beta/domain/thai_beta_input.dart';
 
 void main() {
   final thai = FusionAdapterHelpers.thaiLensId;
@@ -70,5 +76,70 @@ void main() {
     ]);
     expect(exactWarning.single.key, 'overthinking');
     expect(exactWarning.single.sourceCount, 2);
+  });
+
+  test('Thai engine result joins BaZi and Western chart adapters', () {
+    final analysis = ThaiBetaAnalysisRunner.run(
+      ThaiBetaInput(
+        firstName: 'Sample',
+        lastName: 'Reader',
+        birthDate: DateTime(1990, 5, 12),
+        birthHour: 15,
+        birthMinute: 30,
+        province: 'กรุงเทพมหานคร',
+        provinceKey: 'bangkok',
+      ),
+      asOf: DateTime(2026, 9, 23),
+    );
+    expect(analysis.isSuccess, isTrue);
+    final agreements = ThreeTraditionConsensus.fromCharts(
+      thai: analysis.pipelineResult!.mirrorResult!,
+      bazi: BaziCompatibilityOwnerFixtures.chart(BaziOwnerCase.known),
+      western: AstrologyChartModel(
+        version: 'western_natal_v2',
+        contractId: 'knowme_western_reader_v2',
+        engineVersion: 'engine-v2',
+        inputHash: 'aligned-1990-fixture',
+        big3: {'sun': 'Taurus', 'moon': 'Sagittarius', 'rising': 'Libra'},
+        planets: {},
+        insight: {},
+        overallSummary: {},
+      ),
+    );
+    expect(agreements, isNotEmpty);
+    for (final item in agreements) {
+      expect(item.sourceCount, inInclusiveRange(2, 3));
+      expect(item.sources.values.every((source) => source.evidence.isNotEmpty),
+          isTrue);
+    }
+  });
+
+  testWidgets('mobile reader displays three and two lens groups without overflow',
+      (tester) async {
+    await tester.binding.setSurfaceSize(const Size(390, 844));
+    addTearDown(() => tester.binding.setSurfaceSize(null));
+    final agreements = ThreeTraditionConsensus.fromOutputs([
+      output(thai, 'independent'),
+      output(bazi, 'independent'),
+      output(western, 'leadership'),
+      output(thai, 'supportive'),
+      output(bazi, 'loyal'),
+    ]);
+    await tester.pumpWidget(MaterialApp(
+      home: ThreeTraditionReportPage(agreements: agreements),
+    ));
+    expect(find.text('ตรงกันทั้ง 3 ศาสตร์'), findsOneWidget);
+    await tester.scrollUntilVisible(find.text('สอดคล้องกัน 2 ศาสตร์'), 160);
+    expect(tester.takeException(), isNull);
+  });
+
+  testWidgets('desktop reader shows a truthful empty state', (tester) async {
+    await tester.binding.setSurfaceSize(const Size(1280, 800));
+    addTearDown(() => tester.binding.setSurfaceSize(null));
+    await tester.pumpWidget(const MaterialApp(
+      home: ThreeTraditionReportPage(agreements: []),
+    ));
+    expect(find.textContaining('ยังไม่พบประเด็น'), findsOneWidget);
+    expect(tester.takeException(), isNull);
   });
 }
