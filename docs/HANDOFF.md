@@ -1,5 +1,8 @@
 # Active handoff — Three-tradition overall astrology (2026-09-23)
 
+Status: **Preview QA paused; do not write or delete Firestore until the Owner
+approves the five-document restore plan below.**
+
 Firebase Hosting Preview channel `pr-149-overall-v1` is live at
 `https://knowme-app-694e1--pr-149-overall-v1-nr8oa6e0.web.app` and expires
 `2026-09-30T07:23:50Z`. It contains the release Web build from application
@@ -8,26 +11,52 @@ source `d56946d`, cache pin `d56946d`, bundle size 8,557,552 bytes, and SHA-256
 The configured Production API is
 `https://knowme-astrology-api-avbyttircq-as.a.run.app`; the official bundle
 validator and all explicit localhost/loopback guards passed. This was a
-Hosting Preview deploy only. Production Hosting, Backend, Firestore rules,
-data, Auth configuration, Functions, Storage, IAM, and indexes are unchanged.
+Hosting Preview deploy only. Production Hosting was not deployed, and Firestore
+rules, Auth configuration, Functions, Storage, indexes, and PR merge state are
+unchanged.
 
-Mobile Chrome QA at `390x844` passed form and selector rendering with known
-time `12:34` and province `กรุงเทพมหานคร`. Card order is Thai, Chinese
-BaZi, Western, then **โหราศาสตร์โดยรวม**, and Google Auth completed.
-Authenticated generation is blocked before a report: **ดูดวงรวม** was
-clicked at `2026-09-23T08:51:07.394Z`; BaZi failed at `08:51:07.542Z`
-(148 ms) with `ClientException: Failed to fetch`. Direct preflight from the
-Preview origin returns `HTTP 400 Disallowed CORS origin`; the same preflight
-from `https://knowme-app-694e1.web.app` returns `HTTP 200` and the correct
-`Access-Control-Allow-Origin`. The current Backend permits only the two
-Production Hosting origins. No Western request or combined result page was
-reached.
+The exact Preview origin is now present as one explicit, non-wildcard entry in
+`backend/app/main.py`. Backend tests pass `51/51`; local and live CORS matrices
+accept Production plus Preview and reject an unrelated origin. Cloud Run
+revision `knowme-astrology-api-00014-j2z` serves 100% with unchanged resource
+configuration. Roll back traffic, if required, to
+`knowme-astrology-api-00013-zc8`. Production API health and both Production and
+Preview `/beta/thai` routes return `HTTP 200`.
 
-Do not report end-to-end Preview PASS. Making the Preview generate a real
-combined report requires either allowing this Preview-origin pattern in the
-Backend CORS policy or introducing a reviewed same-origin Hosting proxy/build
-contract. Both are outside the Owner's explicit no-Backend instruction for
-this task. Keep PR #149 Draft; do not merge or deploy Production.
+Mobile Chrome reconfirmed card order as Thai, Chinese BaZi, Western, then
+**โหราศาสตร์โดยรวม**. Do not report the generation run as QA PASS: the browser
+silently reused a non-QA Firebase session. The synthetic profile and the two
+authenticated generators updated five pre-existing Production documents. The
+Preview test was stopped immediately after ownership was identified; no
+corrective write or delete followed.
+
+Read-only recovery succeeded for all five paths at historical read time
+`2026-09-23T10:27:18.000000Z` (`17:27:18.000000 Asia/Bangkok`), before the
+observed writes at `10:27:18.244907Z` through `10:27:19.514069Z`. A local-only,
+non-Git snapshot contains both current and historical copies; its SHA-256 is
+`423B6CCCDE6CB00C3A1FB15643A3F18CED80684609F54A56FD7F8B318E8B5D68`.
+Repository documentation intentionally omits the UID and all profile values.
+PITR is disabled, managed backups are empty, and no backup schedule exists; the
+historical read was available through the standard one-hour retention window.
+
+Proposed restore, pending explicit Owner approval:
+
+1. Re-read the exact five paths and abort if any `updateTime` or field hash has
+   changed since the saved current snapshot.
+2. Submit one Firestore atomic commit containing the five historical field maps,
+   each guarded by `currentDocument.updateTime` from the current snapshot.
+3. Re-read only those five paths and require field-for-field equality with the
+   historical snapshot; `createTime` must remain unchanged and only restore-time
+   `updateTime` values may differ.
+4. Retain the current snapshot as the bounded rollback source. Do not touch the
+   user root, sibling documents, Auth, rules, indexes, or any other collection.
+
+After restore approval and verification, sign out the reused session, require a
+separately identified QA account, repeat the timed mobile generation, and clean
+up only paths whose QA ownership is proven. After Preview acceptance, remove
+the exact temporary origin in a new Backend revision, rerun the Production /
+Preview / denied-origin CORS matrix, then close the Preview channel or let it
+expire. Keep PR #149 Draft; do not merge or deploy Production Hosting.
 
 The new `/beta/thai` post-birth option lives on
 Draft PR #149, branch `codex/three-tradition-overall-v1`. It compares the independently generated
@@ -35,9 +64,10 @@ Thai, Chinese BaZi, and Western charts; shows only evidence-backed two- or
 three-lens shared themes. Status: **Draft, no merge or deployment**. Flutter
 3.41.1 focused tests, analyzer, release Web build and full suite run in GitHub
 Actions with `TZ=Asia/Bangkok`, Poppler and `pypdf`. The selected Thai path
-converts the submit instant once. Run #35824575799 passed the complete Flutter suite. Authenticated three-chart QA, latency and Owner wording acceptance
-remain open. Read `docs/THREE_TRADITION_OVERALL_V1.md` for run history and
-remaining gates.
+converts the submit instant once. Run #35824575799 passed the complete Flutter
+suite. A valid separate-account three-chart QA, latency measurement, data
+restoration, and Owner wording acceptance remain open. Read
+`docs/THREE_TRADITION_OVERALL_V1.md` for run history and remaining gates.
 
 # Handoff - Western Reader V2 authenticated latency closeout (2026-09-22)
 

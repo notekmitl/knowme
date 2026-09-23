@@ -1,7 +1,7 @@
 # Overall astrology from three traditions — V1 working branch
 
-Status: **Draft PR #149 OPEN; Hosting Preview created; authenticated generation
-blocked by Production API CORS; not released**. Branch validation passed in
+Status: **Draft PR #149 OPEN; exact Preview-origin CORS revision live; Preview
+QA paused pending Owner-approved five-document restore; not released**. Branch validation passed in
 [GitHub Actions run #35824575799](https://github.com/notekmitl/knowme/actions/runs/35824575799)
 at commit `c33160d4bf01bd2f0a870d2c50925d700645f8b0`: focused tests,
 analyzer, release Web build, PDF dependencies, and the complete Flutter suite.
@@ -62,9 +62,9 @@ then exposed its additional `pypdf` dependency. The final candidate workflow
 includes both PDF dependencies and Bangkok time. Run #35824575799
 completed successfully with all tests passing.
 
-Authenticated three-chart browser QA, real endpoint latency, visual review of
-the combined Thai wording, and Owner acceptance are still required before
-Ready, Merge, or deployment.
+Valid separate-account three-chart browser QA, real endpoint latency, visual
+review of the combined Thai wording, data restoration, and Owner acceptance are
+still required before Ready, Merge, or deployment.
 
 ## Live Hosting Preview verification
 
@@ -76,33 +76,53 @@ bundle validator and four explicit localhost/loopback guards, and has cache pin
 `d56946d`. `main.dart.js` is 8,557,552 bytes with SHA-256
 `8479C6E1A9112F20914280D5834C9001308F0116545BBCEC366FF3638437AFBA`.
 
-Real Chrome QA used viewport `390x844` and a synthetic known-time profile
-(`15/1/1990`, `12:34`, `กรุงเทพมหานคร`). The form reached the selector,
-which rendered Thai, Chinese BaZi, Western, then **โหราศาสตร์โดยรวม** in
-that order. Google Auth completed. The combined click began at
-`2026-09-23T08:51:07.394Z`; BaZi failed at `08:51:07.542Z`, 148 ms later,
-with `ClientException: Failed to fetch`. Western was not called and no combined
-report was rendered.
+Backend commit `2edf7a9` adds only the exact Preview URL to the explicit
+production-origin list in `backend/app/main.py`; no wildcard is present.
+Backend full tests pass `51/51`, the endpoint verifier passes `5/5`, and local
+plus live CORS matrices accept both Production origins and the exact Preview
+origin while rejecting an unrelated origin with `HTTP 400` and no allow-origin
+header. Cloud Run revision `knowme-astrology-api-00014-j2z` receives 100%
+traffic with the same CPU, memory, concurrency, timeout, instance bounds, CPU
+allocation, startup boost, and environment as rollback revision
+`knowme-astrology-api-00013-zc8`. The deploy took `224.895 s`. Production
+Hosting, Firestore rules, Auth configuration, Functions, Storage, indexes, and
+the PR merge state were not changed.
 
-The failure is not an incorrect build URL or an authentication cancellation.
-An OPTIONS request from the exact Preview origin returns
-`HTTP 400 Disallowed CORS origin`; the same request from
-`https://knowme-app-694e1.web.app` returns `HTTP 200` plus the matching
-`Access-Control-Allow-Origin`. The current live Backend and
-`backend/app/main.py` allow only the Production `web.app` and `firebaseapp.com`
-origins. Under the explicit no-Backend boundary, this Preview cannot complete
-authenticated generation. A Backend CORS policy change or a separately
-reviewed same-origin Hosting proxy/build contract is required before live
-Preview generation can pass.
+Real Chrome at mobile width reconfirmed the selector order: Thai, Chinese BaZi,
+Western, then **โหราศาสตร์โดยรวม**. The synthetic known-time form reached a
+combined report after the CORS repair, but this is not accepted QA: the browser
+silently reused a non-QA Firebase session. The flow updated exactly five
+pre-existing documents (canonical profile, two natal charts, and their two
+result mirrors). It did not create a Fusion result document. Testing was paused
+immediately after ownership was identified, and no corrective write or delete
+has been performed.
+
+A read-only historical `batchGet` recovered all five documents at
+`2026-09-23T10:27:18.000000Z` (`17:27:18.000000 Asia/Bangkok`), before the
+observed writes at `10:27:18.244907Z` through `10:27:19.514069Z`. The local-only
+snapshot contains current and historical copies for all five paths and has
+SHA-256 `423B6CCCDE6CB00C3A1FB15643A3F18CED80684609F54A56FD7F8B318E8B5D68`.
+No UID or profile value is stored in this repository. PITR is disabled, no
+managed backup exists, and no backup schedule exists; recovery used the
+standard one-hour version-retention window.
+
+Restoration is pending explicit Owner approval. The proposed procedure is one
+atomic five-document commit using the historical field maps and per-document
+`currentDocument.updateTime` preconditions after a fresh drift check. The
+post-restore read must match the historical snapshot field-for-field, with
+unchanged `createTime` and only new `updateTime` values. No user root, sibling
+document, Auth record, rule, index, or other collection is in scope. The saved
+current snapshot is the bounded rollback source.
 
 Local feature-focused tests pass 14/14 for consensus, ordering, known/unknown
 time, sign-in cancellation, safe engine order, and mobile/desktop layouts.
 The additional date-aware file retains the known Windows local-time mismatch
 (three `+07:00` assertion failures); the pinned Ubuntu workflow above passes it
-and the complete suite. This Preview QA remains **FAIL/BLOCKED** despite the
-successful static deploy.
+and the complete suite. This Preview QA remains **PAUSED/INVALID** until the
+five-document restore is approved and a separate QA account is verified.
 
 Owner authorized the branch push and opening a Draft PR. GitHub branch
-`codex/three-tradition-overall-v1` and PR #149 exist. No Ready, merge, Backend
-deploy, Production Hosting deploy, or Production verification has been
-performed. Only the expiring Hosting Preview channel changed.
+`codex/three-tradition-overall-v1` and PR #149 exist. No Ready, merge, or
+Production Hosting deploy has been performed. After valid QA, remove the exact
+temporary Preview origin in a new Backend revision, rerun the three-origin CORS
+matrix, and close the Preview channel or let it expire.

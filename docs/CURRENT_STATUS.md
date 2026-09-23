@@ -1,7 +1,8 @@
 ## Active draft — Overall astrology from three traditions (2026-09-23)
 
-Status: **HOSTING PREVIEW CREATED; END-TO-END BLOCKED BY PRODUCTION API CORS;
-PRODUCTION UNCHANGED**.
+Status: **CORS-ONLY BACKEND REVISION LIVE; PREVIEW QA PAUSED; FIVE PRODUCTION
+DOCUMENTS HAVE A VERIFIED RECOVERABLE PRE-WRITE SNAPSHOT; RESTORE NOT YET
+AUTHORIZED**.
 
 Firebase Hosting Preview channel `pr-149-overall-v1` now serves the exact Web
 build made from application source `d56946d` at
@@ -11,22 +12,41 @@ build made from application source `d56946d` at
 localhost/loopback guards as `scripts/deploy_web.ps1`, and was pinned to
 `main.dart.js?v=d56946d`. Bundle size is 8,557,552 bytes and SHA-256 is
 `8479C6E1A9112F20914280D5834C9001308F0116545BBCEC366FF3638437AFBA`.
-Only the Preview channel changed; Production Hosting, Backend, Firestore rules,
-data, Auth configuration, Functions, Storage, IAM, and indexes were not
-deployed or modified.
+Production Hosting was not deployed. Firestore rules, Auth configuration,
+Functions, Storage, indexes, and the PR merge state were not changed. The only
+Backend source delta is the exact Preview URL added to the explicit CORS list in
+`backend/app/main.py`; no wildcard is present. Backend full tests pass `51/51`,
+the unauthenticated endpoint verifier passes `5/5`, and local plus live CORS
+checks accept both Production Hosting origins and the exact Preview origin while
+rejecting an unrelated origin with `HTTP 400` and no allow-origin header.
 
-Real Chrome QA at `390x844` confirmed the post-birth selector order is Thai,
-Chinese BaZi, Western, then **โหราศาสตร์โดยรวม**. A known-time profile using
-`15/1/1990 12:34` and `กรุงเทพมหานคร` reached the selector and passed the
-Google Auth gate. Clicking **ดูดวงรวม** at `2026-09-23T08:51:07.394Z`
-started the BaZi call, but it failed at `08:51:07.542Z` (148 ms) with
-`ClientException: Failed to fetch`; no Western call or combined report followed.
-An independent preflight proved the cause: the Preview origin receives
-`HTTP 400 Disallowed CORS origin`, while `https://knowme-app-694e1.web.app`
-receives `HTTP 200` with its matching `Access-Control-Allow-Origin`. The live
-Backend and `backend/app/main.py` allow only the two Production Hosting origins.
-The requested no-Backend boundary therefore prevents a working authenticated
-Preview report; this QA is **FAIL/BLOCKED**, not a successful generation.
+Cloud Run revision `knowme-astrology-api-00014-j2z` now receives 100% traffic;
+the CORS-only deployment took `224.895 s`. Its resource configuration matches
+the previous revision. Rollback revision `knowme-astrology-api-00013-zc8` and
+its image digest were recorded before deployment. Production API `/health`,
+Production `/beta/thai`, and Preview `/beta/thai` return `HTTP 200`.
+
+Real Chrome at mobile width reconfirmed the post-birth selector order: Thai,
+Chinese BaZi, Western, then **โหราศาสตร์โดยรวม**. Preview generation was then
+stopped because the browser silently reused a non-QA Firebase session. The
+synthetic submission updated exactly five existing user documents: canonical
+profile, BaZi chart, Western chart, BaZi result mirror, and Western result
+mirror. No Fusion result document was created. This run is invalid as the
+required separate-account QA and has no accepted latency result.
+
+No corrective Firestore write or delete has been made. A read-only Firestore
+`batchGet` recovered all five versions at `2026-09-23T10:27:18.000000Z`
+(`2026-09-23 17:27:18.000000 Asia/Bangkok`), immediately before the observed
+writes at `10:27:18.244907Z` through `10:27:19.514069Z`. The five current and
+five historical documents are stored in a local-only snapshot outside the Git
+repository with SHA-256
+`423B6CCCDE6CB00C3A1FB15643A3F18CED80684609F54A56FD7F8B318E8B5D68`.
+No personal value or UID is recorded in repository documentation. Firestore
+PITR is disabled, managed backups are empty, and no backup schedule exists;
+the recoverable copy came from the standard one-hour version-retention window.
+An Owner-approved, preconditioned atomic restore of only the five paths is the
+next data action. Preview QA remains paused until that decision and a verified
+separate QA account are available.
 
 On Draft PR #149 (`codex/three-tradition-overall-v1`), the post-birth selector now offers a
 three-tradition overall reading. Its source-backed theme comparison requires at
@@ -34,9 +54,13 @@ least two distinct lenses, shows the exact contributors, and avoids unsupported
 event timing. GitHub Actions now runs the focused tests, analyzer, release Web
 build and full Flutter suite with Bangkok timezone, Poppler and `pypdf`. A
 duplicate Bangkok conversion in the selected Thai path was corrected. Run #35824575799 passed the complete Flutter suite; authenticated chart QA and
-Owner wording acceptance remain open. Details:
+Owner wording acceptance remain open. The QA must use a separately verified
+account after the five-document restore is approved. Details:
 `docs/THREE_TRADITION_OVERALL_V1.md`.
-PR #149 remains OPEN + DRAFT; no Ready, Merge or Deploy.
+PR #149 remains OPEN + DRAFT; no Ready, Production Hosting deploy, or merge.
+The temporary CORS entry must be removed in a follow-up Backend revision
+after QA, with the same CORS matrix rerun before the Preview channel is closed
+or allowed to expire.
 
 ## Completed repair - Western Reader V2 authenticated latency (2026-09-22)
 
