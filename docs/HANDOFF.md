@@ -1,5 +1,10 @@
 # Active handoff — Three-tradition overall astrology (2026-09-23)
 
+The Owner's live screenshot has three individual selector cards; the new
+overall card is confined to Draft PR #149. Preview access is blocked by an
+automatic denial of Google Accounts authentication for Firebase Console.
+Hosting was not changed.
+
 The new `/beta/thai` post-birth option lives on
 Draft PR #149, branch `codex/three-tradition-overall-v1`. It compares the independently generated
 Thai, Chinese BaZi, and Western charts; shows only evidence-backed two- or
