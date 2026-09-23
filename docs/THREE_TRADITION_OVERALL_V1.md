@@ -1,8 +1,10 @@
 # Overall astrology from three traditions — V1 working branch
 
-Status: **Draft PR #149 OPEN; not released**. The draft branch is validated
-through its branch-specific GitHub Actions workflow because Flutter/Dart SDKs
-are unavailable in the local workspace.
+Status: **Draft PR #149 OPEN; not released**. Branch validation passed in
+[GitHub Actions run #35824575799](https://github.com/notekmitl/knowme/actions/runs/35824575799)
+at commit `c33160d4bf01bd2f0a870d2c50925d700645f8b0`: focused tests,
+analyzer, release Web build, PDF dependencies, and the complete Flutter suite.
+Flutter/Dart SDKs remain unavailable in the local workspace.
 
 ## Reader path
 
@@ -56,8 +58,8 @@ the time value. The failing test files and Thai runner were unchanged from
 `main`. Run #35823155332 passed focused tests, analyzer and Web build; installing
 Poppler removed one missing-tool failure, while the real PDF parity script
 then exposed its additional `pypdf` dependency. The final candidate workflow
-includes both PDF dependencies and Bangkok time. See the current PR checks for
-the exact complete-suite result.
+includes both PDF dependencies and Bangkok time. Run #35824575799
+completed successfully with all tests passing.
 
 Authenticated three-chart browser QA, real endpoint latency, visual review of
 the combined Thai wording, and Owner acceptance are still required before
