@@ -1,4 +1,24 @@
-## Active follow-up — PR #149 Owner-specified Preview reading QA (2026-09-24)
+## Active follow-up — PR #149 latest isolated Preview and CI (2026-09-24)
+
+Draft PR #149 implementation `b5aa038` scopes multi-fact evidence merging
+to the Overall report, preserving the older BaZi evidence shape in the
+human-pattern runtime. The previously failing five affected test files
+passed **50/50** locally; the complete Flutter suite, analyzer, focused
+tests, and Web build passed in [run #35988691883](https://github.com/notekmitl/knowme/actions/runs/35988691883).
+
+The safe Hosted Preview serves version `dd4c850da6e99a3c` from this
+implementation, with JS SHA-256
+`2F01AEE4677D5F299F4A7F69FF8EA278B19D134A91426F6E3098E7391786FDF2`.
+Two fresh anonymous 390×844 runs of the Owner-specified input verified
+the selector values before action, reached an identical report in
+**4,388/898 ms**, and showed no unsupported common point. Each trace had
+only two isolated Backend calculation POSTs (200/200), with zero Auth,
+Firestore, Production API, other write, blocked request, or page error.
+The `live` Hosting version did not change; the old unsafe Preview remains
+closed. No personal birth value is recorded here. Owner copy acceptance
+remains pending; keep the PR Draft. Details: `docs/THREE_TRADITION_OVERALL_V1.md`.
+
+## Earlier follow-up — PR #149 Owner-specified Preview reading QA (2026-09-24)
 
 Draft PR #149 now contains the evidence-led wording commit `bd17b475` after a
 normal fast-forward push with existing credentials. The correct local checkout

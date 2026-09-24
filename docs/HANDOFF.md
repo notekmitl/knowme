@@ -1,4 +1,26 @@
-# Active handoff — PR #149 Owner-specified Preview reading QA (2026-09-24)
+# Active handoff — PR #149 latest isolated Preview and CI (2026-09-24)
+
+Implementation `b5aa038` is pushed to the existing Draft PR branch. It
+confines combined evidence to the Overall report so the downstream BaZi
+human-pattern runtime retains its earlier evidence counts. The five
+affected test files pass **50/50** locally and [CI run #35988691883](https://github.com/notekmitl/knowme/actions/runs/35988691883)
+passes the complete Flutter suite, analyzer, focused tests, and Web build.
+
+Owner review link: https://knowme-app-694e1--pr-149-overall-safe-vbx6de6a.web.app/beta/thai
+The Preview now serves version `dd4c850da6e99a3c`, expiring
+`2026-10-01T10:45:43Z`; its JS SHA-256 is
+`2F01AEE4677D5F299F4A7F69FF8EA278B19D134A91426F6E3098E7391786FDF2`.
+Two accepted fresh 390×844 anonymous runs verified the exact form values
+before the report and took **4,388/898 ms**. Their identical reading
+correctly had no supported cross-tradition point; Chinese and Western
+facts remained distinct, and Thai evidence was insufficient. Each network
+trace had only two Preview Backend calculation POSTs (200/200), with zero
+Auth, Firestore, Production API, other write, blocked request, or page
+error. No birth value is stored here. Owner wording review remains open.
+The old unsafe channel is closed and `live` remains unchanged. Keep the
+PR Draft; do not merge or deploy Production.
+
+# Earlier handoff — PR #149 Owner-specified Preview reading QA (2026-09-24)
 
 The correct KnowMe checkout held commit `bd17b475` one ahead of remote with a
 clean working tree and no Git locks after `git.exe` crashed. A standard push

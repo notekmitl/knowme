@@ -1,6 +1,55 @@
 # Overall astrology from three traditions — V1 working branch
 
-## 2026-09-24 Owner-specified Hosted Preview reading QA
+## 2026-09-24 latest Draft PR #149 verification
+
+The post-crash implementation commit `bd17b475` and its documentation were
+pushed normally to the existing Draft branch with available credentials.
+The full Flutter suite initially failed six tests. One expected the old
+English Thai-evidence label; five were downstream of evidence merging in
+the shared BaZi adapter helper. Implementation `b5aa038` keeps merged facts
+for the Overall report and preserves the earlier single-fact behavior for
+other runtime consumers. The five affected test files passed **50/50**
+locally. [GitHub Actions run #35988691883](https://github.com/notekmitl/knowme/actions/runs/35988691883)
+completed **successfully**, including focused tests, analyzer, Web build,
+and the complete Flutter suite.
+
+A new release Web bundle from `b5aa038` was built with
+`KNOWME_OVERALL_PREVIEW=true`, Evidence Badge off, and only the isolated
+Backend URL `https://knowme-overall-pr149-preview-avbyttircq-as.a.run.app`.
+The hosted JS matches the local build byte-for-byte: 6,920,251 bytes,
+SHA-256 `2F01AEE4677D5F299F4A7F69FF8EA278B19D134A91426F6E3098E7391786FDF2`.
+It contains both calculate paths, zero Firestore/Auth API endpoint strings,
+and one Production API hostname occurrence solely in the negative Preview
+configuration guard. Hosting channel `pr-149-overall-safe` alone advanced
+to version `dd4c850da6e99a3c`, expiring `2026-10-01T10:45:43Z`; the `live`
+channel stayed on `d32e72678324e634`. The deploy used
+`--no-authorized-domains`. The old unsafe channel remains absent.
+
+The Owner-specified input was entered in two fresh 390×844 Chrome contexts
+without sign-in. The selector displayed the exact requested date, time,
+and province before the Overall action. Two earlier form attempts with an
+incorrect hour selection were rejected by this check and are excluded.
+The two accepted click-to-report timings were **4,388 ms** (first load)
+and **898 ms** (repeat). Their report text was identical. The page had
+390 px scroll width at 390 px viewport with readable cards and no clipping.
+There were **zero supported cross-tradition agreements**; the report
+explicitly said so, showed Thai as insufficient, and kept three distinct
+Chinese and three distinct Western observations separate. The six
+observations trace to actual response fields and existing source mappings;
+no duplicate joint point, invented third-lens support, or unsupported
+event/date/age claim appeared. This is source traceability, not independent
+validation of astrological truth or Owner wording acceptance.
+
+Each accepted run had **20 requests: 18 GET and exactly two POST** to
+`/v1/calculate-bazi` and `/v1/calculate-chart` on the isolated Backend;
+both returned 200. The POST bodies had no UID, name, profile, token, or
+Auth field. There were zero Auth, Firestore, Production API, or other
+mutating requests, zero blocked requests, and zero page/console errors.
+No account or saved result was created by this browser flow. Exact birth
+values are omitted from this document. PR #149 remains Draft pending
+Owner wording review; no merge or Production/Firestore change occurred.
+
+## Earlier Owner-specified Hosted Preview reading QA
 
 The Owner-specified known-time input was tested in a fresh 390×844 Chrome
 context with empty browser storage and no sign-in. The exact birth values and
