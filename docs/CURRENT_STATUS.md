@@ -1,12 +1,34 @@
-## Active draft — PR #149 evidence-led overall wording (2026-09-24)
+## Active follow-up — PR #149 Owner-specified Preview reading QA (2026-09-24)
+
+Draft PR #149 now contains the evidence-led wording commit `bd17b475` after a
+normal fast-forward push with existing credentials. The correct local checkout
+was clean after the earlier `git.exe` crash and had no Git lock files. The
+Owner-specified known-time input was tested on the safe Hosted Preview at
+390×844 without sign-in; no birth values are stored in this document. Two
+click-to-report timings were **814/878 ms**. This case had no supported
+cross-tradition agreement, so the report made no joint claim and instead showed
+three distinct Chinese and three distinct Western observations with source
+facts; Thai evidence was insufficient. No duplicate or invented joint point,
+event date, or age range was seen. The six lens observations matched live
+calculation fields and the mapped source facts.
+
+The browser recorded 18 GET plus only the two Preview Backend calculation POSTs
+(200/200); zero Auth, Firestore, Production API, or other write attempts, and
+zero page/console errors. The hosted JS SHA-256 is
+`E69C3D57A4DB379BED6668EC6359EE5027FFD7DF8AF0252396FD288FFBC2441F`.
+Its one Production hostname occurrence is a negative Preview URL guard, not an
+active API target. Preview expires `2026-10-01T09:45:43Z`. Production and
+Firestore were untouched. Owner wording review remains open; see
+`docs/THREE_TRADITION_OVERALL_V1.md`.
+
+## Earlier draft — PR #149 evidence-led overall wording (2026-09-24)
 
 Status: **WORDING/CONSENSUS REPAIR HOSTED ON PREVIEW; OWNER REVIEW PENDING;
 PR STAYS DRAFT**. The safe Hosting Preview at
 `https://knowme-app-694e1--pr-149-overall-safe-vbx6de6a.web.app/beta/thai`
 now serves the revised wording and uses the existing separate calculation-only
-Backend. The unsafe historical channel was already closed. The referenced
-report image was not attached in this turn, so its exact case remains
-unverified.
+Backend. The unsafe historical channel was already closed. The earlier
+report image was unavailable; the newly specified input was tested above.
 
 The report now carries source evidence through to the UI instead of repeating
 one generic theme sentence for Chinese and Western. It explains only supported
@@ -35,7 +57,8 @@ Firestore data/rules, or PR merge state was changed in this wording revision. Se
 
 A separate Preview-intended release bundle built from the rebased latest PR
 source points only to `knowme-overall-pr149-preview`, contains both calculation
-paths, and contains no Production API, loopback, or Firestore endpoint string.
+paths, and has no loopback or Firestore endpoint. The Production hostname is
+present only in the negative Preview URL guard.
 Its `main.dart.js` SHA-256 is
 `E69C3D57A4DB379BED6668EC6359EE5027FFD7DF8AF0252396FD288FFBC2441F`.
 It was deployed only to channel `pr-149-overall-safe`, expiring
@@ -45,9 +68,9 @@ local build. The `live` channel release time remained unchanged. Mobile Chrome
 The report showed four supported two-tradition points and separate observations
 for all three traditions, with no horizontal overflow. Network capture found
 exactly two calculation POSTs to Preview Backend (both 200), no Auth/Firestore
-request, and no Production API request. This is **not** a test of the missing
-image's exact case. Local commit is still pending GitHub push because the CLI
-credentials are unavailable; the hosted build is ahead of remote PR HEAD.
+request, and no Production API request. This earlier run did not cover the
+newly specified input, which was tested in the follow-up above. Commit
+`bd17b475` was pushed to the Draft branch with existing credentials.
 
 ## Earlier draft — PR #149 mobile Hosted Preview QA (2026-09-24)
 

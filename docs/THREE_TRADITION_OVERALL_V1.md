@@ -1,11 +1,55 @@
 # Overall astrology from three traditions — V1 working branch
 
+## 2026-09-24 Owner-specified Hosted Preview reading QA
+
+The Owner-specified known-time input was tested in a fresh 390×844 Chrome
+context with empty browser storage and no sign-in. The exact birth values and
+derived chart placements are intentionally omitted from repository files. The
+form preserved the requested input before the Overall action. Two accepted
+runs reached the report in **814/878 ms** from click to heading. The page had
+390 px scroll width at a 390 px viewport, and visual review found readable,
+distinct lens sections without clipping.
+
+This case produced **zero supported cross-tradition agreements**. The report
+said so explicitly, kept the Thai lens at an insufficient-evidence state, and
+showed three distinct Chinese plus three distinct Western observations only
+as lens-specific material. It did not repeat a generic Chinese/Western point,
+claim that the third lens agreed, or add an event/date/age prediction. The six
+displayed observations were checked against live calculation response fields
+and the source mapping: BaZi day master, dominant element, element balance,
+and secondary year-animal signal; Western Big Three and derived modality. The
+secondary animal signal was labelled as such. The Thai empty-evidence result
+was observed in the report and is not presented as an independent chart fact.
+
+The fresh-context trace contained **20 requests: 18 GET and exactly two POST**
+to `/v1/calculate-bazi` and `/v1/calculate-chart` on the isolated Preview
+Backend; both returned 200. The request bodies contained no UID, name,
+profile, token, or Auth field. No Auth, Firestore, Production API, or other
+mutating request was attempted; the protective browser route blocked zero
+requests. Page and console errors were zero. No account or saved result was
+created by this browser flow.
+
+The live Hosting Preview release is version `72ddb6960c4ab6da` (09:45:49Z),
+and hosted `main.dart.js` SHA-256 is
+`E69C3D57A4DB379BED6668EC6359EE5027FFD7DF8AF0252396FD288FFBC2441F`.
+The Production API hostname appears in the bundle only in an exact negative
+guard that rejects a misconfigured Preview Backend URL; the active API URL is
+the isolated Preview Backend. No Production API request was observed. The
+channel expires `2026-10-01T09:45:43Z`.
+
+After the `git.exe` crash, the correct local repo was found at the separate
+KnowMe task checkout. It had clean working files, no Git lock files, and
+`bd17b4753f9305823462ee4a1fdadf5f71b93a7b` exactly one commit ahead
+of remote `c570a83`. A normal, non-force push with existing credentials moved
+the Draft PR branch to `bd17b475`; Owner sign-in was not needed. Production
+and Firestore were not changed. Owner wording acceptance remains pending.
+
 ## 2026-09-24 evidence-led wording revision — Owner review pending
 
 The previously reported Hosted Preview wording (one common card, repeated
 Chinese and Western text) was not accepted. The safe Hosted Preview now serves
-the revised wording on the separate Backend. The referenced screenshot was not
-attached to this turn; its exact birth case has not been reproduced.
+the revised wording on the separate Backend. The referenced screenshot was unavailable in that earlier turn. The
+Owner-specified input was tested in the follow-up above.
 
 Root cause: `ThreeTraditionReportPage` previously received only agreements and
 rendered the same generic theme label for every participating lens, discarding
@@ -53,9 +97,9 @@ rate limiting, and Owner wording review remain open. Production/Firestore and
 PR Draft status were not changed.
 
 A second release build configured for the existing isolated Preview Backend
-succeeded from the rebased PR source. It contains both calculate paths and no
-Production API, loopback, or Firestore endpoint string; `main.dart.js` SHA-256
-is `E69C3D57A4DB379BED6668EC6359EE5027FFD7DF8AF0252396FD288FFBC2441F`.
+succeeded from the rebased PR source. It contains both calculate paths,
+no loopback or Firestore endpoint, and only a negative Production URL guard;
+`main.dart.js` SHA-256 is `E69C3D57A4DB379BED6668EC6359EE5027FFD7DF8AF0252396FD288FFBC2441F`.
 Only Hosting Preview channel `pr-149-overall-safe` was updated, with
 `--no-authorized-domains`; it expires `2026-10-01T09:45:43Z`. The hosted
 index/bootstrap cache pins and downloaded JS hash equal the local build. The
@@ -64,9 +108,8 @@ four supported two-tradition cards, distinct Chinese/Western evidence, and
 separate Thai/Chinese/Western observations; scroll width was 390 px. A repeat
 click-to-heading measurement was **2,147 ms**. Network capture after the click
 had exactly two POSTs to Preview Backend, both 200, and no Auth, Firestore, or
-Production API request. The screenshot's exact case remains untested. GitHub
-push is pending usable CLI credentials; remote PR HEAD does not yet include
-the code serving on Preview.
+Production API request. The earlier screenshot was unavailable; the Owner-specified input has
+now been tested above. The branch push succeeded with existing credentials.
 
 ## Earlier isolated Hosted Preview QA
 

@@ -1,4 +1,22 @@
-# Active handoff — PR #149 evidence-led wording (2026-09-24)
+# Active handoff — PR #149 Owner-specified Preview reading QA (2026-09-24)
+
+The correct KnowMe checkout held commit `bd17b475` one ahead of remote with a
+clean working tree and no Git locks after `git.exe` crashed. A standard push
+with existing credentials succeeded; the PR remains Draft. No reset, clean,
+force push, Production deployment, or Firestore change occurred.
+
+The Owner-specified known-time case reached the revised Hosted Preview report
+at 390×844 without sign-in in **814/878 ms** from click to heading. The report
+made **no cross-tradition agreement claim** because none met its evidence bar.
+It displayed separate, nonduplicated Chinese and Western observations tied to
+live engine facts; Thai was marked insufficient. No birth values or chart
+placements are recorded here. Network: two isolated Preview Backend calculate
+POSTs (200/200), no Auth/Firestore/Production API or other write attempt, no
+page or console error. The Production hostname in hosted JS is only an exact
+negative Preview URL guard. Owner wording acceptance is still pending. See
+`docs/THREE_TRADITION_OVERALL_V1.md` for the full audit.
+
+# Earlier handoff — PR #149 evidence-led wording (2026-09-24)
 
 The Draft branch now separates evidence-backed observations from true
 cross-tradition agreements. The Chinese and Western rows show their distinct
@@ -12,8 +30,8 @@ Local verification: Backend **54/54**, scoped Flutter regression **48/48**,
 focused mobile/report **14/14**, changed-file analysis **0 issues**, two
 synthetic birth sets through loopback-only Backend, and release Web build PASS.
 Local mobile selection-to-report measured **1,602 ms**. This is not a Hosted
-Preview acceptance result. The referenced image was not attached in this turn;
-do not claim its exact case was tested. Do not put any personal input in docs.
+Preview acceptance result. The earlier image was unavailable; the newly
+specified input was tested in the follow-up above. Do not put personal input in docs.
 
 The safe Hosted Preview uses the separate calculation-only Backend with no
 Firebase/Firestore dependency or save route. The revised wording was deployed
@@ -24,15 +42,15 @@ occurred in this wording repair; keep the PR Draft.
 
 The Preview-configured release build has SHA-256
 `E69C3D57A4DB379BED6668EC6359EE5027FFD7DF8AF0252396FD288FFBC2441F`;
-it contains the isolated Backend URL and neither Production API nor Firestore
-endpoint. Hosted index/bootstrap pins and JS hash match this build. The Preview
+it contains the isolated Backend URL and no Firestore endpoint. The
+Production hostname appears only in the negative Preview URL guard. Hosted index/bootstrap pins and JS hash match this build. The Preview
 expires `2026-10-01T09:45:43Z`; `live` release time stayed unchanged. Mobile
 Chrome 390×844 displayed distinct evidence and separate third-lens observations
 without horizontal overflow. Repeat click-to-heading took **2,147 ms**;
 network captured two Preview Backend calculate POSTs (200/200), zero Auth,
-Firestore, or Production API requests. The exact screenshot case remains
-untested because the image was not attached. Push to the Draft branch is still
-pending working GitHub CLI credentials; remote PR code is behind the Preview.
+Firestore, or Production API requests. This earlier run did not cover the
+newly specified input, which was tested above. The normal Draft branch push
+of `bd17b475` succeeded with existing credentials.
 
 # Earlier handoff — PR #149 mobile Hosted Preview QA (2026-09-24)
 
