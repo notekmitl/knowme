@@ -15,8 +15,8 @@ and contains no Production API or Firestore endpoint string.
 Fresh Chrome selector-to-report QA passed twice in **843/860 ms**, with exactly
 two calculation POSTs to the Preview Backend and no Auth/Firestore or other
 mutating request. Backend routes reject `uid`/`profile`, and the service
-account has zero project IAM roles. The latest PR commit `05a2af4` passed the
-complete Flutter suite and all workflow gates in
+account has zero project IAM roles. The isolated Preview implementation commit
+`05a2af4` passed the complete Flutter suite and all workflow gates in
 [run #35963786418](https://github.com/notekmitl/knowme/actions/runs/35963786418).
 
 Mobile Chrome **390×844** then passed the complete Hosted Preview birth-form,

@@ -8,8 +8,8 @@ this change. Historical branch validation passed in
 [GitHub Actions run #35824575799](https://github.com/notekmitl/knowme/actions/runs/35824575799)
 at commit `c33160d4bf01bd2f0a870d2c50925d700645f8b0`: focused tests,
 analyzer, release Web build, PDF dependencies, and the complete Flutter suite.
-The local Flutter SDK is available for this revision. The latest PR commit
-`05a2af4ab04ff988039131cde66040a200c022aa` also passed the focused tests,
+The local Flutter SDK is available for this revision. The isolated Preview
+implementation commit `05a2af4ab04ff988039131cde66040a200c022aa` also passed the focused tests,
 analyzer, release Web build, PDF dependency setup, and complete Flutter suite in
 [GitHub Actions run #35963786418](https://github.com/notekmitl/knowme/actions/runs/35963786418).
 No related test failure required a code change.

@@ -14,8 +14,9 @@ Fresh Chrome completed two synthetic selector-to-report runs in **843/860 ms**.
 Each called only the BaZi and Western calculation POSTs on the Preview Backend;
 network capture found no Auth/Firestore request, Production API request, other
 mutating request, or page error. The report showed three- and two-tradition
-agreements. The latest PR commit `05a2af4` passed the complete Flutter suite
-and all workflow gates in [run #35963786418](https://github.com/notekmitl/knowme/actions/runs/35963786418).
+agreements. The isolated Preview implementation commit `05a2af4` passed the
+complete Flutter suite and all workflow gates in
+[run #35963786418](https://github.com/notekmitl/knowme/actions/runs/35963786418).
 
 Fresh mobile Chrome at **390×844** completed the same Hosted Preview flow in
 **4,799 ms** on the first run and **795/793 ms** after old-channel closure. Report
