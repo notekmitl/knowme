@@ -1,8 +1,78 @@
 # Overall astrology from three traditions — V1 working branch
 
-Status (2026-09-24): **Draft PR #149 OPEN; isolated Backend and fresh Hosting
-Preview deployed; anonymous browser selection-to-report QA PASS; no Production
-deployment or merge**. The
+## 2026-09-24 evidence-led wording revision — Owner review pending
+
+The previously reported Hosted Preview wording (one common card, repeated
+Chinese and Western text) was not accepted. The safe Hosted Preview now serves
+the revised wording on the separate Backend. The referenced screenshot was not
+attached to this turn; its exact birth case has not been reproduced.
+
+Root cause: `ThreeTraditionReportPage` previously received only agreements and
+rendered the same generic theme label for every participating lens, discarding
+each adapter's evidence. The comparator also joined broad signal-family themes
+that did not always mean the same thing. The new reading model keeps ranked
+observations for each lens, renders distinct Thai evidence from Thai Mirror
+content titles, BaZi day master/element facts, and Western Sun/Moon/Rising
+facts, and shows nonmatching traditions separately. Exact theme matches are
+eligible only with nonempty evidence and confidence at least `0.6`. Only the
+explicitly reviewed `independent`/`leadership` pair may form a near-match;
+`supportive`, `loyal`, and `independent_connection` do not form one relationship
+agreement. Year-animal bridge signals below `0.6` remain visible as secondary
+Chinese observations but cannot establish a point of agreement. Western
+dominant element/modality is emitted only with a unique count of at least two
+among the Big Three. No date or event claim is added.
+
+Synthetic example for Owner copy review (not the missing screenshot case):
+
+> **ความมั่นคง — สอดคล้องกัน 2 ศาสตร์ (จีนและตะวันตก)**
+>
+> จีน: พบประเด็นการให้ความสำคัญกับความมั่นคงจากธาตุเด่นของดวงจีนเป็นดิน
+>
+> ตะวันตก: พบประเด็นการให้ความสำคัญกับความมั่นคงจากลัคนาอยู่ราศีพฤษภ
+>
+> ไทย: ไม่มีหลักฐานที่หนักพอให้นับร่วมในประเด็นนี้; แสดงข้อสังเกตไทยอื่นแยกด้านล่าง
+>
+> เวลาเลือกงานหรือแผนชีวิต ลองดูว่าความมั่นคงมีน้ำหนักเพียงใด
+
+This is a reflective reading grounded in two separate facts, not a prediction
+or a claim that Thai agrees. The old generic Chinese/Western duplicate is gone.
+
+Local Backend full suite **54/54 PASS**; Thai/Chinese/Western and overall
+Flutter regressions **48/48 PASS**; focused mobile/report tests **14/14 PASS**;
+changed-file analyzer **0 issues**. Two synthetic birth sets via loopback-only
+Backend produced **4** and **1** supported common topics; the second has only
+one supported common topic, so the UI adds evidence-backed lens observations
+instead of fabricating more agreements. Local mobile selection-to-report took
+**1,602 ms**. The local loopback release Web build (not deployable as-is) contains
+loopback API, both `/v1/calculate-*` paths, no Production API URL, SHA-256
+`E0DA2AB4509C9D966A24BD390DC9872585463450D4F142D7C3D070637BC504F1`.
+
+The already deployed calculation-only Preview Backend was not changed. The
+loopback Web build must not be deployed. Public endpoint abuse protection,
+rate limiting, and Owner wording review remain open. Production/Firestore and
+PR Draft status were not changed.
+
+A second release build configured for the existing isolated Preview Backend
+succeeded from the rebased PR source. It contains both calculate paths and no
+Production API, loopback, or Firestore endpoint string; `main.dart.js` SHA-256
+is `E69C3D57A4DB379BED6668EC6359EE5027FFD7DF8AF0252396FD288FFBC2441F`.
+Only Hosting Preview channel `pr-149-overall-safe` was updated, with
+`--no-authorized-domains`; it expires `2026-10-01T09:45:43Z`. The hosted
+index/bootstrap cache pins and downloaded JS hash equal the local build. The
+`live` Hosting release time did not change. Mobile Chrome at 390×844 showed
+four supported two-tradition cards, distinct Chinese/Western evidence, and
+separate Thai/Chinese/Western observations; scroll width was 390 px. A repeat
+click-to-heading measurement was **2,147 ms**. Network capture after the click
+had exactly two POSTs to Preview Backend, both 200, and no Auth, Firestore, or
+Production API request. The screenshot's exact case remains untested. GitHub
+push is pending usable CLI credentials; remote PR HEAD does not yet include
+the code serving on Preview.
+
+## Earlier isolated Hosted Preview QA
+
+Status (2026-09-24): **Draft PR #149 OPEN; isolated Backend and safe Hosting
+Preview deployed; earlier anonymous browser selector-to-report QA PASS; no
+Production deployment or merge**. The
 five previously affected Production documents were restored and verified before
 this change. Historical branch validation passed in
 [GitHub Actions run #35824575799](https://github.com/notekmitl/knowme/actions/runs/35824575799)
@@ -44,7 +114,7 @@ No related test failure required a code change.
 
 Owner wording review link:
 `https://knowme-app-694e1--pr-149-overall-safe-vbx6de6a.web.app/beta/thai`
-(expires `2026-10-01T06:06:12Z`).
+(previously scheduled to expire `2026-10-01T06:06:12Z` before this update).
 
 ## 2026-09-24 isolated hosted Preview QA
 
@@ -67,7 +137,7 @@ Owner wording review link:
   unrelated origin returned `400` without an allow-origin header.
 - Hosting Preview: new seven-day channel `pr-149-overall-safe` at
   `https://knowme-app-694e1--pr-149-overall-safe-vbx6de6a.web.app`, expiring
-  `2026-10-01T06:06:12Z`. It was built from this PR checkout with
+  `2026-10-01T06:06:12Z` before this update. It was built from this PR checkout with
   `KNOWME_OVERALL_PREVIEW=true`, the new Backend URL, and the Evidence Badge
   flag off. This build skips Firebase initialization and the landing page's
   participant-count Firestore read. The release bundle is 6,910,773 bytes,
@@ -116,16 +186,18 @@ save flow; their behavior was not changed in this repair.
 - Use the existing Thai Mirror, BaZi and Western natal theme adapters and their
   registered, nonempty engine evidence. No alteration to the three calculators,
   the readers, Firestore rules, Auth, or the legacy Fusion snapshot format.
-- Group one result per lens and theme. Show exact matching themes, or compatible
-  themes mapped to the same existing Fusion signal, only when at least two
-  *different* traditions support the result. A third compatible lens joins the
-  same card. Rank three-lens agreements before two-lens agreements.
+- Group one result per lens and theme. Show exact matching themes only when at
+  least two *different* traditions have nonempty evidence with confidence at
+  least `0.6`. The only reviewed near-match is `independent`/`leadership`,
+  described narrowly as self-direction. Rank three-lens agreements before
+  two-lens agreements; never promote an unrelated third lens.
 - Do not merge a growth-area warning into a positive signal (for example,
   `overthinking` with `analytical`). Do not assert dates or age ranges because
   the available natal outputs do not contain comparable timing evidence across
   all three systems. A zero-agreement chart has an explicit empty state.
-- Display the contributing traditions and their distinct meanings on each card.
-  The result is calculated in memory and is not written as a new user document.
+- Display each contributing tradition's distinct engine facts on its card and
+  the remaining traditions' observations in a clearly separate section. The
+  result is calculated in memory and is not written as a new user document.
 - Pass the actual submit instant to the Thai analysis runner, which converts it
   to Bangkok civil time once. The existing single-Thai choice now does the same;
   it avoids a second conversion on a device outside the Bangkok time zone.

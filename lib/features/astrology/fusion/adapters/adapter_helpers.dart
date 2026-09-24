@@ -35,9 +35,21 @@ abstract final class FusionAdapterHelpers {
     for (final output in outputs) {
       final key = '${output.lensId}|${output.themeId}';
       final existing = best[key];
-      if (existing == null || output.confidence > existing.confidence) {
+      if (existing == null) {
         best[key] = output;
+        continue;
       }
+      final strongest = output.confidence > existing.confidence
+          ? output
+          : existing;
+      best[key] = LensThemeOutput(
+        lensId: strongest.lensId,
+        themeId: strongest.themeId,
+        category: strongest.category,
+        family: strongest.family,
+        confidence: strongest.confidence,
+        evidence: List.unmodifiable({...existing.evidence, ...output.evidence}),
+      );
     }
 
     return best.values.toList();

@@ -40,10 +40,7 @@ abstract final class WesternRealAdapter {
       confidence: _risingConfidence,
     );
 
-    _addSummaryThemes(
-      outputs: outputs,
-      placements: _bigThreeSigns(chart),
-    );
+    _addSummaryThemes(outputs: outputs, placements: _bigThreeSigns(chart));
 
     return FusionAdapterHelpers.dedupeByTheme(outputs);
   }
@@ -155,7 +152,12 @@ abstract final class WesternRealAdapter {
         bestKey = entry.key;
       }
     }
-    return bestCount > 0 ? bestKey : null;
+    // A 1/1/1 split is not a dominant element or modality.
+    if (bestCount < 2 ||
+        counts.values.where((count) => count == bestCount).length != 1) {
+      return null;
+    }
+    return bestKey;
   }
 
   static String? _normalizeSign(dynamic raw) {

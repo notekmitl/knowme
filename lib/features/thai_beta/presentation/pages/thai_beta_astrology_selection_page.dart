@@ -165,7 +165,7 @@ class _ThaiBetaAstrologySelectionPageState
       if (!thai.isSuccess || mirror == null) {
         throw StateError('Missing Thai result');
       }
-      final agreements = ThreeTraditionConsensus.fromCharts(
+      final reading = ThreeTraditionConsensus.analyzeCharts(
         thai: mirror,
         bazi: bazi,
         western: western,
@@ -173,7 +173,7 @@ class _ThaiBetaAstrologySelectionPageState
       if (!mounted) return;
       await Navigator.of(context).push(
         MaterialPageRoute<void>(
-          builder: (_) => ThreeTraditionReportPage(agreements: agreements),
+          builder: (_) => ThreeTraditionReportPage(reading: reading),
         ),
       );
     } catch (error, stack) {

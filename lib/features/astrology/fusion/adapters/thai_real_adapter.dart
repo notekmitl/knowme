@@ -48,11 +48,7 @@ abstract final class ThaiRealAdapter {
     }
 
     for (final section in mirror.sections) {
-      _collectSectionEvidence(
-        section: section,
-        themeId: themeId,
-        add: add,
-      );
+      _collectSectionEvidence(section: section, themeId: themeId, add: add);
     }
 
     return evidence;
@@ -82,7 +78,9 @@ abstract final class ThaiRealAdapter {
   }
 
   static String _formatEvidence(ThaiMirrorEvidence row) {
-    return '${row.lensSource.labelEn}: ${row.contentKey}';
+    final title = row.contentTitle?.trim();
+    return '${row.lensSource.labelTh}: '
+        '${title == null || title.isEmpty ? row.contentKey : title}';
   }
 
   static double _confidenceValue(ThaiThemeConfidenceLevel level) {

@@ -1,34 +1,60 @@
-## Active draft — PR #149 mobile Hosted Preview QA (2026-09-24)
+## Active draft — PR #149 evidence-led overall wording (2026-09-24)
 
-Status: **PASS for anonymous hosted selection-to-report; PR remains Draft**.
-New Hosting Preview:
+Status: **WORDING/CONSENSUS REPAIR HOSTED ON PREVIEW; OWNER REVIEW PENDING;
+PR STAYS DRAFT**. The safe Hosting Preview at
 `https://knowme-app-694e1--pr-149-overall-safe-vbx6de6a.web.app/beta/thai`
-(expires `2026-10-01T06:06:12Z`). It points only to the separate Cloud Run
-Backend `knowme-overall-pr149-preview-00001-gfn`, running as a new service
-account with zero project IAM roles and no Firebase/Firestore dependencies or
-save routes. The hosted JS hash matches the checked bundle
-`6E5393809982E1D3BA4C177896FBCD78DF997DCFC87FFDB0969B9117AA3B9962`;
-Production API and Firestore endpoint strings are absent.
+now serves the revised wording and uses the existing separate calculation-only
+Backend. The unsafe historical channel was already closed. The referenced
+report image was not attached in this turn, so its exact case remains
+unverified.
 
-Fresh Chrome completed two synthetic selector-to-report runs in **843/860 ms**.
-Each called only the BaZi and Western calculation POSTs on the Preview Backend;
-network capture found no Auth/Firestore request, Production API request, other
-mutating request, or page error. The report showed three- and two-tradition
-agreements. The isolated Preview implementation commit `05a2af4` passed the
-complete Flutter suite and all workflow gates in
-[run #35963786418](https://github.com/notekmitl/knowme/actions/runs/35963786418).
+The report now carries source evidence through to the UI instead of repeating
+one generic theme sentence for Chinese and Western. It explains only supported
+common topics, names the two participating traditions when the third does not
+meet the evidence bar, and shows observations for all three traditions in a
+separate section. Broad signal-family matches no longer manufacture agreement;
+only the explicitly narrowed self-direction near-match remains. Year-animal
+bridge outputs below confidence `0.6` remain visible as secondary Chinese
+observations but cannot establish a common topic. Western 1/1/1 ties no longer
+claim a dominant element or modality. The Thai adapter displays traceable Thai
+content titles rather than internal keys where available.
 
-Fresh mobile Chrome at **390×844** completed the same Hosted Preview flow in
-**4,799 ms** on the first run and **795/793 ms** after old-channel closure. Report
-text and layout passed visual review: three- and two-tradition cards, source
-labels, age-range disclosure, and no horizontal overflow (390 px scroll width).
-Both calculation POSTs returned 200; there were zero Auth, Firestore,
-Production API, other write, page-error, or console-error events. Hosting
-channel `pr-149-overall-v1` was deleted; its URL returns 404, while the new
-Preview still returns 200 and passed the full mobile flow after deletion.
-No Production deploy, Firestore/Auth change, or merge occurred. Owner wording
-review and public rate limiting remain open. Details and evidence:
+The already deployed isolated Preview Backend was not changed. Its source
+includes only calculation routes, no Firebase/Firestore library or save route.
+Backend tests **54/54 PASS**; focused Thai/Chinese/Western/overall regressions
+**48/48 PASS**; mobile report copy tests **14/14 PASS**; changed-file analyzer
+**0 issues**. Two synthetic birth sets were calculated through a loopback-only
+Backend: **4** and **1** supported common topics, respectively. The mobile
+selection-to-report run completed in **1,602 ms** locally (not Hosted Preview
+timing). A release Web build succeeded with loopback API, both calculate paths,
+no Production API URL, and SHA-256
+`E0DA2AB4509C9D966A24BD390DC9872585463450D4F142D7C3D070637BC504F1`;
+that loopback build was **not deployed**. No Production service, Hosting,
+Firestore data/rules, or PR merge state was changed in this wording revision. See
 `docs/THREE_TRADITION_OVERALL_V1.md`.
+
+A separate Preview-intended release bundle built from the rebased latest PR
+source points only to `knowme-overall-pr149-preview`, contains both calculation
+paths, and contains no Production API, loopback, or Firestore endpoint string.
+Its `main.dart.js` SHA-256 is
+`E69C3D57A4DB379BED6668EC6359EE5027FFD7DF8AF0252396FD288FFBC2441F`.
+It was deployed only to channel `pr-149-overall-safe`, expiring
+`2026-10-01T09:45:43Z`. Hosted index/bootstrap pins and JS hash match the
+local build. The `live` channel release time remained unchanged. Mobile Chrome
+390×844 reached the revised report; repeat click-to-heading took **2,147 ms**.
+The report showed four supported two-tradition points and separate observations
+for all three traditions, with no horizontal overflow. Network capture found
+exactly two calculation POSTs to Preview Backend (both 200), no Auth/Firestore
+request, and no Production API request. This is **not** a test of the missing
+image's exact case. Local commit is still pending GitHub push because the CLI
+credentials are unavailable; the hosted build is ahead of remote PR HEAD.
+
+## Earlier draft — PR #149 mobile Hosted Preview QA (2026-09-24)
+
+The safe Preview URL above passed prior anonymous hosted selector-to-report QA
+at 390×844 in **4,799 ms** cold and **795/793 ms** warm. Network capture found
+only two calculation POSTs to the isolated Backend and no Auth/Firestore or
+Production API request. That acceptance did not cover this wording revision.
 
 ## Historical local repair — PR #149 (earlier 2026-09-24 checkpoint)
 

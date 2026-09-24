@@ -1,37 +1,48 @@
-# Active handoff — PR #149 mobile Hosted Preview QA (2026-09-24)
+# Active handoff — PR #149 evidence-led wording (2026-09-24)
 
-Draft PR #149 now has a separate calculation-only Backend Preview and a fresh
-Hosting Preview. Use
+The Draft branch now separates evidence-backed observations from true
+cross-tradition agreements. The Chinese and Western rows show their distinct
+engine facts in Thai; the third tradition is explicitly excluded from a
+two-lens point and its own observations remain visible below. The comparator
+does not equate broad Fusion signal families, and weak year-animal evidence
+cannot create agreement. Thai content titles and the Western dominant-tie
+guard are included. Owner wording review is still pending.
+
+Local verification: Backend **54/54**, scoped Flutter regression **48/48**,
+focused mobile/report **14/14**, changed-file analysis **0 issues**, two
+synthetic birth sets through loopback-only Backend, and release Web build PASS.
+Local mobile selection-to-report measured **1,602 ms**. This is not a Hosted
+Preview acceptance result. The referenced image was not attached in this turn;
+do not claim its exact case was tested. Do not put any personal input in docs.
+
+The safe Hosted Preview uses the separate calculation-only Backend with no
+Firebase/Firestore dependency or save route. The revised wording was deployed
+to `pr-149-overall-safe` only; the old unsafe channel remains closed. Do not
+deploy the local loopback Web bundle. CORS alone is not public API abuse
+protection. No Production Hosting/Backend, Firestore, Auth, or merge mutation
+occurred in this wording repair; keep the PR Draft.
+
+The Preview-configured release build has SHA-256
+`E69C3D57A4DB379BED6668EC6359EE5027FFD7DF8AF0252396FD288FFBC2441F`;
+it contains the isolated Backend URL and neither Production API nor Firestore
+endpoint. Hosted index/bootstrap pins and JS hash match this build. The Preview
+expires `2026-10-01T09:45:43Z`; `live` release time stayed unchanged. Mobile
+Chrome 390×844 displayed distinct evidence and separate third-lens observations
+without horizontal overflow. Repeat click-to-heading took **2,147 ms**;
+network captured two Preview Backend calculate POSTs (200/200), zero Auth,
+Firestore, or Production API requests. The exact screenshot case remains
+untested because the image was not attached. Push to the Draft branch is still
+pending working GitHub CLI credentials; remote PR code is behind the Preview.
+
+# Earlier handoff — PR #149 mobile Hosted Preview QA (2026-09-24)
+
+The safe Preview at
 `https://knowme-app-694e1--pr-149-overall-safe-vbx6de6a.web.app/beta/thai`
-until `2026-10-01T06:06:12Z`. The Backend is
-`https://knowme-overall-pr149-preview-avbyttircq-as.a.run.app`, revision
-`knowme-overall-pr149-preview-00001-gfn`, with an unprivileged dedicated
-service account. The build contains no Firebase/Firestore dependency or save
-route; the Preview browser build skips Firebase initialization. Its hosted
-bundle matches SHA-256
-`6E5393809982E1D3BA4C177896FBCD78DF997DCFC87FFDB0969B9117AA3B9962`
-and contains no Production API or Firestore endpoint string.
-
-Fresh Chrome selector-to-report QA passed twice in **843/860 ms**, with exactly
-two calculation POSTs to the Preview Backend and no Auth/Firestore or other
-mutating request. Backend routes reject `uid`/`profile`, and the service
-account has zero project IAM roles. The isolated Preview implementation commit
-`05a2af4` passed the complete Flutter suite and all workflow gates in
-[run #35963786418](https://github.com/notekmitl/knowme/actions/runs/35963786418).
-
-Mobile Chrome **390×844** then passed the complete Hosted Preview birth-form,
-selector, Overall report path. Click-to-report was **4,799 ms** first run and
-**795/793 ms** after old-channel deletion. Visual review found readable Thai cards,
-source labels, disclosure, and no horizontal overflow. The only mutating
-requests were two successful calculation POSTs to the Preview Backend; zero
-Auth/Firestore or Production API traffic, page errors, and console errors were
-captured. The old `pr-149-overall-v1` channel was deleted: old URL 404, new
-Preview 200 and full mobile flow still passes. Owner wording review link is
-`https://knowme-app-694e1--pr-149-overall-safe-vbx6de6a.web.app/beta/thai`.
-Production Backend remains on
-`knowme-astrology-api-00014-j2z`. Keep PR #149 Draft; do not merge or deploy
-Production. Owner wording review and rate limiting for wider public exposure
-remain open. See `docs/THREE_TRADITION_OVERALL_V1.md`.
+previously had expiry `2026-10-01T06:06:12Z` before this Preview update.
+Prior browser QA passed at 390×844 in
+**4,799 ms** cold and **795/793 ms** warm with only the two calculation POSTs,
+no Auth/Firestore or Production API traffic. This was before the wording fix.
+Production Backend remains `knowme-astrology-api-00014-j2z`.
 
 # Historical handoff — local anonymous repair (earlier 2026-09-24 checkpoint)
 
