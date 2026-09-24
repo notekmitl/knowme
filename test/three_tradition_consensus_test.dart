@@ -289,7 +289,10 @@ void main() {
       lensId: bazi, themeId: 'grounded', confidence: 0.7,
       evidence: ['Dominant Element: earth'],
     )!;
-    final merged = FusionAdapterHelpers.dedupeByTheme([strongest, supporting]);
+    final merged = FusionAdapterHelpers.dedupeByTheme(
+      [strongest, supporting],
+      mergeEvidence: true,
+    );
     expect(merged.single.confidence, 0.85);
     expect(merged.single.evidence,
         ['Day Master: yin earth', 'Dominant Element: earth']);

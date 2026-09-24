@@ -12,7 +12,10 @@ abstract final class BaziRealAdapter {
   static const double _elementBalanceConfidence = 0.7;
   static const int _balanceStrengthThreshold = 2;
 
-  static List<LensThemeOutput> adapt(BaziChartModel chart) {
+  static List<LensThemeOutput> adapt(
+    BaziChartModel chart, {
+    bool mergeEvidence = false,
+  }) {
     final outputs = <LensThemeOutput>[];
 
     _addDayMasterThemes(outputs, chart.dayMaster);
@@ -20,7 +23,10 @@ abstract final class BaziRealAdapter {
     _addBalanceThemes(outputs, chart.elementBalance);
     outputs.addAll(ZodiacBaziAdapterBridge.adapt(chart.yearAnimal));
 
-    return FusionAdapterHelpers.dedupeByTheme(outputs);
+    return FusionAdapterHelpers.dedupeByTheme(
+      outputs,
+      mergeEvidence: mergeEvidence,
+    );
   }
 
   static void _addDayMasterThemes(

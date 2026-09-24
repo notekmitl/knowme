@@ -12,7 +12,10 @@ abstract final class WesternRealAdapter {
   static const double _elementSummaryConfidence = 0.7;
   static const double _modalitySummaryConfidence = 0.65;
 
-  static List<LensThemeOutput> adapt(AstrologyChartModel chart) {
+  static List<LensThemeOutput> adapt(
+    AstrologyChartModel chart, {
+    bool mergeEvidence = false,
+  }) {
     final outputs = <LensThemeOutput>[];
 
     _addPlacementThemes(
@@ -42,7 +45,10 @@ abstract final class WesternRealAdapter {
 
     _addSummaryThemes(outputs: outputs, placements: _bigThreeSigns(chart));
 
-    return FusionAdapterHelpers.dedupeByTheme(outputs);
+    return FusionAdapterHelpers.dedupeByTheme(
+      outputs,
+      mergeEvidence: mergeEvidence,
+    );
   }
 
   static void _addPlacementThemes({

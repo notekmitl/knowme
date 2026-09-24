@@ -56,8 +56,8 @@ abstract final class ThreeTraditionConsensus {
     required AstrologyChartModel western,
   }) => analyzeOutputs([
     ...ThaiRealAdapter.adapt(thai),
-    ...BaziRealAdapter.adapt(bazi),
-    ...WesternRealAdapter.adapt(western),
+    ...BaziRealAdapter.adapt(bazi, mergeEvidence: true),
+    ...WesternRealAdapter.adapt(western, mergeEvidence: true),
   ]);
 
   static List<ThreeTraditionAgreement> fromOutputs(

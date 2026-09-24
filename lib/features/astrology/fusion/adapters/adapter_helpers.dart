@@ -29,12 +29,21 @@ abstract final class FusionAdapterHelpers {
     );
   }
 
-  static List<LensThemeOutput> dedupeByTheme(List<LensThemeOutput> outputs) {
+  static List<LensThemeOutput> dedupeByTheme(
+    List<LensThemeOutput> outputs, {
+    bool mergeEvidence = false,
+  }) {
     final best = <String, LensThemeOutput>{};
 
     for (final output in outputs) {
       final key = '${output.lensId}|${output.themeId}';
       final existing = best[key];
+      if (!mergeEvidence) {
+        if (existing == null || output.confidence > existing.confidence) {
+          best[key] = output;
+        }
+        continue;
+      }
       if (existing == null) {
         best[key] = output;
         continue;
