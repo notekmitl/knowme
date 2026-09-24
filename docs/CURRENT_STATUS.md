@@ -1,8 +1,7 @@
 ## Active draft — Overall astrology from three traditions (2026-09-23)
 
-Status: **CORS-ONLY BACKEND REVISION LIVE; PREVIEW QA PAUSED; FIVE PRODUCTION
-DOCUMENTS HAVE A VERIFIED RECOVERABLE PRE-WRITE SNAPSHOT; AUTHORIZED ATOMIC
-RESTORE WAS REJECTED BEFORE WRITE AND WAS NOT RETRIED**.
+Status: **CORS-ONLY BACKEND REVISION LIVE; FIVE PRODUCTION DOCUMENTS RESTORED
+ATOMICALLY FROM THE VERIFIED PRE-WRITE SNAPSHOT; PREVIEW QA REMAINS PAUSED**.
 
 Firebase Hosting Preview channel `pr-149-overall-v1` now serves the exact Web
 build made from application source `d56946d` at
@@ -44,16 +43,21 @@ repository with SHA-256
 No personal value or UID is recorded in repository documentation. Firestore
 PITR is disabled, managed backups are empty, and no backup schedule exists;
 the recoverable copy came from the standard one-hour version-retention window.
-The Owner-authorized restore attempt revalidated the snapshot SHA-256 plus all
-five current `updateTime` and canonical field hashes. It then submitted one
-five-write atomic commit with complete historical field maps, no `updateMask`,
-and `currentDocument.updateTime` on every write. Firestore rejected the request
-with `HTTP 400 INVALID_ARGUMENT` during JSON payload validation because nested
-historical map keys were serialized as repeated `??` keys. No `commitTime` or
-`writeResults` were returned, so the atomic commit applied `0/5` writes. The
-stop gate was honored: there was no retry and no further Firestore read. The
-post-write field/create-time verification therefore did not run. Preview QA
-remains paused, and any new restore method requires fresh Owner authorization.
+The Owner-authorized Unicode-safe recovery revalidated the snapshot SHA-256,
+parsed all `3,430` JSON keys with `80` non-ASCII keys and no literal `??`, found
+no duplicate key at any level, validated all Firestore value unions/types, and
+round-tripped both snapshot and request without changing content or types. The
+five outgoing field maps matched the before-write snapshot field-for-field.
+
+A fresh live guard matched current `updateTime` and canonical field hash for
+all five documents. One atomic commit then restored the five complete historical
+field maps with no `updateMask` and a `currentDocument.updateTime` precondition
+on every write. Commit time was `2026-09-24T03:37:55.719177Z`
+(`2026-09-24 10:37:55.719177 Asia/Bangkok`). The single post-commit read passed
+`5/5`: field maps and Firestore types equal the before-write snapshot,
+`createTime` is unchanged for every document, and each new `updateTime` equals
+the corresponding atomic write result. No other document was touched. Preview
+QA remains paused and was not resumed.
 
 On Draft PR #149 (`codex/three-tradition-overall-v1`), the post-birth selector now offers a
 three-tradition overall reading. Its source-backed theme comparison requires at
@@ -62,7 +66,7 @@ event timing. GitHub Actions now runs the focused tests, analyzer, release Web
 build and full Flutter suite with Bangkok timezone, Poppler and `pypdf`. A
 duplicate Bangkok conversion in the selected Thai path was corrected. Run #35824575799 passed the complete Flutter suite; authenticated chart QA and
 Owner wording acceptance remain open. The QA must use a separately verified
-account after the five-document restore is approved. Details:
+account if the Owner later authorizes Preview testing to resume. Details:
 `docs/THREE_TRADITION_OVERALL_V1.md`.
 PR #149 remains OPEN + DRAFT; no Ready, Production Hosting deploy, or merge.
 The temporary CORS entry must be removed in a follow-up Backend revision

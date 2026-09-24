@@ -1,7 +1,7 @@
 # Overall astrology from three traditions — V1 working branch
 
-Status: **Draft PR #149 OPEN; exact Preview-origin CORS revision live; Preview
-QA paused; authorized atomic restore rejected before write and not retried; not
+Status: **Draft PR #149 OPEN; exact Preview-origin CORS revision live; five
+Production documents restored atomically and verified; Preview QA paused; not
 released**. Branch validation passed in
 [GitHub Actions run #35824575799](https://github.com/notekmitl/knowme/actions/runs/35824575799)
 at commit `c33160d4bf01bd2f0a870d2c50925d700645f8b0`: focused tests,
@@ -107,24 +107,26 @@ No UID or profile value is stored in this repository. PITR is disabled, no
 managed backup exists, and no backup schedule exists; recovery used the
 standard one-hour version-retention window.
 
-The authorized restore attempt passed the snapshot SHA-256 check and matched
-all five live `updateTime` plus canonical field hashes against the saved current
-snapshot. It sent exactly one five-write atomic request with complete historical
-field maps, no `updateMask`, and `currentDocument.updateTime` on every write.
-Firestore rejected the request during JSON payload validation with `HTTP 400
-INVALID_ARGUMENT` because nested historical map keys were serialized as
-repeated `??` keys. There was no `commitTime` or `writeResults`; atomic outcome
-is `0/5` writes. The stop gate was honored: no retry and no later Firestore read.
-Post-write field/type/create-time verification did not run. The saved current
-and historical snapshots remain intact, and any Unicode-safe replacement
-method requires fresh Owner authorization.
+The Unicode-safe restore validated the original snapshot SHA-256, `3,430` JSON
+keys (`80` non-ASCII and no literal `??`), duplicate-key absence at every level,
+Firestore value unions/types, and lossless snapshot/request round-trip. Each of
+the five outgoing field maps matched its before-write source. A fresh live guard
+then matched current `updateTime` and canonical field hash `5/5`.
+
+One atomic commit restored all five complete historical field maps with no
+`updateMask` and a `currentDocument.updateTime` precondition per write. Commit
+time was `2026-09-24T03:37:55.719177Z` (`10:37:55.719177 Asia/Bangkok`). The
+single readback passed `5/5`: fields and Firestore types equal the before-write
+snapshot, all original `createTime` values are unchanged, and new `updateTime`
+values equal their atomic write results. No other document or Firebase resource
+was touched, and no personal value or UID is stored in this repository.
 
 Local feature-focused tests pass 14/14 for consensus, ordering, known/unknown
 time, sign-in cancellation, safe engine order, and mobile/desktop layouts.
 The additional date-aware file retains the known Windows local-time mismatch
 (three `+07:00` assertion failures); the pinned Ubuntu workflow above passes it
-and the complete suite. This Preview QA remains **PAUSED/INVALID** until a
-separately approved restore succeeds and a separate QA account is verified.
+and the complete suite. This Preview QA remains **PAUSED/INVALID** until the
+Owner separately authorizes testing with a verified QA account.
 
 Owner authorized the branch push and opening a Draft PR. GitHub branch
 `codex/three-tradition-overall-v1` and PR #149 exist. No Ready, merge, or
