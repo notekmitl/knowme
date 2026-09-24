@@ -1,4 +1,4 @@
-# Active handoff — PR #149 isolated hosted Preview QA (2026-09-24)
+# Active handoff — PR #149 mobile Hosted Preview QA (2026-09-24)
 
 Draft PR #149 now has a separate calculation-only Backend Preview and a fresh
 Hosting Preview. Use
@@ -15,7 +15,20 @@ and contains no Production API or Firestore endpoint string.
 Fresh Chrome selector-to-report QA passed twice in **843/860 ms**, with exactly
 two calculation POSTs to the Preview Backend and no Auth/Firestore or other
 mutating request. Backend routes reject `uid`/`profile`, and the service
-account has zero project IAM roles. Production Backend remains on
+account has zero project IAM roles. The latest PR commit `05a2af4` passed the
+complete Flutter suite and all workflow gates in
+[run #35963786418](https://github.com/notekmitl/knowme/actions/runs/35963786418).
+
+Mobile Chrome **390×844** then passed the complete Hosted Preview birth-form,
+selector, Overall report path. Click-to-report was **4,799 ms** first run and
+**795/793 ms** after old-channel deletion. Visual review found readable Thai cards,
+source labels, disclosure, and no horizontal overflow. The only mutating
+requests were two successful calculation POSTs to the Preview Backend; zero
+Auth/Firestore or Production API traffic, page errors, and console errors were
+captured. The old `pr-149-overall-v1` channel was deleted: old URL 404, new
+Preview 200 and full mobile flow still passes. Owner wording review link is
+`https://knowme-app-694e1--pr-149-overall-safe-vbx6de6a.web.app/beta/thai`.
+Production Backend remains on
 `knowme-astrology-api-00014-j2z`. Keep PR #149 Draft; do not merge or deploy
 Production. Owner wording review and rate limiting for wider public exposure
 remain open. See `docs/THREE_TRADITION_OVERALL_V1.md`.

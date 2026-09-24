@@ -1,4 +1,4 @@
-## Active draft — PR #149 isolated hosted Preview QA (2026-09-24)
+## Active draft — PR #149 mobile Hosted Preview QA (2026-09-24)
 
 Status: **PASS for anonymous hosted selection-to-report; PR remains Draft**.
 New Hosting Preview:
@@ -14,8 +14,19 @@ Fresh Chrome completed two synthetic selector-to-report runs in **843/860 ms**.
 Each called only the BaZi and Western calculation POSTs on the Preview Backend;
 network capture found no Auth/Firestore request, Production API request, other
 mutating request, or page error. The report showed three- and two-tradition
-agreements. No Production deploy, Firestore/Auth change, or merge occurred.
-Owner wording review and public rate limiting remain open. Details and evidence:
+agreements. The latest PR commit `05a2af4` passed the complete Flutter suite
+and all workflow gates in [run #35963786418](https://github.com/notekmitl/knowme/actions/runs/35963786418).
+
+Fresh mobile Chrome at **390×844** completed the same Hosted Preview flow in
+**4,799 ms** on the first run and **795/793 ms** after old-channel closure. Report
+text and layout passed visual review: three- and two-tradition cards, source
+labels, age-range disclosure, and no horizontal overflow (390 px scroll width).
+Both calculation POSTs returned 200; there were zero Auth, Firestore,
+Production API, other write, page-error, or console-error events. Hosting
+channel `pr-149-overall-v1` was deleted; its URL returns 404, while the new
+Preview still returns 200 and passed the full mobile flow after deletion.
+No Production deploy, Firestore/Auth change, or merge occurred. Owner wording
+review and public rate limiting remain open. Details and evidence:
 `docs/THREE_TRADITION_OVERALL_V1.md`.
 
 ## Historical local repair — PR #149 (earlier 2026-09-24 checkpoint)

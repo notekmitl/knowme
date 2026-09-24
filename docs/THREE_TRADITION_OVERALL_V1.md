@@ -8,7 +8,43 @@ this change. Historical branch validation passed in
 [GitHub Actions run #35824575799](https://github.com/notekmitl/knowme/actions/runs/35824575799)
 at commit `c33160d4bf01bd2f0a870d2c50925d700645f8b0`: focused tests,
 analyzer, release Web build, PDF dependencies, and the complete Flutter suite.
-The local Flutter SDK is available for this revision.
+The local Flutter SDK is available for this revision. The latest PR commit
+`05a2af4ab04ff988039131cde66040a200c022aa` also passed the focused tests,
+analyzer, release Web build, PDF dependency setup, and complete Flutter suite in
+[GitHub Actions run #35963786418](https://github.com/notekmitl/knowme/actions/runs/35963786418).
+No related test failure required a code change.
+
+## 2026-09-24 mobile Hosted Preview follow-up and old-channel closure
+
+- In a fresh mobile Chrome context at **390×844**, Bangkok timezone and no
+  saved session, the flow opened the new Hosted Preview, filled synthetic
+  known-time birth data, selected **ดูดวงรวม**, and reached the report. Click to
+  report heading took **4,799 ms** on the first run and **795/793 ms** on two
+  fresh-context runs after the old channel was closed. These are browser
+  measurements, including sequential Backend calculation requests; the first
+  run may include a Cloud Run cold start.
+- The selector showed all four choices in order (Thai, Chinese, Western,
+  Overall) and the correct birth summary. Visual review of the report at the
+  top and bottom found readable Thai text, three- and two-tradition cards,
+  source labels, and the no-age-range disclosure. No text was clipped or
+  overlapped. Both document and body scroll width were **390 px** at a 390 px
+  viewport. Owner wording acceptance is still pending.
+- Each accepted mobile run made exactly two POSTs, `/v1/calculate-bazi` and
+  `/v1/calculate-chart`, to the separate Backend Preview. Both returned
+  **HTTP 200**. Captured requests contained **zero** Firebase Auth, Firestore,
+  Production API, or other mutating requests; page and console errors were
+  zero. Screenshots, the latest full request list, and the validation summary are in ignored
+  `.preview-qa/mobile-390x844/`; the repeatable check is
+  `tool/pr149_preview_mobile_flow.cjs`.
+- Deleted only Hosting channel `pr-149-overall-v1` after confirming it was the
+  historical Production-API bundle. A fresh channel listing contains
+  `pr-149-overall-safe` and `live`, with the old channel absent. The old URL
+  now returns **HTTP 404**; the new `/beta/thai` returns **HTTP 200** and passed
+  the full mobile selector-to-report flow again after deletion.
+
+Owner wording review link:
+`https://knowme-app-694e1--pr-149-overall-safe-vbx6de6a.web.app/beta/thai`
+(expires `2026-10-01T06:06:12Z`).
 
 ## 2026-09-24 isolated hosted Preview QA
 
@@ -59,10 +95,9 @@ The local Flutter SDK is available for this revision.
   not deployed or changed. PR #149 stays Draft.
 
 This is a time-limited public QA service. Before wider exposure, add a rate
-limit and abuse controls. The old `pr-149-overall-v1` channel still serves the
-historical Production-API bundle and must not be used for this QA. The exact
-temporary CORS origin on the Production Backend also remains for a separate
-reviewed removal revision.
+limit and abuse controls. The old `pr-149-overall-v1` channel was deleted on
+2026-09-24. The exact temporary CORS origin on the Production Backend remains
+for a separate reviewed removal revision.
 
 ## Reader path
 
@@ -166,10 +201,11 @@ combined Thai wording remains open.
 
 ## Historical Hosting Preview verification (invalid QA)
 
-The seven-day Preview channel `pr-149-overall-v1` serves
-`https://knowme-app-694e1--pr-149-overall-v1-nr8oa6e0.web.app` until
-`2026-09-30T07:23:50Z`. Its release Web build is from application source
-`d56946d`, uses the configured Production Cloud Run API, passed the official
+The former seven-day Preview channel `pr-149-overall-v1` served
+`https://knowme-app-694e1--pr-149-overall-v1-nr8oa6e0.web.app`; it was
+deleted on 2026-09-24 and now returns HTTP 404. Its release Web build was from
+application source `d56946d`, used the configured Production Cloud Run API,
+passed the official
 bundle validator and four explicit localhost/loopback guards, and has cache pin
 `d56946d`. `main.dart.js` is 8,557,552 bytes with SHA-256
 `8479C6E1A9112F20914280D5834C9001308F0116545BBCEC366FF3638437AFBA`.
@@ -228,6 +264,6 @@ the repaired anonymous flow later passed on the separate Preview above.
 Owner authorized the branch push and opening a Draft PR. GitHub branch
 `codex/three-tradition-overall-v1` and PR #149 exist. No Ready, merge, or
 Production Hosting deploy has been performed. The isolated hosted QA path is
-ready; remove the exact temporary Preview origin in a separately reviewed
-Backend revision, rerun the CORS matrix, and close the old Preview channel or
-let it expire.
+ready and the old Preview channel is closed. Remove the exact temporary
+Preview origin in a separately reviewed Production Backend revision and rerun
+the CORS matrix when that change is authorized.
