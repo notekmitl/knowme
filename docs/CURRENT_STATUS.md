@@ -1,4 +1,24 @@
-## Active draft — PR #149 anonymous overall repair (2026-09-24)
+## Active draft — PR #149 isolated hosted Preview QA (2026-09-24)
+
+Status: **PASS for anonymous hosted selection-to-report; PR remains Draft**.
+New Hosting Preview:
+`https://knowme-app-694e1--pr-149-overall-safe-vbx6de6a.web.app/beta/thai`
+(expires `2026-10-01T06:06:12Z`). It points only to the separate Cloud Run
+Backend `knowme-overall-pr149-preview-00001-gfn`, running as a new service
+account with zero project IAM roles and no Firebase/Firestore dependencies or
+save routes. The hosted JS hash matches the checked bundle
+`6E5393809982E1D3BA4C177896FBCD78DF997DCFC87FFDB0969B9117AA3B9962`;
+Production API and Firestore endpoint strings are absent.
+
+Fresh Chrome completed two synthetic selector-to-report runs in **843/860 ms**.
+Each called only the BaZi and Western calculation POSTs on the Preview Backend;
+network capture found no Auth/Firestore request, Production API request, other
+mutating request, or page error. The report showed three- and two-tradition
+agreements. No Production deploy, Firestore/Auth change, or merge occurred.
+Owner wording review and public rate limiting remain open. Details and evidence:
+`docs/THREE_TRADITION_OVERALL_V1.md`.
+
+## Historical local repair — PR #149 (earlier 2026-09-24 checkpoint)
 
 Status: **LOCAL REPAIR AND ISOLATED TESTS PASS; HOSTED PREVIEW NOT UPDATED;
 PR REMAINS DRAFT**. Preview QA was stopped. The root cause was the Overall
@@ -19,7 +39,7 @@ ran with lifespan off, so Firebase Admin/Firestore was not initialized. An
 isolated Web release build passed and uses the loopback API rather than the
 Production API.
 
-The existing Hosted Preview is the **old authenticated build** with the
+At this earlier checkpoint, the existing Hosted Preview was the **old authenticated build** with the
 Production API. A fresh read-only bundle hash matches its recorded old SHA-256,
 and the new `/v1/calculate-*` paths are absent. It is not evidence for the
 repaired flow. A new Hosting Preview and separate Backend environment will be

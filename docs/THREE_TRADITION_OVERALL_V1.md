@@ -1,14 +1,68 @@
 # Overall astrology from three traditions — V1 working branch
 
-Status (2026-09-24): **Draft PR #149 OPEN; anonymous overall calculation fixed
-locally and tested against a local API without Firebase/Firestore; Hosted Preview
-still runs the older authenticated build; no new deployment or release**. The
+Status (2026-09-24): **Draft PR #149 OPEN; isolated Backend and fresh Hosting
+Preview deployed; anonymous browser selection-to-report QA PASS; no Production
+deployment or merge**. The
 five previously affected Production documents were restored and verified before
 this change. Historical branch validation passed in
 [GitHub Actions run #35824575799](https://github.com/notekmitl/knowme/actions/runs/35824575799)
 at commit `c33160d4bf01bd2f0a870d2c50925d700645f8b0`: focused tests,
 analyzer, release Web build, PDF dependencies, and the complete Flutter suite.
 The local Flutter SDK is available for this revision.
+
+## 2026-09-24 isolated hosted Preview QA
+
+- Backend: new Cloud Run service `knowme-overall-pr149-preview`, revision
+  `knowme-overall-pr149-preview-00001-gfn`, at
+  `https://knowme-overall-pr149-preview-avbyttircq-as.a.run.app`. Its runtime
+  identity is the new
+  `knowme-pr149-overall-preview@knowme-app-694e1.iam.gserviceaccount.com`.
+  Project IAM inspection found **zero role bindings** for that identity and no
+  parent organization/folder. It has no Production Firestore permission. Its
+  staged source and container include only the calculation app and BaZi/Western
+  engines, with no Firebase/Firestore library, save module, Firebase Auth
+  initialization, or saved-chart route. Cloud Build
+  `7827ecc3-97e1-43b3-be4f-bc6571ebb54e` passed the import and route gate.
+  The service has `min-instances=0`, `max-instances=2`, and a 60-second timeout.
+- Backend live checks with synthetic birth data: both anonymous calculation
+  POSTs returned `200`, with no `saved_paths`; `/v1/generate-bazi` returned
+  `404`; `uid` and `profile` on calculation requests returned `422`. CORS
+  accepted only the new Hosting Preview origin; Production Hosting and an
+  unrelated origin returned `400` without an allow-origin header.
+- Hosting Preview: new seven-day channel `pr-149-overall-safe` at
+  `https://knowme-app-694e1--pr-149-overall-safe-vbx6de6a.web.app`, expiring
+  `2026-10-01T06:06:12Z`. It was built from this PR checkout with
+  `KNOWME_OVERALL_PREVIEW=true`, the new Backend URL, and the Evidence Badge
+  flag off. This build skips Firebase initialization and the landing page's
+  participant-count Firestore read. The release bundle is 6,910,773 bytes,
+  SHA-256
+  `6E5393809982E1D3BA4C177896FBCD78DF997DCFC87FFDB0969B9117AA3B9962`;
+  the downloaded hosted bundle matched that hash exactly. It contains the
+  Preview Backend URL and both `/v1/calculate-*` paths, but no Production API
+  URL, loopback API URL, or `firestore.googleapis.com` string. Entrypoint cache
+  pin: `6e5393809982`.
+- Fresh headless Chrome context (1280×800, Bangkok timezone, no saved session)
+  opened `/beta/thai`, entered synthetic known-time data, reached the selector,
+  clicked **ดูดวงรวม**, and displayed the combined report in **843 ms** and
+  **860 ms** on two runs. The report included both three-tradition and
+  two-tradition agreements. Network capture saw exactly two calculation POSTs
+  to the Preview Backend and zero Auth, Firestore, Production API, or other
+  mutating requests; page errors were zero. Local screenshots and the network
+  record are in ignored `.preview-qa/`; the repeatable browser check is
+  `tool/pr149_preview_flow.cjs`. No Firebase Auth account or Firestore document
+  was created for this QA.
+- The first Preview build briefly made a Firestore **read** for the landing
+  participant count. It made no write, but was replaced immediately. The final
+  hosted bundle and both accepted Chrome runs have zero Auth/Firestore traffic.
+  Production Cloud Run remains on `knowme-astrology-api-00014-j2z`; Production
+  Hosting, Firestore rules/data, Auth configuration, Functions, and Storage were
+  not deployed or changed. PR #149 stays Draft.
+
+This is a time-limited public QA service. Before wider exposure, add a rate
+limit and abuse controls. The old `pr-149-overall-v1` channel still serves the
+historical Production-API bundle and must not be used for this QA. The exact
+temporary CORS origin on the Production Backend also remains for a separate
+reviewed removal revision.
 
 ## Reader path
 
@@ -78,15 +132,14 @@ widget/runtime test, not a live Chrome or Hosted Preview timing measurement.
 An isolated release Web build succeeded; its bundle contains the loopback API
 URL and both calculation paths, and does not contain the Production API URL.
 
-The current Hosted Preview still serves its older authenticated bundle and
+Before this follow-up, the old Hosted Preview served its authenticated bundle and
 Production API. A read-only download on 2026-09-24 matched the old bundle
 SHA-256
 `8479C6E1A9112F20914280D5834C9001308F0116545BBCEC366FF3638437AFBA`:
 it contains the Production API and `/v1/generate-*` paths but neither
 `/v1/calculate-*` path. It does **not** contain this repair and must not be
-used to claim anonymous Overall QA. A new Preview build plus an isolated Backend with
-the calculation routes are required for hosted end-to-end QA. Neither has been
-deployed in this repair. The temporary exact Preview CORS entry remains live on
+used to claim anonymous Overall QA. The new isolated Preview described above
+supersedes this historical blocker. The temporary exact Preview CORS entry remains live on
 the Production Backend and still needs a separately reviewed removal revision.
 
 Focused tests cover three matching lenses, exact plus similar themes, source
@@ -108,9 +161,10 @@ includes both PDF dependencies and Bangkok time. Run #35824575799
 completed successfully with all tests passing.
 
 The historical validation described here preceded the anonymous repair.
-Hosted browser QA and Owner review of the combined Thai wording remain open.
+The isolated hosted browser QA passed as recorded above. Owner review of the
+combined Thai wording remains open.
 
-## Live Hosting Preview verification
+## Historical Hosting Preview verification (invalid QA)
 
 The seven-day Preview channel `pr-149-overall-v1` serves
 `https://knowme-app-694e1--pr-149-overall-v1-nr8oa6e0.web.app` until
@@ -169,11 +223,11 @@ time, sign-in cancellation, safe engine order, and mobile/desktop layouts.
 The additional date-aware file retains the known Windows local-time mismatch
 (three `+07:00` assertion failures); the pinned Ubuntu workflow above passes it
 and the complete suite. This historical Preview QA remains **PAUSED/INVALID**;
-the repaired anonymous flow has only been exercised locally.
+the repaired anonymous flow later passed on the separate Preview above.
 
 Owner authorized the branch push and opening a Draft PR. GitHub branch
 `codex/three-tradition-overall-v1` and PR #149 exist. No Ready, merge, or
-Production Hosting deploy has been performed. After an isolated hosted QA path
-is ready, remove the exact temporary Preview origin in a separately reviewed
+Production Hosting deploy has been performed. The isolated hosted QA path is
+ready; remove the exact temporary Preview origin in a separately reviewed
 Backend revision, rerun the CORS matrix, and close the old Preview channel or
 let it expire.

@@ -1,4 +1,26 @@
-# Active handoff — PR #149 anonymous overall repair (2026-09-24)
+# Active handoff — PR #149 isolated hosted Preview QA (2026-09-24)
+
+Draft PR #149 now has a separate calculation-only Backend Preview and a fresh
+Hosting Preview. Use
+`https://knowme-app-694e1--pr-149-overall-safe-vbx6de6a.web.app/beta/thai`
+until `2026-10-01T06:06:12Z`. The Backend is
+`https://knowme-overall-pr149-preview-avbyttircq-as.a.run.app`, revision
+`knowme-overall-pr149-preview-00001-gfn`, with an unprivileged dedicated
+service account. The build contains no Firebase/Firestore dependency or save
+route; the Preview browser build skips Firebase initialization. Its hosted
+bundle matches SHA-256
+`6E5393809982E1D3BA4C177896FBCD78DF997DCFC87FFDB0969B9117AA3B9962`
+and contains no Production API or Firestore endpoint string.
+
+Fresh Chrome selector-to-report QA passed twice in **843/860 ms**, with exactly
+two calculation POSTs to the Preview Backend and no Auth/Firestore or other
+mutating request. Backend routes reject `uid`/`profile`, and the service
+account has zero project IAM roles. Production Backend remains on
+`knowme-astrology-api-00014-j2z`. Keep PR #149 Draft; do not merge or deploy
+Production. Owner wording review and rate limiting for wider public exposure
+remain open. See `docs/THREE_TRADITION_OVERALL_V1.md`.
+
+# Historical handoff — local anonymous repair (earlier 2026-09-24 checkpoint)
 
 The Draft branch now has a local repair for the root cause of the earlier
 Production Firestore overwrite. Overall no longer calls Firebase Auth or the
@@ -14,7 +36,7 @@ API passed in **1,608 ms**, with both calculation POSTs returning 200. That
 Backend ran without Firebase/Firestore startup. The isolated Web release build
 passes and contains the loopback API, not the Production API.
 
-The currently published Hosting Preview remains on the older authenticated
+At this earlier checkpoint, the published Hosting Preview remained on the older authenticated
 bundle and Production API; a read-only download confirmed its recorded old
 SHA-256 and absence of the new calculation paths. It is not a QA result for
 this repair. Do not resume
