@@ -1,4 +1,33 @@
-# Active handoff — Three-tradition overall astrology (2026-09-23)
+# Active handoff — PR #149 anonymous overall repair (2026-09-24)
+
+The Draft branch now has a local repair for the root cause of the earlier
+Production Firestore overwrite. Overall no longer calls Firebase Auth or the
+signed-in save endpoints. It uses calculation-only BaZi and Western routes and
+the unchanged local Thai engine. No UID, token, name, or profile is transmitted
+by the Overall action; the Backend rejects `uid` and `profile` on those routes.
+The authenticated single-system routes remain available and protected.
+
+Verification: Backend **54/54 PASS**; focused Flutter feature and
+Thai/BaZi/Western regression **42/42 PASS**; scoped analyzer **0
+issues**. A synthetic 390×844 selection-to-report test against local loopback
+API passed in **1,608 ms**, with both calculation POSTs returning 200. That
+Backend ran without Firebase/Firestore startup. The isolated Web release build
+passes and contains the loopback API, not the Production API.
+
+The currently published Hosting Preview remains on the older authenticated
+bundle and Production API; a read-only download confirmed its recorded old
+SHA-256 and absence of the new calculation paths. It is not a QA result for
+this repair. Do not resume
+testing against it. Hosted validation needs a fresh Preview plus an isolated
+Backend for the new routes. Public calculation endpoint rate limiting and abuse
+protection need review before exposure. The exact temporary Preview CORS entry
+on Production Backend remains for a separate removal revision. Keep PR #149
+Draft; do not merge or deploy Production Hosting/Backend. The five historical
+Production documents were restored before this repair; this work made no
+Production Firestore writes or rule changes. Technical detail is in
+`docs/THREE_TRADITION_OVERALL_V1.md`.
+
+# Historical handoff — Three-tradition overall astrology (2026-09-23)
 
 Status: **The five authorized Production documents were restored atomically and
 verified `5/5`; Preview QA remains paused and must not resume without new Owner

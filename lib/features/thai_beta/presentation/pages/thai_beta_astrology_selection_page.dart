@@ -32,6 +32,11 @@ typedef ThaiBetaAstrologySystemPreparer =
       ThaiBetaInput input,
       ThaiBetaAstrologySystem system,
     );
+typedef ThaiBetaOverallSystemPreparer =
+    Future<ThaiBetaPreparedAstrology> Function(
+      ThaiBetaInput input,
+      ThaiBetaAstrologySystem system,
+    );
 typedef ThaiBetaAstrologyDestinationBuilder =
     Widget Function(
       BuildContext context,
@@ -51,6 +56,7 @@ class ThaiBetaAstrologySelectionPage extends StatefulWidget {
     required this.analysisExecutor,
     this.resolveUser = _resolveAuthenticatedUser,
     this.prepareSystem = _prepareSelectedSystem,
+    this.prepareOverallSystem = _prepareOverallSystem,
     this.destinationBuilder = _buildDestination,
   });
 
@@ -60,6 +66,7 @@ class ThaiBetaAstrologySelectionPage extends StatefulWidget {
   final ThaiBetaSelectionAnalysisExecutor analysisExecutor;
   final ThaiBetaAstrologyUserResolver resolveUser;
   final ThaiBetaAstrologySystemPreparer prepareSystem;
+  final ThaiBetaOverallSystemPreparer prepareOverallSystem;
   final ThaiBetaAstrologyDestinationBuilder destinationBuilder;
 
   @override
@@ -139,16 +146,14 @@ class _ThaiBetaAstrologySelectionPageState
     if (_busySystem != null || _overallBusy || !_westernReady) return;
     setState(() => _overallBusy = true);
     try {
-      final uid = await widget.resolveUser(context);
-      if (!mounted || uid == null || uid.trim().isEmpty) return;
-      // These authenticated writes must be sequential: each stores the same
-      // profile and invalidates the earlier legacy Fusion snapshot.
-      final bazi = (await widget.prepareSystem(
-        uid, widget.input, ThaiBetaAstrologySystem.bazi,
+      final bazi = (await widget.prepareOverallSystem(
+        widget.input,
+        ThaiBetaAstrologySystem.bazi,
       )).baziChart;
       if (bazi == null) throw StateError('Missing BaZi result');
-      final western = (await widget.prepareSystem(
-        uid, widget.input, ThaiBetaAstrologySystem.western,
+      final western = (await widget.prepareOverallSystem(
+        widget.input,
+        ThaiBetaAstrologySystem.western,
       )).westernChart;
       if (western == null) throw StateError('Missing Western result');
       final thai = await widget.analysisExecutor(
@@ -161,19 +166,23 @@ class _ThaiBetaAstrologySelectionPageState
         throw StateError('Missing Thai result');
       }
       final agreements = ThreeTraditionConsensus.fromCharts(
-        thai: mirror, bazi: bazi, western: western,
+        thai: mirror,
+        bazi: bazi,
+        western: western,
       );
       if (!mounted) return;
-      await Navigator.of(context).push(MaterialPageRoute<void>(
-        builder: (_) => ThreeTraditionReportPage(agreements: agreements),
-      ));
+      await Navigator.of(context).push(
+        MaterialPageRoute<void>(
+          builder: (_) => ThreeTraditionReportPage(agreements: agreements),
+        ),
+      );
     } catch (error, stack) {
       debugPrint('[ThreeTraditionConsensus] failed: $error');
       debugPrint('[ThreeTraditionConsensus] $stack');
       if (!mounted) return;
-      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-        content: Text('สร้างดวงรวมไม่สำเร็จ กรุณาลองอีกครั้ง'),
-      ));
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('สร้างดวงรวมไม่สำเร็จ กรุณาลองอีกครั้ง')),
+      );
     } finally {
       if (mounted) setState(() => _overallBusy = false);
     }
@@ -266,7 +275,8 @@ class _ThaiBetaAstrologySelectionPageState
                   buttonKey: const Key('astrology-select-western'),
                   buttonLabel: 'ดูโหราตะวันตก',
                   busy: _busySystem == ThaiBetaAstrologySystem.western,
-                  enabled: _busySystem == null && !_overallBusy && _westernReady,
+                  enabled:
+                      _busySystem == null && !_overallBusy && _westernReady,
                   onPressed: () => _select(ThaiBetaAstrologySystem.western),
                 ),
                 const SizedBox(height: 14),
@@ -280,12 +290,13 @@ class _ThaiBetaAstrologySelectionPageState
                   buttonKey: const Key('astrology-select-overall'),
                   buttonLabel: 'ดูดวงรวม',
                   busy: _overallBusy,
-                  enabled: _busySystem == null && !_overallBusy && _westernReady,
+                  enabled:
+                      _busySystem == null && !_overallBusy && _westernReady,
                   onPressed: _selectOverall,
                 ),
                 const SizedBox(height: 18),
                 Text(
-                  'โหราจีน โหราตะวันตก และดวงรวมจะให้เข้าสู่ระบบก่อน เพื่อผูกผลคำนวณกับเจ้าของข้อมูลและป้องกันการเขียนผลข้ามบัญชี',
+                  'ดวงรวมคำนวณจากข้อมูลเกิดโดยไม่ต้องเข้าสู่ระบบและไม่บันทึกผล ส่วนดวงจีนและตะวันตกแบบเดี่ยวต้องเข้าสู่ระบบเพื่อบันทึกผลในบัญชี',
                   style: theme.textTheme.bodySmall?.copyWith(
                     color: scheme.onSurfaceVariant,
                     height: 1.45,
@@ -408,6 +419,22 @@ Future<ThaiBetaPreparedAstrology> _prepareSelectedSystem(
       ThaiBetaAstrologySystem.western => 'western',
       ThaiBetaAstrologySystem.thai => throw StateError(
         'Thai analysis does not use the signed-in handoff',
+      ),
+    },
+  );
+}
+
+Future<ThaiBetaPreparedAstrology> _prepareOverallSystem(
+  ThaiBetaInput input,
+  ThaiBetaAstrologySystem system,
+) {
+  return ThaiBetaAstrologyHandoff().prepareAnonymous(
+    input: input,
+    systemId: switch (system) {
+      ThaiBetaAstrologySystem.bazi => 'bazi',
+      ThaiBetaAstrologySystem.western => 'western',
+      ThaiBetaAstrologySystem.thai => throw StateError(
+        'Thai analysis runs locally',
       ),
     },
   );

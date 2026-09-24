@@ -20,6 +20,36 @@ typedef BaziPostJson =
     });
 
 class BaziApiService {
+  static Future<BaziChartModel> calculateBazi({
+    required String birthDate,
+    required String? birthTime,
+    required String timezone,
+    String? gender,
+    double? latitude,
+    double? longitude,
+    BaziPostJson? postJson,
+  }) async {
+    final body = <String, dynamic>{
+      'birth_date': birthDate,
+      'birth_time': birthTime,
+      'timezone': timezone,
+      'gender': gender?.trim().isEmpty == true ? null : gender?.trim(),
+    };
+    if (latitude != null) body['latitude'] = latitude;
+    if (longitude != null) body['longitude'] = longitude;
+    final response = await (postJson ?? _postJson)(
+      endpoint: ApiConfig.baziCalculateUri(),
+      body: body,
+      failureLabel: 'Failed to calculate BaZi chart',
+      headers: const {},
+    );
+    final rawChart = response['chart'];
+    if (rawChart is! Map) {
+      throw const FormatException('BaZi API response is missing chart data');
+    }
+    return BaziChartModel.fromMap(Map<String, dynamic>.from(rawChart));
+  }
+
   static Future<BaziChartModel> generateBazi({
     required String uid,
     required String birthDate,

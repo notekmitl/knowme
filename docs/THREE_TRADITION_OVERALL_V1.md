@@ -1,21 +1,26 @@
 # Overall astrology from three traditions — V1 working branch
 
-Status: **Draft PR #149 OPEN; exact Preview-origin CORS revision live; five
-Production documents restored atomically and verified; Preview QA paused; not
-released**. Branch validation passed in
+Status (2026-09-24): **Draft PR #149 OPEN; anonymous overall calculation fixed
+locally and tested against a local API without Firebase/Firestore; Hosted Preview
+still runs the older authenticated build; no new deployment or release**. The
+five previously affected Production documents were restored and verified before
+this change. Historical branch validation passed in
 [GitHub Actions run #35824575799](https://github.com/notekmitl/knowme/actions/runs/35824575799)
 at commit `c33160d4bf01bd2f0a870d2c50925d700645f8b0`: focused tests,
 analyzer, release Web build, PDF dependencies, and the complete Flutter suite.
-Flutter/Dart SDKs remain unavailable in the local workspace.
+The local Flutter SDK is available for this revision.
 
 ## Reader path
 
 `/beta/thai` → birth form → select **โหราศาสตร์โดยรวม**. The option requires a
-known birth time and resolved province because Western V2 needs both. It uses
-the existing sign-in gate for the two authenticated backend calculations.
-BaZi and Western are generated sequentially through their existing authenticated
-endpoints using the same normalized profile; Thai Beta runs its existing local
+known birth time and resolved province because Western V2 needs both. The overall
+action now calls `/v1/calculate-bazi` and `/v1/calculate-chart` sequentially.
+These new routes accept birth calculation fields only, require no Firebase Auth,
+and return charts without calling the Firestore save services. The client sends
+no UID, token, name, or profile field. Thai Beta runs its existing local
 analysis. The report is composed only when all three return valid results.
+The Chinese and Western single-system actions retain their existing signed-in
+save flow; their behavior was not changed in this repair.
 
 ## Comparison rule
 
@@ -38,12 +43,51 @@ analysis. The report is composed only when all three return valid results.
 
 ## Known boundaries and verification
 
-The combined action calls two authenticated generation endpoints in sequence,
-so total latency may exceed the accepted per-reader five-second target. It
-does not read old saved charts, which avoids mixing a previous birth profile
-with the newly submitted form. A failure in any source does not show a partial
-combined report; an earlier successful endpoint may still have persisted its
-individual chart. Old single-system routes remain independent.
+The combined action calls two anonymous, calculation-only endpoints in sequence.
+It does not read or write saved charts. A failure in any source does not show a
+partial combined report. The existing single-system routes remain independent.
+The calculation endpoints are public, so rate limiting and abuse protection
+must be reviewed before they are exposed beyond an isolated QA backend.
+
+## 2026-09-24 root-cause repair and isolated verification
+
+The prior selector called `resolveUser` for Overall, then reused
+`ThaiBetaAstrologyHandoff.prepare`. That handoff sent the Firebase ID token and
+canonical profile to `/v1/generate-bazi` and `/v1/generate-chart`. Both Backend
+routes saved the profile, chart, and result mirror to Firestore under that UID.
+Because the old Hosting Preview was built with the Production Cloud Run URL,
+the silent existing browser session led to the five Production overwrites that
+were subsequently restored. The in-memory combined report itself made no write;
+its source-generation path did.
+
+The repair adds dedicated calculation-only routes that reuse the existing BaZi
+and Western builders. The Overall selector now uses an anonymous handoff and
+never resolves a Firebase user. The Backend request models reject `uid` and
+`profile`; the response has no `saved_paths`. Authenticated save routes and the
+Thai engine are retained. No Firestore rules or schema changed.
+
+Local checks using synthetic birth data: Backend full suite **54/54 PASS**,
+including real HTTP calculation responses, no-save guards, rejection of UID and
+profile, and continued 401 protection on save routes. Flutter focused feature
+and three-system regressions **42/42 PASS**. Scoped analyzer **PASS (0 issues)**.
+A mobile-size (390×844) Flutter selection-to-report test called a loopback
+Backend started with lifespan off,
+so Firebase Admin and Firestore were never initialized. Both HTTP calculations
+returned 200 and the full report appeared in **1,608 ms**. This was a local
+widget/runtime test, not a live Chrome or Hosted Preview timing measurement.
+An isolated release Web build succeeded; its bundle contains the loopback API
+URL and both calculation paths, and does not contain the Production API URL.
+
+The current Hosted Preview still serves its older authenticated bundle and
+Production API. A read-only download on 2026-09-24 matched the old bundle
+SHA-256
+`8479C6E1A9112F20914280D5834C9001308F0116545BBCEC366FF3638437AFBA`:
+it contains the Production API and `/v1/generate-*` paths but neither
+`/v1/calculate-*` path. It does **not** contain this repair and must not be
+used to claim anonymous Overall QA. A new Preview build plus an isolated Backend with
+the calculation routes are required for hosted end-to-end QA. Neither has been
+deployed in this repair. The temporary exact Preview CORS entry remains live on
+the Production Backend and still needs a separately reviewed removal revision.
 
 Focused tests cover three matching lenses, exact plus similar themes, source
 deduplication, empty evidence, growth-area exclusion, real Thai engine output,
@@ -63,9 +107,8 @@ then exposed its additional `pypdf` dependency. The final candidate workflow
 includes both PDF dependencies and Bangkok time. Run #35824575799
 completed successfully with all tests passing.
 
-Valid separate-account three-chart browser QA, real endpoint latency, visual
-review of the combined Thai wording, data restoration, and Owner acceptance are
-still required before Ready, Merge, or deployment.
+The historical validation described here preceded the anonymous repair.
+Hosted browser QA and Owner review of the combined Thai wording remain open.
 
 ## Live Hosting Preview verification
 
@@ -125,11 +168,12 @@ Local feature-focused tests pass 14/14 for consensus, ordering, known/unknown
 time, sign-in cancellation, safe engine order, and mobile/desktop layouts.
 The additional date-aware file retains the known Windows local-time mismatch
 (three `+07:00` assertion failures); the pinned Ubuntu workflow above passes it
-and the complete suite. This Preview QA remains **PAUSED/INVALID** until the
-Owner separately authorizes testing with a verified QA account.
+and the complete suite. This historical Preview QA remains **PAUSED/INVALID**;
+the repaired anonymous flow has only been exercised locally.
 
 Owner authorized the branch push and opening a Draft PR. GitHub branch
 `codex/three-tradition-overall-v1` and PR #149 exist. No Ready, merge, or
-Production Hosting deploy has been performed. After valid QA, remove the exact
-temporary Preview origin in a new Backend revision, rerun the three-origin CORS
-matrix, and close the Preview channel or let it expire.
+Production Hosting deploy has been performed. After an isolated hosted QA path
+is ready, remove the exact temporary Preview origin in a separately reviewed
+Backend revision, rerun the CORS matrix, and close the old Preview channel or
+let it expire.

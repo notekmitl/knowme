@@ -1,4 +1,35 @@
-## Active draft — Overall astrology from three traditions (2026-09-23)
+## Active draft — PR #149 anonymous overall repair (2026-09-24)
+
+Status: **LOCAL REPAIR AND ISOLATED TESTS PASS; HOSTED PREVIEW NOT UPDATED;
+PR REMAINS DRAFT**. Preview QA was stopped. The root cause was the Overall
+selector's Firebase user resolver and reuse of the signed-in BaZi/Western
+generation handoff. Those endpoints wrote the canonical profile and two chart
+and result pairs to Production Firestore because the old Preview bundle pointed
+to the Production API. The five affected documents were already restored and
+verified before this repair.
+
+Overall now sends only birth calculation fields to new anonymous, no-save BaZi
+and Western routes, then combines their charts with the local Thai result. It
+does not request a Firebase token or UID. The single-system Thai, Chinese, and
+Western paths retain their prior behavior. Backend full tests pass **54/54**;
+Flutter feature and three-system regression tests pass **42/42**; scoped
+analysis reports **0 issues**. Synthetic mobile-size local
+selection-to-report through a loopback API passed in **1,608 ms**. The QA server
+ran with lifespan off, so Firebase Admin/Firestore was not initialized. An
+isolated Web release build passed and uses the loopback API rather than the
+Production API.
+
+The existing Hosted Preview is the **old authenticated build** with the
+Production API. A fresh read-only bundle hash matches its recorded old SHA-256,
+and the new `/v1/calculate-*` paths are absent. It is not evidence for the
+repaired flow. A new Hosting Preview and separate Backend environment will be
+needed for hosted acceptance; neither was deployed in this repair. The exact
+temporary Preview CORS entry remains on
+the live Production Backend pending a separately reviewed removal. No
+Production Firestore write, Production deploy, Firestore rule change, or merge
+was made in this repair. See `docs/THREE_TRADITION_OVERALL_V1.md`.
+
+## Historical draft state — Overall astrology from three traditions (2026-09-23)
 
 Status: **CORS-ONLY BACKEND REVISION LIVE; FIVE PRODUCTION DOCUMENTS RESTORED
 ATOMICALLY FROM THE VERIFIED PRE-WRITE SNAPSHOT; PREVIEW QA REMAINS PAUSED**.

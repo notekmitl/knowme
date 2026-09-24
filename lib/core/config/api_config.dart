@@ -28,6 +28,14 @@ class ApiConfig {
     return Uri.parse('$astrologyBaseUrl/v1/generate-bazi');
   }
 
+  static Uri astrologyCalculateChartUri() {
+    return Uri.parse('$astrologyBaseUrl/v1/calculate-chart');
+  }
+
+  static Uri baziCalculateUri() {
+    return Uri.parse('$astrologyBaseUrl/v1/calculate-bazi');
+  }
+
   /// Compatibility paths used only by already-released clients. New code must
   /// use the authenticated versioned endpoints above.
   static Uri legacyAstrologyGenerateChartUri() {
