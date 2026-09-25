@@ -136,6 +136,7 @@ void main() {
       final clockValues = <DateTime>[openedAt, submittedAt];
       DateTime? capturedStartedAt;
       DateTime? capturedAsOf;
+      ThaiBetaAnalysis? capturedAnalysis;
 
       await tester.pumpWidget(
         MaterialApp(
@@ -145,11 +146,13 @@ void main() {
                 (input, {required startedAt, required asOf}) async {
                   capturedStartedAt = startedAt;
                   capturedAsOf = asOf;
-                  return ThaiBetaAnalysis.failedForTest(
+                  final analysis = ThaiBetaAnalysis.failedForTest(
                     input: input,
                     startedAt: startedAt,
                     asOf: asOf,
                   );
+                  capturedAnalysis = analysis;
+                  return analysis;
                 },
           ),
         ),
@@ -172,7 +175,8 @@ void main() {
       await tester.pumpAndSettle();
 
       expect(capturedStartedAt, openedAt);
-      expect(capturedAsOf, DateTime(2026, 8, 17, 0, 0, 10));
+      expect(capturedAsOf, submittedAt);
+      expect(capturedAnalysis!.asOf, DateTime(2026, 8, 17, 0, 0, 10));
       expect(clockValues, isEmpty);
     });
   });

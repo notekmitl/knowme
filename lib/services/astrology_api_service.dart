@@ -20,6 +20,33 @@ typedef WesternPostJson =
     });
 
 class AstrologyApiService {
+  static Future<AstrologyChartModel> calculateChart({
+    required String birthDate,
+    required String birthTime,
+    String timezone = 'Asia/Bangkok',
+    required double latitude,
+    required double longitude,
+    WesternPostJson? postJson,
+  }) async {
+    final response = await (postJson ?? _postJson)(
+      endpoint: ApiConfig.astrologyCalculateChartUri(),
+      body: <String, dynamic>{
+        'birth_date': birthDate,
+        'birth_time': birthTime,
+        'timezone': timezone,
+        'latitude': latitude,
+        'longitude': longitude,
+      },
+      failureLabel: 'Failed to calculate Western chart',
+      headers: const {},
+    );
+    final rawChart = response['chart'];
+    if (rawChart is! Map) {
+      throw const FormatException('Western API response is missing chart data');
+    }
+    return AstrologyChartModel.fromMap(Map<String, dynamic>.from(rawChart));
+  }
+
   static Future<AstrologyChartModel> generateChart({
     required String uid,
     required String birthDate,

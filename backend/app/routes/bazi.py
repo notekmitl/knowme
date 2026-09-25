@@ -31,15 +31,29 @@ class CanonicalProfileRequest(BaseModel):
         return self.model_dump(by_alias=True)
 
 
-class GenerateBaziRequest(BaseModel):
-    uid: str
+class CalculateBaziRequest(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+
     birth_date: str
     birth_time: str | None = None
     timezone: str = "Asia/Bangkok"
     latitude: float | None = None
     longitude: float | None = None
     gender: str | None = None
+
+
+class GenerateBaziRequest(CalculateBaziRequest):
+    model_config = ConfigDict(extra="ignore")
+
+    uid: str
     profile: CanonicalProfileRequest | None = None
+
+
+@router.post("/v1/calculate-bazi")
+def calculate_bazi_v1(request: CalculateBaziRequest):
+    """Calculate a chart for the anonymous overall reader without persistence."""
+    chart = _build_bazi_chart(request)
+    return {"success": True, "version": chart["version"], "chart": chart}
 
 
 @router.post("/generate-bazi", deprecated=True)
@@ -86,37 +100,8 @@ def _generate_bazi(request: GenerateBaziRequest, *, write_uid: str):
             detail={"code": "MISSING_UID", "message": "uid is required"},
         )
 
-    if not request.birth_date.strip():
-        raise HTTPException(
-            status_code=400,
-            detail={
-                "code": "MISSING_BIRTH_DATE",
-                "message": "birth_date is required",
-            },
-        )
-
     profile_data = _validated_profile(request)
-
-    try:
-        chart = build_bazi(
-            birth_date=request.birth_date,
-            birth_time=request.birth_time,
-            timezone=request.timezone,
-            latitude=request.latitude,
-            longitude=request.longitude,
-            gender=request.gender,
-        )
-    except InvalidBirthDatetime as exc:
-        raise HTTPException(
-            status_code=400,
-            detail={"code": "INVALID_DATETIME", "message": str(exc)},
-        ) from exc
-    except (BaziComputeError, BaziInvariantError) as exc:
-        raise HTTPException(
-            status_code=500,
-            detail={"code": "BAZI_COMPUTE_FAILED", "message": str(exc)},
-        ) from exc
-
+    chart = _build_bazi_chart(request)
     results_snapshot = build_results_snapshot(chart)
 
     try:
@@ -142,6 +127,39 @@ def _generate_bazi(request: GenerateBaziRequest, *, write_uid: str):
             "results": f"users/{write_uid}/results/chinese_bazi",
         },
     }
+
+
+def _build_bazi_chart(request: CalculateBaziRequest) -> dict:
+    if not request.birth_date.strip():
+        raise HTTPException(
+            status_code=400,
+            detail={
+                "code": "MISSING_BIRTH_DATE",
+                "message": "birth_date is required",
+            },
+        )
+
+    try:
+        chart = build_bazi(
+            birth_date=request.birth_date,
+            birth_time=request.birth_time,
+            timezone=request.timezone,
+            latitude=request.latitude,
+            longitude=request.longitude,
+            gender=request.gender,
+        )
+    except InvalidBirthDatetime as exc:
+        raise HTTPException(
+            status_code=400,
+            detail={"code": "INVALID_DATETIME", "message": str(exc)},
+        ) from exc
+    except (BaziComputeError, BaziInvariantError) as exc:
+        raise HTTPException(
+            status_code=500,
+            detail={"code": "BAZI_COMPUTE_FAILED", "message": str(exc)},
+        ) from exc
+
+    return chart
 
 
 def _validated_profile(request: GenerateBaziRequest) -> dict | None:

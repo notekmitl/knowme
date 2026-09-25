@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:knowme/core/config/api_config.dart';
 
 import '../../application/thai_beta_store.dart';
 import 'thai_beta_input_page.dart';
@@ -22,7 +23,7 @@ class _ThaiBetaLandingPageState extends State<ThaiBetaLandingPage> {
   @override
   void initState() {
     super.initState();
-    _loadParticipants();
+    if (!ApiConfig.isOverallPreview) _loadParticipants();
   }
 
   Future<void> _loadParticipants() async {

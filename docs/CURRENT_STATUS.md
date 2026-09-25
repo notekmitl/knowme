@@ -1,3 +1,315 @@
+## Active follow-up — PR #149 structured life meanings (2026-09-25)
+
+The Overall composer now uses Thai house-lord atoms, Chinese BaZi codes, and
+Western Mercury/Venus sign codes instead of slicing fixed phrases from the
+three single-reader reports. It still requires their source readings and
+calculation basis, reports missing evidence as a gap, and keeps the `0.6`
+agreement threshold separate. Prose-change and missing-evidence regression
+tests passed within **78/78** related Flutter tests; changed-file analysis
+found **0 issues**. The Owner-requested case and two synthetic cases retained
+all nine work/money/relationship readings exactly on the refreshed 390×844
+Hosted Preview. Report timings were **861/910/958 ms**. Each run made two
+successful Preview Backend calculation POSTs and no Auth, Firestore,
+Production API, or other write request. Preview version is
+`cb6e00fd1a85d187`, hosted bundle SHA-256 is
+`35EE9EC5ED5436ED44D5049F4A28EEC872AE8C2266057502AFABF196C779C337`,
+and Production Hosting `live` remains `d32e72678324e634`. PR #149 stays
+Draft for Owner wording review. Details: `docs/THREE_TRADITION_OVERALL_V1.md`.
+
+## Active follow-up — PR #149 detailed life reading (2026-09-25)
+
+Overall Preview now composes substantive work, money, and relationship
+readings from traceable Thai birth-profile claims, Chinese BaZi Reader V2,
+and Western Reader V2. The report labels composition as interpretation and
+keeps qualifying agreement separate under the unchanged `0.6` threshold.
+Missing sources produce a stated gap; it does not infer shared timing.
+The Owner-requested case and two synthetic cases passed anonymous Hosted
+Preview QA at 390×844 in **863/381/892 ms**, with all three life areas,
+no overflow or browser errors, and only two successful Preview Backend
+calculation POSTs per run. No Auth, Firestore, Production API, or other write
+request occurred. Preview version `e3062328b08f2baa` matches the safe
+bundle hash `309E29572EB5363D751B4E5DAF98127293057D5E9ACCD4DED6E46DB75C21EA30`;
+Production Hosting `live` is unchanged. Focused tests passed **24/24**;
+the full local suite had one unrelated PDF gate failure because local
+Python lacks `pypdf`. CI for implementation commit `289ea59` passed focused
+tests, analyzer, Web build, and the full Flutter suite; Owner wording review
+is pending. No personal birth data is stored in this update. Details:
+`docs/THREE_TRADITION_OVERALL_V1.md`.
+
+## Active follow-up — PR #149 evidence relationship reading (2026-09-25)
+
+From `dc4146b`, the Overall report now examines all lens observations and
+uses a reviewed, evidence-backed relationship among thinking, stability, and
+adaptation when present. It labels that relationship an interpretive reading,
+not a proven common point. Unsupported links are stated plainly. The `0.6`
+agreement threshold, calculation adapters, and persistence remain unchanged.
+Focused tests passed **23/23**, changed-file analysis found **0 issues**, and
+the isolated Web build passed. Anonymous 390×844 Hosted Preview runs for the
+Owner-requested case and two synthetic cases reached the report in
+**862/891/923 ms**, without overflow, Auth, Firestore, Production API, other
+write, blocked request, or runtime error. Each made only two successful
+Preview Backend calculation POSTs. Hosted JS matches the local safe build
+(SHA-256 `2CF5D9747D5CBED922088513AAA46EC94DED0083E3556D60D68E9906323C164F`).
+Safe Preview version is `cd5892157c63f4a2`; Production Hosting `live` is
+unchanged, and PR #149 remains Draft pending Owner wording review and CI.
+No personal birth values are recorded here. Details:
+`docs/THREE_TRADITION_OVERALL_V1.md`.
+
+## Active follow-up — PR #149 one-reading prose (2026-09-25)
+
+The Overall report now opens with one evidence-grounded Thai reading rather
+than a no-agreement notice followed by three separate lists. The following
+section distinguishes proven two-/three-tradition points from other lens
+views; full per-lens facts are available on expansion. The agreement threshold
+remains `0.6`, and no engine, adapter, or persistence path changed.
+
+The Owner-requested case and two synthetic cases were retested on the safe
+390×844 Hosted Preview. Click-to-report times were **894/384/912 ms**. The
+Owner case still has no supported common point; the synthetic cases had one
+and two supported two-tradition points respectively, with the third view kept
+separate. Each run made only two successful isolated Backend calculation
+POSTs plus 18 GETs, with zero Auth, Firestore, Production API, other write,
+blocked request, page error, or horizontal overflow. Focused tests passed
+**34/34** and changed-file analysis found **0 issues**. Hosted bundle SHA-256
+is `32B838493F0FEC12BD2E42AE88E824139A31029C38DD66B898F0ADC1A5C84190`;
+safe Preview version is `5d2d95d5892b9a8f`. Production Hosting `live`
+remains unchanged. Owner wording review is pending, and PR #149 stays Draft.
+No personal birth values are recorded in this update. Details:
+`docs/THREE_TRADITION_OVERALL_V1.md`.
+
+## Active follow-up — PR #149 Thai evidence repair (2026-09-25)
+
+The shared Thai runner gives the single and Overall routes the same normalized
+Mirror result. A near-midnight Owner case correctly uses the preceding Thai
+astrological day. The Overall adapter had discarded real section evidence
+because it read only the top three themes; it now includes section supporting
+themes while retaining the registry and confidence gates. The isolated
+Preview's Thai single report also now renders anonymously without creating a
+Firebase audience listener. Focused tests **23/23** and changed-file analysis
+**0 issues** passed.
+
+The safe Hosted Preview is version `23c6890171b7618b` at
+`https://knowme-app-694e1--pr-149-overall-safe-vbx6de6a.web.app/beta/thai`.
+The hosted bundle matches the safe local build (SHA-256
+`5E47FC67F7FED4A9BE9D91D72FFA381D3F8263BA989334F30D02FFABD7F0B7E8`).
+Anonymous 390×844 testing showed a populated Thai single report and an
+Overall report in **4,526 ms** with Thai observations. The Owner case still
+has **no supported common point** because its Thai evidence is below the
+existing agreement threshold; the report states this explicitly. Overall
+network was 18 GET plus only two isolated Backend calculation POSTs (200/200);
+the Thai single route made 18 GET and no POST. Neither route attempted Auth,
+Firestore, Production API, or other write requests. `live` Hosting is
+unchanged, the old unsafe channel remains absent, and the PR stays Draft for
+Owner wording review. No personal birth values are recorded here. Details:
+`docs/THREE_TRADITION_OVERALL_V1.md`.
+
+## Active follow-up — PR #149 latest isolated Preview and CI (2026-09-24)
+
+Draft PR #149 implementation `b5aa038` scopes multi-fact evidence merging
+to the Overall report, preserving the older BaZi evidence shape in the
+human-pattern runtime. The previously failing five affected test files
+passed **50/50** locally; the complete Flutter suite, analyzer, focused
+tests, and Web build passed in [run #35988691883](https://github.com/notekmitl/knowme/actions/runs/35988691883).
+
+The safe Hosted Preview serves version `dd4c850da6e99a3c` from this
+implementation, with JS SHA-256
+`2F01AEE4677D5F299F4A7F69FF8EA278B19D134A91426F6E3098E7391786FDF2`.
+Two fresh anonymous 390×844 runs of the Owner-specified input verified
+the selector values before action, reached an identical report in
+**4,388/898 ms**, and showed no unsupported common point. Each trace had
+only two isolated Backend calculation POSTs (200/200), with zero Auth,
+Firestore, Production API, other write, blocked request, or page error.
+The `live` Hosting version did not change; the old unsafe Preview remains
+closed. No personal birth value is recorded here. Owner copy acceptance
+remains pending; keep the PR Draft. Details: `docs/THREE_TRADITION_OVERALL_V1.md`.
+
+## Earlier follow-up — PR #149 Owner-specified Preview reading QA (2026-09-24)
+
+Draft PR #149 now contains the evidence-led wording commit `bd17b475` after a
+normal fast-forward push with existing credentials. The correct local checkout
+was clean after the earlier `git.exe` crash and had no Git lock files. The
+Owner-specified known-time input was tested on the safe Hosted Preview at
+390×844 without sign-in; no birth values are stored in this document. Two
+click-to-report timings were **814/878 ms**. This case had no supported
+cross-tradition agreement, so the report made no joint claim and instead showed
+three distinct Chinese and three distinct Western observations with source
+facts; Thai evidence was insufficient. No duplicate or invented joint point,
+event date, or age range was seen. The six lens observations matched live
+calculation fields and the mapped source facts.
+
+The browser recorded 18 GET plus only the two Preview Backend calculation POSTs
+(200/200); zero Auth, Firestore, Production API, or other write attempts, and
+zero page/console errors. The hosted JS SHA-256 is
+`E69C3D57A4DB379BED6668EC6359EE5027FFD7DF8AF0252396FD288FFBC2441F`.
+Its one Production hostname occurrence is a negative Preview URL guard, not an
+active API target. Preview expires `2026-10-01T09:45:43Z`. Production and
+Firestore were untouched. Owner wording review remains open; see
+`docs/THREE_TRADITION_OVERALL_V1.md`.
+
+## Earlier draft — PR #149 evidence-led overall wording (2026-09-24)
+
+Status: **WORDING/CONSENSUS REPAIR HOSTED ON PREVIEW; OWNER REVIEW PENDING;
+PR STAYS DRAFT**. The safe Hosting Preview at
+`https://knowme-app-694e1--pr-149-overall-safe-vbx6de6a.web.app/beta/thai`
+now serves the revised wording and uses the existing separate calculation-only
+Backend. The unsafe historical channel was already closed. The earlier
+report image was unavailable; the newly specified input was tested above.
+
+The report now carries source evidence through to the UI instead of repeating
+one generic theme sentence for Chinese and Western. It explains only supported
+common topics, names the two participating traditions when the third does not
+meet the evidence bar, and shows observations for all three traditions in a
+separate section. Broad signal-family matches no longer manufacture agreement;
+only the explicitly narrowed self-direction near-match remains. Year-animal
+bridge outputs below confidence `0.6` remain visible as secondary Chinese
+observations but cannot establish a common topic. Western 1/1/1 ties no longer
+claim a dominant element or modality. The Thai adapter displays traceable Thai
+content titles rather than internal keys where available.
+
+The already deployed isolated Preview Backend was not changed. Its source
+includes only calculation routes, no Firebase/Firestore library or save route.
+Backend tests **54/54 PASS**; focused Thai/Chinese/Western/overall regressions
+**48/48 PASS**; mobile report copy tests **14/14 PASS**; changed-file analyzer
+**0 issues**. Two synthetic birth sets were calculated through a loopback-only
+Backend: **4** and **1** supported common topics, respectively. The mobile
+selection-to-report run completed in **1,602 ms** locally (not Hosted Preview
+timing). A release Web build succeeded with loopback API, both calculate paths,
+no Production API URL, and SHA-256
+`E0DA2AB4509C9D966A24BD390DC9872585463450D4F142D7C3D070637BC504F1`;
+that loopback build was **not deployed**. No Production service, Hosting,
+Firestore data/rules, or PR merge state was changed in this wording revision. See
+`docs/THREE_TRADITION_OVERALL_V1.md`.
+
+A separate Preview-intended release bundle built from the rebased latest PR
+source points only to `knowme-overall-pr149-preview`, contains both calculation
+paths, and has no loopback or Firestore endpoint. The Production hostname is
+present only in the negative Preview URL guard.
+Its `main.dart.js` SHA-256 is
+`E69C3D57A4DB379BED6668EC6359EE5027FFD7DF8AF0252396FD288FFBC2441F`.
+It was deployed only to channel `pr-149-overall-safe`, expiring
+`2026-10-01T09:45:43Z`. Hosted index/bootstrap pins and JS hash match the
+local build. The `live` channel release time remained unchanged. Mobile Chrome
+390×844 reached the revised report; repeat click-to-heading took **2,147 ms**.
+The report showed four supported two-tradition points and separate observations
+for all three traditions, with no horizontal overflow. Network capture found
+exactly two calculation POSTs to Preview Backend (both 200), no Auth/Firestore
+request, and no Production API request. This earlier run did not cover the
+newly specified input, which was tested in the follow-up above. Commit
+`bd17b475` was pushed to the Draft branch with existing credentials.
+
+## Earlier draft — PR #149 mobile Hosted Preview QA (2026-09-24)
+
+The safe Preview URL above passed prior anonymous hosted selector-to-report QA
+at 390×844 in **4,799 ms** cold and **795/793 ms** warm. Network capture found
+only two calculation POSTs to the isolated Backend and no Auth/Firestore or
+Production API request. That acceptance did not cover this wording revision.
+
+## Historical local repair — PR #149 (earlier 2026-09-24 checkpoint)
+
+Status: **LOCAL REPAIR AND ISOLATED TESTS PASS; HOSTED PREVIEW NOT UPDATED;
+PR REMAINS DRAFT**. Preview QA was stopped. The root cause was the Overall
+selector's Firebase user resolver and reuse of the signed-in BaZi/Western
+generation handoff. Those endpoints wrote the canonical profile and two chart
+and result pairs to Production Firestore because the old Preview bundle pointed
+to the Production API. The five affected documents were already restored and
+verified before this repair.
+
+Overall now sends only birth calculation fields to new anonymous, no-save BaZi
+and Western routes, then combines their charts with the local Thai result. It
+does not request a Firebase token or UID. The single-system Thai, Chinese, and
+Western paths retain their prior behavior. Backend full tests pass **54/54**;
+Flutter feature and three-system regression tests pass **42/42**; scoped
+analysis reports **0 issues**. Synthetic mobile-size local
+selection-to-report through a loopback API passed in **1,608 ms**. The QA server
+ran with lifespan off, so Firebase Admin/Firestore was not initialized. An
+isolated Web release build passed and uses the loopback API rather than the
+Production API.
+
+At this earlier checkpoint, the existing Hosted Preview was the **old authenticated build** with the
+Production API. A fresh read-only bundle hash matches its recorded old SHA-256,
+and the new `/v1/calculate-*` paths are absent. It is not evidence for the
+repaired flow. A new Hosting Preview and separate Backend environment will be
+needed for hosted acceptance; neither was deployed in this repair. The exact
+temporary Preview CORS entry remains on
+the live Production Backend pending a separately reviewed removal. No
+Production Firestore write, Production deploy, Firestore rule change, or merge
+was made in this repair. See `docs/THREE_TRADITION_OVERALL_V1.md`.
+
+## Historical draft state — Overall astrology from three traditions (2026-09-23)
+
+Status: **CORS-ONLY BACKEND REVISION LIVE; FIVE PRODUCTION DOCUMENTS RESTORED
+ATOMICALLY FROM THE VERIFIED PRE-WRITE SNAPSHOT; PREVIEW QA REMAINS PAUSED**.
+
+Firebase Hosting Preview channel `pr-149-overall-v1` now serves the exact Web
+build made from application source `d56946d` at
+`https://knowme-app-694e1--pr-149-overall-v1-nr8oa6e0.web.app` until
+`2026-09-30T07:23:50Z`. The build used
+`https://knowme-astrology-api-avbyttircq-as.a.run.app`, passed the same four
+localhost/loopback guards as `scripts/deploy_web.ps1`, and was pinned to
+`main.dart.js?v=d56946d`. Bundle size is 8,557,552 bytes and SHA-256 is
+`8479C6E1A9112F20914280D5834C9001308F0116545BBCEC366FF3638437AFBA`.
+Production Hosting was not deployed. Firestore rules, Auth configuration,
+Functions, Storage, indexes, and the PR merge state were not changed. The only
+Backend source delta is the exact Preview URL added to the explicit CORS list in
+`backend/app/main.py`; no wildcard is present. Backend full tests pass `51/51`,
+the unauthenticated endpoint verifier passes `5/5`, and local plus live CORS
+checks accept both Production Hosting origins and the exact Preview origin while
+rejecting an unrelated origin with `HTTP 400` and no allow-origin header.
+
+Cloud Run revision `knowme-astrology-api-00014-j2z` now receives 100% traffic;
+the CORS-only deployment took `224.895 s`. Its resource configuration matches
+the previous revision. Rollback revision `knowme-astrology-api-00013-zc8` and
+its image digest were recorded before deployment. Production API `/health`,
+Production `/beta/thai`, and Preview `/beta/thai` return `HTTP 200`.
+
+Real Chrome at mobile width reconfirmed the post-birth selector order: Thai,
+Chinese BaZi, Western, then **โหราศาสตร์โดยรวม**. Preview generation was then
+stopped because the browser silently reused a non-QA Firebase session. The
+synthetic submission updated exactly five existing user documents: canonical
+profile, BaZi chart, Western chart, BaZi result mirror, and Western result
+mirror. No Fusion result document was created. This run is invalid as the
+required separate-account QA and has no accepted latency result.
+
+No corrective Firestore write or delete has been made. A read-only Firestore
+`batchGet` recovered all five versions at `2026-09-23T10:27:18.000000Z`
+(`2026-09-23 17:27:18.000000 Asia/Bangkok`), immediately before the observed
+writes at `10:27:18.244907Z` through `10:27:19.514069Z`. The five current and
+five historical documents are stored in a local-only snapshot outside the Git
+repository with SHA-256
+`423B6CCCDE6CB00C3A1FB15643A3F18CED80684609F54A56FD7F8B318E8B5D68`.
+No personal value or UID is recorded in repository documentation. Firestore
+PITR is disabled, managed backups are empty, and no backup schedule exists;
+the recoverable copy came from the standard one-hour version-retention window.
+The Owner-authorized Unicode-safe recovery revalidated the snapshot SHA-256,
+parsed all `3,430` JSON keys with `80` non-ASCII keys and no literal `??`, found
+no duplicate key at any level, validated all Firestore value unions/types, and
+round-tripped both snapshot and request without changing content or types. The
+five outgoing field maps matched the before-write snapshot field-for-field.
+
+A fresh live guard matched current `updateTime` and canonical field hash for
+all five documents. One atomic commit then restored the five complete historical
+field maps with no `updateMask` and a `currentDocument.updateTime` precondition
+on every write. Commit time was `2026-09-24T03:37:55.719177Z`
+(`2026-09-24 10:37:55.719177 Asia/Bangkok`). The single post-commit read passed
+`5/5`: field maps and Firestore types equal the before-write snapshot,
+`createTime` is unchanged for every document, and each new `updateTime` equals
+the corresponding atomic write result. No other document was touched. Preview
+QA remains paused and was not resumed.
+
+On Draft PR #149 (`codex/three-tradition-overall-v1`), the post-birth selector now offers a
+three-tradition overall reading. Its source-backed theme comparison requires at
+least two distinct lenses, shows the exact contributors, and avoids unsupported
+event timing. GitHub Actions now runs the focused tests, analyzer, release Web
+build and full Flutter suite with Bangkok timezone, Poppler and `pypdf`. A
+duplicate Bangkok conversion in the selected Thai path was corrected. Run #35824575799 passed the complete Flutter suite; authenticated chart QA and
+Owner wording acceptance remain open. The QA must use a separately verified
+account if the Owner later authorizes Preview testing to resume. Details:
+`docs/THREE_TRADITION_OVERALL_V1.md`.
+PR #149 remains OPEN + DRAFT; no Ready, Production Hosting deploy, or merge.
+The temporary CORS entry must be removed in a follow-up Backend revision
+after QA, with the same CORS matrix rerun before the Preview channel is closed
+or allowed to expire.
+
 ## Completed repair - Western Reader V2 authenticated latency (2026-09-22)
 
 Status: **PASS — PR #147 MERGED — BACKEND LIVE — PRODUCTION ACCEPTED**

@@ -22,9 +22,13 @@ void main() {
       await _scrollToWestern(tester);
       expect(find.text('โหราศาสตร์ตะวันตก (ยุโรป)'), findsOneWidget);
       expect(find.text('ดูโหราตะวันตก'), findsOneWidget);
+      await tester.drag(find.byType(ListView), const Offset(0, -350));
+      await tester.pumpAndSettle();
+      expect(find.text('โหราศาสตร์โดยรวม'), findsOneWidget);
+      expect(find.text('ดูดวงรวม'), findsOneWidget);
     });
 
-    testWidgets('Thai choice preserves startedAt and Bangkok submit instant', (
+    testWidgets('Thai choice sends submit instant for one Bangkok conversion', (
       tester,
     ) async {
       final openedAt = DateTime.utc(2026, 8, 16, 16, 59, 50);
@@ -52,7 +56,15 @@ void main() {
       await tester.pumpAndSettle();
 
       expect(capturedStartedAt, openedAt);
-      expect(capturedAsOf, DateTime(2026, 8, 17, 0, 0, 10));
+      expect(capturedAsOf, submittedAt);
+      expect(
+        ThaiBetaAnalysis.failedForTest(
+          input: _unknownInput,
+          startedAt: openedAt,
+          asOf: capturedAsOf,
+        ).asOf,
+        DateTime(2026, 8, 17, 0, 0, 10),
+      );
     });
 
     testWidgets('Unknown time can open BaZi and carries selected system', (
@@ -92,7 +104,23 @@ void main() {
         find.byKey(const Key('astrology-select-western')),
       );
       expect(button.onPressed, isNull);
-      expect(find.textContaining('ต้องทราบเวลาเกิด'), findsOneWidget);
+      expect(
+        find.text(
+          'ต้องทราบเวลาเกิดและเลือกจังหวัดก่อน '
+          'จึงคำนวณลัคนาและเรือนได้โดยไม่เดา',
+        ),
+        findsOneWidget,
+      );
+      await tester.drag(find.byType(ListView), const Offset(0, -350));
+      await tester.pumpAndSettle();
+      expect(
+        tester
+            .widget<FilledButton>(
+              find.byKey(const Key('astrology-select-overall')),
+            )
+            .onPressed,
+        isNull,
+      );
     });
 
     testWidgets('known time and province can open Western', (tester) async {
@@ -135,6 +163,89 @@ void main() {
       expect(find.text('destination:bazi'), findsNothing);
       expect(find.text('อยากดูดวงแบบไหน?'), findsOneWidget);
     });
+
+    testWidgets('overall calculates without resolving a Firebase user', (
+      tester,
+    ) async {
+      final calls = <ThaiBetaAstrologySystem>[];
+      var resolveCalls = 0;
+      var savedPathCalls = 0;
+      final submittedAt = DateTime.utc(2026, 8, 16, 17, 0, 10);
+      DateTime? capturedAsOf;
+      await _pumpSelection(
+        tester,
+        input: _knownInput,
+        submittedAt: submittedAt,
+        resolveUser: (_) async {
+          resolveCalls++;
+          return 'uid-should-not-be-used';
+        },
+        prepareSystem: (_, _, _) async {
+          savedPathCalls++;
+          throw StateError('Authenticated path must not run');
+        },
+        analysisExecutor: (input, {required startedAt, required asOf}) async {
+          capturedAsOf = asOf;
+          return ThaiBetaAnalysis.failedForTest(
+            input: input,
+            startedAt: startedAt,
+            asOf: asOf,
+          );
+        },
+        prepareOverallSystem: (_, system) async {
+          calls.add(system);
+          return switch (system) {
+            ThaiBetaAstrologySystem.bazi => ThaiBetaPreparedAstrology.bazi(
+              BaziCompatibilityOwnerFixtures.chart(BaziOwnerCase.known),
+            ),
+            ThaiBetaAstrologySystem.western =>
+              ThaiBetaPreparedAstrology.western(_westernChart),
+            _ => throw StateError('Unexpected system'),
+          };
+        },
+      );
+      await tester.drag(find.byType(ListView), const Offset(0, -950));
+      await tester.pumpAndSettle();
+      await tester.tap(find.byKey(const Key('astrology-select-overall')));
+      await tester.pumpAndSettle();
+      expect(calls, [
+        ThaiBetaAstrologySystem.bazi,
+        ThaiBetaAstrologySystem.western,
+      ]);
+      expect(resolveCalls, 0);
+      expect(savedPathCalls, 0);
+      expect(capturedAsOf, submittedAt);
+      // The injected Thai analysis failed: no partial or fabricated report.
+      expect(find.byType(Scaffold), findsOneWidget);
+      expect(find.text('อ่านภาพรวมจากสามศาสตร์'), findsNothing);
+    });
+
+    testWidgets('overall renders a report from three results without sign-in', (
+      tester,
+    ) async {
+      await _pumpSelection(
+        tester,
+        input: _knownInput,
+        resolveUser: (_) async => throw StateError('Unexpected sign-in'),
+        analysisExecutor: (input, {required startedAt, required asOf}) async =>
+            ThaiBetaAnalysisRunner.run(input, startedAt: startedAt, asOf: asOf),
+        prepareOverallSystem: (_, system) async => switch (system) {
+          ThaiBetaAstrologySystem.bazi => ThaiBetaPreparedAstrology.bazi(
+            BaziCompatibilityOwnerFixtures.chart(BaziOwnerCase.known),
+          ),
+          ThaiBetaAstrologySystem.western => ThaiBetaPreparedAstrology.western(
+            _westernChart,
+          ),
+          _ => throw StateError('Unexpected system'),
+        },
+      );
+      await tester.drag(find.byType(ListView), const Offset(0, -950));
+      await tester.pumpAndSettle();
+      await tester.tap(find.byKey(const Key('astrology-select-overall')));
+      await tester.pumpAndSettle();
+      expect(find.text('อ่านภาพรวมจากสามศาสตร์'), findsOneWidget);
+      expect(tester.takeException(), isNull);
+    });
   });
 }
 
@@ -161,6 +272,11 @@ Future<void> _pumpSelection(
     ThaiBetaAstrologySystem system,
   )?
   prepareSystem,
+  Future<ThaiBetaPreparedAstrology> Function(
+    ThaiBetaInput input,
+    ThaiBetaAstrologySystem system,
+  )?
+  prepareOverallSystem,
   Widget Function(
     BuildContext context,
     String userId,
@@ -187,6 +303,16 @@ Future<void> _pumpSelection(
         prepareSystem:
             prepareSystem ??
             (_, _, system) async => switch (system) {
+              ThaiBetaAstrologySystem.bazi => ThaiBetaPreparedAstrology.bazi(
+                BaziCompatibilityOwnerFixtures.chart(BaziOwnerCase.known),
+              ),
+              ThaiBetaAstrologySystem.western =>
+                ThaiBetaPreparedAstrology.western(_westernChart),
+              ThaiBetaAstrologySystem.thai => throw StateError('not used'),
+            },
+        prepareOverallSystem:
+            prepareOverallSystem ??
+            (_, system) async => switch (system) {
               ThaiBetaAstrologySystem.bazi => ThaiBetaPreparedAstrology.bazi(
                 BaziCompatibilityOwnerFixtures.chart(BaziOwnerCase.known),
               ),

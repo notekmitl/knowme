@@ -1,0 +1,39 @@
+name: Three-tradition draft validation
+
+on:
+  push:
+    branches:
+      - codex/three-tradition-overall-v1
+
+permissions:
+  contents: read
+
+env:
+  TZ: Asia/Bangkok
+
+jobs:
+  flutter-validation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.41.1'
+          channel: stable
+          cache: true
+      - name: Dependencies
+        run: flutter pub get
+      - name: Focused tests
+        run: flutter test test/three_tradition_consensus_test.dart test/validation/thai_beta/thai_beta_astrology_selection_test.dart test/validation/thai_beta/live_asof/thai_beta_date_aware_contract_test.dart
+      - name: Analyzer
+        run: flutter analyze --no-fatal-infos --no-fatal-warnings
+      - name: Web build
+        run: flutter build web --release
+      - name: Poppler for PDF regression gates
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y poppler-utils
+          python3 -m pip install --disable-pip-version-check pypdf
+      - name: Complete Flutter suite
+        run: flutter test --reporter compact

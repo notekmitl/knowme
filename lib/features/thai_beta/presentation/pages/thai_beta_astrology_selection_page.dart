@@ -1,10 +1,12 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_analysis.dart';
-import 'package:knowme/features/thai_beta/application/thai_beta_analysis_clock.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_astrology_handoff.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_current_analysis.dart';
 import 'package:knowme/features/thai_beta/domain/thai_beta_input.dart';
+import 'package:knowme/features/astrology/fusion/application/three_tradition_consensus.dart';
+import 'package:knowme/features/astrology/fusion/presentation/three_tradition_life_reading.dart';
+import 'package:knowme/features/astrology/fusion/presentation/pages/three_tradition_report_page.dart';
 import 'package:knowme/presentation/pages/astrology/astrology_result_page.dart';
 import 'package:knowme/presentation/pages/bazi/bazi_result_page.dart';
 import 'package:knowme/presentation/providers/astrology_provider.dart';
@@ -31,6 +33,11 @@ typedef ThaiBetaAstrologySystemPreparer =
       ThaiBetaInput input,
       ThaiBetaAstrologySystem system,
     );
+typedef ThaiBetaOverallSystemPreparer =
+    Future<ThaiBetaPreparedAstrology> Function(
+      ThaiBetaInput input,
+      ThaiBetaAstrologySystem system,
+    );
 typedef ThaiBetaAstrologyDestinationBuilder =
     Widget Function(
       BuildContext context,
@@ -50,6 +57,7 @@ class ThaiBetaAstrologySelectionPage extends StatefulWidget {
     required this.analysisExecutor,
     this.resolveUser = _resolveAuthenticatedUser,
     this.prepareSystem = _prepareSelectedSystem,
+    this.prepareOverallSystem = _prepareOverallSystem,
     this.destinationBuilder = _buildDestination,
   });
 
@@ -59,6 +67,7 @@ class ThaiBetaAstrologySelectionPage extends StatefulWidget {
   final ThaiBetaSelectionAnalysisExecutor analysisExecutor;
   final ThaiBetaAstrologyUserResolver resolveUser;
   final ThaiBetaAstrologySystemPreparer prepareSystem;
+  final ThaiBetaOverallSystemPreparer prepareOverallSystem;
   final ThaiBetaAstrologyDestinationBuilder destinationBuilder;
 
   @override
@@ -69,13 +78,14 @@ class ThaiBetaAstrologySelectionPage extends StatefulWidget {
 class _ThaiBetaAstrologySelectionPageState
     extends State<ThaiBetaAstrologySelectionPage> {
   ThaiBetaAstrologySystem? _busySystem;
+  bool _overallBusy = false;
 
   bool get _westernReady =>
       widget.input.hasBirthTime &&
       (widget.input.provinceKey?.trim().isNotEmpty ?? false);
 
   Future<void> _select(ThaiBetaAstrologySystem system) async {
-    if (_busySystem != null) return;
+    if (_busySystem != null || _overallBusy) return;
     if (system == ThaiBetaAstrologySystem.western && !_westernReady) return;
     setState(() => _busySystem = system);
 
@@ -84,7 +94,8 @@ class _ThaiBetaAstrologySelectionPageState
         final analysis = await widget.analysisExecutor(
           widget.input,
           startedAt: widget.startedAt,
-          asOf: ThaiBetaAnalysisClock.asBangkokCivil(widget.submittedAt),
+          // The runner converts this instant to Bangkok civil time once.
+          asOf: widget.submittedAt,
         );
         if (!mounted) return;
         ThaiBetaCurrentAnalysis.set(analysis);
@@ -129,6 +140,60 @@ class _ThaiBetaAstrologySelectionPageState
       );
     } finally {
       if (mounted) setState(() => _busySystem = null);
+    }
+  }
+
+  Future<void> _selectOverall() async {
+    if (_busySystem != null || _overallBusy || !_westernReady) return;
+    setState(() => _overallBusy = true);
+    try {
+      final bazi = (await widget.prepareOverallSystem(
+        widget.input,
+        ThaiBetaAstrologySystem.bazi,
+      )).baziChart;
+      if (bazi == null) throw StateError('Missing BaZi result');
+      final western = (await widget.prepareOverallSystem(
+        widget.input,
+        ThaiBetaAstrologySystem.western,
+      )).westernChart;
+      if (western == null) throw StateError('Missing Western result');
+      final thai = await widget.analysisExecutor(
+        widget.input,
+        startedAt: widget.startedAt,
+        asOf: widget.submittedAt,
+      );
+      final mirror = thai.pipelineResult?.mirrorResult;
+      if (!thai.isSuccess || mirror == null) {
+        throw StateError('Missing Thai result');
+      }
+      final reading = ThreeTraditionConsensus.analyzeCharts(
+        thai: mirror,
+        bazi: bazi,
+        western: western,
+      );
+      final lifeReading = ThreeTraditionLifeReadingComposer.compose(
+        thai: thai,
+        bazi: bazi,
+        western: western,
+      );
+      if (!mounted) return;
+      await Navigator.of(context).push(
+        MaterialPageRoute<void>(
+          builder: (_) => ThreeTraditionReportPage(
+            reading: reading,
+            lifeReading: lifeReading,
+          ),
+        ),
+      );
+    } catch (error, stack) {
+      debugPrint('[ThreeTraditionConsensus] failed: $error');
+      debugPrint('[ThreeTraditionConsensus] $stack');
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('สร้างดวงรวมไม่สำเร็จ กรุณาลองอีกครั้ง')),
+      );
+    } finally {
+      if (mounted) setState(() => _overallBusy = false);
     }
   }
 
@@ -191,7 +256,7 @@ class _ThaiBetaAstrologySelectionPageState
                   buttonKey: const Key('astrology-select-thai'),
                   buttonLabel: 'ดูดวงไทย',
                   busy: _busySystem == ThaiBetaAstrologySystem.thai,
-                  enabled: _busySystem == null,
+                  enabled: _busySystem == null && !_overallBusy,
                   onPressed: () => _select(ThaiBetaAstrologySystem.thai),
                 ),
                 const SizedBox(height: 14),
@@ -205,7 +270,7 @@ class _ThaiBetaAstrologySelectionPageState
                   buttonKey: const Key('astrology-select-bazi'),
                   buttonLabel: 'ดูโหราจีน',
                   busy: _busySystem == ThaiBetaAstrologySystem.bazi,
-                  enabled: _busySystem == null,
+                  enabled: _busySystem == null && !_overallBusy,
                   onPressed: () => _select(ThaiBetaAstrologySystem.bazi),
                 ),
                 const SizedBox(height: 14),
@@ -219,12 +284,28 @@ class _ThaiBetaAstrologySelectionPageState
                   buttonKey: const Key('astrology-select-western'),
                   buttonLabel: 'ดูโหราตะวันตก',
                   busy: _busySystem == ThaiBetaAstrologySystem.western,
-                  enabled: _busySystem == null && _westernReady,
+                  enabled:
+                      _busySystem == null && !_overallBusy && _westernReady,
                   onPressed: () => _select(ThaiBetaAstrologySystem.western),
+                ),
+                const SizedBox(height: 14),
+                _AstrologySystemCard(
+                  key: const Key('astrology-system-overall'),
+                  icon: Icons.auto_graph_outlined,
+                  title: 'โหราศาสตร์โดยรวม',
+                  description: _westernReady
+                      ? 'อ่านการงาน การเงิน และความสัมพันธ์จากคำอ่านทั้งสามศาสตร์ พร้อมแยกจุดร่วมที่มีหลักฐานถึงเกณฑ์'
+                      : 'ต้องทราบเวลาเกิดและจังหวัดก่อน จึงเปรียบเทียบครบทั้งสามศาสตร์ได้',
+                  buttonKey: const Key('astrology-select-overall'),
+                  buttonLabel: 'ดูดวงรวม',
+                  busy: _overallBusy,
+                  enabled:
+                      _busySystem == null && !_overallBusy && _westernReady,
+                  onPressed: _selectOverall,
                 ),
                 const SizedBox(height: 18),
                 Text(
-                  'โหราจีนและโหราตะวันตกจะให้เข้าสู่ระบบก่อน เพื่อผูกผลคำนวณกับเจ้าของข้อมูลและป้องกันการเขียนผลข้ามบัญชี',
+                  'ดวงรวมคำนวณจากข้อมูลเกิดโดยไม่ต้องเข้าสู่ระบบและไม่บันทึกผล ส่วนดวงจีนและตะวันตกแบบเดี่ยวต้องเข้าสู่ระบบเพื่อบันทึกผลในบัญชี',
                   style: theme.textTheme.bodySmall?.copyWith(
                     color: scheme.onSurfaceVariant,
                     height: 1.45,
@@ -347,6 +428,22 @@ Future<ThaiBetaPreparedAstrology> _prepareSelectedSystem(
       ThaiBetaAstrologySystem.western => 'western',
       ThaiBetaAstrologySystem.thai => throw StateError(
         'Thai analysis does not use the signed-in handoff',
+      ),
+    },
+  );
+}
+
+Future<ThaiBetaPreparedAstrology> _prepareOverallSystem(
+  ThaiBetaInput input,
+  ThaiBetaAstrologySystem system,
+) {
+  return ThaiBetaAstrologyHandoff().prepareAnonymous(
+    input: input,
+    systemId: switch (system) {
+      ThaiBetaAstrologySystem.bazi => 'bazi',
+      ThaiBetaAstrologySystem.western => 'western',
+      ThaiBetaAstrologySystem.thai => throw StateError(
+        'Thai analysis runs locally',
       ),
     },
   );
