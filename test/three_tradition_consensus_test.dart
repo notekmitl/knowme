@@ -135,41 +135,109 @@ void main() {
     expect(reading.byLens[western]!.single.themeId, 'expressive');
   });
 
-  test('one overview keeps distinct lens facts without inventing agreement', () {
+  test(
+    'one interpretation relates distinct facts without inventing agreement',
+    () {
+      final reading = ThreeTraditionConsensus.analyzeOutputs([
+        FusionAdapterHelpers.buildRegistered(
+          lensId: thai,
+          themeId: 'analytical',
+          confidence: 0.55,
+          evidence: ['ลัคนา: ลัคนาราศีกุมภ'],
+        )!,
+        FusionAdapterHelpers.buildRegistered(
+          lensId: bazi,
+          themeId: 'grounded',
+          confidence: 0.8,
+          evidence: ['Dominant Element: earth'],
+        )!,
+        FusionAdapterHelpers.buildRegistered(
+          lensId: western,
+          themeId: 'adaptable',
+          confidence: 0.8,
+          evidence: ['Sun Sign: Gemini'],
+        )!,
+      ]);
+      expect(reading.agreements, isEmpty);
+      final prose = ThreeTraditionReadingCopy.overview(reading);
+      expect(prose, contains('ดวงไทยให้มุมของการคิดวิเคราะห์จากลัคนาราศีกุมภ'));
+      expect(
+        prose,
+        contains(
+          'ดวงจีนให้มุมของการให้ความสำคัญกับความมั่นคงจากธาตุเด่นของดวงจีนเป็นดิน',
+        ),
+      );
+      expect(
+        prose,
+        contains('ดวงตะวันตกให้มุมของการปรับตัวจากอาทิตย์อยู่ราศีเมถุน'),
+      );
+      expect(prose, contains('ใช้วิธีคิดชั่งน้ำหนักสิ่งที่อยากรักษาไว้'));
+      expect(prose, contains('ไม่ใช่จุดร่วมที่พิสูจน์แล้ว'));
+      expect(ThreeTraditionConsensus.minimumAgreementConfidence, 0.6);
+    },
+  );
+
+  test(
+    'interpretation searches all evidence rather than first observation',
+    () {
+      final reading = ThreeTraditionConsensus.analyzeOutputs([
+        output(thai, 'independent'),
+        output(thai, 'analytical'),
+        output(bazi, 'persistent'),
+        output(bazi, 'grounded'),
+        output(western, 'growth_focused'),
+        output(western, 'adaptable'),
+      ]);
+      expect(reading.agreements, isEmpty);
+      final prose = ThreeTraditionReadingCopy.overview(reading);
+      expect(prose, contains('ดวงไทยให้มุมของการคิดวิเคราะห์'));
+      expect(prose, contains('ดวงจีนให้มุมของการให้ความสำคัญกับความมั่นคง'));
+      expect(prose, contains('ดวงตะวันตกให้มุมของการปรับตัว'));
+    },
+  );
+
+  test('unrelated observations state that no coherent link is supported', () {
     final reading = ThreeTraditionConsensus.analyzeOutputs([
-      FusionAdapterHelpers.buildRegistered(
-        lensId: thai,
-        themeId: 'analytical',
-        confidence: 0.55,
-        evidence: ['ลัคนา: ลัคนาราศีกุมภ'],
-      )!,
-      FusionAdapterHelpers.buildRegistered(
-        lensId: bazi,
-        themeId: 'grounded',
-        confidence: 0.8,
-        evidence: ['Dominant Element: earth'],
-      )!,
-      FusionAdapterHelpers.buildRegistered(
-        lensId: western,
-        themeId: 'adaptable',
-        confidence: 0.8,
-        evidence: ['Sun Sign: Gemini'],
-      )!,
+      output(thai, 'supportive'),
+      output(bazi, 'independent_connection'),
+      output(western, 'passionate'),
     ]);
     expect(reading.agreements, isEmpty);
+    expect(
+      ThreeTraditionReadingCopy.overview(reading),
+      contains('ยังไม่เชื่อมเป็นเรื่องเดียวได้อย่างมีเหตุผล'),
+    );
+  });
+
+  test('two proven points remain separate in a composed reading', () {
+    final reading = ThreeTraditionConsensus.analyzeOutputs([
+      output(thai, 'independent'),
+      output(western, 'independent'),
+      output(bazi, 'growth_focused'),
+      output(western, 'growth_focused'),
+    ]);
+    expect(reading.agreements, hasLength(2));
     final prose = ThreeTraditionReadingCopy.overview(reading);
-    expect(prose, contains('ดวงไทยสะท้อนการคิดวิเคราะห์จากลัคนาราศีกุมภ'));
+    expect(prose, contains('ไทยกับตะวันตกสอดคล้องกันเรื่อง'));
+    expect(prose, contains('จีนกับตะวันตกสอดคล้องกันอีกเรื่อง'));
+    expect(prose, contains('ไม่ได้บอกว่าประเด็นทั้งสองเป็นเหตุเป็นผลต่อกัน'));
+  });
+
+  test('unrelated proven points are listed without an invented bridge', () {
+    final reading = ThreeTraditionConsensus.analyzeOutputs([
+      output(thai, 'grounded'),
+      output(bazi, 'grounded'),
+      output(bazi, 'expressive'),
+      output(western, 'expressive'),
+    ]);
+    expect(reading.agreements, hasLength(2));
+    final prose = ThreeTraditionReadingCopy.overview(reading);
+    expect(prose, contains('ไทยกับจีนสอดคล้องกันเรื่อง'));
+    expect(prose, contains('จีนกับตะวันตกสอดคล้องกันเรื่อง'));
     expect(
       prose,
-      contains(
-        'ดวงจีนชี้ให้เห็นการให้ความสำคัญกับความมั่นคงจากธาตุเด่นของดวงจีนเป็นดิน',
-      ),
+      contains('ยังไม่มีหลักฐานพอจะบอกว่าจุดร่วมเหล่านี้สัมพันธ์กันอย่างไร'),
     );
-    expect(
-      prose,
-      contains('ดวงตะวันตกเพิ่มมุมของการปรับตัวจากอาทิตย์อยู่ราศีเมถุน'),
-    );
-    expect(prose, isNot(contains('จุดร่วม')));
   });
 
   test('proven pair is named while third lens remains its own view', () {
@@ -181,8 +249,8 @@ void main() {
     final prose = ThreeTraditionReadingCopy.overview(reading);
     expect(reading.agreements.single.sourceCount, 2);
     expect(prose, contains('ไทยกับจีนสอดคล้องกันเรื่อง'));
-    expect(prose, contains('ดวงตะวันตกให้มุมเรื่องการแสดงออก'));
-    expect(prose, contains('ยังไม่นับร่วมในประเด็นนี้'));
+    expect(prose, contains('ดวงตะวันตกยังไม่มีหลักฐานที่เชื่อมมุมของตน'));
+    expect(prose, isNot(contains('การแสดงออก')));
   });
 
   test('three proven lenses read as one natural common point', () {
@@ -380,7 +448,14 @@ void main() {
       await tester.pumpWidget(
         MaterialApp(home: ThreeTraditionReportPage(reading: reading)),
       );
-      expect(find.textContaining('เมื่ออ่านพื้นดวงนี้ร่วมกัน'), findsOneWidget);
+      expect(
+        find.textContaining('หลักฐานรองรับจุดร่วมแยกกันหลายเรื่อง'),
+        findsOneWidget,
+      );
+      await tester.scrollUntilVisible(
+        find.text('สอดคล้องกันทั้ง 3 ศาสตร์'),
+        160,
+      );
       expect(find.text('สอดคล้องกันทั้ง 3 ศาสตร์'), findsOneWidget);
       await tester.scrollUntilVisible(find.text('สอดคล้องกัน 2 ศาสตร์'), 160);
       expect(tester.takeException(), isNull);

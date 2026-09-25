@@ -1,3 +1,23 @@
+## Active handoff — PR #149 evidence relationship reading (2026-09-25)
+
+Owner review Preview:
+`https://knowme-app-694e1--pr-149-overall-safe-vbx6de6a.web.app/beta/thai`
+(Hosting version `cd5892157c63f4a2`, expires `2026-10-02T07:34:08Z`).
+The Owner-requested case now has one interpretive reading connecting the
+different thinking, stability, and adaptation perspectives in a decision
+question. It explicitly denies a proven common point; the unchanged `0.6`
+threshold does not support one for this case. When evidence cannot be linked,
+the report says so. Two synthetic cases retain their actual proven pairs.
+Final anonymous 390×844 Hosted Preview runs took **862/891/923 ms**; each had
+18 GET and only two successful isolated Backend calculation POSTs, with no
+Auth, Firestore, Production API, other write, blocked request, error, or
+horizontal overflow. Focused tests passed **23/23**; changed-file analysis
+found **0 issues**. Hosted JS SHA-256 is
+`2CF5D9747D5CBED922088513AAA46EC94DED0083E3556D60D68E9906323C164F`.
+`live` Hosting remains unchanged; the unsafe old Preview is absent. Keep PR
+#149 Draft for Owner wording review and await full CI. No personal birth
+values are recorded here. Full evidence: `docs/THREE_TRADITION_OVERALL_V1.md`.
+
 ## Active handoff — PR #149 one-reading prose (2026-09-25)
 
 Owner review Preview:

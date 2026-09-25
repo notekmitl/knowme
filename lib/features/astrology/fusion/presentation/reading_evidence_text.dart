@@ -114,11 +114,16 @@ abstract final class ReadingEvidenceText {
     return source.evidence
         .map(fact)
         .where((item) => item.isNotEmpty)
-        .map(
-          (item) => prose && item.startsWith('ลัคนา: ')
-              ? item.substring('ลัคนา: '.length)
-              : item,
-        )
+        .map((item) {
+          if (!prose) return item;
+          if (item.startsWith('ลัคนา: ')) {
+            return item.substring('ลัคนา: '.length);
+          }
+          if (item.startsWith('เจ้าเรือนลัคนา: เจ้าเรือนลัคนา')) {
+            return item.substring('เจ้าเรือนลัคนา: '.length);
+          }
+          return item;
+        })
         .take(2)
         .join(prose ? 'และ' : ' และ ');
   }

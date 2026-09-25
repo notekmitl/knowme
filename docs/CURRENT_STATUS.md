@@ -1,3 +1,22 @@
+## Active follow-up — PR #149 evidence relationship reading (2026-09-25)
+
+From `dc4146b`, the Overall report now examines all lens observations and
+uses a reviewed, evidence-backed relationship among thinking, stability, and
+adaptation when present. It labels that relationship an interpretive reading,
+not a proven common point. Unsupported links are stated plainly. The `0.6`
+agreement threshold, calculation adapters, and persistence remain unchanged.
+Focused tests passed **23/23**, changed-file analysis found **0 issues**, and
+the isolated Web build passed. Anonymous 390×844 Hosted Preview runs for the
+Owner-requested case and two synthetic cases reached the report in
+**862/891/923 ms**, without overflow, Auth, Firestore, Production API, other
+write, blocked request, or runtime error. Each made only two successful
+Preview Backend calculation POSTs. Hosted JS matches the local safe build
+(SHA-256 `2CF5D9747D5CBED922088513AAA46EC94DED0083E3556D60D68E9906323C164F`).
+Safe Preview version is `cd5892157c63f4a2`; Production Hosting `live` is
+unchanged, and PR #149 remains Draft pending Owner wording review and CI.
+No personal birth values are recorded here. Details:
+`docs/THREE_TRADITION_OVERALL_V1.md`.
+
 ## Active follow-up — PR #149 one-reading prose (2026-09-25)
 
 The Overall report now opens with one evidence-grounded Thai reading rather

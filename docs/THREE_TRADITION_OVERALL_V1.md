@@ -1,5 +1,51 @@
 # Overall astrology from three traditions — V1 working branch
 
+## 2026-09-25 evidence relationship reading for Draft PR #149
+
+Starting from `dc4146b`, the report composer now examines every registered
+observation in each lens before choosing a narrative path. For the
+Owner-requested known-time case, it can place a Thai thinking-style
+observation, a Chinese stability observation, and a Western adaptation
+observation into one question about considering a choice, what to preserve,
+and how to adjust if conditions change. The report explicitly calls this an
+interpretive reading of different perspectives, **not a proven common point**
+or a claim about actual events. The Thai observation in this case remains
+below the unchanged `0.6` cross-tradition agreement threshold, so the case
+still has no supported common point. Birth values, chart placements, and
+personally identifying data are omitted here.
+
+The copy has reviewed paths for a supported reliability pair plus a separate
+thinking view, and for two distinct supported autonomy/growth pairs. Where
+observations or proven points lack a defensible relationship, it says so
+directly and leaves their evidence in the per-tradition panel. This revision
+changes presentation only; adapters, calculated charts, agreement logic,
+threshold, authentication, and persistence were not changed. A small prose
+cleanup removes a repeated Thai evidence label without changing its source.
+
+Focused consensus and mobile report tests passed **23/23**, including
+non-leading evidence selection, honest unrelated-evidence fallback, distinct
+proven points, and a 390×844 mobile layout. Changed-file Flutter analysis
+found **0 issues**; the isolated release Web build succeeded. On the final
+Hosted Preview at 390×844, the Owner-requested case and two synthetic cases
+reached the report in **862/891/923 ms** respectively. All three had viewport
+and scroll width of 390 px, no clipping or runtime errors, 18 GET requests,
+and only two calculation POSTs to the isolated Preview Backend (200/200).
+There were zero Auth, Firestore, Production API, other mutating, blocked, or
+page/console-error requests; POST bodies contained no UID, profile, token,
+or Auth field. The synthetic daytime case retained one proven two-tradition
+point with the third view separate. The pre-sunrise case retained two
+distinct proven two-tradition points without a three-way claim.
+
+The final release bundle and Hosted `main.dart.js` match byte-for-byte at
+SHA-256 `2CF5D9747D5CBED922088513AAA46EC94DED0083E3556D60D68E9906323C164F`.
+The bundle contains the isolated Backend URL and two calculation paths, no
+Auth/Firestore endpoint strings, and the Production API hostname only in its
+negative Preview configuration guard. Only Hosting Preview channel
+`pr-149-overall-safe` advanced to version `cd5892157c63f4a2`, expiring
+`2026-10-02T07:34:08Z`. Production Hosting `live` remained
+`d32e72678324e634`; the former unsafe channel remains absent. Owner wording
+review and full PR CI verification are tracked on the Draft PR.
+
 ## 2026-09-25 one-reading prose revision for Draft PR #149
 
 The report now starts with one Thai prose reading composed from the strongest
