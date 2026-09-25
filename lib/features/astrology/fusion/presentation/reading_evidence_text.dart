@@ -107,12 +107,20 @@ abstract final class ReadingEvidenceText {
       'ลองเทียบข้อสังเกตนี้กับประสบการณ์จริงของตน';
 
   static String observation(LensThemeOutput source) {
-    final facts = source.evidence
+    return 'พบประเด็น${theme(source.themeId)}จาก ${evidencePhrase(source)}';
+  }
+
+  static String evidencePhrase(LensThemeOutput source, {bool prose = false}) {
+    return source.evidence
         .map(fact)
         .where((item) => item.isNotEmpty)
+        .map(
+          (item) => prose && item.startsWith('ลัคนา: ')
+              ? item.substring('ลัคนา: '.length)
+              : item,
+        )
         .take(2)
-        .join(' และ ');
-    return 'พบประเด็น${theme(source.themeId)}จาก $facts';
+        .join(prose ? 'และ' : ' และ ');
   }
 
   static String fact(String raw) {

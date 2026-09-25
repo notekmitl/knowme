@@ -1,5 +1,52 @@
 # Overall astrology from three traditions — V1 working branch
 
+## 2026-09-25 one-reading prose revision for Draft PR #149
+
+The report now starts with one Thai prose reading composed from the strongest
+traceable observation of each available tradition. A proven agreement leads
+the prose when one exists; another tradition's view is explicitly kept apart.
+The agreement section follows the reading and shows the actual supporting
+facts. When no agreement qualifies, the section states that limit after the
+reading. Per-tradition detail remains available in a collapsed evidence panel
+for review instead of forming the main report. This changes presentation only:
+the adapters, source selection, and minimum agreement confidence of `0.6`
+are unchanged. No synthetic fact, event, age prediction, or cross-tradition
+bridge was added.
+
+The Owner-requested known-time case was retested anonymously from selection
+to report on the isolated Hosted Preview at 390×844. The report now reads as
+one paragraph with a Thai view of thinking style, a Chinese view of stability,
+and a Western view of adaptation, each grounded in its existing engine fact.
+It then says no common topic reaches the evidence threshold. This is a
+composed reading of different perspectives, not a claim that the three
+traditions agree. Selection-to-report time was **894 ms** in this run; viewport
+and scroll width were both 390 px, with no visible clipping. The complete
+rendered paragraph was checked against the adapter outputs. Birth values and
+chart placements are omitted from this document.
+
+Two additional synthetic Hosted Preview cases exercised the other branch.
+One showed **one** supported two-tradition point with the third view kept
+separate (**384 ms**); a pre-sunrise case showed **two** distinct supported
+two-tradition points without claiming a three-way agreement (**912 ms**).
+Both longer reports scrolled to the end without horizontal overflow. The
+focused Flutter selection, date-boundary, consensus, and mobile report tests
+passed **34/34**; changed-file analyzer found **0 issues**.
+
+Each Hosted Preview run made **18 GET and two calculation POST** requests to
+the isolated Backend, both POST responses 200. There were zero Auth,
+Firestore, Production API, or other write attempts, zero blocked requests,
+and zero page/console errors. The request bodies contained no UID, name,
+profile, token, or Auth field. The Preview release bundle contains the
+isolated Backend URL and both calculation paths, no Auth/Firestore endpoint
+string, and only the existing Production-hostname rejection guard. Hosted
+`main.dart.js` matches the local release build byte-for-byte: SHA-256
+`32B838493F0FEC12BD2E42AE88E824139A31029C38DD66B898F0ADC1A5C84190`.
+Only safe Hosting channel `pr-149-overall-safe` advanced to version
+`5d2d95d5892b9a8f` (expires `2026-10-02T06:56:24Z`); `live` remained
+`d32e72678324e634`, and the unsafe old channel remains absent. PR #149
+stays Draft for Owner wording review. No personal birth data, account, or
+saved result was added by this revision.
+
 ## 2026-09-25 Thai evidence and anonymous Preview repair
 
 The Owner-requested near-midnight case was traced from the Thai single-reading

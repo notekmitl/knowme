@@ -8,6 +8,7 @@ import 'package:knowme/features/astrology/fusion/adapters/western_real_adapter.d
 import 'package:knowme/features/astrology/fusion/application/three_tradition_consensus.dart';
 import 'package:knowme/features/astrology/fusion/presentation/pages/three_tradition_report_page.dart';
 import 'package:knowme/features/astrology/fusion/presentation/reading_evidence_text.dart';
+import 'package:knowme/features/astrology/fusion/presentation/three_tradition_reading_copy.dart';
 import 'package:knowme/features/astrology/fusion/registry/theme_registry.dart';
 import 'package:knowme/features/bazi_compatibility/application/bazi_compatibility_owner_fixtures.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_analysis.dart';
@@ -132,6 +133,68 @@ void main() {
     expect(reading.agreements.single.sourceCount, 2);
     expect(reading.agreements.single.sources.containsKey(western), isFalse);
     expect(reading.byLens[western]!.single.themeId, 'expressive');
+  });
+
+  test('one overview keeps distinct lens facts without inventing agreement', () {
+    final reading = ThreeTraditionConsensus.analyzeOutputs([
+      FusionAdapterHelpers.buildRegistered(
+        lensId: thai,
+        themeId: 'analytical',
+        confidence: 0.55,
+        evidence: ['ลัคนา: ลัคนาราศีกุมภ'],
+      )!,
+      FusionAdapterHelpers.buildRegistered(
+        lensId: bazi,
+        themeId: 'grounded',
+        confidence: 0.8,
+        evidence: ['Dominant Element: earth'],
+      )!,
+      FusionAdapterHelpers.buildRegistered(
+        lensId: western,
+        themeId: 'adaptable',
+        confidence: 0.8,
+        evidence: ['Sun Sign: Gemini'],
+      )!,
+    ]);
+    expect(reading.agreements, isEmpty);
+    final prose = ThreeTraditionReadingCopy.overview(reading);
+    expect(prose, contains('ดวงไทยสะท้อนการคิดวิเคราะห์จากลัคนาราศีกุมภ'));
+    expect(
+      prose,
+      contains(
+        'ดวงจีนชี้ให้เห็นการให้ความสำคัญกับความมั่นคงจากธาตุเด่นของดวงจีนเป็นดิน',
+      ),
+    );
+    expect(
+      prose,
+      contains('ดวงตะวันตกเพิ่มมุมของการปรับตัวจากอาทิตย์อยู่ราศีเมถุน'),
+    );
+    expect(prose, isNot(contains('จุดร่วม')));
+  });
+
+  test('proven pair is named while third lens remains its own view', () {
+    final reading = ThreeTraditionConsensus.analyzeOutputs([
+      output(thai, 'grounded'),
+      output(bazi, 'grounded'),
+      output(western, 'expressive'),
+    ]);
+    final prose = ThreeTraditionReadingCopy.overview(reading);
+    expect(reading.agreements.single.sourceCount, 2);
+    expect(prose, contains('ไทยกับจีนสอดคล้องกันเรื่อง'));
+    expect(prose, contains('ดวงตะวันตกให้มุมเรื่องการแสดงออก'));
+    expect(prose, contains('ยังไม่นับร่วมในประเด็นนี้'));
+  });
+
+  test('three proven lenses read as one natural common point', () {
+    final reading = ThreeTraditionConsensus.analyzeOutputs([
+      output(thai, 'independent'),
+      output(bazi, 'independent'),
+      output(western, 'independent'),
+    ]);
+    final prose = ThreeTraditionReadingCopy.overview(reading);
+    expect(reading.agreements.single.sourceCount, 3);
+    expect(prose, contains('ไทย จีน และตะวันตกสอดคล้องกันเรื่อง'));
+    expect(prose, isNot(contains('ยังไม่นับร่วม')));
   });
 
   test('Chinese and Western facts retain different, readable evidence', () {
@@ -317,7 +380,8 @@ void main() {
       await tester.pumpWidget(
         MaterialApp(home: ThreeTraditionReportPage(reading: reading)),
       );
-      expect(find.text('ตรงกันทั้ง 3 ศาสตร์'), findsOneWidget);
+      expect(find.textContaining('เมื่ออ่านพื้นดวงนี้ร่วมกัน'), findsOneWidget);
+      expect(find.text('สอดคล้องกันทั้ง 3 ศาสตร์'), findsOneWidget);
       await tester.scrollUntilVisible(find.text('สอดคล้องกัน 2 ศาสตร์'), 160);
       expect(tester.takeException(), isNull);
     },
@@ -351,31 +415,25 @@ void main() {
     await tester.pumpWidget(
       MaterialApp(home: ThreeTraditionReportPage(reading: reading)),
     );
+    await tester.scrollUntilVisible(find.text('สอดคล้องกัน 2 ศาสตร์'), 160);
     expect(find.text('สอดคล้องกัน 2 ศาสตร์'), findsOneWidget);
     expect(
-      find.textContaining(
-        'จีน: พบประเด็นการให้ความสำคัญกับความมั่นคงจาก '
-        'ธาตุเด่นของดวงจีนเป็นดิน',
-      ),
-      findsOneWidget,
+      find.textContaining('จีนอ้างอิงธาตุเด่นของดวงจีนเป็นดิน'),
+      findsWidgets,
     );
     expect(
-      find.textContaining(
-        'ตะวันตก: พบประเด็นการให้ความสำคัญกับความมั่นคงจาก '
-        'อาทิตย์อยู่ราศีพฤษภ',
-      ),
-      findsOneWidget,
+      find.textContaining('ตะวันตกอ้างอิงอาทิตย์อยู่ราศีพฤษภ'),
+      findsWidgets,
     );
     expect(
-      find.textContaining('ไทย: ไม่มีหลักฐานที่หนักพอให้นับร่วมในประเด็นนี้'),
+      find.textContaining('ไทยยังไม่มีหลักฐานหนักพอให้นับร่วมในเรื่องนี้'),
       findsOneWidget,
     );
-    await tester.scrollUntilVisible(
-      find.textContaining('พบประเด็นการแสดงออกจาก ลัคนา: ลัคนาราศีเมษ'),
-      160,
-    );
+    await tester.scrollUntilVisible(find.text('ดูหลักฐานของแต่ละศาสตร์'), 160);
+    await tester.tap(find.text('ดูหลักฐานของแต่ละศาสตร์'));
+    await tester.pumpAndSettle();
     expect(
-      find.textContaining('พบประเด็นการแสดงออกจาก ลัคนา: ลัคนาราศีเมษ'),
+      find.textContaining('มุมเรื่องการแสดงออก จากลัคนาราศีเมษ'),
       findsOneWidget,
     );
     expect(tester.takeException(), isNull);
@@ -415,7 +473,11 @@ void main() {
         ),
       ),
     );
-    expect(find.textContaining('ยังไม่พบประเด็น'), findsOneWidget);
+    expect(
+      find.textContaining('ข้อมูลที่มีอยู่ยังไม่พอจะอ่านภาพรวม'),
+      findsOneWidget,
+    );
+    expect(find.textContaining('ยังไม่มีเรื่องเดียวกัน'), findsOneWidget);
     expect(tester.takeException(), isNull);
   });
 }

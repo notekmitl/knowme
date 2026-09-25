@@ -1,3 +1,25 @@
+## Active follow-up — PR #149 one-reading prose (2026-09-25)
+
+The Overall report now opens with one evidence-grounded Thai reading rather
+than a no-agreement notice followed by three separate lists. The following
+section distinguishes proven two-/three-tradition points from other lens
+views; full per-lens facts are available on expansion. The agreement threshold
+remains `0.6`, and no engine, adapter, or persistence path changed.
+
+The Owner-requested case and two synthetic cases were retested on the safe
+390×844 Hosted Preview. Click-to-report times were **894/384/912 ms**. The
+Owner case still has no supported common point; the synthetic cases had one
+and two supported two-tradition points respectively, with the third view kept
+separate. Each run made only two successful isolated Backend calculation
+POSTs plus 18 GETs, with zero Auth, Firestore, Production API, other write,
+blocked request, page error, or horizontal overflow. Focused tests passed
+**34/34** and changed-file analysis found **0 issues**. Hosted bundle SHA-256
+is `32B838493F0FEC12BD2E42AE88E824139A31029C38DD66B898F0ADC1A5C84190`;
+safe Preview version is `5d2d95d5892b9a8f`. Production Hosting `live`
+remains unchanged. Owner wording review is pending, and PR #149 stays Draft.
+No personal birth values are recorded in this update. Details:
+`docs/THREE_TRADITION_OVERALL_V1.md`.
+
 ## Active follow-up — PR #149 Thai evidence repair (2026-09-25)
 
 The shared Thai runner gives the single and Overall routes the same normalized

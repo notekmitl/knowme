@@ -1,3 +1,24 @@
+## Active handoff — PR #149 one-reading prose (2026-09-25)
+
+Owner review Preview:
+`https://knowme-app-694e1--pr-149-overall-safe-vbx6de6a.web.app/beta/thai`
+(Hosting version `5d2d95d5892b9a8f`, expiring `2026-10-02T06:56:24Z`).
+The report now reads as one paragraph from traceable Thai, Chinese, and
+Western facts, then separately names only proven agreements. Other lens
+views remain distinct, with source details available in an expansion panel.
+The `0.6` agreement threshold is unchanged. The Owner-requested case has no
+supported common point; two synthetic cases showed one and two proven
+two-tradition points. At 390×844, click-to-report timings were
+**894/384/912 ms**, with no horizontal clipping. Each anonymous trace had
+18 GET and only two isolated Backend calculation POSTs (200/200), zero Auth,
+Firestore, Production API, other write, blocked request, or page error.
+Focused tests passed **34/34**; changed-file analysis found **0 issues**.
+Hosted JS SHA-256 is
+`32B838493F0FEC12BD2E42AE88E824139A31029C38DD66B898F0ADC1A5C84190`.
+`live` Hosting is unchanged, the unsafe old channel remains closed, and the
+PR must stay Draft for Owner wording review. No personal birth data is added
+to this handoff. Full evidence: `docs/THREE_TRADITION_OVERALL_V1.md`.
+
 ## Active handoff — PR #149 Thai evidence repair (2026-09-25)
 
 The safe Preview at
