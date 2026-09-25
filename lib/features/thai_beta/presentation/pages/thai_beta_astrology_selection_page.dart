@@ -5,6 +5,7 @@ import 'package:knowme/features/thai_beta/application/thai_beta_astrology_handof
 import 'package:knowme/features/thai_beta/application/thai_beta_current_analysis.dart';
 import 'package:knowme/features/thai_beta/domain/thai_beta_input.dart';
 import 'package:knowme/features/astrology/fusion/application/three_tradition_consensus.dart';
+import 'package:knowme/features/astrology/fusion/presentation/three_tradition_life_reading.dart';
 import 'package:knowme/features/astrology/fusion/presentation/pages/three_tradition_report_page.dart';
 import 'package:knowme/presentation/pages/astrology/astrology_result_page.dart';
 import 'package:knowme/presentation/pages/bazi/bazi_result_page.dart';
@@ -170,10 +171,18 @@ class _ThaiBetaAstrologySelectionPageState
         bazi: bazi,
         western: western,
       );
+      final lifeReading = ThreeTraditionLifeReadingComposer.compose(
+        thai: thai,
+        bazi: bazi,
+        western: western,
+      );
       if (!mounted) return;
       await Navigator.of(context).push(
         MaterialPageRoute<void>(
-          builder: (_) => ThreeTraditionReportPage(reading: reading),
+          builder: (_) => ThreeTraditionReportPage(
+            reading: reading,
+            lifeReading: lifeReading,
+          ),
         ),
       );
     } catch (error, stack) {
@@ -285,7 +294,7 @@ class _ThaiBetaAstrologySelectionPageState
                   icon: Icons.auto_graph_outlined,
                   title: 'โหราศาสตร์โดยรวม',
                   description: _westernReady
-                      ? 'ดูประเด็นพื้นดวงที่ดวงไทย จีน และตะวันตกให้ผลตรงหรือสอดคล้องกัน'
+                      ? 'อ่านการงาน การเงิน และความสัมพันธ์จากคำอ่านทั้งสามศาสตร์ พร้อมแยกจุดร่วมที่มีหลักฐานถึงเกณฑ์'
                       : 'ต้องทราบเวลาเกิดและจังหวัดก่อน จึงเปรียบเทียบครบทั้งสามศาสตร์ได้',
                   buttonKey: const Key('astrology-select-overall'),
                   buttonLabel: 'ดูดวงรวม',

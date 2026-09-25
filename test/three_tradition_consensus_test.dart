@@ -8,6 +8,7 @@ import 'package:knowme/features/astrology/fusion/adapters/western_real_adapter.d
 import 'package:knowme/features/astrology/fusion/application/three_tradition_consensus.dart';
 import 'package:knowme/features/astrology/fusion/presentation/pages/three_tradition_report_page.dart';
 import 'package:knowme/features/astrology/fusion/presentation/reading_evidence_text.dart';
+import 'package:knowme/features/astrology/fusion/presentation/three_tradition_life_reading.dart';
 import 'package:knowme/features/astrology/fusion/presentation/three_tradition_reading_copy.dart';
 import 'package:knowme/features/astrology/fusion/registry/theme_registry.dart';
 import 'package:knowme/features/bazi_compatibility/application/bazi_compatibility_owner_fixtures.dart';
@@ -449,7 +450,7 @@ void main() {
         MaterialApp(home: ThreeTraditionReportPage(reading: reading)),
       );
       expect(
-        find.textContaining('หลักฐานรองรับจุดร่วมแยกกันหลายเรื่อง'),
+        find.textContaining('หลักฐานรายด้านยังไม่พอสร้างคำอ่านประกอบกัน'),
         findsOneWidget,
       );
       await tester.scrollUntilVisible(
@@ -549,9 +550,41 @@ void main() {
       ),
     );
     expect(
-      find.textContaining('ข้อมูลที่มีอยู่ยังไม่พอจะอ่านภาพรวม'),
+      find.textContaining('หลักฐานรายด้านยังไม่พอสร้างคำอ่านประกอบกัน'),
       findsOneWidget,
     );
+    expect(find.textContaining('ยังไม่มีเรื่องเดียวกัน'), findsOneWidget);
+    expect(tester.takeException(), isNull);
+  });
+
+  testWidgets('life reading keeps interpreted copy and source evidence separate from consensus', (
+    tester,
+  ) async {
+    await tester.binding.setSurfaceSize(const Size(390, 844));
+    addTearDown(() => tester.binding.setSurfaceSize(null));
+    await tester.pumpWidget(MaterialApp(
+      home: ThreeTraditionReportPage(
+        reading: ThreeTraditionConsensus.analyzeOutputs([]),
+        lifeReading: const ThreeTraditionLifeReading(
+          topics: [
+            ThreeTraditionLifeTopic(
+              title: 'การงาน',
+              reading: 'คำอ่านประกอบกันจากหลักฐานรายด้าน',
+              thai: 'คำอ่านไทย',
+              thaiEvidenceKeys: ['HouseEngine.calculate.house[10].signKey'],
+              chinese: 'คำอ่านจีน',
+              chineseEvidenceKeys: ['BaziChartModel.tenGodBalance.topFamilies'],
+              western: 'คำอ่านตะวันตก',
+              westernBasis: 'ดาวพุธ',
+            ),
+          ],
+          gaps: [],
+        ),
+      ),
+    ));
+    expect(find.text('คำอ่านประกอบกันจากหลักฐานรายด้าน'), findsOneWidget);
+    expect(find.textContaining('ไม่ใช่จุดร่วมที่พิสูจน์แล้ว'), findsOneWidget);
+    await tester.scrollUntilVisible(find.text('จุดร่วมที่หลักฐานรองรับ'), 160);
     expect(find.textContaining('ยังไม่มีเรื่องเดียวกัน'), findsOneWidget);
     expect(tester.takeException(), isNull);
   });

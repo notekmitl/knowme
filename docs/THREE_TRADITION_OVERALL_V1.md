@@ -1,5 +1,58 @@
 # Overall astrology from three traditions — V1 working branch
 
+## 2026-09-25 source-backed life-area reading for Draft PR #149
+
+Starting from `0b60634`, the Overall route now reads the existing detailed
+Thai birth-profile claims, Chinese BaZi Reader V2 life-area copy, and Western
+Reader V2 sections. It composes work, money, and relationship readings only
+when each source claim and its calculation basis is available. The report
+labels these as **interpretive compositions**, shows all three original
+readings with their basis on expansion, and keeps proven agreements in a
+separate section under the unchanged `0.6` confidence threshold. Missing
+source material produces a stated gap rather than invented prose. The
+interpretation is natal; single-tradition current-period text is not treated
+as a shared three-tradition timing prediction.
+
+An anonymous diagnostic against the isolated Preview Backend checked the
+Owner-requested known-time case and two synthetic cases. Each produced the
+three life-area readings without a source gap after handling both existing
+Chinese money branches. The Owner case still has **no proven common point**;
+the synthetic cases retain only the agreements their adapter evidence
+qualifies. The diagnostic prints every Thai house claim and evidence key,
+Chinese source section, and Western section and planetary basis into local
+ignored QA files. Birth values and chart placements are excluded from this
+document. The focused consensus/report tests passed **24/24**, including a
+mobile rendering check that separates interpretive copy from agreement.
+The final anonymous Hosted Preview runs reached the report from the
+selection page in **863/381/892 ms** at 390×844. Each displayed all three
+life-area readings, had 390 px viewport and scroll width, and made 18 GETs
+plus only two calculation POSTs to the isolated Preview Backend (both 200).
+No Auth, Firestore, Production API, other write, blocked request, browser
+error, or forbidden identity/profile field appeared. The Owner case still
+showed no proven common point; the two synthetic cases showed only their
+supported two-tradition points. The final Hosted JavaScript equals the local
+safe build at SHA-256
+`309E29572EB5363D751B4E5DAF98127293057D5E9ACCD4DED6E46DB75C21EA30`.
+The isolated backend URL and two calculation paths occur in the bundle;
+Auth/Firestore endpoint strings do not. The Production API hostname occurs
+only in the negative Preview configuration guard. Only Preview channel
+`pr-149-overall-safe` advanced, to version `e3062328b08f2baa` expiring
+`2026-10-02T08:26:51Z`; Production Hosting `live` remains
+`d32e72678324e634`.
+
+The Owner work-topic expansion was also opened on Hosted Preview: it showed
+the complete Thai house-10 source claim and sign/lord keys, the Chinese work
+reader and Ten God/support keys, and the Western work section with its
+planetary basis. That read-only interaction made no extra mutation request.
+
+Changed-file Flutter analysis found **0 issues** and the release Web build
+succeeded. The full local Flutter run finished with **3,125 passed, two
+skipped, and one failure** in the pre-existing actual-PDF parity test because
+the local Python interpreter lacks `pypdf`; this is unrelated to the Overall
+route. Its generated QA files were backed up in an ignored local patch and
+restored to their pre-run state. PR CI and Owner wording review remain the
+release gates; no personal birth values are included here.
+
 ## 2026-09-25 evidence relationship reading for Draft PR #149
 
 Starting from `dc4146b`, the report composer now examines every registered

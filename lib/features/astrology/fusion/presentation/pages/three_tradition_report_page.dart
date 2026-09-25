@@ -4,13 +4,18 @@ import '../../adapters/lens_theme_output.dart';
 import '../../application/three_tradition_consensus.dart';
 import '../../domain/entities/astrology_lens.dart';
 import '../reading_evidence_text.dart';
-import '../three_tradition_reading_copy.dart';
+import '../three_tradition_life_reading.dart';
 
 /// Evidence-first comparison; unmatched observations remain visible as such.
 class ThreeTraditionReportPage extends StatelessWidget {
-  const ThreeTraditionReportPage({super.key, required this.reading});
+  const ThreeTraditionReportPage({
+    super.key,
+    required this.reading,
+    this.lifeReading = const ThreeTraditionLifeReading(topics: [], gaps: []),
+  });
 
   final ThreeTraditionReading reading;
+  final ThreeTraditionLifeReading lifeReading;
 
   static final Map<String, String> _lensNames = {
     AstrologyLens.thaiAstrology.lensId: 'ไทย',
@@ -48,20 +53,32 @@ class ThreeTraditionReportPage extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'ภาพรวมจากหลักฐานที่มี',
+                          'คำอ่านพื้นดวงรายด้าน',
                           style: theme.textTheme.titleLarge,
                         ),
                         const SizedBox(height: 12),
-                        Text(
-                          ThreeTraditionReadingCopy.overview(reading),
-                          style: theme.textTheme.bodyLarge?.copyWith(
-                            height: 1.6,
-                          ),
+                        const Text(
+                          'ส่วนนี้เป็นการตีความประกอบกันจากคำอ่านต้นทาง ไม่ใช่จุดร่วมที่พิสูจน์แล้ว',
                         ),
+                        if (lifeReading.topics.isEmpty) ...[
+                          const SizedBox(height: 12),
+                          const Text(
+                            'หลักฐานรายด้านยังไม่พอสร้างคำอ่านประกอบกัน จึงไม่เติมคำทำนายแทนข้อมูลที่ขาด',
+                          ),
+                        ],
                       ],
                     ),
                   ),
                 ),
+                for (final topic in lifeReading.topics) ...[
+                  const SizedBox(height: 12),
+                  _lifeTopicCard(topic, theme),
+                ],
+                for (final gap in lifeReading.gaps)
+                  Padding(
+                    padding: const EdgeInsets.only(top: 8),
+                    child: Text('ข้อมูลที่ยังขาด: $gap'),
+                  ),
                 const SizedBox(height: 20),
                 Text(
                   'จุดร่วมที่หลักฐานรองรับ',
@@ -122,6 +139,51 @@ class ThreeTraditionReportPage extends StatelessWidget {
       ),
     );
   }
+
+  Widget _lifeTopicCard(ThreeTraditionLifeTopic topic, ThemeData theme) {
+    return Card(
+      child: Padding(
+        padding: const EdgeInsets.all(18),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(topic.title, style: theme.textTheme.titleMedium),
+            const SizedBox(height: 8),
+            Text(
+              topic.reading,
+              style: theme.textTheme.bodyLarge?.copyWith(height: 1.6),
+            ),
+            const SizedBox(height: 8),
+            ExpansionTile(
+              tilePadding: EdgeInsets.zero,
+              title: const Text('ตรวจคำอ่านและหลักฐานต้นทาง'),
+              children: [
+                _source('ไทย', topic.thai, topic.thaiEvidenceKeys.join(' · ')),
+                _source(
+                  'จีน',
+                  topic.chinese,
+                  topic.chineseEvidenceKeys.join(' · '),
+                ),
+                _source('ตะวันตก', topic.western, topic.westernBasis),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _source(String name, String copy, String basis) => Padding(
+    padding: const EdgeInsets.only(bottom: 14),
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(name, style: const TextStyle(fontWeight: FontWeight.w700)),
+        Text(copy),
+        Text('ฐานข้อมูล: $basis'),
+      ],
+    ),
+  );
 
   Widget _card(ThreeTraditionAgreement item) {
     final participating = item.sources.keys

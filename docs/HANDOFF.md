@@ -1,3 +1,25 @@
+## Active handoff — PR #149 detailed life reading (2026-09-25)
+
+Owner review Preview:
+`https://knowme-app-694e1--pr-149-overall-safe-vbx6de6a.web.app/beta/thai`
+(Hosting version `e3062328b08f2baa`, expires `2026-10-02T08:26:51Z`).
+The report has work, money, and relationship interpretations grounded in
+existing Thai house claims, Chinese BaZi Reader V2, and Western Reader V2.
+Each topic exposes its three source readings and calculation basis. It does
+not call an interpretation a proven common point; the `0.6` threshold and
+agreement section remain separate. Missing source evidence yields a stated
+gap. Anonymous 390×844 QA for the Owner-requested and two synthetic cases
+reached the report in **863/381/892 ms**, with all topics visible, no
+overflow, and only two successful isolated Backend calculation POSTs per
+run. There was no Auth, Firestore, Production API, other write, blocked
+request, or browser error. Hosted JS SHA-256 is
+`309E29572EB5363D751B4E5DAF98127293057D5E9ACCD4DED6E46DB75C21EA30`;
+Production Hosting `live` remains unchanged. Focused tests passed **24/24**;
+the full local suite's one unrelated PDF gate failure is a missing local
+`pypdf` dependency. Keep PR #149 Draft and await CI and Owner wording review.
+No personal birth values are recorded here. Details:
+`docs/THREE_TRADITION_OVERALL_V1.md`.
+
 ## Active handoff — PR #149 evidence relationship reading (2026-09-25)
 
 Owner review Preview:

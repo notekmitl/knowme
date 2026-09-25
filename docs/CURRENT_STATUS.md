@@ -1,3 +1,22 @@
+## Active follow-up — PR #149 detailed life reading (2026-09-25)
+
+Overall Preview now composes substantive work, money, and relationship
+readings from traceable Thai birth-profile claims, Chinese BaZi Reader V2,
+and Western Reader V2. The report labels composition as interpretation and
+keeps qualifying agreement separate under the unchanged `0.6` threshold.
+Missing sources produce a stated gap; it does not infer shared timing.
+The Owner-requested case and two synthetic cases passed anonymous Hosted
+Preview QA at 390×844 in **863/381/892 ms**, with all three life areas,
+no overflow or browser errors, and only two successful Preview Backend
+calculation POSTs per run. No Auth, Firestore, Production API, or other write
+request occurred. Preview version `e3062328b08f2baa` matches the safe
+bundle hash `309E29572EB5363D751B4E5DAF98127293057D5E9ACCD4DED6E46DB75C21EA30`;
+Production Hosting `live` is unchanged. Focused tests passed **24/24**;
+the full local suite had one unrelated PDF gate failure because local
+Python lacks `pypdf`. PR CI and Owner wording review are pending. No
+personal birth data is stored in this update. Details:
+`docs/THREE_TRADITION_OVERALL_V1.md`.
+
 ## Active follow-up — PR #149 evidence relationship reading (2026-09-25)
 
 From `dc4146b`, the Overall report now examines all lens observations and
