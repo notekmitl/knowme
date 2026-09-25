@@ -1,5 +1,60 @@
 # Overall astrology from three traditions — V1 working branch
 
+## 2026-09-25 Thai evidence and anonymous Preview repair
+
+The Owner-requested near-midnight case was traced from the Thai single-reading
+runner into the Overall adapter. Both paths use the same normalized Thai
+analysis and Mirror result. The Thai single report produced its complete
+narrative. The normalizer correctly kept the civil birth date for the other
+traditions and used the preceding Thai astrological day because the birth was
+before local sunrise. No date-boundary change was needed.
+
+The adapter previously examined only the Mirror's top three themes. None of
+those themes was in the Overall Fusion registry for this case, while approved
+Thai content in the Mirror sections contained registered themes and explicit
+evidence rows. The adapter now also reads section supporting themes and keeps
+its existing registry, source-evidence, deduplication, and confidence gates.
+The Thai report's approved lagna content explicitly maps the three displayed
+Thai observations. They come from one Thai source, each at confidence `0.55`;
+they remain lens-specific. The `0.6` agreement threshold is unchanged, so
+this case has **no supported two- or three-tradition common point**. The
+Chinese and Western observations remain separate. No missing point was
+invented to fill the Overall report.
+
+The isolated Preview's Thai single report was also blank after confirmation:
+its feature-flag-off branch instantiated a Firebase audience listener although
+Preview deliberately has no Firebase initialization. The Preview build now
+renders that report with an anonymous audience and does not create the
+listener. Production-mode behavior is unchanged.
+
+Focused adapter/consensus tests passed **23/23**. A synthetic pre-sunrise
+birth test confirms section evidence survives when top themes do not map to
+the Fusion registry. A synthetic daytime test confirms weak Thai evidence
+stays visible without becoming an agreement. Changed-file analysis found
+**0 issues**. The safe release Web bundle has SHA-256
+`5E47FC67F7FED4A9BE9D91D72FFA381D3F8263BA989334F30D02FFABD7F0B7E8`;
+the hosted bundle matches byte-for-byte. It contains the isolated Preview
+Backend URL, both calculation paths, and no Auth/Firestore endpoint strings.
+The one Production API hostname occurrence is solely in the negative Preview
+configuration guard.
+
+Only `pr-149-overall-safe` was advanced to Hosting version
+`23c6890171b7618b`, expiring `2026-10-02T05:33:21Z`. The `live` Hosting
+version stayed `d32e72678324e634`; the old unsafe channel remains absent.
+The Owner-requested case was entered in a fresh 390×844 anonymous browser.
+Thai single summary and visual report showed the preceding Thai astrological
+day and a populated reading; its 18 requests were GET only. The Overall
+selection-to-report time was **4,526 ms**. Its 20 requests were 18 GET and
+exactly two calculation POSTs to the isolated Backend, both 200. Request
+bodies had no UID, name, profile, token, or Auth field. Both routes had zero
+Auth, Firestore, Production API, other mutating, blocked, page-error, or
+console-error requests. At 390 px viewport, scroll width was 390 px and the
+cards did not clip. The Overall text now shows three separately sourced Thai
+observations and explicitly says that no common point is supported. The
+Owner's wording review remains pending. Birth values and chart placements
+are intentionally omitted from this document; no account or saved result was
+created by the tested flows. PR #149 remains Draft.
+
 ## 2026-09-24 latest Draft PR #149 verification
 
 The post-crash implementation commit `bd17b475` and its documentation were

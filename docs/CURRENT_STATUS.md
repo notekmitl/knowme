@@ -1,3 +1,29 @@
+## Active follow-up — PR #149 Thai evidence repair (2026-09-25)
+
+The shared Thai runner gives the single and Overall routes the same normalized
+Mirror result. A near-midnight Owner case correctly uses the preceding Thai
+astrological day. The Overall adapter had discarded real section evidence
+because it read only the top three themes; it now includes section supporting
+themes while retaining the registry and confidence gates. The isolated
+Preview's Thai single report also now renders anonymously without creating a
+Firebase audience listener. Focused tests **23/23** and changed-file analysis
+**0 issues** passed.
+
+The safe Hosted Preview is version `23c6890171b7618b` at
+`https://knowme-app-694e1--pr-149-overall-safe-vbx6de6a.web.app/beta/thai`.
+The hosted bundle matches the safe local build (SHA-256
+`5E47FC67F7FED4A9BE9D91D72FFA381D3F8263BA989334F30D02FFABD7F0B7E8`).
+Anonymous 390×844 testing showed a populated Thai single report and an
+Overall report in **4,526 ms** with Thai observations. The Owner case still
+has **no supported common point** because its Thai evidence is below the
+existing agreement threshold; the report states this explicitly. Overall
+network was 18 GET plus only two isolated Backend calculation POSTs (200/200);
+the Thai single route made 18 GET and no POST. Neither route attempted Auth,
+Firestore, Production API, or other write requests. `live` Hosting is
+unchanged, the old unsafe channel remains absent, and the PR stays Draft for
+Owner wording review. No personal birth values are recorded here. Details:
+`docs/THREE_TRADITION_OVERALL_V1.md`.
+
 ## Active follow-up — PR #149 latest isolated Preview and CI (2026-09-24)
 
 Draft PR #149 implementation `b5aa038` scopes multi-fact evidence merging

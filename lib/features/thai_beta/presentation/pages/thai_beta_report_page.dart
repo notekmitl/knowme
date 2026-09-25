@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:knowme/core/config/api_config.dart';
 
 import '../../application/narrative/thai_beta_narrative_composer.dart';
 import '../../application/thai_beta_analysis.dart';
@@ -96,7 +97,8 @@ class ThaiBetaReportPage extends StatelessWidget {
 
     // Public Thai Beta is evidence-gated, not identity-gated. Avoid creating
     // Firebase Auth/Firestore audience listeners on this public surface.
-    if (resolvedFlag == ThaiEvidenceBadgeFeatureFlagState.publicBeta) {
+    if (ApiConfig.isOverallPreview ||
+        resolvedFlag == ThaiEvidenceBadgeFeatureFlagState.publicBeta) {
       return _ThaiBetaReportScaffold(
         analysis: analysis,
         audience: const ThaiBetaEvidenceBadgeAudience.anonymous(),

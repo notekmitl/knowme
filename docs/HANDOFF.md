@@ -1,3 +1,22 @@
+## Active handoff — PR #149 Thai evidence repair (2026-09-25)
+
+The safe Preview at
+`https://knowme-app-694e1--pr-149-overall-safe-vbx6de6a.web.app/beta/thai`
+now serves Hosting version `23c6890171b7618b` and the isolated calculation
+Backend only. The Thai single report renders anonymously; the Overall adapter
+passes source-backed Thai section themes that were previously omitted. For the
+Owner-requested case, Thai evidence is still below the agreement threshold,
+so the Overall report truthfully shows no supported common point. Local
+focused tests passed **23/23**, changed-file analysis found **0 issues**,
+and hosted 390×844 anonymous QA reached the report in **4,526 ms** with no
+overflow, Auth, Firestore, Production API, or other write request. The hosted
+JS SHA-256 is
+`5E47FC67F7FED4A9BE9D91D72FFA381D3F8263BA989334F30D02FFABD7F0B7E8`.
+The `live` Hosting version is unchanged; the unsafe channel remains closed.
+No birth values are recorded here. Keep PR #149 Draft and request Owner wording
+review before any later merge decision. Full evidence is in
+`docs/THREE_TRADITION_OVERALL_V1.md`.
+
 # Active handoff — PR #149 latest isolated Preview and CI (2026-09-24)
 
 Implementation `b5aa038` is pushed to the existing Draft PR branch. It

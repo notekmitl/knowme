@@ -14,7 +14,10 @@ abstract final class ThaiRealAdapter {
     final outputs = <LensThemeOutput>[];
     final seenThemes = <String>{};
 
-    for (final themeRef in mirror.topThemes) {
+    for (final themeRef in [
+      ...mirror.topThemes,
+      for (final section in mirror.fusionSections) ...section.supportingThemes,
+    ]) {
       final themeId = themeRef.themeId.trim().toLowerCase();
       if (!FusionThemeRegistry.contains(themeId)) continue;
       if (!seenThemes.add(themeId)) continue;

@@ -3,6 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:knowme/data/models/astrology_chart_model.dart';
 import 'package:knowme/features/astrology/fusion/adapters/adapter_helpers.dart';
 import 'package:knowme/features/astrology/fusion/adapters/lens_theme_output.dart';
+import 'package:knowme/features/astrology/fusion/adapters/thai_real_adapter.dart';
 import 'package:knowme/features/astrology/fusion/adapters/western_real_adapter.dart';
 import 'package:knowme/features/astrology/fusion/application/three_tradition_consensus.dart';
 import 'package:knowme/features/astrology/fusion/presentation/pages/three_tradition_report_page.dart';
@@ -223,6 +224,84 @@ void main() {
     }
   });
 
+  test('pre-sunrise Thai section evidence reaches the overall reader', () {
+    final analysis = ThaiBetaAnalysisRunner.run(
+      ThaiBetaInput(
+        firstName: 'Sample',
+        lastName: 'Reader',
+        birthDate: DateTime(1972, 4, 4),
+        birthHour: 2,
+        province: 'กรุงเทพมหานคร',
+        provinceKey: 'bangkok',
+      ),
+      asOf: DateTime(2026, 9, 23),
+    );
+    expect(analysis.isSuccess, isTrue);
+    expect(analysis.normalizedSnapshot!.usedPreviousDay, isTrue);
+    expect(analysis.normalizedSnapshot!.thaiAstrologicalDate, '1972-04-03');
+
+    final mirror = analysis.pipelineResult!.mirrorResult!;
+    expect(
+      mirror.topThemes.every(
+        (theme) => !FusionThemeRegistry.contains(theme.themeId),
+      ),
+      isTrue,
+    );
+    final thaiOutputs = ThaiRealAdapter.adapt(mirror);
+    expect(thaiOutputs, isNotEmpty);
+    expect(thaiOutputs.every((item) => item.evidence.isNotEmpty), isTrue);
+    expect(
+      thaiOutputs.every((item) => FusionThemeRegistry.contains(item.themeId)),
+      isTrue,
+    );
+    expect(
+      thaiOutputs.every(
+        (item) => mirror.sections.any(
+          (section) =>
+              section.supportingThemes.any(
+                (theme) => theme.themeId == item.themeId,
+              ) &&
+              section.evidence.any(
+                (row) => item.evidence.any(
+                  (fact) => fact.contains(row.contentTitle ?? row.contentKey),
+                ),
+              ),
+        ),
+      ),
+      isTrue,
+    );
+  });
+
+  test('weak Thai section evidence remains visible without a common claim', () {
+    final analysis = ThaiBetaAnalysisRunner.run(
+      ThaiBetaInput(
+        firstName: 'Sample',
+        lastName: 'Reader',
+        birthDate: DateTime(2000, 1, 3),
+        birthHour: 12,
+        province: 'เชียงใหม่',
+        provinceKey: 'chiang mai',
+      ),
+      asOf: DateTime(2026, 9, 23),
+    );
+    expect(analysis.isSuccess, isTrue);
+    expect(analysis.normalizedSnapshot!.usedPreviousDay, isFalse);
+
+    final thaiOutputs = ThaiRealAdapter.adapt(
+      analysis.pipelineResult!.mirrorResult!,
+    );
+    final weakSupport = thaiOutputs.singleWhere(
+      (item) => item.themeId == 'supportive',
+    );
+    expect(weakSupport.confidence, lessThan(0.6));
+    final reading = ThreeTraditionConsensus.analyzeOutputs([
+      ...thaiOutputs,
+      output(western, 'supportive'),
+    ]);
+    expect(reading.byLens[thai], contains(weakSupport));
+    expect(reading.agreements, isEmpty);
+  });
+
   testWidgets(
     'mobile reader displays three and two lens groups without overflow',
     (tester) async {
@@ -244,58 +323,86 @@ void main() {
     },
   );
 
-  testWidgets('report shows distinct lens facts and separates the third lens',
-      (tester) async {
+  testWidgets('report shows distinct lens facts and separates the third lens', (
+    tester,
+  ) async {
     await tester.binding.setSurfaceSize(const Size(390, 844));
     addTearDown(() => tester.binding.setSurfaceSize(null));
     final reading = ThreeTraditionConsensus.analyzeOutputs([
       FusionAdapterHelpers.buildRegistered(
-        lensId: bazi, themeId: 'grounded', confidence: 0.8,
+        lensId: bazi,
+        themeId: 'grounded',
+        confidence: 0.8,
         evidence: ['Dominant Element: earth'],
       )!,
       FusionAdapterHelpers.buildRegistered(
-        lensId: western, themeId: 'grounded', confidence: 0.8,
+        lensId: western,
+        themeId: 'grounded',
+        confidence: 0.8,
         evidence: ['Sun Sign: Taurus'],
       )!,
       FusionAdapterHelpers.buildRegistered(
-        lensId: thai, themeId: 'expressive', confidence: 0.8,
+        lensId: thai,
+        themeId: 'expressive',
+        confidence: 0.8,
         evidence: ['ลัคนา: ลัคนาราศีเมษ'],
       )!,
     ]);
-    await tester.pumpWidget(MaterialApp(
-      home: ThreeTraditionReportPage(reading: reading),
-    ));
+    await tester.pumpWidget(
+      MaterialApp(home: ThreeTraditionReportPage(reading: reading)),
+    );
     expect(find.text('สอดคล้องกัน 2 ศาสตร์'), findsOneWidget);
-    expect(find.textContaining('จีน: พบประเด็นการให้ความสำคัญกับความมั่นคงจาก '
-        'ธาตุเด่นของดวงจีนเป็นดิน'), findsOneWidget);
-    expect(find.textContaining('ตะวันตก: พบประเด็นการให้ความสำคัญกับความมั่นคงจาก '
-        'อาทิตย์อยู่ราศีพฤษภ'), findsOneWidget);
-    expect(find.textContaining('ไทย: ไม่มีหลักฐานที่หนักพอให้นับร่วมในประเด็นนี้'), findsOneWidget);
+    expect(
+      find.textContaining(
+        'จีน: พบประเด็นการให้ความสำคัญกับความมั่นคงจาก '
+        'ธาตุเด่นของดวงจีนเป็นดิน',
+      ),
+      findsOneWidget,
+    );
+    expect(
+      find.textContaining(
+        'ตะวันตก: พบประเด็นการให้ความสำคัญกับความมั่นคงจาก '
+        'อาทิตย์อยู่ราศีพฤษภ',
+      ),
+      findsOneWidget,
+    );
+    expect(
+      find.textContaining('ไทย: ไม่มีหลักฐานที่หนักพอให้นับร่วมในประเด็นนี้'),
+      findsOneWidget,
+    );
     await tester.scrollUntilVisible(
       find.textContaining('พบประเด็นการแสดงออกจาก ลัคนา: ลัคนาราศีเมษ'),
       160,
     );
-    expect(find.textContaining('พบประเด็นการแสดงออกจาก ลัคนา: ลัคนาราศีเมษ'),
-        findsOneWidget);
+    expect(
+      find.textContaining('พบประเด็นการแสดงออกจาก ลัคนา: ลัคนาราศีเมษ'),
+      findsOneWidget,
+    );
     expect(tester.takeException(), isNull);
   });
 
   test('adapter deduplication preserves distinct facts for one theme', () {
     final strongest = FusionAdapterHelpers.buildRegistered(
-      lensId: bazi, themeId: 'grounded', confidence: 0.85,
+      lensId: bazi,
+      themeId: 'grounded',
+      confidence: 0.85,
       evidence: ['Day Master: yin earth'],
     )!;
     final supporting = FusionAdapterHelpers.buildRegistered(
-      lensId: bazi, themeId: 'grounded', confidence: 0.7,
+      lensId: bazi,
+      themeId: 'grounded',
+      confidence: 0.7,
       evidence: ['Dominant Element: earth'],
     )!;
-    final merged = FusionAdapterHelpers.dedupeByTheme(
-      [strongest, supporting],
-      mergeEvidence: true,
-    );
+    final merged = FusionAdapterHelpers.dedupeByTheme([
+      strongest,
+      supporting,
+    ], mergeEvidence: true);
     expect(merged.single.confidence, 0.85);
-    expect(merged.single.evidence,
-        ['Day Master: yin earth', 'Dominant Element: earth']);
+    expect(merged.single.evidence, [
+      'Day Master: yin earth',
+      'Dominant Element: earth',
+    ]);
   });
 
   testWidgets('desktop reader shows a truthful empty state', (tester) async {
