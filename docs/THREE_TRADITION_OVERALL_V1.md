@@ -50,8 +50,11 @@ succeeded. The full local Flutter run finished with **3,125 passed, two
 skipped, and one failure** in the pre-existing actual-PDF parity test because
 the local Python interpreter lacks `pypdf`; this is unrelated to the Overall
 route. Its generated QA files were backed up in an ignored local patch and
-restored to their pre-run state. PR CI and Owner wording review remain the
-release gates; no personal birth values are included here.
+restored to their pre-run state. [CI for implementation commit
+`289ea59`](https://github.com/notekmitl/knowme/actions/runs/36113533911)
+passed focused tests, analyzer, Web build, and the complete Flutter suite.
+Owner wording review remains pending; no personal birth values are included
+here.
 
 ## 2026-09-25 evidence relationship reading for Draft PR #149
 

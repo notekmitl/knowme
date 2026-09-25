@@ -16,8 +16,9 @@ request, or browser error. Hosted JS SHA-256 is
 `309E29572EB5363D751B4E5DAF98127293057D5E9ACCD4DED6E46DB75C21EA30`;
 Production Hosting `live` remains unchanged. Focused tests passed **24/24**;
 the full local suite's one unrelated PDF gate failure is a missing local
-`pypdf` dependency. Keep PR #149 Draft and await CI and Owner wording review.
-No personal birth values are recorded here. Details:
+`pypdf` dependency. CI for implementation commit `289ea59` passed focused
+tests, analyzer, Web build, and the full Flutter suite. Keep PR #149 Draft
+for Owner wording review. No personal birth values are recorded here. Details:
 `docs/THREE_TRADITION_OVERALL_V1.md`.
 
 ## Active handoff — PR #149 evidence relationship reading (2026-09-25)

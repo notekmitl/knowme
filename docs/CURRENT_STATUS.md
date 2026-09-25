@@ -13,8 +13,9 @@ request occurred. Preview version `e3062328b08f2baa` matches the safe
 bundle hash `309E29572EB5363D751B4E5DAF98127293057D5E9ACCD4DED6E46DB75C21EA30`;
 Production Hosting `live` is unchanged. Focused tests passed **24/24**;
 the full local suite had one unrelated PDF gate failure because local
-Python lacks `pypdf`. PR CI and Owner wording review are pending. No
-personal birth data is stored in this update. Details:
+Python lacks `pypdf`. CI for implementation commit `289ea59` passed focused
+tests, analyzer, Web build, and the full Flutter suite; Owner wording review
+is pending. No personal birth data is stored in this update. Details:
 `docs/THREE_TRADITION_OVERALL_V1.md`.
 
 ## Active follow-up — PR #149 evidence relationship reading (2026-09-25)
