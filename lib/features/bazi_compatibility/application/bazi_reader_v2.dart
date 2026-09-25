@@ -35,6 +35,22 @@ class BaziReaderV2Reading {
 abstract final class BaziReaderV2 {
   static const interpretationContractId = 'knowme_bazi_reader_th_v2';
 
+  /// Work meaning from Ten God family codes, independent of report wording.
+  /// Empty means an unknown or incomplete family set.
+  static String natalWorkFocus(BaziChartModel chart) {
+    final families = chart.tenGodBalance.topFamilies;
+    if (families.isEmpty) return '';
+    final parts = <String>[];
+    for (final family in families) {
+      final meaning = _workFamilyCopy[family];
+      if (meaning == null) return '';
+      parts.add(meaning);
+    }
+    if (parts.length == 1) return parts.first;
+    return '${parts.first} '
+        '${parts.skip(1).map((part) => 'และ$part').join(' ')}';
+  }
+
   static BaziReaderV2Reading build(BaziChartModel chart, {DateTime? asOf}) {
     final date = asOf ?? DateTime.now();
     final profile = BaziSymbolicReadingEngine.profileFor(chart.dayMaster.stem);

@@ -1,3 +1,21 @@
+## Active follow-up — PR #149 structured life meanings (2026-09-25)
+
+The Overall composer now uses Thai house-lord atoms, Chinese BaZi codes, and
+Western Mercury/Venus sign codes instead of slicing fixed phrases from the
+three single-reader reports. It still requires their source readings and
+calculation basis, reports missing evidence as a gap, and keeps the `0.6`
+agreement threshold separate. Prose-change and missing-evidence regression
+tests passed within **78/78** related Flutter tests; changed-file analysis
+found **0 issues**. The Owner-requested case and two synthetic cases retained
+all nine work/money/relationship readings exactly on the refreshed 390×844
+Hosted Preview. Report timings were **861/910/958 ms**. Each run made two
+successful Preview Backend calculation POSTs and no Auth, Firestore,
+Production API, or other write request. Preview version is
+`cb6e00fd1a85d187`, hosted bundle SHA-256 is
+`35EE9EC5ED5436ED44D5049F4A28EEC872AE8C2266057502AFABF196C779C337`,
+and Production Hosting `live` remains `d32e72678324e634`. PR #149 stays
+Draft for Owner wording review. Details: `docs/THREE_TRADITION_OVERALL_V1.md`.
+
 ## Active follow-up — PR #149 detailed life reading (2026-09-25)
 
 Overall Preview now composes substantive work, money, and relationship

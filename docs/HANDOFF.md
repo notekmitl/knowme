@@ -1,3 +1,24 @@
+## Active handoff — PR #149 structured life meanings (2026-09-25)
+
+Owner review Preview:
+`https://knowme-app-694e1--pr-149-overall-safe-vbx6de6a.web.app/beta/thai`
+(Hosting version `cb6e00fd1a85d187`, expires `2026-10-02T09:48:30Z`).
+Overall work, money, and relationship meaning fragments now come from
+traceable Thai, Chinese, and Western codes; original per-tradition source
+readings and their basis remain available. Wording changes in those source
+reports no longer remove Overall topics. Missing evidence still gives a
+stated gap, and the `0.6` agreement threshold is unchanged. The three
+anonymous 390×844 Hosted Preview runs retained all nine topic readings
+exactly and took **861/910/958 ms** to reach the report. They made only two
+successful isolated Backend calculation POSTs per run, without Auth,
+Firestore, Production API, other write, blocked request, browser error, or
+horizontal overflow. Related tests passed **78/78** and changed-file
+analysis found **0 issues**. Hosted JS SHA-256 is
+`35EE9EC5ED5436ED44D5049F4A28EEC872AE8C2266057502AFABF196C779C337`;
+Production Hosting `live` remains `d32e72678324e634`. Keep PR #149 Draft
+for Owner wording review. No personal birth values are recorded here.
+Details: `docs/THREE_TRADITION_OVERALL_V1.md`.
+
 ## Active handoff — PR #149 detailed life reading (2026-09-25)
 
 Owner review Preview:

@@ -1,5 +1,42 @@
 # Overall astrology from three traditions — V1 working branch
 
+## 2026-09-25 structured meanings for Draft PR #149
+
+Starting from `7dc5360`, the work, money, and relationship composer now
+derives its short meaning fragments from traceable calculation codes rather
+than cutting fixed phrases out of the Thai, Chinese, or Western source prose.
+Thai house-lord source atoms resolve through the Thai reader's existing mode
+mapping; Chinese Ten God families, support band, family weights, and day-pillar
+codes resolve through the BaZi reader's mappings; Western Mercury and Venus
+sign codes resolve through a V2 semantic registry. All three original source
+readings and their basis remain visible. A missing source claim, atom, code,
+or reader section still produces a topic-specific gap. The separate agreement
+threshold remains `0.6`; interpretive composition is not labelled consensus.
+
+Changing the three single-reader prose samples in a regression test leaves
+all three Overall topic readings unchanged. The test also checks missing
+Thai house evidence, missing Western planet code, missing source report text,
+and registry coverage of all twelve Western signs. Related Flutter tests
+passed **78/78** and changed-file analysis found **0 issues**. An anonymous
+calculation diagnostic and Hosted Preview runs for the Owner-requested case
+and two synthetic cases produced all three topics without a gap. Their nine
+topic readings match the previous Hosted Preview **exactly**, character for
+character; no personal birth values or placements are stored here.
+
+The refreshed 390×844 Hosted Preview reached the report in
+**861/910/958 ms** for those three cases. Viewport and scroll widths were
+both 390 px. Each run made only two successful calculation POSTs to the
+isolated Preview Backend; there were no Auth, Firestore, Production API,
+other write, blocked, browser-error, or forbidden identity/profile requests.
+The hosted JavaScript matches the local safe build at SHA-256
+`35EE9EC5ED5436ED44D5049F4A28EEC872AE8C2266057502AFABF196C779C337`.
+The bundle contains the Preview Backend URL and both calculation paths, no
+Auth/Firestore endpoint strings, and the Production API hostname only in
+the negative Preview configuration guard. Only Hosting Preview channel
+`pr-149-overall-safe` advanced, to version `cb6e00fd1a85d187` expiring
+`2026-10-02T09:48:30Z`; Production Hosting `live` remains
+`d32e72678324e634`. Owner wording review remains pending.
+
 ## 2026-09-25 source-backed life-area reading for Draft PR #149
 
 Starting from `0b60634`, the Overall route now reads the existing detailed

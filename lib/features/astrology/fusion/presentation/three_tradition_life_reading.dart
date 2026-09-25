@@ -5,6 +5,8 @@ import 'package:knowme/features/thai_beta/application/core_reading/thai_birth_pr
 import 'package:knowme/features/thai_beta/application/thai_beta_analysis.dart';
 import 'package:knowme/presentation/pages/astrology/western_reader_v2_copy.dart';
 
+import 'western_natal_life_semantics.dart';
+
 /// A life-area interpretation with its three existing reader claims attached.
 /// These are complementary perspectives; consensus is decided separately.
 class ThreeTraditionLifeTopic {
@@ -46,7 +48,6 @@ abstract final class ThreeTraditionLifeReadingComposer {
     required AstrologyChartModel western,
   }) {
     final gaps = <String>[];
-    final topics = <ThreeTraditionLifeTopic>[];
     if (!thai.isSuccess || !thai.input.hasBirthTime) {
       return const ThreeTraditionLifeReading(
         topics: [],
@@ -74,8 +75,46 @@ abstract final class ThreeTraditionLifeReadingComposer {
       return ThreeTraditionLifeReading(topics: const [], gaps: gaps);
     }
 
-    final chinese = BaziReaderV2.build(bazi, asOf: thai.asOf);
-    final westernSections = WesternReaderV2Copy.sections(western);
+    return composeFromReadings(
+      core: core,
+      bazi: bazi,
+      western: western,
+      chinese: BaziReaderV2.build(bazi, asOf: thai.asOf),
+      westernSections: WesternReaderV2Copy.sections(western),
+    );
+  }
+
+  /// Keeps the source reports visible while deriving the combined wording
+  /// from typed atoms and chart codes. Also permits prose-change regression
+  /// tests without changing any calculated evidence.
+  static ThreeTraditionLifeReading composeFromReadings({
+    required ThaiBirthProfileCoreReading core,
+    required BaziChartModel bazi,
+    required AstrologyChartModel western,
+    required BaziReaderV2Reading chinese,
+    required List<WesternReaderSection> westernSections,
+  }) {
+    final gaps = <String>[];
+    final topics = <ThreeTraditionLifeTopic>[];
+    if (!core.hasBirthTime) {
+      return const ThreeTraditionLifeReading(
+        topics: [],
+        gaps: ['ดวงไทยไม่มีเรือนชีวิตที่คำนวณจากเวลาเกิด'],
+      );
+    }
+    if (bazi.contractId != 'knowme_bazi_reader_v3' ||
+        !bazi.timeKnown ||
+        bazi.tenGodBalance.topFamilies.isEmpty) {
+      gaps.add(
+        'ดวงจีนยังไม่มีผังสี่เสาและสมดุล Ten God รุ่นที่ตรวจคำอ่านรายด้านได้',
+      );
+    }
+    if (!WesternReaderV2Copy.isCurrent(western)) {
+      gaps.add('ดวงตะวันตกยังไม่มี Reader V2 พร้อมฐานดาวของคำอ่านรายด้าน');
+    }
+    if (gaps.isNotEmpty) {
+      return ThreeTraditionLifeReading(topics: const [], gaps: gaps);
+    }
     void add(ThreeTraditionLifeTopic? topic, String title) {
       if (topic == null) {
         gaps.add(
@@ -86,9 +125,12 @@ abstract final class ThreeTraditionLifeReadingComposer {
       }
     }
 
-    add(_work(core, chinese, westernSections), 'การงาน');
-    add(_money(core, chinese, westernSections), 'การเงิน');
-    add(_relationships(core, chinese, westernSections), 'ความสัมพันธ์');
+    add(_work(core, chinese, bazi, western, westernSections), 'การงาน');
+    add(_money(core, chinese, bazi, western, westernSections), 'การเงิน');
+    add(
+      _relationships(core, chinese, bazi, western, westernSections),
+      'ความสัมพันธ์',
+    );
     return ThreeTraditionLifeReading(
       topics: List.unmodifiable(topics),
       gaps: List.unmodifiable(gaps),
@@ -98,27 +140,22 @@ abstract final class ThreeTraditionLifeReadingComposer {
   static ThreeTraditionLifeTopic? _work(
     ThaiBirthProfileCoreReading core,
     BaziReaderV2Reading chinese,
-    List<WesternReaderSection> western,
+    BaziChartModel bazi,
+    AstrologyChartModel western,
+    List<WesternReaderSection> westernSections,
   ) {
     final thai = _thaiClaim(core, ThaiBirthProfileCoreDomain.work, 10);
-    final west = _western(western, 'work');
+    final west = _western(westernSections, 'work');
     if (thai == null ||
         west == null ||
-        !chinese.work.contains('กำหนดขอบเขต ผู้รับผิดชอบ และจุดตรวจผล')) {
+        chinese.work.trim().isEmpty ||
+        !{'balanced', 'supported'}.contains(bazi.dayMasterSupport.band)) {
       return null;
     }
-    final thaiMethod = _between(
-      thai.text,
-      'คุณสร้างผลงานผ่าน',
-      ' บทบาทที่คุ้ม',
-    );
-    final chineseFocus = _between(
-      chinese.work,
-      'เรื่องงาน ดวงนี้หนุน',
-      ' ก่อนรับงานเพิ่ม',
-    );
-    final westernMethod = _between(west.body, 'เวลาทำงาน คุณ', ' เมื่อต้อง');
-    if (thaiMethod == null || chineseFocus == null || westernMethod == null) {
+    final thaiMethod = _houseMode(thai, 10);
+    final chineseFocus = BaziReaderV2.natalWorkFocus(bazi);
+    final westernMethod = WesternNatalLifeSemantics.workMethod(western);
+    if (thaiMethod.isEmpty || chineseFocus.isEmpty || westernMethod.isEmpty) {
       return null;
     }
     return ThreeTraditionLifeTopic(
@@ -144,35 +181,31 @@ abstract final class ThreeTraditionLifeReadingComposer {
   static ThreeTraditionLifeTopic? _money(
     ThaiBirthProfileCoreReading core,
     BaziReaderV2Reading chinese,
-    List<WesternReaderSection> western,
+    BaziChartModel bazi,
+    AstrologyChartModel western,
+    List<WesternReaderSection> westernSections,
   ) {
     final thai = _thaiClaim(core, ThaiBirthProfileCoreDomain.money, 2);
-    final west = _western(western, 'money');
+    final west = _western(westernSections, 'money');
+    final weights = bazi.tenGodBalance.familyWeight;
     if (thai == null ||
         west == null ||
-        !thai.text.contains('เงินสำรอง') ||
-        !chinese.money.contains('เรื่องเงิน')) {
+        chinese.money.trim().isEmpty ||
+        !weights.containsKey('wealth') ||
+        !weights.containsKey('peer')) {
       return null;
     }
-    final thaiBasis = _between(
-      thai.text,
-      'ผูกความมั่นคงของคุณกับ',
-      ' ความก้าวหน้า',
-    );
-    final westernValue = _between(west.body, 'เรื่องเงิน คุณ', ' จึง');
-    final chineseBoundary = chinese.money.contains('แยกเงินส่วนตัว เงินร่วม')
+    final thaiBasis = _houseMode(thai, 2);
+    final westernValue = WesternNatalLifeSemantics.moneyValue(western);
+    final chineseBoundary = weights['peer']! >= weights['wealth']!
         ? 'แยกเงินส่วนตัวกับเงินร่วม'
-        : chinese.money.contains('กำหนดเพดานลงทุน')
-        ? 'กำหนดเพดานลงทุนและจุดหยุด'
-        : null;
-    if (thaiBasis == null || westernValue == null || chineseBoundary == null) {
-      return null;
-    }
+        : 'กำหนดเพดานลงทุนและจุดหยุด';
+    if (thaiBasis.isEmpty || westernValue.isEmpty) return null;
     return ThreeTraditionLifeTopic(
       title: 'การเงิน',
       reading:
           'การเงินมีแนวโน้มรักษาทางเลือกได้ดีเมื่อวางแผนจาก$thaiBasis '
-          'แม้คุณจะ$westernValue '
+          'แม้คุณจะให้ค่ากับ$westernValue '
           'เมื่อตีความประกอบกับคำอ่านจีน จึงควรกันเงินสำรองและ'
           '$chineseBoundaryก่อนขยายแผน มิฉะนั้นภาระที่เพิ่มขึ้นอาจลด'
           'ทางเลือกระยะยาว แม้รายจ่ายวันนี้ดูสมเหตุผล',
@@ -188,25 +221,22 @@ abstract final class ThreeTraditionLifeReadingComposer {
   static ThreeTraditionLifeTopic? _relationships(
     ThaiBirthProfileCoreReading core,
     BaziReaderV2Reading chinese,
-    List<WesternReaderSection> western,
+    BaziChartModel bazi,
+    AstrologyChartModel western,
+    List<WesternReaderSection> westernSections,
   ) {
     final thai = _thaiClaim(core, ThaiBirthProfileCoreDomain.relationships, 7);
-    final west = _western(western, 'love');
+    final west = _western(westernSections, 'love');
     if (thai == null ||
         west == null ||
-        !thai.text.contains('แบ่งเวลาและความรับผิดชอบ') ||
-        !chinese.relationships.contains(
-          'คุยเวลา บทบาท และความคาดหวังให้ตรงกัน',
-        )) {
+        chinese.relationships.trim().isEmpty ||
+        {'male', 'female'}.contains(bazi.luck.gender) ||
+        bazi.pillars.day.hiddenTenGods.isEmpty) {
       return null;
     }
-    final thaiTrust = _between(thai.text, 'ความไว้ใจจึงเกิดผ่าน', ' ข้อตกลง');
-    final westernStyle = _between(
-      west.body,
-      'ในความสัมพันธ์ คุณ',
-      ' และขณะเดียวกัน',
-    );
-    if (thaiTrust == null || westernStyle == null) return null;
+    final thaiTrust = _houseMode(thai, 7);
+    final westernStyle = WesternNatalLifeSemantics.relationshipStyle(western);
+    if (thaiTrust.isEmpty || westernStyle.isEmpty) return null;
     return ThreeTraditionLifeTopic(
       title: 'ความสัมพันธ์',
       reading:
@@ -243,6 +273,22 @@ abstract final class ThreeTraditionLifeReadingComposer {
             ) ||
             !claim.evidenceKeys.contains(
               'HouseEngine.calculate.house[$house].lordKey',
+            ) ||
+            !claim.sourceAtoms.any(
+              (atom) =>
+                  atom.kind == ThaiBirthProfileCoreAtomKind.houseSign &&
+                  atom.houseNumber == house &&
+                  atom.sourceRef ==
+                      'HouseEngine.calculate.house[$house].signKey' &&
+                  atom.rawValue.isNotEmpty,
+            ) ||
+            !claim.sourceAtoms.any(
+              (atom) =>
+                  atom.kind == ThaiBirthProfileCoreAtomKind.houseLord &&
+                  atom.houseNumber == house &&
+                  atom.sourceRef ==
+                      'HouseEngine.calculate.house[$house].lordKey' &&
+                  atom.rawValue.isNotEmpty,
             )) {
           continue;
         }
@@ -266,13 +312,14 @@ abstract final class ThreeTraditionLifeReadingComposer {
     return null;
   }
 
-  static String? _between(String text, String start, String end) {
-    final first = text.indexOf(start);
-    if (first < 0) return null;
-    final from = first + start.length;
-    final last = text.indexOf(end, from);
-    if (last < 0) return null;
-    final value = text.substring(from, last).trim();
-    return value.isEmpty ? null : value;
+  static String _houseMode(ThaiBirthProfileCoreParagraph claim, int house) {
+    for (final atom in claim.sourceAtoms) {
+      if (atom.kind == ThaiBirthProfileCoreAtomKind.houseLord &&
+          atom.houseNumber == house &&
+          atom.sourceRef == 'HouseEngine.calculate.house[$house].lordKey') {
+        return ThaiBirthProfileCoreReading.houseModeForLordKey(atom.rawValue);
+      }
+    }
+    return '';
   }
 }
