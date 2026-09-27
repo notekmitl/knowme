@@ -26,6 +26,10 @@ weights, male/female relationship branches remain distinct without the
 repeated phrase, and all four readings retain their traceable semantic
 fragments. Related Flutter tests across Overall and Thai, BaZi, and Western
 single readers passed **111/111**; changed-file analysis found **0 issues**.
+[CI for implementation commit `ab78e1a`](https://github.com/notekmitl/knowme/actions/runs/36306394788)
+passed focused tests, analyzer, Web build, PDF regression gates, and the
+complete Flutter suite.
+
 Anonymous Backend Preview calculations for the Owner-requested case and two
 synthetic cases produced all four headings without gaps or conflict. The
 private QA records hold the full readings and source facts; no personal birth

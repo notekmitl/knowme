@@ -1,3 +1,31 @@
+## Active follow-up — PR #149 four-topic wording (2026-09-27)
+
+From `0016ef2`, the four public Overall readings were polished without
+changing calculation or evidence rules. Work now reads naturally without
+“บทบาทที่คุ้ม”; money follows the calculated BaZi wealth/peer branches
+instead of a generic reserve claim; relationships retain the gender-based
+source meaning without repeating “ความชัดเจนและความสม่ำเสมอ”; wellbeing
+connects the existing Thai house-6, Western Moon, and BaZi support-band
+meanings. The conflict guard, fail-closed behavior, hidden source model,
+and confidence floor **0.6** remain unchanged. No unsupported event or
+period was added.
+
+Related Flutter regression passed **111/111** and changed-file analysis found
+**0 issues**. [CI for implementation commit `ab78e1a`](https://github.com/notekmitl/knowme/actions/runs/36306394788)
+passed the full Flutter suite, analyzer, focused tests, Web build, and PDF
+regression gates. Anonymous calculation diagnostics for the Owner-requested
+and two synthetic cases showed all four headings without gaps or conflicts.
+Final 390×844 Hosted runs for those cases plus synthetic male/female took
+**492/915/430/928/921 ms**. Each used only two 200 calculation POSTs to the
+isolated Preview Backend; there was no Auth, Firestore, Production API, other
+write, blocked request, error, or overflow. Hosted Thai single-menu QA also
+reached its report without a POST or error. Preview version
+`bbd5c201897d8093` matches safe bundle SHA-256
+`3C2EBF81152C552242D30317534DA8D125E5502FC9F2BC674811F2DFFF8ED958`;
+Production Hosting `live` remains `d32e72678324e634`. Draft PR #149 is
+pending Owner wording review. No personal birth data is recorded here.
+Details: `docs/THREE_TRADITION_OVERALL_V1.md`.
+
 ## Active follow-up — PR #149 structured life meanings (2026-09-25)
 
 The Overall composer now uses Thai house-lord atoms, Chinese BaZi codes, and
@@ -1729,28 +1757,3 @@ Preview version `fc83da9dd5153175` matches safe bundle SHA-256
 Production Hosting `live` remains `d32e72678324e634`. Draft PR #149 is
 pending Owner review. No personal birth data is recorded here. Details:
 `docs/THREE_TRADITION_OVERALL_V1.md`.
-## Active follow-up — PR #149 four-topic wording (2026-09-27)
-
-From `0016ef2`, the four public Overall readings were polished without
-changing calculation or evidence rules. Work now reads naturally without
-“บทบาทที่คุ้ม”; money follows the calculated BaZi wealth/peer branches
-instead of a generic reserve claim; relationships retain the gender-based
-source meaning without repeating “ความชัดเจนและความสม่ำเสมอ”; wellbeing
-connects the existing Thai house-6, Western Moon, and BaZi support-band
-meanings. The conflict guard, fail-closed behavior, hidden source model,
-and confidence floor **0.6** remain unchanged. No unsupported event or
-period was added.
-
-Related Flutter regression passed **111/111** and changed-file analysis found
-**0 issues**. Anonymous calculation diagnostics for the Owner-requested and
-two synthetic cases showed all four headings without gaps or conflicts.
-Final 390×844 Hosted runs for those cases plus synthetic male/female took
-**492/915/430/928/921 ms**. Each used only two 200 calculation POSTs to the
-isolated Preview Backend; there was no Auth, Firestore, Production API, other
-write, blocked request, error, or overflow. Hosted Thai single-menu QA also
-reached its report without a POST or error. Preview version
-`bbd5c201897d8093` matches safe bundle SHA-256
-`3C2EBF81152C552242D30317534DA8D125E5502FC9F2BC674811F2DFFF8ED958`;
-Production Hosting `live` remains `d32e72678324e634`. Draft PR #149 is
-pending Owner wording review. No personal birth data is recorded here.
-Details: `docs/THREE_TRADITION_OVERALL_V1.md`.
