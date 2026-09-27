@@ -195,6 +195,138 @@ void main() {
     );
     expect(result.topics, hasLength(5));
   });
+
+  test('same supported relationship meaning keeps every main topic', () {
+    final comparison = ThreeTraditionConsensus.analyzeOutputs([
+      _theme(AstrologyLens.thaiAstrology.lensId, 'expressive'),
+      _theme(AstrologyLens.chineseBazi.lensId, 'expressive'),
+      _theme(AstrologyLens.westernNatal.lensId, 'expressive'),
+    ]);
+    final baseline = compose();
+    final result = compose(comparison: comparison);
+    expect(
+      result.topics.take(4).map((topic) => topic.title),
+      baseline.topics.map((topic) => topic.title),
+    );
+    expect(result.conflicts, isEmpty);
+    expect(result.gaps, isEmpty);
+  });
+
+  test('reviewed near meaning does not veto any main topic', () {
+    final comparison = ThreeTraditionConsensus.analyzeOutputs([
+      _theme(AstrologyLens.thaiAstrology.lensId, 'independent'),
+      _theme(AstrologyLens.chineseBazi.lensId, 'independent'),
+      _theme(AstrologyLens.westernNatal.lensId, 'leadership'),
+    ]);
+    final result = compose(comparison: comparison);
+    expect(result.topics.take(4).map((topic) => topic.title), [
+      'การงาน',
+      'การเงิน',
+      'ความสัมพันธ์',
+      'การดูแลพลังและกิจวัตร',
+    ]);
+    expect(result.conflicts, isEmpty);
+  });
+
+  test(
+    'direct supported opposition omits only the relationship prediction',
+    () {
+      final comparison = ThreeTraditionConsensus.analyzeOutputs([
+        _theme(AstrologyLens.thaiAstrology.lensId, 'expressive'),
+        _theme(AstrologyLens.chineseBazi.lensId, 'expressive'),
+        _theme(AstrologyLens.westernNatal.lensId, 'reserved'),
+      ]);
+      final baseline = compose();
+      final result = compose(comparison: comparison);
+      expect(result.topics.map((topic) => topic.title), [
+        'การงาน',
+        'การเงิน',
+        'การดูแลพลังและกิจวัตร',
+      ]);
+      for (final topic in result.topics) {
+        expect(
+          topic.reading,
+          baseline.topics
+              .singleWhere((item) => item.title == topic.title)
+              .reading,
+        );
+      }
+      expect(result.conflicts.single.title, 'ความสัมพันธ์');
+      expect(result.conflicts.single.axis, 'relationship_disclosure');
+      expect(
+        result.conflicts.single.sources.values.map((item) => item.themeId),
+        ['expressive', 'expressive', 'reserved'],
+      );
+      expect(
+        result.conflicts.single.sources.values.every(
+          (item) => item.evidence.single == 'calculated fixture fact',
+        ),
+        isTrue,
+      );
+      expect(result.gaps, isEmpty);
+    },
+  );
+
+  test('difference without a reviewed opposition keeps main topics', () {
+    final comparison = ThreeTraditionConsensus.analyzeOutputs([
+      _theme(AstrologyLens.thaiAstrology.lensId, 'loyal'),
+      _theme(AstrologyLens.chineseBazi.lensId, 'independent_connection'),
+      _theme(AstrologyLens.westernNatal.lensId, 'supportive'),
+    ]);
+    final result = compose(comparison: comparison);
+    expect(result.topics, hasLength(4));
+    expect(result.conflicts, isEmpty);
+  });
+
+  test('mixed disclosure evidence inside one lens is not a clear opposition', () {
+    final comparison = ThreeTraditionConsensus.analyzeOutputs([
+      _theme(AstrologyLens.thaiAstrology.lensId, 'expressive'),
+      _theme(AstrologyLens.chineseBazi.lensId, 'expressive'),
+      _theme(AstrologyLens.westernNatal.lensId, 'expressive'),
+      _theme(AstrologyLens.westernNatal.lensId, 'reserved'),
+    ]);
+    final result = compose(comparison: comparison);
+    expect(result.topics.any((topic) => topic.title == 'ความสัมพันธ์'), isTrue);
+    expect(result.conflicts, isEmpty);
+  });
+
+  test('missing or weak opposition does not suppress source-backed topics', () {
+    for (final third in <LensThemeOutput?>[
+      null,
+      _theme(AstrologyLens.westernNatal.lensId, 'reserved', confidence: 0.59),
+      _theme(AstrologyLens.westernNatal.lensId, 'reserved', evidence: const []),
+    ]) {
+      final comparison = ThreeTraditionConsensus.analyzeOutputs([
+        _theme(AstrologyLens.thaiAstrology.lensId, 'expressive'),
+        _theme(AstrologyLens.chineseBazi.lensId, 'expressive'),
+        ?third,
+      ]);
+      final result = compose(comparison: comparison);
+      expect(
+        result.topics.map((topic) => topic.title).contains('ความสัมพันธ์'),
+        isTrue,
+      );
+      expect(result.conflicts, isEmpty);
+    }
+    expect(ThreeTraditionConsensus.minimumAgreementConfidence, 0.6);
+  });
+}
+
+LensThemeOutput _theme(
+  String lens,
+  String theme, {
+  double confidence = 0.6,
+  List<String> evidence = const ['calculated fixture fact'],
+}) {
+  final registered = FusionThemeRegistry.getById(theme)!;
+  return LensThemeOutput(
+    lensId: lens,
+    themeId: theme,
+    category: registered.category,
+    family: registered.family,
+    confidence: confidence,
+    evidence: evidence,
+  );
 }
 
 ThaiBirthProfileCoreReading _thaiCore(String wording, {int? omitHouse}) {

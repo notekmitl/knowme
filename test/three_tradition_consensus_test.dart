@@ -8,6 +8,7 @@ import 'package:knowme/features/astrology/fusion/adapters/western_real_adapter.d
 import 'package:knowme/features/astrology/fusion/application/three_tradition_consensus.dart';
 import 'package:knowme/features/astrology/fusion/presentation/pages/three_tradition_report_page.dart';
 import 'package:knowme/features/astrology/fusion/presentation/reading_evidence_text.dart';
+import 'package:knowme/features/astrology/fusion/presentation/three_tradition_core_conflict.dart';
 import 'package:knowme/features/astrology/fusion/presentation/three_tradition_life_reading.dart';
 import 'package:knowme/features/astrology/fusion/presentation/three_tradition_reading_copy.dart';
 import 'package:knowme/features/astrology/fusion/registry/theme_registry.dart';
@@ -588,4 +589,43 @@ void main() {
       expect(tester.takeException(), isNull);
     },
   );
+
+  testWidgets('mobile report explains a withheld conflicting main topic', (
+    tester,
+  ) async {
+    await tester.binding.setSurfaceSize(const Size(390, 844));
+    addTearDown(() => tester.binding.setSurfaceSize(null));
+    final reading = ThreeTraditionConsensus.analyzeOutputs([
+      output(thai, 'expressive'),
+      output(bazi, 'expressive'),
+      output(western, 'reserved'),
+    ]);
+    final conflict = ThreeTraditionCoreConflictGuard.find(
+      title: 'ความสัมพันธ์',
+      reading: reading,
+    )!;
+    await tester.pumpWidget(
+      MaterialApp(
+        home: ThreeTraditionReportPage(
+          reading: reading,
+          lifeReading: ThreeTraditionLifeReading(
+            topics: const [],
+            gaps: const [],
+            conflicts: [conflict],
+          ),
+        ),
+      ),
+    );
+    expect(
+      find.textContaining('ยังไม่แสดงคำทำนายรวมของความสัมพันธ์'),
+      findsOneWidget,
+    );
+    expect(
+      find.textContaining('ข้อมูลที่มีอยู่ยังไม่พอสร้างคำทำนายรายด้าน'),
+      findsNothing,
+    );
+    expect(find.text('expressive'), findsNothing);
+    expect(find.text('reserved'), findsNothing);
+    expect(tester.takeException(), isNull);
+  });
 }

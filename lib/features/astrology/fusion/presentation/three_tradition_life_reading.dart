@@ -8,6 +8,7 @@ import 'package:knowme/features/thai_beta/application/thai_beta_analysis.dart';
 import 'package:knowme/presentation/pages/astrology/western_reader_v2_copy.dart';
 
 import 'three_tradition_meaning_alignment.dart';
+import 'three_tradition_core_conflict.dart';
 import 'western_natal_life_semantics.dart';
 
 /// A life-area interpretation with its three existing reader claims attached.
@@ -35,10 +36,15 @@ class ThreeTraditionLifeTopic {
 }
 
 class ThreeTraditionLifeReading {
-  const ThreeTraditionLifeReading({required this.topics, required this.gaps});
+  const ThreeTraditionLifeReading({
+    required this.topics,
+    required this.gaps,
+    this.conflicts = const [],
+  });
 
   final List<ThreeTraditionLifeTopic> topics;
   final List<String> gaps;
+  final List<ThreeTraditionCoreConflict> conflicts;
 }
 
 /// Uses the already calculated single-tradition readers and fails closed when
@@ -102,6 +108,7 @@ abstract final class ThreeTraditionLifeReadingComposer {
   }) {
     final gaps = <String>[];
     final topics = <ThreeTraditionLifeTopic>[];
+    final conflicts = <ThreeTraditionCoreConflict>[];
     if (!core.hasBirthTime) {
       return const ThreeTraditionLifeReading(
         topics: [],
@@ -127,7 +134,17 @@ abstract final class ThreeTraditionLifeReadingComposer {
           '$title: ยังขาดคำอ่านรายด้านหรือความเชื่อมโยงที่ตรวจย้อนกลับได้จากทั้งสามศาสตร์',
         );
       } else {
-        topics.add(topic);
+        final conflict = comparison == null
+            ? null
+            : ThreeTraditionCoreConflictGuard.find(
+                title: title,
+                reading: comparison,
+              );
+        if (conflict == null) {
+          topics.add(topic);
+        } else {
+          conflicts.add(conflict);
+        }
       }
     }
 
@@ -164,6 +181,7 @@ abstract final class ThreeTraditionLifeReadingComposer {
     return ThreeTraditionLifeReading(
       topics: List.unmodifiable(topics),
       gaps: List.unmodifiable(gaps),
+      conflicts: List.unmodifiable(conflicts),
     );
   }
 

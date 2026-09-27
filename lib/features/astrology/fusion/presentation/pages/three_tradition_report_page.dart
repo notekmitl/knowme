@@ -39,7 +39,8 @@ class ThreeTraditionReportPage extends StatelessWidget {
                   'คำอ่านแต่ละด้านเป็นการตีความประกอบกันจากพื้นดวง '
                   'ไม่ได้หมายความว่าทั้งสามศาสตร์เห็นตรงกันทุกเรื่อง',
                 ),
-                if (lifeReading.topics.isEmpty) ...[
+                if (lifeReading.topics.isEmpty &&
+                    lifeReading.conflicts.isEmpty) ...[
                   const SizedBox(height: 20),
                   const Text(
                     'ข้อมูลที่มีอยู่ยังไม่พอสร้างคำทำนายรายด้าน '
@@ -54,6 +55,14 @@ class ThreeTraditionReportPage extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.only(top: 10),
                     child: Text(_gapLabel(gap)),
+                  ),
+                for (final conflict in lifeReading.conflicts)
+                  Padding(
+                    padding: const EdgeInsets.only(top: 10),
+                    child: Text(
+                      'ยังไม่แสดงคำทำนายรวมของ${conflict.title} '
+                      'เพราะหลักฐานให้มุมที่ขัดกันชัดเจน',
+                    ),
                   ),
                 const SizedBox(height: 20),
                 Text(

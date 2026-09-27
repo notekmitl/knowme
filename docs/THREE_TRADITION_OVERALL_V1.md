@@ -1,5 +1,61 @@
 # Overall astrology from three traditions — V1 working branch
 
+## 2026-09-27 main-topic conflict guard from `144281d`
+
+Code review confirmed that `ThreeTraditionMeaningAlignment.select()` only
+vetoed an optional fifth topic. The four main topics were composed before
+that call. The composer now checks a main topic after its three source
+readings and calculation bases have qualified, but before adding its public
+prediction card. A reviewed direct opposition omits only that topic and keeps
+the source `LensThemeOutput` observations, confidence values, and evidence in
+the internal `conflicts` model. The page gives a brief withholding notice
+without showing per-tradition evidence.
+
+The currently reviewable direct opposition is **expressive versus reserved**
+on the relationship-disclosure axis. It applies to the **ความสัมพันธ์** card
+only when all three independent lenses each provide exactly one direction,
+each has nonempty adapter evidence and confidence at least **0.6**, and the
+directions oppose. Two lenses with the same direction and a third with the
+opposite are withheld; all three agreeing remain. A missing or weak third
+observation does not by itself veto a source-backed topic. A lens carrying
+both directions is ambiguous and also does not trigger this narrow veto.
+Other relationship traits, such as loyalty and a need for personal space,
+remain compatible. The available structured source meanings do not establish
+a comparably direct opposite pair for work, money, or wellbeing, so the guard
+does not label their different emphases as conflicts. Missing source material
+still omits its own topic through the earlier fail-closed path. The agreement
+threshold was not changed.
+
+Regression for same, reviewed-near, opposed, mixed, missing, empty-evidence,
+and `0.59` observations confirmed that only the conflicting relationship
+prediction is withheld; the other three readings remain identical to the
+baseline. The mobile widget test confirms the withholding notice and that
+source theme IDs stay off the public page. Related Flutter regression across
+the Overall flow and Thai, BaZi, and Western single readers passed **109/109**;
+changed-file analyzer found **0 issues**. Anonymous calculation diagnostics
+for the Owner-requested case and two synthetic cases showed no qualifying
+conflict, kept all four topics, and their readings matched the previous
+version exactly, character for character. No personal birth values or chart
+placements are stored here.
+
+The safe 390×844 Hosted Preview reached the report in **848/347/345 ms** for
+those three cases. Every run displayed **การงาน, การเงิน, ความสัมพันธ์,
+การดูแลพลังและกิจวัตร**, had no horizontal overflow or browser error, and
+made only two successful anonymous calculation POSTs to the isolated Preview
+Backend. There were no Firebase Auth, Firestore, Production API, other write,
+blocked, or identity/profile requests. Hosted Thai single-menu regression
+reached its report with no POST, blocked request, error, or overflow.
+
+Only Hosting Preview channel `pr-149-overall-safe` advanced, to version
+`fc83da9dd5153175` expiring `2026-10-04T04:16:37Z`. Its URL is
+`https://knowme-app-694e1--pr-149-overall-safe-vbx6de6a.web.app/beta/thai`.
+Hosted JavaScript equals the local safe build at SHA-256
+`1AA848B2DC95D6693F9DAC17ED8C326445CD0DED837B53919CA6AB83CA6D853B`.
+The bundle contains the isolated Backend and both calculation paths, has no
+Auth/Firestore endpoint strings, and contains the Production API hostname
+only in the negative Preview configuration guard. Production Hosting `live`
+remains `d32e72678324e634`. PR #149 remains Draft for Owner review.
+
 ## 2026-09-27 Owner follow-up from `d3ff833` — life topics on the safe Preview
 
 The missing relationship topic came from an Overall-only `_relationships()`

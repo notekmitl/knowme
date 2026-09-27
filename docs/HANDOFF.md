@@ -1617,3 +1617,26 @@ Hosted JavaScript SHA-256 is
 Production Hosting `live` remains `d32e72678324e634`. Keep PR #149 Draft
 for Owner wording review. No personal birth values are recorded here.
 Details: `docs/THREE_TRADITION_OVERALL_V1.md`.
+## Active handoff — PR #149 main-topic conflict guard (2026-09-27)
+
+Owner review Preview:
+`https://knowme-app-694e1--pr-149-overall-safe-vbx6de6a.web.app/beta/thai`
+(Hosting version `fc83da9dd5153175`, expires `2026-10-04T04:16:37Z`).
+The Owner-requested and two synthetic cases still display **การงาน, การเงิน,
+ความสัมพันธ์, การดูแลพลังและกิจวัตร** with identical reading text to the
+prior Preview. A supported, direct `expressive`/`reserved` three-lens
+opposition now withholds only the relationship prediction; the evidence is
+kept internally and the page states why the combined card is absent.
+Loyalty, personal space, and other differing emphases are not labelled
+opposition. The confidence floor stays **0.6**.
+
+Related Flutter regression passed **109/109** and changed-file analyzer
+found **0 issues**. Hosted mobile 390×844 runs took **848/347/345 ms** and
+made only two 200 calculation POSTs to the isolated Preview Backend per run;
+no Auth, Firestore, Production API, other write, blocked request, browser
+error, or overflow occurred. Hosted Thai single-menu regression also passed
+without a POST. Hosted JS SHA-256 is
+`1AA848B2DC95D6693F9DAC17ED8C326445CD0DED837B53919CA6AB83CA6D853B`;
+Production Hosting `live` remains `d32e72678324e634`. Keep PR #149 Draft;
+do not merge or deploy Production. No personal birth values are recorded
+here. Full detail: `docs/THREE_TRADITION_OVERALL_V1.md`.

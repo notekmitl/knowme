@@ -1706,3 +1706,26 @@ POST or error. Preview version `2aab0934c8f71d33` matches safe bundle SHA-256
 Production Hosting `live` remains `d32e72678324e634`. PR #149 remains Draft
 for Owner wording review. No personal birth data is recorded here. Details:
 `docs/THREE_TRADITION_OVERALL_V1.md`.
+## Active follow-up — PR #149 main-topic conflict guard (2026-09-27)
+
+The previous meaning-alignment veto covered only an optional topic. The
+Overall composer now checks each qualified main prediction before display.
+The reviewed `expressive`/`reserved` relationship-disclosure opposition
+with nonempty evidence from all three lenses at confidence **>= 0.6** omits
+only **ความสัมพันธ์** and retains the traceable observations internally.
+Missing, weak, ambiguous, or merely different meanings do not create a
+conflict veto; no reviewed direct opposite pair exists for work, money, or
+wellbeing. A missing source still fails closed as before.
+
+Related Flutter regression passed **109/109** and changed-file analysis found
+**0 issues**. The Owner-requested case and two synthetic cases retained all
+four main readings exactly. Anonymous 390×844 Hosted Preview runs took
+**848/347/345 ms**, displayed the same four headings, and each made only
+two 200 calculation POSTs to the isolated Backend. No Auth, Firestore,
+Production API, other write, blocked request, error, or overflow occurred.
+The Hosted Thai single menu also reached its report without a POST or error.
+Preview version `fc83da9dd5153175` matches safe bundle SHA-256
+`1AA848B2DC95D6693F9DAC17ED8C326445CD0DED837B53919CA6AB83CA6D853B`;
+Production Hosting `live` remains `d32e72678324e634`. Draft PR #149 is
+pending Owner review. No personal birth data is recorded here. Details:
+`docs/THREE_TRADITION_OVERALL_V1.md`.
