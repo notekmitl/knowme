@@ -209,11 +209,11 @@ abstract final class ThreeTraditionLifeReadingComposer {
     return ThreeTraditionLifeTopic(
       title: 'การงาน',
       reading:
-          'งานจะเดินได้ดีเมื่อคุณนำ$thaiMethodไปใช้กับ'
-          '$chineseFocus ในงานลักษณะนี้ คุณ$westernMethod '
-          'เมื่อตีความประกอบกัน บทบาทที่คุ้มควรมีอำนาจดูแลคุณภาพ '
-          'ขอบเขตรับผิดชอบ และเกณฑ์จบงานชัด หากรับงานเพิ่มโดยไม่กำหนด'
-          'สิ่งเหล่านี้ งานอาจกระจายแทนที่จะก้าวหน้า',
+          'คุณมีแนวโน้มไปได้ดีกับ$chineseFocus '
+          'เมื่อได้ใช้$thaiMethod คุณ$westernMethod '
+          'งานลักษณะนี้ควรมีขอบเขตความรับผิดชอบ มาตรฐานคุณภาพ '
+          'และเกณฑ์จบงานที่ตกลงกันไว้ มิฉะนั้นงานที่รับเพิ่มอาจกระจาย'
+          'แทนที่จะสะสมเป็นผลงาน',
       thai: thai.text,
       thaiEvidenceKeys: thai.evidenceKeys,
       chinese: chinese.work,
@@ -245,18 +245,22 @@ abstract final class ThreeTraditionLifeReadingComposer {
     }
     final thaiBasis = _houseMode(thai, 2);
     final westernValue = WesternNatalLifeSemantics.moneyValue(western);
+    final chineseBase = weights['wealth']! >= 4
+        ? 'การจัดเวลา งบ และทรัพยากรให้เกิดผลต่อเนื่อง'
+        : 'ผลงานและความรับผิดชอบที่จับต้องได้';
     final chineseBoundary = weights['peer']! >= weights['wealth']!
         ? 'แยกเงินส่วนตัวกับเงินร่วม'
         : 'กำหนดเพดานลงทุนและจุดหยุด';
+    final chineseRisk = weights['peer']! >= weights['wealth']!
+        ? 'ค่าใช้จ่ายจากทีม หุ้นส่วน หรือการขยายงานอาจโตเร็วกว่าที่เห็น'
+        : 'โอกาสใหม่อาจดึงเงินออกจากงานหลัก';
     if (thaiBasis.isEmpty || westernValue.isEmpty) return null;
     return ThreeTraditionLifeTopic(
       title: 'การเงิน',
       reading:
-          'การเงินมีแนวโน้มรักษาทางเลือกได้ดีเมื่อวางแผนจาก$thaiBasis '
-          'แม้คุณจะให้ค่ากับ$westernValue '
-          'เมื่อตีความประกอบกับคำอ่านจีน จึงควรกันเงินสำรองและ'
-          '$chineseBoundaryก่อนขยายแผน มิฉะนั้นภาระที่เพิ่มขึ้นอาจลด'
-          'ทางเลือกระยะยาว แม้รายจ่ายวันนี้ดูสมเหตุผล',
+          'ฐานการเงินของคุณมีแนวโน้มพึ่ง$chineseBase '
+          'คุณวางแผนจาก$thaiBasis และให้ค่ากับ$westernValue '
+          'หากจะขยายแผน ควร$chineseBoundary เพราะ$chineseRisk',
       thai: thai.text,
       thaiEvidenceKeys: thai.evidenceKeys,
       chinese: chinese.money,
@@ -287,18 +291,28 @@ abstract final class ThreeTraditionLifeReadingComposer {
     if (thaiTrust.isEmpty || westernStyle.isEmpty || chineseOpening.isEmpty) {
       return null;
     }
-    final chineseLink = bazi.luck.gender.isEmpty
-        ? 'เมื่อตีความประกอบกับดวงจีน เงื่อนไขที่ทำให้สองมุมนี้อยู่ด้วยกันได้'
-        : 'ดวงจีนอ่านว่า$chineseOpening เมื่อตีความประกอบกัน เงื่อนไขที่ทำให้สองมุมนี้อยู่ด้วยกันได้';
+    final spouseFamily = switch (bazi.luck.gender) {
+      'male' => 'wealth',
+      'female' => 'authority',
+      _ => null,
+    };
+    final spouseWeight = spouseFamily == null
+        ? null
+        : bazi.tenGodBalance.familyWeight[spouseFamily];
+    final chinesePace = spouseWeight == null
+        ? ''
+        : spouseWeight >= 4
+        ? 'เรื่องคู่สัมพันธ์มีน้ำหนักในพื้นดวงนี้ '
+        : 'ความผูกพันมีแนวโน้มค่อย ๆ เติบโตจากการทำสิ่งที่ตกลงกันไว้ ';
     return ThreeTraditionLifeTopic(
       title: 'ความสัมพันธ์',
       reading:
-          'ความสัมพันธ์มีแนวโน้มมั่นคงเมื่อความไว้ใจตั้งอยู่บน'
-          '$thaiTrust และคุณ$westernStyle '
-          '$chineseLink'
-          'คือการคุยเวลา บทบาท และความคาดหวังให้ตรงกัน พร้อมแบ่งความรับผิดชอบ'
-          'โดยเหลือพื้นที่ตัดสินใจให้แต่ละฝ่าย หากข้อตกลงนี้ไม่ชัด '
-          'ความตั้งใจดูแลกันอาจกลายเป็นภาระที่อีกฝ่ายต้องเดา',
+          'คุณมักมองความสัมพันธ์ผ่าน$thaiTrust '
+          'ขณะเดียวกันคุณ$westernStyle '
+          '$chinesePace'
+          'ความรักจะลงตัวขึ้นเมื่อคุยเรื่องเวลา บทบาท และความคาดหวัง'
+          'ให้ตรงกัน พร้อมแบ่งความรับผิดชอบและพื้นที่ตัดสินใจ '
+          'ความตั้งใจดูแลกันจึงไม่กลายเป็นภาระที่ต้องเดาใจ',
       thai: thai.text,
       thaiEvidenceKeys: thai.evidenceKeys,
       chinese: chinese.relationships,
@@ -335,11 +349,9 @@ abstract final class ThreeTraditionLifeReadingComposer {
     return ThreeTraditionLifeTopic(
       title: 'การดูแลพลังและกิจวัตร',
       reading:
-          'การดูแลพลังมีแนวโน้มดีขึ้นเมื่อจัดกิจวัตรให้สอดคล้องกับ'
-          '$thaiMode และให้เวลาฟื้นด้วยการ$westernAction '
-          'ดวงจีนให้ข้อระวังว่า$chineseAction '
-          'เมื่อตีความประกอบกัน หากฟื้นตัวช้าต่อเนื่อง ควรทบทวนภาระ'
-          'และเวลาพักก่อนฝืนจังหวะเดิม',
+          'การดูแลพลังของคุณเริ่มจาก$thaiMode '
+          'การ$westernActionช่วยให้คุณกลับมาตั้งหลัก '
+          'ขณะเดียวกัน $chineseAction',
       thai: thai.text,
       thaiEvidenceKeys: thai.evidenceKeys,
       chinese: chinese.balance,

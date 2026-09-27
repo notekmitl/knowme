@@ -1,5 +1,56 @@
 # Overall astrology from three traditions — V1 working branch
 
+## 2026-09-27 four-topic Owner wording follow-up from `0016ef2`
+
+The four public life-topic readings were edited for natural Thai natal
+language. Work no longer says “บทบาทที่คุ้ม” or joins two phrases with
+“กันควบคู่กัน”; it still uses the Thai house-10 lord mode, BaZi top Ten God
+work focus, and Western Mercury method. Money now describes the existing
+BaZi wealth-weight branch and peer-versus-wealth boundary, alongside the
+Thai house-2 mode and Western Venus value. Its risk sentence follows the
+same calculated BaZi branch instead of adding a generic cash-reserve claim.
+Relationships no longer repeat the BaZi phrase “ความชัดเจนและความสม่ำเสมอ”
+inside the combined reading. The Chinese source text and gender-specific
+spouse-family calculation remain attached internally; the public sentence
+uses the same weight to choose a short prominence or gradual-growth meaning.
+Wellbeing now combines the Thai house-6 mode, Western Moon recovery action,
+and BaZi support-band action in direct prose, without the unsupported
+slow-recovery condition. No period, event, diagnosis, or new calculated fact
+was added.
+
+The calculation inputs, fail-closed source checks, reviewed main-topic
+conflict guard, confidence floor **0.6**, and public hiding of source
+evidence are unchanged. Regression checks that changed single-reader prose
+cannot rewrite these topics, both money branches use their calculated
+weights, male/female relationship branches remain distinct without the
+repeated phrase, and all four readings retain their traceable semantic
+fragments. Related Flutter tests across Overall and Thai, BaZi, and Western
+single readers passed **111/111**; changed-file analysis found **0 issues**.
+Anonymous Backend Preview calculations for the Owner-requested case and two
+synthetic cases produced all four headings without gaps or conflict. The
+private QA records hold the full readings and source facts; no personal birth
+values or chart placements are stored here.
+
+Final 390×844 Hosted Preview runs for the Owner-requested case, two synthetic
+cases, and synthetic male/female variants reached the report in
+**492/915/430/928/921 ms** respectively. All five showed **การงาน, การเงิน,
+ความสัมพันธ์, การดูแลพลังและกิจวัตร**, with no overflow, leaked evidence
+headings, blocked request, page error, or console error. Each made only two
+successful anonymous calculation POSTs to the isolated Preview Backend.
+There were no Firebase Auth, Firestore, Production API, other write, or
+identity/profile requests. Hosted Thai single-menu regression reached its
+report with no POST, blocked request, error, or overflow.
+
+Only Hosting Preview channel `pr-149-overall-safe` advanced, to version
+`bbd5c201897d8093` expiring `2026-10-04T08:25:24Z`. Its URL is
+`https://knowme-app-694e1--pr-149-overall-safe-vbx6de6a.web.app/beta/thai`.
+Hosted JavaScript matches the local safe build at SHA-256
+`3C2EBF81152C552242D30317534DA8D125E5502FC9F2BC674811F2DFFF8ED958`.
+The bundle contains the isolated Backend and both calculation paths, has no
+Auth/Firestore endpoint strings, and contains the Production API hostname
+only in the negative Preview configuration guard. Production Hosting `live`
+remains `d32e72678324e634`. PR #149 remains Draft for Owner wording review.
+
 ## 2026-09-27 main-topic conflict guard from `144281d`
 
 Code review confirmed that `ThreeTraditionMeaningAlignment.select()` only

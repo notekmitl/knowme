@@ -1640,3 +1640,27 @@ without a POST. Hosted JS SHA-256 is
 Production Hosting `live` remains `d32e72678324e634`. Keep PR #149 Draft;
 do not merge or deploy Production. No personal birth values are recorded
 here. Full detail: `docs/THREE_TRADITION_OVERALL_V1.md`.
+## Active handoff — PR #149 four-topic wording (2026-09-27)
+
+Owner review Preview:
+`https://knowme-app-694e1--pr-149-overall-safe-vbx6de6a.web.app/beta/thai`
+(Hosting version `bbd5c201897d8093`, expires `2026-10-04T08:25:24Z`).
+The public report displays **การงาน, การเงิน, ความสัมพันธ์,
+การดูแลพลังและกิจวัตร** for the Owner-requested and two synthetic cases.
+The new wording removes the work phrase “บทบาทที่คุ้ม”, the generic money
+reserve instruction, and repeated relationship wording. Money and wellbeing
+sentences use the already calculated BaZi weights/support band and Thai and
+Western source meanings. The `0.6` confidence floor, conflict veto,
+missing-evidence behavior, and internal source trace are unchanged.
+
+Related Flutter regression passed **111/111**, analyzer found **0 issues**,
+and five anonymous 390×844 Hosted runs reached the report in
+**492/915/430/928/921 ms**. Each made exactly two 200 calculation POSTs to
+the isolated Preview Backend, without Auth, Firestore, Production API,
+other write, blocked request, browser error, or overflow. Hosted Thai
+single-menu QA reached its report without a POST. Hosted JS SHA-256 is
+`3C2EBF81152C552242D30317534DA8D125E5502FC9F2BC674811F2DFFF8ED958`;
+Production Hosting `live` remains `d32e72678324e634`. Keep PR #149 Draft
+for Owner wording review; do not merge or deploy Production. No personal
+birth values are recorded here. Details:
+`docs/THREE_TRADITION_OVERALL_V1.md`.

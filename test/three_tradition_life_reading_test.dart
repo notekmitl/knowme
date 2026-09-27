@@ -140,9 +140,64 @@ void main() {
       final opening = BaziReaderV2.natalRelationshipOpening(chart);
       expect(opening, isNotEmpty);
       expect(topic.chinese, contains(opening));
-      expect(topic.reading, contains(opening));
+      final spouseFamily = gender == 'male' ? 'wealth' : 'authority';
+      final emphasis = chart.tenGodBalance.familyWeight[spouseFamily]! >= 4
+          ? 'เรื่องคู่สัมพันธ์มีน้ำหนักในพื้นดวงนี้'
+          : 'ความผูกพันมีแนวโน้มค่อย ๆ เติบโต';
+      expect(topic.reading, contains(emphasis));
+      expect(topic.reading, isNot(contains('ความชัดเจนและความสม่ำเสมอ')));
       expect(result.gaps, isEmpty);
     }
+  });
+
+  test('money wording follows calculated wealth and peer branches', () {
+    for (final caseData in [
+      (
+        wealth: 1,
+        peer: 5,
+        base: 'ผลงานและความรับผิดชอบที่จับต้องได้',
+        boundary: 'แยกเงินส่วนตัวกับเงินร่วม',
+        risk: 'ค่าใช้จ่ายจากทีม หุ้นส่วน หรือการขยายงานอาจโตเร็วกว่าที่เห็น',
+      ),
+      (
+        wealth: 5,
+        peer: 1,
+        base: 'การจัดเวลา งบ และทรัพยากรให้เกิดผลต่อเนื่อง',
+        boundary: 'กำหนดเพดานลงทุนและจุดหยุด',
+        risk: 'โอกาสใหม่อาจดึงเงินออกจากงานหลัก',
+      ),
+    ]) {
+      final chart = _withMoneyWeights(bazi, caseData.wealth, caseData.peer);
+      final result = compose(baziChart: chart);
+      final money = result.topics.singleWhere(
+        (topic) => topic.title == 'การเงิน',
+      );
+      expect(money.reading, contains(caseData.base));
+      expect(money.reading, contains(caseData.boundary));
+      expect(money.reading, contains(caseData.risk));
+      expect(money.reading, isNot(contains('กันเงินสำรอง')));
+      expect(money.chinese, isNotEmpty);
+    }
+  });
+
+  test('new copy retains calculated work and recovery meanings', () {
+    final result = compose();
+    final work = result.topics.singleWhere((topic) => topic.title == 'การงาน');
+    final wellbeing = result.topics.singleWhere(
+      (topic) => topic.title == 'การดูแลพลังและกิจวัตร',
+    );
+    expect(work.reading, contains(BaziReaderV2.natalWorkFocus(bazi)));
+    expect(
+      work.reading,
+      contains(WesternNatalLifeSemantics.workMethod(western)),
+    );
+    expect(work.reading, isNot(contains('บทบาทที่คุ้ม')));
+    expect(
+      wellbeing.reading,
+      contains(WesternNatalLifeSemantics.recoveryAction(western)),
+    );
+    expect(wellbeing.reading, contains(BaziReaderV2.natalBalanceAction(bazi)));
+    expect(wellbeing.reading, isNot(contains('ฟื้นตัวช้าต่อเนื่อง')));
   });
 
   test('missing gender-specific Chinese weight omits relationship', () {
@@ -278,17 +333,23 @@ void main() {
     expect(result.conflicts, isEmpty);
   });
 
-  test('mixed disclosure evidence inside one lens is not a clear opposition', () {
-    final comparison = ThreeTraditionConsensus.analyzeOutputs([
-      _theme(AstrologyLens.thaiAstrology.lensId, 'expressive'),
-      _theme(AstrologyLens.chineseBazi.lensId, 'expressive'),
-      _theme(AstrologyLens.westernNatal.lensId, 'expressive'),
-      _theme(AstrologyLens.westernNatal.lensId, 'reserved'),
-    ]);
-    final result = compose(comparison: comparison);
-    expect(result.topics.any((topic) => topic.title == 'ความสัมพันธ์'), isTrue);
-    expect(result.conflicts, isEmpty);
-  });
+  test(
+    'mixed disclosure evidence inside one lens is not a clear opposition',
+    () {
+      final comparison = ThreeTraditionConsensus.analyzeOutputs([
+        _theme(AstrologyLens.thaiAstrology.lensId, 'expressive'),
+        _theme(AstrologyLens.chineseBazi.lensId, 'expressive'),
+        _theme(AstrologyLens.westernNatal.lensId, 'expressive'),
+        _theme(AstrologyLens.westernNatal.lensId, 'reserved'),
+      ]);
+      final result = compose(comparison: comparison);
+      expect(
+        result.topics.any((topic) => topic.title == 'ความสัมพันธ์'),
+        isTrue,
+      );
+      expect(result.conflicts, isEmpty);
+    },
+  );
 
   test('missing or weak opposition does not suppress source-backed topics', () {
     for (final third in <LensThemeOutput?>[
@@ -482,6 +543,22 @@ BaziChartModel _withoutFamilyWeight(BaziChartModel base, String family) =>
         visible: base.tenGodBalance.visible,
         hidden: base.tenGodBalance.hidden,
         familyWeight: Map.of(base.tenGodBalance.familyWeight)..remove(family),
+        topFamilies: base.tenGodBalance.topFamilies,
+        method: base.tenGodBalance.method,
+      ),
+    );
+
+BaziChartModel _withMoneyWeights(BaziChartModel base, int wealth, int peer) =>
+    _copyBazi(
+      base,
+      balance: BaziTenGodBalance(
+        visible: base.tenGodBalance.visible,
+        hidden: base.tenGodBalance.hidden,
+        familyWeight: {
+          ...base.tenGodBalance.familyWeight,
+          'wealth': wealth,
+          'peer': peer,
+        },
         topFamilies: base.tenGodBalance.topFamilies,
         method: base.tenGodBalance.method,
       ),
