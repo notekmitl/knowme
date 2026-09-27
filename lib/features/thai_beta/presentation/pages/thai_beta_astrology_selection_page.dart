@@ -175,6 +175,7 @@ class _ThaiBetaAstrologySelectionPageState
         thai: thai,
         bazi: bazi,
         western: western,
+        comparison: reading,
       );
       if (!mounted) return;
       await Navigator.of(context).push(

@@ -1593,3 +1593,27 @@ Owner action at delivery was to re-review `PR108_OR2_WORK\OWNER_REVIEW_THAI_REPO
 OR1 rejection is not superseded by assertion: OR2 resolves the four cited evidence defects while freezing reader copy. Implementation/test commit is `d78c5f641563ca5810c8952191e217cd31502d57`. Full suite 1,623/1,623 and all required gates pass. Before the Owner decision, PR #108 was required to remain Open + Draft. Do not merge or deploy; Firebase/Production and `product-acceptance/` have no delta.
 
 Owner has now independently accepted PR108 OR2 scope, copy and evidence. Previous evidence/docs HEAD is `ec2ecbaa1f9f21fe69df6476f9d0fed0a39f5120`; acceptance docs commit is this commit (exact SHA is the final PR HEAD). Accepted PDF counts are Dedicated 8/7 and Browser-print 7/7; page 5 is image-only, not visually blank; clipping/overlap/overflow 0. PR may be changed to Ready for Review after the docs commit is pushed and HEAD/tree/mergeability are reverified. **Do not merge or deploy.**
+## Active handoff — PR #149 Owner life-topic feedback (2026-09-27)
+
+Owner review Preview:
+`https://knowme-app-694e1--pr-149-overall-safe-vbx6de6a.web.app/beta/thai`
+(Hosting version `2aab0934c8f71d33`, expires `2026-10-04T03:38:48Z`).
+The report visibly shows **การงาน, การเงิน, ความสัมพันธ์,
+การดูแลพลังและกิจวัตร** for the Owner-requested and two synthetic cases.
+The optional decision-direction topic is withheld because these cases do
+not meet its reviewed three-lens alignment rule. Evidence remains in the
+internal model; the public evidence and consensus panels were removed.
+Male/female relationship branches now render when their BaZi source weight
+exists; missing weight still omits the topic. The `0.6` floor is unchanged.
+
+Flutter regression passed **95/95**, changed-file analysis found **0 issues**,
+and five anonymous 390×844 Hosted runs reached the report in
+**934/418/950/423/926 ms**. All five made exactly two successful calculation
+POSTs to the isolated Preview Backend, with no Auth, Firestore, Production
+API, other write, blocked request, browser error, or horizontal overflow.
+The Thai single-menu report was also reached without a POST or error.
+Hosted JavaScript SHA-256 is
+`B8B9C42431D045D046BE72C30A0B0E0AC054CA99FF5C66E17AEFA4FB95B5D698`;
+Production Hosting `live` remains `d32e72678324e634`. Keep PR #149 Draft
+for Owner wording review. No personal birth values are recorded here.
+Details: `docs/THREE_TRADITION_OVERALL_V1.md`.

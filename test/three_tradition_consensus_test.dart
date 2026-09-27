@@ -435,7 +435,7 @@ void main() {
   });
 
   testWidgets(
-    'mobile reader displays three and two lens groups without overflow',
+    'mobile reader retains three and two lens facts internally without overflow',
     (tester) async {
       await tester.binding.setSurfaceSize(const Size(390, 844));
       addTearDown(() => tester.binding.setSurfaceSize(null));
@@ -449,21 +449,18 @@ void main() {
       await tester.pumpWidget(
         MaterialApp(home: ThreeTraditionReportPage(reading: reading)),
       );
+      expect(reading.agreements.map((item) => item.sourceCount), [3, 2]);
       expect(
-        find.textContaining('หลักฐานรายด้านยังไม่พอสร้างคำอ่านประกอบกัน'),
+        find.textContaining('ข้อมูลที่มีอยู่ยังไม่พอสร้างคำทำนายรายด้าน'),
         findsOneWidget,
       );
-      await tester.scrollUntilVisible(
-        find.text('สอดคล้องกันทั้ง 3 ศาสตร์'),
-        160,
-      );
-      expect(find.text('สอดคล้องกันทั้ง 3 ศาสตร์'), findsOneWidget);
-      await tester.scrollUntilVisible(find.text('สอดคล้องกัน 2 ศาสตร์'), 160);
+      expect(find.text('สอดคล้องกันทั้ง 3 ศาสตร์'), findsNothing);
+      expect(find.text('สอดคล้องกัน 2 ศาสตร์'), findsNothing);
       expect(tester.takeException(), isNull);
     },
   );
 
-  testWidgets('report shows distinct lens facts and separates the third lens', (
+  testWidgets('report keeps distinct lens facts outside the public page', (
     tester,
   ) async {
     await tester.binding.setSurfaceSize(const Size(390, 844));
@@ -491,27 +488,22 @@ void main() {
     await tester.pumpWidget(
       MaterialApp(home: ThreeTraditionReportPage(reading: reading)),
     );
-    await tester.scrollUntilVisible(find.text('สอดคล้องกัน 2 ศาสตร์'), 160);
-    expect(find.text('สอดคล้องกัน 2 ศาสตร์'), findsOneWidget);
+    expect(reading.agreements.single.sourceCount, 2);
+    expect(reading.byLens[thai]!.single.themeId, 'expressive');
+    expect(find.text('สอดคล้องกัน 2 ศาสตร์'), findsNothing);
     expect(
       find.textContaining('จีนอ้างอิงธาตุเด่นของดวงจีนเป็นดิน'),
-      findsWidgets,
+      findsNothing,
     );
     expect(
       find.textContaining('ตะวันตกอ้างอิงอาทิตย์อยู่ราศีพฤษภ'),
-      findsWidgets,
+      findsNothing,
     );
     expect(
       find.textContaining('ไทยยังไม่มีหลักฐานหนักพอให้นับร่วมในเรื่องนี้'),
-      findsOneWidget,
+      findsNothing,
     );
-    await tester.scrollUntilVisible(find.text('ดูหลักฐานของแต่ละศาสตร์'), 160);
-    await tester.tap(find.text('ดูหลักฐานของแต่ละศาสตร์'));
-    await tester.pumpAndSettle();
-    expect(
-      find.textContaining('มุมเรื่องการแสดงออก จากลัคนาราศีเมษ'),
-      findsOneWidget,
-    );
+    expect(find.text('ดูหลักฐานของแต่ละศาสตร์'), findsNothing);
     expect(tester.takeException(), isNull);
   });
 
@@ -550,42 +542,50 @@ void main() {
       ),
     );
     expect(
-      find.textContaining('หลักฐานรายด้านยังไม่พอสร้างคำอ่านประกอบกัน'),
+      find.textContaining('ข้อมูลที่มีอยู่ยังไม่พอสร้างคำทำนายรายด้าน'),
       findsOneWidget,
     );
-    expect(find.textContaining('ยังไม่มีเรื่องเดียวกัน'), findsOneWidget);
+    expect(find.text('คำอ่านพื้นดวงรายด้าน'), findsNothing);
+    expect(find.text('จุดร่วมที่หลักฐานรองรับ'), findsNothing);
     expect(tester.takeException(), isNull);
   });
 
-  testWidgets('life reading keeps interpreted copy and source evidence separate from consensus', (
-    tester,
-  ) async {
-    await tester.binding.setSurfaceSize(const Size(390, 844));
-    addTearDown(() => tester.binding.setSurfaceSize(null));
-    await tester.pumpWidget(MaterialApp(
-      home: ThreeTraditionReportPage(
-        reading: ThreeTraditionConsensus.analyzeOutputs([]),
-        lifeReading: const ThreeTraditionLifeReading(
-          topics: [
-            ThreeTraditionLifeTopic(
-              title: 'การงาน',
-              reading: 'คำอ่านประกอบกันจากหลักฐานรายด้าน',
-              thai: 'คำอ่านไทย',
-              thaiEvidenceKeys: ['HouseEngine.calculate.house[10].signKey'],
-              chinese: 'คำอ่านจีน',
-              chineseEvidenceKeys: ['BaziChartModel.tenGodBalance.topFamilies'],
-              western: 'คำอ่านตะวันตก',
-              westernBasis: 'ดาวพุธ',
+  testWidgets(
+    'mobile report leads with predictions and keeps source facts internal',
+    (tester) async {
+      await tester.binding.setSurfaceSize(const Size(390, 844));
+      addTearDown(() => tester.binding.setSurfaceSize(null));
+      await tester.pumpWidget(
+        MaterialApp(
+          home: ThreeTraditionReportPage(
+            reading: ThreeTraditionConsensus.analyzeOutputs([]),
+            lifeReading: const ThreeTraditionLifeReading(
+              topics: [
+                ThreeTraditionLifeTopic(
+                  title: 'การงาน',
+                  reading: 'คำอ่านประกอบกันจากหลักฐานรายด้าน',
+                  thai: 'คำอ่านไทย',
+                  thaiEvidenceKeys: ['HouseEngine.calculate.house[10].signKey'],
+                  chinese: 'คำอ่านจีน',
+                  chineseEvidenceKeys: [
+                    'BaziChartModel.tenGodBalance.topFamilies',
+                  ],
+                  western: 'คำอ่านตะวันตก',
+                  westernBasis: 'ดาวพุธ',
+                ),
+              ],
+              gaps: [],
             ),
-          ],
-          gaps: [],
+          ),
         ),
-      ),
-    ));
-    expect(find.text('คำอ่านประกอบกันจากหลักฐานรายด้าน'), findsOneWidget);
-    expect(find.textContaining('ไม่ใช่จุดร่วมที่พิสูจน์แล้ว'), findsOneWidget);
-    await tester.scrollUntilVisible(find.text('จุดร่วมที่หลักฐานรองรับ'), 160);
-    expect(find.textContaining('ยังไม่มีเรื่องเดียวกัน'), findsOneWidget);
-    expect(tester.takeException(), isNull);
-  });
+      );
+      expect(find.text('คำอ่านประกอบกันจากหลักฐานรายด้าน'), findsOneWidget);
+      expect(find.text('คำอ่านพื้นดวงรายด้าน'), findsNothing);
+      expect(find.text('ตรวจคำอ่านและหลักฐานต้นทาง'), findsNothing);
+      expect(find.text('จุดร่วมที่หลักฐานรองรับ'), findsNothing);
+      expect(find.text('คำอ่านไทย'), findsNothing);
+      expect(find.text('ดูหลักฐานของแต่ละศาสตร์'), findsNothing);
+      expect(tester.takeException(), isNull);
+    },
+  );
 }

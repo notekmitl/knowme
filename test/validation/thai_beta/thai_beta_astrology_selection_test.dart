@@ -217,7 +217,7 @@ void main() {
       expect(capturedAsOf, submittedAt);
       // The injected Thai analysis failed: no partial or fabricated report.
       expect(find.byType(Scaffold), findsOneWidget);
-      expect(find.text('อ่านภาพรวมจากสามศาสตร์'), findsNothing);
+      expect(find.text('ภาพรวมชีวิตจากสามศาสตร์'), findsNothing);
     });
 
     testWidgets('overall renders a report from three results without sign-in', (
@@ -243,7 +243,7 @@ void main() {
       await tester.pumpAndSettle();
       await tester.tap(find.byKey(const Key('astrology-select-overall')));
       await tester.pumpAndSettle();
-      expect(find.text('อ่านภาพรวมจากสามศาสตร์'), findsOneWidget);
+      expect(find.text('ภาพรวมชีวิตจากสามศาสตร์'), findsOneWidget);
       expect(tester.takeException(), isNull);
     });
   });

@@ -1,5 +1,61 @@
 # Overall astrology from three traditions — V1 working branch
 
+## 2026-09-27 Owner follow-up from `d3ff833` — life topics on the safe Preview
+
+The missing relationship topic came from an Overall-only `_relationships()`
+guard that discarded the legitimate `male` and `female` BaZi values. The
+composer now uses the existing gender-specific spouse-family calculation;
+when that required weight is absent, it omits the relationship topic. The
+unknown-gender branch retains its neutral reading. Tests cover both gender
+values and missing evidence. Single-tradition menu routing and copy were not
+changed.
+
+The public Overall page now leads with prediction cards. It no longer shows
+“คำอ่านพื้นดวงรายด้าน”, “ตรวจคำอ่านและหลักฐานต้นทาง”, “จุดร่วมที่หลักฐานรองรับ”,
+or the per-tradition evidence lists. The calculated source readings, atoms,
+codes, and lens observations remain in the reading model for tests and audit.
+The fourth displayed topic, **การดูแลพลังและกิจวัตร**, requires the existing
+Thai house-6 wellbeing claim and source atom, BaZi Reader V2 balance text and
+support-band calculation, and Western Reader V2 wellbeing text and calculated
+Moon sign. Missing any required source omits that topic. The Western Moon
+recovery registry covers all twelve signs and matched the source reader's
+existing meanings in a 48-value parity check across the relevant planet maps.
+
+An optional fifth topic, **ทิศทางและการตัดสินใจ**, is available only when two
+lenses have the same supported `independent` meaning and the third has either
+the same meaning or the narrowly reviewed nearby `leadership` meaning. A
+supported opposing meaning vetoes the combined prediction even if the same
+lens also contains a matching observation. Missing, unrelated, or weaker
+third-lens evidence cannot complete it. The existing agreement confidence
+floor remains **0.6**; the near case explicitly calls itself an interpretive
+composition, not exact three-way agreement. None of the three real Preview
+cases qualified for this optional topic, so the page correctly showed four.
+
+Related Flutter regression passed **95/95**, including exact, near, conflict,
+mixed conflict, and missing-evidence cases; source-prose changes do not remove
+Overall topics. Changed-file analysis found **0 issues** and the safe Web build
+succeeded. Final 390×844 Hosted Preview runs for the Owner-requested case and
+two synthetic cases reached the report in **934/418/950 ms** respectively.
+Additional synthetic male/female runs took **423/926 ms** and preserved their
+gender in the calculation request. All five runs displayed **การงาน, การเงิน,
+ความสัมพันธ์, การดูแลพลังและกิจวัตร**, with no horizontal overflow, leaked
+evidence headings, blocked request, page error, or console error. Each used
+only two successful anonymous calculation POSTs to the isolated Preview
+Backend. There were no Firebase Auth, Firestore, Production API, other write,
+or identity/profile requests. A Hosted Thai single-menu regression reached
+its report with no POST, blocked request, error, or overflow.
+
+The safe Preview is
+`https://knowme-app-694e1--pr-149-overall-safe-vbx6de6a.web.app/beta/thai`.
+Only channel `pr-149-overall-safe` advanced, to version `2aab0934c8f71d33`
+expiring `2026-10-04T03:38:48Z`; Production Hosting `live` remains
+`d32e72678324e634`. The hosted JavaScript matches the local safe build at
+SHA-256 `B8B9C42431D045D046BE72C30A0B0E0AC054CA99FF5C66E17AEFA4FB95B5D698`.
+The bundle includes the isolated Backend and both calculation paths, no
+Auth/Firestore endpoint strings, and the Production API hostname only in the
+negative Preview configuration guard. The Draft PR remains for Owner wording
+review; no personal birth values or chart placements are stored in this file.
+
 ## 2026-09-25 structured meanings for Draft PR #149
 
 Starting from `7dc5360`, the work, money, and relationship composer now

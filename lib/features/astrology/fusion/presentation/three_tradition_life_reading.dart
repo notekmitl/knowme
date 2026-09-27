@@ -1,10 +1,13 @@
 import 'package:knowme/data/models/astrology_chart_model.dart';
 import 'package:knowme/data/models/bazi_chart_model.dart';
+import 'package:knowme/features/astrology/fusion/application/three_tradition_consensus.dart';
+import 'package:knowme/features/astrology/fusion/domain/entities/astrology_lens.dart';
 import 'package:knowme/features/bazi_compatibility/application/bazi_reader_v2.dart';
 import 'package:knowme/features/thai_beta/application/core_reading/thai_birth_profile_core_reading.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_analysis.dart';
 import 'package:knowme/presentation/pages/astrology/western_reader_v2_copy.dart';
 
+import 'three_tradition_meaning_alignment.dart';
 import 'western_natal_life_semantics.dart';
 
 /// A life-area interpretation with its three existing reader claims attached.
@@ -46,6 +49,7 @@ abstract final class ThreeTraditionLifeReadingComposer {
     required ThaiBetaAnalysis thai,
     required BaziChartModel bazi,
     required AstrologyChartModel western,
+    ThreeTraditionReading? comparison,
   }) {
     final gaps = <String>[];
     if (!thai.isSuccess || !thai.input.hasBirthTime) {
@@ -81,6 +85,7 @@ abstract final class ThreeTraditionLifeReadingComposer {
       western: western,
       chinese: BaziReaderV2.build(bazi, asOf: thai.asOf),
       westernSections: WesternReaderV2Copy.sections(western),
+      comparison: comparison,
     );
   }
 
@@ -93,6 +98,7 @@ abstract final class ThreeTraditionLifeReadingComposer {
     required AstrologyChartModel western,
     required BaziReaderV2Reading chinese,
     required List<WesternReaderSection> westernSections,
+    ThreeTraditionReading? comparison,
   }) {
     final gaps = <String>[];
     final topics = <ThreeTraditionLifeTopic>[];
@@ -131,6 +137,30 @@ abstract final class ThreeTraditionLifeReadingComposer {
       _relationships(core, chinese, bazi, western, westernSections),
       'ความสัมพันธ์',
     );
+    add(
+      _wellbeing(core, chinese, bazi, western, westernSections),
+      'การดูแลพลังและกิจวัตร',
+    );
+    if (comparison != null) {
+      final aligned = ThreeTraditionMeaningAlignment.select(comparison);
+      if (aligned != null) {
+        final thai = aligned.sources[AstrologyLens.thaiAstrology.lensId]!;
+        final chinese = aligned.sources[AstrologyLens.chineseBazi.lensId]!;
+        final western = aligned.sources[AstrologyLens.westernNatal.lensId]!;
+        topics.add(
+          ThreeTraditionLifeTopic(
+            title: aligned.title,
+            reading: aligned.reading,
+            thai: thai.themeId,
+            thaiEvidenceKeys: thai.evidence,
+            chinese: chinese.themeId,
+            chineseEvidenceKeys: chinese.evidence,
+            western: western.themeId,
+            westernBasis: western.evidence.join(' · '),
+          ),
+        );
+      }
+    }
     return ThreeTraditionLifeReading(
       topics: List.unmodifiable(topics),
       gaps: List.unmodifiable(gaps),
@@ -230,19 +260,24 @@ abstract final class ThreeTraditionLifeReadingComposer {
     if (thai == null ||
         west == null ||
         chinese.relationships.trim().isEmpty ||
-        {'male', 'female'}.contains(bazi.luck.gender) ||
         bazi.pillars.day.hiddenTenGods.isEmpty) {
       return null;
     }
     final thaiTrust = _houseMode(thai, 7);
     final westernStyle = WesternNatalLifeSemantics.relationshipStyle(western);
-    if (thaiTrust.isEmpty || westernStyle.isEmpty) return null;
+    final chineseOpening = BaziReaderV2.natalRelationshipOpening(bazi);
+    if (thaiTrust.isEmpty || westernStyle.isEmpty || chineseOpening.isEmpty) {
+      return null;
+    }
+    final chineseLink = bazi.luck.gender.isEmpty
+        ? 'เมื่อตีความประกอบกับดวงจีน เงื่อนไขที่ทำให้สองมุมนี้อยู่ด้วยกันได้'
+        : 'ดวงจีนอ่านว่า$chineseOpening เมื่อตีความประกอบกัน เงื่อนไขที่ทำให้สองมุมนี้อยู่ด้วยกันได้';
     return ThreeTraditionLifeTopic(
       title: 'ความสัมพันธ์',
       reading:
           'ความสัมพันธ์มีแนวโน้มมั่นคงเมื่อความไว้ใจตั้งอยู่บน'
           '$thaiTrust และคุณ$westernStyle '
-          'เมื่อตีความประกอบกับดวงจีน เงื่อนไขที่ทำให้สองมุมนี้อยู่ด้วยกันได้'
+          '$chineseLink'
           'คือการคุยเวลา บทบาท และความคาดหวังให้ตรงกัน พร้อมแบ่งความรับผิดชอบ'
           'โดยเหลือพื้นที่ตัดสินใจให้แต่ละฝ่าย หากข้อตกลงนี้ไม่ชัด '
           'ความตั้งใจดูแลกันอาจกลายเป็นภาระที่อีกฝ่ายต้องเดา',
@@ -252,6 +287,47 @@ abstract final class ThreeTraditionLifeReadingComposer {
       chineseEvidenceKeys: const [
         'BaziChartModel.pillars.day.hiddenTenGods',
         'BaziChartModel.luck.gender',
+      ],
+      western: west.body,
+      westernBasis: west.basis,
+    );
+  }
+
+  static ThreeTraditionLifeTopic? _wellbeing(
+    ThaiBirthProfileCoreReading core,
+    BaziReaderV2Reading chinese,
+    BaziChartModel bazi,
+    AstrologyChartModel western,
+    List<WesternReaderSection> westernSections,
+  ) {
+    final thai = _thaiClaim(core, ThaiBirthProfileCoreDomain.wellbeing, 6);
+    final west = _western(westernSections, 'wellbeing');
+    if (thai == null ||
+        west == null ||
+        chinese.balance.trim().isEmpty ||
+        bazi.dayMaster.stem.isEmpty) {
+      return null;
+    }
+    final thaiMode = _houseMode(thai, 6);
+    final chineseAction = BaziReaderV2.natalBalanceAction(bazi);
+    final westernAction = WesternNatalLifeSemantics.recoveryAction(western);
+    if (thaiMode.isEmpty || chineseAction.isEmpty || westernAction.isEmpty) {
+      return null;
+    }
+    return ThreeTraditionLifeTopic(
+      title: 'การดูแลพลังและกิจวัตร',
+      reading:
+          'การดูแลพลังมีแนวโน้มดีขึ้นเมื่อจัดกิจวัตรให้สอดคล้องกับ'
+          '$thaiMode และให้เวลาฟื้นด้วยการ$westernAction '
+          'ดวงจีนให้ข้อระวังว่า$chineseAction '
+          'เมื่อตีความประกอบกัน หากฟื้นตัวช้าต่อเนื่อง ควรทบทวนภาระ'
+          'และเวลาพักก่อนฝืนจังหวะเดิม',
+      thai: thai.text,
+      thaiEvidenceKeys: thai.evidenceKeys,
+      chinese: chinese.balance,
+      chineseEvidenceKeys: const [
+        'BaziChartModel.dayMaster.stem',
+        'BaziChartModel.dayMasterSupport.band',
       ],
       western: west.body,
       westernBasis: west.basis,

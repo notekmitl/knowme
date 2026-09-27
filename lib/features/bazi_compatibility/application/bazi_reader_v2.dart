@@ -51,6 +51,31 @@ abstract final class BaziReaderV2 {
         '${parts.skip(1).map((part) => 'และ$part').join(' ')}';
   }
 
+  /// The natal relationship branch selected by the same gender and Ten God
+  /// codes as the single-tradition reader. An unknown gender uses its neutral
+  /// branch rather than guessing a spouse family.
+  static String natalRelationshipOpening(BaziChartModel chart) {
+    final spouseFamily = switch (chart.luck.gender) {
+      'male' => 'wealth',
+      'female' => 'authority',
+      _ => null,
+    };
+    if (spouseFamily == null) {
+      return 'เรื่องความสัมพันธ์ต้องคุยเวลา บทบาท และความคาดหวังให้ตรงกัน';
+    }
+    final weight = chart.tenGodBalance.familyWeight[spouseFamily];
+    if (weight == null) return '';
+    return weight >= 4
+        ? 'ความสัมพันธ์เป็นเรื่องเด่นในดวงนี้'
+        : 'เรื่องความสัมพันธ์ควรค่อย ๆ สร้างจากความชัดเจนและความสม่ำเสมอ';
+  }
+
+  /// Recovery guidance selected from calculated Day Master support.
+  static String natalBalanceAction(BaziChartModel chart) =>
+      {'lean', 'supported', 'balanced'}.contains(chart.dayMasterSupport.band)
+      ? _balanceAction(chart.dayMasterSupport.band)
+      : '';
+
   static BaziReaderV2Reading build(BaziChartModel chart, {DateTime? asOf}) {
     final date = asOf ?? DateTime.now();
     final profile = BaziSymbolicReadingEngine.profileFor(chart.dayMaster.stem);
@@ -147,23 +172,13 @@ abstract final class BaziReaderV2 {
   }
 
   static String _relationshipReading(BaziChartModel chart) {
-    final gender = chart.luck.gender;
-    final spouseFamily = gender == 'male'
-        ? 'wealth'
-        : gender == 'female'
-        ? 'authority'
-        : null;
-    final weight = spouseFamily == null
-        ? 0
-        : chart.tenGodBalance.familyWeight[spouseFamily] ?? 0;
     final dayGod = chart.pillars.day.hiddenTenGods.isEmpty
         ? ''
         : chart.pillars.day.hiddenTenGods.first;
-    final opening = spouseFamily == null
-        ? 'เรื่องความสัมพันธ์ต้องคุยเวลา บทบาท และความคาดหวังให้ตรงกัน'
-        : weight >= 4
-        ? 'ความสัมพันธ์เป็นเรื่องเด่นในดวงนี้'
-        : 'เรื่องความสัมพันธ์ควรค่อย ๆ สร้างจากความชัดเจนและความสม่ำเสมอ';
+    final selectedOpening = natalRelationshipOpening(chart);
+    final opening = selectedOpening.isEmpty
+        ? 'เรื่องความสัมพันธ์ควรค่อย ๆ สร้างจากความชัดเจนและความสม่ำเสมอ'
+        : selectedOpening;
     final palace =
         _relationshipPalaceCopy[dayGod] ??
         'ควรให้ความชัดเจนและพื้นที่ตัดสินใจกับกันและกัน';
@@ -176,16 +191,18 @@ abstract final class BaziReaderV2 {
 
   static String _balanceReading(BaziChartModel chart, String profileCaution) {
     final support = chart.dayMasterSupport;
-    final action = switch (support.band) {
-      'lean' =>
-        'ควรลดจำนวนเรื่องที่ต้องตัดสินใจพร้อมกัน เติมเวลาพัก ข้อมูล และคนช่วยก่อนรับภาระใหม่',
-      'supported' =>
-        'ควรระวังความมั่นใจหรือความเคยชินกลายเป็นความดื้อ เปิดพื้นที่ให้ข้อมูลที่ขัดกับความคิดเดิม',
-      _ =>
-        'ควรรักษาจังหวะระหว่างการลงมือ การทบทวน และการขอความเห็นจากคนที่กล้าทักท้วง',
-    };
+    final action = _balanceAction(support.band);
     return '$profileCaution $action การอ่านธาตุส่วนนี้เป็นภาษาเชิงสมดุล ไม่ใช่การวินิจฉัยสุขภาพ';
   }
+
+  static String _balanceAction(String band) => switch (band) {
+    'lean' =>
+      'ควรลดจำนวนเรื่องที่ต้องตัดสินใจพร้อมกัน เติมเวลาพัก ข้อมูล และคนช่วยก่อนรับภาระใหม่',
+    'supported' =>
+      'ควรระวังความมั่นใจหรือความเคยชินกลายเป็นความดื้อ เปิดพื้นที่ให้ข้อมูลที่ขัดกับความคิดเดิม',
+    _ =>
+      'ควรรักษาจังหวะระหว่างการลงมือ การทบทวน และการขอความเห็นจากคนที่กล้าทักท้วง',
+  };
 
   static String _cycleReading(BaziLuckCycle cycle) {
     final theme =

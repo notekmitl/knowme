@@ -1682,3 +1682,27 @@ Implementation/test commit: `d78c5f641563ca5810c8952191e217cd31502d57`. Focused 
 ## PR108 Owner Acceptance — 2026-08-29
 
 Owner independently verified ZIP CRC/SHA256SUMS and accepted OR2 scope, copy and evidence. Accepted implementation: `d78c5f641563ca5810c8952191e217cd31502d57`; previous evidence/docs HEAD: `ec2ecbaa1f9f21fe69df6476f9d0fed0a39f5120`; acceptance docs commit: this docs-only commit (exact SHA is the final PR HEAD). Accepted results include inline/stale hits 0, parity 262/262 with error counters 0, geometry 18/18, PDF 8/7/7/7, image-only Browser-print page 5 and visual defects 0. Status: **OWNER ACCEPTED — READY FOR REVIEW — NOT MERGED — NOT DEPLOYED**.
+## Active follow-up — PR #149 Owner life-topic feedback (2026-09-27)
+
+From `d3ff833`, the Overall-only gender guard was fixed so male/female
+relationship readings can use the existing BaZi spouse-family calculation;
+missing required evidence still omits the topic. The public Overall report
+now shows prediction cards without its former evidence/consensus panels; the
+source model remains available internally. A fourth source-backed topic,
+**การดูแลพลังและกิจวัตร**, joins work, money, and relationships. An optional
+decision-direction topic appears only on qualifying exact or reviewed-near
+three-lens evidence, with an explicit conflict veto and unchanged `0.6`
+threshold. It did not qualify in the three real Preview cases.
+
+Related Flutter regression passed **95/95** and changed-file analysis found
+**0 issues**. Final 390×844 Hosted Preview runs for the Owner case, two
+synthetic cases, and synthetic male/female took **934/418/950/423/926 ms**
+from selector to report. Each displayed the same four supported headings,
+made only two 200 calculation POSTs to the isolated Backend, and had no Auth,
+Firestore, Production API, other write, blocked request, error, or overflow.
+The Thai single-menu Hosted regression also reached its report without a
+POST or error. Preview version `2aab0934c8f71d33` matches safe bundle SHA-256
+`B8B9C42431D045D046BE72C30A0B0E0AC054CA99FF5C66E17AEFA4FB95B5D698`;
+Production Hosting `live` remains `d32e72678324e634`. PR #149 remains Draft
+for Owner wording review. No personal birth data is recorded here. Details:
+`docs/THREE_TRADITION_OVERALL_V1.md`.

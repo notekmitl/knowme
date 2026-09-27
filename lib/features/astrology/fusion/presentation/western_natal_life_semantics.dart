@@ -13,6 +13,11 @@ abstract final class WesternNatalLifeSemantics {
   static String relationshipStyle(AstrologyChartModel chart) =>
       _venusLove[_sign(chart, 'venus')] ?? '';
 
+  static String recoveryAction(AstrologyChartModel chart) {
+    final moon = chart.big3['moon'];
+    return moon is String ? _moonRecovery[moon] ?? '' : '';
+  }
+
   static String _sign(AstrologyChartModel chart, String planet) {
     final raw = chart.planets[planet];
     if (raw is! Map || raw['sign'] is! String) return '';
@@ -62,5 +67,21 @@ abstract final class WesternNatalLifeSemantics {
     'Capricorn': 'แสดงความรักผ่านความรับผิดชอบและการวางแผนอนาคต',
     'Aquarius': 'ต้องการความเป็นเพื่อน ความเท่าเทียม และพื้นที่เป็นตัวเอง',
     'Pisces': 'รับรู้ความรู้สึกละเอียดและพร้อมอ่อนโยนกับคนรัก',
+  };
+
+  // First action of the backend Western Reader V2 Moon recovery registry.
+  static const _moonRecovery = <String, String>{
+    'Aries': 'ได้ขยับร่างกายหรือจัดการเรื่องค้างทีละเรื่อง',
+    'Taurus': 'กลับสู่กิจวัตรที่คุ้นเคย กินและพักให้ตรงเวลา',
+    'Gemini': 'ได้เขียน พูด หรือจัดข้อมูลที่วนอยู่ในหัว',
+    'Cancer': 'ได้อยู่ในพื้นที่ปลอดภัยและคุยกับคนที่ไว้ใจ',
+    'Leo': 'ได้สร้างสรรค์ เล่น หรืออยู่กับคนที่ชื่นชมกันจริง',
+    'Virgo': 'ได้จัดพื้นที่และแบ่งปัญหาเป็นขั้นเล็ก ๆ',
+    'Libra': 'ได้คุยอย่างเป็นธรรมและทำให้ความสัมพันธ์กลับมาสมดุล',
+    'Scorpio': 'ได้อยู่ลำพังพอจะยอมรับความรู้สึกที่ลึกจริง',
+    'Sagittarius': 'ได้เปลี่ยนบรรยากาศ เรียนรู้ หรือมองเรื่องนั้นจากภาพใหญ่',
+    'Capricorn': 'ได้วางแผนและทำสิ่งสำคัญให้คืบหน้าทีละขั้น',
+    'Aquarius': 'ได้ถอยออกมาคิดและมองปัญหาเป็นระบบ',
+    'Pisces': 'ได้อยู่เงียบ ๆ ฟังเพลง สร้างสรรค์ หรือพักจากบรรยากาศของคนอื่น',
   };
 }
