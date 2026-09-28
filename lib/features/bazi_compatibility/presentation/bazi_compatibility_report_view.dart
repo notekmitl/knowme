@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:knowme/data/models/bazi_chart_model.dart';
 import 'package:knowme/features/bazi_compatibility/domain/bazi_compatibility_report.dart';
 
 class BaziCompatibilityReportView extends StatelessWidget {
@@ -6,18 +7,25 @@ class BaziCompatibilityReportView extends StatelessWidget {
     super.key,
     required this.report,
     this.onExport,
+    this.trialChart,
   });
 
   final BaziCompatibilityReport report;
   final Future<void> Function()? onExport;
 
+  /// Prepared calculation for the anonymous trial's visual summary.
+  /// Standalone readers keep their original presentation.
+  final BaziChartModel? trialChart;
+
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      padding: const EdgeInsets.fromLTRB(20, 12, 20, 32),
-      child: Column(
+    final content = Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
+          if (trialChart != null) ...[
+            _TrialPillars(chart: trialChart!),
+            const SizedBox(height: 16),
+          ],
           Container(
             padding: const EdgeInsets.all(22),
             decoration: BoxDecoration(
@@ -78,7 +86,10 @@ class BaziCompatibilityReportView extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 8),
-          for (final section in report.sections) ...[
+          for (final section in report.sections.where(
+            (section) => trialChart == null ||
+                section.title != 'ผังปาจื้อของคุณ',
+          )) ...[
             const SizedBox(height: 12),
             _SectionCard(
               section: section,
@@ -86,6 +97,129 @@ class BaziCompatibilityReportView extends StatelessWidget {
                   section.title.contains('คำทำนายพื้นดวง') ||
                   section.title.contains('Natal tendencies'),
             ),
+          ],
+        ],
+      );
+    return SingleChildScrollView(
+      padding: trialChart == null
+          ? const EdgeInsets.fromLTRB(20, 12, 20, 32)
+          : const EdgeInsets.fromLTRB(16, 16, 16, 36),
+      child: trialChart == null
+          ? content
+          : Center(
+              child: ConstrainedBox(
+                constraints: const BoxConstraints(maxWidth: 720),
+                child: content,
+              ),
+            ),
+    );
+  }
+}
+
+class _TrialPillars extends StatelessWidget {
+  const _TrialPillars({required this.chart});
+
+  final BaziChartModel chart;
+
+  @override
+  Widget build(BuildContext context) {
+    final pillars = [
+      ('ปี', chart.pillars.year),
+      ('เดือน', chart.pillars.month),
+      ('วัน', chart.pillars.day),
+      ('เวลา', chart.pillars.hour),
+    ];
+    final balance = chart.elementBalance;
+    final elements = [
+      ('ไม้', balance.wood, const Color(0xFF527E65)),
+      ('ไฟ', balance.fire, const Color(0xFFB35645)),
+      ('ดิน', balance.earth, const Color(0xFFAE854B)),
+      ('ทอง', balance.metal, const Color(0xFF6B7891)),
+      ('น้ำ', balance.water, const Color(0xFF4E7797)),
+    ];
+    return Container(
+      key: const Key('trial-bazi-infographic'),
+      padding: const EdgeInsets.all(20),
+      decoration: BoxDecoration(
+        color: const Color(0xFFFFFBF4),
+        borderRadius: BorderRadius.circular(22),
+        border: Border.all(color: const Color(0xFFEDD9C6)),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Text('สี่เสาของพื้นดวง', style: TextStyle(
+            color: Color(0xFF6E1D32),
+            fontWeight: FontWeight.w800,
+            fontSize: 20,
+          )),
+          const SizedBox(height: 4),
+          const Text('อ่านตามปี เดือน วัน และเวลาเกิด', style: TextStyle(
+            color: Color(0xFF594A50), fontSize: 14,
+          )),
+          const SizedBox(height: 18),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              for (final (label, pillar) in pillars) ...[
+                if (label != 'ปี') const SizedBox(width: 6),
+                Expanded(
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 3,
+                      vertical: 10,
+                    ),
+                    decoration: BoxDecoration(
+                      color: label == 'วัน'
+                          ? const Color(0xFFFFE9DB)
+                          : Colors.white,
+                      borderRadius: BorderRadius.circular(12),
+                      border: Border.all(color: const Color(0xFFEADACD)),
+                    ),
+                    child: Column(children: [
+                      Text(label, style: const TextStyle(
+                        color: Color(0xFF6E1D32),
+                        fontWeight: FontWeight.w700,
+                      )),
+                      const SizedBox(height: 8),
+                      Text(pillar.stem, textAlign: TextAlign.center,
+                        style: const TextStyle(fontSize: 23, height: 1.2)),
+                      Text(pillar.branch, textAlign: TextAlign.center,
+                        style: const TextStyle(fontSize: 23, height: 1.2)),
+                    ]),
+                  ),
+                ),
+              ],
+            ],
+          ),
+          if (balance.totalSlots > 0) ...[
+            const SizedBox(height: 20),
+            const Text('สัดส่วนธาตุในผังนี้', style: TextStyle(
+              fontWeight: FontWeight.w700,
+              color: Color(0xFF533248),
+            )),
+            const SizedBox(height: 10),
+            for (final (label, count, color) in elements) ...[
+              Row(children: [
+                SizedBox(width: 38, child: Text(label)),
+                Expanded(child: ClipRRect(
+                  borderRadius: BorderRadius.circular(5),
+                  child: LinearProgressIndicator(
+                    value: (count / balance.totalSlots).clamp(0.0, 1.0)
+                        .toDouble(),
+                    minHeight: 9,
+                    backgroundColor: const Color(0xFFF0EAE6),
+                    color: color,
+                  ),
+                )),
+                const SizedBox(width: 8),
+                SizedBox(width: 22, child: Text('$count',
+                  textAlign: TextAlign.end)),
+              ]),
+              const SizedBox(height: 6),
+            ],
+            const Text('ตัวเลขคือจำนวนตำแหน่งที่คำนวณได้ ไม่ใช่คะแนนดีหรือร้าย',
+              style: TextStyle(fontSize: 12, color: Color(0xFF675F63))),
           ],
         ],
       ),

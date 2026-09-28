@@ -387,6 +387,8 @@ class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
     _schedulePrintDocumentSync(document);
 
     final reportBody = <Widget>[
+      if (widget.anonymousTrial)
+        _trialThaiInfographic(analysis),
       if (_loadingBadges) const LinearProgressIndicator(minHeight: 2),
       Padding(
         padding: EdgeInsets.fromLTRB(
@@ -475,9 +477,98 @@ class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        const ThaiBetaProgressBar(current: ThaiBetaStep.read),
+        if (!widget.anonymousTrial)
+          const ThaiBetaProgressBar(current: ThaiBetaStep.read),
         ...reportBody,
       ],
+    );
+  }
+
+  Widget _trialThaiInfographic(ThaiBetaAnalysis analysis) {
+    final hero = analysis.consumerViewState?.hero;
+    final tags = hero?.tags.take(3).toList() ?? const <String>[];
+    return Center(
+      child: ConstrainedBox(
+        constraints: const BoxConstraints(maxWidth: 780),
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(18, 16, 18, 0),
+          child: Container(
+            key: const Key('trial-thai-infographic'),
+            padding: const EdgeInsets.all(20),
+            decoration: BoxDecoration(
+              gradient: const LinearGradient(
+                colors: [Color(0xFFFFF8E9), Color(0xFFF2ECF9)],
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+              ),
+              borderRadius: BorderRadius.circular(22),
+              border: Border.all(color: const Color(0xFFE7D7BC)),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(children: [
+                  const CircleAvatar(
+                    radius: 26,
+                    backgroundColor: Color(0xFF5E477A),
+                    child: Icon(Icons.temple_buddhist_outlined,
+                      color: Color(0xFFFFE4A9), size: 27),
+                  ),
+                  const SizedBox(width: 14),
+                  Expanded(child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Text('พื้นดวงแบบไทย', style: TextStyle(
+                        color: Color(0xFF765C2F), fontSize: 14,
+                        fontWeight: FontWeight.w700,
+                      )),
+                      Text(
+                        hero?.headline ?? 'ดวงไทยของคุณ',
+                        style: const TextStyle(
+                          color: Color(0xFF30263D),
+                          fontSize: 20,
+                          fontWeight: FontWeight.w800,
+                        ),
+                      ),
+                    ],
+                  )),
+                ]),
+                if (tags.isNotEmpty) ...[
+                  const SizedBox(height: 18),
+                  const Text('มุมเด่นจากผลคำนวณ', style: TextStyle(
+                    fontWeight: FontWeight.w700,
+                    color: Color(0xFF483854),
+                  )),
+                  const SizedBox(height: 10),
+                  Wrap(
+                    spacing: 8,
+                    runSpacing: 8,
+                    children: [
+                      for (final tag in tags)
+                        Container(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 12, vertical: 8,
+                          ),
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(16),
+                            border: Border.all(
+                              color: const Color(0xFFDDCBA8),
+                            ),
+                          ),
+                          child: Text(tag, style: const TextStyle(
+                            color: Color(0xFF3B3150),
+                            fontWeight: FontWeight.w600,
+                          )),
+                        ),
+                    ],
+                  ),
+                ],
+              ],
+            ),
+          ),
+        ),
+      ),
     );
   }
 

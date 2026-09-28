@@ -1,3 +1,16 @@
+## Active follow-up — PR #149 visual correction (2026-09-28)
+
+Owner screenshots showed that technical flow QA passed but the four pages
+did not meet the infographic-led, tradition-specific visual brief. Presentation
+changes in this branch add an Overall three-source overview and four clearer
+topic cards; trial Thai, Chinese and Western now expose computed visual
+summaries, and the Chinese reader is width-constrained. Prediction copy and
+rules are unchanged. The Hosted Preview still serves the earlier version;
+visual QA, Flutter/CI validation and a refreshed isolated Preview remain
+pending. This is **not** Owner visual acceptance. See
+`docs/THREE_TRADITION_OVERALL_V1.md`. PR #149 remains Draft; no Production
+deploy or merge.
+
 ## Active follow-up — PR #149 Hosted overall-first trial QA (2026-09-28)
 
 The safe Hosted Preview now serves the overall-first trial at

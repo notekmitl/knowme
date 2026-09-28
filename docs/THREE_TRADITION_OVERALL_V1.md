@@ -1,5 +1,34 @@
 # Overall astrology from three traditions — V1 working branch
 
+## 2026-09-28 visual correction — pending hosted Owner review
+
+Owner screenshots showed that the working trial flow still rendered Overall
+as plain text cards, BaZi at full desktop width with small copy, Thai in the
+old step-by-step report frame, and Western in an unrelated visual system.
+Functional browser QA below is **not** Owner visual acceptance. The original
+approved mockup is not preserved in this checkout, so the implementation
+follows the recorded brief: infographic-led reading, distinct Thai/Chinese/
+Western palettes, and birth input → Overall → optional individual reading.
+
+This revision changes presentation only. Overall gets a three-source visual
+overview and four readable life-topic cards; the source tiles display only
+available calculated facts. Trial BaZi constrains the report to 720 px and
+shows the actual four pillars and element counts as bars. Trial Western shows
+the calculated Sun, Moon and Ascendant as visual tiles. Trial Thai opens with
+its computed reader headline and available tags, without the trial progress
+stepper. Normal standalone Thai, BaZi and Western routes retain their prior
+content and controls. Underlying text, 0.6 evidence threshold, conflict rules,
+anonymous calculation path and in-memory reuse are not changed.
+
+The current Hosted Preview remains the previous `dd07f6b40bee762a` build;
+these visual changes are **not yet hosted or Owner-approved**. Run Flutter
+focused/full regression and analyzer, release-build for the isolated Preview
+Backend only, then inspect all four screens at 390×844 for readable type,
+accurate graphics and zero horizontal overflow. Confirm the same two
+calculation POSTs, no login/token/Firestore/Production API calls or writes;
+report the known static Google SDK GET separately. Keep PR #149 Draft and
+Production unchanged.
+
 ## 2026-09-28 Hosted overall-first trial QA from `388842e`
 
 The safe Hosting Preview at

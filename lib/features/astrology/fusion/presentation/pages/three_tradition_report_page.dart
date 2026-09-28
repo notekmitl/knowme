@@ -7,6 +7,7 @@ import 'package:knowme/features/thai_beta/application/thai_beta_analysis.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_evidence_badge_audience.dart';
 import 'package:knowme/features/thai_beta/presentation/pages/thai_beta_report_page.dart';
 import 'package:knowme/presentation/pages/astrology/astrology_result_page.dart';
+import 'package:knowme/presentation/pages/astrology/western_reader_v2_copy.dart';
 
 import '../../application/three_tradition_consensus.dart';
 import '../three_tradition_life_reading.dart';
@@ -35,6 +36,12 @@ class ThreeTraditionReportPage extends StatelessWidget {
   bool get _hasTrialLenses =>
       thaiAnalysis != null && baziChart != null && westernChart != null;
 
+  static const _ink = Color(0xFF24243E);
+  static const _purple = Color(0xFF6750A4);
+  static const _thai = Color(0xFF967245);
+  static const _chinese = Color(0xFFA64151);
+  static const _western = Color(0xFF5763AC);
+
   void _openLens(BuildContext context, Widget page) {
     Navigator.of(context).push(MaterialPageRoute<void>(builder: (_) => page));
   }
@@ -43,38 +50,38 @@ class ThreeTraditionReportPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return Scaffold(
-      appBar: AppBar(title: const Text('โหราศาสตร์โดยรวม')),
+      backgroundColor: const Color(0xFFF8F6FA),
+      appBar: AppBar(
+        title: const Text('โหราศาสตร์โดยรวม'),
+        backgroundColor: const Color(0xFFF8F6FA),
+        foregroundColor: _ink,
+      ),
       body: SafeArea(
         child: Center(
           child: ConstrainedBox(
             constraints: const BoxConstraints(maxWidth: 720),
             child: ListView(
-              padding: const EdgeInsets.fromLTRB(20, 20, 20, 36),
+              padding: const EdgeInsets.fromLTRB(16, 16, 16, 36),
               children: [
-                Text(
-                  'ภาพรวมชีวิตจากสามศาสตร์',
-                  style: theme.textTheme.headlineSmall?.copyWith(
-                    fontWeight: FontWeight.w700,
-                  ),
-                ),
-                const SizedBox(height: 8),
-                const Text(
-                  'คำอ่านแต่ละด้านเป็นการตีความประกอบกันจากพื้นดวง '
-                  'ไม่ได้หมายความว่าทั้งสามศาสตร์เห็นตรงกันทุกเรื่อง',
-                ),
+                _overviewHero(theme),
                 if (_hasTrialLenses) ...[
-                  const SizedBox(height: 18),
-                  Text('ดูดวงเฉพาะศาสตร์', style: theme.textTheme.titleMedium),
-                  const SizedBox(height: 8),
-                  Wrap(
-                    spacing: 8,
-                    runSpacing: 8,
+                  const SizedBox(height: 24),
+                  Text(
+                    'เปิดอ่านดวงเฉพาะศาสตร์',
+                    style: theme.textTheme.titleMedium?.copyWith(
+                      fontWeight: FontWeight.w700,
+                      color: _ink,
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+                  Row(
                     children: [
-                      OutlinedButton.icon(
+                      Expanded(child: _lensButton(
                         key: const Key('overall-open-thai'),
-                        icon: const Icon(Icons.temple_buddhist_outlined),
-                        label: const Text('ไทย'),
-                        onPressed: () => _openLens(
+                        label: 'ไทย',
+                        icon: Icons.temple_buddhist_outlined,
+                        color: _thai,
+                        onTap: () => _openLens(
                           context,
                           ThaiBetaReportPage(
                             analysis: thaiAnalysis!,
@@ -83,12 +90,14 @@ class ThreeTraditionReportPage extends StatelessWidget {
                                 const ThaiBetaEvidenceBadgeAudience.anonymous(),
                           ),
                         ),
-                      ),
-                      OutlinedButton.icon(
+                      )),
+                      const SizedBox(width: 8),
+                      Expanded(child: _lensButton(
                         key: const Key('overall-open-bazi'),
-                        icon: const Icon(Icons.auto_awesome_outlined),
-                        label: const Text('จีน'),
-                        onPressed: () => _openLens(
+                        label: 'จีน',
+                        icon: Icons.auto_awesome_outlined,
+                        color: _chinese,
+                        onTap: () => _openLens(
                           context,
                           Scaffold(
                             backgroundColor: const Color(0xFFFFF8F3),
@@ -99,15 +108,18 @@ class ThreeTraditionReportPage extends StatelessWidget {
                               report: BaziCompatibilityReportBuilder.build(
                                 baziChart!,
                               ),
+                              trialChart: baziChart,
                             ),
                           ),
                         ),
-                      ),
-                      OutlinedButton.icon(
+                      )),
+                      const SizedBox(width: 8),
+                      Expanded(child: _lensButton(
                         key: const Key('overall-open-western'),
-                        icon: const Icon(Icons.public_outlined),
-                        label: const Text('ตะวันตก'),
-                        onPressed: () => _openLens(
+                        label: 'ตะวันตก',
+                        icon: Icons.public_outlined,
+                        color: _western,
+                        onTap: () => _openLens(
                           context,
                           Scaffold(
                             backgroundColor: const Color(0xFF09101F),
@@ -116,13 +128,17 @@ class ThreeTraditionReportPage extends StatelessWidget {
                               foregroundColor: Colors.white,
                               title: const Text('ดวงตะวันตก'),
                             ),
-                            body: WesternReaderBody(chart: westernChart!),
+                            body: WesternReaderBody(
+                              chart: westernChart!,
+                              trialVisual: true,
+                            ),
                           ),
                         ),
-                      ),
+                      )),
                     ],
                   ),
                 ],
+                const SizedBox(height: 12),
                 if (lifeReading.topics.isEmpty &&
                     lifeReading.conflicts.isEmpty) ...[
                   const SizedBox(height: 20),
@@ -132,7 +148,7 @@ class ThreeTraditionReportPage extends StatelessWidget {
                   ),
                 ],
                 for (final topic in lifeReading.topics) ...[
-                  const SizedBox(height: 14),
+                  const SizedBox(height: 12),
                   _lifeTopicCard(topic, theme),
                 ],
                 for (final gap in lifeReading.gaps)
@@ -166,21 +182,184 @@ class ThreeTraditionReportPage extends StatelessWidget {
     );
   }
 
-  Widget _lifeTopicCard(ThreeTraditionLifeTopic topic, ThemeData theme) {
-    return Card(
-      child: Padding(
-        padding: const EdgeInsets.all(18),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(topic.title, style: theme.textTheme.titleMedium),
-            const SizedBox(height: 8),
-            Text(
-              topic.reading,
-              style: theme.textTheme.bodyLarge?.copyWith(height: 1.6),
+  Widget _overviewHero(ThemeData theme) {
+    final thaiTags = thaiAnalysis?.consumerViewState?.hero.tags;
+    final thaiFact = thaiTags == null || thaiTags.isEmpty
+        ? null : thaiTags.first;
+    const elementNames = {
+      'wood': 'ไม้', 'fire': 'ไฟ', 'earth': 'ดิน',
+      'metal': 'ทอง', 'water': 'น้ำ',
+    };
+    final dayElement = baziChart?.dayMaster.element;
+    final chineseFact = dayElement == null || dayElement.isEmpty
+        ? null : 'ธาตุ${elementNames[dayElement] ?? dayElement}';
+    final sunSign = westernChart == null ? '—'
+        : WesternReaderV2Copy.signLabel(westernChart!.big3['sun']);
+    final westernFact = sunSign == '—' ? null : 'อาทิตย์$sunSign';
+    return Container(
+      key: const Key('trial-overall-infographic'),
+      padding: const EdgeInsets.fromLTRB(20, 24, 20, 22),
+      decoration: BoxDecoration(
+        gradient: const LinearGradient(
+          colors: [Color(0xFF463677), Color(0xFF24375C)],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+        ),
+        borderRadius: BorderRadius.circular(24),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            'ภาพรวมชีวิตจากสามศาสตร์',
+            style: theme.textTheme.headlineSmall?.copyWith(
+              color: Colors.white,
+              fontWeight: FontWeight.w800,
             ),
+          ),
+          const SizedBox(height: 8),
+          const Text(
+            'พื้นดวงเดียว อ่านผ่านสามมุมมอง',
+            style: TextStyle(color: Color(0xFFE8E2F7), fontSize: 16),
+          ),
+          const SizedBox(height: 22),
+          Row(
+            children: [
+              _heroLens('ไทย', Icons.temple_buddhist_outlined, _thai,
+                thaiFact),
+              const SizedBox(width: 8),
+              _heroLens('จีน', Icons.auto_awesome_outlined, _chinese,
+                chineseFact),
+              const SizedBox(width: 8),
+              _heroLens('ตะวันตก', Icons.public_outlined, _western,
+                westernFact),
+            ],
+          ),
+          const SizedBox(height: 16),
+          const Text(
+            'คำอ่านแต่ละด้านเป็นการตีความประกอบกันจากพื้นดวง '
+            'ไม่ได้หมายความว่าทั้งสามศาสตร์เห็นตรงกันทุกเรื่อง',
+            style: TextStyle(color: Color(0xFFE8E2F7), height: 1.5),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _heroLens(String label, IconData icon, Color accent, String? fact) {
+    return Expanded(
+      child: Container(
+        padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 4),
+        decoration: BoxDecoration(
+          color: Colors.white.withValues(alpha: 0.12),
+          borderRadius: BorderRadius.circular(16),
+          border: Border.all(color: Colors.white.withValues(alpha: 0.2)),
+        ),
+        child: Column(
+          children: [
+            CircleAvatar(
+              radius: 19,
+              backgroundColor: Colors.white,
+              child: Icon(icon, color: accent, size: 20),
+            ),
+            const SizedBox(height: 8),
+            Text(label, style: const TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.w700,
+            )),
+            if (fact != null && fact.isNotEmpty) ...[
+              const SizedBox(height: 5),
+              Text(
+                fact,
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+                textAlign: TextAlign.center,
+                style: const TextStyle(color: Color(0xFFE8E2F7),
+                  fontSize: 12),
+              ),
+            ],
           ],
         ),
+      ),
+    );
+  }
+
+  Widget _lensButton({
+    required Key key,
+    required String label,
+    required IconData icon,
+    required Color color,
+    required VoidCallback onTap,
+  }) {
+    return Material(
+      color: Colors.white,
+      borderRadius: BorderRadius.circular(16),
+      child: InkWell(
+        key: key,
+        onTap: onTap,
+        borderRadius: BorderRadius.circular(16),
+        child: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 12),
+          decoration: BoxDecoration(
+            border: Border.all(color: color.withValues(alpha: 0.24)),
+            borderRadius: BorderRadius.circular(16),
+          ),
+          child: Column(
+            children: [
+              Icon(icon, color: color),
+              const SizedBox(height: 5),
+              Text(label, style: TextStyle(
+                color: color,
+                fontSize: 14,
+                fontWeight: FontWeight.w700,
+              )),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _lifeTopicCard(ThreeTraditionLifeTopic topic, ThemeData theme) {
+    final (icon, accent) = switch (topic.title) {
+      'การงาน' => (Icons.work_outline, const Color(0xFF55749C)),
+      'การเงิน' => (Icons.savings_outlined, const Color(0xFF977536)),
+      'ความสัมพันธ์' => (Icons.favorite_border, const Color(0xFFAA5979)),
+      _ => (Icons.spa_outlined, const Color(0xFF548871)),
+    };
+    return Container(
+      padding: const EdgeInsets.all(18),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(20),
+        border: Border.all(color: accent.withValues(alpha: 0.2)),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(children: [
+            CircleAvatar(
+              backgroundColor: accent.withValues(alpha: 0.12),
+              child: Icon(icon, color: accent),
+            ),
+            const SizedBox(width: 12),
+            Expanded(child: Text(
+              topic.title,
+              style: theme.textTheme.titleMedium?.copyWith(
+                fontWeight: FontWeight.w800,
+                color: _ink,
+              ),
+            )),
+          ]),
+          const SizedBox(height: 12),
+          Text(
+            topic.reading,
+            style: theme.textTheme.bodyLarge?.copyWith(
+              height: 1.65,
+              color: _ink,
+            ),
+          ),
+        ],
       ),
     );
   }

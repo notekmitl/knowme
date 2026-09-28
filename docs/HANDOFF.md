@@ -1,3 +1,17 @@
+## Active handoff — PR #149 visual correction (2026-09-28)
+
+The Owner rejected the four-page visual presentation despite passing flow
+QA. The branch now contains trial-only infographic summaries for Thai, BaZi
+and Western, an Overall visual hierarchy and readable topic cards. Preserve
+calculated facts, existing reader prose, anonymous two-POST flow and
+standalone behavior. The earlier approved visual mockup is unavailable in
+this checkout; do not call this pixel-identical or Owner PASS. The hosted
+channel still serves `dd07f6b40bee762a`, not these changes. Complete focused
+and full Flutter checks and hosted 390×844 visual/network QA against the
+isolated Backend Preview before presenting it again. Keep Draft; no merge,
+Production hosting/backend/Firestore changes. See
+`docs/THREE_TRADITION_OVERALL_V1.md`.
+
 ## Active handoff — PR #149 Hosted overall-first trial QA (2026-09-28)
 
 Owner review Preview:

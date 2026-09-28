@@ -148,9 +148,14 @@ Future<AstrologyChartModel> _generateWesternChartForUser(String uid) async {
 
 /// Reusable, read-only chart view for signed-in and anonymous trial readings.
 class WesternReaderBody extends StatelessWidget {
-  const WesternReaderBody({super.key, required this.chart});
+  const WesternReaderBody({
+    super.key,
+    required this.chart,
+    this.trialVisual = false,
+  });
 
   final AstrologyChartModel chart;
+  final bool trialVisual;
 
   static const _navy = Color(0xFF111B34);
   static const _violet = Color(0xFF8B7CF6);
@@ -173,7 +178,7 @@ class WesternReaderBody extends StatelessWidget {
           padding: const EdgeInsets.fromLTRB(18, 18, 18, 48),
           child: Center(
             child: ConstrainedBox(
-              constraints: const BoxConstraints(maxWidth: 880),
+              constraints: BoxConstraints(maxWidth: trialVisual ? 720 : 880),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
@@ -258,6 +263,31 @@ class WesternReaderBody extends StatelessWidget {
   }
 
   Widget _bigThree() {
+    if (trialVisual) {
+      return _SurfaceCard(
+        key: const Key('trial-western-infographic'),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Text('สามตำแหน่งหลักในดวงกำเนิด', style: _cardTitleStyle),
+            const SizedBox(height: 6),
+            const Text('ตำแหน่งที่คำนวณได้ ใช้อ่านภาพรวมร่วมกัน',
+              style: _supportStyle),
+            const SizedBox(height: 18),
+            Row(children: [
+              _trialPlanet('อาทิตย์', Icons.wb_sunny_outlined,
+                chart.big3['sun']),
+              const SizedBox(width: 7),
+              _trialPlanet('จันทร์', Icons.nights_stay_outlined,
+                chart.big3['moon']),
+              const SizedBox(width: 7),
+              _trialPlanet('ลัคนา', Icons.explore_outlined,
+                chart.big3['rising']),
+            ]),
+          ],
+        ),
+      );
+    }
     return _SurfaceCard(
       key: const Key('western-reader-v2-big-three-basis'),
       child: Column(
@@ -277,6 +307,35 @@ class WesternReaderBody extends StatelessWidget {
             style: _supportStyle,
           ),
         ],
+      ),
+    );
+  }
+
+  Widget _trialPlanet(String label, IconData icon, dynamic sign) {
+    return Expanded(
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 3, vertical: 14),
+        decoration: BoxDecoration(
+          color: _violet.withValues(alpha: 0.10),
+          borderRadius: BorderRadius.circular(14),
+          border: Border.all(color: _violet.withValues(alpha: 0.28)),
+        ),
+        child: Column(children: [
+          Icon(icon, color: _gold, size: 28),
+          const SizedBox(height: 8),
+          Text(label, style: const TextStyle(color: Colors.white70,
+            fontSize: 13)),
+          const SizedBox(height: 5),
+          Text(
+            WesternReaderV2Copy.signLabel(sign),
+            textAlign: TextAlign.center,
+            style: const TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.w700,
+              fontSize: 15,
+            ),
+          ),
+        ]),
       ),
     );
   }

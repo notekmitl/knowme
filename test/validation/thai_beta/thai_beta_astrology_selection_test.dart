@@ -49,6 +49,8 @@ void main() {
           },
         );
         expect(find.text('ภาพรวมชีวิตจากสามศาสตร์'), findsOneWidget);
+        expect(find.byKey(const Key('trial-overall-infographic')),
+          findsOneWidget);
         expect(find.text('เลือกศาสตร์ที่ต้องการดู'), findsNothing);
         expect(calculateCalls, 2);
         expect(authCalls, 0);
@@ -56,18 +58,27 @@ void main() {
         await tester.tap(find.byKey(const Key('overall-open-bazi')));
         await tester.pumpAndSettle();
         expect(find.text('ดวงจีน · ปาจื้อ'), findsOneWidget);
+        expect(find.byKey(const Key('trial-bazi-infographic')),
+          findsOneWidget);
+        expect(tester.getSize(
+          find.byKey(const Key('trial-bazi-infographic'))).width,
+          lessThanOrEqualTo(390));
         await tester.pageBack();
         await tester.pumpAndSettle();
 
         await tester.tap(find.byKey(const Key('overall-open-western')));
         await tester.pumpAndSettle();
         expect(find.byType(WesternReaderBody), findsOneWidget);
+        expect(find.byKey(const Key('trial-western-infographic')),
+          findsOneWidget);
         await tester.pageBack();
         await tester.pumpAndSettle();
 
         await tester.tap(find.byKey(const Key('overall-open-thai')));
         await tester.pumpAndSettle();
         expect(find.byType(ThaiBetaReportPage), findsOneWidget);
+        expect(find.byKey(const Key('trial-thai-infographic')),
+          findsOneWidget);
         expect(find.byType(BackButton), findsOneWidget);
         expect(find.text('ให้ความคิดเห็นต่อผลวิเคราะห์'), findsNothing);
         expect(find.text('ดาวน์โหลดรายงาน PDF'), findsNothing);
