@@ -1,5 +1,31 @@
 # Overall astrology from three traditions — V1 working branch
 
+## 2026-09-28 Owner-approved anonymous trial flow
+
+Public trial `/beta/thai`: birth input → automatic combined report → optional
+individual Thai, BaZi, or Western report. There is no science-selection screen
+in the trial route. The form asks for the actual time and province necessary
+for a three-source reading; unknown time stops before any API call. The
+combined route uses its existing two calculate-only API calls, runs Thai
+locally, and retains all three prepared results only while the report is open.
+The Thai report receives an anonymous audience explicitly; BaZi and Western
+use their read-only presentation widgets rather than the authenticated
+generation pages. Back from an individual report returns to the combined
+report without another calculation. The old standalone routes and their
+persistence behavior are outside this change.
+
+CI for implementation `0692342` passed focused tests, analyzer, Web build,
+and the complete Flutter suite in [run `36377679228`](https://github.com/notekmitl/knowme/actions/runs/36377679228). Browser/network
+validation of the new flow is still pending.
+
+Acceptance: no sign-in dialog or Auth/Firestore/Production API request from
+the trial path; zero writes; two calculation POSTs to the isolated Preview
+Backend; mobile 390×844 from input to four report screens without overflow;
+unchanged result content and evidence threshold. Current Hosted Preview is
+the older build and is **not** proof of this new flow. Refresh the isolated
+Hosting Preview and verify browser/network behavior before Owner review. PR remains
+Draft, with no Production deployment or merge authorized by this change.
+
 ## 2026-09-27 four-topic Owner wording follow-up from `0016ef2`
 
 The four public life-topic readings were edited for natural Thai natal
@@ -839,24 +865,3 @@ Production Hosting deploy has been performed. The isolated hosted QA path is
 ready and the old Preview channel is closed. Remove the exact temporary
 Preview origin in a separately reviewed Production Backend revision and rerun
 the CORS matrix when that change is authorized.
-## 2026-09-28 Owner-approved anonymous trial flow
-
-Public trial `/beta/thai`: birth input → automatic combined report → optional
-individual Thai, BaZi, or Western report. There is no science-selection screen
-in the trial route. The form asks for the actual time and province necessary
-for a three-source reading; unknown time stops before any API call. The
-combined route uses its existing two calculate-only API calls, runs Thai
-locally, and retains all three prepared results only while the report is open.
-The Thai report receives an anonymous audience explicitly; BaZi and Western
-use their read-only presentation widgets rather than the authenticated
-generation pages. Back from an individual report returns to the combined
-report without another calculation. The old standalone routes and their
-persistence behavior are outside this change.
-
-Acceptance: no sign-in dialog or Auth/Firestore/Production API request from
-the trial path; zero writes; two calculation POSTs to the isolated Preview
-Backend; mobile 390×844 from input to four report screens without overflow;
-unchanged result content and evidence threshold. Current Hosted Preview is
-the older build and is **not** proof of this new flow. Validate tests and CI,
-then refresh the isolated Hosting Preview before Owner review. PR remains
-Draft, with no Production deployment or merge authorized by this change.

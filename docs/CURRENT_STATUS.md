@@ -1,3 +1,20 @@
+## Active follow-up — Trial overall-first flow (2026-09-28)
+
+The Owner accepted the trial flow: enter birth data, read the combined Thai,
+BaZi, and Western report immediately, then choose an individual tradition from
+the combined report. The trial form now requires a known birth time and
+province; it does not invent missing inputs. The launcher calculates the same
+anonymous three-source result, replaces the loading route with the combined
+report, and reuses those in-memory charts for individual readings. Its three
+trial links do not enter the signed-in single-tradition routes. Existing
+authenticated single-system paths remain available outside this trial flow.
+The previous hosted Preview still serves the earlier selection-first build;
+this change is not yet hosted, merged, or deployed to Production. CI for
+implementation `0692342` passed focused tests, analyzer, Web build, and the
+complete Flutter suite in [run `36377679228`](https://github.com/notekmitl/knowme/actions/runs/36377679228). Hosted browser/network QA is
+still pending. See
+`docs/THREE_TRADITION_OVERALL_V1.md` for the acceptance and privacy gates.
+
 ## Active follow-up — PR #149 four-topic wording (2026-09-27)
 
 From `0016ef2`, the four public Overall readings were polished without
@@ -1757,17 +1774,3 @@ Preview version `fc83da9dd5153175` matches safe bundle SHA-256
 Production Hosting `live` remains `d32e72678324e634`. Draft PR #149 is
 pending Owner review. No personal birth data is recorded here. Details:
 `docs/THREE_TRADITION_OVERALL_V1.md`.
-## Active follow-up — Trial overall-first flow (2026-09-28)
-
-The Owner accepted the trial flow: enter birth data, read the combined Thai,
-BaZi, and Western report immediately, then choose an individual tradition from
-the combined report. The trial form now requires a known birth time and
-province; it does not invent missing inputs. The launcher calculates the same
-anonymous three-source result, replaces the loading route with the combined
-report, and reuses those in-memory charts for individual readings. Its three
-trial links do not enter the signed-in single-tradition routes. Existing
-authenticated single-system paths remain available outside this trial flow.
-The previous hosted Preview still serves the earlier selection-first build;
-this change is not yet hosted, merged, or deployed to Production. Validation
-and CI status must be recorded after they run. See
-`docs/THREE_TRADITION_OVERALL_V1.md` for the acceptance and privacy gates.
