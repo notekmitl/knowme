@@ -185,6 +185,10 @@ class WesternReaderBody extends StatelessWidget {
                   _hero(),
                   const SizedBox(height: 18),
                   _bigThree(),
+                  if (trialVisual) ...[
+                    const SizedBox(height: 18),
+                    _trialOverview(),
+                  ],
                   const SizedBox(height: 30),
                   const _SectionHeading(
                     eyebrow: 'คำอ่านหลัก',
@@ -248,13 +252,45 @@ class WesternReaderBody extends StatelessWidget {
               fontWeight: FontWeight.w800,
             ),
           ),
-          const SizedBox(height: 14),
-          Text(
-            WesternReaderV2Copy.overview(chart),
-            style: TextStyle(
-              color: Colors.white.withValues(alpha: 0.9),
-              fontSize: 17,
-              height: 1.7,
+          if (!trialVisual) ...[
+            const SizedBox(height: 14),
+            Text(
+              WesternReaderV2Copy.overview(chart),
+              style: TextStyle(
+                color: Colors.white.withValues(alpha: 0.9),
+                fontSize: 17,
+                height: 1.7,
+              ),
+            ),
+          ],
+        ],
+      ),
+    );
+  }
+
+  Widget _trialOverview() {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 4),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            width: 3,
+            height: 48,
+            decoration: BoxDecoration(
+              color: _gold,
+              borderRadius: BorderRadius.circular(3),
+            ),
+          ),
+          const SizedBox(width: 16),
+          Expanded(
+            child: Text(
+              WesternReaderV2Copy.overview(chart),
+              style: const TextStyle(
+                color: Colors.white,
+                fontSize: 17,
+                height: 1.7,
+              ),
             ),
           ),
         ],
@@ -324,7 +360,7 @@ class WesternReaderBody extends StatelessWidget {
           Icon(icon, color: _gold, size: 28),
           const SizedBox(height: 8),
           Text(label, style: const TextStyle(color: Colors.white70,
-            fontSize: 13)),
+            fontSize: 14)),
           const SizedBox(height: 5),
           Text(
             WesternReaderV2Copy.signLabel(sign),
@@ -332,7 +368,7 @@ class WesternReaderBody extends StatelessWidget {
             style: const TextStyle(
               color: Colors.white,
               fontWeight: FontWeight.w700,
-              fontSize: 15,
+              fontSize: 16,
             ),
           ),
         ]),

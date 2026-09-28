@@ -37,7 +37,6 @@ class ThreeTraditionReportPage extends StatelessWidget {
       thaiAnalysis != null && baziChart != null && westernChart != null;
 
   static const _ink = Color(0xFF24243E);
-  static const _purple = Color(0xFF6750A4);
   static const _thai = Color(0xFF967245);
   static const _chinese = Color(0xFFA64151);
   static const _western = Color(0xFF5763AC);
@@ -147,9 +146,12 @@ class ThreeTraditionReportPage extends StatelessWidget {
                     'จึงไม่เติมคำอ่านแทนหลักฐานที่ขาด',
                   ),
                 ],
-                for (final topic in lifeReading.topics) ...[
-                  const SizedBox(height: 12),
-                  _lifeTopicCard(topic, theme),
+                for (var i = 0; i < lifeReading.topics.length; i++) ...[
+                  const SizedBox(height: 20),
+                  _lifeTopicSection(
+                    lifeReading.topics[i], theme,
+                    number: i + 1, total: lifeReading.topics.length,
+                  ),
                 ],
                 for (final gap in lifeReading.gaps)
                   Padding(
@@ -320,44 +322,81 @@ class ThreeTraditionReportPage extends StatelessWidget {
     );
   }
 
-  Widget _lifeTopicCard(ThreeTraditionLifeTopic topic, ThemeData theme) {
+  Widget _lifeTopicSection(ThreeTraditionLifeTopic topic, ThemeData theme, {
+    required int number,
+    required int total,
+  }) {
     final (icon, accent) = switch (topic.title) {
       'การงาน' => (Icons.work_outline, const Color(0xFF55749C)),
       'การเงิน' => (Icons.savings_outlined, const Color(0xFF977536)),
       'ความสัมพันธ์' => (Icons.favorite_border, const Color(0xFFAA5979)),
       _ => (Icons.spa_outlined, const Color(0xFF548871)),
     };
-    return Container(
-      padding: const EdgeInsets.all(18),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(20),
-        border: Border.all(color: accent.withValues(alpha: 0.2)),
-      ),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 2),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Row(children: [
-            CircleAvatar(
-              backgroundColor: accent.withValues(alpha: 0.12),
-              child: Icon(icon, color: accent),
+          Row(
+            children: [
+              Container(
+                width: 52,
+                height: 52,
+                decoration: BoxDecoration(
+                  color: accent.withValues(alpha: 0.13),
+                  borderRadius: BorderRadius.circular(18),
+                ),
+                child: Icon(icon, color: accent, size: 27),
+              ),
+              const SizedBox(width: 12),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      '${number.toString().padLeft(2, '0')} / '
+                      '${total.toString().padLeft(2, '0')}',
+                      style: TextStyle(
+                        color: accent,
+                        fontSize: 12,
+                        fontWeight: FontWeight.w800,
+                        letterSpacing: 1.3,
+                      ),
+                    ),
+                    const SizedBox(height: 2),
+                    Text(
+                      topic.title,
+                      style: theme.textTheme.titleLarge?.copyWith(
+                        fontWeight: FontWeight.w800,
+                        color: _ink,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 12),
+          Container(
+            padding: const EdgeInsets.fromLTRB(18, 2, 2, 14),
+            decoration: BoxDecoration(
+              border: Border(left: BorderSide(
+                color: accent.withValues(alpha: 0.55), width: 3,
+              )),
             ),
-            const SizedBox(width: 12),
-            Expanded(child: Text(
-              topic.title,
-              style: theme.textTheme.titleMedium?.copyWith(
-                fontWeight: FontWeight.w800,
+            child: Text(
+              topic.reading,
+              style: theme.textTheme.bodyLarge?.copyWith(
+                fontSize: 17,
+                height: 1.7,
                 color: _ink,
               ),
-            )),
-          ]),
-          const SizedBox(height: 12),
-          Text(
-            topic.reading,
-            style: theme.textTheme.bodyLarge?.copyWith(
-              height: 1.65,
-              color: _ink,
             ),
+          ),
+          Container(
+            height: 1,
+            margin: const EdgeInsets.only(left: 18),
+            color: accent.withValues(alpha: 0.18),
           ),
         ],
       ),

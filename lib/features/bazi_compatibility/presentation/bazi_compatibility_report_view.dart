@@ -93,6 +93,7 @@ class BaziCompatibilityReportView extends StatelessWidget {
             const SizedBox(height: 12),
             _SectionCard(
               section: section,
+              trialVisual: trialChart != null,
               highlighted:
                   section.title.contains('คำทำนายพื้นดวง') ||
                   section.title.contains('Natal tendencies'),
@@ -219,7 +220,7 @@ class _TrialPillars extends StatelessWidget {
               const SizedBox(height: 6),
             ],
             const Text('ตัวเลขคือจำนวนตำแหน่งที่คำนวณได้ ไม่ใช่คะแนนดีหรือร้าย',
-              style: TextStyle(fontSize: 12, color: Color(0xFF675F63))),
+              style: TextStyle(fontSize: 14, color: Color(0xFF675F63))),
           ],
         ],
       ),
@@ -228,10 +229,15 @@ class _TrialPillars extends StatelessWidget {
 }
 
 class _SectionCard extends StatelessWidget {
-  const _SectionCard({required this.section, required this.highlighted});
+  const _SectionCard({
+    required this.section,
+    required this.highlighted,
+    required this.trialVisual,
+  });
 
   final BaziCompatibilityReportSection section;
   final bool highlighted;
+  final bool trialVisual;
 
   @override
   Widget build(BuildContext context) {
@@ -243,40 +249,53 @@ class _SectionCard extends StatelessWidget {
             ).colorScheme.primaryContainer.withValues(alpha: 0.42)
           : null,
       child: Padding(
-        padding: const EdgeInsets.all(16),
+        padding: EdgeInsets.all(trialVisual ? 20 : 16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
               section.title,
-              style: Theme.of(
-                context,
-              ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w700),
+              style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                fontWeight: FontWeight.w700,
+                fontSize: trialVisual ? 19 : null,
+              ),
             ),
             if (section.intro case final intro?) ...[
               const SizedBox(height: 8),
-              Text(intro, style: const TextStyle(height: 1.45)),
+              Text(intro, style: TextStyle(
+                height: trialVisual ? 1.6 : 1.45,
+                fontSize: trialVisual ? 16 : null,
+              )),
             ],
             for (final paragraph in section.paragraphs) ...[
               const SizedBox(height: 10),
-              Text(paragraph, style: const TextStyle(height: 1.5)),
+              Text(paragraph, style: TextStyle(
+                height: trialVisual ? 1.65 : 1.5,
+                fontSize: trialVisual ? 16 : null,
+              )),
             ],
             for (final row in section.rows) ...[
               const SizedBox(height: 10),
               Text(
                 row.label,
                 style: TextStyle(
-                  fontSize: 12,
+                  fontSize: trialVisual ? 14 : 12,
                   fontWeight: FontWeight.w600,
                   color: Colors.grey.shade700,
                 ),
               ),
               const SizedBox(height: 2),
-              SelectableText(row.value, style: const TextStyle(height: 1.4)),
+              SelectableText(row.value, style: TextStyle(
+                height: trialVisual ? 1.55 : 1.4,
+                fontSize: trialVisual ? 16 : null,
+              )),
             ],
             for (final note in section.notes) ...[
               const SizedBox(height: 10),
-              Text('• $note', style: const TextStyle(height: 1.45)),
+              Text('• $note', style: TextStyle(
+                height: trialVisual ? 1.6 : 1.45,
+                fontSize: trialVisual ? 15 : null,
+              )),
             ],
           ],
         ),

@@ -1,17 +1,26 @@
-## Active follow-up — PR #149 visual correction (2026-09-28)
+## Active follow-up — PR #149 hosted infographic review (2026-09-28)
 
-Owner screenshots showed that technical flow QA passed but the four pages
-did not meet the infographic-led, tradition-specific visual brief. Presentation
-changes in this branch add an Overall three-source overview and four clearer
-topic cards; trial Thai, Chinese and Western now expose computed visual
-summaries, and the Chinese reader is width-constrained. Prediction copy and
-rules are unchanged. The Hosted Preview still serves the earlier version;
-visual QA and a refreshed isolated Preview remain pending. Implementation
-`e048ae6` passed focused widgets, analyzer, Web build and the full Flutter
-suite in [run `36394481431`](https://github.com/notekmitl/knowme/actions/runs/36394481431).
-This is **not** Owner visual acceptance. See
-`docs/THREE_TRADITION_OVERALL_V1.md`. PR #149 remains Draft; no Production
-deploy or merge.
+The isolated Hosting Preview now serves the inspected UI at
+`https://knowme-app-694e1--pr-149-overall-safe-vbx6de6a.web.app/beta/thai`
+(version `fe118cb0c1ce3427`, expires `2026-10-05T08:59:29Z`). Its hosted
+JS/bootstrap/index files match the safe local release build; JS SHA-256 is
+`6CB044521CCBE49710A803725FBEB1C240D57595D6E910B30F33E36C5EBDBE67`.
+Only Preview Hosting changed. Production `live` remains `d32e72678324e634`.
+
+At 390 px CSS width, the synthetic birth-input → Overall → Thai/Chinese/
+Western → Overall route showed no visible overflow. Overall's unchanged four
+readings now use a numbered visual path; Western's calculated tiles lead its
+overview; trial Chinese type is larger. Thai keeps its computed visual lead.
+Screenshots of all four pages were captured for Owner review. The known-time
+route made two HTTP 200 calculate POSTs only to the separate Backend Preview,
+with no recalculation after navigation. The unknown-time route stopped with
+an explanation and 0 requests after submit. No Firebase Auth API, Firestore,
+Production API or other write was observed. One static Google Sign-In SDK GET
+occurred on each fresh page load; no login/token exchange followed. Focused
+tests passed 34/34, changed-file analyzer 0 issues. The earlier approved
+mockup is unavailable, and **Owner visual acceptance remains pending**.
+See `docs/THREE_TRADITION_OVERALL_V1.md`. PR #149 stays Draft with no merge
+or Production/Firestore change.
 
 ## Active follow-up — PR #149 Hosted overall-first trial QA (2026-09-28)
 

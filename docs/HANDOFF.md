@@ -1,18 +1,34 @@
-## Active handoff — PR #149 visual correction (2026-09-28)
+## Active handoff — PR #149 Owner infographic review (2026-09-28)
 
-The Owner rejected the four-page visual presentation despite passing flow
-QA. The branch now contains trial-only infographic summaries for Thai, BaZi
-and Western, an Overall visual hierarchy and readable topic cards. Preserve
-calculated facts, existing reader prose, anonymous two-POST flow and
-standalone behavior. The earlier approved visual mockup is unavailable in
-this checkout; do not call this pixel-identical or Owner PASS. The hosted
-channel still serves `dd07f6b40bee762a`, not these changes. Implementation
-`e048ae6` passed focused widgets, analyzer, Web build and the full Flutter
-suite in [CI run `36394481431`](https://github.com/notekmitl/knowme/actions/runs/36394481431).
-Complete hosted 390×844 visual/network QA against the
-isolated Backend Preview before presenting it again. Keep Draft; no merge,
-Production hosting/backend/Firestore changes. See
-`docs/THREE_TRADITION_OVERALL_V1.md`.
+Review the refreshed isolated Preview:
+`https://knowme-app-694e1--pr-149-overall-safe-vbx6de6a.web.app/beta/thai`.
+Hosting channel `pr-149-overall-safe` serves version `fe118cb0c1ce3427`
+until `2026-10-05T08:59:29Z`. Its JS SHA-256 is
+`6CB044521CCBE49710A803725FBEB1C240D57595D6E910B30F33E36C5EBDBE67`,
+equal to the local build made with `KNOWME_OVERALL_PREVIEW=true` and the
+separate PR Backend Preview. Hosted bootstrap and index also match. Production
+Hosting `live` remains `d32e72678324e634`; no Production Backend/Firestore
+resource was edited or deployed.
+
+The mobile review path was input → Overall → Thai → Overall → Chinese →
+Overall → Western → Overall. The four 390×844 review images, plus a lower
+Overall topics image, are local handoff deliverables outside the repository.
+Chrome CSS width was 390 px (height 843 px due to this profile's 80% zoom),
+with 0 horizontal document overflow. The known-time form made exactly two
+HTTP 200 calculation POSTs to the isolated Backend Preview; opening and
+returning from each reader made no additional POST. Unknown birth time with
+other fields filled showed the inline explanation and made 0 requests after
+submit. Resource timing/inspected requests showed no Firebase Auth API,
+Firestore, or Production API; one static `accounts.google.com/gsi/client`
+GET loaded on each fresh page, without login/token exchange. No other
+mutating request was observed. Focused widget tests passed 34/34 and
+changed-file analyzer 0 issues. Prediction prose, 0.6 threshold, conflict
+rule, navigation and standalone reader behavior are unchanged.
+
+The Owner's earlier approved mockup is not available for pixel comparison.
+These screenshots are **for Owner review, not Owner approval**. Keep PR #149
+Draft. Do not merge or deploy Production. See
+`docs/THREE_TRADITION_OVERALL_V1.md` for the full QA record.
 
 ## Active handoff — PR #149 Hosted overall-first trial QA (2026-09-28)
 

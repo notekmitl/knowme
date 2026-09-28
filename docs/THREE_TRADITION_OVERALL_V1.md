@@ -1,40 +1,66 @@
 # Overall astrology from three traditions — V1 working branch
 
-## 2026-09-28 visual correction — pending hosted Owner review
+## 2026-09-28 infographic follow-up — Hosted Preview ready for Owner review
 
-Owner screenshots showed that the working trial flow still rendered Overall
-as plain text cards, BaZi at full desktop width with small copy, Thai in the
-old step-by-step report frame, and Western in an unrelated visual system.
-Functional browser QA below is **not** Owner visual acceptance. The original
-approved mockup is not preserved in this checkout, so the implementation
-follows the recorded brief: infographic-led reading, distinct Thai/Chinese/
-Western palettes, and birth input → Overall → optional individual reading.
+Owner's rejected screenshots showed Overall as long text cards, Chinese copy
+too small and wide, and mismatched Thai/Western presentations. This follow-up
+was checked against that recorded infographic brief. The earlier approved
+mockup is unavailable in this checkout, so pixel-level matching and Owner
+visual acceptance are **not claimed**.
 
-This revision changes presentation only. Overall gets a three-source visual
-overview and four readable life-topic cards; the source tiles display only
-available calculated facts. Trial BaZi constrains the report to 720 px and
-shows the actual four pillars and element counts as bars. Trial Western shows
-the calculated Sun, Moon and Ascendant as visual tiles. Trial Thai opens with
-its computed reader headline and available tags, without the trial progress
-stepper. Normal standalone Thai, BaZi and Western routes retain their prior
-content and controls. Underlying text, 0.6 evidence threshold, conflict rules,
-anonymous calculation path and in-memory reuse are not changed.
+From implementation baseline `8674173` (CI success in
+[run `36395545054`](https://github.com/notekmitl/knowme/actions/runs/36395545054)),
+the trial-only presentation was refined after actual mobile inspection.
+Overall retains its calculated three-source tiles and now presents the four
+unchanged life-topic readings as a numbered, color-coded reading path with
+17 px body copy rather than plain white text cards. Western puts the
+calculated Sun/Moon/Ascendant tiles before its unchanged overview text and
+increases the tile labels. Chinese increases the trial body/row type and the
+element-count note. Thai's computed headline and tags remain above the
+existing full report. No prediction prose, source calculator, 0.6 evidence
+threshold, conflict rule, trial navigation, or standalone reader was changed.
+Focused consensus/navigation widgets passed **34/34** and changed-file
+analyzer found **0 issues** before the safe release build.
 
-Implementation tree `f0cc7a29369f7b9668da9c379c8a2496954107d4`
-was pushed at `e048ae6`. [CI run `36394481431`](https://github.com/notekmitl/knowme/actions/runs/36394481431)
-completed successfully: focused widgets including anonymous navigation,
-analyzer, Web release build, and the complete Flutter suite. This proves
-build/regression behavior only; browser screenshots of the new visual
-presentation and a new hosted bundle have **not** been inspected.
+Only Hosting Preview channel `pr-149-overall-safe` was updated, using
+`KNOWME_OVERALL_PREVIEW=true`, the separate
+`https://knowme-overall-pr149-preview-avbyttircq-as.a.run.app` Backend,
+and `--no-authorized-domains`. The review URL is
+`https://knowme-app-694e1--pr-149-overall-safe-vbx6de6a.web.app/beta/thai`.
+Hosting version `fe118cb0c1ce3427` expires `2026-10-05T08:59:29Z`.
+Downloaded hosted `main.dart.js` SHA-256
+`6CB044521CCBE49710A803725FBEB1C240D57595D6E910B30F33E36C5EBDBE67`
+matches the local build byte-for-byte; `flutter_bootstrap.js` and
+`index.html` also match. The bundle contains the Preview Backend and both
+calculate paths, contains no Firebase Auth/Firestore endpoint strings, and
+retains the Production hostname only in the negative Preview URL guard.
+Production Hosting `live` is still `d32e72678324e634` with its original
+release time; Production Backend and Firestore were not deployed or edited.
 
-The current Hosted Preview remains the previous `dd07f6b40bee762a` build;
-these visual changes are **not yet hosted or Owner-approved**. Run Flutter
-focused/full regression and analyzer, release-build for the isolated Preview
-Backend only, then inspect all four screens at 390×844 for readable type,
-accurate graphics and zero horizontal overflow. Confirm the same two
-calculation POSTs, no login/token/Firestore/Production API calls or writes;
-report the known static Google SDK GET separately. Keep PR #149 Draft and
-Production unchanged.
+Real Chrome QA used a 390 px CSS width (843 px CSS height because this Chrome
+profile is zoomed to 80%); saved review images are 390×844 raster pixels.
+A synthetic known-time birth input reached Overall, then Thai → Overall →
+Chinese → Overall → Western → Overall. All four top views were visually
+inspected, and the lower two Overall topics were inspected after scrolling.
+The four topics were present, report text was readable, and the measured
+document/body widths were 390 px on Overall and each individual report.
+There was no visible clipping or horizontal scrolling. Screenshots are kept
+as local deliverables, outside this repository, for Owner review.
+
+The known-time submission made exactly **two POSTs**, to
+`/v1/calculate-bazi` and `/v1/calculate-chart` on the separate Preview
+Backend, both HTTP 200. Returning from all three readers made **0 additional
+POSTs**. A second synthetic form with a known date/province but an explicitly
+unknown birth time stayed on the form with an explanation and made **0
+requests after submission**. Its document width remained 390 px; its body
+reported 408 px because of a fixed hidden print paragraph, with no visible
+overflow. The inspected request traces and resource timing had **0 Firebase
+Auth API (`identitytoolkit`/`securetoken`), Firestore, Production API, or
+other mutating requests**. Each fresh page load did make **one GET** for the
+static `https://accounts.google.com/gsi/client` SDK; no sign-in/token
+exchange followed. This fails a literal zero Auth-related URL criterion and
+must remain visible in the Owner handoff. PR #149 remains Draft; no merge or
+Production deploy was performed.
 
 ## 2026-09-28 Hosted overall-first trial QA from `388842e`
 
