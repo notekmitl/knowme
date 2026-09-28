@@ -171,7 +171,10 @@ void main() {
       await tester.tap(find.text('ดูดวงรวม'));
       await tester.pumpAndSettle();
       expect(find.text('เลือกศาสตร์ที่ต้องการดู'), findsNothing);
-      expect(find.textContaining('ดวงรวมต้องทราบเวลาเกิด'), findsOneWidget);
+      expect(
+        find.text('ดวงรวมต้องทราบเวลาเกิดและจังหวัดที่เกิด กรุณากรอกให้ครบ'),
+        findsOneWidget,
+      );
       expect(capturedStartedAt, isNull);
       expect(capturedAsOf, isNull);
       expect(capturedAnalysis, isNull);
