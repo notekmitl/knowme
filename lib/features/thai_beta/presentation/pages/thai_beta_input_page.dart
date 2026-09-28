@@ -251,7 +251,7 @@ class _ThaiBetaInputPageState extends State<ThaiBetaInputPage> {
                             const SizedBox(width: 8),
                             Expanded(
                               child: Text(
-                                'หากไม่ทราบเวลาเกิด รายงานจะเว้นหัวข้อที่ต้องใช้เวลาเกิด เช่น ลัคนาและเรือน เพื่อไม่สรุปเกินข้อมูลที่มี',
+                                'ดวงรวมต้องทราบเวลาเกิด จึงจะคำนวณทั้งสามศาสตร์ได้ กรุณากลับมากรอกเมื่อทราบเวลา',
                                 style: theme.textTheme.bodySmall?.copyWith(
                                   color: scheme.onSecondaryContainer,
                                   height: 1.4,
