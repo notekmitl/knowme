@@ -1,4 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:knowme/data/models/astrology_chart_model.dart';
+import 'package:knowme/data/models/bazi_chart_model.dart';
+import 'package:knowme/features/bazi_compatibility/application/bazi_compatibility_report_builder.dart';
+import 'package:knowme/features/bazi_compatibility/presentation/bazi_compatibility_report_view.dart';
+import 'package:knowme/features/thai_beta/application/thai_beta_analysis.dart';
+import 'package:knowme/features/thai_beta/application/thai_beta_evidence_badge_audience.dart';
+import 'package:knowme/features/thai_beta/presentation/pages/thai_beta_report_page.dart';
+import 'package:knowme/presentation/pages/astrology/astrology_result_page.dart';
 
 import '../../application/three_tradition_consensus.dart';
 import '../three_tradition_life_reading.dart';
@@ -11,10 +19,24 @@ class ThreeTraditionReportPage extends StatelessWidget {
     super.key,
     required this.reading,
     this.lifeReading = const ThreeTraditionLifeReading(topics: [], gaps: []),
+    this.thaiAnalysis,
+    this.baziChart,
+    this.westernChart,
   });
 
   final ThreeTraditionReading reading;
   final ThreeTraditionLifeReading lifeReading;
+  /// Prepared for the anonymous trial; never load a saved profile or chart.
+  final ThaiBetaAnalysis? thaiAnalysis;
+  final BaziChartModel? baziChart;
+  final AstrologyChartModel? westernChart;
+
+  bool get _hasTrialLenses =>
+      thaiAnalysis != null && baziChart != null && westernChart != null;
+
+  void _openLens(BuildContext context, Widget page) {
+    Navigator.of(context).push(MaterialPageRoute<void>(builder: (_) => page));
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -39,6 +61,64 @@ class ThreeTraditionReportPage extends StatelessWidget {
                   'คำอ่านแต่ละด้านเป็นการตีความประกอบกันจากพื้นดวง '
                   'ไม่ได้หมายความว่าทั้งสามศาสตร์เห็นตรงกันทุกเรื่อง',
                 ),
+                if (_hasTrialLenses) ...[
+                  const SizedBox(height: 18),
+                  Text('ดูดวงเฉพาะศาสตร์', style: theme.textTheme.titleMedium),
+                  const SizedBox(height: 8),
+                  Wrap(
+                    spacing: 8,
+                    runSpacing: 8,
+                    children: [
+                      OutlinedButton.icon(
+                        key: const Key('overall-open-thai'),
+                        icon: const Icon(Icons.temple_buddhist_outlined),
+                        label: const Text('ไทย'),
+                        onPressed: () => _openLens(
+                          context,
+                          ThaiBetaReportPage(
+                            analysis: thaiAnalysis!,
+                            audienceOverride:
+                                const ThaiBetaEvidenceBadgeAudience.anonymous(),
+                          ),
+                        ),
+                      ),
+                      OutlinedButton.icon(
+                        key: const Key('overall-open-bazi'),
+                        icon: const Icon(Icons.auto_awesome_outlined),
+                        label: const Text('จีน'),
+                        onPressed: () => _openLens(
+                          context,
+                          Scaffold(
+                            backgroundColor: const Color(0xFFFFF8F3),
+                            appBar: AppBar(title: const Text('ดวงจีน · ปาจื้อ')),
+                            body: BaziCompatibilityReportView(
+                              report: BaziCompatibilityReportBuilder.build(
+                                baziChart!,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                      OutlinedButton.icon(
+                        key: const Key('overall-open-western'),
+                        icon: const Icon(Icons.public_outlined),
+                        label: const Text('ตะวันตก'),
+                        onPressed: () => _openLens(
+                          context,
+                          Scaffold(
+                            backgroundColor: const Color(0xFF09101F),
+                            appBar: AppBar(
+                              backgroundColor: const Color(0xFF09101F),
+                              foregroundColor: Colors.white,
+                              title: const Text('ดวงตะวันตก'),
+                            ),
+                            body: WesternReaderBody(chart: westernChart!),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
                 if (lifeReading.topics.isEmpty &&
                     lifeReading.conflicts.isEmpty) ...[
                   const SizedBox(height: 20),

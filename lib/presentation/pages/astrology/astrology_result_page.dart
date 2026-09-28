@@ -123,7 +123,7 @@ class _AstrologyResultPageState extends State<AstrologyResultPage> {
               onPrimaryAction: _retryGeneration,
               primaryActionLabel: AstrologyFlowCopy.retryCta,
             )
-          : _WesternReaderBody(chart: chart),
+          : WesternReaderBody(chart: chart),
     );
   }
 }
@@ -146,8 +146,9 @@ Future<AstrologyChartModel> _generateWesternChartForUser(String uid) async {
   );
 }
 
-class _WesternReaderBody extends StatelessWidget {
-  const _WesternReaderBody({required this.chart});
+/// Reusable, read-only chart view for signed-in and anonymous trial readings.
+class WesternReaderBody extends StatelessWidget {
+  const WesternReaderBody({super.key, required this.chart});
 
   final AstrologyChartModel chart;
 
@@ -529,7 +530,7 @@ class _SectionHeading extends StatelessWidget {
         Text(
           eyebrow,
           style: const TextStyle(
-            color: _WesternReaderBody._gold,
+            color: WesternReaderBody._gold,
             fontSize: 11,
             fontWeight: FontWeight.w800,
             letterSpacing: 1.3,
@@ -593,7 +594,7 @@ class _BalanceGroup extends StatelessWidget {
                       value: entry.value.clamp(0, 100) / 100,
                       backgroundColor: Colors.white.withValues(alpha: 0.08),
                       valueColor: const AlwaysStoppedAnimation(
-                        _WesternReaderBody._violet,
+                        WesternReaderBody._violet,
                       ),
                     ),
                   ),
@@ -668,19 +669,19 @@ class _Tag extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 9),
       decoration: BoxDecoration(
         color: highlighted
-            ? _WesternReaderBody._gold.withValues(alpha: 0.18)
+            ? WesternReaderBody._gold.withValues(alpha: 0.18)
             : Colors.white.withValues(alpha: 0.07),
         borderRadius: BorderRadius.circular(999),
         border: Border.all(
           color: highlighted
-              ? _WesternReaderBody._gold.withValues(alpha: 0.42)
+              ? WesternReaderBody._gold.withValues(alpha: 0.42)
               : Colors.white.withValues(alpha: 0.08),
         ),
       ),
       child: Text(
         text,
         style: TextStyle(
-          color: highlighted ? _WesternReaderBody._gold : Colors.white,
+          color: highlighted ? WesternReaderBody._gold : Colors.white,
           fontSize: 13,
           fontWeight: FontWeight.w700,
         ),
@@ -700,7 +701,7 @@ class _SurfaceCard extends StatelessWidget {
     return Container(
       padding: padding ?? const EdgeInsets.all(20),
       decoration: BoxDecoration(
-        color: _WesternReaderBody._navy.withValues(alpha: 0.88),
+        color: WesternReaderBody._navy.withValues(alpha: 0.88),
         borderRadius: BorderRadius.circular(20),
         border: Border.all(color: Colors.white.withValues(alpha: 0.08)),
       ),

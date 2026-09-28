@@ -59,6 +59,7 @@ class ThaiBetaAstrologySelectionPage extends StatefulWidget {
     this.prepareSystem = _prepareSelectedSystem,
     this.prepareOverallSystem = _prepareOverallSystem,
     this.destinationBuilder = _buildDestination,
+    this.startWithOverall = false,
   });
 
   final ThaiBetaInput input;
@@ -69,6 +70,8 @@ class ThaiBetaAstrologySelectionPage extends StatefulWidget {
   final ThaiBetaAstrologySystemPreparer prepareSystem;
   final ThaiBetaOverallSystemPreparer prepareOverallSystem;
   final ThaiBetaAstrologyDestinationBuilder destinationBuilder;
+  /// Trial route: compute the anonymous overall reading immediately on entry.
+  final bool startWithOverall;
 
   @override
   State<ThaiBetaAstrologySelectionPage> createState() =>
@@ -79,6 +82,17 @@ class _ThaiBetaAstrologySelectionPageState
     extends State<ThaiBetaAstrologySelectionPage> {
   ThaiBetaAstrologySystem? _busySystem;
   bool _overallBusy = false;
+  bool _overallFailed = false;
+
+  @override
+  void initState() {
+    super.initState();
+    if (widget.startWithOverall) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (mounted) _selectOverall();
+      });
+    }
+  }
 
   bool get _westernReady =>
       widget.input.hasBirthTime &&
@@ -145,7 +159,10 @@ class _ThaiBetaAstrologySelectionPageState
 
   Future<void> _selectOverall() async {
     if (_busySystem != null || _overallBusy || !_westernReady) return;
-    setState(() => _overallBusy = true);
+    setState(() {
+      _overallBusy = true;
+      _overallFailed = false;
+    });
     try {
       final bazi = (await widget.prepareOverallSystem(
         widget.input,
@@ -178,18 +195,25 @@ class _ThaiBetaAstrologySelectionPageState
         comparison: reading,
       );
       if (!mounted) return;
-      await Navigator.of(context).push(
-        MaterialPageRoute<void>(
-          builder: (_) => ThreeTraditionReportPage(
-            reading: reading,
-            lifeReading: lifeReading,
-          ),
+      final route = MaterialPageRoute<void>(
+        builder: (_) => ThreeTraditionReportPage(
+          reading: reading,
+          lifeReading: lifeReading,
+          thaiAnalysis: widget.startWithOverall ? thai : null,
+          baziChart: widget.startWithOverall ? bazi : null,
+          westernChart: widget.startWithOverall ? western : null,
         ),
       );
+      if (widget.startWithOverall) {
+        await Navigator.of(context).pushReplacement(route);
+      } else {
+        await Navigator.of(context).push(route);
+      }
     } catch (error, stack) {
       debugPrint('[ThreeTraditionConsensus] failed: $error');
       debugPrint('[ThreeTraditionConsensus] $stack');
       if (!mounted) return;
+      if (widget.startWithOverall) setState(() => _overallFailed = true);
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text('สร้างดวงรวมไม่สำเร็จ กรุณาลองอีกครั้ง')),
       );
@@ -202,6 +226,40 @@ class _ThaiBetaAstrologySelectionPageState
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final scheme = theme.colorScheme;
+    if (widget.startWithOverall) {
+      return Scaffold(
+        appBar: AppBar(title: const Text('โหราศาสตร์โดยรวม')),
+        body: Center(
+          child: _overallFailed || !_westernReady
+              ? Padding(
+                  padding: const EdgeInsets.all(24),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text(_westernReady
+                          ? 'สร้างดวงรวมไม่สำเร็จ กรุณาลองอีกครั้ง'
+                          : 'ดวงรวมต้องทราบเวลาเกิดและจังหวัดที่เกิด'),
+                      if (_westernReady) ...[
+                        const SizedBox(height: 12),
+                        FilledButton(
+                          onPressed: _selectOverall,
+                          child: const Text('ลองอีกครั้ง'),
+                        ),
+                      ],
+                    ],
+                  ),
+                )
+              : const Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    CircularProgressIndicator(),
+                    SizedBox(height: 16),
+                    Text('กำลังอ่านดวงรวมจากสามศาสตร์'),
+                  ],
+                ),
+        ),
+      );
+    }
     final input = widget.input;
     final date = input.birthDate;
     final timeLabel = input.hasBirthTime

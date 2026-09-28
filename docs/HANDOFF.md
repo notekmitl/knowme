@@ -1667,3 +1667,14 @@ without a POST. Hosted JS SHA-256 is
 Production Hosting `live` remains `d32e72678324e634`. Keep PR #149 Draft;
 do not merge or deploy Production. No personal birth values are recorded
 here. Full detail: `docs/THREE_TRADITION_OVERALL_V1.md`.
+## Active handoff — Trial overall-first flow (2026-09-28)
+
+The Owner-approved trial route is birth input → combined reading → optional
+Thai, Chinese, or Western reading. The birth form requires an actual time and
+province for all three engines. The combined result keeps the prepared
+anonymous charts in memory so individual trial pages render from those same
+results with no extra calculation, authentication, or saved profile. Do not
+connect these trial links to the existing authenticated single-system routes.
+The Hosted Preview currently displays the previous flow; this commit requires
+focused validation, CI, and a fresh isolated Preview before claiming browser
+acceptance. Keep PR #149 Draft and leave Production untouched.
