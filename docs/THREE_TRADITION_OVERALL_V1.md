@@ -20,6 +20,13 @@ stepper. Normal standalone Thai, BaZi and Western routes retain their prior
 content and controls. Underlying text, 0.6 evidence threshold, conflict rules,
 anonymous calculation path and in-memory reuse are not changed.
 
+Implementation tree `f0cc7a29369f7b9668da9c379c8a2496954107d4`
+was pushed at `e048ae6`. [CI run `36394481431`](https://github.com/notekmitl/knowme/actions/runs/36394481431)
+completed successfully: focused widgets including anonymous navigation,
+analyzer, Web release build, and the complete Flutter suite. This proves
+build/regression behavior only; browser screenshots of the new visual
+presentation and a new hosted bundle have **not** been inspected.
+
 The current Hosted Preview remains the previous `dd07f6b40bee762a` build;
 these visual changes are **not yet hosted or Owner-approved**. Run Flutter
 focused/full regression and analyzer, release-build for the isolated Preview

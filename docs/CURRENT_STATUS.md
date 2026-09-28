@@ -6,8 +6,10 @@ changes in this branch add an Overall three-source overview and four clearer
 topic cards; trial Thai, Chinese and Western now expose computed visual
 summaries, and the Chinese reader is width-constrained. Prediction copy and
 rules are unchanged. The Hosted Preview still serves the earlier version;
-visual QA, Flutter/CI validation and a refreshed isolated Preview remain
-pending. This is **not** Owner visual acceptance. See
+visual QA and a refreshed isolated Preview remain pending. Implementation
+`e048ae6` passed focused widgets, analyzer, Web build and the full Flutter
+suite in [run `36394481431`](https://github.com/notekmitl/knowme/actions/runs/36394481431).
+This is **not** Owner visual acceptance. See
 `docs/THREE_TRADITION_OVERALL_V1.md`. PR #149 remains Draft; no Production
 deploy or merge.
 

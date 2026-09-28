@@ -6,8 +6,10 @@ and Western, an Overall visual hierarchy and readable topic cards. Preserve
 calculated facts, existing reader prose, anonymous two-POST flow and
 standalone behavior. The earlier approved visual mockup is unavailable in
 this checkout; do not call this pixel-identical or Owner PASS. The hosted
-channel still serves `dd07f6b40bee762a`, not these changes. Complete focused
-and full Flutter checks and hosted 390×844 visual/network QA against the
+channel still serves `dd07f6b40bee762a`, not these changes. Implementation
+`e048ae6` passed focused widgets, analyzer, Web build and the full Flutter
+suite in [CI run `36394481431`](https://github.com/notekmitl/knowme/actions/runs/36394481431).
+Complete hosted 390×844 visual/network QA against the
 isolated Backend Preview before presenting it again. Keep Draft; no merge,
 Production hosting/backend/Firestore changes. See
 `docs/THREE_TRADITION_OVERALL_V1.md`.
