@@ -26,6 +26,7 @@ class ThreeTraditionReportPage extends StatelessWidget {
 
   final ThreeTraditionReading reading;
   final ThreeTraditionLifeReading lifeReading;
+
   /// Prepared for the anonymous trial; never load a saved profile or chart.
   final ThaiBetaAnalysis? thaiAnalysis;
   final BaziChartModel? baziChart;
@@ -77,6 +78,7 @@ class ThreeTraditionReportPage extends StatelessWidget {
                           context,
                           ThaiBetaReportPage(
                             analysis: thaiAnalysis!,
+                            anonymousTrial: true,
                             audienceOverride:
                                 const ThaiBetaEvidenceBadgeAudience.anonymous(),
                           ),
@@ -90,7 +92,9 @@ class ThreeTraditionReportPage extends StatelessWidget {
                           context,
                           Scaffold(
                             backgroundColor: const Color(0xFFFFF8F3),
-                            appBar: AppBar(title: const Text('ดวงจีน · ปาจื้อ')),
+                            appBar: AppBar(
+                              title: const Text('ดวงจีน · ปาจื้อ'),
+                            ),
                             body: BaziCompatibilityReportView(
                               report: BaziCompatibilityReportBuilder.build(
                                 baziChart!,

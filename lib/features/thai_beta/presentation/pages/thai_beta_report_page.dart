@@ -41,6 +41,7 @@ class ThaiBetaReportPage extends StatelessWidget {
     this.badgeViewModelsOverride,
     this.repository,
     this.audienceAccess,
+    this.anonymousTrial = false,
     this.screenshotModeOverride,
     this.showCaptureModeBanner = false,
     this.captureBannerMessage,
@@ -64,6 +65,10 @@ class ThaiBetaReportPage extends StatelessWidget {
 
   /// Injectable audience resolver (production uses Firebase auth + admin access).
   final ThaiBetaEvidenceBadgeAudienceAccess? audienceAccess;
+
+  /// Overall trial reads this prepared chart without entering feedback or
+  /// capture routes; the existing standalone report keeps its own controls.
+  final bool anonymousTrial;
 
   /// When set, overrides [ThaiBetaScreenshotScope] (tests / capture route).
   final bool? screenshotModeOverride;
@@ -89,6 +94,7 @@ class ThaiBetaReportPage extends StatelessWidget {
         featureFlagOverride: featureFlagOverride,
         badgeViewModelsOverride: badgeViewModelsOverride,
         repository: repository,
+        anonymousTrial: anonymousTrial,
         screenshotMode: screenshotMode,
         showCaptureModeBanner: showCaptureModeBanner,
         captureBannerMessage: captureBannerMessage,
@@ -105,6 +111,7 @@ class ThaiBetaReportPage extends StatelessWidget {
         featureFlagOverride: resolvedFlag,
         badgeViewModelsOverride: badgeViewModelsOverride,
         repository: repository,
+        anonymousTrial: anonymousTrial,
         screenshotMode: screenshotMode,
         showCaptureModeBanner: showCaptureModeBanner,
         captureBannerMessage: captureBannerMessage,
@@ -134,6 +141,7 @@ class ThaiBetaReportPage extends StatelessWidget {
           featureFlagOverride: featureFlagOverride,
           badgeViewModelsOverride: badgeViewModelsOverride,
           repository: repository,
+          anonymousTrial: anonymousTrial,
           screenshotMode: screenshotMode,
           showCaptureModeBanner: showCaptureModeBanner,
           captureBannerMessage: captureBannerMessage,
@@ -149,6 +157,7 @@ class _ThaiBetaReportScaffold extends StatefulWidget {
     required this.analysis,
     required this.audience,
     required this.screenshotMode,
+    this.anonymousTrial = false,
     this.userId,
     this.showCaptureModeBanner = false,
     this.captureBannerMessage,
@@ -161,6 +170,7 @@ class _ThaiBetaReportScaffold extends StatefulWidget {
   final ThaiBetaEvidenceBadgeAudience audience;
   final String? userId;
   final bool screenshotMode;
+  final bool anonymousTrial;
   final bool showCaptureModeBanner;
   final String? captureBannerMessage;
   final ThaiEvidenceBadgeFeatureFlagState? featureFlagOverride;
@@ -404,7 +414,7 @@ class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
           ),
         ),
       ),
-      if (!widget.screenshotMode)
+      if (!widget.screenshotMode && !widget.anonymousTrial)
         Padding(
           padding: const EdgeInsets.fromLTRB(16, 8, 16, 8),
           child: OutlinedButton.icon(
@@ -626,22 +636,27 @@ class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
     return _withReportFonts(
       context,
       Scaffold(
+        appBar: widget.anonymousTrial
+            ? AppBar(title: const Text('ดวงไทย'))
+            : null,
         body: body,
-        bottomNavigationBar: SafeArea(
-          minimum: const EdgeInsets.fromLTRB(16, 8, 16, 12),
-          child: FilledButton.icon(
-            onPressed: () => Navigator.of(context).push(
-              MaterialPageRoute<void>(
-                builder: (_) => ThaiBetaFeedbackPage(analysis: analysis),
+        bottomNavigationBar: widget.anonymousTrial
+            ? null
+            : SafeArea(
+                minimum: const EdgeInsets.fromLTRB(16, 8, 16, 12),
+                child: FilledButton.icon(
+                  onPressed: () => Navigator.of(context).push(
+                    MaterialPageRoute<void>(
+                      builder: (_) => ThaiBetaFeedbackPage(analysis: analysis),
+                    ),
+                  ),
+                  style: FilledButton.styleFrom(
+                    padding: const EdgeInsets.symmetric(vertical: 16),
+                  ),
+                  icon: const Icon(Icons.rate_review_outlined),
+                  label: const Text('ให้ความคิดเห็นต่อผลวิเคราะห์'),
+                ),
               ),
-            ),
-            style: FilledButton.styleFrom(
-              padding: const EdgeInsets.symmetric(vertical: 16),
-            ),
-            icon: const Icon(Icons.rate_review_outlined),
-            label: const Text('ให้ความคิดเห็นต่อผลวิเคราะห์'),
-          ),
-        ),
       ),
     );
   }

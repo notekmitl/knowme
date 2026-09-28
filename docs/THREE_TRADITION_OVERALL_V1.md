@@ -1,5 +1,47 @@
 # Overall astrology from three traditions — V1 working branch
 
+## 2026-09-28 Hosted overall-first trial QA from `388842e`
+
+The safe Hosting Preview at
+`https://knowme-app-694e1--pr-149-overall-safe-vbx6de6a.web.app/beta/thai`
+now serves the overall-first trial. Channel version `dd07f6b40bee762a`
+expires `2026-10-05T05:13:06Z`. Its hosted `main.dart.js` SHA-256 is
+`FFD128E9A851545CD3CBAA4F659EEA564A6293854671979ECC8D0FECB11DA216`,
+identical to the local release build made with `KNOWME_OVERALL_PREVIEW=true`
+and `ASTROLOGY_API_BASE_URL` set to the isolated Backend Preview. The
+Production API hostname occurs in the bundle only in the negative URL guard;
+Firebase Auth and Firestore endpoint strings do not occur. Production
+Hosting `live` remains version `d32e72678324e634`.
+
+At 390×844, a synthetic known-time form reached the combined report in
+**938 ms**, then opened Thai, BaZi, and Western readings and returned to the
+combined report after each. The same prepared results stayed in memory:
+exactly two POSTs total, `/v1/calculate-bazi` and `/v1/calculate-chart`, both
+HTTP 200 from the isolated Backend Preview; there was no recalculation on
+opening or returning from any single reading. The combined report showed
+all four supported topics. The trial-only Thai report needed a visible back
+button; it now has one and omits its feedback and capture-route controls.
+Standalone Thai report behavior is unchanged. Focused widget and Thai scroll
+regression passed **12/12**, and changed-file analysis found **0 issues**.
+
+The synthetic unknown-time form showed an inline reason, stayed on the form
+after submit with a clear message, and made **0 POSTs**. Every inspected
+screen had document width 390 px and horizontal scroll extent 0. The
+unknown-time form's `body.scrollWidth` was 408 px because of one fixed,
+hidden print paragraph outside the viewport; its document width remained
+390 px and the screenshot showed no clipped content. Screenshots and raw
+request traces are retained only in ignored local QA files. No private
+birth values or chart placements are recorded in this document.
+
+Network caveat: Firebase Auth API (`identitytoolkit`, `securetoken`),
+Firestore, and Production API requests were **0**; the only mutations were
+the two isolated calculation POSTs. The Web plugin
+`google_sign_in_web` nevertheless auto-loaded the static
+`https://accounts.google.com/gsi/client` script once before the trial shell
+started. No login, token exchange, or user write followed. A literal
+zero-Auth-related-URL criterion is therefore **not satisfied**. Keep PR #149
+Draft for Owner review; do not merge or deploy Production.
+
 ## 2026-09-28 Owner-approved anonymous trial flow
 
 Public trial `/beta/thai`: birth input → automatic combined report → optional

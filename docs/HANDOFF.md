@@ -1,3 +1,31 @@
+## Active handoff — PR #149 Hosted overall-first trial QA (2026-09-28)
+
+Owner review Preview:
+`https://knowme-app-694e1--pr-149-overall-safe-vbx6de6a.web.app/beta/thai`
+(Hosting version `dd07f6b40bee762a`, expires `2026-10-05T05:13:06Z`).
+Hosted JS SHA-256
+`FFD128E9A851545CD3CBAA4F659EEA564A6293854671979ECC8D0FECB11DA216`
+equals the safe build with the isolated Backend Preview URL. Production
+Hosting `live` remains `d32e72678324e634`.
+
+Anonymous 390×844 QA: input → Overall in **938 ms** → Thai → Overall → BaZi
+→ Overall → Western → Overall, with exactly two HTTP 200 Preview Backend
+calculation POSTs in the whole journey. The trial Thai page now has a visible
+back button and exposes no feedback/export route controls; the regular Thai
+page keeps its prior controls. Unknown birth time stopped on the input form
+with an explanation and **0 POSTs**. Document horizontal scroll extent was
+0 on every inspected screen. Focused widget and Thai layout tests passed
+**12/12**; changed-file analyzer found **0 issues**. No private birth values
+are in these docs or the PR body.
+
+There were no Firebase Auth API, Firestore, or Production API calls and no
+writes beyond the two calculations. A static Google Sign-In SDK script GET
+to `accounts.google.com/gsi/client` still occurs automatically at plugin
+registration, before app `main`; no sign-in/token exchange follows. This
+fails a literal zero-Auth-related-URL requirement. Keep PR #149 Draft and
+report this caveat rather than claiming zero Auth-related traffic. Do not
+merge or deploy Production. See `docs/THREE_TRADITION_OVERALL_V1.md`.
+
 ## Active handoff — Trial overall-first flow (2026-09-28)
 
 The Owner-approved trial route is birth input → combined reading → optional

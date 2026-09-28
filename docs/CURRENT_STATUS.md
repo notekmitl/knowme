@@ -1,3 +1,24 @@
+## Active follow-up — PR #149 Hosted overall-first trial QA (2026-09-28)
+
+The safe Hosted Preview now serves the overall-first trial at
+`https://knowme-app-694e1--pr-149-overall-safe-vbx6de6a.web.app/beta/thai`,
+version `dd07f6b40bee762a`. A 390×844 synthetic known-time path reached
+Overall in **938 ms**, opened Thai, BaZi, and Western, and returned to Overall
+after each without recalculation. There were exactly two HTTP 200 calculation
+POSTs to the isolated Backend Preview. The unknown-time form stopped with an
+explanation and **0 POSTs**. The trial Thai page gained a visible back button
+and excludes feedback/export routes; standalone Thai behavior stays intact.
+Focused tests passed **12/12**, analyzer **0 issues**, and hosted bundle hash
+matched the safe local build. All inspected pages had zero horizontal scroll.
+
+Network trace had **0 Firebase Auth API, Firestore, or Production API**
+requests and no writes beyond the two calculations. It did have **one GET**
+for `accounts.google.com/gsi/client`, auto-loaded by the Google Sign-In Web
+plugin before the anonymous shell. There was no login or token request, but
+strict zero Auth-related network traffic is not met. PR #149 remains Draft;
+Production Hosting `live` is unchanged at `d32e72678324e634`. Details:
+`docs/THREE_TRADITION_OVERALL_V1.md`.
+
 ## Active follow-up — Trial overall-first flow (2026-09-28)
 
 The Owner accepted the trial flow: enter birth data, read the combined Thai,
