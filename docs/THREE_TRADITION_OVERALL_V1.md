@@ -16,7 +16,11 @@ trial report, but its save-image action is hidden there; standalone export
 behavior is unchanged. A mobile widget regression checks the visual cards, the
 collapsed/full Thai report, Western bars, anonymous navigation and no auth
 resolution, as well as the absence of trial save controls; the full CI result
-must be recorded after push.
+passed on application HEAD `aee15a9` in
+[run `36525893195`](https://github.com/notekmitl/knowme/actions/runs/36525893195),
+including focused tests, analyzer, Web build, PDF dependencies and the complete
+Flutter suite. The follow-up margin adjustment avoids nested horizontal
+padding when Thai's full report opens on a narrow screen.
 
 **The hosted channel still serves `5de5dc8` at this point.** These new reader
 changes have no Hosted Preview visual/network acceptance yet. Keep PR #149

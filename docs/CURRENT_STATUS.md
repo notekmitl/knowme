@@ -6,8 +6,10 @@ report, which is available through “อ่านรายงานไทยฉ
 calculated Western element bars above the prose. This affects anonymous trial
 presentation only; no copy, calculation, evidence rule, single-reader route,
 Auth, or data storage was changed. The save-image control inside Thai's full
-report is hidden for trial readers. **This code is not hosted yet.** CI and
-mobile Hosted Preview QA are pending, and Owner visual acceptance is open.
+report is hidden for trial readers. [CI of application HEAD `aee15a9`](https://github.com/notekmitl/knowme/actions/runs/36525893195)
+passed focused tests, analyzer, Web build and the complete Flutter suite.
+**This code is not hosted yet.** Mobile Hosted Preview QA and Owner visual
+acceptance remain open.
 PR #149 remains Draft; no Production deployment or merge.
 
 ## Active follow-up — PR #149 hosted infographic review (2026-09-28)
