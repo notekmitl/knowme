@@ -19,14 +19,7 @@ class BaziCompatibilityReportView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final content = Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          if (trialChart != null) ...[
-            _TrialPillars(chart: trialChart!),
-            const SizedBox(height: 16),
-          ],
-          Container(
+    final hero = Container(
             padding: const EdgeInsets.all(22),
             decoration: BoxDecoration(
               gradient: const LinearGradient(
@@ -84,8 +77,8 @@ class BaziCompatibilityReportView extends StatelessWidget {
                 ],
               ],
             ),
-          ),
-          const SizedBox(height: 8),
+          );
+    final sectionCards = <Widget>[
           for (final section in report.sections.where(
             (section) => trialChart == null ||
                 section.title != 'ผังปาจื้อของคุณ',
@@ -99,8 +92,19 @@ class BaziCompatibilityReportView extends StatelessWidget {
                   section.title.contains('Natal tendencies'),
             ),
           ],
+        ];
+    final content = Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        if (trialChart != null) ...[
+          _TrialPillars(chart: trialChart!),
+          const SizedBox(height: 16),
         ],
-      );
+        hero,
+        const SizedBox(height: 8),
+        ...sectionCards,
+      ],
+    );
     return SingleChildScrollView(
       padding: trialChart == null
           ? const EdgeInsets.fromLTRB(20, 12, 20, 32)
@@ -109,8 +113,33 @@ class BaziCompatibilityReportView extends StatelessWidget {
           ? content
           : Center(
               child: ConstrainedBox(
-                constraints: const BoxConstraints(maxWidth: 720),
-                child: content,
+                constraints: const BoxConstraints(maxWidth: 1120),
+                child: LayoutBuilder(builder: (context, constraints) {
+                  if (constraints.maxWidth < 1000) return content;
+                  return Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Expanded(child: _TrialPillars(chart: trialChart!)),
+                          const SizedBox(width: 20),
+                          Expanded(child: hero),
+                        ],
+                      ),
+                      const SizedBox(height: 20),
+                      Center(
+                        child: ConstrainedBox(
+                          constraints: const BoxConstraints(maxWidth: 780),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.stretch,
+                            children: sectionCards,
+                          ),
+                        ),
+                      ),
+                    ],
+                  );
+                }),
               ),
             ),
     );

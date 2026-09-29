@@ -1,5 +1,23 @@
 # Overall astrology from three traditions — V1 working branch
 
+## 2026-09-29 desktop infographic follow-up — pending CI and Hosted Preview
+
+Owner supplied four actual 1920×911 desktop screenshots of the updated
+Preview. All four readers were restricted to narrow centered columns despite
+the wide screen; Overall and BaZi still relied on long stacked prose. The
+390 px mobile QA in the previous section did not cover this desktop issue.
+This follow-up changes anonymous trial layout only: Overall uses a wider hero
+and pairs life-topic readings on wide viewports; Thai widens its headline and
+four-topic dashboard while retaining a readable-width full report; BaZi pairs
+calculated pillars/balance with its title before the reading column; Western
+pairs the Big Three with calculated element balance and keeps prose at a
+readable line length. Under 1000 px the original mobile sequence remains.
+A 1440 px widget regression checks the paired panels, width and absence of
+Auth resolution. No prediction wording, calculation, evidence threshold,
+single-reader route, or storage behavior changed. CI and Hosted Preview visual
+and network QA for this follow-up remain pending. Keep PR #149 Draft; do not
+merge or deploy Production.
+
 ## 2026-09-29 trial reader follow-up — Hosted Preview QA
 
 Application HEAD `38ec9e4` was built for Web release with

@@ -178,37 +178,74 @@ class WesternReaderBody extends StatelessWidget {
           padding: const EdgeInsets.fromLTRB(18, 18, 18, 48),
           child: Center(
             child: ConstrainedBox(
-              constraints: BoxConstraints(maxWidth: trialVisual ? 720 : 880),
+              constraints: BoxConstraints(maxWidth: trialVisual ? 1120 : 880),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   _hero(),
                   const SizedBox(height: 18),
-                  _bigThree(),
+                  LayoutBuilder(builder: (context, constraints) {
+                    final hasBalance = trialVisual &&
+                        WesternReaderV2Copy.balance(chart, 'elements')
+                            .isNotEmpty;
+                    if (hasBalance && constraints.maxWidth >= 1000) {
+                      return Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Expanded(child: _bigThree()),
+                          const SizedBox(width: 20),
+                          Expanded(child: _trialElementBalance()),
+                        ],
+                      );
+                    }
+                    return Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        _bigThree(),
+                        if (hasBalance) ...[
+                          const SizedBox(height: 18),
+                          _trialElementBalance(),
+                        ],
+                      ],
+                    );
+                  }),
                   if (trialVisual) ...[
-                    if (WesternReaderV2Copy.balance(chart, 'elements').isNotEmpty) ...[
-                      const SizedBox(height: 18),
-                      _trialElementBalance(),
-                    ],
                     const SizedBox(height: 18),
-                    _trialOverview(),
+                    Center(
+                      child: ConstrainedBox(
+                        constraints: const BoxConstraints(maxWidth: 780),
+                        child: _trialOverview(),
+                      ),
+                    ),
                   ],
                   const SizedBox(height: 30),
-                  const _SectionHeading(
-                    eyebrow: 'คำอ่านหลัก',
-                    title: 'อ่านเป็นเรื่องชีวิต ไม่ใช่ป้ายราศี',
-                    subtitle:
-                        'เริ่มจากพฤติกรรมที่พบได้จริง ผลที่มักเกิด และวิธีใช้ให้เป็นประโยชน์',
+                  Center(
+                    child: ConstrainedBox(
+                      constraints: BoxConstraints(
+                        maxWidth: trialVisual ? 780 : 880,
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: [
+                          const _SectionHeading(
+                            eyebrow: 'คำอ่านหลัก',
+                            title: 'อ่านเป็นเรื่องชีวิต ไม่ใช่ป้ายราศี',
+                            subtitle:
+                                'เริ่มจากพฤติกรรมที่พบได้จริง ผลที่มักเกิด และวิธีใช้ให้เป็นประโยชน์',
+                          ),
+                          const SizedBox(height: 14),
+                          for (final section in sections) ...[
+                            _ReadingCard(section: section),
+                            const SizedBox(height: 12),
+                          ],
+                          const SizedBox(height: 20),
+                          _chartStructure(),
+                          const SizedBox(height: 24),
+                          _methodAndDisclaimer(),
+                        ],
+                      ),
+                    ),
                   ),
-                  const SizedBox(height: 14),
-                  for (final section in sections) ...[
-                    _ReadingCard(section: section),
-                    const SizedBox(height: 12),
-                  ],
-                  const SizedBox(height: 20),
-                  _chartStructure(),
-                  const SizedBox(height: 24),
-                  _methodAndDisclaimer(),
                 ],
               ),
             ),

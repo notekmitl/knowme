@@ -529,7 +529,7 @@ class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
     ];
     return Center(
       child: ConstrainedBox(
-        constraints: const BoxConstraints(maxWidth: 780),
+        constraints: const BoxConstraints(maxWidth: 1120),
         child: Padding(
           padding: const EdgeInsets.fromLTRB(18, 20, 18, 0),
           child: Column(
@@ -603,7 +603,7 @@ class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
     final tags = hero?.tags.take(3).toList() ?? const <String>[];
     return Center(
       child: ConstrainedBox(
-        constraints: const BoxConstraints(maxWidth: 780),
+        constraints: const BoxConstraints(maxWidth: 1120),
         child: Padding(
           padding: const EdgeInsets.fromLTRB(18, 16, 18, 0),
           child: Container(

@@ -1,3 +1,14 @@
+## Active handoff — PR #149 desktop infographic correction (2026-09-29)
+
+The Owner's four 1920×911 screenshots show trial readers constrained to narrow
+desktop columns. The branch now uses a wider Overall/Thai visual lead, pairs
+BaZi pillars with its header and Western Big Three with element bars on wide
+screens, and keeps long-form reading columns readable. Mobile order, source
+calculations, wording, evidence/conflict rules, Auth and storage paths are
+unchanged. A 1440 px widget regression is included. CI, isolated Hosting
+Preview deployment, desktop/mobile visual QA, and Owner acceptance are still
+pending for this change. Keep PR #149 Draft and Production untouched.
+
 ## Active handoff — PR #149 updated Hosting Preview (2026-09-29)
 
 Review `https://knowme-app-694e1--pr-149-overall-safe-vbx6de6a.web.app/beta/thai`

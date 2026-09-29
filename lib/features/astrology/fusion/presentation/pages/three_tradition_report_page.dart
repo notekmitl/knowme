@@ -58,7 +58,7 @@ class ThreeTraditionReportPage extends StatelessWidget {
       body: SafeArea(
         child: Center(
           child: ConstrainedBox(
-            constraints: const BoxConstraints(maxWidth: 720),
+            constraints: const BoxConstraints(maxWidth: 1120),
             child: ListView(
               padding: const EdgeInsets.fromLTRB(16, 16, 16, 36),
               children: [
@@ -146,12 +146,30 @@ class ThreeTraditionReportPage extends StatelessWidget {
                     'จึงไม่เติมคำอ่านแทนหลักฐานที่ขาด',
                   ),
                 ],
-                for (var i = 0; i < lifeReading.topics.length; i++) ...[
+                if (lifeReading.topics.isNotEmpty) ...[
                   const SizedBox(height: 20),
-                  _lifeTopicSection(
-                    lifeReading.topics[i], theme,
-                    number: i + 1, total: lifeReading.topics.length,
-                  ),
+                  LayoutBuilder(builder: (context, constraints) {
+                    final wide = constraints.maxWidth >= 1000;
+                    const gap = 24.0;
+                    final width = wide
+                        ? (constraints.maxWidth - gap) / 2
+                        : constraints.maxWidth;
+                    return Wrap(
+                      spacing: gap,
+                      runSpacing: 24,
+                      children: [
+                        for (var i = 0; i < lifeReading.topics.length; i++)
+                          SizedBox(
+                            width: width,
+                            child: _lifeTopicSection(
+                              lifeReading.topics[i], theme,
+                              number: i + 1,
+                              total: lifeReading.topics.length,
+                            ),
+                          ),
+                      ],
+                    );
+                  }),
                 ],
                 for (final gap in lifeReading.gaps)
                   Padding(

@@ -1,3 +1,14 @@
+## Active follow-up — PR #149 desktop layout correction (2026-09-29)
+
+Four Owner-supplied 1920×911 screenshots exposed narrow centered columns in
+Overall, Thai, BaZi and Western despite the earlier mobile QA. The Draft branch
+now widens trial infographics and pairs related panels at desktop width while
+keeping the mobile sequence and original calculation/wording. A desktop widget
+regression was added. This source change has not yet passed CI or been deployed
+to the isolated Hosted Preview; Owner visual acceptance remains open. The
+Preview version below still reflects the preceding source until a new channel
+deployment is verified. Do not merge or deploy Production.
+
 ## Active follow-up — PR #149 hosted trial reader QA (2026-09-29)
 
 Application HEAD `38ec9e4` is now on isolated Hosting Preview channel

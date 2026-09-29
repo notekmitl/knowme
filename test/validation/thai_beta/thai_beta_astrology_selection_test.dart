@@ -105,6 +105,71 @@ void main() {
       },
     );
 
+    testWidgets(
+      'trial readers use paired visual panels on a wide screen',
+      (tester) async {
+        await tester.binding.setSurfaceSize(const Size(1440, 900));
+        addTearDown(() => tester.binding.setSurfaceSize(null));
+        var authCalls = 0;
+        await _pumpSelection(
+          tester,
+          input: _knownInput,
+          startWithOverall: true,
+          resolveUser: (_) async {
+            authCalls++;
+            throw StateError('Trial must not request authentication');
+          },
+          analysisExecutor: (input, {required startedAt, required asOf}) async =>
+              ThaiBetaAnalysisRunner.run(
+                input,
+                startedAt: startedAt,
+                asOf: asOf,
+              ),
+        );
+        expect(
+          tester.getSize(find.byKey(
+            const Key('trial-overall-infographic'))).width,
+          greaterThan(1000),
+        );
+
+        await tester.tap(find.byKey(const Key('overall-open-bazi')));
+        await tester.pumpAndSettle();
+        final baziGraphic = find.byKey(const Key('trial-bazi-infographic'));
+        final baziTitle = find.byKey(const Key('bazi-report-title'));
+        expect(
+          tester.getTopLeft(baziGraphic).dx,
+          lessThan(tester.getTopLeft(baziTitle).dx),
+        );
+        expect(tester.takeException(), isNull);
+        await tester.pageBack();
+        await tester.pumpAndSettle();
+
+        await tester.tap(find.byKey(const Key('overall-open-western')));
+        await tester.pumpAndSettle();
+        final westernGraphic = find.byKey(
+          const Key('trial-western-infographic'));
+        final westernBalance = find.byKey(
+          const Key('trial-western-element-balance'));
+        expect(
+          tester.getTopLeft(westernGraphic).dx,
+          lessThan(tester.getTopLeft(westernBalance).dx),
+        );
+        expect(tester.takeException(), isNull);
+        await tester.pageBack();
+        await tester.pumpAndSettle();
+
+        await tester.tap(find.byKey(const Key('overall-open-thai')));
+        await tester.pumpAndSettle();
+        expect(
+          tester.getSize(find.byKey(
+            const Key('trial-thai-infographic'))).width,
+          greaterThan(1000),
+        );
+        expect(authCalls, 0);
+        expect(tester.takeException(), isNull);
+      },
+    );
+
     testWidgets('shows Thai, Chinese BaZi, and Western choices', (
       tester,
     ) async {
