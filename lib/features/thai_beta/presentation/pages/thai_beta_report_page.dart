@@ -385,6 +385,9 @@ class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
       badges: _showBadgePanel ? _badges : const [],
     );
     _schedulePrintDocumentSync(document);
+    final reportHorizontalPadding = widget.anonymousTrial
+        ? 0.0
+        : (MediaQuery.sizeOf(context).width >= 768 ? 32.0 : 18.0);
 
     final reportBody = <Widget>[
       if (widget.anonymousTrial)
@@ -394,9 +397,9 @@ class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
       if (_loadingBadges) const LinearProgressIndicator(minHeight: 2),
       _trialOrFullReport(Padding(
         padding: EdgeInsets.fromLTRB(
-          MediaQuery.sizeOf(context).width >= 768 ? 32 : 18,
+          reportHorizontalPadding,
           16,
-          MediaQuery.sizeOf(context).width >= 768 ? 32 : 18,
+          reportHorizontalPadding,
           0,
         ),
         child: Center(
