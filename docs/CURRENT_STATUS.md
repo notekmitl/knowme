@@ -1,4 +1,27 @@
-## Active follow-up — PR #149 trial reader visual correction (2026-09-29)
+## Active follow-up — PR #149 hosted trial reader QA (2026-09-29)
+
+Application HEAD `38ec9e4` is now on isolated Hosting Preview channel
+`pr-149-overall-safe` at
+`https://knowme-app-694e1--pr-149-overall-safe-vbx6de6a.web.app/beta/thai`
+(version `74f410f08aac6446`, expiry `2026-10-06T09:05:18Z`). The release
+build used `KNOWME_OVERALL_PREVIEW=true` and the separate PR Backend Preview.
+Hosted JS, bootstrap, and index hashes match the local build; JS SHA-256 is
+`472F05CC5052312D0F9B802BB494E2CE5E9743A387937821B7EF38631FC95C5A`.
+`live` remained `d32e72678324e634`.
+
+The synthetic known-time mobile flow reached Overall, Thai, Chinese, Western,
+and returned to Overall after each reader. Four 390×844 raster screenshots
+showed no visible clipping; all report pages had 390 px document/body width
+at 390 CSS px viewport width (843 CSS px height due to Chrome 80% zoom).
+The expanded Thai report was also readable. Exactly two HTTP 200 calculation
+POSTs went to Backend Preview and no navigation recalculated. No Auth API,
+Firestore API, Production API, other write, failed request, or console error
+was observed. Google Sign-In SDK `gsi/client` was fetched by GET only.
+CI for `38ec9e4` passed [run `36527236124`](https://github.com/notekmitl/knowme/actions/runs/36527236124).
+Unknown-time was not repeated in this run. PR #149 is Draft and Owner visual
+approval remains open. Full evidence: `docs/THREE_TRADITION_OVERALL_V1.md`.
+
+## Implementation history — PR #149 trial reader visual correction
 
 The live `5de5dc8` Preview exposed two remaining text-heavy trial readers.
 The branch now puts four existing Thai dashboard readings before the original
@@ -8,11 +31,10 @@ presentation only; no copy, calculation, evidence rule, single-reader route,
 Auth, or data storage was changed. The save-image control inside Thai's full
 report is hidden for trial readers. [CI of application HEAD `aee15a9`](https://github.com/notekmitl/knowme/actions/runs/36525893195)
 passed focused tests, analyzer, Web build and the complete Flutter suite.
-**This code is not hosted yet.** Mobile Hosted Preview QA and Owner visual
-acceptance remain open.
-PR #149 remains Draft; no Production deployment or merge.
+The Hosted Preview QA for this implementation is recorded above. Owner visual
+acceptance remains open. PR #149 remains Draft; no Production deployment or merge.
 
-## Active follow-up — PR #149 hosted infographic review (2026-09-28)
+## Historical follow-up — PR #149 hosted infographic review (2026-09-28)
 
 The isolated Hosting Preview now serves the inspected UI at
 `https://knowme-app-694e1--pr-149-overall-safe-vbx6de6a.web.app/beta/thai`

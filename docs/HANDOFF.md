@@ -1,24 +1,39 @@
-## Active handoff — PR #149 visual correction after hosted review (2026-09-29)
+## Active handoff — PR #149 updated Hosting Preview (2026-09-29)
+
+Review `https://knowme-app-694e1--pr-149-overall-safe-vbx6de6a.web.app/beta/thai`
+for application HEAD `38ec9e4` (Hosting version `74f410f08aac6446`, expires
+`2026-10-06T09:05:18Z`). The isolated release build used
+`KNOWME_OVERALL_PREVIEW=true` and the separate Backend Preview; hosted JS,
+bootstrap, and index match the local hashes. JS SHA-256 is
+`472F05CC5052312D0F9B802BB494E2CE5E9743A387937821B7EF38631FC95C5A`.
+The known-time 390 px mobile flow reached Overall → Thai/Chinese/Western →
+Overall with no horizontal overflow. The four saved review screenshots are
+390×844 raster pixels; Chrome's 80% zoom made CSS height 843 px. Thai's
+expanded report also remained readable. Exactly two HTTP 200 POSTs went to
+the Preview Backend, with no navigation recalculation. No Auth API, Firestore
+API, Production API, other write, failed request, or console error was seen.
+The Google Sign-In SDK `gsi/client` GET was observed. This run did not repeat
+the unknown-time case. [CI of HEAD `38ec9e4`](https://github.com/notekmitl/knowme/actions/runs/36527236124)
+passed. Production Hosting `live` stayed `d32e72678324e634`. Keep PR #149
+Draft for Owner visual review; no merge or Production deployment.
+
+## Implementation history — PR #149 visual correction
 
 Anonymous trial UI only: Thai presents four existing dashboard readings and
 lets the reader expand the unchanged full report; Western places the existing
 calculated element bars before its prose and avoids duplicating them in the
 technical accordion. Thai's embedded save-image control is hidden in the
-anonymous trial. The current public Preview is still the `5de5dc8` build
-without this follow-up. [CI of application HEAD `aee15a9`](https://github.com/notekmitl/knowme/actions/runs/36525893195)
+anonymous trial. The Preview served `5de5dc8` before the hosted run above.
+[CI of application HEAD `aee15a9`](https://github.com/notekmitl/knowme/actions/runs/36525893195)
 passed focused tests, analyzer, Web build and the complete Flutter suite.
-Update only Hosting channel
-`pr-149-overall-safe` with `KNOWME_OVERALL_PREVIEW=true` and the separate
-Backend Preview, then inspect 390×844 input → Overall → Thai/Chinese/Western
-→ Overall, open Thai full report, check no clipping, and record request traces.
-Preserve the observed static Google SDK GET caveat. Do not merge or deploy
-Production. Owner visual approval remains open.
+The channel update and mobile browser QA are recorded above. Preserve the
+observed static Google SDK GET caveat. Owner visual approval remains open.
 
-## Active handoff — PR #149 Owner infographic review (2026-09-28)
+## Historical handoff — PR #149 Owner infographic review (2026-09-28)
 
 Review the refreshed isolated Preview:
 `https://knowme-app-694e1--pr-149-overall-safe-vbx6de6a.web.app/beta/thai`.
-Hosting channel `pr-149-overall-safe` serves version `fe118cb0c1ce3427`
+Hosting channel `pr-149-overall-safe` previously served version `fe118cb0c1ce3427`
 until `2026-10-05T08:59:29Z`. Its JS SHA-256 is
 `6CB044521CCBE49710A803725FBEB1C240D57595D6E910B30F33E36C5EBDBE67`,
 equal to the local build made with `KNOWME_OVERALL_PREVIEW=true` and the

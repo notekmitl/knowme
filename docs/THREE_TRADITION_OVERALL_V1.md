@@ -1,6 +1,48 @@
 # Overall astrology from three traditions — V1 working branch
 
-## 2026-09-29 trial reader visual follow-up — implementation pending hosted QA
+## 2026-09-29 trial reader follow-up — Hosted Preview QA
+
+Application HEAD `38ec9e4` was built for Web release with
+`KNOWME_OVERALL_PREVIEW=true` and
+`ASTROLOGY_API_BASE_URL=https://knowme-overall-pr149-preview-avbyttircq-as.a.run.app`.
+Only Hosting channel `pr-149-overall-safe` was deployed, using
+`hosting:channel:deploy ... --no-authorized-domains`; its version is
+`74f410f08aac6446` and it expires `2026-10-06T09:05:18Z`.
+Review URL:
+`https://knowme-app-694e1--pr-149-overall-safe-vbx6de6a.web.app/beta/thai`.
+The hosted `main.dart.js`, `flutter_bootstrap.js`, and `index.html` SHA-256
+hashes match the new local build. The JavaScript hash is
+`472F05CC5052312D0F9B802BB494E2CE5E9743A387937821B7EF38631FC95C5A`.
+The Preview backend host appears in the bundle; the Production backend host
+appears once in the negative Preview guard and was never called at runtime.
+Production Hosting `live` stayed at `d32e72678324e634` before and after.
+
+Chrome QA used synthetic birth data (15 January 2001, 12:00, Bangkok) and
+followed input → Overall → Thai → Overall → Chinese → Overall → Western →
+Overall. The four report pages measured 390 CSS px wide and 843 CSS px high
+because this Chrome profile is at 80% zoom. Four review screenshots are
+390×844 raster pixels. An exact 390×844 CSS viewport check on Overall also
+showed 390 px document/body width. No visible horizontal clipping or report
+overflow appeared. The expanded Thai full report remained readable at mobile
+width. Thai showed four summary cards, Chinese showed four pillars and element
+bars, and Western showed the Big Three and calculated element bars before its
+reading. The original full Thai report remained available after expansion.
+
+The known-time flow sent exactly two calculation POSTs, to
+`/v1/calculate-bazi` and `/v1/calculate-chart` on the isolated Preview
+backend; both returned HTTP 200. Their CORS OPTIONS preflights also returned
+200. Reader navigation and returns sent zero additional POSTs. The captured
+request stream had no Firebase Auth API, Firestore API, Production API, or
+other mutating request, and no failed request or browser console error.
+Resource timing did record a static GET of the Google Sign-In SDK at
+`https://accounts.google.com/gsi/client`; no login or token exchange followed.
+This run did not repeat the unknown-time case. CI for `38ec9e4` passed in
+[run `36527236124`](https://github.com/notekmitl/knowme/actions/runs/36527236124).
+PR #149 remains Draft; Owner visual approval is still pending. No Production
+Hosting deployment, Production backend change, Firestore write, or merge was
+performed for this QA.
+
+## 2026-09-29 trial reader visual follow-up — implementation history
 
 The live Preview review after `5de5dc8` found that Thai still led into the
 long original report and Western returned to prose after the Big Three tiles.
@@ -22,11 +64,10 @@ including focused tests, analyzer, Web build, PDF dependencies and the complete
 Flutter suite. The follow-up margin adjustment avoids nested horizontal
 padding when Thai's full report opens on a narrow screen.
 
-**The hosted channel still serves `5de5dc8` at this point.** These new reader
-changes have no Hosted Preview visual/network acceptance yet. Keep PR #149
-Draft; do not merge or deploy Production. Owner visual approval remains open.
+This was the implementation gate before the `38ec9e4` hosted run recorded
+above. Keep PR #149 Draft; Owner visual approval remains open.
 
-## 2026-09-28 infographic follow-up — Hosted Preview ready for Owner review
+## 2026-09-28 infographic follow-up — historical Hosted Preview review
 
 Owner's rejected screenshots showed Overall as long text cards, Chinese copy
 too small and wide, and mismatched Thai/Western presentations. This follow-up
