@@ -4,8 +4,10 @@ Four Owner-supplied 1920×911 screenshots exposed narrow centered columns in
 Overall, Thai, BaZi and Western despite the earlier mobile QA. The Draft branch
 now widens trial infographics and pairs related panels at desktop width while
 keeping the mobile sequence and original calculation/wording. A desktop widget
-regression was added. This source change has not yet passed CI or been deployed
-to the isolated Hosted Preview; Owner visual acceptance remains open. The
+regression was added. [CI for application `a1f8e53`](https://github.com/notekmitl/knowme/actions/runs/36556331033)
+passed focused tests, analyzer, Web build and the full Flutter suite. This
+source change has not yet been deployed to the isolated Hosted Preview; Owner
+visual acceptance remains open. The
 Preview version below still reflects the preceding source until a new channel
 deployment is verified. Do not merge or deploy Production.
 

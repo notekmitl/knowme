@@ -5,9 +5,11 @@ desktop columns. The branch now uses a wider Overall/Thai visual lead, pairs
 BaZi pillars with its header and Western Big Three with element bars on wide
 screens, and keeps long-form reading columns readable. Mobile order, source
 calculations, wording, evidence/conflict rules, Auth and storage paths are
-unchanged. A 1440 px widget regression is included. CI, isolated Hosting
-Preview deployment, desktop/mobile visual QA, and Owner acceptance are still
-pending for this change. Keep PR #149 Draft and Production untouched.
+unchanged. A 1440 px widget regression is included.
+[CI for application `a1f8e53`](https://github.com/notekmitl/knowme/actions/runs/36556331033)
+passed focused tests, analyzer, Web build and full Flutter suite. Isolated
+Hosting Preview deployment, desktop/mobile visual QA, and Owner acceptance
+are still pending. Keep PR #149 Draft and Production untouched.
 
 ## Active handoff — PR #149 updated Hosting Preview (2026-09-29)
 

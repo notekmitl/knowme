@@ -1,6 +1,6 @@
 # Overall astrology from three traditions — V1 working branch
 
-## 2026-09-29 desktop infographic follow-up — pending CI and Hosted Preview
+## 2026-09-29 desktop infographic follow-up — CI passed, Hosted Preview pending
 
 Owner supplied four actual 1920×911 desktop screenshots of the updated
 Preview. All four readers were restricted to narrow centered columns despite
@@ -14,9 +14,11 @@ pairs the Big Three with calculated element balance and keeps prose at a
 readable line length. Under 1000 px the original mobile sequence remains.
 A 1440 px widget regression checks the paired panels, width and absence of
 Auth resolution. No prediction wording, calculation, evidence threshold,
-single-reader route, or storage behavior changed. CI and Hosted Preview visual
-and network QA for this follow-up remain pending. Keep PR #149 Draft; do not
-merge or deploy Production.
+single-reader route, or storage behavior changed. Application commit
+`a1f8e53` passed focused tests, analyzer, Web build and the full Flutter suite
+in [run 36556331033](https://github.com/notekmitl/knowme/actions/runs/36556331033).
+Hosted Preview visual and network QA for this follow-up remain pending. Keep
+PR #149 Draft; do not merge or deploy Production.
 
 ## 2026-09-29 trial reader follow-up — Hosted Preview QA
 
