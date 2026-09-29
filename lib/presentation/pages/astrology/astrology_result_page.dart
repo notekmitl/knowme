@@ -186,6 +186,10 @@ class WesternReaderBody extends StatelessWidget {
                   const SizedBox(height: 18),
                   _bigThree(),
                   if (trialVisual) ...[
+                    if (WesternReaderV2Copy.balance(chart, 'elements').isNotEmpty) ...[
+                      const SizedBox(height: 18),
+                      _trialElementBalance(),
+                    ],
                     const SizedBox(height: 18),
                     _trialOverview(),
                   ],
@@ -298,6 +302,29 @@ class WesternReaderBody extends StatelessWidget {
     );
   }
 
+  Widget _trialElementBalance() {
+    final elements = WesternReaderV2Copy.balance(chart, 'elements');
+    if (elements.isEmpty) return const SizedBox.shrink();
+    return _SurfaceCard(
+      key: const Key('trial-western-element-balance'),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Text('สัดส่วนธาตุในดวงนี้', style: _cardTitleStyle),
+          const SizedBox(height: 6),
+          const Text('เปรียบเทียบภายในดวงเดียวกัน ไม่ใช่คะแนนดีหรือร้าย',
+            style: _supportStyle),
+          const SizedBox(height: 18),
+          _BalanceGroup(
+            title: 'ธาตุ',
+            values: elements,
+            label: WesternReaderV2Copy.elementLabel,
+          ),
+        ],
+      ),
+    );
+  }
+
   Widget _bigThree() {
     if (trialVisual) {
       return _SurfaceCard(
@@ -397,8 +424,10 @@ class WesternReaderBody extends StatelessWidget {
             style: _supportStyle,
           ),
           children: [
-            _balances(),
-            const SizedBox(height: 12),
+            if (!trialVisual) ...[
+              _balances(),
+              const SizedBox(height: 12),
+            ],
             _dominance(),
             const SizedBox(height: 12),
             _aspects(),

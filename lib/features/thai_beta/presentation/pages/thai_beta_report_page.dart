@@ -389,8 +389,10 @@ class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
     final reportBody = <Widget>[
       if (widget.anonymousTrial)
         _trialThaiInfographic(analysis),
+      if (widget.anonymousTrial)
+        _trialThaiLifeOverview(analysis),
       if (_loadingBadges) const LinearProgressIndicator(minHeight: 2),
-      Padding(
+      _trialOrFullReport(Padding(
         padding: EdgeInsets.fromLTRB(
           MediaQuery.sizeOf(context).width >= 768 ? 32 : 18,
           16,
@@ -410,12 +412,13 @@ class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
                   document: document,
                   infographicBoundaryKey: _infographicBoundaryKey,
                   badges: _showBadgePanel ? _badges : const [],
+                  showInfographicSave: !widget.anonymousTrial,
                 ),
               ),
             ),
           ),
         ),
-      ),
+      )),
       if (!widget.screenshotMode && !widget.anonymousTrial)
         Padding(
           padding: const EdgeInsets.fromLTRB(16, 8, 16, 8),
@@ -481,6 +484,114 @@ class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
           const ThaiBetaProgressBar(current: ThaiBetaStep.read),
         ...reportBody,
       ],
+    );
+  }
+
+  Widget _trialOrFullReport(Widget report) {
+    if (!widget.anonymousTrial) return report;
+    return Center(
+      child: ConstrainedBox(
+        constraints: const BoxConstraints(maxWidth: 780),
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(18, 12, 18, 0),
+          child: ExpansionTile(
+            key: const Key('trial-thai-full-report'),
+            initiallyExpanded: false,
+            backgroundColor: const Color(0xFFFFF8E9),
+            collapsedBackgroundColor: const Color(0xFFFFF8E9),
+            title: const Text('อ่านรายงานไทยฉบับเต็ม'),
+            subtitle: const Text('คำอ่านและรายละเอียดเดิมอยู่ครบ เปิดอ่านต่อได้'),
+            children: [report],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _trialThaiLifeOverview(ThaiBetaAnalysis analysis) {
+    final items = analysis.consumerViewState?.lifeDashboard.take(4).toList() ??
+        const [];
+    if (items.isEmpty) return const SizedBox.shrink();
+    const icons = [
+      Icons.work_outline,
+      Icons.savings_outlined,
+      Icons.favorite_border,
+      Icons.spa_outlined,
+    ];
+    const accents = [
+      Color(0xFF71518B),
+      Color(0xFF967245),
+      Color(0xFFA65765),
+      Color(0xFF4F7B72),
+    ];
+    return Center(
+      child: ConstrainedBox(
+        constraints: const BoxConstraints(maxWidth: 780),
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(18, 20, 18, 0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Text('อ่านเร็ว 4 ด้าน', style: TextStyle(
+                fontSize: 19, fontWeight: FontWeight.w800,
+                color: Color(0xFF30263D),
+              )),
+              const SizedBox(height: 10),
+              LayoutBuilder(builder: (context, constraints) {
+                final columns = constraints.maxWidth >= 560 ? 2 : 1;
+                const gap = 10.0;
+                final tileWidth =
+                    (constraints.maxWidth - gap * (columns - 1)) / columns;
+                return Wrap(
+                  spacing: gap,
+                  runSpacing: gap,
+                  children: [
+                    for (var i = 0; i < items.length; i++)
+                      SizedBox(
+                        width: tileWidth,
+                        child: Container(
+                          key: Key('trial-thai-life-${items[i].label}'),
+                          padding: const EdgeInsets.all(14),
+                          decoration: BoxDecoration(
+                            color: accents[i].withValues(alpha: 0.08),
+                            border: Border.all(
+                              color: accents[i].withValues(alpha: 0.24),
+                            ),
+                            borderRadius: BorderRadius.circular(16),
+                          ),
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Icon(icons[i], color: accents[i], size: 25),
+                              const SizedBox(width: 12),
+                              Expanded(child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(items[i].label, style: TextStyle(
+                                    color: accents[i],
+                                    fontWeight: FontWeight.w800,
+                                    fontSize: 16,
+                                  )),
+                                  const SizedBox(height: 5),
+                                  Text(items[i].currentState, style:
+                                    const TextStyle(
+                                      color: Color(0xFF30263D),
+                                      fontSize: 15, height: 1.45,
+                                    ),
+                                  ),
+                                ],
+                              )),
+                            ],
+                          ),
+                        ),
+                      ),
+                  ],
+                );
+              }),
+            ],
+          ),
+        ),
+      ),
     );
   }
 

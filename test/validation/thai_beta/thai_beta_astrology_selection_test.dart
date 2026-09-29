@@ -71,6 +71,8 @@ void main() {
         expect(find.byType(WesternReaderBody), findsOneWidget);
         expect(find.byKey(const Key('trial-western-infographic')),
           findsOneWidget);
+        expect(find.byKey(const Key('trial-western-element-balance')),
+          findsOneWidget);
         await tester.pageBack();
         await tester.pumpAndSettle();
 
@@ -79,6 +81,18 @@ void main() {
         expect(find.byType(ThaiBetaReportPage), findsOneWidget);
         expect(find.byKey(const Key('trial-thai-infographic')),
           findsOneWidget);
+        expect(find.byKey(const Key('trial-thai-life-การงาน')),
+          findsOneWidget);
+        expect(find.byKey(const Key('thai_shared_report_header')),
+          findsNothing);
+        await tester.ensureVisible(
+          find.byKey(const Key('trial-thai-full-report')));
+        await tester.tap(find.byKey(const Key('trial-thai-full-report')));
+        await tester.pumpAndSettle();
+        expect(find.byKey(const Key('thai_shared_report_header')),
+          findsOneWidget);
+        expect(find.byKey(const Key('thai_annual_infographic_save')),
+          findsNothing);
         expect(find.byType(BackButton), findsOneWidget);
         expect(find.text('ให้ความคิดเห็นต่อผลวิเคราะห์'), findsNothing);
         expect(find.text('ดาวน์โหลดรายงาน PDF'), findsNothing);
@@ -441,5 +455,15 @@ final _westernChart = AstrologyChartModel(
   planets: const {},
   insight: const {},
   overallSummary: const {},
+  analysis: const {
+    'elements': {
+      'percentages': {
+        'fire': 40,
+        'earth': 30,
+        'air': 20,
+        'water': 10,
+      },
+    },
+  },
   reader: const {'version': 'western_reader_th_v2_r2'},
 );

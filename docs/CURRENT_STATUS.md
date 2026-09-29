@@ -1,3 +1,15 @@
+## Active follow-up — PR #149 trial reader visual correction (2026-09-29)
+
+The live `5de5dc8` Preview exposed two remaining text-heavy trial readers.
+The branch now puts four existing Thai dashboard readings before the original
+report, which is available through “อ่านรายงานไทยฉบับเต็ม”, and brings the
+calculated Western element bars above the prose. This affects anonymous trial
+presentation only; no copy, calculation, evidence rule, single-reader route,
+Auth, or data storage was changed. The save-image control inside Thai's full
+report is hidden for trial readers. **This code is not hosted yet.** CI and
+mobile Hosted Preview QA are pending, and Owner visual acceptance is open.
+PR #149 remains Draft; no Production deployment or merge.
+
 ## Active follow-up — PR #149 hosted infographic review (2026-09-28)
 
 The isolated Hosting Preview now serves the inspected UI at

@@ -1,5 +1,27 @@
 # Overall astrology from three traditions — V1 working branch
 
+## 2026-09-29 trial reader visual follow-up — implementation pending hosted QA
+
+The live Preview review after `5de5dc8` found that Thai still led into the
+long original report and Western returned to prose after the Big Three tiles.
+This branch changes only the anonymous trial presentation: Thai now shows four
+existing life-dashboard readings as distinct visual cards and keeps the full
+unchanged report behind an explicit expandable control. Western promotes its
+existing calculated element percentages into bars before the overview; the
+expanded technical section omits only that duplicate balance panel. When
+element data is absent, no invented bar or value is shown. Overall, BaZi,
+calculation, wording, evidence threshold `0.6`, and standalone reader routes
+are unchanged. The Thai annual infographic remains visible in the expanded
+trial report, but its save-image action is hidden there; standalone export
+behavior is unchanged. A mobile widget regression checks the visual cards, the
+collapsed/full Thai report, Western bars, anonymous navigation and no auth
+resolution, as well as the absence of trial save controls; the full CI result
+must be recorded after push.
+
+**The hosted channel still serves `5de5dc8` at this point.** These new reader
+changes have no Hosted Preview visual/network acceptance yet. Keep PR #149
+Draft; do not merge or deploy Production. Owner visual approval remains open.
+
 ## 2026-09-28 infographic follow-up — Hosted Preview ready for Owner review
 
 Owner's rejected screenshots showed Overall as long text cards, Chinese copy

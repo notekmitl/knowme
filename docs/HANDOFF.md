@@ -1,3 +1,17 @@
+## Active handoff — PR #149 visual correction after hosted review (2026-09-29)
+
+Anonymous trial UI only: Thai presents four existing dashboard readings and
+lets the reader expand the unchanged full report; Western places the existing
+calculated element bars before its prose and avoids duplicating them in the
+technical accordion. Thai's embedded save-image control is hidden in the
+anonymous trial. The current public Preview is still the `5de5dc8` build
+without this follow-up. After CI, update only Hosting channel
+`pr-149-overall-safe` with `KNOWME_OVERALL_PREVIEW=true` and the separate
+Backend Preview, then inspect 390×844 input → Overall → Thai/Chinese/Western
+→ Overall, open Thai full report, check no clipping, and record request traces.
+Preserve the observed static Google SDK GET caveat. Do not merge or deploy
+Production. Owner visual approval remains open.
+
 ## Active handoff — PR #149 Owner infographic review (2026-09-28)
 
 Review the refreshed isolated Preview:
