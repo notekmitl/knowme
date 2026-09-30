@@ -1,3 +1,27 @@
+## Active handoff — PR #149 desktop and mobile Hosted Preview (2026-09-30)
+
+Review the updated Draft PR #149 at
+`https://knowme-app-694e1--pr-149-overall-safe-vbx6de6a.web.app/beta/thai`.
+Application HEAD `d987396` is on the isolated Hosting channel
+`pr-149-overall-safe` as version `ebcccf4335dd905a` (expires
+`2026-10-07T04:17:55Z`). The release build enabled Overall Preview, pointed
+to the separate PR Backend Preview, and set the Evidence Badge to `off`.
+Hosted JS/bootstrap/index hashes match the inspected build; JS SHA-256 is
+`95997D4ADF7C3ED5CB7F580268BC9F698F5B778EB0BF7C0681ACF1AD256EA413`.
+Hosting `live` stayed at `d32e72678324e634`.
+
+Synthetic input → Overall → Thai, Chinese, Western → Overall passed on
+1920×911 desktop CSS viewport and 390 px mobile CSS width. All four report
+screens had no horizontal document overflow at either width; exact 390×844
+mobile screenshots of all four pages were saved for Owner review. The expanded
+Thai report also stayed within 390 px. Each fresh journey made exactly two
+HTTP 200 calculation POSTs to Backend Preview, with no navigation
+recalculation. No Auth API, Firestore API, Production API, other write, or
+failed request appeared. A static Google Sign-In SDK GET loaded; there was no
+login/token exchange. No code correction was needed. Owner visual acceptance
+is still open. Keep PR #149 Draft; do not merge or deploy Production. See
+`docs/THREE_TRADITION_OVERALL_V1.md` for the full QA record.
+
 ## Active handoff — PR #149 desktop infographic correction (2026-09-29)
 
 The Owner's four 1920×911 screenshots show trial readers constrained to narrow

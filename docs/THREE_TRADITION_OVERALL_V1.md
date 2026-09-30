@@ -1,5 +1,55 @@
 # Overall astrology from three traditions — V1 working branch
 
+## 2026-09-30 desktop and mobile Hosted Preview QA — HEAD `d987396`
+
+The release Web build used `flutter build web --release --no-wasm-dry-run` with
+`KNOWME_OVERALL_PREVIEW=true`,
+`ASTROLOGY_API_BASE_URL=https://knowme-overall-pr149-preview-avbyttircq-as.a.run.app`,
+and `THAI_PUBLIC_EVIDENCE_BADGE_BETA=off`. The generated bootstrap and index
+were pinned to `?v=d987396` to avoid the old immutable entrypoint cache. Only
+`firebase hosting:channel:deploy pr-149-overall-safe --project knowme-app-694e1
+--no-authorized-domains` was run. Neither the Production Web deploy script nor
+a Firestore deployment was used. The channel now serves version
+`ebcccf4335dd905a`, expiring `2026-10-07T04:17:55Z`, at
+`https://knowme-app-694e1--pr-149-overall-safe-vbx6de6a.web.app/beta/thai`.
+Firebase Hosting `live` was `d32e72678324e634` both before and after.
+
+The three hosted files were fetched from the channel and compared byte-for-byte
+by SHA-256 against the local build:
+
+| File | SHA-256 | Match |
+| --- | --- | --- |
+| `main.dart.js` | `95997D4ADF7C3ED5CB7F580268BC9F698F5B778EB0BF7C0681ACF1AD256EA413` | Yes |
+| `flutter_bootstrap.js` | `76D07B6F0242A051821FEE74715611E2A20976BD2D032111346F1D735225C51B` | Yes |
+| `index.html` | `7D3EBD41D59FE7D3885676E9F3BCE5FD75888323304AF93DB5D793F7D496F6F5` | Yes |
+
+Chrome QA used synthetic birth data (15 January 2001, 12:00, Bangkok) and
+followed birth input → Overall → Thai → Overall → Chinese → Overall → Western
+→ Overall twice: once at a 1920×911 CSS viewport and once at 390 px CSS
+width. On desktop the four report pages filled a 1920 px document width with
+no horizontal overflow. Overall's four topic readings paired into two
+columns; Thai's summary cards paired; BaZi placed the four pillars and
+element bars beside its header; Western placed the Big Three beside element
+bars. The mobile sequence stacked cleanly with no visible clipping. Exact
+390×844 raster screenshots and 390×844 CSS document-width checks were captured
+for all four mobile report pages. The interactive mobile run measured 390×843
+CSS px because this Chrome profile is at 80% zoom; its document/body widths
+were 390 px on all four report pages. The expanded Thai report also stayed at
+390 px. Desktop screenshots were captured at the exact CSS viewport, with
+1536×729 raster pixels due to the same zoom. All eight review screenshots
+are saved outside the repository for Owner visual review; they do not constitute
+Owner approval.
+
+Each fresh journey sent exactly two HTTP 200 POSTs to the isolated Preview
+Backend: `/v1/calculate-bazi` and `/v1/calculate-chart`. Switching readers
+and returning added zero POSTs. The complete captured request streams had no
+Firebase Auth API, Firestore API, Production API, other mutating request, or
+failed request. Each fresh load fetched the Google Sign-In SDK at
+`accounts.google.com/gsi/client` by GET only; there was no login or token
+exchange. The prior [CI for HEAD `d987396`](https://github.com/notekmitl/knowme/actions/runs/36557612304)
+passed. This QA found no implementation defect requiring a code change. Keep
+PR #149 Draft for Owner visual acceptance, with no merge or Production deploy.
+
 ## 2026-09-29 desktop infographic follow-up — CI passed, Hosted Preview pending
 
 Owner supplied four actual 1920×911 desktop screenshots of the updated

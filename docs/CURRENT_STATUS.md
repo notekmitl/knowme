@@ -1,3 +1,30 @@
+## Active follow-up — PR #149 HEAD `d987396` Hosted Preview QA (2026-09-30)
+
+The release Web build from application HEAD `d987396` used
+`KNOWME_OVERALL_PREVIEW=true`,
+`ASTROLOGY_API_BASE_URL=https://knowme-overall-pr149-preview-avbyttircq-as.a.run.app`,
+and `THAI_PUBLIC_EVIDENCE_BADGE_BETA=off`. Only Firebase Hosting channel
+`pr-149-overall-safe` was deployed with `--no-authorized-domains`. The review
+URL is `https://knowme-app-694e1--pr-149-overall-safe-vbx6de6a.web.app/beta/thai`;
+version `ebcccf4335dd905a` expires `2026-10-07T04:17:55Z`. Hosted
+`main.dart.js`, `flutter_bootstrap.js`, and `index.html` SHA-256 hashes match
+the local build. The JS hash is
+`95997D4ADF7C3ED5CB7F580268BC9F698F5B778EB0BF7C0681ACF1AD256EA413`.
+Production Hosting `live` remained `d32e72678324e634` before and after.
+
+Synthetic known-time Chrome QA completed input → Overall → Thai/Chinese/Western
+→ Overall at 1920×911 CSS px and 390 px CSS width. All four report screens had
+document width equal to their viewport; the Thai expanded report also stayed
+at 390 px. Exact 390×844 screenshots were captured for the four mobile report
+screens. The desktop run sent exactly two HTTP 200 calculation POSTs to the
+separate Backend Preview, and the mobile run did the same. Navigation made no
+additional POST. Neither trace contained Firebase Auth API, Firestore API,
+Production API, another write, or a failed request. A static Google Sign-In
+SDK `gsi/client` GET was observed, without login or token exchange. No code
+defect was found in this pass. Owner visual approval remains pending; PR #149
+stays Draft, with no merge or Production deployment. Full QA record:
+`docs/THREE_TRADITION_OVERALL_V1.md`.
+
 ## Active follow-up — PR #149 desktop layout correction (2026-09-29)
 
 Four Owner-supplied 1920×911 screenshots exposed narrow centered columns in
