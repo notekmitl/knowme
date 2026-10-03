@@ -128,7 +128,7 @@ void main() {
       expect(ThaiMirrorStableHash.string('lagna_aquarius'), 804501464);
     });
 
-    testWidgets('form opened earlier uses the one submit instant as asOf', (
+    testWidgets('trial form does not infer an hour when birth time is unknown', (
       tester,
     ) async {
       final openedAt = DateTime.utc(2026, 8, 16, 16, 59, 50);
@@ -136,6 +136,7 @@ void main() {
       final clockValues = <DateTime>[openedAt, submittedAt];
       DateTime? capturedStartedAt;
       DateTime? capturedAsOf;
+      ThaiBetaAnalysis? capturedAnalysis;
 
       await tester.pumpWidget(
         MaterialApp(
@@ -145,11 +146,13 @@ void main() {
                 (input, {required startedAt, required asOf}) async {
                   capturedStartedAt = startedAt;
                   capturedAsOf = asOf;
-                  return ThaiBetaAnalysis.failedForTest(
+                  final analysis = ThaiBetaAnalysis.failedForTest(
                     input: input,
                     startedAt: startedAt,
                     asOf: asOf,
                   );
+                  capturedAnalysis = analysis;
+                  return analysis;
                 },
           ),
         ),
@@ -164,15 +167,17 @@ void main() {
       await tester.pumpAndSettle();
       await tester.tap(find.text('ฉันไม่ทราบเวลาเกิด'));
       await tester.pumpAndSettle();
-      await tester.ensureVisible(find.text('เริ่มวิเคราะห์'));
-      await tester.tap(find.text('เริ่มวิเคราะห์'));
+      await tester.ensureVisible(find.text('ดูดวงรวม'));
+      await tester.tap(find.text('ดูดวงรวม'));
       await tester.pumpAndSettle();
-      expect(find.text('เลือกศาสตร์ที่ต้องการดู'), findsOneWidget);
-      await tester.tap(find.byKey(const Key('astrology-select-thai')));
-      await tester.pumpAndSettle();
-
-      expect(capturedStartedAt, openedAt);
-      expect(capturedAsOf, DateTime(2026, 8, 17, 0, 0, 10));
+      expect(find.text('เลือกศาสตร์ที่ต้องการดู'), findsNothing);
+      expect(
+        find.text('ดวงรวมต้องทราบเวลาเกิดและจังหวัดที่เกิด กรุณากรอกให้ครบ'),
+        findsOneWidget,
+      );
+      expect(capturedStartedAt, isNull);
+      expect(capturedAsOf, isNull);
+      expect(capturedAnalysis, isNull);
       expect(clockValues, isEmpty);
     });
   });

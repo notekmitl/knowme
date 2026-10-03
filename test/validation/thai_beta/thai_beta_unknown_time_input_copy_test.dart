@@ -3,7 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:knowme/features/thai_beta/presentation/pages/thai_beta_input_page.dart';
 
 const _unknownTimeHelp =
-    'หากไม่ทราบเวลาเกิด รายงานจะเว้นหัวข้อที่ต้องใช้เวลาเกิด เช่น ลัคนาและเรือน เพื่อไม่สรุปเกินข้อมูลที่มี';
+    'ดวงรวมต้องทราบเวลาเกิด จึงจะคำนวณทั้งสามศาสตร์ได้ กรุณากลับมากรอกเมื่อทราบเวลา';
 const _legacyInaccurateHelp =
     'ผลวิเคราะห์บางส่วนอาจคลาดเคลื่อน แต่ยังสามารถวิเคราะห์พื้นฐานได้';
 

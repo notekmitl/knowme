@@ -7,9 +7,169 @@ import 'package:knowme/features/bazi_compatibility/application/bazi_compatibilit
 import 'package:knowme/features/thai_beta/application/thai_beta_analysis.dart';
 import 'package:knowme/features/thai_beta/domain/thai_beta_input.dart';
 import 'package:knowme/features/thai_beta/presentation/pages/thai_beta_astrology_selection_page.dart';
+import 'package:knowme/features/thai_beta/presentation/pages/thai_beta_report_page.dart';
+import 'package:knowme/presentation/pages/astrology/astrology_result_page.dart';
 
 void main() {
   group('post-form astrology selection', () {
+    testWidgets(
+      'trial opens overall first and reuses anonymous charts for lenses',
+      (tester) async {
+        var authCalls = 0;
+        var calculateCalls = 0;
+        await tester.binding.setSurfaceSize(const Size(390, 844));
+        addTearDown(() => tester.binding.setSurfaceSize(null));
+        await _pumpSelection(
+          tester,
+          input: _knownInput,
+          startWithOverall: true,
+          resolveUser: (_) async {
+            authCalls++;
+            throw StateError('Trial must not request authentication');
+          },
+          prepareSystem: (_, _, _) async =>
+              throw StateError('Trial must not save a single-system chart'),
+          analysisExecutor:
+              (input, {required startedAt, required asOf}) async =>
+                  ThaiBetaAnalysisRunner.run(
+                    input,
+                    startedAt: startedAt,
+                    asOf: asOf,
+                  ),
+          prepareOverallSystem: (_, system) async {
+            calculateCalls++;
+            return switch (system) {
+              ThaiBetaAstrologySystem.bazi => ThaiBetaPreparedAstrology.bazi(
+                BaziCompatibilityOwnerFixtures.chart(BaziOwnerCase.known),
+              ),
+              ThaiBetaAstrologySystem.western =>
+                ThaiBetaPreparedAstrology.western(_westernChart),
+              _ => throw StateError('Unexpected system'),
+            };
+          },
+        );
+        expect(find.text('ภาพรวมชีวิตจากสามศาสตร์'), findsOneWidget);
+        expect(find.byKey(const Key('trial-overall-infographic')),
+          findsOneWidget);
+        expect(find.text('เลือกศาสตร์ที่ต้องการดู'), findsNothing);
+        expect(calculateCalls, 2);
+        expect(authCalls, 0);
+
+        await tester.tap(find.byKey(const Key('overall-open-bazi')));
+        await tester.pumpAndSettle();
+        expect(find.text('ดวงจีน · ปาจื้อ'), findsOneWidget);
+        expect(find.byKey(const Key('trial-bazi-infographic')),
+          findsOneWidget);
+        expect(tester.getSize(
+          find.byKey(const Key('trial-bazi-infographic'))).width,
+          lessThanOrEqualTo(390));
+        await tester.pageBack();
+        await tester.pumpAndSettle();
+
+        await tester.tap(find.byKey(const Key('overall-open-western')));
+        await tester.pumpAndSettle();
+        expect(find.byType(WesternReaderBody), findsOneWidget);
+        expect(find.byKey(const Key('trial-western-infographic')),
+          findsOneWidget);
+        expect(find.byKey(const Key('trial-western-element-balance')),
+          findsOneWidget);
+        await tester.pageBack();
+        await tester.pumpAndSettle();
+
+        await tester.tap(find.byKey(const Key('overall-open-thai')));
+        await tester.pumpAndSettle();
+        expect(find.byType(ThaiBetaReportPage), findsOneWidget);
+        expect(find.byKey(const Key('trial-thai-infographic')),
+          findsOneWidget);
+        expect(find.byKey(const Key('trial-thai-life-การงาน')),
+          findsOneWidget);
+        expect(find.byKey(const Key('thai_shared_report_header')),
+          findsNothing);
+        await tester.ensureVisible(
+          find.byKey(const Key('trial-thai-full-report')));
+        await tester.tap(find.byKey(const Key('trial-thai-full-report')));
+        await tester.pumpAndSettle();
+        expect(find.byKey(const Key('thai_shared_report_header')),
+          findsOneWidget);
+        expect(find.byKey(const Key('thai_annual_infographic_save')),
+          findsNothing);
+        expect(find.byType(BackButton), findsOneWidget);
+        expect(find.text('ให้ความคิดเห็นต่อผลวิเคราะห์'), findsNothing);
+        expect(find.text('ดาวน์โหลดรายงาน PDF'), findsNothing);
+        await tester.tap(find.byType(BackButton));
+        await tester.pumpAndSettle();
+        expect(find.text('ภาพรวมชีวิตจากสามศาสตร์'), findsOneWidget);
+        expect(calculateCalls, 2);
+        expect(authCalls, 0);
+        expect(tester.takeException(), isNull);
+      },
+    );
+
+    testWidgets(
+      'trial readers use paired visual panels on a wide screen',
+      (tester) async {
+        await tester.binding.setSurfaceSize(const Size(1440, 900));
+        addTearDown(() => tester.binding.setSurfaceSize(null));
+        var authCalls = 0;
+        await _pumpSelection(
+          tester,
+          input: _knownInput,
+          startWithOverall: true,
+          resolveUser: (_) async {
+            authCalls++;
+            throw StateError('Trial must not request authentication');
+          },
+          analysisExecutor: (input, {required startedAt, required asOf}) async =>
+              ThaiBetaAnalysisRunner.run(
+                input,
+                startedAt: startedAt,
+                asOf: asOf,
+              ),
+        );
+        expect(
+          tester.getSize(find.byKey(
+            const Key('trial-overall-infographic'))).width,
+          greaterThan(1000),
+        );
+
+        await tester.tap(find.byKey(const Key('overall-open-bazi')));
+        await tester.pumpAndSettle();
+        final baziGraphic = find.byKey(const Key('trial-bazi-infographic'));
+        final baziTitle = find.byKey(const Key('bazi-report-title'));
+        expect(
+          tester.getTopLeft(baziGraphic).dx,
+          lessThan(tester.getTopLeft(baziTitle).dx),
+        );
+        expect(tester.takeException(), isNull);
+        await tester.pageBack();
+        await tester.pumpAndSettle();
+
+        await tester.tap(find.byKey(const Key('overall-open-western')));
+        await tester.pumpAndSettle();
+        final westernGraphic = find.byKey(
+          const Key('trial-western-infographic'));
+        final westernBalance = find.byKey(
+          const Key('trial-western-element-balance'));
+        expect(
+          tester.getTopLeft(westernGraphic).dx,
+          lessThan(tester.getTopLeft(westernBalance).dx),
+        );
+        expect(tester.takeException(), isNull);
+        await tester.pageBack();
+        await tester.pumpAndSettle();
+
+        await tester.tap(find.byKey(const Key('overall-open-thai')));
+        await tester.pumpAndSettle();
+        expect(
+          tester.getSize(find.byKey(
+            const Key('trial-thai-infographic'))).width,
+          greaterThan(1000),
+        );
+        expect(authCalls, 0);
+        expect(tester.takeException(), isNull);
+      },
+    );
+
     testWidgets('shows Thai, Chinese BaZi, and Western choices', (
       tester,
     ) async {
@@ -22,9 +182,13 @@ void main() {
       await _scrollToWestern(tester);
       expect(find.text('โหราศาสตร์ตะวันตก (ยุโรป)'), findsOneWidget);
       expect(find.text('ดูโหราตะวันตก'), findsOneWidget);
+      await tester.drag(find.byType(ListView), const Offset(0, -350));
+      await tester.pumpAndSettle();
+      expect(find.text('โหราศาสตร์โดยรวม'), findsOneWidget);
+      expect(find.text('ดูดวงรวม'), findsOneWidget);
     });
 
-    testWidgets('Thai choice preserves startedAt and Bangkok submit instant', (
+    testWidgets('Thai choice sends submit instant for one Bangkok conversion', (
       tester,
     ) async {
       final openedAt = DateTime.utc(2026, 8, 16, 16, 59, 50);
@@ -52,7 +216,15 @@ void main() {
       await tester.pumpAndSettle();
 
       expect(capturedStartedAt, openedAt);
-      expect(capturedAsOf, DateTime(2026, 8, 17, 0, 0, 10));
+      expect(capturedAsOf, submittedAt);
+      expect(
+        ThaiBetaAnalysis.failedForTest(
+          input: _unknownInput,
+          startedAt: openedAt,
+          asOf: capturedAsOf,
+        ).asOf,
+        DateTime(2026, 8, 17, 0, 0, 10),
+      );
     });
 
     testWidgets('Unknown time can open BaZi and carries selected system', (
@@ -92,7 +264,23 @@ void main() {
         find.byKey(const Key('astrology-select-western')),
       );
       expect(button.onPressed, isNull);
-      expect(find.textContaining('ต้องทราบเวลาเกิด'), findsOneWidget);
+      expect(
+        find.text(
+          'ต้องทราบเวลาเกิดและเลือกจังหวัดก่อน '
+          'จึงคำนวณลัคนาและเรือนได้โดยไม่เดา',
+        ),
+        findsOneWidget,
+      );
+      await tester.drag(find.byType(ListView), const Offset(0, -350));
+      await tester.pumpAndSettle();
+      expect(
+        tester
+            .widget<FilledButton>(
+              find.byKey(const Key('astrology-select-overall')),
+            )
+            .onPressed,
+        isNull,
+      );
     });
 
     testWidgets('known time and province can open Western', (tester) async {
@@ -135,6 +323,89 @@ void main() {
       expect(find.text('destination:bazi'), findsNothing);
       expect(find.text('อยากดูดวงแบบไหน?'), findsOneWidget);
     });
+
+    testWidgets('overall calculates without resolving a Firebase user', (
+      tester,
+    ) async {
+      final calls = <ThaiBetaAstrologySystem>[];
+      var resolveCalls = 0;
+      var savedPathCalls = 0;
+      final submittedAt = DateTime.utc(2026, 8, 16, 17, 0, 10);
+      DateTime? capturedAsOf;
+      await _pumpSelection(
+        tester,
+        input: _knownInput,
+        submittedAt: submittedAt,
+        resolveUser: (_) async {
+          resolveCalls++;
+          return 'uid-should-not-be-used';
+        },
+        prepareSystem: (_, _, _) async {
+          savedPathCalls++;
+          throw StateError('Authenticated path must not run');
+        },
+        analysisExecutor: (input, {required startedAt, required asOf}) async {
+          capturedAsOf = asOf;
+          return ThaiBetaAnalysis.failedForTest(
+            input: input,
+            startedAt: startedAt,
+            asOf: asOf,
+          );
+        },
+        prepareOverallSystem: (_, system) async {
+          calls.add(system);
+          return switch (system) {
+            ThaiBetaAstrologySystem.bazi => ThaiBetaPreparedAstrology.bazi(
+              BaziCompatibilityOwnerFixtures.chart(BaziOwnerCase.known),
+            ),
+            ThaiBetaAstrologySystem.western =>
+              ThaiBetaPreparedAstrology.western(_westernChart),
+            _ => throw StateError('Unexpected system'),
+          };
+        },
+      );
+      await tester.drag(find.byType(ListView), const Offset(0, -950));
+      await tester.pumpAndSettle();
+      await tester.tap(find.byKey(const Key('astrology-select-overall')));
+      await tester.pumpAndSettle();
+      expect(calls, [
+        ThaiBetaAstrologySystem.bazi,
+        ThaiBetaAstrologySystem.western,
+      ]);
+      expect(resolveCalls, 0);
+      expect(savedPathCalls, 0);
+      expect(capturedAsOf, submittedAt);
+      // The injected Thai analysis failed: no partial or fabricated report.
+      expect(find.byType(Scaffold), findsOneWidget);
+      expect(find.text('ภาพรวมชีวิตจากสามศาสตร์'), findsNothing);
+    });
+
+    testWidgets('overall renders a report from three results without sign-in', (
+      tester,
+    ) async {
+      await _pumpSelection(
+        tester,
+        input: _knownInput,
+        resolveUser: (_) async => throw StateError('Unexpected sign-in'),
+        analysisExecutor: (input, {required startedAt, required asOf}) async =>
+            ThaiBetaAnalysisRunner.run(input, startedAt: startedAt, asOf: asOf),
+        prepareOverallSystem: (_, system) async => switch (system) {
+          ThaiBetaAstrologySystem.bazi => ThaiBetaPreparedAstrology.bazi(
+            BaziCompatibilityOwnerFixtures.chart(BaziOwnerCase.known),
+          ),
+          ThaiBetaAstrologySystem.western => ThaiBetaPreparedAstrology.western(
+            _westernChart,
+          ),
+          _ => throw StateError('Unexpected system'),
+        },
+      );
+      await tester.drag(find.byType(ListView), const Offset(0, -950));
+      await tester.pumpAndSettle();
+      await tester.tap(find.byKey(const Key('astrology-select-overall')));
+      await tester.pumpAndSettle();
+      expect(find.text('ภาพรวมชีวิตจากสามศาสตร์'), findsOneWidget);
+      expect(tester.takeException(), isNull);
+    });
   });
 }
 
@@ -161,6 +432,11 @@ Future<void> _pumpSelection(
     ThaiBetaAstrologySystem system,
   )?
   prepareSystem,
+  Future<ThaiBetaPreparedAstrology> Function(
+    ThaiBetaInput input,
+    ThaiBetaAstrologySystem system,
+  )?
+  prepareOverallSystem,
   Widget Function(
     BuildContext context,
     String userId,
@@ -168,6 +444,7 @@ Future<void> _pumpSelection(
     ThaiBetaPreparedAstrology preparedResult,
   )?
   destinationBuilder,
+  bool startWithOverall = false,
 }) async {
   await tester.pumpWidget(
     MaterialApp(
@@ -175,6 +452,7 @@ Future<void> _pumpSelection(
         input: input,
         startedAt: startedAt ?? DateTime.utc(2026, 9, 14, 1),
         submittedAt: submittedAt ?? DateTime.utc(2026, 9, 14, 2),
+        startWithOverall: startWithOverall,
         analysisExecutor:
             analysisExecutor ??
             (input, {required startedAt, required asOf}) async =>
@@ -187,6 +465,16 @@ Future<void> _pumpSelection(
         prepareSystem:
             prepareSystem ??
             (_, _, system) async => switch (system) {
+              ThaiBetaAstrologySystem.bazi => ThaiBetaPreparedAstrology.bazi(
+                BaziCompatibilityOwnerFixtures.chart(BaziOwnerCase.known),
+              ),
+              ThaiBetaAstrologySystem.western =>
+                ThaiBetaPreparedAstrology.western(_westernChart),
+              ThaiBetaAstrologySystem.thai => throw StateError('not used'),
+            },
+        prepareOverallSystem:
+            prepareOverallSystem ??
+            (_, system) async => switch (system) {
               ThaiBetaAstrologySystem.bazi => ThaiBetaPreparedAstrology.bazi(
                 BaziCompatibilityOwnerFixtures.chart(BaziOwnerCase.known),
               ),
@@ -232,5 +520,15 @@ final _westernChart = AstrologyChartModel(
   planets: const {},
   insight: const {},
   overallSummary: const {},
+  analysis: const {
+    'elements': {
+      'percentages': {
+        'fire': 40,
+        'earth': 30,
+        'air': 20,
+        'water': 10,
+      },
+    },
+  },
   reader: const {'version': 'western_reader_th_v2_r2'},
 );
