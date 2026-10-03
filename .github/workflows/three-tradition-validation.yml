@@ -12,6 +12,23 @@ env:
   TZ: Asia/Bangkok
 
 jobs:
+  isolated-trial-build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.41.1'
+          channel: stable
+          cache: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Resolve main dependencies without modifying the main manifest
+        run: flutter pub get
+      - name: Build and verify isolated trial registrant and bundle
+        run: python tool/build_trial_web.py --api https://knowme-overall-pr149-preview-avbyttircq-as.a.run.app --version pr149-isolated
   flutter-validation:
     runs-on: ubuntu-latest
     timeout-minutes: 40

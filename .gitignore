@@ -188,3 +188,4 @@ test/validation/**/failures/
 .preview-build-pr149/
 .preview-venv/
 .preview-qa/
+.trial-build/

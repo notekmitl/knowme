@@ -1,3 +1,42 @@
+## 2026-10-03 isolated trial build follow-up — FAIL, deployment stopped
+
+Local work began at `0bbd2d1`; remote documentation HEAD `40568a9` was later read and preserved in the
+existing isolated checkout. The Owner explicitly prohibited merge/live deploy
+and required stopping if a gate fails.
+
+Added a dedicated `lib/main_trial.dart` entrypoint with no Firebase
+initialization or main-app Auth shell. `tool/build_trial_web.py` stages source
+and dependency libraries in `.trial-build/`, removes plugin declarations only
+from private dependency manifest copies, and intends to reject any generated
+web plugin registration or forbidden Auth/Firestore SDK URL in the bundle.
+The original `lib/main.dart`, root dependency manifest/lockfile, Pub cache and
+main `build/web` were not changed by this build attempt. The staged dependency
+libraries still include shared types; this is a registration-isolation design,
+not a claim that the source import graph is Firebase-free.
+
+**Build gate: FAIL.** Flutter 3.41.3 invoked with `--no-pub` stopped because
+staging lacked `.dart_tool/package_graph.json`:
+`Failed to load .../.dart_tool/package_graph.json ... Try running flutter pub get`.
+The earlier staging preparation also encountered a native-only plugin without
+`lib/`; optional library copying fixed that preparation issue. The subsequent
+actual Flutter build failure triggered the requested stop. No compiled trial
+bundle exists from this attempt, so plugin/bundle privacy checks have not run.
+The new CI job `isolated-trial-build` invokes the same staged build and checks;
+its actual outcome will be recorded after execution.
+
+**No Preview deployment, hosted/build hash verification, fresh 390x844 or
+large-screen journey, Network gate PASS, merge, or live deployment occurred.**
+The existing Preview remains the preceding version `951405a94a946da3`, which
+had the documented startup SDK privacy failure. This version is not evidence
+for the new trial entrypoint. Previous live/calculator versions below are
+historical observations, not a fresh Production audit in this follow-up.
+
+Next prerequisite is a complete, reproducible staged dependency graph that
+Flutter can consume without reintroducing plugin registration. Do not deploy
+the staged trial until its build and fail-closed registrant/bundle checks pass.
+Existing unrelated local changes were preserved.
+
+
 ## 2026-10-03 privacy gate diagnosis — PR #149 remains Draft
 
 The Production-shaped Preview built from PR HEAD `0bbd2d1` reached Overall
