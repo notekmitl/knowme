@@ -5,6 +5,7 @@ no Firebase initialization, authentication, saved-chart route, or database clien
 """
 
 import os
+from urllib.parse import urlsplit
 
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
@@ -39,10 +40,26 @@ class CalculateChartRequest(BaseModel):
 
 
 app = FastAPI(title="KnowMe Overall Preview Calculator", version="1.0.0")
-preview_origin = os.environ.get("PREVIEW_ORIGIN", "").strip()
+configured_origins = os.environ.get(
+    "CALCULATOR_ALLOWED_ORIGINS", os.environ.get("PREVIEW_ORIGIN", "")
+)
+allowed_origins = [
+    origin.strip() for origin in configured_origins.split(",") if origin.strip()
+]
+for origin in allowed_origins:
+    parsed = urlsplit(origin)
+    if (
+        parsed.scheme != "https"
+        or not parsed.netloc
+        or parsed.path
+        or parsed.query
+        or parsed.fragment
+        or "*" in origin
+    ):
+        raise ValueError("Calculator CORS origins must be exact HTTPS origins")
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[preview_origin] if preview_origin else [],
+    allow_origins=allowed_origins,
     allow_methods=["POST"],
     allow_headers=["content-type"],
 )

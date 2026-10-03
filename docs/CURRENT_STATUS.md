@@ -1,3 +1,26 @@
+## Release preparation patch — 2026-10-03 (CI pending)
+
+Owner authorized continuing the trial launch. This patch is scoped to the
+anonymous trial: a normal Production Web build can set
+`KNOWME_OVERALL_TRIAL=true` and a distinct HTTPS `OVERALL_CALC_API_BASE_URL`
+while retaining `ASTROLOGY_API_BASE_URL` for signed-in readers. The existing
+`KNOWME_OVERALL_PREVIEW=true` behavior is preserved for the isolated Preview.
+The trial landing no longer reads Firestore participation counts or promises
+research submission; it explains transient calculation. Trial Thai report
+keeps its anonymous audience without Auth listeners. The standalone
+persistence-free calculator supports an explicit comma-separated set of exact
+HTTPS CORS origins, while the Preview's single `PREVIEW_ORIGIN` remains
+supported. Tests cover the no-read landing, API separation, and CORS.
+The branch workflow now checks a Production-shaped trial build and backend
+regression in addition to its existing Flutter suite.
+
+Local static checks: `git diff --check` and Python `py_compile` passed in a
+clean isolated worktree. Flutter, backend runtime tests, build and hosted
+network QA were not run in this execution environment. The PR stays Draft;
+CI results and live Production state must be inspected before any merge or
+deployment. No Firestore rules, IAM, existing signed-in endpoint, Production
+Hosting, or Cloud Run service was changed by this patch.
+
 ## Active release gate — PR #149 trial launch (2026-10-03)
 
 Owner asked to proceed with the temporary public astrology trial after reviewing

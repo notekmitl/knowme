@@ -30,6 +30,20 @@ jobs:
         run: flutter analyze --no-fatal-infos --no-fatal-warnings
       - name: Web build
         run: flutter build web --release
+      - name: Trial release configuration test
+        run: |
+          flutter test --dart-define=KNOWME_OVERALL_TRIAL=true \
+            --dart-define=ASTROLOGY_API_BASE_URL=https://knowme-astrology-api-avbyttircq-as.a.run.app \
+            --dart-define=OVERALL_CALC_API_BASE_URL=https://calculator.example.invalid \
+            test/overall_trial_release_config_test.dart
+      - name: Trial release Web build
+        run: |
+          flutter build web --release --no-wasm-dry-run \
+            --dart-define=KNOWME_OVERALL_TRIAL=true \
+            --dart-define=ASTROLOGY_API_BASE_URL=https://knowme-astrology-api-avbyttircq-as.a.run.app \
+            --dart-define=OVERALL_CALC_API_BASE_URL=https://calculator.example.invalid \
+            --dart-define=THAI_PUBLIC_EVIDENCE_BADGE_BETA=off
+          python3 -c "from pathlib import Path; s=Path('build/web/main.dart.js').read_text(); assert 'calculator.example.invalid' in s; assert 'knowme-overall-pr149-preview' not in s"
       - name: Poppler for PDF regression gates
         run: |
           sudo apt-get update
@@ -37,3 +51,16 @@ jobs:
           python3 -m pip install --disable-pip-version-check pypdf
       - name: Complete Flutter suite
         run: flutter test --reporter compact
+  backend-validation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Backend dependencies and regression
+        run: |
+          python -m pip install --disable-pip-version-check -r backend/requirements.txt
+          cd backend
+          python -m pytest -q tests

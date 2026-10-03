@@ -103,7 +103,7 @@ class ThaiBetaReportPage extends StatelessWidget {
 
     // Public Thai Beta is evidence-gated, not identity-gated. Avoid creating
     // Firebase Auth/Firestore audience listeners on this public surface.
-    if (ApiConfig.isOverallPreview ||
+    if (anonymousTrial || ApiConfig.isOverallPreview ||
         resolvedFlag == ThaiEvidenceBadgeFeatureFlagState.publicBeta) {
       return _ThaiBetaReportScaffold(
         analysis: analysis,

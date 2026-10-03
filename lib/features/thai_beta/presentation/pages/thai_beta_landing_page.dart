@@ -8,10 +8,15 @@ import 'thai_beta_input_page.dart';
 /// privacy, participation) before asking for any personal data, to build trust
 /// and improve completion.
 class ThaiBetaLandingPage extends StatefulWidget {
-  const ThaiBetaLandingPage({super.key, this.store});
+  const ThaiBetaLandingPage({
+    super.key,
+    this.store,
+    this.anonymousTrial = ApiConfig.isOverallTrial,
+  });
 
   /// Injectable for tests; defaults to a real [ThaiBetaStore] at runtime.
   final ThaiBetaStore? store;
+  final bool anonymousTrial;
 
   @override
   State<ThaiBetaLandingPage> createState() => _ThaiBetaLandingPageState();
@@ -23,7 +28,7 @@ class _ThaiBetaLandingPageState extends State<ThaiBetaLandingPage> {
   @override
   void initState() {
     super.initState();
-    if (!ApiConfig.isOverallPreview) _loadParticipants();
+    if (!widget.anonymousTrial) _loadParticipants();
   }
 
   Future<void> _loadParticipants() async {
@@ -46,7 +51,9 @@ class _ThaiBetaLandingPageState extends State<ThaiBetaLandingPage> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: const Text('ดูดวงไทย — งานวิจัย'),
+        title: Text(
+          widget.anonymousTrial ? 'ทดลองดูดวงรวม' : 'ดูดวงไทย — งานวิจัย',
+        ),
       ),
       body: SafeArea(
         child: Center(
@@ -58,15 +65,20 @@ class _ThaiBetaLandingPageState extends State<ThaiBetaLandingPage> {
                 Icon(Icons.auto_awesome, size: 44, color: scheme.primary),
                 const SizedBox(height: 12),
                 Text(
-                  'ร่วมพัฒนาโหราศาสตร์ไทยให้แม่นยำขึ้น',
+                  widget.anonymousTrial
+                      ? 'ทดลองอ่านดวงจากสามศาสตร์'
+                      : 'ร่วมพัฒนาโหราศาสตร์ไทยให้แม่นยำขึ้น',
                   textAlign: TextAlign.center,
                   style: theme.textTheme.headlineSmall
                       ?.copyWith(fontWeight: FontWeight.w700),
                 ),
                 const SizedBox(height: 8),
                 Text(
-                  'นี่คือระบบวิเคราะห์ดวงไทยที่อยู่ในช่วงเก็บข้อมูลวิจัย '
-                  'เราอยากรู้ว่าผลวิเคราะห์ตรงกับคุณมากแค่ไหน',
+                  widget.anonymousTrial
+                      ? 'กรอกข้อมูลเกิดเพื่ออ่านภาพรวมจากไทย จีน และตะวันตก '
+                          'แล้วเลือกอ่านแต่ละศาสตร์ได้'
+                      : 'นี่คือระบบวิเคราะห์ดวงไทยที่อยู่ในช่วงเก็บข้อมูลวิจัย '
+                          'เราอยากรู้ว่าผลวิเคราะห์ตรงกับคุณมากแค่ไหน',
                   textAlign: TextAlign.center,
                   style: theme.textTheme.bodyMedium
                       ?.copyWith(color: scheme.onSurfaceVariant, height: 1.5),
@@ -75,27 +87,35 @@ class _ThaiBetaLandingPageState extends State<ThaiBetaLandingPage> {
                 _InfoTile(
                   icon: Icons.flag_outlined,
                   title: 'จุดประสงค์',
-                  body: 'วิเคราะห์ดวงไทยจากวัน เวลา และสถานที่เกิดของคุณ '
-                      'แล้วเก็บความคิดเห็นเพื่อพัฒนาความแม่นยำของระบบ',
+                  body: widget.anonymousTrial
+                      ? 'คำนวณจากข้อมูลเกิดที่กรอก และแสดงคำอ่านดวงรวมกับดวงรายศาสตร์'
+                      : 'วิเคราะห์ดวงไทยจากวัน เวลา และสถานที่เกิดของคุณ '
+                          'แล้วเก็บความคิดเห็นเพื่อพัฒนาความแม่นยำของระบบ',
                 ),
                 _InfoTile(
                   icon: Icons.schedule_outlined,
                   title: 'ใช้เวลาโดยประมาณ',
-                  body: 'ประมาณ 3–5 นาที (กรอกข้อมูล อ่านผล และให้ความคิดเห็น)',
+                  body: widget.anonymousTrial
+                      ? 'ประมาณ 3–5 นาที (กรอกข้อมูลและอ่านผล)'
+                      : 'ประมาณ 3–5 นาที (กรอกข้อมูล อ่านผล และให้ความคิดเห็น)',
                 ),
                 _InfoTile(
                   icon: Icons.lock_outline,
                   title: 'ความเป็นส่วนตัว',
-                  body: 'ข้อมูลของคุณจะถูกใช้เพื่อการวิจัยและพัฒนาระบบเท่านั้น '
-                      'และจะไม่ถูกเปิดเผยต่อสาธารณะ',
+                  body: widget.anonymousTrial
+                      ? 'ข้อมูลเกิดจะส่งไปยังบริการคำนวณ แล้วแสดงผลในหน้านี้ '
+                          'โดยไม่บันทึกลงบัญชีหรือฐานข้อมูลของระบบ'
+                      : 'ข้อมูลของคุณจะถูกใช้เพื่อการวิจัยและพัฒนาระบบเท่านั้น '
+                          'และจะไม่ถูกเปิดเผยต่อสาธารณะ',
                 ),
-                _InfoTile(
-                  icon: Icons.groups_outlined,
-                  title: 'การเข้าร่วมงานวิจัย',
-                  body: 'การเข้าร่วมเป็นไปโดยสมัครใจ '
-                      'คุณจะได้รับรหัสอ้างอิงหลังส่งความคิดเห็น',
-                ),
-                if (_participants != null)
+                if (!widget.anonymousTrial)
+                  _InfoTile(
+                    icon: Icons.groups_outlined,
+                    title: 'การเข้าร่วมงานวิจัย',
+                    body: 'การเข้าร่วมเป็นไปโดยสมัครใจ '
+                        'คุณจะได้รับรหัสอ้างอิงหลังส่งความคิดเห็น',
+                  ),
+                if (!widget.anonymousTrial && _participants != null)
                   _InfoTile(
                     icon: Icons.people_alt_outlined,
                     title: 'จำนวนผู้เข้าร่วม',
@@ -116,7 +136,9 @@ class _ThaiBetaLandingPageState extends State<ThaiBetaLandingPage> {
             padding: const EdgeInsets.symmetric(vertical: 16),
           ),
           icon: const Icon(Icons.play_arrow_rounded),
-          label: const Text('เริ่มการวิเคราะห์'),
+          label: Text(
+            widget.anonymousTrial ? 'เริ่มทดลองดูดวง' : 'เริ่มการวิเคราะห์',
+          ),
         ),
       ),
     );
