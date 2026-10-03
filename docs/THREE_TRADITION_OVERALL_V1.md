@@ -1,7 +1,7 @@
 ## Active release gate — PR #149 trial launch (2026-10-03)
 
 Owner asked to proceed with the temporary public astrology trial after reviewing
-its desktop and mobile presentation. The current PR HEAD is `893a982`, Open
+its desktop and mobile presentation. The reviewed PR HEAD was `893a982`, Open
 and Draft; its GitHub validation run `36670068341` succeeded. This is a
 release preparation authorization, not a claim that Production is live.
 
@@ -10,10 +10,12 @@ application source is `d987396` (the later HEAD changes only these three
 documents). The Preview build flag skips Firebase initialization for the
 whole application; it cannot simply be reused as a Production build. A normal
 Production build still reads Firestore participant count on the public landing
-page, uses the same API base URL for anonymous calculations and signed-in
-readers, and Production `backend/app/main.py` does not expose the two new
-calculation-only routes. The isolated calculator only permits its Preview
-origin. The existing `deploy_all.ps1` / `deploy_web.ps1` also change IAM or
+page and uses the same API base URL for anonymous calculations and signed-in
+readers. **Correction to the preceding audit commit:** Backend source already
+defines both anonymous endpoints in routers imported by `backend/app/main.py`;
+the currently deployed Production API revision has not been verified to
+include them. The isolated calculator permits only its Preview origin, so its
+CORS config needs a scoped public release. The existing `deploy_all.ps1` / `deploy_web.ps1` change IAM or
 Firestore rules and are unsuitable as-is for this scoped release.
 
 The checkout used for this audit is at application `d987396` and contains
