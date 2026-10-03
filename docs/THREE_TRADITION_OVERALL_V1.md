@@ -1,3 +1,42 @@
+## 2026-10-03 privacy gate diagnosis — PR #149 remains Draft
+
+The Production-shaped Preview built from PR HEAD `0bbd2d1` reached Overall
+and the three individual readers without Auth/Firestore API calls or writes,
+but its startup still fetched Google Sign-In, Firebase Auth and Firebase
+Firestore SDK scripts. The strict network gate is therefore **FAIL**. This is
+not evidence that birth data was written, and it is not a reason to weaken
+the gate. Hosting live and the signed-in Production API remain unchanged.
+
+Source review confirms that `lib/main.dart` calls `Firebase.initializeApp`
+before choosing the anonymous landing when `KNOWME_OVERALL_PREVIEW=false`.
+Flutter's web build also generates its plugin registrant from the project's
+plugin dependencies before calling the application entrypoint; selecting an
+anonymous widget cannot by itself exclude a Google Sign-In web plugin from
+startup. This is supported by Flutter's `WebEntrypointTarget` source, which
+injects the web plugin files before generating the entrypoint. The precise
+loading behavior is established by the hosted CDP network trace above.
+
+**Next implementation target:** build the temporary trial as an isolated Web
+artifact with an anonymous-only entrypoint and a dependency/plugin graph that
+does not register Google Sign-In, Firebase Auth or Firestore. Share only the
+calculation and reader code needed for input → Overall → Thai/Chinese/Western;
+keep existing signed-in code and its normal build intact. Do not edit generated
+JS or registrant output, suppress network errors with CSP, or silently treat
+SDK GETs as a pass. First inspect the imports and build tooling and choose a
+maintainable minimal extraction. Keep the separate zero-role calculator and
+its exact-origin CORS unchanged unless tests prove a necessary adjustment.
+
+Acceptance requires a fresh, uncached synthetic input journey at both
+390×844 and desktop width: zero requests to Auth/Firestore/Google Sign-In SDKs,
+zero Production API calls or writes, exactly two successful calculation POSTs
+to the isolated calculator, no recalculation when switching readers, no
+horizontal overflow, and the unknown-time fail-closed case with zero POSTs.
+Run full Flutter/backend regression and verify the hosted asset hashes. If
+any gate fails, keep PR Draft and stop before Merge or Hosting live deploy.
+No code fix, new hosted build, merge, Production deploy, Firestore/IAM change,
+or fresh complete journey is claimed by this diagnosis.
+
+
 ## 2026-10-03 release attempt from HEAD `7919f56` — BLOCKED before merge/live
 
 The remote PR HEAD was verified as
