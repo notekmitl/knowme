@@ -21,8 +21,13 @@ The earlier staging preparation also encountered a native-only plugin without
 `lib/`; optional library copying fixed that preparation issue. The subsequent
 actual Flutter build failure triggered the requested stop. No compiled trial
 bundle exists from this attempt, so plugin/bundle privacy checks have not run.
-The new CI job `isolated-trial-build` invokes the same staged build and checks;
-its actual outcome will be recorded after execution.
+The new CI job `isolated-trial-build` reproduced the same missing
+`package_graph.json` failure on Linux/Flutter 3.41.1 at commit `8886284`:
+[CI job 111176171402](https://github.com/notekmitl/knowme/actions/runs/37113648456/job/111176171402).
+The job completed with **failure**, exit code 1; its log was inspected directly.
+Other regression jobs were still running when this failed gate was recorded;
+no complete-suite PASS is claimed. Implementation work stopped on the failed
+build gate; this subsequent commit records evidence only.
 
 **No Preview deployment, hosted/build hash verification, fresh 390x844 or
 large-screen journey, Network gate PASS, merge, or live deployment occurred.**
