@@ -1,3 +1,14 @@
+## Release preparation CI — 2026-10-03
+
+Application commit `c6b212e8cd0e17e24404c455d7e5f04dd35e2ebe` passed
+[GitHub run 37104494127](https://github.com/notekmitl/knowme/actions/runs/37104494127):
+backend regression including calculator CORS, Flutter focused tests and
+analyzer, regular Web build, trial-shaped Web build and its API split guard,
+and the complete Flutter suite. The local worktree also passed diff whitespace
+and Python syntax checks. This validates code and build only. No deployed
+Production calculator, live Hosting bundle, or network journey has been
+verified; no merge or Production deployment occurred. PR #149 remains Draft.
+
 ## Release preparation patch — 2026-10-03 (CI pending)
 
 Owner authorized continuing the trial launch. This patch is scoped to the
