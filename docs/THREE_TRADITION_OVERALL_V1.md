@@ -1,3 +1,93 @@
+## 2026-10-03 release attempt from HEAD `7919f56` — BLOCKED before merge/live
+
+The remote PR HEAD was verified as
+`7919f569800588c5914d85ceb1113fb0987ce68e`, Open and Draft.
+[HEAD CI run 37105209279](https://github.com/notekmitl/knowme/actions/runs/37105209279)
+passed. Work used a new isolated checkout; existing checkouts and their pending
+changes were not edited, stashed, reset, or committed.
+
+Read-only preflight verified Hosting live version `d32e72678324e634`
+(release `1790074568414000`) and existing Production API revision
+`knowme-astrology-api-00014-j2z` at 100% traffic. Hosting release history
+still exposes prior releases. The live version above is the rollback target
+for any subsequent Hosting release; no rollback was executed in this attempt.
+The calculator rollback revision is
+`knowme-overall-pr149-preview-00001-gfn`.
+
+The separate calculator was deployed from the persistence-free staged source
+to the existing service `knowme-overall-pr149-preview`, revision
+`knowme-overall-pr149-preview-00002-6ql`, at 100% traffic.
+Its actual calculation URL remains
+`https://knowme-overall-pr149-preview-avbyttircq-as.a.run.app`.
+Runtime service account
+`knowme-pr149-overall-preview@knowme-app-694e1.iam.gserviceaccount.com`
+has no project IAM bindings; the project has no parent IAM scope.
+The existing public invoker binding was preserved. No IAM role was added.
+Project IAM policy before/after was identical.
+`CALCULATOR_ALLOWED_ORIGINS` contains exactly:
+`https://knowme-app-694e1--pr-149-overall-safe-vbx6de6a.web.app`,
+`https://knowme-app-694e1.web.app`, and
+`https://knowme-app-694e1.firebaseapp.com`.
+Preflight OPTIONS returned 200 with the exact matching origin for each;
+`https://example.com` returned 400.
+
+Flutter 3.41.3 built the normal Production-shaped Web release with
+`KNOWME_OVERALL_TRIAL=true`, the actual calculator URL as
+`OVERALL_CALC_API_BASE_URL`, the unchanged signed-in Production API as
+`ASTROLOGY_API_BASE_URL`, and `THAI_PUBLIC_EVIDENCE_BADGE_BETA=off`.
+`KNOWME_OVERALL_PREVIEW` was not enabled. Only Hosting Preview channel
+`pr-149-overall-safe` was deployed, using `--no-authorized-domains`;
+version `951405a94a946da3`, expiry October 10, 2026.
+[Review Preview](https://knowme-app-694e1--pr-149-overall-safe-vbx6de6a.web.app/beta/thai).
+Hosted SHA-256 matched the local build for all three assets:
+
+| Asset | SHA-256 |
+| --- | --- |
+| main.dart.js | 3CAE370E18147BDFD59788372DACBEA54E076DCDCB5DE9011B20AD7191384197 |
+| flutter_bootstrap.js | 7DD266EEA273EE5BE4FE0A401171C47EE2C303CC559A4B5252B213E0F6B78DDB |
+| index.html | 24E777DBD905DC52BAC34F4061EC9C37808EF010C8A5E5B65D8DB4AFF87680C1 |
+
+Synthetic known-time input reached Overall, then Thai, Chinese and Western,
+returning to Overall after each. Input/calculation began at 487 CSS px width
+because Chrome uses 80% zoom. All four report layouts were subsequently
+verified at 390x843 CSS px and 1920x911 CSS px; document width matched each
+viewport and the visible report layouts had no clipping. Desktop reused the
+same in-memory charts; a fresh desktop input-to-result journey and a fresh
+390 px input journey were not repeated after the strict privacy failure.
+Do not describe this as complete release QA.
+
+CDP captured exactly two calculation POSTs (HTTP 200) to the isolated
+calculator and successful OPTIONS preflights. Report navigation at both
+widths added zero POSTs. No Auth API/token exchange, Firestore API,
+Production API calculation, other mutation, or failed request was observed.
+However startup fetched these three scripts by GET:
+`https://accounts.google.com/gsi/client`,
+`https://www.gstatic.com/firebasejs/12.7.0/firebase-auth.js`, and
+`https://www.gstatic.com/firebasejs/12.7.0/firebase-firestore.js`.
+**The strict no-Auth/no-Firestore Network gate therefore FAILS.**
+This is a Production-shaped bundle privacy blocker, not a missing CLI or
+deployment permission. `main.dart` initializes Firebase outside Preview mode,
+and web plugin startup also loads Google Sign-In; entering the anonymous
+shell alone does not eliminate these SDK fetches.
+
+The URL-split test formerly hardcoded `calculator.example.invalid`; it now
+checks the configured HTTPS calculator host and verifies that it differs
+from the saved-chart API host. The real-URL configuration test passed 1/1;
+the existing UX suite passed 4/4 with its normal defines. The first combined
+trial-defined invocation failed because of the hardcoded example host and
+the regular-mode CTA expectation; these are not reported as runtime failures.
+No application behavior was changed by this test correction.
+
+**PR #149 remains Draft and unmerged; Hosting live remains
+`d32e72678324e634`.** Neither `deploy_all.ps1` nor `deploy_web.ps1`
+was used. No Firestore rules/indexes or existing Production API were deployed.
+No Production user journey or post-release rollback drill was claimed.
+Next work must remove startup Auth/Firestore SDK traffic for the anonymous
+trial while preserving signed-in routes, then repeat fresh mobile and desktop
+input-to-Overall-to-single-reader traces. Only after those and Production
+verification pass may the authorized merge and Hosting-only live release occur.
+
+
 ## Release preparation CI — 2026-10-03
 
 Application commit `c6b212e8cd0e17e24404c455d7e5f04dd35e2ebe` passed
