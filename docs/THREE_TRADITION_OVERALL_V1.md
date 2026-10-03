@@ -1,3 +1,38 @@
+## Active release gate — PR #149 trial launch (2026-10-03)
+
+Owner asked to proceed with the temporary public astrology trial after reviewing
+its desktop and mobile presentation. The current PR HEAD is `893a982`, Open
+and Draft; its GitHub validation run `36670068341` succeeded. This is a
+release preparation authorization, not a claim that Production is live.
+
+**Release gate: BLOCKED before merge or Production deploy.** The checked
+application source is `d987396` (the later HEAD changes only these three
+documents). The Preview build flag skips Firebase initialization for the
+whole application; it cannot simply be reused as a Production build. A normal
+Production build still reads Firestore participant count on the public landing
+page, uses the same API base URL for anonymous calculations and signed-in
+readers, and Production `backend/app/main.py` does not expose the two new
+calculation-only routes. The isolated calculator only permits its Preview
+origin. The existing `deploy_all.ps1` / `deploy_web.ps1` also change IAM or
+Firestore rules and are unsuitable as-is for this scoped release.
+
+The checkout used for this audit is at application `d987396` and contains
+four unrelated modified binary acceptance artifacts; they were preserved.
+GitHub was checked read-only for PR/CI/source. This execution environment has
+no Flutter, gcloud or Firebase CLI and cannot connect to the Git remote or
+verify the current live Hosting/Cloud Run state. No local runtime test, merge,
+Production deploy, Firestore access, IAM change, or live rollback was made.
+
+Next gate: implement an isolated, persistence-free calculator for the public
+Production origins under a zero-project-role service account; separate its URL
+from the existing signed-in API; confine anonymous trial behavior to the
+public trial route; remove the participant-count read and research/storage copy
+from that route; add targeted privacy, route, CORS and regression tests. Build
+and inspect the actual Production bundle, pass CI, then verify live versions
+and rollback targets before a controlled Backend/Hosting release and synthetic
+end-to-end network check. Preserve other site routes, signed-in flows, existing
+Firestore rules and IAM. Update this gate with actual results, not a planned PASS.
+
 # Overall astrology from three traditions — V1 working branch
 
 ## 2026-09-30 desktop and mobile Hosted Preview QA — HEAD `d987396`
