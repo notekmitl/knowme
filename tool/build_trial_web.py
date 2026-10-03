@@ -76,6 +76,13 @@ def main():
         package["rootUri"] = root.resolve().as_uri() + "/"
     (stage / ".dart_tool").mkdir()
     (stage / ".dart_tool/package_config.json").write_text(json.dumps(config), encoding="utf-8")
+    # --no-pub skips dependency resolution, so Flutter also needs pub's
+    # package graph beside the staged package configuration. Keep the graph
+    # from the same flutter pub get as package_config.json.
+    graph_file = config_file.with_name("package_graph.json")
+    if not graph_file.is_file():
+        raise SystemExit("FAIL: run flutter pub get before staging (package_graph.json missing)")
+    shutil.copy2(graph_file, stage / ".dart_tool/package_graph.json")
     subprocess.run([
         args.flutter, "build", "web", "--no-pub", "--release", "--no-wasm-dry-run",
         "--target", "lib/main_trial.dart",

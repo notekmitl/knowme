@@ -1,3 +1,20 @@
+## 2026-10-03 isolated trial staging graph fix — CI pending
+
+The previous isolated-trial build failed before compilation because the disposable
+stage copied `.dart_tool/package_config.json` but not pub's
+`.dart_tool/package_graph.json`. GitHub Actions job 111176171402 reproduced
+the same missing-file error. The build script now checks for the graph produced
+by the same root `flutter pub get` and copies it into the stage beside the
+package configuration before calling `flutter build web --no-pub`.
+
+This is a narrow staging repair, **not a privacy-gate PASS**. No successful
+trial bundle, generated-registrant verdict, hosted hash comparison, fresh
+390×844/desktop journey or Network trace is claimed yet. Keep PR #149 Draft;
+do not deploy Preview unless the isolated build and static privacy guards
+pass, and do not merge, deploy live or change Firestore/IAM. Preserve the
+existing app build and all prior work. Recheck CI on this commit before any
+Preview action.
+
 ## 2026-10-03 isolated trial build follow-up — FAIL, deployment stopped
 
 Local work began at `0bbd2d1`; remote documentation HEAD `40568a9` was later read and preserved in the
