@@ -1,3 +1,48 @@
+## 2026-10-04 Hosting Preview preflight — authentication pending, no deployment
+
+The remote Draft PR #149 HEAD and clean isolated checkout were verified at
+`2c6d036ba8c4ff7d0b7fe3c96386145399fcc9f2`. GitHub run `37181519727`
+completed successfully at that exact SHA. Artifact `11295690546`
+(`pr149-trial-web-2c6d036ba8c4ff7d0b7fe3c96386145399fcc9f2`) was downloaded
+and its ZIP SHA-256 matched GitHub:
+`0ab066d7afbd396daa8ed68a149cfa2ee5167c518f1813f13093ad67103a90a8`.
+Its version and calculator URL match the current workflow and build script:
+`https://knowme-overall-pr149-preview-avbyttircq-as.a.run.app`.
+All three asset hashes matched `trial-build-evidence.json`:
+
+| Asset | SHA-256 |
+| --- | --- |
+| main.dart.js | d4025831ba41ce34af90152da33ab49c609667a96bb08d5cac11a07a25386567 |
+| flutter_bootstrap.js | 1621f7f64e6adb45daf41ac59116cb6018f9c16860d8d8dba9a62d93362d5fd5 |
+| index.html | 01299520a556d3e9c86862451e99fb2a17540ec49b4c3f5e18a50f5c1d638f5f |
+
+Literal bundle checks found none of the forbidden Google Sign-In, Firebase
+Auth/Firestore SDK or API URL strings. The Production host string remains
+only in the fail-closed configured-URL rejection, not as the trial endpoint.
+This is static evidence only, not hosted Network QA. Preview calculator
+OPTIONS returned HTTP 200 for the exact safe Preview origin.
+
+The earlier browser login ended with the actual message:
+`An OAuth error occurred during sign in. Try starting over by running the login command again:`
+`firebase login --no-localhost`.
+The isolated CLI subsequently reported:
+`No authorized accounts, run "firebase login"`.
+A fresh `firebase login --no-localhost` was started on the same machine and
+its printed URL opened for the Owner to select and authorize the account.
+No existing Google account session was selected automatically and no code
+was requested through chat. Login completion and project access are pending.
+
+Only a Hosting-only configuration pointing to the unmodified CI artifact has
+been prepared outside the repository. No deployment command has run. The
+required channel is `pr-149-overall-safe`, project `knowme-app-694e1`, with
+`--no-authorized-domains`. No hosted/build hash comparison, fresh known-time
+390x844/desktop journey, unknown-time zero-POST test or hosted privacy PASS
+is claimed. Public live asset hashes were saved as a read-only baseline;
+no authenticated live release/version verification has yet been completed.
+No Merge, Production/live deploy, Backend change, IAM, Auth, Firestore or
+rules change occurred. Keep PR Draft. Recheck HEAD before deploying; if HEAD
+changes, rebuild and verify the new trial artifact before any deployment.
+
 ## 2026-10-04 verified trial bundle handoff — Preview QA pending
 
 The isolated trial build at `d43c879` passed CI (run 37118099501),
