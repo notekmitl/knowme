@@ -1,3 +1,43 @@
+## 2026-10-04 OAuth diagnosis — localhost callback prepared, project gate not passed
+
+CLI and Chrome run on the same local Windows host, `DESKTOP-HF53LFO`, not a
+remote runner. Local process inspection confirmed Chrome at its installed
+Windows executable. CLI is Firebase Tools 15.32.1 with Node v24.18.0.
+The previous `login --no-localhost` terminal output generated a remote login
+URL and exited after instructing completion with an authorization code. No
+retained debug log for those earlier login attempts was found; the browser
+reported the generic OAuth error recorded below. There is no evidence for a
+more specific server-side error or a project permission denial.
+
+Read-only `firebase projects:list --debug` failed with exit 1:
+`Could not load the default credentials.`
+`Failed to authenticate, have you run firebase login?`
+The isolated credential store has pending login state but no user or tokens.
+`knowme-app-694e1` visibility and Hosting permission are therefore unverified.
+Raw logs remain outside the repository; reported diagnostics omit OAuth URLs,
+tokens, codes, state, attestation and other secrets.
+
+Installed CLI source confirms automatic AI-agent detection forces
+noninteractive mode, even after removing `CI=true`; the supported
+`--interactive` flag overrides it. The local-machine correction is:
+`firebase login --reauth --interactive --debug`
+with the same isolated credential store. This command is now waiting for
+Google authorization and a TCP listener was verified at `localhost:9005`.
+The new Google account chooser opened automatically; no account was selected
+by the agent. It bypasses the failing remote auth proxy using the normal
+same-machine OAuth callback, without asking for a code through chat.
+The sole pending Owner action is to select and authorize the account in that
+new Firebase CLI tab. Login success is not yet claimed.
+
+After callback completion, require successful `firebase projects:list`
+containing `knowme-app-694e1`, then verify Hosting access before deployment.
+HEAD changed through status-document commits, so build and verify a fresh
+trial artifact at the current HEAD before deploying only Hosting channel
+`pr-149-overall-safe` with `--no-authorized-domains`. No Preview deployment,
+hosted hash match, fresh mobile/desktop journey, unknown-time Network PASS,
+Production release audit or QA PASS has occurred in this diagnostic step.
+No live, Backend, Firestore, rules, IAM, Auth configuration or Merge change.
+
 ## 2026-10-04 Hosting Preview preflight — authentication pending, no deployment
 
 The remote Draft PR #149 HEAD and clean isolated checkout were verified at
