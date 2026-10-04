@@ -28,7 +28,29 @@ jobs:
       - name: Resolve main dependencies without modifying the main manifest
         run: flutter pub get
       - name: Build and verify isolated trial registrant and bundle
-        run: python tool/build_trial_web.py --api https://knowme-overall-pr149-preview-avbyttircq-as.a.run.app --version pr149-isolated
+        run: python tool/build_trial_web.py --api https://knowme-overall-pr149-preview-avbyttircq-as.a.run.app --version ${{ github.sha }}
+      - name: Export verified trial bundle
+        run: |
+          python3 - <<'PY'
+          import hashlib
+          import json
+          import shutil
+          from pathlib import Path
+
+          evidence = json.loads(Path(".trial-build/latest.json").read_text())
+          source = Path(evidence["output"])
+          output = Path("trial-preview-artifact")
+          shutil.copytree(source, output)
+          for name, digest in evidence["sha256"].items():
+              assert hashlib.sha256((output / name).read_bytes()).hexdigest() == digest, name
+          PY
+      - name: Upload trial bundle for Preview deployment
+        uses: actions/upload-artifact@v4
+        with:
+          name: pr149-trial-web-${{ github.sha }}
+          path: trial-preview-artifact/
+          if-no-files-found: error
+          retention-days: 1
   flutter-validation:
     runs-on: ubuntu-latest
     timeout-minutes: 40

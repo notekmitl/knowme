@@ -1,3 +1,22 @@
+## 2026-10-04 verified trial bundle handoff — Preview QA pending
+
+The isolated trial build at `d43c879` passed CI (run 37118099501),
+including its generated web registrant and bundle guards. GitHub Actions
+now exports the verified `build/web` as a short-lived artifact named with
+the commit SHA. Its cache version is also the commit SHA; the export step
+rechecks the three hosted entry assets against the script's SHA-256 evidence.
+
+This makes the exact tested bundle available for a Preview-only deployment.
+It is **not** a hosted privacy PASS. No new Hosting Preview deployment or
+fresh 390×844/desktop browser Network journey has been performed for this
+artifact; old Preview results must not be attributed to it. The remaining
+gate is a fresh run from birth form through Overall and Thai/Chinese/Western:
+zero Google Sign-In/Firebase Auth/Firestore SDK or API requests, zero
+Production API requests and writes, two successful calculator POSTs with no
+recalculation on reader switches, and the unknown-birth-time case with
+zero POSTs. Compare hosted index/bootstrap/main JS SHA-256 to the artifact.
+Keep PR Draft and stop before Merge or live deployment.
+
 ## 2026-10-03 isolated trial staging graph fix — CI pending
 
 The previous isolated-trial build failed before compilation because the disposable
