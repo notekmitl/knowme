@@ -1,3 +1,42 @@
+## 2026-10-05 authentication recheck — STOP before Preview deployment
+
+Rechecked the existing isolated Firebase CLI credential store and retained
+terminal/debug logs without starting another login. Credentials still have
+no user or tokens; only a pending remote-login state remains. CLI and Chrome
+are on the same local Windows host `DESKTOP-HF53LFO`, confirmed again by
+local Chrome process and host inspection. This is not a remote runner.
+
+`firebase projects:list --json` returned exit 1 with the actual error:
+`Failed to authenticate, have you run firebase login?`
+It did not return a project list. Visibility of `knowme-app-694e1` and Hosting
+permissions are unverified, not denied by a verified project permission check.
+
+The latest retained localhost login log records the supported corrected
+command `firebase login --reauth --interactive --debug`, detected agent
+`codex_cli`, and `Waiting for authentication...`. It contains no successful
+login or observed token-exchange error. The previously verified TCP listener
+at localhost:9005 is now absent. Therefore the callback flow did not complete
+in the recorded evidence and the old login page cannot be treated as an
+active session. The exact server-side cause of the earlier generic
+`auth.firebase.tools` OAuth error remains unknown; no server error code is
+available. The earlier noninteractive remote flow was unsuitable for this
+same-machine code-free handoff; AI-agent detection forced that mode until
+`--interactive` was explicitly supplied.
+
+No new login was started in this recheck, per Owner instruction. Stop here.
+The single required Owner action, when ready, is to complete one fresh
+same-machine interactive localhost login in a terminal kept running through
+the Google account choice and callback; use the same isolated credential
+store and `firebase login --reauth --interactive --debug`, not an old
+`auth.firebase.tools` link. No token or code should be sent through chat.
+Then require `firebase projects:list` containing `knowme-app-694e1` before
+any Hosting operation, and rebuild/verify at current PR HEAD before Preview.
+
+Reported log excerpts omit OAuth URL queries, tokens, codes, state and other
+secrets. No Preview deploy, hosted hash verification, fresh browser journey
+or QA PASS is claimed. No live, Backend, Firestore, rules, IAM, Auth
+configuration or Merge change occurred. PR #149 remains Draft.
+
 ## 2026-10-04 OAuth diagnosis — localhost callback prepared, project gate not passed
 
 CLI and Chrome run on the same local Windows host, `DESKTOP-HF53LFO`, not a
