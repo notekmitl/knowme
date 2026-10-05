@@ -1,3 +1,82 @@
+## 2026-10-05 Hosting Preview and scoped privacy QA — PASS
+
+Local Windows interactive login completed successfully after the Owner selected
+and authorized the Google account in Chrome. `firebase projects:list --json`
+returned success and included `knowme-app-694e1`; the authenticated Hosting
+channel listing also succeeded. No OAuth code/token is included in this record.
+
+The clean checkout and remote PR HEAD were verified at
+`11ffc58f092ac19d70d2add370239b67a707f968`, Open and Draft. The retained
+`2c6d036` artifact still existed with its original verified hashes, but HEAD
+had advanced through documentation-only commits. To keep the deployed version
+bound to current HEAD, a fresh local isolated build was produced with Flutter
+3.41.3/Dart 3.11.1 using `tool/build_trial_web.py`, the actual Backend Preview
+URL, `KNOWME_OVERALL_PREVIEW=true`, the trial entrypoint and Evidence Badge off.
+Its generated registrant and fail-closed API/SDK bundle guards passed. `pub get`
+and the build left the tracked worktree clean. No application fix was needed.
+The earlier full CI at `2c6d036` is historical regression evidence; a new full
+Flutter/backend suite was not run in this browser QA session.
+
+Only Firebase Hosting channel `pr-149-overall-safe` was deployed, project
+`knowme-app-694e1`, using a Hosting-only config and `--no-authorized-domains`.
+Preview version: `8c0fe2f95d66d02d`; release `2026-10-05T06:30:26.861Z`;
+expiry `2026-10-12T06:30:21.083714850Z`.
+Review URL: https://knowme-app-694e1--pr-149-overall-safe-vbx6de6a.web.app/beta/thai
+Hosted downloads matched the fresh build SHA-256 for all three assets:
+
+| Asset | SHA-256 |
+| --- | --- |
+| main.dart.js | e1b6629b726d5807852e899d5d230d4cb67db235e99d9bd8fac61af1632e4d23 |
+| flutter_bootstrap.js | 1d1795d381d2c3f0a5efaf9cc6a51bbde28ec06f3b76034994137ff794146e83 |
+| index.html | c2d36a891c8960d793fa6a109a33f0b5adfaccab698d2696754adb559f271ade |
+
+Fresh known-time journeys were run from page reload through synthetic input,
+Overall, Thai, Chinese, Western and back to Overall after each reader at
+390x844 and 1280x800 CSS px. Width/height were measured in the page, not inferred
+from the browser window. All four report layouts had document width equal to
+the viewport, and observed screenshots showed readable layouts without
+horizontal clipping. Fixtures used 1/1/2001, Bangkok, 00:00 on mobile and
+12:00 on desktop; names were synthetic. Chrome's 80% desktop zoom initially
+caused automation coordinate/focus mismatch; the accepted mobile run restarted
+from reload at verified 390x844, and input coordinates were corrected. Earlier
+sizing/input attempts are not used as accepted journey evidence.
+
+CDP Network capture began before each accepted reload, with cache disabled.
+Fresh reload reset the trial's in-memory state; no saved Firebase login was
+used by the trial. All accepted traces were untruncated. For each known-time
+run, exactly two POSTs were sent to the separate Backend Preview:
+`/v1/calculate-bazi` and `/v1/calculate-chart`, both HTTP 200. Switching readers
+and returning to Overall added zero POSTs. Both fresh unknown-time runs showed
+the explicit requirement for known birth time and sent zero POSTs after form
+submission attempts. The request/response relationship was checked by CDP
+request ID; OPTIONS responses were not counted as calculation POST responses.
+
+| Fresh case | CSS viewport | HTTP requests | Calculation POSTs | Forbidden requests | Other writes | Failed requests |
+| --- | --- | ---: | ---: | ---: | ---: | ---: |
+| Known time, complete reader journey | 390x844 | 30 | 2, both 200 | 0 | 0 | 0 |
+| Known time, complete reader journey | 1280x800 | 29 | 2, both 200 | 0 | 0 | 0 |
+| Unknown time, fail closed | 390x844 | 18 | 0 | 0 | 0 | 0 |
+| Unknown time, fail closed | 1280x800 | 18 | 0 | 0 | 0 | 0 |
+
+Forbidden checks cover Google Sign-In SDK, Firebase Auth/Firestore SDK and
+API URLs, and the Production API. Other mutation methods outside the two
+Preview calculation POSTs were absent. Counts in the table are HTTP(S)
+requests; local browser-extension resources were visible in the trace and
+were not counted as application HTTP requests. Network absence is scoped to
+these synthetic journeys, not a claim of wider Production or backend audit.
+Browser emulation and cache overrides were cleared after QA.
+
+Production Hosting `live` stayed at version `d32e72678324e634`, release
+`1790074568414000`, release time `2026-09-22T10:56:08.414Z`, in authenticated
+before/after/final channel reads. A final read-only download of live index,
+bootstrap and main JS also matched the saved pre-deployment SHA-256 baseline.
+No Production API was called for QA. No Merge, live/Production deploy,
+Backend deploy, Firestore/rules/IAM/Auth configuration change occurred.
+PR #149 remains Open and Draft. Owner wording/visual acceptance is separate
+from this completed scoped Hosting Preview/privacy QA. This documentation
+commit records evidence for the deployed source SHA above; it does not claim
+that a later docs-only HEAD was rebuilt or redeployed.
+
 ## 2026-10-05 authentication recheck — STOP before Preview deployment
 
 Rechecked the existing isolated Firebase CLI credential store and retained
