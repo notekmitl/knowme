@@ -1,3 +1,4 @@
+import 'package:knowme/features/astrology/fusion/presentation/trial_reader_typography.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:knowme/core/config/api_config.dart';
@@ -103,7 +104,8 @@ class ThaiBetaReportPage extends StatelessWidget {
 
     // Public Thai Beta is evidence-gated, not identity-gated. Avoid creating
     // Firebase Auth/Firestore audience listeners on this public surface.
-    if (anonymousTrial || ApiConfig.isOverallPreview ||
+    if (anonymousTrial ||
+        ApiConfig.isOverallPreview ||
         resolvedFlag == ThaiEvidenceBadgeFeatureFlagState.publicBeta) {
       return _ThaiBetaReportScaffold(
         analysis: analysis,
@@ -201,13 +203,16 @@ class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
       fontFamily: 'KnowMeNotoSansThai',
       fontFamilyFallback: const ['KnowMeNotoSans'],
     );
-    return Theme(
+    final themed = Theme(
       data: base.copyWith(
         textTheme: reportTextTheme(base.textTheme),
         primaryTextTheme: reportTextTheme(base.primaryTextTheme),
       ),
       child: child,
     );
+    return widget.anonymousTrial
+        ? TrialReaderTypography(child: themed)
+        : themed;
   }
 
   @override
@@ -390,38 +395,38 @@ class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
         : (MediaQuery.sizeOf(context).width >= 768 ? 32.0 : 18.0);
 
     final reportBody = <Widget>[
-      if (widget.anonymousTrial)
-        _trialThaiInfographic(analysis),
-      if (widget.anonymousTrial)
-        _trialThaiLifeOverview(analysis),
+      if (widget.anonymousTrial) _trialThaiInfographic(analysis),
+      if (widget.anonymousTrial) _trialThaiLifeOverview(analysis),
       if (_loadingBadges) const LinearProgressIndicator(minHeight: 2),
-      _trialOrFullReport(Padding(
-        padding: EdgeInsets.fromLTRB(
-          reportHorizontalPadding,
-          16,
-          reportHorizontalPadding,
-          0,
-        ),
-        child: Center(
-          child: ConstrainedBox(
-            constraints: const BoxConstraints(maxWidth: 780),
-            child: ThaiMirrorResultPage(
-              consumerState: narrativeView,
-              embeddedInParentScroll: true,
-              disableAnimations: true,
-              contentOverride: KeyedSubtree(
-                key: const Key('thai_birth_profile_core_reading'),
-                child: ThaiBetaSharedReportView(
-                  document: document,
-                  infographicBoundaryKey: _infographicBoundaryKey,
-                  badges: _showBadgePanel ? _badges : const [],
-                  showInfographicSave: !widget.anonymousTrial,
+      _trialOrFullReport(
+        Padding(
+          padding: EdgeInsets.fromLTRB(
+            reportHorizontalPadding,
+            16,
+            reportHorizontalPadding,
+            0,
+          ),
+          child: Center(
+            child: ConstrainedBox(
+              constraints: const BoxConstraints(maxWidth: 780),
+              child: ThaiMirrorResultPage(
+                consumerState: narrativeView,
+                embeddedInParentScroll: true,
+                disableAnimations: true,
+                contentOverride: KeyedSubtree(
+                  key: const Key('thai_birth_profile_core_reading'),
+                  child: ThaiBetaSharedReportView(
+                    document: document,
+                    infographicBoundaryKey: _infographicBoundaryKey,
+                    badges: _showBadgePanel ? _badges : const [],
+                    showInfographicSave: !widget.anonymousTrial,
+                  ),
                 ),
               ),
             ),
           ),
         ),
-      )),
+      ),
       if (!widget.screenshotMode && !widget.anonymousTrial)
         Padding(
           padding: const EdgeInsets.fromLTRB(16, 8, 16, 8),
@@ -503,7 +508,9 @@ class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
             backgroundColor: const Color(0xFFFFF8E9),
             collapsedBackgroundColor: const Color(0xFFFFF8E9),
             title: const Text('อ่านรายงานไทยฉบับเต็ม'),
-            subtitle: const Text('คำอ่านและรายละเอียดเดิมอยู่ครบ เปิดอ่านต่อได้'),
+            subtitle: const Text(
+              'คำอ่านและรายละเอียดเดิมอยู่ครบ เปิดอ่านต่อได้',
+            ),
             children: [report],
           ),
         ),
@@ -512,8 +519,8 @@ class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
   }
 
   Widget _trialThaiLifeOverview(ThaiBetaAnalysis analysis) {
-    final items = analysis.consumerViewState?.lifeDashboard.take(4).toList() ??
-        const [];
+    final items =
+        analysis.consumerViewState?.lifeDashboard.take(4).toList() ?? const [];
     if (items.isEmpty) return const SizedBox.shrink();
     const icons = [
       Icons.work_outline,
@@ -529,68 +536,82 @@ class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
     ];
     return Center(
       child: ConstrainedBox(
-        constraints: const BoxConstraints(maxWidth: 1120),
+        constraints: const BoxConstraints(maxWidth: 1040),
         child: Padding(
           padding: const EdgeInsets.fromLTRB(18, 20, 18, 0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text('อ่านเร็ว 4 ด้าน', style: TextStyle(
-                fontSize: 19, fontWeight: FontWeight.w800,
-                color: Color(0xFF30263D),
-              )),
+              const Text(
+                'อ่านเร็ว 4 ด้าน',
+                style: TextStyle(
+                  fontSize: 19,
+                  fontWeight: FontWeight.w800,
+                  color: Color(0xFF30263D),
+                ),
+              ),
               const SizedBox(height: 10),
-              LayoutBuilder(builder: (context, constraints) {
-                final columns = constraints.maxWidth >= 560 ? 2 : 1;
-                const gap = 10.0;
-                final tileWidth =
-                    (constraints.maxWidth - gap * (columns - 1)) / columns;
-                return Wrap(
-                  spacing: gap,
-                  runSpacing: gap,
-                  children: [
-                    for (var i = 0; i < items.length; i++)
-                      SizedBox(
-                        width: tileWidth,
-                        child: Container(
-                          key: Key('trial-thai-life-${items[i].label}'),
-                          padding: const EdgeInsets.all(14),
-                          decoration: BoxDecoration(
-                            color: accents[i].withValues(alpha: 0.08),
-                            border: Border.all(
-                              color: accents[i].withValues(alpha: 0.24),
+              LayoutBuilder(
+                builder: (context, constraints) {
+                  final columns = constraints.maxWidth >= 560 ? 2 : 1;
+                  const gap = 10.0;
+                  final tileWidth =
+                      (constraints.maxWidth - gap * (columns - 1)) / columns;
+                  return Wrap(
+                    spacing: gap,
+                    runSpacing: gap,
+                    children: [
+                      for (var i = 0; i < items.length; i++)
+                        SizedBox(
+                          width: tileWidth,
+                          child: Container(
+                            key: Key('trial-thai-life-${items[i].label}'),
+                            padding: const EdgeInsets.all(14),
+                            decoration: BoxDecoration(
+                              color: accents[i].withValues(alpha: 0.08),
+                              border: Border.all(
+                                color: accents[i].withValues(alpha: 0.24),
+                              ),
+                              borderRadius: BorderRadius.circular(16),
                             ),
-                            borderRadius: BorderRadius.circular(16),
-                          ),
-                          child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Icon(icons[i], color: accents[i], size: 25),
-                              const SizedBox(width: 12),
-                              Expanded(child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(items[i].label, style: TextStyle(
-                                    color: accents[i],
-                                    fontWeight: FontWeight.w800,
-                                    fontSize: 16,
-                                  )),
-                                  const SizedBox(height: 5),
-                                  Text(items[i].currentState, style:
-                                    const TextStyle(
-                                      color: Color(0xFF30263D),
-                                      fontSize: 15, height: 1.45,
-                                    ),
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Icon(icons[i], color: accents[i], size: 25),
+                                const SizedBox(width: 12),
+                                Expanded(
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        items[i].label,
+                                        style: TextStyle(
+                                          color: accents[i],
+                                          fontWeight: FontWeight.w800,
+                                          fontSize: 16,
+                                        ),
+                                      ),
+                                      const SizedBox(height: 5),
+                                      Text(
+                                        items[i].currentState,
+                                        style: const TextStyle(
+                                          color: Color(0xFF30263D),
+                                          fontSize: 16,
+                                          height: 1.75,
+                                        ),
+                                      ),
+                                    ],
                                   ),
-                                ],
-                              )),
-                            ],
+                                ),
+                              ],
+                            ),
                           ),
                         ),
-                      ),
-                  ],
-                );
-              }),
+                    ],
+                  );
+                },
+              ),
             ],
           ),
         ),
@@ -603,7 +624,7 @@ class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
     final tags = hero?.tags.take(3).toList() ?? const <String>[];
     return Center(
       child: ConstrainedBox(
-        constraints: const BoxConstraints(maxWidth: 1120),
+        constraints: const BoxConstraints(maxWidth: 1040),
         child: Padding(
           padding: const EdgeInsets.fromLTRB(18, 16, 18, 0),
           child: Container(
@@ -621,38 +642,65 @@ class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Row(children: [
-                  const CircleAvatar(
-                    radius: 26,
-                    backgroundColor: Color(0xFF5E477A),
-                    child: Icon(Icons.temple_buddhist_outlined,
-                      color: Color(0xFFFFE4A9), size: 27),
-                  ),
-                  const SizedBox(width: 14),
-                  Expanded(child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const Text('พื้นดวงแบบไทย', style: TextStyle(
-                        color: Color(0xFF765C2F), fontSize: 14,
-                        fontWeight: FontWeight.w700,
-                      )),
-                      Text(
-                        hero?.headline ?? 'ดวงไทยของคุณ',
-                        style: const TextStyle(
-                          color: Color(0xFF30263D),
-                          fontSize: 20,
-                          fontWeight: FontWeight.w800,
-                        ),
+                Row(
+                  children: [
+                    const CircleAvatar(
+                      radius: 26,
+                      backgroundColor: Color(0xFF5E477A),
+                      child: Icon(
+                        Icons.temple_buddhist_outlined,
+                        color: Color(0xFFFFE4A9),
+                        size: 27,
                       ),
-                    ],
-                  )),
-                ]),
+                    ),
+                    const SizedBox(width: 14),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Text(
+                            'พื้นดวงแบบไทย',
+                            style: TextStyle(
+                              color: Color(0xFF765C2F),
+                              fontSize: 14,
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
+                          Text(
+                            hero?.headline ?? 'ดวงไทยของคุณ',
+                            style: const TextStyle(
+                              color: Color(0xFF30263D),
+                              fontSize: 22,
+                              height: 1.55,
+                              fontWeight: FontWeight.w800,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+                if (hero != null && hero.summary.trim().isNotEmpty) ...[
+                  const SizedBox(height: 16),
+                  Text(
+                    hero.summary.split('\n\n').first,
+                    key: const Key('trial-thai-key-reading'),
+                    style: const TextStyle(
+                      color: Color(0xFF30263D),
+                      fontSize: 17,
+                      height: 1.75,
+                    ),
+                  ),
+                ],
                 if (tags.isNotEmpty) ...[
                   const SizedBox(height: 18),
-                  const Text('มุมเด่นจากผลคำนวณ', style: TextStyle(
-                    fontWeight: FontWeight.w700,
-                    color: Color(0xFF483854),
-                  )),
+                  const Text(
+                    'มุมเด่นจากผลคำนวณ',
+                    style: TextStyle(
+                      fontWeight: FontWeight.w700,
+                      color: Color(0xFF483854),
+                    ),
+                  ),
                   const SizedBox(height: 10),
                   Wrap(
                     spacing: 8,
@@ -661,19 +709,21 @@ class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
                       for (final tag in tags)
                         Container(
                           padding: const EdgeInsets.symmetric(
-                            horizontal: 12, vertical: 8,
+                            horizontal: 12,
+                            vertical: 8,
                           ),
                           decoration: BoxDecoration(
                             color: Colors.white,
                             borderRadius: BorderRadius.circular(16),
-                            border: Border.all(
-                              color: const Color(0xFFDDCBA8),
+                            border: Border.all(color: const Color(0xFFDDCBA8)),
+                          ),
+                          child: Text(
+                            tag,
+                            style: const TextStyle(
+                              color: Color(0xFF3B3150),
+                              fontWeight: FontWeight.w600,
                             ),
                           ),
-                          child: Text(tag, style: const TextStyle(
-                            color: Color(0xFF3B3150),
-                            fontWeight: FontWeight.w600,
-                          )),
                         ),
                     ],
                   ),

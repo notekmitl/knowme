@@ -1,3 +1,112 @@
+# KnowMe PR149 UI polish review — 2026-10-06
+
+Candidate UI is ready for Owner visual review, **not deployed**. The approved
+small-group Preview remains version `8c0fe2f95d66d02d`, source `11ffc58`;
+its previous privacy QA is evidence for that hosted version only. This UI
+change is not silently included in the ongoing limited trial.
+
+Started from clean `4cccb41a739f764377f14c489244c2871c7bdc1b` on the existing
+Draft branch. Read CURRENT_STATUS, HANDOFF and THREE_TRADITION_OVERALL_V1
+before using prior evidence. Owner reference images were not attached in this
+turn; implementation follows the written request and the actual baseline UI.
+No claim of matching an unseen image or Owner visual acceptance is made.
+
+## Presentation changes
+
+- All four trial readers preserve user accessibility scaling and add 16%
+  desktop text size at viewport width >=900; mobile size is unchanged except
+  the Thai reading improvements. Shared wrapper imports only Flutter UI.
+- Maximum visual width is 1040 px; Chinese/Western prose is capped at 820 px.
+  Overall remains two columns at wide width, one at mobile. Existing distinct
+  palettes, report text/order, navigation and prepared chart reuse remain.
+- Overall prose line height is 1.8; Chinese trial prose 1.75–1.8. Thai quick
+  reading is 16 px/1.75 and hero 22 px/1.55. Western line height still scales
+  with its larger desktop font, retaining existing prose styles.
+- Thai first existing `hero.summary` paragraph now appears in the top hero,
+  with no copy rewrite. Full report remains optionally expandable; ordinary
+  report/PDF/capture presentation is not wrapped in trial typography.
+- Overall infographic now shows up to three existing Thai tags and calculated
+  Sun/Moon/Rising signs, without truncating supported facts to two lines.
+  Chinese four pillars and computed element counts, and Western calculated
+  element percentages, retain their existing formulas and explanatory labels.
+  No new score, weighting, evidence threshold, forecast or conclusion exists.
+- No calculator, API config, backend, Hosting, Firebase configuration, Auth,
+  Firestore, IAM or rules file was changed. Dart formatting contributes to the
+  presentation-file diff; all semantic edits are confined to trial UI.
+
+## Regression and build
+
+Local targeted regression passed 75 tests: consensus/life reading, anonymous
+API guards, public/protected launch routes, Chinese owner routes and trial
+reader navigation. Additional typography/accessibility and selection tests
+passed 12 tests, including preserving user 1.5x scale and immediate Thai
+reading visibility. These counts overlap; do not sum them as unique tests.
+One preliminary failure was the full-report collapsed-state contract; fixed
+by keeping details collapsed and exposing the existing key-reading paragraph
+instead. Repeated regression passed. Optional chart-directory cases are not
+new visual evidence when their fixture environment variable is absent.
+
+Local full analyzer completed with exit 0 under repository flags
+`--no-fatal-infos --no-fatal-warnings`; existing warnings/infos remain.
+Isolated `tool/build_trial_web.py` build passed plugin-registrant/bundle guards,
+with actual Preview API, evidence badge off and the modified trial source.
+Local build label `ui-review-4cccb41` describes a working-tree candidate;
+it is not falsely presented as a committed/deployed SHA.
+Post-push CI must be checked against the actual new HEAD before final handoff.
+
+## Browser and privacy QA scope
+
+Sixteen before/after JPEGs cover Overall/Thai/Chinese/Western at 390x844 and
+1280x800 CSS pixels, measured inside Chrome. Baseline uses the retained hosted
+build; candidate uses the new local isolated build. Same synthetic fixture:
+UI Fixture, 1 January 2001, 12:00, Bangkok. Observed top report layouts have no
+horizontal clipping; document width equals each viewport for all eight new
+views. Thai key reading is visible without expanding the report. Owner should
+review the images; this is not Owner approval or an exhaustive content-length
+and zoom audit. Mobile Overall baseline has a small retained scroll offset and
+hover tooltip; comparisons are visual references, not pixel golden assertions.
+
+QA ran through a **local-only adapter** on 127.0.0.1:8765. It substitutes only
+the calculator origin in the served JS and forwards only the two calculation
+POST paths to the actual separate Backend Preview with the already-allowed
+Preview Origin header. This avoids any deployed CORS or Hosting mutation.
+The release build on disk is unmodified; adapter bytes are not a deploy artifact.
+This local test does **not** prove browser direct cross-origin CORS for a newly
+hosted candidate; that must be verified if a future deployment is authorized.
+
+Network capture started before the candidate reload, cache disabled, with
+untruncated CDP traces. One fresh known-time journey at desktop, then responsive
+reader views at both sizes, used exactly two local-adapter POSTs, both 200;
+the adapter forwarded exactly those requests to Backend Preview. Thai/Chinese/
+Western and return-to-Overall navigation added zero calculation POSTs.
+Fresh unknown-time case at 390x844 with filled synthetic names/date showed
+the explicit known-time requirement and zero POSTs on submission attempt.
+These are not two independent fresh known-time runs at both viewport sizes.
+Existing selection regression additionally checks two prepared calculations,
+zero Auth resolution and reuse on mobile and desktop.
+
+Both local traces contain no Google Sign-In SDK, Firebase Auth/Firestore SDK
+or API, Production API or other mutation requests. No production endpoint was
+used. Full hosted privacy QA for version `8c0fe2f95d66d02d` remains historical,
+unchanged evidence; no claim that new UI is hosted or hosted-QA-passed is made.
+
+## Owner handoff and scope
+
+Before/after gallery (16 screenshots): `outputs/ui-before-after/index.html`.
+Individual JPEGs, viewport metrics and local Network traces/summaries are kept
+alongside it, outside Git. Screenshots were captured from the actual local app,
+not generated mockups. No outside invitation or other message was sent.
+
+PR stays Open/Draft. No merge, Preview/live deployment, channel renewal or
+Firestore/IAM/Auth/rules mutation occurred. The existing trial approval still
+ends 12 October 2026 at 13:30 Asia/Bangkok. Owner visual review of this candidate
+and any future Preview deployment remain separate actions.
+
+
+---
+
+Historical records below; candidate UI status above does not change the hosted trial.
+
 ## 2026-10-06 Owner approval - limited small-group trial handed off
 
 Owner explicitly approved the existing Preview for a small-group, time-limited

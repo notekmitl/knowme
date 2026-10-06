@@ -1,3 +1,4 @@
+import 'package:knowme/features/astrology/fusion/presentation/trial_reader_typography.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:knowme/data/models/astrology_chart_model.dart';
@@ -164,7 +165,7 @@ class WesternReaderBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final sections = WesternReaderV2Copy.sections(chart);
-    return DecoratedBox(
+    final view = DecoratedBox(
       decoration: const BoxDecoration(
         gradient: LinearGradient(
           colors: [Color(0xFF09101F), Color(0xFF121D38), Color(0xFF21183C)],
@@ -178,42 +179,47 @@ class WesternReaderBody extends StatelessWidget {
           padding: const EdgeInsets.fromLTRB(18, 18, 18, 48),
           child: Center(
             child: ConstrainedBox(
-              constraints: BoxConstraints(maxWidth: trialVisual ? 1120 : 880),
+              constraints: BoxConstraints(maxWidth: trialVisual ? 1040 : 880),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   _hero(),
                   const SizedBox(height: 18),
-                  LayoutBuilder(builder: (context, constraints) {
-                    final hasBalance = trialVisual &&
-                        WesternReaderV2Copy.balance(chart, 'elements')
-                            .isNotEmpty;
-                    if (hasBalance && constraints.maxWidth >= 1000) {
-                      return Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                  LayoutBuilder(
+                    builder: (context, constraints) {
+                      final hasBalance =
+                          trialVisual &&
+                          WesternReaderV2Copy.balance(
+                            chart,
+                            'elements',
+                          ).isNotEmpty;
+                      if (hasBalance && constraints.maxWidth >= 1000) {
+                        return Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Expanded(child: _bigThree()),
+                            const SizedBox(width: 20),
+                            Expanded(child: _trialElementBalance()),
+                          ],
+                        );
+                      }
+                      return Column(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
-                          Expanded(child: _bigThree()),
-                          const SizedBox(width: 20),
-                          Expanded(child: _trialElementBalance()),
+                          _bigThree(),
+                          if (hasBalance) ...[
+                            const SizedBox(height: 18),
+                            _trialElementBalance(),
+                          ],
                         ],
                       );
-                    }
-                    return Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: [
-                        _bigThree(),
-                        if (hasBalance) ...[
-                          const SizedBox(height: 18),
-                          _trialElementBalance(),
-                        ],
-                      ],
-                    );
-                  }),
+                    },
+                  ),
                   if (trialVisual) ...[
                     const SizedBox(height: 18),
                     Center(
                       child: ConstrainedBox(
-                        constraints: const BoxConstraints(maxWidth: 780),
+                        constraints: const BoxConstraints(maxWidth: 820),
                         child: _trialOverview(),
                       ),
                     ),
@@ -222,7 +228,7 @@ class WesternReaderBody extends StatelessWidget {
                   Center(
                     child: ConstrainedBox(
                       constraints: BoxConstraints(
-                        maxWidth: trialVisual ? 780 : 880,
+                        maxWidth: trialVisual ? 820 : 880,
                       ),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -253,6 +259,7 @@ class WesternReaderBody extends StatelessWidget {
         ),
       ),
     );
+    return trialVisual ? TrialReaderTypography(child: view) : view;
   }
 
   Widget _hero() {
@@ -349,8 +356,10 @@ class WesternReaderBody extends StatelessWidget {
         children: [
           const Text('สัดส่วนธาตุในดวงนี้', style: _cardTitleStyle),
           const SizedBox(height: 6),
-          const Text('เปรียบเทียบภายในดวงเดียวกัน ไม่ใช่คะแนนดีหรือร้าย',
-            style: _supportStyle),
+          const Text(
+            'เปรียบเทียบภายในดวงเดียวกัน ไม่ใช่คะแนนดีหรือร้าย',
+            style: _supportStyle,
+          ),
           const SizedBox(height: 18),
           _BalanceGroup(
             title: 'ธาตุ',
@@ -371,19 +380,32 @@ class WesternReaderBody extends StatelessWidget {
           children: [
             const Text('สามตำแหน่งหลักในดวงกำเนิด', style: _cardTitleStyle),
             const SizedBox(height: 6),
-            const Text('ตำแหน่งที่คำนวณได้ ใช้อ่านภาพรวมร่วมกัน',
-              style: _supportStyle),
+            const Text(
+              'ตำแหน่งที่คำนวณได้ ใช้อ่านภาพรวมร่วมกัน',
+              style: _supportStyle,
+            ),
             const SizedBox(height: 18),
-            Row(children: [
-              _trialPlanet('อาทิตย์', Icons.wb_sunny_outlined,
-                chart.big3['sun']),
-              const SizedBox(width: 7),
-              _trialPlanet('จันทร์', Icons.nights_stay_outlined,
-                chart.big3['moon']),
-              const SizedBox(width: 7),
-              _trialPlanet('ลัคนา', Icons.explore_outlined,
-                chart.big3['rising']),
-            ]),
+            Row(
+              children: [
+                _trialPlanet(
+                  'อาทิตย์',
+                  Icons.wb_sunny_outlined,
+                  chart.big3['sun'],
+                ),
+                const SizedBox(width: 7),
+                _trialPlanet(
+                  'จันทร์',
+                  Icons.nights_stay_outlined,
+                  chart.big3['moon'],
+                ),
+                const SizedBox(width: 7),
+                _trialPlanet(
+                  'ลัคนา',
+                  Icons.explore_outlined,
+                  chart.big3['rising'],
+                ),
+              ],
+            ),
           ],
         ),
       );
@@ -420,22 +442,26 @@ class WesternReaderBody extends StatelessWidget {
           borderRadius: BorderRadius.circular(14),
           border: Border.all(color: _violet.withValues(alpha: 0.28)),
         ),
-        child: Column(children: [
-          Icon(icon, color: _gold, size: 28),
-          const SizedBox(height: 8),
-          Text(label, style: const TextStyle(color: Colors.white70,
-            fontSize: 14)),
-          const SizedBox(height: 5),
-          Text(
-            WesternReaderV2Copy.signLabel(sign),
-            textAlign: TextAlign.center,
-            style: const TextStyle(
-              color: Colors.white,
-              fontWeight: FontWeight.w700,
-              fontSize: 16,
+        child: Column(
+          children: [
+            Icon(icon, color: _gold, size: 28),
+            const SizedBox(height: 8),
+            Text(
+              label,
+              style: const TextStyle(color: Colors.white70, fontSize: 14),
             ),
-          ),
-        ]),
+            const SizedBox(height: 5),
+            Text(
+              WesternReaderV2Copy.signLabel(sign),
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.w700,
+                fontSize: 16,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -461,10 +487,7 @@ class WesternReaderBody extends StatelessWidget {
             style: _supportStyle,
           ),
           children: [
-            if (!trialVisual) ...[
-              _balances(),
-              const SizedBox(height: 12),
-            ],
+            if (!trialVisual) ...[_balances(), const SizedBox(height: 12)],
             _dominance(),
             const SizedBox(height: 12),
             _aspects(),

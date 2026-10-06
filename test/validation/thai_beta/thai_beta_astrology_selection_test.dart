@@ -83,6 +83,7 @@ void main() {
           findsOneWidget);
         expect(find.byKey(const Key('trial-thai-life-การงาน')),
           findsOneWidget);
+        expect(find.byKey(const Key('trial-thai-key-reading')), findsOneWidget);
         expect(find.byKey(const Key('thai_shared_report_header')),
           findsNothing);
         await tester.ensureVisible(
