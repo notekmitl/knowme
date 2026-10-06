@@ -1,3 +1,43 @@
+## 2026-10-06 Owner approval ? limited small-group trial handed off
+
+Owner explicitly approved the existing Preview for a small-group, time-limited
+trial ending **12 October 2026 at 13:30 Asia/Bangkok** (06:30 UTC).
+Approval covers sharing the existing canonical link only, not merge, another
+deployment, permanent release, live changes or Firestore/IAM/Auth/rules changes.
+Owner will share the invitation personally; no external message was sent.
+
+Canonical link:
+https://knowme-app-694e1--pr-149-overall-safe-vbx6de6a.web.app/beta/thai
+
+Before handoff, authenticated Hosting metadata confirmed version
+`8c0fe2f95d66d02d`; freshly downloaded index/bootstrap/main JS SHA-256 all
+matched both the retained build and the previously accepted QA evidence.
+Build source remains `11ffc58f092ac19d70d2add370239b67a707f968`.
+Preview bytes were not rebuilt/redeployed. Prior fresh journey/privacy QA
+remains applicable; no repeat journey was needed for this docs-only change.
+Live remains `d32e72678324e634`. Pre-update HEAD `065249b` has successful
+CI run [37412840281](https://github.com/notekmitl/knowme/actions/runs/37412840281).
+This approval commit is documentation only; it does not claim its own CI passed.
+PR stays Open/Draft and unmerged.
+
+Operational sharing cutoff is 13:30 sharp; Firebase currently expires at
+13:30:21.083714850 on that day. No expiry extension or mutation was performed.
+Stop sharing by the approved cutoff even if the URL remains available briefly.
+Rollback/stop is withdrawing the link; channel deletion requires separate
+explicit authorization. Cached/open tabs are not guaranteed to stop immediately.
+The permanent-release blockers and old-route isolation plan below still apply.
+
+Invitation for Owner to share:
+> ???????????????????? KnowMe: ???????????????????????????? ?????????? ???
+> ?????????? ?????????????????????????????????????????
+> https://knowme-app-694e1--pr-149-overall-safe-vbx6de6a.web.app/beta/thai
+> ???????????? 12 ?.?. 2026 ???? 13:30 ?. ?????????
+
+Historical preflight wording about pending Owner approval is superseded by
+this approval; it remains a record of the pre-approval state.
+
+Verified at 2026-10-06T04:33:17.144328+00:00
+
 # KnowMe PR #149 release preflight — 2026-10-06
 
 Decision: **READY for a time-limited trial using the existing QA Preview link,
