@@ -1,3 +1,94 @@
+# KnowMe PR149 UI round 2 - local QA, 2026-10-06
+
+Continued the existing dirty worktree from `0635e35dede8d86b96b98a4fcc474ddf7c12d359`
+on `codex/three-tradition-overall-v1`; no unrelated work was overwritten.
+PR149 remains OPEN and Draft. **No deploy or merge. Owner visual review pending.**
+The approved hosted small-group trial is still the earlier Preview version
+`8c0fe2f95d66d02d` (source `11ffc58`). This candidate is not hosted, and these
+results do not claim that a newer Hosted Preview passed.
+
+## Changes and preserved contracts
+
+- Overall: four bordered life-area cards retain their icons and exact original
+  reading strings. The first three lines are an excerpt, not a newly generated
+  conclusion; "read details" expands the complete unchanged reading.
+- Thai: white cards, larger life-area labels, more padding and spacing. The
+  existing key reading remains visible immediately; the original full report
+  still expands. Chinese: calculated Day Master stem/element now prominent;
+  four pillars and element-count graph retain actual computed values.
+- Western: larger Sun/Moon/Rising icons and signs with clearer borders. Existing
+  element percentages and explanations remain. No forecast copy, formula,
+  score, evidence threshold, API configuration or navigation flow was changed.
+- Changed scope: four presentation files, one existing regression test and
+  these three documentation files. No Hosting/Auth/Firestore/IAM/rules changes.
+
+## Fresh browser QA and regression
+
+Independent reload-and-input journeys used fictitious UI/Fixture data at
+390x844 and 1280x800 CSS pixels. Each covered form -> Overall -> Thai -> back ->
+Chinese -> back -> Western -> back, plus expanded Overall/Thai details and
+scrolling reader sections. The tested views are readable without horizontal
+overflow; desktop uses two columns and mobile stacks cards. No application
+console errors were observed; unrelated installed-extension warnings are
+excluded from app findings. Full prediction strings are also checked by the
+regression test, with no maxLines/ellipsis on expanded details.
+
+| Fresh journey | Calculation POSTs | Result | Lens switching |
+| --- | --- | --- | --- |
+| Known time, 390x844 | 2 | both HTTP 200 | 0 additional POSTs |
+| Known time, 1280x800 | 2 | both HTTP 200 | 0 additional POSTs |
+| Unknown time, 390x844 | 0 | time-required message, no report | no fabricated result |
+| Unknown time, 1280x800 | 0 | time-required message, no report | no fabricated result |
+
+Network traces start at page load and include full app resource requests.
+No Google Sign-In SDK, Firebase Auth/Firestore SDK or API, Production API,
+or data-writing request was observed. Only local assets, Flutter CanvasKit
+and font resources plus the two known-time calculator POSTs were allowed.
+Installed Chrome-extension resource traffic is recorded but excluded from
+the app request count. No trace is truncated. A preliminary capture lacked
+events and an incomplete form had validation; both were replaced by fresh,
+complete captures before recording the table above.
+
+**Scope is QA on this Windows machine using a local adapter.** It serves the
+isolated plugin-free trial build and substitutes its Preview calculator URL
+in the HTTP response only, forwarding solely calculate-bazi/calculate-chart
+to `https://knowme-overall-pr149-preview-avbyttircq-as.a.run.app` with the
+previously allowed Preview Origin. The build files are not modified. This
+does not validate direct cross-origin CORS for a new hosted deployment.
+
+Local analyzer completed with exit 0 under repository flags (--no-fatal-infos --no-fatal-warnings); existing warnings/infos remain.
+
+Targeted local regression passed 56 tests: consensus, life-reading preservation,
+typography/accessibility, anonymous API guards and selection/navigation. It
+includes full-text disclosure for every Overall card, unchanged two calculation
+calls and zero Auth calls, and desktop layout at 1280x800. Existing unknown-time
+fail-closed behavior remains covered. Isolated trial build passed plugin/bundle
+guards. All repository Dart source hashes match the retained build stage;
+verified SHA-256 main.dart.js:
+`771175a9b1bf74c83a8396596a4cbfb89149359e6b0b144e6e0320411107a533`.
+The build label `ui-round2-0635e35` identifies this working-tree candidate,
+not a deployed commit. Final handoff is gated on CI completing for pushed HEAD;
+the final SHA/run result is recorded in the accompanying handoff evidence.
+
+## Review artifacts and next step
+
+Workspace `outputs/ui-round2/` contains individual original-size before/after
+JPEGs for all four pages at each size, additional card/full-reading images,
+four Network traces, `network-summary.json` and `build-source-evidence.json`.
+Before images are the retained local `0635e35` review images; after images use
+the current candidate. `outputs/pr149-ui-round2-images.zip` packages the raw
+images and file index. `outputs/ui-round2/screenshots.md` links individual
+files; `index.html` is an optional local review aid, not the sole deliverable.
+No unseen Owner reference image or Owner approval is claimed.
+
+Owner should review the supplied image files. Keep PR Draft and stop before
+deploy/merge. Any later hosting QA requires separate authorization and exact
+candidate build/version verification; existing hosted evidence applies only
+to its recorded version. The original release/rollback and small-trial records
+below remain historical context, not authorization to deploy this UI.
+
+---
+
 # KnowMe PR149 UI polish review — 2026-10-06
 
 Candidate UI is ready for Owner visual review, **not deployed**. The approved

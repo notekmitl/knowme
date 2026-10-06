@@ -181,6 +181,54 @@ class _TrialPillars extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          if (chart.dayMaster.element.isNotEmpty) ...[
+            Container(
+              key: const Key('trial-bazi-day-master'),
+              padding: const EdgeInsets.all(18),
+              decoration: BoxDecoration(
+                color: const Color(0xFFFFE9DB),
+                borderRadius: BorderRadius.circular(16),
+              ),
+              child: Row(
+                children: [
+                  Text(
+                    chart.dayMaster.stem,
+                    style: const TextStyle(fontSize: 32),
+                  ),
+                  const SizedBox(width: 16),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text(
+                          'ธาตุประจำวัน',
+                          style: TextStyle(
+                            color: Color(0xFF6E1D32),
+                            fontWeight: FontWeight.w700,
+                          ),
+                        ),
+                        Text(
+                          const {
+                                'wood': 'ไม้',
+                                'fire': 'ไฟ',
+                                'earth': 'ดิน',
+                                'metal': 'ทอง',
+                                'water': 'น้ำ',
+                              }[chart.dayMaster.element] ??
+                              chart.dayMaster.element,
+                          style: const TextStyle(
+                            fontSize: 24,
+                            fontWeight: FontWeight.w800,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(height: 22),
+          ],
           const Text(
             'สี่เสาของพื้นดวง',
             style: TextStyle(

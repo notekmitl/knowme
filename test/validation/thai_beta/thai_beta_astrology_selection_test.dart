@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:knowme/features/astrology/fusion/presentation/pages/three_tradition_report_page.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:knowme/data/models/bazi_chart_model.dart';
 import 'package:knowme/data/models/astrology_chart_model.dart';
@@ -102,6 +103,28 @@ void main() {
         expect(find.text('ภาพรวมชีวิตจากสามศาสตร์'), findsOneWidget);
         expect(calculateCalls, 2);
         expect(authCalls, 0);
+        final report = tester.widget<ThreeTraditionReportPage>(
+          find.byType(ThreeTraditionReportPage),
+        );
+        for (var index = 0; index < report.lifeReading.topics.length; index++) {
+          final details = find.byKey(Key('overall-topic-details-${index + 1}'));
+          await tester.ensureVisible(details);
+          await tester.tap(details);
+          await tester.pumpAndSettle();
+          final fullText = tester
+              .widgetList<Text>(
+                find.descendant(of: details, matching: find.byType(Text)),
+              )
+              .where(
+                (text) => text.data == report.lifeReading.topics[index].reading,
+              );
+          expect(fullText, hasLength(1));
+          expect(fullText.single.maxLines, isNull);
+          expect(fullText.single.overflow, isNull);
+          expect(tester.takeException(), isNull);
+        }
+        expect(calculateCalls, 2);
+        expect(authCalls, 0);
         expect(tester.takeException(), isNull);
       },
     );
@@ -109,7 +132,7 @@ void main() {
     testWidgets(
       'trial readers use paired visual panels on a wide screen',
       (tester) async {
-        await tester.binding.setSurfaceSize(const Size(1440, 900));
+        await tester.binding.setSurfaceSize(const Size(1280, 800));
         addTearDown(() => tester.binding.setSurfaceSize(null));
         var authCalls = 0;
         await _pumpSelection(

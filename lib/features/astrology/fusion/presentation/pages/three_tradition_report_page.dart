@@ -390,8 +390,14 @@ class ThreeTraditionReportPage extends StatelessWidget {
       'ความสัมพันธ์' => (Icons.favorite_border, const Color(0xFFAA5979)),
       _ => (Icons.spa_outlined, const Color(0xFF548871)),
     };
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 2),
+    return Container(
+      key: Key('overall-topic-card-$number'),
+      padding: const EdgeInsets.all(20),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(22),
+        border: Border.all(color: accent.withValues(alpha: 0.25)),
+      ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -447,6 +453,8 @@ class ThreeTraditionReportPage extends StatelessWidget {
             ),
             child: Text(
               topic.reading,
+              maxLines: 3,
+              overflow: TextOverflow.ellipsis,
               style: theme.textTheme.bodyLarge?.copyWith(
                 fontSize: 17,
                 height: 1.8,
@@ -454,10 +462,21 @@ class ThreeTraditionReportPage extends StatelessWidget {
               ),
             ),
           ),
-          Container(
-            height: 1,
-            margin: const EdgeInsets.only(left: 18),
-            color: accent.withValues(alpha: 0.18),
+          ExpansionTile(
+            key: Key('overall-topic-details-$number'),
+            tilePadding: EdgeInsets.zero,
+            title: Text('อ่านรายละเอียด', style: TextStyle(color: accent)),
+            children: [
+              Text(
+                topic.reading,
+                style: theme.textTheme.bodyLarge?.copyWith(
+                  color: _ink,
+                  fontSize: 17,
+                  height: 1.8,
+                ),
+              ),
+              const SizedBox(height: 12),
+            ],
           ),
         ],
       ),

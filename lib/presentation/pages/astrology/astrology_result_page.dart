@@ -436,15 +436,15 @@ class WesternReaderBody extends StatelessWidget {
   Widget _trialPlanet(String label, IconData icon, dynamic sign) {
     return Expanded(
       child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 3, vertical: 14),
+        padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 20),
         decoration: BoxDecoration(
           color: _violet.withValues(alpha: 0.10),
           borderRadius: BorderRadius.circular(14),
-          border: Border.all(color: _violet.withValues(alpha: 0.28)),
+          border: Border.all(color: _gold.withValues(alpha: 0.38)),
         ),
         child: Column(
           children: [
-            Icon(icon, color: _gold, size: 28),
+            Icon(icon, color: _gold, size: 34),
             const SizedBox(height: 8),
             Text(
               label,
@@ -457,7 +457,7 @@ class WesternReaderBody extends StatelessWidget {
               style: const TextStyle(
                 color: Colors.white,
                 fontWeight: FontWeight.w700,
-                fontSize: 16,
+                fontSize: 19,
               ),
             ),
           ],

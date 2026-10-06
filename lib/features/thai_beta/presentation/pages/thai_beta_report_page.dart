@@ -554,7 +554,7 @@ class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
               LayoutBuilder(
                 builder: (context, constraints) {
                   final columns = constraints.maxWidth >= 560 ? 2 : 1;
-                  const gap = 10.0;
+                  const gap = 18.0;
                   final tileWidth =
                       (constraints.maxWidth - gap * (columns - 1)) / columns;
                   return Wrap(
@@ -566,9 +566,9 @@ class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
                           width: tileWidth,
                           child: Container(
                             key: Key('trial-thai-life-${items[i].label}'),
-                            padding: const EdgeInsets.all(14),
+                            padding: const EdgeInsets.all(20),
                             decoration: BoxDecoration(
-                              color: accents[i].withValues(alpha: 0.08),
+                              color: Colors.white,
                               border: Border.all(
                                 color: accents[i].withValues(alpha: 0.24),
                               ),
@@ -589,7 +589,7 @@ class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
                                         style: TextStyle(
                                           color: accents[i],
                                           fontWeight: FontWeight.w800,
-                                          fontSize: 16,
+                                          fontSize: 18,
                                         ),
                                       ),
                                       const SizedBox(height: 5),
