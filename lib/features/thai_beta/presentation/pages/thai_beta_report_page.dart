@@ -1,5 +1,7 @@
+import 'package:knowme/features/astrology/fusion/presentation/trial_reader_typography.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:knowme/core/config/api_config.dart';
 
 import '../../application/narrative/thai_beta_narrative_composer.dart';
 import '../../application/thai_beta_analysis.dart';
@@ -40,6 +42,7 @@ class ThaiBetaReportPage extends StatelessWidget {
     this.badgeViewModelsOverride,
     this.repository,
     this.audienceAccess,
+    this.anonymousTrial = false,
     this.screenshotModeOverride,
     this.showCaptureModeBanner = false,
     this.captureBannerMessage,
@@ -63,6 +66,10 @@ class ThaiBetaReportPage extends StatelessWidget {
 
   /// Injectable audience resolver (production uses Firebase auth + admin access).
   final ThaiBetaEvidenceBadgeAudienceAccess? audienceAccess;
+
+  /// Overall trial reads this prepared chart without entering feedback or
+  /// capture routes; the existing standalone report keeps its own controls.
+  final bool anonymousTrial;
 
   /// When set, overrides [ThaiBetaScreenshotScope] (tests / capture route).
   final bool? screenshotModeOverride;
@@ -88,6 +95,7 @@ class ThaiBetaReportPage extends StatelessWidget {
         featureFlagOverride: featureFlagOverride,
         badgeViewModelsOverride: badgeViewModelsOverride,
         repository: repository,
+        anonymousTrial: anonymousTrial,
         screenshotMode: screenshotMode,
         showCaptureModeBanner: showCaptureModeBanner,
         captureBannerMessage: captureBannerMessage,
@@ -96,13 +104,16 @@ class ThaiBetaReportPage extends StatelessWidget {
 
     // Public Thai Beta is evidence-gated, not identity-gated. Avoid creating
     // Firebase Auth/Firestore audience listeners on this public surface.
-    if (resolvedFlag == ThaiEvidenceBadgeFeatureFlagState.publicBeta) {
+    if (anonymousTrial ||
+        ApiConfig.isOverallPreview ||
+        resolvedFlag == ThaiEvidenceBadgeFeatureFlagState.publicBeta) {
       return _ThaiBetaReportScaffold(
         analysis: analysis,
         audience: const ThaiBetaEvidenceBadgeAudience.anonymous(),
         featureFlagOverride: resolvedFlag,
         badgeViewModelsOverride: badgeViewModelsOverride,
         repository: repository,
+        anonymousTrial: anonymousTrial,
         screenshotMode: screenshotMode,
         showCaptureModeBanner: showCaptureModeBanner,
         captureBannerMessage: captureBannerMessage,
@@ -132,6 +143,7 @@ class ThaiBetaReportPage extends StatelessWidget {
           featureFlagOverride: featureFlagOverride,
           badgeViewModelsOverride: badgeViewModelsOverride,
           repository: repository,
+          anonymousTrial: anonymousTrial,
           screenshotMode: screenshotMode,
           showCaptureModeBanner: showCaptureModeBanner,
           captureBannerMessage: captureBannerMessage,
@@ -147,6 +159,7 @@ class _ThaiBetaReportScaffold extends StatefulWidget {
     required this.analysis,
     required this.audience,
     required this.screenshotMode,
+    this.anonymousTrial = false,
     this.userId,
     this.showCaptureModeBanner = false,
     this.captureBannerMessage,
@@ -159,6 +172,7 @@ class _ThaiBetaReportScaffold extends StatefulWidget {
   final ThaiBetaEvidenceBadgeAudience audience;
   final String? userId;
   final bool screenshotMode;
+  final bool anonymousTrial;
   final bool showCaptureModeBanner;
   final String? captureBannerMessage;
   final ThaiEvidenceBadgeFeatureFlagState? featureFlagOverride;
@@ -189,13 +203,16 @@ class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
       fontFamily: 'KnowMeNotoSansThai',
       fontFamilyFallback: const ['KnowMeNotoSans'],
     );
-    return Theme(
+    final themed = Theme(
       data: base.copyWith(
         textTheme: reportTextTheme(base.textTheme),
         primaryTextTheme: reportTextTheme(base.primaryTextTheme),
       ),
       child: child,
     );
+    return widget.anonymousTrial
+        ? TrialReaderTypography(child: themed)
+        : themed;
   }
 
   @override
@@ -373,36 +390,44 @@ class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
       badges: _showBadgePanel ? _badges : const [],
     );
     _schedulePrintDocumentSync(document);
+    final reportHorizontalPadding = widget.anonymousTrial
+        ? 0.0
+        : (MediaQuery.sizeOf(context).width >= 768 ? 32.0 : 18.0);
 
     final reportBody = <Widget>[
+      if (widget.anonymousTrial) _trialThaiInfographic(analysis),
+      if (widget.anonymousTrial) _trialThaiLifeOverview(analysis),
       if (_loadingBadges) const LinearProgressIndicator(minHeight: 2),
-      Padding(
-        padding: EdgeInsets.fromLTRB(
-          MediaQuery.sizeOf(context).width >= 768 ? 32 : 18,
-          16,
-          MediaQuery.sizeOf(context).width >= 768 ? 32 : 18,
-          0,
-        ),
-        child: Center(
-          child: ConstrainedBox(
-            constraints: const BoxConstraints(maxWidth: 780),
-            child: ThaiMirrorResultPage(
-              consumerState: narrativeView,
-              embeddedInParentScroll: true,
-              disableAnimations: true,
-              contentOverride: KeyedSubtree(
-                key: const Key('thai_birth_profile_core_reading'),
-                child: ThaiBetaSharedReportView(
-                  document: document,
-                  infographicBoundaryKey: _infographicBoundaryKey,
-                  badges: _showBadgePanel ? _badges : const [],
+      _trialOrFullReport(
+        Padding(
+          padding: EdgeInsets.fromLTRB(
+            reportHorizontalPadding,
+            16,
+            reportHorizontalPadding,
+            0,
+          ),
+          child: Center(
+            child: ConstrainedBox(
+              constraints: const BoxConstraints(maxWidth: 780),
+              child: ThaiMirrorResultPage(
+                consumerState: narrativeView,
+                embeddedInParentScroll: true,
+                disableAnimations: true,
+                contentOverride: KeyedSubtree(
+                  key: const Key('thai_birth_profile_core_reading'),
+                  child: ThaiBetaSharedReportView(
+                    document: document,
+                    infographicBoundaryKey: _infographicBoundaryKey,
+                    badges: _showBadgePanel ? _badges : const [],
+                    showInfographicSave: !widget.anonymousTrial,
+                  ),
                 ),
               ),
             ),
           ),
         ),
       ),
-      if (!widget.screenshotMode)
+      if (!widget.screenshotMode && !widget.anonymousTrial)
         Padding(
           padding: const EdgeInsets.fromLTRB(16, 8, 16, 8),
           child: OutlinedButton.icon(
@@ -463,9 +488,251 @@ class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        const ThaiBetaProgressBar(current: ThaiBetaStep.read),
+        if (!widget.anonymousTrial)
+          const ThaiBetaProgressBar(current: ThaiBetaStep.read),
         ...reportBody,
       ],
+    );
+  }
+
+  Widget _trialOrFullReport(Widget report) {
+    if (!widget.anonymousTrial) return report;
+    return Center(
+      child: ConstrainedBox(
+        constraints: const BoxConstraints(maxWidth: 780),
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(18, 12, 18, 0),
+          child: ExpansionTile(
+            key: const Key('trial-thai-full-report'),
+            initiallyExpanded: false,
+            backgroundColor: const Color(0xFFFFF8E9),
+            collapsedBackgroundColor: const Color(0xFFFFF8E9),
+            title: const Text('อ่านรายงานไทยฉบับเต็ม'),
+            subtitle: const Text(
+              'คำอ่านและรายละเอียดเดิมอยู่ครบ เปิดอ่านต่อได้',
+            ),
+            children: [report],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _trialThaiLifeOverview(ThaiBetaAnalysis analysis) {
+    final items =
+        analysis.consumerViewState?.lifeDashboard.take(4).toList() ?? const [];
+    if (items.isEmpty) return const SizedBox.shrink();
+    const icons = [
+      Icons.work_outline,
+      Icons.savings_outlined,
+      Icons.favorite_border,
+      Icons.spa_outlined,
+    ];
+    const accents = [
+      Color(0xFF71518B),
+      Color(0xFF967245),
+      Color(0xFFA65765),
+      Color(0xFF4F7B72),
+    ];
+    return Center(
+      child: ConstrainedBox(
+        constraints: const BoxConstraints(maxWidth: 1040),
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(18, 20, 18, 0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Text(
+                'อ่านเร็ว 4 ด้าน',
+                style: TextStyle(
+                  fontSize: 19,
+                  fontWeight: FontWeight.w800,
+                  color: Color(0xFF30263D),
+                ),
+              ),
+              const SizedBox(height: 10),
+              LayoutBuilder(
+                builder: (context, constraints) {
+                  final columns = constraints.maxWidth >= 560 ? 2 : 1;
+                  const gap = 18.0;
+                  final tileWidth =
+                      (constraints.maxWidth - gap * (columns - 1)) / columns;
+                  return Wrap(
+                    spacing: gap,
+                    runSpacing: gap,
+                    children: [
+                      for (var i = 0; i < items.length; i++)
+                        SizedBox(
+                          width: tileWidth,
+                          child: Container(
+                            key: Key('trial-thai-life-${items[i].label}'),
+                            padding: const EdgeInsets.all(20),
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              border: Border.all(
+                                color: accents[i].withValues(alpha: 0.24),
+                              ),
+                              borderRadius: BorderRadius.circular(16),
+                            ),
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Icon(icons[i], color: accents[i], size: 25),
+                                const SizedBox(width: 12),
+                                Expanded(
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        items[i].label,
+                                        style: TextStyle(
+                                          color: accents[i],
+                                          fontWeight: FontWeight.w800,
+                                          fontSize: 18,
+                                        ),
+                                      ),
+                                      const SizedBox(height: 5),
+                                      Text(
+                                        items[i].currentState,
+                                        style: const TextStyle(
+                                          color: Color(0xFF30263D),
+                                          fontSize: 16,
+                                          height: 1.75,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                    ],
+                  );
+                },
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _trialThaiInfographic(ThaiBetaAnalysis analysis) {
+    final hero = analysis.consumerViewState?.hero;
+    final tags = hero?.tags.take(3).toList() ?? const <String>[];
+    return Center(
+      child: ConstrainedBox(
+        constraints: const BoxConstraints(maxWidth: 1040),
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(18, 16, 18, 0),
+          child: Container(
+            key: const Key('trial-thai-infographic'),
+            padding: const EdgeInsets.all(20),
+            decoration: BoxDecoration(
+              gradient: const LinearGradient(
+                colors: [Color(0xFFFFF8E9), Color(0xFFF2ECF9)],
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+              ),
+              borderRadius: BorderRadius.circular(22),
+              border: Border.all(color: const Color(0xFFE7D7BC)),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  children: [
+                    const CircleAvatar(
+                      radius: 26,
+                      backgroundColor: Color(0xFF5E477A),
+                      child: Icon(
+                        Icons.temple_buddhist_outlined,
+                        color: Color(0xFFFFE4A9),
+                        size: 27,
+                      ),
+                    ),
+                    const SizedBox(width: 14),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Text(
+                            'พื้นดวงแบบไทย',
+                            style: TextStyle(
+                              color: Color(0xFF765C2F),
+                              fontSize: 14,
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
+                          Text(
+                            hero?.headline ?? 'ดวงไทยของคุณ',
+                            style: const TextStyle(
+                              color: Color(0xFF30263D),
+                              fontSize: 22,
+                              height: 1.55,
+                              fontWeight: FontWeight.w800,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+                if (hero != null && hero.summary.trim().isNotEmpty) ...[
+                  const SizedBox(height: 16),
+                  Text(
+                    hero.summary.split('\n\n').first,
+                    key: const Key('trial-thai-key-reading'),
+                    style: const TextStyle(
+                      color: Color(0xFF30263D),
+                      fontSize: 17,
+                      height: 1.75,
+                    ),
+                  ),
+                ],
+                if (tags.isNotEmpty) ...[
+                  const SizedBox(height: 18),
+                  const Text(
+                    'มุมเด่นจากผลคำนวณ',
+                    style: TextStyle(
+                      fontWeight: FontWeight.w700,
+                      color: Color(0xFF483854),
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+                  Wrap(
+                    spacing: 8,
+                    runSpacing: 8,
+                    children: [
+                      for (final tag in tags)
+                        Container(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 12,
+                            vertical: 8,
+                          ),
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(16),
+                            border: Border.all(color: const Color(0xFFDDCBA8)),
+                          ),
+                          child: Text(
+                            tag,
+                            style: const TextStyle(
+                              color: Color(0xFF3B3150),
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                        ),
+                    ],
+                  ),
+                ],
+              ],
+            ),
+          ),
+        ),
+      ),
     );
   }
 
@@ -624,22 +891,27 @@ class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
     return _withReportFonts(
       context,
       Scaffold(
+        appBar: widget.anonymousTrial
+            ? AppBar(title: const Text('ดวงไทย'))
+            : null,
         body: body,
-        bottomNavigationBar: SafeArea(
-          minimum: const EdgeInsets.fromLTRB(16, 8, 16, 12),
-          child: FilledButton.icon(
-            onPressed: () => Navigator.of(context).push(
-              MaterialPageRoute<void>(
-                builder: (_) => ThaiBetaFeedbackPage(analysis: analysis),
+        bottomNavigationBar: widget.anonymousTrial
+            ? null
+            : SafeArea(
+                minimum: const EdgeInsets.fromLTRB(16, 8, 16, 12),
+                child: FilledButton.icon(
+                  onPressed: () => Navigator.of(context).push(
+                    MaterialPageRoute<void>(
+                      builder: (_) => ThaiBetaFeedbackPage(analysis: analysis),
+                    ),
+                  ),
+                  style: FilledButton.styleFrom(
+                    padding: const EdgeInsets.symmetric(vertical: 16),
+                  ),
+                  icon: const Icon(Icons.rate_review_outlined),
+                  label: const Text('ให้ความคิดเห็นต่อผลวิเคราะห์'),
+                ),
               ),
-            ),
-            style: FilledButton.styleFrom(
-              padding: const EdgeInsets.symmetric(vertical: 16),
-            ),
-            icon: const Icon(Icons.rate_review_outlined),
-            label: const Text('ให้ความคิดเห็นต่อผลวิเคราะห์'),
-          ),
-        ),
       ),
     );
   }

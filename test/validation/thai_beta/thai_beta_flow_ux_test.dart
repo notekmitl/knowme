@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:knowme/features/thai_beta/application/thai_beta_store.dart';
 import 'package:knowme/features/thai_beta/presentation/pages/thai_beta_completion_page.dart';
 import 'package:knowme/features/thai_beta/presentation/pages/thai_beta_landing_page.dart';
 import 'package:knowme/features/thai_beta/presentation/widgets/thai_beta_progress_bar.dart';
@@ -16,6 +17,20 @@ void main() {
     expect(find.text('เริ่มการวิเคราะห์'), findsOneWidget);
     expect(find.text('จุดประสงค์'), findsOneWidget);
     expect(find.text('ใช้เวลาโดยประมาณ'), findsOneWidget);
+  });
+
+  testWidgets('anonymous trial does not read research participants',
+      (tester) async {
+    final store = _TrackingStore();
+    await tester.pumpWidget(MaterialApp(
+      home: ThaiBetaLandingPage(store: store, anonymousTrial: true),
+    ));
+    await tester.pump();
+
+    expect(store.readCount, 0);
+    expect(find.text('เริ่มทดลองดูดวง'), findsOneWidget);
+    expect(find.text('การเข้าร่วมงานวิจัย'), findsNothing);
+    expect(find.textContaining('โดยไม่บันทึกลงบัญชี'), findsOneWidget);
   });
 
   testWidgets('Completion screen shows thanks + reference id + restart',
@@ -47,4 +62,14 @@ void main() {
     expect(find.text('อ่านผล'), findsOneWidget);
     expect(find.text('ส่งความคิดเห็น'), findsOneWidget);
   });
+}
+
+class _TrackingStore extends ThaiBetaStore {
+  int readCount = 0;
+
+  @override
+  Future<int?> participantCount() async {
+    readCount++;
+    return 0;
+  }
 }

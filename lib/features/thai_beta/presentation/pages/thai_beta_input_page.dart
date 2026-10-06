@@ -113,6 +113,17 @@ class _ThaiBetaInputPageState extends State<ThaiBetaInputPage> {
       gender: _gender,
     );
 
+    // The trial opens the combined reading first. All three calculations
+    // require a known birth time and a resolvable birthplace.
+    if (!input.hasBirthTime || (input.provinceKey?.trim().isEmpty ?? true)) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('ดวงรวมต้องทราบเวลาเกิดและจังหวัดที่เกิด กรุณากรอกให้ครบ'),
+        ),
+      );
+      return;
+    }
+
     // A newly submitted profile must not leave an older Thai result exportable
     // while the user is deciding which system to open.
     ThaiBetaCurrentAnalysis.clear();
@@ -123,6 +134,7 @@ class _ThaiBetaInputPageState extends State<ThaiBetaInputPage> {
           startedAt: _startedAt,
           submittedAt: submittedAt,
           analysisExecutor: widget.analysisExecutor,
+          startWithOverall: true,
         ),
       ),
     );
@@ -139,7 +151,7 @@ class _ThaiBetaInputPageState extends State<ThaiBetaInputPage> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: const Text('ดูดวงไทย — งานวิจัย'),
+        title: const Text('ทดลองดูดวงรวม'),
       ),
       body: SafeArea(
         child: Column(
@@ -157,12 +169,12 @@ class _ThaiBetaInputPageState extends State<ThaiBetaInputPage> {
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     Text(
-                      'กรอกข้อมูลเพื่อดูผลวิเคราะห์ดวงไทยของคุณ',
+                      'กรอกข้อมูลเพื่อดูดวงรวม',
                       style: theme.textTheme.titleMedium,
                     ),
                     const SizedBox(height: 4),
                     Text(
-                      'ระบบนี้อยู่ในช่วงเก็บข้อมูลวิจัย ความคิดเห็นของคุณจะช่วยให้เราพัฒนาให้แม่นยำขึ้น',
+                      'ใช้ข้อมูลเกิดชุดเดียวอ่านภาพรวมจากไทย จีน และตะวันตก แล้วเลือกอ่านแต่ละศาสตร์ได้',
                       style: theme.textTheme.bodySmall
                           ?.copyWith(color: scheme.onSurfaceVariant),
                     ),
@@ -239,7 +251,7 @@ class _ThaiBetaInputPageState extends State<ThaiBetaInputPage> {
                             const SizedBox(width: 8),
                             Expanded(
                               child: Text(
-                                'หากไม่ทราบเวลาเกิด รายงานจะเว้นหัวข้อที่ต้องใช้เวลาเกิด เช่น ลัคนาและเรือน เพื่อไม่สรุปเกินข้อมูลที่มี',
+                                'ดวงรวมต้องทราบเวลาเกิด จึงจะคำนวณทั้งสามศาสตร์ได้ กรุณากลับมากรอกเมื่อทราบเวลา',
                                 style: theme.textTheme.bodySmall?.copyWith(
                                   color: scheme.onSecondaryContainer,
                                   height: 1.4,
@@ -274,7 +286,7 @@ class _ThaiBetaInputPageState extends State<ThaiBetaInputPage> {
                       style: FilledButton.styleFrom(
                         padding: const EdgeInsets.symmetric(vertical: 16),
                       ),
-                      child: const Text('เริ่มวิเคราะห์'),
+                      child: const Text('ดูดวงรวม'),
                     ),
                   ],
                 ),

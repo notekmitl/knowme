@@ -62,11 +62,13 @@ class ThaiBetaSharedReportView extends StatelessWidget {
     required this.document,
     required this.infographicBoundaryKey,
     this.badges = const [],
+    this.showInfographicSave = true,
   });
 
   final ThaiBetaReportExportDocument document;
   final GlobalKey infographicBoundaryKey;
   final List<ThaiPublicEvidenceBadgeBetaViewModel> badges;
+  final bool showInfographicSave;
 
   @override
   Widget build(BuildContext context) {
@@ -152,6 +154,7 @@ class ThaiBetaSharedReportView extends StatelessWidget {
           ThaiBetaAnnualInfographicPanel(
             data: document.infographic!,
             boundaryKey: infographicBoundaryKey,
+            showSaveAction: showInfographicSave,
           ),
         );
         infographicInserted = true;
@@ -162,6 +165,7 @@ class ThaiBetaSharedReportView extends StatelessWidget {
         ThaiBetaAnnualInfographicPanel(
           data: document.infographic!,
           boundaryKey: infographicBoundaryKey,
+          showSaveAction: showInfographicSave,
         ),
       );
     }
@@ -308,10 +312,12 @@ class ThaiBetaAnnualInfographicPanel extends StatelessWidget {
     super.key,
     required this.data,
     required this.boundaryKey,
+    this.showSaveAction = true,
   });
 
   final ThaiBetaAnnualInfographicData data;
   final GlobalKey boundaryKey;
+  final bool showSaveAction;
 
   Future<void> _save(BuildContext context) async {
     final messenger = ScaffoldMessenger.maybeOf(context);
@@ -368,13 +374,15 @@ class ThaiBetaAnnualInfographicPanel extends StatelessWidget {
               ),
             ),
           ),
-          const SizedBox(height: 10),
-          FilledButton.icon(
-            key: const Key('thai_annual_infographic_save'),
-            onPressed: () => _save(context),
-            icon: const Icon(Icons.download_outlined),
-            label: const Text('บันทึกภาพ'),
-          ),
+          if (showSaveAction) ...[
+            const SizedBox(height: 10),
+            FilledButton.icon(
+              key: const Key('thai_annual_infographic_save'),
+              onPressed: () => _save(context),
+              icon: const Icon(Icons.download_outlined),
+              label: const Text('บันทึกภาพ'),
+            ),
+          ],
         ],
       ),
     );

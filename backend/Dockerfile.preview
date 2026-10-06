@@ -1,0 +1,17 @@
+FROM python:3.12-slim
+
+WORKDIR /app
+RUN apt-get update && apt-get install -y --no-install-recommends build-essential && rm -rf /var/lib/apt/lists/*
+COPY requirements-preview.txt .
+RUN pip install --no-cache-dir -r requirements-preview.txt
+
+COPY app/preview_main.py ./app/preview_main.py
+COPY app/services/overall_summary_service.py ./app/services/overall_summary_service.py
+COPY app/services/astrology ./app/services/astrology
+COPY app/services/bazi ./app/services/bazi
+RUN ! grep -R -E '^[[:space:]]*(from|import)[[:space:]]+(firebase|google[.]cloud|app[.]services[.]firebase)' app --include='*.py' && \
+    python -c "import sys; from app.preview_main import app; assert not any('firebase' in m or 'firestore' in m for m in sys.modules); assert {r.path for r in app.routes if hasattr(r, 'path')} == {'/openapi.json', '/docs', '/docs/oauth2-redirect', '/redoc', '/health', '/v1/calculate-bazi', '/v1/calculate-chart'}"
+
+ENV PORT=8080 PYTHONUNBUFFERED=1
+EXPOSE 8080
+CMD ["sh", "-c", "exec uvicorn app.preview_main:app --host 0.0.0.0 --port ${PORT} --workers 1"]
