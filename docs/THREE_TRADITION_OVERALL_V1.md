@@ -1,3 +1,179 @@
+# KnowMe PR #149 release preflight — 2026-10-06
+
+Decision: **READY for a time-limited trial using the existing QA Preview link,
+after Owner approval; NOT READY for a permanent live release or same-origin
+integration.** PR remains Open/Draft. This preflight performs no deployment,
+merge, backend configuration change, or Firestore/IAM/Auth/rules change.
+
+## Evidence and provenance
+
+- Clean local/remote HEAD: `056c19fd002f645149310991a1c9abda4553e6c7`.
+  PR base is `main` at `aa80eabaea63b66220393e0268488f57577670b3`.
+- HEAD CI [37275013346](https://github.com/notekmitl/knowme/actions/runs/37275013346)
+  is completed/success: backend regression, isolated trial build, analyzer,
+  normal/release-config web builds and complete Flutter suite all succeeded.
+  GitHub connector returned an empty workflow list; authenticated `gh run view`
+  provided the actual SHA, jobs and successful steps.
+- Current authenticated Hosting read on 6 October still reports Preview
+  `8c0fe2f95d66d02d` and live `d32e72678324e634`, release
+  `1790074568414000`. No existing Hosting version was changed here.
+- Preview expires `2026-10-12T06:30:21.083714850Z`
+  (12 October 13:30:21 Asia/Bangkok). Share canonical URL only:
+  https://knowme-app-694e1--pr-149-overall-safe-vbx6de6a.web.app/beta/thai
+- Deployed build source is `11ffc58f092ac19d70d2add370239b67a707f968`.
+  `git diff 11ffc58..056c19f` contains only the three documentation files.
+  Build tool, Dart/web/backend source and dependency lockfile are unchanged.
+  The preflight documentation commit also does not change application bytes.
+- Re-downloaded Preview assets equal retained local build and recorded QA hashes:
+  main JS `e1b6629b726d5807852e899d5d230d4cb67db235e99d9bd8fac61af1632e4d23`;
+  bootstrap `1d1795d381d2c3f0a5efaf9cc6a51bbde28ec06f3b76034994137ff794146e83`;
+  index `c2d36a891c8960d793fa6a109a33f0b5adfaccab698d2696754adb559f271ade`.
+- Reuse the accepted 5 October fresh journeys at 390x844 and 1280x800:
+  known-time cases exactly two Preview calculation POSTs, both 200; unknown
+  time zero POSTs; no forbidden SDK/API requests or other writes. No repeated
+  browser journey is needed while these exact hosted bytes/origin remain.
+  Prior screenshots/traces are in the task history, not a new raw archive.
+- Targeted local preflight regression: public/guarded launch routes plus Chinese
+  owner route tests passed (21 reported tests); API separation test passed
+  (1 test, actual Preview calculator define). The optional chart-directory case
+  returns without fixture execution when its environment variable is absent;
+  do not count it as a new four-chart visual QA. Tests use mocked/local paths,
+  not Production API calls. No code fix was needed.
+
+## Entrypoint and proof of preserving the existing application
+
+`tool/build_trial_web.py` stages a private workspace and targets
+`lib/main_trial.dart`, with `KNOWME_OVERALL_PREVIEW=true`, separate calculator
+URL and evidence badge off. Plugin declarations are removed only in private
+dependency copies; registrant/bundle guards verify the isolated output.
+`TrialApp` always displays the anonymous landing shell; it does not contain
+the normal KnowMe routes/providers.
+
+Hosting rewrites `**` to `/index.html`. Read-only GETs for `/`, `/beta/thai`,
+`/beta/chinese` and `/profile` on the Preview origin all returned the identical
+trial index. Therefore **cloning this Preview to `knowme-app-694e1:live` would
+replace the whole existing web app**, including root/login/profile and other
+deep links. A path-looking Preview URL is not path-scoped deployment.
+Such a clone is excluded from the release plan.
+
+The recommended initial release shares the existing separate Preview origin;
+it changes neither live files nor rewrites nor links in the existing app.
+Old `/`, `/profile`, `/beta/thai`, `/beta/chinese`, capture/admin and test routes
+on the normal origin continue using the same live version/config. This is
+isolation by unchanged release identity, not a claim that HTTP 200 alone
+proves every protected page. Preflight did not log into or write through old
+routes. Local launch tests additionally retain root Login, anonymous beta and
+protected capture behavior.
+
+Do not use the normal `lib/main.dart` + `KNOWME_OVERALL_TRIAL=true` CI build
+as a substitute for the QA artifact: it preserves Firebase initialization for
+the rest of KnowMe and registers the normal plugins. Its API split test proves
+endpoint selection only; it does not prove the strict no-Auth/Firestore SDK
+gate. A same-origin `/trial/` integration would require a separate bundle,
+base-href/assets and precise rewrite/cache/service-worker scoping, plus new
+affected-route regression. It is outside the approved release design here.
+
+## Backend URL, CORS and cache
+
+Calculator remains
+`https://knowme-overall-pr149-preview-avbyttircq-as.a.run.app`.
+The trial calls only `/v1/calculate-bazi` and `/v1/calculate-chart`.
+Source `backend/app/preview_main.py` has exact HTTPS-origin CORS, POST/content-
+type only, no credential allowance and no Firebase initialization/saved-chart
+routes. Runtime OPTIONS checks (no calculation POSTs) for both paths returned:
+
+| Origin | Result |
+| --- | --- |
+| Existing Preview origin | 200, exact Access-Control-Allow-Origin |
+| knowme-app-694e1.web.app | 200, exact origin |
+| knowme-app-694e1.firebaseapp.com | 200, exact origin |
+| Proposed knowme-trial-149.web.app | 400, no allow-origin |
+| untrusted.example.invalid | 400, no allow-origin |
+
+Runtime checks establish these sampled responses, not the complete deployed
+allowlist or Cloud Run revision/env audit. CORS is browser access policy,
+not authentication or protection against direct non-browser requests.
+Backend capacity/rate limits and continued availability still need an Owner
+decision before broad public promotion; existing QA proves calculator behavior
+for synthetic journeys, not load or operational readiness.
+
+Actual Preview headers: canonical `/beta/thai` and index are `no-cache`;
+bootstrap/main JS are `no-cache, must-revalidate`. Build embeds source SHA
+query keys in index→bootstrap→main. Source disables service-worker registration
+and unregisters old workers/clears CacheStorage on this isolated origin.
+However `/` and `/profile` respond `max-age=3600` despite the index file header;
+therefore only canonical `/beta/thai` is approved for the current trial link.
+Do not promise immediate revocation of already-open tabs or cached alternate
+paths. A future permanent site must serve all SPA entry paths `no-cache`,
+retain versioned bootstrap/main URLs and avoid caching calculator responses.
+
+## Release procedure — approval required before any release action
+
+1. Owner approves the limited Preview-link trial, audience and wording, with
+   the expiry above. Keep PR Draft. Recheck channel version and three hashes
+   immediately before sharing; if changed, stop and verify the changed bytes.
+2. Share the canonical QA URL through the Owner's chosen channel. No merge,
+   deployment, old-site link edit or backend/CORS mutation is needed for this
+   option. No external message was sent by this preflight.
+3. Stop sharing before expiry. An extension is a separate explicitly approved
+   Preview action with `--no-authorized-domains`; do not silently rebuild or
+   redeploy a new HEAD just to renew the URL. Any new artifact must be tied to
+   its SHA and checked for the changes that invalidate prior evidence.
+
+For a permanent release, use a **dedicated Hosting site/origin**, never the
+default KnowMe site's live channel. Only the default site currently exists.
+After separate approval: choose/create the new site, configure its exact HTTPS
+origin in the calculator CORS without changing IAM/Auth, produce a Hosting-only
+config with explicit `site` and no-cache for all entry paths, and prepare a
+closed/unavailable baseline. Clone the approved trial content to that site's
+Preview (or build a new SHA-pinned artifact if headers/content change), verify
+hashes/headers/CORS and only the affected new-origin privacy/network journey.
+Record the new site's baseline version and promote only that site's reviewed
+Preview to its live channel. Cross-site clone creates a new version ID; record
+the mapping and verify bytes rather than expecting `8c0fe2f95d66d02d` to persist.
+No such site creation, CORS update, Preview clone or live promotion was done.
+The unprepared site, rejected new-origin CORS and cache hardening mean this
+permanent option is **NOT READY** today.
+
+## Rollback / stop procedure
+
+- Existing Preview-link trial: withdraw the shared link. To stop new loads
+  after Owner authorization, delete only channel `pr-149-overall-safe` with
+  project/site explicitly `knowme-app-694e1`, or let it expire. No live rollback
+  is needed because the original live version never changed. Deleting a channel
+  is a shutdown, not an asset rollback; cached/open clients may continue until
+  reload and backend access is not revoked by removing the link.
+- If a later Preview update is planned, preserve the QA version in a separate
+  backup Preview first and verify the backup's hashes. Restore by cloning that
+  backup to `pr-149-overall-safe`; never target `:live` for Preview rollback.
+  No backup channel was created during this preflight.
+- Permanent dedicated site: before promotion retain its baseline Preview/version.
+  On failure withdraw the link and clone that dedicated baseline to that site's
+  live channel, then verify index/bootstrap/main hashes and CORS. The old KnowMe
+  site remains outside both promotion and rollback commands. No rollback command
+  is executable now because the dedicated site/baseline does not yet exist.
+- Emergency guard only if an independently authorized future action changes
+  original KnowMe live: Firebase console Hosting Release history → Roll back
+  the release pointing to `d32e72678324e634` (current baseline), then verify
+  release identity and saved asset hashes. Re-read baseline immediately before
+  any future action; do not assume this version is forever current.
+- Stop criteria: hash/version drift, wrong target/default live target, failed
+  CORS, forbidden SDK/API/writes, calculation count regression or old-route
+  change. Stop promotion, restore only the affected site/channel, and repeat
+  only evidence invalidated by the actual change.
+
+References: [Firebase channels/cloning/rollback](https://firebase.google.com/docs/hosting/manage-hosting-resources),
+[cache behavior](https://firebase.google.com/docs/hosting/manage-cache).
+
+Documentation update is docs-only. CI must pass on its pushed SHA before final
+handoff; exact post-update run/SHA is recorded in the final handoff report,
+without recursively editing tracked docs just to embed their own commit ID.
+
+
+---
+
+Historical records below are superseded by the preflight above.
+
 ## 2026-10-05 Hosting Preview and scoped privacy QA — PASS
 
 Local Windows interactive login completed successfully after the Owner selected
