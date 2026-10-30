@@ -1,3 +1,29 @@
+# KnowMe PR149 Overall disclosure follow-up - 2026-10-30
+
+Continued Draft PR #149 from `9b8e21f` on `codex/three-tradition-overall-v1`.
+Only the four Overall life-area cards changed: the existing three-line excerpt
+appears while collapsed, and opening "อ่านรายละเอียด" replaces it with the
+complete original reading once. Collapsing restores the same excerpt. Reading
+strings, calculation inputs, other pages, and visual styling are unchanged.
+
+Targeted Flutter regression passed **56 tests**, including all four cards at
+390x844 and 1280x800, exact full-text preservation, collapse restoration,
+trial navigation and no extra calculation on lens switching. The isolated
+plugin-free trial build passed its bundle guard; `main.dart.js` SHA-256 is
+`1ffa1b4b087147a073e87f8ee5c9a00775ff600d808681737c09cd67b00aac81`.
+
+Fresh local Chromium QA used a synthetic fixture and one session resized from
+390x844 to 1280x800. Both sizes showed the excerpt on collapse and one full
+reading when expanded, with no visible overflow. The initial two calculation
+POSTs returned HTTP 200; toggling, scrolling and resizing added zero POSTs.
+No Auth, Firestore, Production API or write request, and no application console
+error, was observed. A local adapter forwarded only the two calculator POSTs
+to the separate Backend Preview. This was **local QA, not a Hosted Preview
+update**. Four collapsed/expanded screenshots were saved separately for Owner
+review; Owner approval remains pending. PR stays Draft; no deploy or merge.
+
+---
+
 # KnowMe PR149 UI round 2 - local QA, 2026-10-06
 
 Continued the existing dirty worktree from `0635e35dede8d86b96b98a4fcc474ddf7c12d359`

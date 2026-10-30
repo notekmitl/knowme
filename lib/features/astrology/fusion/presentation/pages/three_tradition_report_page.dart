@@ -441,42 +441,11 @@ class ThreeTraditionReportPage extends StatelessWidget {
             ],
           ),
           const SizedBox(height: 12),
-          Container(
-            padding: const EdgeInsets.fromLTRB(18, 2, 2, 14),
-            decoration: BoxDecoration(
-              border: Border(
-                left: BorderSide(
-                  color: accent.withValues(alpha: 0.55),
-                  width: 3,
-                ),
-              ),
-            ),
-            child: Text(
-              topic.reading,
-              maxLines: 3,
-              overflow: TextOverflow.ellipsis,
-              style: theme.textTheme.bodyLarge?.copyWith(
-                fontSize: 17,
-                height: 1.8,
-                color: _ink,
-              ),
-            ),
-          ),
-          ExpansionTile(
-            key: Key('overall-topic-details-$number'),
-            tilePadding: EdgeInsets.zero,
-            title: Text('อ่านรายละเอียด', style: TextStyle(color: accent)),
-            children: [
-              Text(
-                topic.reading,
-                style: theme.textTheme.bodyLarge?.copyWith(
-                  color: _ink,
-                  fontSize: 17,
-                  height: 1.8,
-                ),
-              ),
-              const SizedBox(height: 12),
-            ],
+          _OverallTopicDetails(
+            reading: topic.reading,
+            theme: theme,
+            accent: accent,
+            number: number,
           ),
         ],
       ),
@@ -494,5 +463,75 @@ class ThreeTraditionReportPage extends StatelessWidget {
     return lifeAreas.contains(title)
         ? 'ข้อมูลยังไม่พอสำหรับ$title'
         : 'ข้อมูลยังไม่พอสำหรับคำอ่านบางด้าน';
+  }
+}
+
+class _OverallTopicDetails extends StatefulWidget {
+  const _OverallTopicDetails({
+    required this.reading,
+    required this.theme,
+    required this.accent,
+    required this.number,
+  });
+
+  final String reading;
+  final ThemeData theme;
+  final Color accent;
+  final int number;
+
+  @override
+  State<_OverallTopicDetails> createState() => _OverallTopicDetailsState();
+}
+
+class _OverallTopicDetailsState extends State<_OverallTopicDetails> {
+  bool _expanded = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        if (!_expanded)
+          Container(
+            padding: const EdgeInsets.fromLTRB(18, 2, 2, 14),
+            decoration: BoxDecoration(
+              border: Border(
+                left: BorderSide(
+                  color: widget.accent.withValues(alpha: 0.55),
+                  width: 3,
+                ),
+              ),
+            ),
+            child: Text(
+              widget.reading,
+              maxLines: 3,
+              overflow: TextOverflow.ellipsis,
+              style: widget.theme.textTheme.bodyLarge?.copyWith(
+                fontSize: 17,
+                height: 1.8,
+                color: ThreeTraditionReportPage._ink,
+              ),
+            ),
+          ),
+        ExpansionTile(
+          key: Key('overall-topic-details-${widget.number}'),
+          tilePadding: EdgeInsets.zero,
+          onExpansionChanged: (expanded) =>
+              setState(() => _expanded = expanded),
+          title: Text('อ่านรายละเอียด', style: TextStyle(color: widget.accent)),
+          children: [
+            Text(
+              widget.reading,
+              style: widget.theme.textTheme.bodyLarge?.copyWith(
+                color: ThreeTraditionReportPage._ink,
+                fontSize: 17,
+                height: 1.8,
+              ),
+            ),
+            const SizedBox(height: 12),
+          ],
+        ),
+      ],
+    );
   }
 }

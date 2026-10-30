@@ -1,3 +1,24 @@
+# KnowMe PR149 Overall card disclosure - 2026-10-30
+
+Follow-up from `9b8e21f`: each of the four life-area cards conditionally shows
+the original `topic.reading` as a three-line, ellipsized excerpt when collapsed.
+When its existing ExpansionTile opens, the excerpt is removed and the full
+`topic.reading` is displayed once without truncation. Closing restores the
+same excerpt. No prediction text, evidence rule, calculation, API setting or
+other page layout was changed.
+
+Regression passed 56 targeted Flutter tests. A dedicated widget test checks
+all four cards and exact text at 390x844 and 1280x800 through open and close;
+existing trial navigation tests cover no additional calculation. A fresh
+local-only browser session showed the same first-card behavior at both sizes,
+with no visible overflow or console errors. Its only calculation requests to a
+remote backend were two permitted calculator POSTs through a local adapter to
+the separate Backend Preview (both HTTP 200); toggling added none. No Auth,
+Firestore, Production API or data-writing request was observed. This candidate
+was not deployed. Owner visual review is pending; PR remains Draft.
+
+---
+
 # KnowMe PR149 UI round 2 - local QA, 2026-10-06
 
 Continued the existing dirty worktree from `0635e35dede8d86b96b98a4fcc474ddf7c12d359`

@@ -1,3 +1,28 @@
+# KnowMe PR149 handoff - Overall disclosure, 2026-10-30
+
+Draft PR #149 continues from `9b8e21f`. The four Overall cards now show their
+unchanged three-line excerpt only while collapsed. Opening "อ่านรายละเอียด"
+shows the complete original reading once; closing restores the excerpt. No
+other reader, calculation or privacy path changed.
+
+Verification: 56 targeted Flutter tests passed, including all four toggles at
+390x844 and 1280x800 and trial navigation without recomputation. The
+plugin-free trial bundle passed its API/SDK guard. Local Chromium QA at both
+sizes showed no visible overflow or console error. Its two calculator POSTs
+returned HTTP 200 from the separate Backend Preview through a local adapter;
+all open/close, scroll and resize actions added zero POSTs. Request capture
+contained no Auth, Firestore, Production API or data-writing request.
+
+Local review images (not deployment artifacts) are under
+`C:\Users\USER\Documents\Knowme\pr149_disclosure_qa\`:
+`collapsed-390.png`, `expanded-390.png`, `collapsed-1280.png`, and
+`expanded-1280.png`; `recollapsed-*.png` and `qa-summary.json` record the
+return state and network result. They use a synthetic fixture. The current
+Hosted Preview was not changed by this follow-up. Owner visual approval is
+pending. Keep PR Draft; do not deploy or merge.
+
+---
+
 # KnowMe PR149 UI round 2 - local QA, 2026-10-06
 
 Continued the existing dirty worktree from `0635e35dede8d86b96b98a4fcc474ddf7c12d359`

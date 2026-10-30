@@ -461,6 +461,90 @@ void main() {
     },
   );
 
+  for (final size in [const Size(390, 844), const Size(1280, 800)]) {
+    testWidgets(
+      'four Overall cards show one full reading only when open at $size',
+      (tester) async {
+        await tester.binding.setSurfaceSize(size);
+        addTearDown(() => tester.binding.setSurfaceSize(null));
+        const titles = [
+          'การงาน',
+          'การเงิน',
+          'ความสัมพันธ์',
+          'การดูแลพลังและกิจวัตร',
+        ];
+        final readings = [
+          for (var i = 0; i < titles.length; i++)
+            'คำอ่านทดสอบด้าน ${titles[i]} — ข้อความต้นฉบับต้องอยู่ครบทุกตัวอักษร '
+                'เมื่อเปิดรายละเอียด และกลับเป็นข้อความย่อเดิมเมื่อยุบ '
+                'โดยไม่มีคำอ่านอีกชุดซ้ำอยู่ในการ์ด',
+        ];
+        await tester.pumpWidget(
+          MaterialApp(
+            home: ThreeTraditionReportPage(
+              reading: ThreeTraditionConsensus.analyzeOutputs([]),
+              lifeReading: ThreeTraditionLifeReading(
+                topics: [
+                  for (var i = 0; i < titles.length; i++)
+                    ThreeTraditionLifeTopic(
+                      title: titles[i],
+                      reading: readings[i],
+                      thai: 'fixture',
+                      thaiEvidenceKeys: const ['fixture'],
+                      chinese: 'fixture',
+                      chineseEvidenceKeys: const ['fixture'],
+                      western: 'fixture',
+                      westernBasis: 'fixture',
+                    ),
+                ],
+                gaps: const [],
+              ),
+            ),
+          ),
+        );
+
+        for (var i = 0; i < titles.length; i++) {
+          final card = find.byKey(Key('overall-topic-card-${i + 1}'));
+          final details = find.byKey(Key('overall-topic-details-${i + 1}'));
+          final toggle = find.descendant(
+            of: details,
+            matching: find.text('อ่านรายละเอียด'),
+          );
+          await tester.ensureVisible(details);
+          await tester.pumpAndSettle();
+          List<Text> readingTexts() => tester
+              .widgetList<Text>(
+                find.descendant(of: card, matching: find.byType(Text)),
+              )
+              .where((text) => text.data == readings[i])
+              .toList();
+
+          expect(readingTexts(), hasLength(1));
+          expect(readingTexts().single.maxLines, 3);
+          expect(readingTexts().single.overflow, TextOverflow.ellipsis);
+
+          await tester.ensureVisible(toggle);
+          await tester.tap(toggle);
+          await tester.pumpAndSettle();
+          expect(readingTexts(), hasLength(1));
+          expect(readingTexts().single.data, readings[i]);
+          expect(readingTexts().single.maxLines, isNull);
+          expect(readingTexts().single.overflow, isNull);
+
+          await tester.ensureVisible(toggle);
+          await tester.pumpAndSettle();
+          await tester.tap(toggle);
+          await tester.pumpAndSettle();
+          expect(readingTexts(), hasLength(1));
+          expect(readingTexts().single.maxLines, 3);
+          expect(readingTexts().single.overflow, TextOverflow.ellipsis);
+          expect(tester.getSize(card).width, lessThanOrEqualTo(size.width));
+          expect(tester.takeException(), isNull);
+        }
+      },
+    );
+  }
+
   testWidgets('report keeps distinct lens facts outside the public page', (
     tester,
   ) async {
