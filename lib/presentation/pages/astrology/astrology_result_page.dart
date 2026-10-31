@@ -184,7 +184,7 @@ class WesternReaderBody extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  _hero(),
+                  _hero(context),
                   if (!trialVisual) ...[
                     const SizedBox(height: 18),
                     LayoutBuilder(
@@ -256,7 +256,7 @@ class WesternReaderBody extends StatelessWidget {
     return trialVisual ? TrialReaderTypography(child: view) : view;
   }
 
-  Widget _hero() {
+  Widget _hero(BuildContext context) {
     if (trialVisual) {
       return Container(
         key: const Key('western-reader-v2-hero'),
