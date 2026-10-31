@@ -220,15 +220,19 @@ class _TrialPillars extends StatelessWidget {
                   key: const Key('bazi-report-title'),
                   style: const TextStyle(
                     color: TrialVisualDesign.text,
-                    fontSize: 24,
+                    fontSize: 21,
                     fontWeight: FontWeight.w800,
                   ),
                 ),
                 Text(
                   subtitle,
-                  style: const TextStyle(color: TrialVisualDesign.text),
+                  style: const TextStyle(
+                    color: TrialVisualDesign.text,
+                    fontSize: 13,
+                    height: 1.4,
+                  ),
                 ),
-                const SizedBox(height: 95),
+                const SizedBox(height: 38),
                 if (chart.dayMaster.element.isNotEmpty)
                   Container(
                     key: const Key('trial-bazi-day-master'),
