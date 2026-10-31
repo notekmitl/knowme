@@ -1,3 +1,48 @@
+# KnowMe PR149 integrated illustrated readers — isolated trial, 2026-10-31
+
+Application SHA `e8bcfa72ffc292964f40e1df1de0465db1070960` refines only
+anonymous-trial presentation after the prior approved-board implementation.
+Required CI run `41201507946` passed all jobs including the complete Flutter
+suite. The same original four Overall reading strings, calculation outputs,
+0.6 threshold, conflict/fail-closed behavior and no-source-list public page
+remain intact. Opening a topic displays the full reading once; collapse
+restores its three-line excerpt. Prepared Thai, BaZi and Western objects are
+reused through all reader switches.
+
+The Overall summary uses one illustrated surface containing factual labels
+derived from the prepared models. At desktop width its four collapsed life
+cards form a 2×2 grid beside the summary. BaZi places its computed day master
+and four pillars on one illustrated panel; the five element slot counts remain
+available via disclosure and are explicitly not scores. Western puts calculated
+Sun/Moon/Rising and element proportions with the existing overview in one
+illustrated surface. Thai deep report sections and the nested annual
+infographic cards use jade/gold only for anonymous trial; the standalone Thai
+view and export defaults retain their prior design.
+
+Local 390×844, 1280×800 and 320×740 journeys passed without horizontal
+overflow. Final Hosted Preview version `618a0d087d43aa9b` repeated fresh
+390×844 and 1280×800 known-time journeys (two successful Preview calculator
+POSTs each, none after navigation or disclosure) and unknown-time journeys
+(zero POSTs with a time-required explanation). Initial-load network traces
+showed no Auth/Firestore SDK or API, Production API, extra writes, failed
+requests or app errors. The hosted index/bootstrap/main JS SHA-256 values
+match the guarded `pr149-e8bcfa7` build; exact values are in
+[CURRENT_STATUS.md](CURRENT_STATUS.md). The Preview expires **7 Nov 2026
+19:40:50 Asia/Bangkok**. Production live and Backend Preview revision did not
+change. [Reference-to-hosted screenshots and sanitized traces](qa/pr149-integrated-visual/README.md)
+are available for Owner review.
+
+The AI boards' chart characters, zodiac placements and predictions remain
+illustrative only. The running UI does not reproduce their bespoke illustrated
+topic icons or calculate a decorative Thai/Zodiac wheel; Chinese and Western
+desktop readings remain linear articles below their integrated hero. At
+320 px, brief lens fact chips can ellipsize while full computed details remain
+available in the individual reader. Owner approval of the final UI is still
+pending. PR #149 remains Draft; no merge or Production/Backend/Auth/Firestore/
+IAM/rules change occurred.
+
+---
+
 # KnowMe PR149 approved visual direction — isolated trial, 2026-10-31
 
 The approved `mobile-four-readers.png` and `pc-four-readers.png` boards from

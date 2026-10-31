@@ -1,3 +1,58 @@
+# KnowMe Draft PR #149 — integrated trial readers, 2026-10-31
+
+Starting HEAD was `bab1b4c365d33ce2b74f33183aee25a502791f91`, with a clean
+worktree. The presentation-only application work ends at
+`e8bcfa72ffc292964f40e1df1de0465db1070960`. Required CI run
+`41201507946` passed backend validation, isolated trial build and Flutter
+validation including the complete suite. Focused Overall, BaZi, Western, Thai
+scroll/export and trial-navigation regressions passed locally. No calculator,
+consensus, evidence threshold, prediction text, Auth, Firestore or normal
+single-tradition flow was changed.
+
+Overall now puts decorative artwork and calculated Thai/Chinese/Western facts
+in one illustrated surface. Its desktop layout has a left summary and four
+collapsed life cards in a 2×2 grid at right; expansion shows the original full
+reading once, with no clipping or duplicate excerpt. Chinese combines art,
+computed day master and four pillars in one panel, with the original computed
+five-element counts behind a disclosure. Western places its computed Big 3,
+existing overview and element proportions in one illustrated surface. Thai
+deep-report section cards and the nested annual infographic palette use jade
+and gold only in the anonymous trial; standalone Thai remains at its original
+styling. All source values remain live model data, not text or chart marks from
+the AI boards.
+
+The exact guarded build is `pr149-e8bcfa7`, using only
+`https://knowme-overall-pr149-preview-avbyttircq-as.a.run.app` and a plugin-free
+registrant. Isolated local journeys at 390×844, 1280×800 and 320×740 had two
+successful Preview calculator POSTs for known time, none on detail toggles or
+reader switches, zero forbidden requests/writes/errors and no horizontal
+overflow. Unknown time stopped with an explanation and zero POSTs. Final
+Hosted Preview version `618a0d087d43aa9b` on existing channel
+`pr-149-overall-safe` repeated independent 390×844 and 1280×800 known-time
+journeys, plus unknown-time journeys at both sizes, with the same results.
+All captured request traces began before initial page load. Hosted
+index/bootstrap/main JS SHA-256 matched the isolated build respectively:
+`47e11ff570cc34873652ced4cf4702ba6957d7fe0de92ae3b20864b2cdf206f6`,
+`5a35ecacf78586b093036551e7a0cacc4df3f2d885c3411a1868b19ff1abb09d`,
+`930e4bafdb4c2343d84e0ab21063d8d2028c99d000fa224a2ca93e843a96a857`.
+
+Preview URL: <https://knowme-app-694e1--pr-149-overall-safe-c41ic92g.web.app/beta/thai>.
+The channel expires **7 Nov 2026 19:40:50 Asia/Bangkok**. Only this Hosting
+Preview channel was updated with `--no-authorized-domains`. Production `live`
+retained version `d32e72678324e634`; Backend Preview retained revision
+`knowme-overall-pr149-preview-00003-5lg`. [Open the current hosted/reference
+comparison and sanitized evidence](qa/pr149-integrated-visual/README.md).
+The ornate chart wheels and bespoke icons in the AI reference are decorative;
+this implementation uses native controls and computed text, and Chinese and
+Western desktop readings still flow as articles below the hero rather than
+copying the board's topic tiles. At 320 px, the Overall title wraps and some
+short lens fact chips ellipsize; full details remain in each lens. These are
+remaining visual differences for Owner review, not final UI acceptance. PR
+#149 stays Draft; no merge or Production, Backend, Auth, Firestore, IAM/rules
+deployment occurred.
+
+---
+
 # KnowMe Draft PR #149 — approved visual direction on Hosted Preview, 2026-10-31
 
 Owner approved the two visual boards in the supplied ZIP as a **direction**.

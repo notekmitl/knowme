@@ -1,3 +1,45 @@
+# KnowMe PR149 handoff — integrated visual pass, 2026-10-31
+
+Continue Draft PR #149 on `codex/three-tradition-overall-v1`. Starting HEAD was
+`bab1b4c`; application SHA is `e8bcfa72ffc292964f40e1df1de0465db1070960`.
+Run `41201507946` passed all three required jobs, including the complete
+Flutter suite. Focused local regressions covered Overall full-text disclosure,
+prepared-reader navigation, BaZi, Western and Thai report/export. Preserve the
+calculation, evidence/conflict gates, 0.6 threshold, wording and normal
+single-tradition behavior.
+
+Owner review URL:
+<https://knowme-app-694e1--pr-149-overall-safe-c41ic92g.web.app/beta/thai>.
+Hosting Preview version is `618a0d087d43aa9b`, expiring **7 Nov 2026
+19:40:50 Asia/Bangkok**. Build `pr149-e8bcfa7` uses only the isolated Backend
+Preview. Hosting deployment used `--no-authorized-domains` on the existing
+`pr-149-overall-safe` channel; Production live version stayed
+`d32e72678324e634`, and Backend Preview revision stayed
+`knowme-overall-pr149-preview-00003-5lg`.
+
+Fresh Hosted journeys at 390×844 and 1280×800 each sent exactly two successful
+POSTs to Preview calculator endpoints for known time. Overall disclosure,
+Chinese element disclosure, Thai full report, back navigation and direct lens
+switching sent no further POST. Unknown time at both sizes stopped on the form
+with an explanation and zero POST. From initial load, traces had no Google
+Sign-In/Firebase Auth/Firestore SDK/API, Production API, other writes, failed
+requests or app errors. All measured widths equalled the viewport; local
+320×740 also passed. Hosted index/bootstrap/main JS hashes matched the guarded
+build. See [the current image comparison and sanitized QA traces](qa/pr149-integrated-visual/README.md).
+
+The reference boards' literal signs, pillars and predictions were not copied.
+The implementation uses decorative art plus existing computed values. Four
+Overall cards are 2×2 on desktop while collapsed and retain full text on
+expansion. Trial Thai deep sections and annual infographic tiles are jade and
+gold; regular Thai remains unchanged. Visual differences remain: the reference
+uses ornate chart wheels and bespoke icons, Chinese/Western desktop articles
+are linear below their hero, and the 320 px Overall title wraps with some lens
+fact chips abbreviated by ellipsis. Owner review of the running UI is still
+pending. Keep PR Draft; do not merge or deploy Production/Backend or alter
+Auth, Firestore, IAM/rules.
+
+---
+
 # KnowMe PR149 handoff — approved visual direction in Preview, 2026-10-31
 
 Continue Draft PR #149 on `codex/three-tradition-overall-v1`. Application
