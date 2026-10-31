@@ -1,3 +1,46 @@
+# KnowMe PR149 Hosted Preview with scoped Backend CORS - 2026-10-31
+
+The current Preview is functional after a **Backend Preview-only** CORS env
+update. Application SHA `3c747ae7f37bf47529ee61bb83b08bd017f1fbe9`,
+Hosting version `e7ea691e701bcdbd`, and the three hosted asset hashes did
+not change. New Cloud Run revision `knowme-overall-pr149-preview-00003-5lg`
+uses the identical image digest as rollback revision `...00002-6ql`:
+`sha256:db2d1575a07ada28ca38ee7b62f5e2f6499066008b81231d7ff188f7ca1da119`.
+Service account, IAM policy, `PREVIEW_ORIGIN` and all other template spec
+fields match the saved pre-update service. Only
+`CALCULATOR_ALLOWED_ORIGINS` appended the exact new origin
+`https://knowme-app-694e1--pr-149-overall-safe-c41ic92g.web.app`. The old
+three origins were retained; no wildcard or regex was added. Both calculator
+OPTIONS paths accepted each allowed origin with exact allow-origin and
+rejected an untrusted origin with HTTP 400 and no allow-origin.
+
+The same Hosting Preview channel version remained deployed; `live` kept
+version `d32e72678324e634`. Its canonical URL is
+`https://knowme-app-694e1--pr-149-overall-safe-c41ic92g.web.app/beta/thai`,
+expiring 2026-11-07 10:19:52 Asia/Bangkok. No Hosting, Production Backend,
+Auth, Firestore, IAM or rules change was made in this repair.
+
+Fresh independent hosted journeys at 390x844 and 1280x800 CSS pixels used
+synthetic known-time inputs. Each rendered Overall with four life-area cards,
+opened and closed its work detail, visited all three individual readers and
+returned to Overall. The full reading appeared only once on expansion; the
+unchanged three-line excerpt returned on collapse. Scrolling and screenshots
+showed readable content with no visible overflow; measured document width
+matched viewport width on Overall and all three readers. Network capture
+started before page load and found only two calculation POSTs per journey,
+both HTTP 200 to the isolated Backend Preview. No extra POST arose from
+detail toggling or reader navigation. Forbidden Auth/Firestore/Production
+SDK/API requests, other writes, app errors and failed requests were all zero.
+Separate unknown-time forms at both sizes stopped with the time-required
+banner and zero POSTs. This is hosted technical QA, **not** Owner approval of
+the entire UI.
+
+Before/after/final Cloud Run and Hosting JSON, IAM snapshots, CORS responses,
+hosted hashes, network traces and screenshots are in the local QA folder
+`C:\Users\USER\Documents\Knowme\pr149_backend_cors_20261031`. PR remains Draft.
+
+---
+
 # KnowMe PR149 isolated Hosting Preview - 2026-10-31 blocker
 
 The application code remains SHA `3c747ae7f37bf47529ee61bb83b08bd017f1fbe9`

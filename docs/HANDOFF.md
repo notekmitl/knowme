@@ -1,3 +1,48 @@
+# KnowMe PR149 handoff - Backend Preview CORS repaired, 2026-10-31
+
+The preceding CORS blocker below is resolved for the current Preview origin.
+Application SHA remains `3c747ae7f37bf47529ee61bb83b08bd017f1fbe9`;
+starting docs HEAD was `ff8de3033e8dd9f803c0bc281786a58d31c9b955`.
+Only Backend Preview service `knowme-overall-pr149-preview` in
+`asia-southeast1` received a new configuration revision. Rollback target:
+`knowme-overall-pr149-preview-00002-6ql` (100% traffic before update). New
+revision: `knowme-overall-pr149-preview-00003-5lg` (100% after update), using
+the same image digest
+`sha256:db2d1575a07ada28ca38ee7b62f5e2f6499066008b81231d7ff188f7ca1da119`.
+No regression was found, so rollback was not used.
+
+`CALCULATOR_ALLOWED_ORIGINS` retained its three old exact origins and appended
+only `https://knowme-app-694e1--pr-149-overall-safe-c41ic92g.web.app`.
+`PREVIEW_ORIGIN` and all other env/template fields were unchanged. The runtime
+service account and service IAM policy match the saved baseline. Production
+Backend service spec/revision, Hosting Preview version `e7ea691e701bcdbd`,
+and Hosting live version `d32e72678324e634` remained unchanged. No Hosting,
+Production Backend, Auth, Firestore, IAM or rules deployment occurred.
+
+Both calculator OPTIONS preflights now return HTTP 200 with the new exact
+allow-origin and POST method. The prior allowed origins still work; untrusted
+origin returns 400 with no allow-origin. Fresh hosted known-time journeys at
+390x844 and 1280x800 each sent exactly two calculator POSTs, both HTTP 200,
+and visited Overall -> Thai -> Overall -> Chinese -> Overall -> Western ->
+Overall. Opening/closing details and navigation added zero POSTs. Visual QA
+showed one full reading on expansion, the same excerpt on collapse, all four
+cards and no overflow; document width matched viewport on every observed
+page. Browser capture from first load found no forbidden SDK/API or Production
+API request, other write, app console error or failed request. Fresh
+unknown-time cases at both sizes remained on the form with a time-required
+banner and zero POSTs. Owner UI acceptance remains pending.
+
+Functional Owner review URL:
+`https://knowme-app-694e1--pr-149-overall-safe-c41ic92g.web.app/beta/thai`.
+The existing channel expires **7 Nov 2026 10:19:52 Thailand time**. Do not
+renew or deploy Hosting again without a new scoped instruction. Local QA
+evidence is under `C:\Users\USER\Documents\Knowme\pr149_backend_cors_20261031`;
+the complete service/revision snapshots there retain values for traffic
+rollback to `...00002-6ql` if a later regression is established. Keep PR
+Open + Draft; do not merge or deploy Production.
+
+---
+
 # KnowMe PR149 handoff - Preview CORS blocker, 2026-10-31
 
 Draft PR #149 application remains `3c747ae7f37bf47529ee61bb83b08bd017f1fbe9`;

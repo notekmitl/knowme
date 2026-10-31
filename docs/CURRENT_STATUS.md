@@ -1,3 +1,70 @@
+# KnowMe PR149 Backend Preview CORS repair and Hosted QA - 2026-10-31
+
+Draft PR #149 application remains SHA `3c747ae7f37bf47529ee61bb83b08bd017f1fbe9`;
+starting docs HEAD was `ff8de3033e8dd9f803c0bc281786a58d31c9b955`. The
+application CI and the preceding docs CI each passed all three checks. No
+application source, prediction formula, evidence threshold or Hosting artifact
+changed in this follow-up. Owner confirmed only the duplicate-excerpt fix in
+the earlier image, not the complete UI.
+
+With the scoped authorization for **Backend Preview CORS only**, the target was
+confirmed as Cloud Run service `knowme-overall-pr149-preview` in
+`asia-southeast1`, URL
+`https://knowme-overall-pr149-preview-avbyttircq-as.a.run.app`. Before update,
+revision `knowme-overall-pr149-preview-00002-6ql` served 100% traffic. Its
+service and revision JSON, env, IAM policy and image digest were saved locally
+for rollback. The old revision remains the rollback target.
+
+The new revision `knowme-overall-pr149-preview-00003-5lg` serves 100% traffic
+from the **same image digest**
+`sha256:db2d1575a07ada28ca38ee7b62f5e2f6499066008b81231d7ff188f7ca1da119`.
+The only service template spec delta is appending this exact HTTPS origin to
+`CALCULATOR_ALLOWED_ORIGINS`:
+`https://knowme-app-694e1--pr-149-overall-safe-c41ic92g.web.app`. The three
+previous exact origins and `PREVIEW_ORIGIN` remain unchanged. No wildcard or
+regex was added. Service account
+`knowme-pr149-overall-preview@knowme-app-694e1.iam.gserviceaccount.com`,
+service IAM policy, image, resources, concurrency, timeout and traffic policy
+match the baseline. Production Backend service spec/revision was unchanged.
+No rollback was needed.
+
+OPTIONS on both `/v1/calculate-bazi` and `/v1/calculate-chart` now returns
+HTTP 200 with `Access-Control-Allow-Origin` exactly equal to the new Preview
+origin. Both endpoints still accept each prior allowed origin, while
+`https://untrusted.example.invalid` returns 400 with no allow-origin.
+`Access-Control-Allow-Methods` remains POST; credentials are not allowed.
+
+Hosting Preview channel `pr-149-overall-safe` stayed at version
+`e7ea691e701bcdbd` throughout, expiring **2026-11-07 10:19:52
+Asia/Bangkok**. Hosted index/bootstrap/main JS still match the guarded build
+SHA-256 (`31e5c221...`, `58ce590a...`, `1ffa1b4b...`). Hosting `live` stayed at
+version `d32e72678324e634`. No Hosting deploy, Production Backend deploy,
+Auth, Firestore, IAM or rules mutation occurred.
+
+Fresh independent Chromium contexts from page load used synthetic inputs at
+390x844 and 1280x800. Each known-time run reached Overall, opened and closed
+the work-card detail, visited Thai, Chinese and Western and returned to
+Overall. Expanded text appeared once without the collapsed excerpt; collapse
+restored the excerpt. Scrolling showed the complete text and all four cards.
+Each run sent exactly two calculator POSTs to the separate Backend Preview,
+BaZi then chart, both HTTP 200; disclosure and lens navigation added zero.
+The mobile run recorded 24 HTTP requests and desktop 23. Every observed page
+had document width equal to viewport width, with no visible overflow. Both
+runs had zero forbidden Google Sign-In/Firebase Auth/Firestore SDK/API or
+Production API requests, zero other writes, zero app console errors and zero
+failed requests. Separate fresh unknown-time forms at both sizes displayed the
+time-required banner, stayed on the form and sent zero POSTs (14 requests
+each). This is synthetic Hosted QA, not Owner UI approval.
+
+Local evidence under `C:\Users\USER\Documents\Knowme\pr149_backend_cors_20261031`
+contains before/after/final service and Hosting snapshots, CORS matrices,
+IAM comparison, hosted hashes, four network traces and original-size images.
+The URL now tested end-to-end is
+`https://knowme-app-694e1--pr-149-overall-safe-c41ic92g.web.app/beta/thai`.
+PR remains Open + Draft; no merge or Production release.
+
+---
+
 # KnowMe PR149 Hosting Preview follow-up - 2026-10-31: CORS blocker
 
 Application SHA `3c747ae7f37bf47529ee61bb83b08bd017f1fbe9` remains the
