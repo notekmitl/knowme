@@ -1,4 +1,5 @@
 import 'package:knowme/features/astrology/fusion/presentation/trial_reader_typography.dart';
+import 'package:knowme/features/astrology/fusion/presentation/trial_visual_design.dart';
 import 'package:flutter/material.dart';
 import 'package:knowme/data/models/bazi_chart_model.dart';
 import 'package:knowme/features/bazi_compatibility/domain/bazi_compatibility_report.dart';
@@ -24,7 +25,7 @@ class BaziCompatibilityReportView extends StatelessWidget {
       padding: const EdgeInsets.all(22),
       decoration: BoxDecoration(
         gradient: const LinearGradient(
-          colors: [Color(0xFF6E1D32), Color(0xFF3D245F)],
+          colors: [Color(0xFF3A111A), Color(0xFF1D1115)],
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
         ),
@@ -145,7 +146,26 @@ class BaziCompatibilityReportView extends StatelessWidget {
               ),
             ),
     );
-    return trialChart == null ? view : TrialReaderTypography(child: view);
+    return trialChart == null
+        ? view
+        : Theme(
+            data: ThemeData.dark().copyWith(
+              cardColor: const Color(0xFF2A1A1D),
+              scaffoldBackgroundColor: TrialVisualDesign.chinese,
+              colorScheme: const ColorScheme.dark(
+                primary: TrialVisualDesign.gold,
+                surface: Color(0xFF2A1A1D),
+                onSurface: TrialVisualDesign.text,
+              ),
+            ),
+            child: DefaultTextStyle(
+              style: const TextStyle(
+                color: TrialVisualDesign.text,
+                fontFamily: 'KnowMeNotoSansThai',
+              ),
+              child: TrialReaderTypography(child: view),
+            ),
+          );
   }
 }
 
@@ -174,26 +194,37 @@ class _TrialPillars extends StatelessWidget {
       key: const Key('trial-bazi-infographic'),
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
-        color: const Color(0xFFFFFBF4),
-        borderRadius: BorderRadius.circular(22),
-        border: Border.all(color: const Color(0xFFEDD9C6)),
+        color: TrialVisualDesign.chinese,
+        borderRadius: BorderRadius.circular(18),
+        border: Border.all(
+          color: TrialVisualDesign.gold.withValues(alpha: 0.35),
+        ),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          const TrialArtworkBanner(
+            asset: TrialVisualDesign.chineseArt,
+            height: 170,
+            alignment: Alignment(0, -0.7),
+          ),
+          const SizedBox(height: 18),
           if (chart.dayMaster.element.isNotEmpty) ...[
             Container(
               key: const Key('trial-bazi-day-master'),
               padding: const EdgeInsets.all(18),
               decoration: BoxDecoration(
-                color: const Color(0xFFFFE9DB),
+                color: const Color(0xFF351B20),
                 borderRadius: BorderRadius.circular(16),
               ),
               child: Row(
                 children: [
                   Text(
                     chart.dayMaster.stem,
-                    style: const TextStyle(fontSize: 32),
+                    style: const TextStyle(
+                      fontSize: 32,
+                      color: TrialVisualDesign.gold,
+                    ),
                   ),
                   const SizedBox(width: 16),
                   Expanded(
@@ -203,7 +234,7 @@ class _TrialPillars extends StatelessWidget {
                         const Text(
                           'ธาตุประจำวัน',
                           style: TextStyle(
-                            color: Color(0xFF6E1D32),
+                            color: TrialVisualDesign.gold,
                             fontWeight: FontWeight.w700,
                           ),
                         ),
@@ -219,6 +250,7 @@ class _TrialPillars extends StatelessWidget {
                           style: const TextStyle(
                             fontSize: 24,
                             fontWeight: FontWeight.w800,
+                            color: TrialVisualDesign.text,
                           ),
                         ),
                       ],
@@ -232,7 +264,7 @@ class _TrialPillars extends StatelessWidget {
           const Text(
             'สี่เสาของพื้นดวง',
             style: TextStyle(
-              color: Color(0xFF6E1D32),
+              color: TrialVisualDesign.gold,
               fontWeight: FontWeight.w800,
               fontSize: 20,
             ),
@@ -240,7 +272,7 @@ class _TrialPillars extends StatelessWidget {
           const SizedBox(height: 4),
           const Text(
             'อ่านตามปี เดือน วัน และเวลาเกิด',
-            style: TextStyle(color: Color(0xFF594A50), fontSize: 14),
+            style: TextStyle(color: TrialVisualDesign.muted, fontSize: 14),
           ),
           const SizedBox(height: 18),
           Row(
@@ -256,17 +288,19 @@ class _TrialPillars extends StatelessWidget {
                     ),
                     decoration: BoxDecoration(
                       color: label == 'วัน'
-                          ? const Color(0xFFFFE9DB)
-                          : Colors.white,
+                          ? const Color(0xFF51212A)
+                          : const Color(0xFF2A1A1D),
                       borderRadius: BorderRadius.circular(12),
-                      border: Border.all(color: const Color(0xFFEADACD)),
+                      border: Border.all(
+                        color: TrialVisualDesign.gold.withValues(alpha: 0.35),
+                      ),
                     ),
                     child: Column(
                       children: [
                         Text(
                           label,
                           style: const TextStyle(
-                            color: Color(0xFF6E1D32),
+                            color: TrialVisualDesign.gold,
                             fontWeight: FontWeight.w700,
                           ),
                         ),
@@ -274,12 +308,20 @@ class _TrialPillars extends StatelessWidget {
                         Text(
                           pillar.stem,
                           textAlign: TextAlign.center,
-                          style: const TextStyle(fontSize: 23, height: 1.2),
+                          style: const TextStyle(
+                            fontSize: 23,
+                            height: 1.2,
+                            color: TrialVisualDesign.gold,
+                          ),
                         ),
                         Text(
                           pillar.branch,
                           textAlign: TextAlign.center,
-                          style: const TextStyle(fontSize: 23, height: 1.2),
+                          style: const TextStyle(
+                            fontSize: 23,
+                            height: 1.2,
+                            color: TrialVisualDesign.gold,
+                          ),
                         ),
                       ],
                     ),
@@ -294,14 +336,20 @@ class _TrialPillars extends StatelessWidget {
               'สัดส่วนธาตุในผังนี้',
               style: TextStyle(
                 fontWeight: FontWeight.w700,
-                color: Color(0xFF533248),
+                color: TrialVisualDesign.gold,
               ),
             ),
             const SizedBox(height: 10),
             for (final (label, count, color) in elements) ...[
               Row(
                 children: [
-                  SizedBox(width: 38, child: Text(label)),
+                  SizedBox(
+                    width: 38,
+                    child: Text(
+                      label,
+                      style: const TextStyle(color: TrialVisualDesign.text),
+                    ),
+                  ),
                   Expanded(
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(5),
@@ -310,7 +358,7 @@ class _TrialPillars extends StatelessWidget {
                             .clamp(0.0, 1.0)
                             .toDouble(),
                         minHeight: 9,
-                        backgroundColor: const Color(0xFFF0EAE6),
+                        backgroundColor: const Color(0xFF35272B),
                         color: color,
                       ),
                     ),
@@ -318,7 +366,11 @@ class _TrialPillars extends StatelessWidget {
                   const SizedBox(width: 8),
                   SizedBox(
                     width: 22,
-                    child: Text('$count', textAlign: TextAlign.end),
+                    child: Text(
+                      '$count',
+                      textAlign: TextAlign.end,
+                      style: const TextStyle(color: TrialVisualDesign.text),
+                    ),
                   ),
                 ],
               ),
@@ -326,7 +378,7 @@ class _TrialPillars extends StatelessWidget {
             ],
             const Text(
               'ตัวเลขคือจำนวนตำแหน่งที่คำนวณได้ ไม่ใช่คะแนนดีหรือร้าย',
-              style: TextStyle(fontSize: 14, color: Color(0xFF675F63)),
+              style: TextStyle(fontSize: 14, color: TrialVisualDesign.muted),
             ),
           ],
         ],
@@ -394,7 +446,9 @@ class _SectionCard extends StatelessWidget {
                 style: TextStyle(
                   fontSize: trialVisual ? 14 : 12,
                   fontWeight: FontWeight.w600,
-                  color: Colors.grey.shade700,
+                  color: trialVisual
+                      ? TrialVisualDesign.muted
+                      : Colors.grey.shade700,
                 ),
               ),
               const SizedBox(height: 2),

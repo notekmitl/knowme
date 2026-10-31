@@ -1,6 +1,7 @@
 import 'package:knowme/features/astrology/fusion/presentation/trial_reader_typography.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:knowme/features/astrology/fusion/presentation/trial_visual_design.dart';
 import 'package:knowme/data/models/astrology_chart_model.dart';
 import 'package:knowme/features/astrology/application/birth_profile_readiness.dart';
 import 'package:knowme/features/astrology/shared/astrology_flow_state.dart';
@@ -300,6 +301,14 @@ class WesternReaderBody extends StatelessWidget {
               fontWeight: FontWeight.w800,
             ),
           ),
+          if (trialVisual) ...[
+            const SizedBox(height: 16),
+            const TrialArtworkBanner(
+              asset: TrialVisualDesign.westernArt,
+              height: 175,
+              alignment: Alignment(0, -0.25),
+            ),
+          ],
           if (!trialVisual) ...[
             const SizedBox(height: 14),
             Text(

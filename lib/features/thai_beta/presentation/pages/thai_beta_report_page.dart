@@ -1,6 +1,7 @@
 import 'package:knowme/features/astrology/fusion/presentation/trial_reader_typography.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:knowme/features/astrology/fusion/presentation/trial_visual_design.dart';
 import 'package:knowme/core/config/api_config.dart';
 
 import '../../application/narrative/thai_beta_narrative_composer.dart';
@@ -505,11 +506,17 @@ class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
           child: ExpansionTile(
             key: const Key('trial-thai-full-report'),
             initiallyExpanded: false,
-            backgroundColor: const Color(0xFFFFF8E9),
-            collapsedBackgroundColor: const Color(0xFFFFF8E9),
-            title: const Text('อ่านรายงานไทยฉบับเต็ม'),
+            backgroundColor: const Color(0xFF102923),
+            collapsedBackgroundColor: const Color(0xFF102923),
+            iconColor: TrialVisualDesign.gold,
+            collapsedIconColor: TrialVisualDesign.gold,
+            title: const Text(
+              'อ่านรายงานไทยฉบับเต็ม',
+              style: TextStyle(color: TrialVisualDesign.text),
+            ),
             subtitle: const Text(
               'คำอ่านและรายละเอียดเดิมอยู่ครบ เปิดอ่านต่อได้',
+              style: TextStyle(color: TrialVisualDesign.muted),
             ),
             children: [report],
           ),
@@ -528,12 +535,6 @@ class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
       Icons.favorite_border,
       Icons.spa_outlined,
     ];
-    const accents = [
-      Color(0xFF71518B),
-      Color(0xFF967245),
-      Color(0xFFA65765),
-      Color(0xFF4F7B72),
-    ];
     return Center(
       child: ConstrainedBox(
         constraints: const BoxConstraints(maxWidth: 1040),
@@ -547,7 +548,7 @@ class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
                 style: TextStyle(
                   fontSize: 19,
                   fontWeight: FontWeight.w800,
-                  color: Color(0xFF30263D),
+                  color: TrialVisualDesign.text,
                 ),
               ),
               const SizedBox(height: 10),
@@ -568,16 +569,22 @@ class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
                             key: Key('trial-thai-life-${items[i].label}'),
                             padding: const EdgeInsets.all(20),
                             decoration: BoxDecoration(
-                              color: Colors.white,
+                              color: const Color(0xFF102923),
                               border: Border.all(
-                                color: accents[i].withValues(alpha: 0.24),
+                                color: TrialVisualDesign.gold.withValues(
+                                  alpha: 0.28,
+                                ),
                               ),
                               borderRadius: BorderRadius.circular(16),
                             ),
                             child: Row(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Icon(icons[i], color: accents[i], size: 25),
+                                Icon(
+                                  icons[i],
+                                  color: TrialVisualDesign.gold,
+                                  size: 25,
+                                ),
                                 const SizedBox(width: 12),
                                 Expanded(
                                   child: Column(
@@ -587,7 +594,7 @@ class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
                                       Text(
                                         items[i].label,
                                         style: TextStyle(
-                                          color: accents[i],
+                                          color: TrialVisualDesign.text,
                                           fontWeight: FontWeight.w800,
                                           fontSize: 18,
                                         ),
@@ -596,7 +603,7 @@ class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
                                       Text(
                                         items[i].currentState,
                                         style: const TextStyle(
-                                          color: Color(0xFF30263D),
+                                          color: TrialVisualDesign.muted,
                                           fontSize: 16,
                                           height: 1.75,
                                         ),
@@ -622,6 +629,21 @@ class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
   Widget _trialThaiInfographic(ThaiBetaAnalysis analysis) {
     final hero = analysis.consumerViewState?.hero;
     final tags = hero?.tags.take(3).toList() ?? const <String>[];
+    const lagnaLabels = {
+      'lagna_aries': 'เมษ',
+      'lagna_taurus': 'พฤษภ',
+      'lagna_gemini': 'เมถุน',
+      'lagna_cancer': 'กรกฎ',
+      'lagna_leo': 'สิงห์',
+      'lagna_virgo': 'กันย์',
+      'lagna_libra': 'ตุลย์',
+      'lagna_scorpio': 'พิจิก',
+      'lagna_sagittarius': 'ธนู',
+      'lagna_capricorn': 'มกร',
+      'lagna_aquarius': 'กุมภ์',
+      'lagna_pisces': 'มีน',
+    };
+    final lagna = lagnaLabels[analysis.profile?.lagnaKey];
     return Center(
       child: ConstrainedBox(
         constraints: const BoxConstraints(maxWidth: 1040),
@@ -631,22 +653,38 @@ class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
             key: const Key('trial-thai-infographic'),
             padding: const EdgeInsets.all(20),
             decoration: BoxDecoration(
-              gradient: const LinearGradient(
-                colors: [Color(0xFFFFF8E9), Color(0xFFF2ECF9)],
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
+              color: TrialVisualDesign.thai,
+              borderRadius: BorderRadius.circular(18),
+              border: Border.all(
+                color: TrialVisualDesign.gold.withValues(alpha: 0.35),
               ),
-              borderRadius: BorderRadius.circular(22),
-              border: Border.all(color: const Color(0xFFE7D7BC)),
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                const TrialArtworkBanner(
+                  asset: TrialVisualDesign.thaiArt,
+                  height: 155,
+                  alignment: Alignment(0, -0.2),
+                ),
+                const SizedBox(height: 18),
+                if (lagna != null) ...[
+                  Text(
+                    'ลัคนาราศี$lagna',
+                    key: const Key('trial-thai-computed-lagna'),
+                    style: const TextStyle(
+                      color: TrialVisualDesign.gold,
+                      fontSize: 17,
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
+                  const SizedBox(height: 12),
+                ],
                 Row(
                   children: [
                     const CircleAvatar(
                       radius: 26,
-                      backgroundColor: Color(0xFF5E477A),
+                      backgroundColor: Color(0xFF14352C),
                       child: Icon(
                         Icons.temple_buddhist_outlined,
                         color: Color(0xFFFFE4A9),
@@ -661,7 +699,7 @@ class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
                           const Text(
                             'พื้นดวงแบบไทย',
                             style: TextStyle(
-                              color: Color(0xFF765C2F),
+                              color: TrialVisualDesign.gold,
                               fontSize: 14,
                               fontWeight: FontWeight.w700,
                             ),
@@ -669,7 +707,7 @@ class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
                           Text(
                             hero?.headline ?? 'ดวงไทยของคุณ',
                             style: const TextStyle(
-                              color: Color(0xFF30263D),
+                              color: TrialVisualDesign.text,
                               fontSize: 22,
                               height: 1.55,
                               fontWeight: FontWeight.w800,
@@ -686,7 +724,7 @@ class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
                     hero.summary.split('\n\n').first,
                     key: const Key('trial-thai-key-reading'),
                     style: const TextStyle(
-                      color: Color(0xFF30263D),
+                      color: TrialVisualDesign.text,
                       fontSize: 17,
                       height: 1.75,
                     ),
@@ -698,7 +736,7 @@ class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
                     'มุมเด่นจากผลคำนวณ',
                     style: TextStyle(
                       fontWeight: FontWeight.w700,
-                      color: Color(0xFF483854),
+                      color: TrialVisualDesign.gold,
                     ),
                   ),
                   const SizedBox(height: 10),
@@ -713,14 +751,18 @@ class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
                             vertical: 8,
                           ),
                           decoration: BoxDecoration(
-                            color: Colors.white,
+                            color: const Color(0xFF14352C),
                             borderRadius: BorderRadius.circular(16),
-                            border: Border.all(color: const Color(0xFFDDCBA8)),
+                            border: Border.all(
+                              color: TrialVisualDesign.gold.withValues(
+                                alpha: 0.45,
+                              ),
+                            ),
                           ),
                           child: Text(
                             tag,
                             style: const TextStyle(
-                              color: Color(0xFF3B3150),
+                              color: TrialVisualDesign.text,
                               fontWeight: FontWeight.w600,
                             ),
                           ),
@@ -892,8 +934,13 @@ class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
       context,
       Scaffold(
         appBar: widget.anonymousTrial
-            ? AppBar(title: const Text('ดวงไทย'))
+            ? AppBar(
+                title: const Text('ดวงไทย'),
+                backgroundColor: TrialVisualDesign.thai,
+                foregroundColor: TrialVisualDesign.text,
+              )
             : null,
+        backgroundColor: widget.anonymousTrial ? TrialVisualDesign.thai : null,
         body: body,
         bottomNavigationBar: widget.anonymousTrial
             ? null

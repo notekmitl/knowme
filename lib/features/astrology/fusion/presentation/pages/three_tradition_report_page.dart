@@ -1,4 +1,5 @@
 import 'package:knowme/features/astrology/fusion/presentation/trial_reader_typography.dart';
+import 'package:knowme/features/astrology/fusion/presentation/trial_visual_design.dart';
 import 'package:flutter/material.dart';
 import 'package:knowme/data/models/astrology_chart_model.dart';
 import 'package:knowme/data/models/bazi_chart_model.dart';
@@ -42,150 +43,211 @@ class ThreeTraditionReportPage extends StatelessWidget {
   static const _chinese = Color(0xFFA64151);
   static const _western = Color(0xFF5763AC);
 
-  void _openLens(BuildContext context, Widget page) {
-    Navigator.of(context).push(MaterialPageRoute<void>(builder: (_) => page));
+  void _openTrialLens(
+    BuildContext context,
+    TrialReaderTab tab, {
+    bool replace = false,
+  }) {
+    if (tab == TrialReaderTab.overall) return;
+    final route = MaterialPageRoute<void>(
+      builder: (_) => Builder(
+        builder: (lensContext) {
+          final page = switch (tab) {
+            TrialReaderTab.thai => ThaiBetaReportPage(
+              analysis: thaiAnalysis!,
+              anonymousTrial: true,
+              audienceOverride: const ThaiBetaEvidenceBadgeAudience.anonymous(),
+            ),
+            TrialReaderTab.chinese => Scaffold(
+              backgroundColor: TrialVisualDesign.chinese,
+              appBar: AppBar(
+                title: const Text('ดวงจีน · ปาจื้อ'),
+                backgroundColor: TrialVisualDesign.chinese,
+                foregroundColor: TrialVisualDesign.text,
+              ),
+              body: BaziCompatibilityReportView(
+                report: BaziCompatibilityReportBuilder.build(baziChart!),
+                trialChart: baziChart,
+              ),
+            ),
+            TrialReaderTab.western => Scaffold(
+              backgroundColor: TrialVisualDesign.western,
+              appBar: AppBar(
+                backgroundColor: TrialVisualDesign.western,
+                foregroundColor: TrialVisualDesign.text,
+                title: const Text('ดวงตะวันตก'),
+              ),
+              body: WesternReaderBody(chart: westernChart!, trialVisual: true),
+            ),
+            TrialReaderTab.overall => const SizedBox.shrink(),
+          };
+          return _TrialLensFrame(
+            selected: tab,
+            onSelect: (target) {
+              if (target == TrialReaderTab.overall) {
+                Navigator.of(lensContext).pop();
+              } else {
+                _openTrialLens(lensContext, target, replace: true);
+              }
+            },
+            child: page,
+          );
+        },
+      ),
+    );
+    if (replace) {
+      Navigator.of(context).pushReplacement(route);
+    } else {
+      Navigator.of(context).push(route);
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final desktop = MediaQuery.sizeOf(context).width >= 800;
+    final compact = MediaQuery.sizeOf(context).width < 360;
     return TrialReaderTypography(
       child: Scaffold(
-        backgroundColor: const Color(0xFFF8F6FA),
+        backgroundColor: _hasTrialLenses
+            ? TrialVisualDesign.overall
+            : const Color(0xFFF8F6FA),
         appBar: AppBar(
-          title: const Text('โหราศาสตร์โดยรวม'),
-          backgroundColor: const Color(0xFFF8F6FA),
-          foregroundColor: _ink,
+          title: Text(
+            _hasTrialLenses && compact ? 'ดวงรวม' : 'โหราศาสตร์โดยรวม',
+          ),
+          backgroundColor: _hasTrialLenses
+              ? TrialVisualDesign.overall
+              : const Color(0xFFF8F6FA),
+          foregroundColor: _hasTrialLenses ? TrialVisualDesign.text : _ink,
+          actions: _hasTrialLenses
+              ? [
+                  TextButton.icon(
+                    onPressed: () => Navigator.of(context).pop(),
+                    icon: const Icon(Icons.edit_outlined, size: 19),
+                    label: const Text('แก้ไขข้อมูล'),
+                    style: TextButton.styleFrom(
+                      foregroundColor: TrialVisualDesign.text,
+                    ),
+                  ),
+                ]
+              : null,
+          bottom: _hasTrialLenses && desktop
+              ? PreferredSize(
+                  preferredSize: const Size.fromHeight(48),
+                  child: TrialReaderNavigation(
+                    selected: TrialReaderTab.overall,
+                    onSelect: (tab) => _openTrialLens(context, tab),
+                    background: TrialVisualDesign.overall,
+                    desktop: true,
+                  ),
+                )
+              : null,
         ),
+        bottomNavigationBar: _hasTrialLenses && !desktop
+            ? TrialReaderNavigation(
+                selected: TrialReaderTab.overall,
+                onSelect: (tab) => _openTrialLens(context, tab),
+                background: TrialVisualDesign.overall,
+              )
+            : null,
         body: SafeArea(
           child: Center(
             child: ConstrainedBox(
               constraints: const BoxConstraints(maxWidth: 1040),
               child: ListView(
-                padding: const EdgeInsets.fromLTRB(16, 16, 16, 36),
+                padding: const EdgeInsets.fromLTRB(16, 10, 16, 36),
                 children: [
-                  _overviewHero(theme),
-                  if (_hasTrialLenses) ...[
-                    const SizedBox(height: 24),
-                    Text(
-                      'เปิดอ่านดวงเฉพาะศาสตร์',
-                      style: theme.textTheme.titleMedium?.copyWith(
-                        fontWeight: FontWeight.w700,
-                        color: _ink,
-                      ),
-                    ),
-                    const SizedBox(height: 10),
+                  if (_hasTrialLenses &&
+                      desktop &&
+                      lifeReading.topics.isNotEmpty)
                     Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
+                        Expanded(child: _overviewHero(context, theme)),
+                        const SizedBox(width: 20),
                         Expanded(
-                          child: _lensButton(
-                            key: const Key('overall-open-thai'),
-                            label: 'ไทย',
-                            icon: Icons.temple_buddhist_outlined,
-                            color: _thai,
-                            onTap: () => _openLens(
-                              context,
-                              ThaiBetaReportPage(
-                                analysis: thaiAnalysis!,
-                                anonymousTrial: true,
-                                audienceOverride:
-                                    const ThaiBetaEvidenceBadgeAudience.anonymous(),
-                              ),
-                            ),
-                          ),
-                        ),
-                        const SizedBox(width: 8),
-                        Expanded(
-                          child: _lensButton(
-                            key: const Key('overall-open-bazi'),
-                            label: 'จีน',
-                            icon: Icons.auto_awesome_outlined,
-                            color: _chinese,
-                            onTap: () => _openLens(
-                              context,
-                              Scaffold(
-                                backgroundColor: const Color(0xFFFFF8F3),
-                                appBar: AppBar(
-                                  title: const Text('ดวงจีน · ปาจื้อ'),
-                                ),
-                                body: BaziCompatibilityReportView(
-                                  report: BaziCompatibilityReportBuilder.build(
-                                    baziChart!,
-                                  ),
-                                  trialChart: baziChart,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                        const SizedBox(width: 8),
-                        Expanded(
-                          child: _lensButton(
-                            key: const Key('overall-open-western'),
-                            label: 'ตะวันตก',
-                            icon: Icons.public_outlined,
-                            color: _western,
-                            onTap: () => _openLens(
-                              context,
-                              Scaffold(
-                                backgroundColor: const Color(0xFF09101F),
-                                appBar: AppBar(
-                                  backgroundColor: const Color(0xFF09101F),
-                                  foregroundColor: Colors.white,
-                                  title: const Text('ดวงตะวันตก'),
-                                ),
-                                body: WesternReaderBody(
-                                  chart: westernChart!,
-                                  trialVisual: true,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-                  const SizedBox(height: 12),
-                  if (lifeReading.topics.isEmpty &&
-                      lifeReading.conflicts.isEmpty) ...[
-                    const SizedBox(height: 20),
-                    const Text(
-                      'ข้อมูลที่มีอยู่ยังไม่พอสร้างคำทำนายรายด้าน '
-                      'จึงไม่เติมคำอ่านแทนหลักฐานที่ขาด',
-                    ),
-                  ],
-                  if (lifeReading.topics.isNotEmpty) ...[
-                    const SizedBox(height: 20),
-                    LayoutBuilder(
-                      builder: (context, constraints) {
-                        final wide = constraints.maxWidth >= 1000;
-                        const gap = 24.0;
-                        final width = wide
-                            ? (constraints.maxWidth - gap) / 2
-                            : constraints.maxWidth;
-                        return Wrap(
-                          spacing: gap,
-                          runSpacing: 24,
-                          children: [
-                            for (var i = 0; i < lifeReading.topics.length; i++)
-                              SizedBox(
-                                width: width,
-                                child: _lifeTopicSection(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.stretch,
+                            children: [
+                              for (
+                                var i = 0;
+                                i < lifeReading.topics.length;
+                                i++
+                              ) ...[
+                                if (i > 0) const SizedBox(height: 16),
+                                _lifeTopicSection(
                                   lifeReading.topics[i],
                                   theme,
                                   number: i + 1,
                                   total: lifeReading.topics.length,
                                 ),
-                              ),
-                          ],
-                        );
-                      },
-                    ),
+                              ],
+                            ],
+                          ),
+                        ),
+                      ],
+                    )
+                  else ...[
+                    _overviewHero(context, theme),
+                    const SizedBox(height: 12),
+                    if (lifeReading.topics.isEmpty &&
+                        lifeReading.conflicts.isEmpty) ...[
+                      const SizedBox(height: 20),
+                      Text(
+                        'ข้อมูลที่มีอยู่ยังไม่พอสร้างคำทำนายรายด้าน '
+                        'จึงไม่เติมคำอ่านแทนหลักฐานที่ขาด',
+                        style: TextStyle(
+                          color: _hasTrialLenses
+                              ? TrialVisualDesign.text
+                              : _ink,
+                        ),
+                      ),
+                    ],
+                    if (lifeReading.topics.isNotEmpty) ...[
+                      const SizedBox(height: 20),
+                      LayoutBuilder(
+                        builder: (context, constraints) {
+                          final wide = constraints.maxWidth >= 1000;
+                          const gap = 24.0;
+                          final width = wide
+                              ? (constraints.maxWidth - gap) / 2
+                              : constraints.maxWidth;
+                          return Wrap(
+                            spacing: gap,
+                            runSpacing: 24,
+                            children: [
+                              for (
+                                var i = 0;
+                                i < lifeReading.topics.length;
+                                i++
+                              )
+                                SizedBox(
+                                  width: width,
+                                  child: _lifeTopicSection(
+                                    lifeReading.topics[i],
+                                    theme,
+                                    number: i + 1,
+                                    total: lifeReading.topics.length,
+                                  ),
+                                ),
+                            ],
+                          );
+                        },
+                      ),
+                    ],
                   ],
                   for (final gap in lifeReading.gaps)
                     Padding(
                       padding: const EdgeInsets.only(top: 10),
-                      child: Text(_gapLabel(gap)),
+                      child: Text(
+                        _gapLabel(gap),
+                        style: TextStyle(
+                          color: _hasTrialLenses
+                              ? TrialVisualDesign.muted
+                              : _ink,
+                        ),
+                      ),
                     ),
                   for (final conflict in lifeReading.conflicts)
                     Padding(
@@ -193,6 +255,11 @@ class ThreeTraditionReportPage extends StatelessWidget {
                       child: Text(
                         'ยังไม่แสดงคำทำนายรวมของ${conflict.title} '
                         'เพราะหลักฐานให้มุมที่ขัดกันชัดเจน',
+                        style: TextStyle(
+                          color: _hasTrialLenses
+                              ? TrialVisualDesign.muted
+                              : _ink,
+                        ),
                       ),
                     ),
                   const SizedBox(height: 20),
@@ -201,7 +268,9 @@ class ThreeTraditionReportPage extends StatelessWidget {
                     'ช่วงอายุ เพราะข้อมูลของสามศาสตร์ยังไม่มีช่วงเวลา'
                     'ที่เทียบกันได้โดยตรง',
                     style: theme.textTheme.bodySmall?.copyWith(
-                      color: theme.colorScheme.onSurfaceVariant,
+                      color: _hasTrialLenses
+                          ? TrialVisualDesign.muted
+                          : theme.colorScheme.onSurfaceVariant,
                       height: 1.45,
                     ),
                   ),
@@ -214,7 +283,7 @@ class ThreeTraditionReportPage extends StatelessWidget {
     );
   }
 
-  Widget _overviewHero(ThemeData theme) {
+  Widget _overviewHero(BuildContext context, ThemeData theme) {
     final thaiTags = thaiAnalysis?.consumerViewState?.hero.tags;
     final thaiFact = thaiTags == null || thaiTags.isEmpty
         ? null
@@ -246,14 +315,15 @@ class ThreeTraditionReportPage extends StatelessWidget {
           ].join(' · ');
     return Container(
       key: const Key('trial-overall-infographic'),
-      padding: const EdgeInsets.fromLTRB(20, 24, 20, 22),
+      padding: const EdgeInsets.fromLTRB(16, 20, 16, 20),
       decoration: BoxDecoration(
         gradient: const LinearGradient(
-          colors: [Color(0xFF463677), Color(0xFF24375C)],
+          colors: [Color(0xFF251632), Color(0xFF15162B)],
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
         ),
-        borderRadius: BorderRadius.circular(24),
+        borderRadius: BorderRadius.circular(20),
+        border: Border.all(color: const Color(0x665D4C71)),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -268,9 +338,15 @@ class ThreeTraditionReportPage extends StatelessWidget {
           const SizedBox(height: 8),
           const Text(
             'พื้นดวงเดียว อ่านผ่านสามมุมมอง',
-            style: TextStyle(color: Color(0xFFE8E2F7), fontSize: 16),
+            style: TextStyle(color: TrialVisualDesign.muted, fontSize: 16),
           ),
-          const SizedBox(height: 22),
+          const SizedBox(height: 16),
+          TrialArtworkBanner(
+            asset: TrialVisualDesign.overallArt,
+            height: MediaQuery.sizeOf(context).width >= 800 ? 270 : 165,
+            alignment: const Alignment(0, -0.25),
+          ),
+          const SizedBox(height: 16),
           Row(
             children: [
               _heroLens('ไทย', Icons.temple_buddhist_outlined, _thai, thaiFact),
@@ -294,7 +370,7 @@ class ThreeTraditionReportPage extends StatelessWidget {
           const Text(
             'คำอ่านแต่ละด้านเป็นการตีความประกอบกันจากพื้นดวง '
             'ไม่ได้หมายความว่าทั้งสามศาสตร์เห็นตรงกันทุกเรื่อง',
-            style: TextStyle(color: Color(0xFFE8E2F7), height: 1.5),
+            style: TextStyle(color: TrialVisualDesign.muted, height: 1.5),
           ),
         ],
       ),
@@ -306,22 +382,24 @@ class ThreeTraditionReportPage extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 4),
         decoration: BoxDecoration(
-          color: Colors.white.withValues(alpha: 0.12),
+          color: const Color(0xFF252138),
           borderRadius: BorderRadius.circular(16),
-          border: Border.all(color: Colors.white.withValues(alpha: 0.2)),
+          border: Border.all(
+            color: TrialVisualDesign.gold.withValues(alpha: 0.30),
+          ),
         ),
         child: Column(
           children: [
             CircleAvatar(
               radius: 19,
-              backgroundColor: Colors.white,
+              backgroundColor: const Color(0xFF171423),
               child: Icon(icon, color: accent, size: 20),
             ),
             const SizedBox(height: 8),
             Text(
               label,
               style: const TextStyle(
-                color: Colors.white,
+                color: TrialVisualDesign.text,
                 fontWeight: FontWeight.w700,
               ),
             ),
@@ -330,49 +408,13 @@ class ThreeTraditionReportPage extends StatelessWidget {
               Text(
                 fact,
                 textAlign: TextAlign.center,
-                style: const TextStyle(color: Color(0xFFE8E2F7), fontSize: 12),
-              ),
-            ],
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget _lensButton({
-    required Key key,
-    required String label,
-    required IconData icon,
-    required Color color,
-    required VoidCallback onTap,
-  }) {
-    return Material(
-      color: Colors.white,
-      borderRadius: BorderRadius.circular(16),
-      child: InkWell(
-        key: key,
-        onTap: onTap,
-        borderRadius: BorderRadius.circular(16),
-        child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 12),
-          decoration: BoxDecoration(
-            border: Border.all(color: color.withValues(alpha: 0.24)),
-            borderRadius: BorderRadius.circular(16),
-          ),
-          child: Column(
-            children: [
-              Icon(icon, color: color),
-              const SizedBox(height: 5),
-              Text(
-                label,
-                style: TextStyle(
-                  color: color,
-                  fontSize: 14,
-                  fontWeight: FontWeight.w700,
+                style: const TextStyle(
+                  color: TrialVisualDesign.muted,
+                  fontSize: 12,
                 ),
               ),
             ],
-          ),
+          ],
         ),
       ),
     );
@@ -384,19 +426,22 @@ class ThreeTraditionReportPage extends StatelessWidget {
     required int number,
     required int total,
   }) {
+    final trial = _hasTrialLenses;
     final (icon, accent) = switch (topic.title) {
-      'การงาน' => (Icons.work_outline, const Color(0xFF55749C)),
-      'การเงิน' => (Icons.savings_outlined, const Color(0xFF977536)),
-      'ความสัมพันธ์' => (Icons.favorite_border, const Color(0xFFAA5979)),
-      _ => (Icons.spa_outlined, const Color(0xFF548871)),
+      'การงาน' => (Icons.terrain_outlined, TrialVisualDesign.gold),
+      'การเงิน' => (Icons.savings_outlined, TrialVisualDesign.gold),
+      'ความสัมพันธ์' => (Icons.favorite_border, TrialVisualDesign.gold),
+      _ => (Icons.spa_outlined, TrialVisualDesign.gold),
     };
     return Container(
       key: Key('overall-topic-card-$number'),
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(22),
-        border: Border.all(color: accent.withValues(alpha: 0.25)),
+        color: trial ? const Color(0xFF1D1A2D) : Colors.white,
+        borderRadius: BorderRadius.circular(18),
+        border: Border.all(
+          color: accent.withValues(alpha: trial ? 0.28 : 0.25),
+        ),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -407,8 +452,9 @@ class ThreeTraditionReportPage extends StatelessWidget {
                 width: 52,
                 height: 52,
                 decoration: BoxDecoration(
-                  color: accent.withValues(alpha: 0.13),
-                  borderRadius: BorderRadius.circular(18),
+                  color: accent.withValues(alpha: 0.10),
+                  borderRadius: BorderRadius.circular(26),
+                  border: Border.all(color: accent.withValues(alpha: 0.7)),
                 ),
                 child: Icon(icon, color: accent, size: 27),
               ),
@@ -432,7 +478,7 @@ class ThreeTraditionReportPage extends StatelessWidget {
                       topic.title,
                       style: theme.textTheme.titleLarge?.copyWith(
                         fontWeight: FontWeight.w800,
-                        color: _ink,
+                        color: trial ? TrialVisualDesign.text : _ink,
                       ),
                     ),
                   ],
@@ -446,6 +492,7 @@ class ThreeTraditionReportPage extends StatelessWidget {
             theme: theme,
             accent: accent,
             number: number,
+            trial: trial,
           ),
         ],
       ),
@@ -472,12 +519,14 @@ class _OverallTopicDetails extends StatefulWidget {
     required this.theme,
     required this.accent,
     required this.number,
+    required this.trial,
   });
 
   final String reading;
   final ThemeData theme;
   final Color accent;
   final int number;
+  final bool trial;
 
   @override
   State<_OverallTopicDetails> createState() => _OverallTopicDetailsState();
@@ -509,7 +558,9 @@ class _OverallTopicDetailsState extends State<_OverallTopicDetails> {
               style: widget.theme.textTheme.bodyLarge?.copyWith(
                 fontSize: 17,
                 height: 1.8,
-                color: ThreeTraditionReportPage._ink,
+                color: widget.trial
+                    ? TrialVisualDesign.text
+                    : ThreeTraditionReportPage._ink,
               ),
             ),
           ),
@@ -518,12 +569,16 @@ class _OverallTopicDetailsState extends State<_OverallTopicDetails> {
           tilePadding: EdgeInsets.zero,
           onExpansionChanged: (expanded) =>
               setState(() => _expanded = expanded),
+          iconColor: widget.accent,
+          collapsedIconColor: widget.accent,
           title: Text('อ่านรายละเอียด', style: TextStyle(color: widget.accent)),
           children: [
             Text(
               widget.reading,
               style: widget.theme.textTheme.bodyLarge?.copyWith(
-                color: ThreeTraditionReportPage._ink,
+                color: widget.trial
+                    ? TrialVisualDesign.text
+                    : ThreeTraditionReportPage._ink,
                 fontSize: 17,
                 height: 1.8,
               ),
@@ -532,6 +587,54 @@ class _OverallTopicDetailsState extends State<_OverallTopicDetails> {
           ],
         ),
       ],
+    );
+  }
+}
+
+class _TrialLensFrame extends StatelessWidget {
+  const _TrialLensFrame({
+    required this.selected,
+    required this.onSelect,
+    required this.child,
+  });
+
+  final TrialReaderTab selected;
+  final ValueChanged<TrialReaderTab> onSelect;
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) {
+    final desktop = MediaQuery.sizeOf(context).width >= 800;
+    final background = switch (selected) {
+      TrialReaderTab.thai => TrialVisualDesign.thai,
+      TrialReaderTab.chinese => TrialVisualDesign.chinese,
+      TrialReaderTab.western => TrialVisualDesign.western,
+      TrialReaderTab.overall => TrialVisualDesign.overall,
+    };
+    return Scaffold(
+      backgroundColor: background,
+      body: Column(
+        children: [
+          if (desktop)
+            SafeArea(
+              bottom: false,
+              child: TrialReaderNavigation(
+                selected: selected,
+                onSelect: onSelect,
+                background: background,
+                desktop: true,
+              ),
+            ),
+          Expanded(child: child),
+        ],
+      ),
+      bottomNavigationBar: desktop
+          ? null
+          : TrialReaderNavigation(
+              selected: selected,
+              onSelect: onSelect,
+              background: background,
+            ),
     );
   }
 }

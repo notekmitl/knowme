@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:knowme/features/astrology/fusion/presentation/pages/three_tradition_report_page.dart';
+import 'package:knowme/features/astrology/fusion/presentation/trial_visual_design.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:knowme/data/models/bazi_chart_model.dart';
 import 'package:knowme/data/models/astrology_chart_model.dart';
@@ -50,8 +51,20 @@ void main() {
           },
         );
         expect(find.text('ภาพรวมชีวิตจากสามศาสตร์'), findsOneWidget);
-        expect(find.byKey(const Key('trial-overall-infographic')),
-          findsOneWidget);
+        expect(
+          find.byKey(const Key('trial-overall-infographic')),
+          findsOneWidget,
+        );
+        expect(
+          tester.getSize(find.byType(TrialReaderNavigation)).height,
+          lessThan(100),
+        );
+        expect(
+          tester
+              .getRect(find.byKey(const Key('trial-overall-infographic')))
+              .top,
+          lessThan(700),
+        );
         expect(find.text('เลือกศาสตร์ที่ต้องการดู'), findsNothing);
         expect(calculateCalls, 2);
         expect(authCalls, 0);
@@ -59,42 +72,51 @@ void main() {
         await tester.tap(find.byKey(const Key('overall-open-bazi')));
         await tester.pumpAndSettle();
         expect(find.text('ดวงจีน · ปาจื้อ'), findsOneWidget);
-        expect(find.byKey(const Key('trial-bazi-infographic')),
-          findsOneWidget);
-        expect(tester.getSize(
-          find.byKey(const Key('trial-bazi-infographic'))).width,
-          lessThanOrEqualTo(390));
+        expect(find.byKey(const Key('trial-bazi-infographic')), findsOneWidget);
+        expect(
+          tester.getSize(find.byKey(const Key('trial-bazi-infographic'))).width,
+          lessThanOrEqualTo(390),
+        );
         await tester.pageBack();
         await tester.pumpAndSettle();
 
         await tester.tap(find.byKey(const Key('overall-open-western')));
         await tester.pumpAndSettle();
         expect(find.byType(WesternReaderBody), findsOneWidget);
-        expect(find.byKey(const Key('trial-western-infographic')),
-          findsOneWidget);
-        expect(find.byKey(const Key('trial-western-element-balance')),
-          findsOneWidget);
+        expect(
+          find.byKey(const Key('trial-western-infographic')),
+          findsOneWidget,
+        );
+        expect(
+          find.byKey(const Key('trial-western-element-balance')),
+          findsOneWidget,
+        );
         await tester.pageBack();
         await tester.pumpAndSettle();
 
         await tester.tap(find.byKey(const Key('overall-open-thai')));
         await tester.pumpAndSettle();
         expect(find.byType(ThaiBetaReportPage), findsOneWidget);
-        expect(find.byKey(const Key('trial-thai-infographic')),
-          findsOneWidget);
-        expect(find.byKey(const Key('trial-thai-life-การงาน')),
-          findsOneWidget);
+        expect(find.byKey(const Key('trial-thai-infographic')), findsOneWidget);
+        expect(find.byKey(const Key('trial-thai-life-การงาน')), findsOneWidget);
         expect(find.byKey(const Key('trial-thai-key-reading')), findsOneWidget);
-        expect(find.byKey(const Key('thai_shared_report_header')),
-          findsNothing);
+        expect(
+          find.byKey(const Key('thai_shared_report_header')),
+          findsNothing,
+        );
         await tester.ensureVisible(
-          find.byKey(const Key('trial-thai-full-report')));
+          find.byKey(const Key('trial-thai-full-report')),
+        );
         await tester.tap(find.byKey(const Key('trial-thai-full-report')));
         await tester.pumpAndSettle();
-        expect(find.byKey(const Key('thai_shared_report_header')),
-          findsOneWidget);
-        expect(find.byKey(const Key('thai_annual_infographic_save')),
-          findsNothing);
+        expect(
+          find.byKey(const Key('thai_shared_report_header')),
+          findsOneWidget,
+        );
+        expect(
+          find.byKey(const Key('thai_annual_infographic_save')),
+          findsNothing,
+        );
         expect(find.byType(BackButton), findsOneWidget);
         expect(find.text('ให้ความคิดเห็นต่อผลวิเคราะห์'), findsNothing);
         expect(find.text('ดาวน์โหลดรายงาน PDF'), findsNothing);
@@ -129,70 +151,102 @@ void main() {
       },
     );
 
-    testWidgets(
-      'trial readers use paired visual panels on a wide screen',
-      (tester) async {
-        await tester.binding.setSurfaceSize(const Size(1280, 800));
-        addTearDown(() => tester.binding.setSurfaceSize(null));
-        var authCalls = 0;
-        await _pumpSelection(
-          tester,
-          input: _knownInput,
-          startWithOverall: true,
-          resolveUser: (_) async {
-            authCalls++;
-            throw StateError('Trial must not request authentication');
-          },
-          analysisExecutor: (input, {required startedAt, required asOf}) async =>
-              ThaiBetaAnalysisRunner.run(
-                input,
-                startedAt: startedAt,
-                asOf: asOf,
-              ),
-        );
+    testWidgets('trial readers use paired visual panels on a wide screen', (
+      tester,
+    ) async {
+      await tester.binding.setSurfaceSize(const Size(1280, 800));
+      addTearDown(() => tester.binding.setSurfaceSize(null));
+      var authCalls = 0;
+      await _pumpSelection(
+        tester,
+        input: _knownInput,
+        startWithOverall: true,
+        resolveUser: (_) async {
+          authCalls++;
+          throw StateError('Trial must not request authentication');
+        },
+        analysisExecutor: (input, {required startedAt, required asOf}) async =>
+            ThaiBetaAnalysisRunner.run(input, startedAt: startedAt, asOf: asOf),
+        prepareOverallSystem: (_, system) async => switch (system) {
+          ThaiBetaAstrologySystem.bazi => ThaiBetaPreparedAstrology.bazi(
+            BaziCompatibilityOwnerFixtures.chart(BaziOwnerCase.known),
+          ),
+          ThaiBetaAstrologySystem.western => ThaiBetaPreparedAstrology.western(
+            _westernChart,
+          ),
+          _ => throw StateError('Unexpected system'),
+        },
+      );
+      final overallGraphic = find.byKey(const Key('trial-overall-infographic'));
+      final report = tester.widget<ThreeTraditionReportPage>(
+        find.byType(ThreeTraditionReportPage),
+      );
+      if (report.lifeReading.topics.isEmpty) {
+        expect(tester.getSize(overallGraphic).width, greaterThan(1000));
+      } else {
+        final firstReading = find.byKey(const Key('overall-topic-details-1'));
+        expect(tester.getSize(overallGraphic).width, lessThan(600));
         expect(
-          tester.getSize(find.byKey(
-            const Key('trial-overall-infographic'))).width,
-          greaterThan(1000),
+          tester.getTopLeft(firstReading).dx,
+          greaterThan(tester.getTopRight(overallGraphic).dx),
         );
+      }
 
-        await tester.tap(find.byKey(const Key('overall-open-bazi')));
-        await tester.pumpAndSettle();
-        final baziGraphic = find.byKey(const Key('trial-bazi-infographic'));
-        final baziTitle = find.byKey(const Key('bazi-report-title'));
-        expect(
-          tester.getTopLeft(baziGraphic).dx,
-          lessThan(tester.getTopLeft(baziTitle).dx),
-        );
-        expect(tester.takeException(), isNull);
-        await tester.pageBack();
-        await tester.pumpAndSettle();
+      await tester.tap(find.byKey(const Key('overall-open-bazi')));
+      await tester.pumpAndSettle();
+      final baziGraphic = find.byKey(const Key('trial-bazi-infographic'));
+      final baziTitle = find.byKey(const Key('bazi-report-title'));
+      expect(
+        tester.getTopLeft(baziGraphic).dx,
+        lessThan(tester.getTopLeft(baziTitle).dx),
+      );
+      expect(tester.takeException(), isNull);
+      await tester.pageBack();
+      await tester.pumpAndSettle();
 
-        await tester.tap(find.byKey(const Key('overall-open-western')));
-        await tester.pumpAndSettle();
-        final westernGraphic = find.byKey(
-          const Key('trial-western-infographic'));
-        final westernBalance = find.byKey(
-          const Key('trial-western-element-balance'));
-        expect(
-          tester.getTopLeft(westernGraphic).dx,
-          lessThan(tester.getTopLeft(westernBalance).dx),
-        );
-        expect(tester.takeException(), isNull);
-        await tester.pageBack();
-        await tester.pumpAndSettle();
+      await tester.tap(find.byKey(const Key('overall-open-western')));
+      await tester.pumpAndSettle();
+      final westernGraphic = find.byKey(const Key('trial-western-infographic'));
+      final westernBalance = find.byKey(
+        const Key('trial-western-element-balance'),
+      );
+      expect(
+        tester.getTopLeft(westernGraphic).dx,
+        lessThan(tester.getTopLeft(westernBalance).dx),
+      );
+      expect(tester.takeException(), isNull);
+      await tester.pageBack();
+      await tester.pumpAndSettle();
 
-        await tester.tap(find.byKey(const Key('overall-open-thai')));
-        await tester.pumpAndSettle();
-        expect(
-          tester.getSize(find.byKey(
-            const Key('trial-thai-infographic'))).width,
-          greaterThan(1000),
-        );
-        expect(authCalls, 0);
-        expect(tester.takeException(), isNull);
-      },
-    );
+      await tester.tap(find.byKey(const Key('overall-open-thai')));
+      await tester.pumpAndSettle();
+      expect(
+        tester.getSize(find.byKey(const Key('trial-thai-infographic'))).width,
+        greaterThan(1000),
+      );
+      expect(authCalls, 0);
+      expect(tester.takeException(), isNull);
+    });
+
+    testWidgets('trial calculation failure keeps the dark retry state', (
+      tester,
+    ) async {
+      await _pumpSelection(
+        tester,
+        input: _knownInput,
+        startWithOverall: true,
+        resolveUser: (_) async => throw StateError('Unexpected sign-in'),
+      );
+      expect(find.text('สร้างดวงรวมไม่สำเร็จ กรุณาลองอีกครั้ง'), findsWidgets);
+      expect(find.text('ลองอีกครั้ง'), findsOneWidget);
+      expect(find.text('ภาพรวมชีวิตจากสามศาสตร์'), findsNothing);
+      expect(
+        Theme.of(
+          tester.element(find.text('ลองอีกครั้ง')),
+        ).scaffoldBackgroundColor,
+        TrialVisualDesign.overall,
+      );
+    });
 
     testWidgets('shows Thai, Chinese BaZi, and Western choices', (
       tester,
@@ -546,12 +600,7 @@ final _westernChart = AstrologyChartModel(
   overallSummary: const {},
   analysis: const {
     'elements': {
-      'percentages': {
-        'fire': 40,
-        'earth': 30,
-        'air': 20,
-        'water': 10,
-      },
+      'percentages': {'fire': 40, 'earth': 30, 'air': 20, 'water': 10},
     },
   },
   reader: const {'version': 'western_reader_th_v2_r2'},

@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:knowme/features/astrology/fusion/presentation/trial_visual_design.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_analysis.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_astrology_handoff.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_current_analysis.dart';
@@ -70,6 +71,7 @@ class ThaiBetaAstrologySelectionPage extends StatefulWidget {
   final ThaiBetaAstrologySystemPreparer prepareSystem;
   final ThaiBetaOverallSystemPreparer prepareOverallSystem;
   final ThaiBetaAstrologyDestinationBuilder destinationBuilder;
+
   /// Trial route: compute the anonymous overall reading immediately on entry.
   final bool startWithOverall;
 
@@ -227,36 +229,48 @@ class _ThaiBetaAstrologySelectionPageState
     final theme = Theme.of(context);
     final scheme = theme.colorScheme;
     if (widget.startWithOverall) {
-      return Scaffold(
-        appBar: AppBar(title: const Text('โหราศาสตร์โดยรวม')),
-        body: Center(
-          child: _overallFailed || !_westernReady
-              ? Padding(
-                  padding: const EdgeInsets.all(24),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Text(_westernReady
-                          ? 'สร้างดวงรวมไม่สำเร็จ กรุณาลองอีกครั้ง'
-                          : 'ดวงรวมต้องทราบเวลาเกิดและจังหวัดที่เกิด'),
+      return Theme(
+        data: TrialVisualDesign.theme(TrialVisualDesign.overall),
+        child: Scaffold(
+          appBar: AppBar(title: const Text('โหราศาสตร์โดยรวม')),
+          body: Center(
+            child: ConstrainedBox(
+              constraints: const BoxConstraints(maxWidth: 480),
+              child: Padding(
+                padding: const EdgeInsets.all(24),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    const TrialArtworkBanner(
+                      asset: TrialVisualDesign.overallArt,
+                      height: 150,
+                      alignment: Alignment(0, -0.2),
+                    ),
+                    const SizedBox(height: 22),
+                    if (_overallFailed || !_westernReady) ...[
+                      Text(
+                        _westernReady
+                            ? 'สร้างดวงรวมไม่สำเร็จ กรุณาลองอีกครั้ง'
+                            : 'ดวงรวมต้องทราบเวลาเกิดและจังหวัดที่เกิด',
+                        textAlign: TextAlign.center,
+                      ),
                       if (_westernReady) ...[
-                        const SizedBox(height: 12),
+                        const SizedBox(height: 16),
                         FilledButton(
                           onPressed: _selectOverall,
                           child: const Text('ลองอีกครั้ง'),
                         ),
                       ],
+                    ] else ...[
+                      const CircularProgressIndicator(),
+                      const SizedBox(height: 16),
+                      const Text('กำลังอ่านดวงรวมจากสามศาสตร์'),
                     ],
-                  ),
-                )
-              : const Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    CircularProgressIndicator(),
-                    SizedBox(height: 16),
-                    Text('กำลังอ่านดวงรวมจากสามศาสตร์'),
                   ],
                 ),
+              ),
+            ),
+          ),
         ),
       );
     }

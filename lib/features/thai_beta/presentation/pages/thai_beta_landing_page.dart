@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:knowme/core/config/api_config.dart';
+import 'package:knowme/features/astrology/fusion/presentation/trial_visual_design.dart';
 
 import '../../application/thai_beta_store.dart';
 import 'thai_beta_input_page.dart';
@@ -38,13 +39,14 @@ class _ThaiBetaLandingPageState extends State<ThaiBetaLandingPage> {
   }
 
   void _start() {
-    Navigator.of(context).push(
-      MaterialPageRoute<void>(builder: (_) => const ThaiBetaInputPage()),
-    );
+    Navigator.of(
+      context,
+    ).push(MaterialPageRoute<void>(builder: (_) => const ThaiBetaInputPage()));
   }
 
   @override
   Widget build(BuildContext context) {
+    if (widget.anonymousTrial) return _buildTrialLanding(context);
     final theme = Theme.of(context);
     final scheme = theme.colorScheme;
 
@@ -69,19 +71,22 @@ class _ThaiBetaLandingPageState extends State<ThaiBetaLandingPage> {
                       ? 'ทดลองอ่านดวงจากสามศาสตร์'
                       : 'ร่วมพัฒนาโหราศาสตร์ไทยให้แม่นยำขึ้น',
                   textAlign: TextAlign.center,
-                  style: theme.textTheme.headlineSmall
-                      ?.copyWith(fontWeight: FontWeight.w700),
+                  style: theme.textTheme.headlineSmall?.copyWith(
+                    fontWeight: FontWeight.w700,
+                  ),
                 ),
                 const SizedBox(height: 8),
                 Text(
                   widget.anonymousTrial
                       ? 'กรอกข้อมูลเกิดเพื่ออ่านภาพรวมจากไทย จีน และตะวันตก '
-                          'แล้วเลือกอ่านแต่ละศาสตร์ได้'
+                            'แล้วเลือกอ่านแต่ละศาสตร์ได้'
                       : 'นี่คือระบบวิเคราะห์ดวงไทยที่อยู่ในช่วงเก็บข้อมูลวิจัย '
-                          'เราอยากรู้ว่าผลวิเคราะห์ตรงกับคุณมากแค่ไหน',
+                            'เราอยากรู้ว่าผลวิเคราะห์ตรงกับคุณมากแค่ไหน',
                   textAlign: TextAlign.center,
-                  style: theme.textTheme.bodyMedium
-                      ?.copyWith(color: scheme.onSurfaceVariant, height: 1.5),
+                  style: theme.textTheme.bodyMedium?.copyWith(
+                    color: scheme.onSurfaceVariant,
+                    height: 1.5,
+                  ),
                 ),
                 const SizedBox(height: 24),
                 _InfoTile(
@@ -90,7 +95,7 @@ class _ThaiBetaLandingPageState extends State<ThaiBetaLandingPage> {
                   body: widget.anonymousTrial
                       ? 'คำนวณจากข้อมูลเกิดที่กรอก และแสดงคำอ่านดวงรวมกับดวงรายศาสตร์'
                       : 'วิเคราะห์ดวงไทยจากวัน เวลา และสถานที่เกิดของคุณ '
-                          'แล้วเก็บความคิดเห็นเพื่อพัฒนาความแม่นยำของระบบ',
+                            'แล้วเก็บความคิดเห็นเพื่อพัฒนาความแม่นยำของระบบ',
                 ),
                 _InfoTile(
                   icon: Icons.schedule_outlined,
@@ -104,22 +109,24 @@ class _ThaiBetaLandingPageState extends State<ThaiBetaLandingPage> {
                   title: 'ความเป็นส่วนตัว',
                   body: widget.anonymousTrial
                       ? 'ข้อมูลเกิดจะส่งไปยังบริการคำนวณ แล้วแสดงผลในหน้านี้ '
-                          'โดยไม่บันทึกลงบัญชีหรือฐานข้อมูลของระบบ'
+                            'โดยไม่บันทึกลงบัญชีหรือฐานข้อมูลของระบบ'
                       : 'ข้อมูลของคุณจะถูกใช้เพื่อการวิจัยและพัฒนาระบบเท่านั้น '
-                          'และจะไม่ถูกเปิดเผยต่อสาธารณะ',
+                            'และจะไม่ถูกเปิดเผยต่อสาธารณะ',
                 ),
                 if (!widget.anonymousTrial)
                   _InfoTile(
                     icon: Icons.groups_outlined,
                     title: 'การเข้าร่วมงานวิจัย',
-                    body: 'การเข้าร่วมเป็นไปโดยสมัครใจ '
+                    body:
+                        'การเข้าร่วมเป็นไปโดยสมัครใจ '
                         'คุณจะได้รับรหัสอ้างอิงหลังส่งความคิดเห็น',
                   ),
                 if (!widget.anonymousTrial && _participants != null)
                   _InfoTile(
                     icon: Icons.people_alt_outlined,
                     title: 'จำนวนผู้เข้าร่วม',
-                    body: 'มีผู้ร่วมงานวิจัยแล้ว '
+                    body:
+                        'มีผู้ร่วมงานวิจัยแล้ว '
                         '${_formatCount(_participants!)} คน',
                   ),
                 const SizedBox(height: 8),
@@ -138,6 +145,175 @@ class _ThaiBetaLandingPageState extends State<ThaiBetaLandingPage> {
           icon: const Icon(Icons.play_arrow_rounded),
           label: Text(
             widget.anonymousTrial ? 'เริ่มทดลองดูดวง' : 'เริ่มการวิเคราะห์',
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildTrialLanding(BuildContext context) {
+    final theme = TrialVisualDesign.theme(TrialVisualDesign.overall);
+    final wideScreen = MediaQuery.sizeOf(context).width >= 800;
+    final intro = Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const Text(
+          'สามศาสตร์ · พื้นดวงเดียว',
+          style: TextStyle(color: TrialVisualDesign.gold, fontSize: 14),
+        ),
+        const SizedBox(height: 8),
+        const Text(
+          'อ่านชีวิตผ่านสามมุมมอง',
+          style: TextStyle(
+            color: TrialVisualDesign.text,
+            fontSize: 27,
+            height: 1.3,
+            fontWeight: FontWeight.w700,
+          ),
+        ),
+        const SizedBox(height: 8),
+        const Text(
+          'กรอกข้อมูลเกิดครั้งเดียว แล้วอ่านดวงรวมพร้อมเลือกดูไทย จีน และตะวันตก',
+          style: TextStyle(
+            color: TrialVisualDesign.muted,
+            fontSize: 16,
+            height: 1.6,
+          ),
+        ),
+        const SizedBox(height: 16),
+        TrialArtworkBanner(
+          asset: TrialVisualDesign.overallArt,
+          height: wideScreen ? 410 : 250,
+          alignment: wideScreen
+              ? const Alignment(0, -0.35)
+              : const Alignment(0, -0.2),
+        ),
+      ],
+    );
+    final steps = Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        for (final (number, title, detail) in const [
+          ('01', 'กรอกข้อมูลเกิด', 'วัน เวลา และจังหวัดที่เกิด'),
+          ('02', 'อ่านดวงรวม', 'คำอ่านรายด้านจากหลักฐานที่ระบบคำนวณได้'),
+          ('03', 'เลือกดูรายศาสตร์', 'สำรวจมุมไทย จีน และตะวันตกต่อได้'),
+        ])
+          Padding(
+            padding: const EdgeInsets.only(bottom: 10),
+            child: Container(
+              padding: const EdgeInsets.all(16),
+              decoration: BoxDecoration(
+                color: const Color(0xFF211C31),
+                border: Border.all(color: const Color(0x665E536A)),
+                borderRadius: BorderRadius.circular(16),
+              ),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    number,
+                    style: const TextStyle(
+                      color: TrialVisualDesign.gold,
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
+                  const SizedBox(width: 14),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          title,
+                          style: const TextStyle(
+                            color: TrialVisualDesign.text,
+                            fontSize: 17,
+                            fontWeight: FontWeight.w700,
+                          ),
+                        ),
+                        const SizedBox(height: 3),
+                        Text(
+                          detail,
+                          style: const TextStyle(
+                            color: TrialVisualDesign.muted,
+                            fontSize: 15,
+                            height: 1.5,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        const SizedBox(height: 8),
+        const Text(
+          'ข้อมูลเกิดส่งไปยังบริการคำนวณแยกเพื่อแสดงผลในหน้านี้ '
+          'โดยไม่บันทึกลงบัญชีหรือฐานข้อมูลของระบบ',
+          style: TextStyle(color: TrialVisualDesign.muted, height: 1.6),
+        ),
+      ],
+    );
+    return Theme(
+      data: theme,
+      child: Scaffold(
+        appBar: AppBar(
+          automaticallyImplyLeading: false,
+          title: const Text(
+            'KnowMe',
+            style: TextStyle(
+              color: TrialVisualDesign.gold,
+              fontFamily: 'serif',
+              fontSize: 25,
+            ),
+          ),
+        ),
+        body: SafeArea(
+          child: Center(
+            child: ConstrainedBox(
+              constraints: const BoxConstraints(maxWidth: 1040),
+              child: LayoutBuilder(
+                builder: (context, constraints) {
+                  final wide = constraints.maxWidth >= 800;
+                  return ListView(
+                    padding: const EdgeInsets.fromLTRB(20, 14, 20, 24),
+                    children: [
+                      if (wide)
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Expanded(flex: 6, child: intro),
+                            const SizedBox(width: 28),
+                            Expanded(flex: 4, child: steps),
+                          ],
+                        )
+                      else ...[
+                        intro,
+                        const SizedBox(height: 20),
+                        steps,
+                      ],
+                    ],
+                  );
+                },
+              ),
+            ),
+          ),
+        ),
+        bottomNavigationBar: SafeArea(
+          minimum: const EdgeInsets.fromLTRB(20, 8, 20, 14),
+          child: Center(
+            heightFactor: 1,
+            child: ConstrainedBox(
+              constraints: const BoxConstraints(maxWidth: 560),
+              child: SizedBox(
+                width: double.infinity,
+                child: FilledButton.icon(
+                  onPressed: _start,
+                  icon: const Icon(Icons.arrow_forward_rounded),
+                  label: const Text('เริ่มดูดวงรวม'),
+                ),
+              ),
+            ),
           ),
         ),
       ),
@@ -189,15 +365,20 @@ class _InfoTile extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(title,
-                    style: theme.textTheme.titleSmall
-                        ?.copyWith(fontWeight: FontWeight.w700)),
+                Text(
+                  title,
+                  style: theme.textTheme.titleSmall?.copyWith(
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
                 const SizedBox(height: 2),
-                Text(body,
-                    style: theme.textTheme.bodyMedium?.copyWith(
-                      color: scheme.onSurfaceVariant,
-                      height: 1.45,
-                    )),
+                Text(
+                  body,
+                  style: theme.textTheme.bodyMedium?.copyWith(
+                    color: scheme.onSurfaceVariant,
+                    height: 1.45,
+                  ),
+                ),
               ],
             ),
           ),
