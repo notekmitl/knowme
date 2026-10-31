@@ -167,23 +167,33 @@ class ThreeTraditionReportPage extends StatelessWidget {
                         Expanded(child: _overviewHero(context, theme)),
                         const SizedBox(width: 20),
                         Expanded(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.stretch,
-                            children: [
-                              for (
-                                var i = 0;
-                                i < lifeReading.topics.length;
-                                i++
-                              ) ...[
-                                if (i > 0) const SizedBox(height: 16),
-                                _lifeTopicSection(
-                                  lifeReading.topics[i],
-                                  theme,
-                                  number: i + 1,
-                                  total: lifeReading.topics.length,
-                                ),
-                              ],
-                            ],
+                          child: LayoutBuilder(
+                            builder: (context, constraints) {
+                              const gap = 12.0;
+                              final tileWidth =
+                                  (constraints.maxWidth - gap) / 2;
+                              return Wrap(
+                                spacing: gap,
+                                runSpacing: gap,
+                                children: [
+                                  for (
+                                    var i = 0;
+                                    i < lifeReading.topics.length;
+                                    i++
+                                  )
+                                    SizedBox(
+                                      width: tileWidth,
+                                      child: _lifeTopicSection(
+                                        context,
+                                        lifeReading.topics[i],
+                                        theme,
+                                        number: i + 1,
+                                        total: lifeReading.topics.length,
+                                      ),
+                                    ),
+                                ],
+                              );
+                            },
                           ),
                         ),
                       ],
@@ -225,6 +235,7 @@ class ThreeTraditionReportPage extends StatelessWidget {
                                 SizedBox(
                                   width: width,
                                   child: _lifeTopicSection(
+                                    context,
                                     lifeReading.topics[i],
                                     theme,
                                     number: i + 1,
@@ -313,18 +324,11 @@ class ThreeTraditionReportPage extends StatelessWidget {
               if (WesternReaderV2Copy.signLabel(westernChart!.big3[key]) != '—')
                 '$label${WesternReaderV2Copy.signLabel(westernChart!.big3[key])}',
           ].join(' · ');
-    return Container(
+    final desktop = MediaQuery.sizeOf(context).width >= 800;
+    return TrialIllustratedHero(
       key: const Key('trial-overall-infographic'),
-      padding: const EdgeInsets.fromLTRB(16, 20, 16, 20),
-      decoration: BoxDecoration(
-        gradient: const LinearGradient(
-          colors: [Color(0xFF251632), Color(0xFF15162B)],
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-        ),
-        borderRadius: BorderRadius.circular(20),
-        border: Border.all(color: const Color(0x665D4C71)),
-      ),
+      asset: TrialVisualDesign.overallArt,
+      background: TrialVisualDesign.overall,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -340,13 +344,7 @@ class ThreeTraditionReportPage extends StatelessWidget {
             'พื้นดวงเดียว อ่านผ่านสามมุมมอง',
             style: TextStyle(color: TrialVisualDesign.muted, fontSize: 16),
           ),
-          const SizedBox(height: 16),
-          TrialArtworkBanner(
-            asset: TrialVisualDesign.overallArt,
-            height: MediaQuery.sizeOf(context).width >= 800 ? 270 : 165,
-            alignment: const Alignment(0, -0.25),
-          ),
-          const SizedBox(height: 16),
+          SizedBox(height: desktop ? 275 : 130),
           Row(
             children: [
               _heroLens('ไทย', Icons.temple_buddhist_outlined, _thai, thaiFact),
@@ -370,7 +368,11 @@ class ThreeTraditionReportPage extends StatelessWidget {
           const Text(
             'คำอ่านแต่ละด้านเป็นการตีความประกอบกันจากพื้นดวง '
             'ไม่ได้หมายความว่าทั้งสามศาสตร์เห็นตรงกันทุกเรื่อง',
-            style: TextStyle(color: TrialVisualDesign.muted, height: 1.5),
+            style: TextStyle(
+              color: TrialVisualDesign.text,
+              fontSize: 13,
+              height: 1.4,
+            ),
           ),
         ],
       ),
@@ -380,9 +382,9 @@ class ThreeTraditionReportPage extends StatelessWidget {
   Widget _heroLens(String label, IconData icon, Color accent, String? fact) {
     return Expanded(
       child: Container(
-        padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 4),
+        padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 4),
         decoration: BoxDecoration(
-          color: const Color(0xFF252138),
+          color: const Color(0xDE171525),
           borderRadius: BorderRadius.circular(16),
           border: Border.all(
             color: TrialVisualDesign.gold.withValues(alpha: 0.30),
@@ -391,11 +393,11 @@ class ThreeTraditionReportPage extends StatelessWidget {
         child: Column(
           children: [
             CircleAvatar(
-              radius: 19,
+              radius: 15,
               backgroundColor: const Color(0xFF171423),
-              child: Icon(icon, color: accent, size: 20),
+              child: Icon(icon, color: accent, size: 17),
             ),
-            const SizedBox(height: 8),
+            const SizedBox(height: 3),
             Text(
               label,
               style: const TextStyle(
@@ -404,13 +406,15 @@ class ThreeTraditionReportPage extends StatelessWidget {
               ),
             ),
             if (fact != null && fact.isNotEmpty) ...[
-              const SizedBox(height: 5),
+              const SizedBox(height: 3),
               Text(
                 fact,
                 textAlign: TextAlign.center,
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
                 style: const TextStyle(
-                  color: TrialVisualDesign.muted,
-                  fontSize: 12,
+                  color: TrialVisualDesign.text,
+                  fontSize: 11,
                 ),
               ),
             ],
@@ -421,12 +425,14 @@ class ThreeTraditionReportPage extends StatelessWidget {
   }
 
   Widget _lifeTopicSection(
+    BuildContext context,
     ThreeTraditionLifeTopic topic,
     ThemeData theme, {
     required int number,
     required int total,
   }) {
     final trial = _hasTrialLenses;
+    final compactDesktop = trial && MediaQuery.sizeOf(context).width >= 800;
     final (icon, accent) = switch (topic.title) {
       'การงาน' => (Icons.terrain_outlined, TrialVisualDesign.gold),
       'การเงิน' => (Icons.savings_outlined, TrialVisualDesign.gold),
@@ -435,7 +441,7 @@ class ThreeTraditionReportPage extends StatelessWidget {
     };
     return Container(
       key: Key('overall-topic-card-$number'),
-      padding: const EdgeInsets.all(20),
+      padding: EdgeInsets.all(compactDesktop ? 13 : 20),
       decoration: BoxDecoration(
         color: trial ? const Color(0xFF1D1A2D) : Colors.white,
         borderRadius: BorderRadius.circular(18),
@@ -449,14 +455,18 @@ class ThreeTraditionReportPage extends StatelessWidget {
           Row(
             children: [
               Container(
-                width: 52,
-                height: 52,
+                width: compactDesktop ? 38 : 52,
+                height: compactDesktop ? 38 : 52,
                 decoration: BoxDecoration(
                   color: accent.withValues(alpha: 0.10),
                   borderRadius: BorderRadius.circular(26),
                   border: Border.all(color: accent.withValues(alpha: 0.7)),
                 ),
-                child: Icon(icon, color: accent, size: 27),
+                child: Icon(
+                  icon,
+                  color: accent,
+                  size: compactDesktop ? 21 : 27,
+                ),
               ),
               const SizedBox(width: 12),
               Expanded(
@@ -479,6 +489,7 @@ class ThreeTraditionReportPage extends StatelessWidget {
                       style: theme.textTheme.titleLarge?.copyWith(
                         fontWeight: FontWeight.w800,
                         color: trial ? TrialVisualDesign.text : _ink,
+                        fontSize: compactDesktop ? 18 : null,
                       ),
                     ),
                   ],
@@ -493,6 +504,7 @@ class ThreeTraditionReportPage extends StatelessWidget {
             accent: accent,
             number: number,
             trial: trial,
+            compact: compactDesktop,
           ),
         ],
       ),
@@ -520,6 +532,7 @@ class _OverallTopicDetails extends StatefulWidget {
     required this.accent,
     required this.number,
     required this.trial,
+    required this.compact,
   });
 
   final String reading;
@@ -527,6 +540,7 @@ class _OverallTopicDetails extends StatefulWidget {
   final Color accent;
   final int number;
   final bool trial;
+  final bool compact;
 
   @override
   State<_OverallTopicDetails> createState() => _OverallTopicDetailsState();
@@ -542,7 +556,7 @@ class _OverallTopicDetailsState extends State<_OverallTopicDetails> {
       children: [
         if (!_expanded)
           Container(
-            padding: const EdgeInsets.fromLTRB(18, 2, 2, 14),
+            padding: EdgeInsets.fromLTRB(widget.compact ? 9 : 18, 2, 2, 10),
             decoration: BoxDecoration(
               border: Border(
                 left: BorderSide(
@@ -556,8 +570,8 @@ class _OverallTopicDetailsState extends State<_OverallTopicDetails> {
               maxLines: 3,
               overflow: TextOverflow.ellipsis,
               style: widget.theme.textTheme.bodyLarge?.copyWith(
-                fontSize: 17,
-                height: 1.8,
+                fontSize: widget.compact ? 14 : 17,
+                height: widget.compact ? 1.55 : 1.8,
                 color: widget.trial
                     ? TrialVisualDesign.text
                     : ThreeTraditionReportPage._ink,
@@ -579,8 +593,8 @@ class _OverallTopicDetailsState extends State<_OverallTopicDetails> {
                 color: widget.trial
                     ? TrialVisualDesign.text
                     : ThreeTraditionReportPage._ink,
-                fontSize: 17,
-                height: 1.8,
+                fontSize: widget.compact ? 16 : 17,
+                height: widget.compact ? 1.65 : 1.8,
               ),
             ),
             const SizedBox(height: 12),

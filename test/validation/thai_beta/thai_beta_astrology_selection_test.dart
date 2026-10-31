@@ -77,6 +77,13 @@ void main() {
           tester.getSize(find.byKey(const Key('trial-bazi-infographic'))).width,
           lessThanOrEqualTo(390),
         );
+        expect(
+          find.ancestor(
+            of: find.byKey(const Key('trial-bazi-day-master')),
+            matching: find.byType(TrialIllustratedHero),
+          ),
+          findsOneWidget,
+        );
         await tester.pageBack();
         await tester.pumpAndSettle();
 
@@ -89,6 +96,13 @@ void main() {
         );
         expect(
           find.byKey(const Key('trial-western-element-balance')),
+          findsOneWidget,
+        );
+        expect(
+          find.descendant(
+            of: find.byKey(const Key('trial-western-infographic')),
+            matching: find.text('สามตำแหน่งหลักในดวงกำเนิด'),
+          ),
           findsOneWidget,
         );
         await tester.pageBack();
@@ -112,6 +126,21 @@ void main() {
         expect(
           find.byKey(const Key('thai_shared_report_header')),
           findsOneWidget,
+        );
+        final deepSections = tester.widgetList<Container>(
+          find.descendant(
+            of: find.byKey(const Key('thai_shared_report_presentation')),
+            matching: find.byType(Container),
+          ),
+        );
+        expect(
+          deepSections.any(
+            (panel) =>
+                panel.decoration is BoxDecoration &&
+                (panel.decoration! as BoxDecoration).color ==
+                    const Color(0xFF102D27),
+          ),
+          isTrue,
         );
         expect(
           find.byKey(const Key('thai_annual_infographic_save')),
@@ -151,82 +180,113 @@ void main() {
       },
     );
 
-    testWidgets('trial readers use paired visual panels on a wide screen', (
-      tester,
-    ) async {
-      await tester.binding.setSurfaceSize(const Size(1280, 800));
-      addTearDown(() => tester.binding.setSurfaceSize(null));
-      var authCalls = 0;
-      await _pumpSelection(
-        tester,
-        input: _knownInput,
-        startWithOverall: true,
-        resolveUser: (_) async {
-          authCalls++;
-          throw StateError('Trial must not request authentication');
-        },
-        analysisExecutor: (input, {required startedAt, required asOf}) async =>
-            ThaiBetaAnalysisRunner.run(input, startedAt: startedAt, asOf: asOf),
-        prepareOverallSystem: (_, system) async => switch (system) {
-          ThaiBetaAstrologySystem.bazi => ThaiBetaPreparedAstrology.bazi(
-            BaziCompatibilityOwnerFixtures.chart(BaziOwnerCase.known),
-          ),
-          ThaiBetaAstrologySystem.western => ThaiBetaPreparedAstrology.western(
-            _westernChart,
-          ),
-          _ => throw StateError('Unexpected system'),
-        },
-      );
-      final overallGraphic = find.byKey(const Key('trial-overall-infographic'));
-      final report = tester.widget<ThreeTraditionReportPage>(
-        find.byType(ThreeTraditionReportPage),
-      );
-      if (report.lifeReading.topics.isEmpty) {
-        expect(tester.getSize(overallGraphic).width, greaterThan(1000));
-      } else {
-        final firstReading = find.byKey(const Key('overall-topic-details-1'));
-        expect(tester.getSize(overallGraphic).width, lessThan(600));
-        expect(
-          tester.getTopLeft(firstReading).dx,
-          greaterThan(tester.getTopRight(overallGraphic).dx),
+    testWidgets(
+      'trial readers integrate art and calculated facts on a wide screen',
+      (tester) async {
+        await tester.binding.setSurfaceSize(const Size(1280, 800));
+        addTearDown(() => tester.binding.setSurfaceSize(null));
+        var authCalls = 0;
+        await _pumpSelection(
+          tester,
+          input: _knownInput,
+          startWithOverall: true,
+          resolveUser: (_) async {
+            authCalls++;
+            throw StateError('Trial must not request authentication');
+          },
+          analysisExecutor:
+              (input, {required startedAt, required asOf}) async =>
+                  ThaiBetaAnalysisRunner.run(
+                    input,
+                    startedAt: startedAt,
+                    asOf: asOf,
+                  ),
+          prepareOverallSystem: (_, system) async => switch (system) {
+            ThaiBetaAstrologySystem.bazi => ThaiBetaPreparedAstrology.bazi(
+              BaziCompatibilityOwnerFixtures.chart(BaziOwnerCase.known),
+            ),
+            ThaiBetaAstrologySystem.western =>
+              ThaiBetaPreparedAstrology.western(_westernChart),
+            _ => throw StateError('Unexpected system'),
+          },
         );
-      }
+        final overallGraphic = find.byKey(
+          const Key('trial-overall-infographic'),
+        );
+        final report = tester.widget<ThreeTraditionReportPage>(
+          find.byType(ThreeTraditionReportPage),
+        );
+        if (report.lifeReading.topics.isEmpty) {
+          expect(tester.getSize(overallGraphic).width, greaterThan(1000));
+        } else {
+          final firstReading = find.byKey(const Key('overall-topic-details-1'));
+          expect(tester.getSize(overallGraphic).width, lessThan(600));
+          expect(
+            tester.getTopLeft(firstReading).dx,
+            greaterThan(tester.getTopRight(overallGraphic).dx),
+          );
+          if (report.lifeReading.topics.length == 4) {
+            final cards = [
+              for (var i = 1; i <= 4; i++)
+                find.byKey(Key('overall-topic-card-$i')),
+            ];
+            expect(
+              tester.getTopLeft(cards[0]).dy,
+              tester.getTopLeft(cards[1]).dy,
+            );
+            expect(
+              tester.getTopLeft(cards[2]).dy,
+              tester.getTopLeft(cards[3]).dy,
+            );
+            expect(
+              tester.getTopLeft(cards[1]).dx,
+              greaterThan(tester.getTopLeft(cards[0]).dx),
+            );
+            expect(
+              tester.getTopLeft(cards[2]).dy,
+              greaterThan(tester.getTopLeft(cards[0]).dy),
+            );
+          }
+        }
 
-      await tester.tap(find.byKey(const Key('overall-open-bazi')));
-      await tester.pumpAndSettle();
-      final baziGraphic = find.byKey(const Key('trial-bazi-infographic'));
-      final baziTitle = find.byKey(const Key('bazi-report-title'));
-      expect(
-        tester.getTopLeft(baziGraphic).dx,
-        lessThan(tester.getTopLeft(baziTitle).dx),
-      );
-      expect(tester.takeException(), isNull);
-      await tester.pageBack();
-      await tester.pumpAndSettle();
+        await tester.tap(find.byKey(const Key('overall-open-bazi')));
+        await tester.pumpAndSettle();
+        final baziGraphic = find.byKey(const Key('trial-bazi-infographic'));
+        final baziTitle = find.byKey(const Key('bazi-report-title'));
+        expect(
+          tester.getTopLeft(baziGraphic).dx,
+          lessThan(tester.getTopLeft(baziTitle).dx),
+        );
+        expect(tester.takeException(), isNull);
+        await tester.pageBack();
+        await tester.pumpAndSettle();
 
-      await tester.tap(find.byKey(const Key('overall-open-western')));
-      await tester.pumpAndSettle();
-      final westernGraphic = find.byKey(const Key('trial-western-infographic'));
-      final westernBalance = find.byKey(
-        const Key('trial-western-element-balance'),
-      );
-      expect(
-        tester.getTopLeft(westernGraphic).dx,
-        lessThan(tester.getTopLeft(westernBalance).dx),
-      );
-      expect(tester.takeException(), isNull);
-      await tester.pageBack();
-      await tester.pumpAndSettle();
+        await tester.tap(find.byKey(const Key('overall-open-western')));
+        await tester.pumpAndSettle();
+        final westernGraphic = find.byKey(
+          const Key('trial-western-infographic'),
+        );
+        final westernBalance = find.byKey(
+          const Key('trial-western-element-balance'),
+        );
+        expect(
+          tester.getTopLeft(westernBalance).dy,
+          greaterThan(tester.getTopLeft(westernGraphic).dy),
+        );
+        expect(tester.takeException(), isNull);
+        await tester.pageBack();
+        await tester.pumpAndSettle();
 
-      await tester.tap(find.byKey(const Key('overall-open-thai')));
-      await tester.pumpAndSettle();
-      expect(
-        tester.getSize(find.byKey(const Key('trial-thai-infographic'))).width,
-        greaterThan(1000),
-      );
-      expect(authCalls, 0);
-      expect(tester.takeException(), isNull);
-    });
+        await tester.tap(find.byKey(const Key('overall-open-thai')));
+        await tester.pumpAndSettle();
+        expect(
+          tester.getSize(find.byKey(const Key('trial-thai-infographic'))).width,
+          greaterThan(1000),
+        );
+        expect(authCalls, 0);
+        expect(tester.takeException(), isNull);
+      },
+    );
 
     testWidgets('trial calculation failure keeps the dark retry state', (
       tester,

@@ -416,11 +416,17 @@ class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
                 disableAnimations: true,
                 contentOverride: KeyedSubtree(
                   key: const Key('thai_birth_profile_core_reading'),
-                  child: ThaiBetaSharedReportView(
-                    document: document,
-                    infographicBoundaryKey: _infographicBoundaryKey,
-                    badges: _showBadgePanel ? _badges : const [],
-                    showInfographicSave: !widget.anonymousTrial,
+                  child: Theme(
+                    data: widget.anonymousTrial
+                        ? TrialVisualDesign.theme(TrialVisualDesign.thai)
+                        : Theme.of(context),
+                    child: ThaiBetaSharedReportView(
+                      document: document,
+                      infographicBoundaryKey: _infographicBoundaryKey,
+                      badges: _showBadgePanel ? _badges : const [],
+                      showInfographicSave: !widget.anonymousTrial,
+                      trialVisual: widget.anonymousTrial,
+                    ),
                   ),
                 ),
               ),

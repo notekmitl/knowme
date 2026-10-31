@@ -185,44 +185,37 @@ class WesternReaderBody extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   _hero(),
-                  const SizedBox(height: 18),
-                  LayoutBuilder(
-                    builder: (context, constraints) {
-                      final hasBalance =
-                          trialVisual &&
-                          WesternReaderV2Copy.balance(
-                            chart,
-                            'elements',
-                          ).isNotEmpty;
-                      if (hasBalance && constraints.maxWidth >= 1000) {
-                        return Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
+                  if (!trialVisual) ...[
+                    const SizedBox(height: 18),
+                    LayoutBuilder(
+                      builder: (context, constraints) {
+                        final hasBalance =
+                            trialVisual &&
+                            WesternReaderV2Copy.balance(
+                              chart,
+                              'elements',
+                            ).isNotEmpty;
+                        if (hasBalance && constraints.maxWidth >= 1000) {
+                          return Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Expanded(child: _bigThree()),
+                              const SizedBox(width: 20),
+                              Expanded(child: _trialElementBalance()),
+                            ],
+                          );
+                        }
+                        return Column(
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
                           children: [
-                            Expanded(child: _bigThree()),
-                            const SizedBox(width: 20),
-                            Expanded(child: _trialElementBalance()),
+                            _bigThree(),
+                            if (hasBalance) ...[
+                              const SizedBox(height: 18),
+                              _trialElementBalance(),
+                            ],
                           ],
                         );
-                      }
-                      return Column(
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        children: [
-                          _bigThree(),
-                          if (hasBalance) ...[
-                            const SizedBox(height: 18),
-                            _trialElementBalance(),
-                          ],
-                        ],
-                      );
-                    },
-                  ),
-                  if (trialVisual) ...[
-                    const SizedBox(height: 18),
-                    Center(
-                      child: ConstrainedBox(
-                        constraints: const BoxConstraints(maxWidth: 820),
-                        child: _trialOverview(),
-                      ),
+                      },
                     ),
                   ],
                   const SizedBox(height: 30),
@@ -264,6 +257,74 @@ class WesternReaderBody extends StatelessWidget {
   }
 
   Widget _hero() {
+    if (trialVisual) {
+      return Container(
+        key: const Key('western-reader-v2-hero'),
+        decoration: BoxDecoration(
+          color: _navy,
+          borderRadius: BorderRadius.circular(20),
+          border: Border.all(color: _gold.withValues(alpha: .42)),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            TrialIllustratedHero(
+              key: const Key('trial-western-infographic'),
+              asset: TrialVisualDesign.westernArt,
+              background: TrialVisualDesign.western,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text(
+                    'แผนที่ชีวิตแบบตะวันตก',
+                    style: TextStyle(
+                      color: TrialVisualDesign.text,
+                      fontSize: 25,
+                      fontWeight: FontWeight.w800,
+                    ),
+                  ),
+                  const SizedBox(height: 78),
+                  const Text(
+                    'สามตำแหน่งหลักในดวงกำเนิด',
+                    style: TextStyle(
+                      color: TrialVisualDesign.gold,
+                      fontWeight: FontWeight.w800,
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+                  Row(
+                    children: [
+                      _trialPlanet(
+                        'อาทิตย์',
+                        Icons.wb_sunny_outlined,
+                        chart.big3['sun'],
+                      ),
+                      const SizedBox(width: 5),
+                      _trialPlanet(
+                        'จันทร์',
+                        Icons.nights_stay_outlined,
+                        chart.big3['moon'],
+                      ),
+                      const SizedBox(width: 5),
+                      _trialPlanet(
+                        'ลัคนา',
+                        Icons.explore_outlined,
+                        chart.big3['rising'],
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(18, 14, 18, 4),
+              child: _trialOverview(),
+            ),
+            _trialElementBalance(),
+          ],
+        ),
+      );
+    }
     return Container(
       key: const Key('western-reader-v2-hero'),
       padding: const EdgeInsets.all(24),
@@ -358,8 +419,9 @@ class WesternReaderBody extends StatelessWidget {
   Widget _trialElementBalance() {
     final elements = WesternReaderV2Copy.balance(chart, 'elements');
     if (elements.isEmpty) return const SizedBox.shrink();
-    return _SurfaceCard(
+    return Padding(
       key: const Key('trial-western-element-balance'),
+      padding: const EdgeInsets.fromLTRB(18, 12, 18, 18),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -445,7 +507,7 @@ class WesternReaderBody extends StatelessWidget {
   Widget _trialPlanet(String label, IconData icon, dynamic sign) {
     return Expanded(
       child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 20),
+        padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 12),
         decoration: BoxDecoration(
           color: _violet.withValues(alpha: 0.10),
           borderRadius: BorderRadius.circular(14),

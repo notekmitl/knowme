@@ -82,6 +82,58 @@ class TrialArtworkBanner extends StatelessWidget {
   );
 }
 
+/// A single illustrated surface for live chart facts and their decorative art.
+/// The dark wash keeps the computed text readable without baking it into art.
+class TrialIllustratedHero extends StatelessWidget {
+  const TrialIllustratedHero({
+    super.key,
+    required this.asset,
+    required this.background,
+    required this.child,
+    this.alignment = Alignment.center,
+  });
+
+  final String asset;
+  final Color background;
+  final Widget child;
+  final Alignment alignment;
+
+  @override
+  Widget build(BuildContext context) => ClipRRect(
+    borderRadius: BorderRadius.circular(20),
+    child: Stack(
+      children: [
+        Positioned.fill(
+          child: Image.asset(
+            asset,
+            fit: BoxFit.cover,
+            alignment: alignment,
+            excludeFromSemantics: true,
+          ),
+        ),
+        Positioned.fill(
+          child: DecoratedBox(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                stops: const [0, .28, .64, 1],
+                colors: [
+                  background.withValues(alpha: .94),
+                  background.withValues(alpha: .30),
+                  background.withValues(alpha: .73),
+                  background,
+                ],
+              ),
+            ),
+          ),
+        ),
+        Padding(padding: const EdgeInsets.all(18), child: child),
+      ],
+    ),
+  );
+}
+
 enum TrialReaderTab { overall, thai, chinese, western }
 
 class TrialFlowSteps extends StatelessWidget {

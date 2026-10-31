@@ -9,6 +9,7 @@ import 'package:knowme/features/astrology/thai/knowledge/canon/integration/prese
 import 'package:knowme/features/thai_beta/application/core_reading/thai_birth_profile_core_reading.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_report_export_document.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_report_export_download.dart';
+import 'package:knowme/features/astrology/fusion/presentation/trial_visual_design.dart';
 
 const _reportDomainHeadings = {
   'การงาน',
@@ -63,12 +64,14 @@ class ThaiBetaSharedReportView extends StatelessWidget {
     required this.infographicBoundaryKey,
     this.badges = const [],
     this.showInfographicSave = true,
+    this.trialVisual = false,
   });
 
   final ThaiBetaReportExportDocument document;
   final GlobalKey infographicBoundaryKey;
   final List<ThaiPublicEvidenceBadgeBetaViewModel> badges;
   final bool showInfographicSave;
+  final bool trialVisual;
 
   @override
   Widget build(BuildContext context) {
@@ -82,9 +85,13 @@ class ThaiBetaSharedReportView extends StatelessWidget {
         key: const Key('thai_shared_report_header'),
         width: double.infinity,
         padding: const EdgeInsets.fromLTRB(22, 28, 22, 24),
-        decoration: const BoxDecoration(
-          color: Color(0xff111936),
-          borderRadius: BorderRadius.vertical(bottom: Radius.circular(24)),
+        decoration: BoxDecoration(
+          color: trialVisual
+              ? const Color(0xFF0B2922)
+              : const Color(0xff111936),
+          borderRadius: const BorderRadius.vertical(
+            bottom: Radius.circular(24),
+          ),
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -124,7 +131,10 @@ class ThaiBetaSharedReportView extends StatelessWidget {
               section.title == 'รายละเอียดหลักฐาน')) {
         continue;
       }
-      Widget sectionWidget = _SharedReportSection(section: section);
+      Widget sectionWidget = _SharedReportSection(
+        section: section,
+        trialVisual: trialVisual,
+      );
       if (!timelineStarted &&
           section.kind == ThaiBetaReportExportSectionKind.timeline) {
         timelineStarted = true;
@@ -183,9 +193,13 @@ class ThaiBetaSharedReportView extends StatelessWidget {
 }
 
 class _SharedReportSection extends StatelessWidget {
-  const _SharedReportSection({required this.section});
+  const _SharedReportSection({
+    required this.section,
+    required this.trialVisual,
+  });
 
   final ThaiBetaReportExportSection section;
+  final bool trialVisual;
 
   @override
   Widget build(BuildContext context) {
@@ -194,7 +208,9 @@ class _SharedReportSection extends StatelessWidget {
     final isTimeline = section.kind == ThaiBetaReportExportSectionKind.timeline;
     final isDisclaimer =
         section.kind == ThaiBetaReportExportSectionKind.disclaimer;
-    final background = isChapter
+    final background = trialVisual
+        ? (isChapter ? const Color(0xFF123C32) : const Color(0xFF102D27))
+        : isChapter
         ? const Color(0xff18203f)
         : isTimeline
         ? const Color(0xfff3f1ea)
@@ -209,6 +225,10 @@ class _SharedReportSection extends StatelessWidget {
       _ => null,
     };
 
+    final ink = trialVisual ? TrialVisualDesign.text : const Color(0xff18203f);
+    final accent = trialVisual
+        ? TrialVisualDesign.gold
+        : const Color(0xff96702e);
     return Container(
       key: ValueKey(section.id),
       margin: EdgeInsets.fromLTRB(18, isChapter ? 12 : 0, 18, 14),
@@ -217,7 +237,9 @@ class _SharedReportSection extends StatelessWidget {
         color: background,
         borderRadius: BorderRadius.circular(16),
         border: Border.all(
-          color: isChapter
+          color: trialVisual
+              ? TrialVisualDesign.gold.withValues(alpha: .40)
+              : isChapter
               ? const Color(0xffc7a760)
               : isDisclaimer
               ? const Color(0xffd7a84d)
@@ -231,7 +253,7 @@ class _SharedReportSection extends StatelessWidget {
             Text(
               phaseLabel,
               style: theme.textTheme.labelMedium?.copyWith(
-                color: const Color(0xff96702e),
+                color: accent,
                 fontWeight: FontWeight.w700,
               ),
             ),
@@ -240,7 +262,9 @@ class _SharedReportSection extends StatelessWidget {
           Text(
             section.title,
             style: theme.textTheme.titleMedium?.copyWith(
-              color: isChapter
+              color: trialVisual
+                  ? TrialVisualDesign.text
+                  : isChapter
                   ? const Color(0xfffff8e8)
                   : const Color(0xff18203f),
               fontWeight: FontWeight.w800,
@@ -252,7 +276,9 @@ class _SharedReportSection extends StatelessWidget {
             Text(
               'เรื่องสำคัญของช่วงนี้',
               style: theme.textTheme.labelLarge?.copyWith(
-                color: const Color(0xff4b536c),
+                color: trialVisual
+                    ? TrialVisualDesign.muted
+                    : const Color(0xff4b536c),
                 fontWeight: FontWeight.w700,
               ),
             ),
@@ -268,14 +294,14 @@ class _SharedReportSection extends StatelessWidget {
                   Icon(
                     _domainIcon(section.paragraphs[index]),
                     size: 18,
-                    color: const Color(0xff96702e),
+                    color: accent,
                   ),
                   const SizedBox(width: 8),
                   Expanded(
                     child: Text(
                       section.paragraphs[index],
                       style: theme.textTheme.labelLarge?.copyWith(
-                        color: const Color(0xff18203f),
+                        color: ink,
                         fontWeight: FontWeight.w800,
                       ),
                     ),
@@ -287,7 +313,11 @@ class _SharedReportSection extends StatelessWidget {
                 section.paragraphs[index],
                 key: ValueKey(section.paragraphIds[index]),
                 style: theme.textTheme.bodyMedium?.copyWith(
-                  color: isChapter ? const Color(0xffddd4bd) : null,
+                  color: trialVisual
+                      ? TrialVisualDesign.text
+                      : isChapter
+                      ? const Color(0xffddd4bd)
+                      : null,
                   height: isChapter ? 1.48 : 1.62,
                 ),
               ),

@@ -98,11 +98,14 @@ class BaziCompatibilityReportView extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         if (trialChart != null) ...[
-          _TrialPillars(chart: trialChart!),
+          _TrialPillars(
+            chart: trialChart!,
+            title: report.title,
+            subtitle: report.subtitle,
+          ),
           const SizedBox(height: 16),
         ],
-        hero,
-        const SizedBox(height: 8),
+        if (trialChart == null) ...[hero, const SizedBox(height: 8)],
         ...sectionCards,
       ],
     );
@@ -121,13 +124,10 @@ class BaziCompatibilityReportView extends StatelessWidget {
                     return Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
-                        Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Expanded(child: _TrialPillars(chart: trialChart!)),
-                            const SizedBox(width: 20),
-                            Expanded(child: hero),
-                          ],
+                        _TrialPillars(
+                          chart: trialChart!,
+                          title: report.title,
+                          subtitle: report.subtitle,
                         ),
                         const SizedBox(height: 20),
                         Center(
@@ -170,9 +170,15 @@ class BaziCompatibilityReportView extends StatelessWidget {
 }
 
 class _TrialPillars extends StatelessWidget {
-  const _TrialPillars({required this.chart});
+  const _TrialPillars({
+    required this.chart,
+    required this.title,
+    required this.subtitle,
+  });
 
   final BaziChartModel chart;
+  final String title;
+  final String subtitle;
 
   @override
   Widget build(BuildContext context) {
@@ -203,64 +209,61 @@ class _TrialPillars extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const TrialArtworkBanner(
+          TrialIllustratedHero(
             asset: TrialVisualDesign.chineseArt,
-            height: 170,
-            alignment: Alignment(0, -0.7),
-          ),
-          const SizedBox(height: 18),
-          if (chart.dayMaster.element.isNotEmpty) ...[
-            Container(
-              key: const Key('trial-bazi-day-master'),
-              padding: const EdgeInsets.all(18),
-              decoration: BoxDecoration(
-                color: const Color(0xFF351B20),
-                borderRadius: BorderRadius.circular(16),
-              ),
-              child: Row(
-                children: [
-                  Text(
-                    chart.dayMaster.stem,
-                    style: const TextStyle(
-                      fontSize: 32,
-                      color: TrialVisualDesign.gold,
-                    ),
+            background: TrialVisualDesign.chinese,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  title,
+                  key: const Key('bazi-report-title'),
+                  style: const TextStyle(
+                    color: TrialVisualDesign.text,
+                    fontSize: 24,
+                    fontWeight: FontWeight.w800,
                   ),
-                  const SizedBox(width: 16),
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                ),
+                Text(
+                  subtitle,
+                  style: const TextStyle(color: TrialVisualDesign.text),
+                ),
+                const SizedBox(height: 95),
+                if (chart.dayMaster.element.isNotEmpty)
+                  Container(
+                    key: const Key('trial-bazi-day-master'),
+                    padding: const EdgeInsets.all(12),
+                    decoration: BoxDecoration(
+                      color: const Color(0xE62A171B),
+                      borderRadius: BorderRadius.circular(14),
+                    ),
+                    child: Row(
                       children: [
-                        const Text(
-                          'ธาตุประจำวัน',
-                          style: TextStyle(
+                        Text(
+                          chart.dayMaster.stem,
+                          style: const TextStyle(
+                            fontSize: 32,
                             color: TrialVisualDesign.gold,
-                            fontWeight: FontWeight.w700,
                           ),
                         ),
-                        Text(
-                          const {
-                                'wood': 'ไม้',
-                                'fire': 'ไฟ',
-                                'earth': 'ดิน',
-                                'metal': 'ทอง',
-                                'water': 'น้ำ',
-                              }[chart.dayMaster.element] ??
-                              chart.dayMaster.element,
-                          style: const TextStyle(
-                            fontSize: 24,
-                            fontWeight: FontWeight.w800,
-                            color: TrialVisualDesign.text,
+                        const SizedBox(width: 14),
+                        Expanded(
+                          child: Text(
+                            'ธาตุประจำวัน  ${const {'wood': 'ไม้', 'fire': 'ไฟ', 'earth': 'ดิน', 'metal': 'ทอง', 'water': 'น้ำ'}[chart.dayMaster.element] ?? chart.dayMaster.element}',
+                            style: const TextStyle(
+                              fontSize: 19,
+                              fontWeight: FontWeight.w800,
+                              color: TrialVisualDesign.text,
+                            ),
                           ),
                         ),
                       ],
                     ),
                   ),
-                ],
-              ),
+              ],
             ),
-            const SizedBox(height: 22),
-          ],
+          ),
+          const SizedBox(height: 18),
           const Text(
             'สี่เสาของพื้นดวง',
             style: TextStyle(
@@ -331,54 +334,61 @@ class _TrialPillars extends StatelessWidget {
             ],
           ),
           if (balance.totalSlots > 0) ...[
-            const SizedBox(height: 20),
-            const Text(
-              'สัดส่วนธาตุในผังนี้',
-              style: TextStyle(
-                fontWeight: FontWeight.w700,
-                color: TrialVisualDesign.gold,
+            const SizedBox(height: 8),
+            ExpansionTile(
+              key: const Key('trial-bazi-element-details'),
+              tilePadding: EdgeInsets.zero,
+              iconColor: TrialVisualDesign.gold,
+              collapsedIconColor: TrialVisualDesign.gold,
+              title: const Text(
+                'ดูสัดส่วนธาตุที่คำนวณได้',
+                style: TextStyle(color: TrialVisualDesign.gold),
               ),
-            ),
-            const SizedBox(height: 10),
-            for (final (label, count, color) in elements) ...[
-              Row(
-                children: [
-                  SizedBox(
-                    width: 38,
-                    child: Text(
-                      label,
-                      style: const TextStyle(color: TrialVisualDesign.text),
-                    ),
-                  ),
-                  Expanded(
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(5),
-                      child: LinearProgressIndicator(
-                        value: (count / balance.totalSlots)
-                            .clamp(0.0, 1.0)
-                            .toDouble(),
-                        minHeight: 9,
-                        backgroundColor: const Color(0xFF35272B),
-                        color: color,
+              children: [
+                for (final (label, count, color) in elements) ...[
+                  Row(
+                    children: [
+                      SizedBox(
+                        width: 38,
+                        child: Text(
+                          label,
+                          style: const TextStyle(color: TrialVisualDesign.text),
+                        ),
                       ),
-                    ),
+                      Expanded(
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(5),
+                          child: LinearProgressIndicator(
+                            value: (count / balance.totalSlots)
+                                .clamp(0.0, 1.0)
+                                .toDouble(),
+                            minHeight: 9,
+                            backgroundColor: const Color(0xFF35272B),
+                            color: color,
+                          ),
+                        ),
+                      ),
+                      const SizedBox(width: 8),
+                      SizedBox(
+                        width: 22,
+                        child: Text(
+                          '$count',
+                          textAlign: TextAlign.end,
+                          style: const TextStyle(color: TrialVisualDesign.text),
+                        ),
+                      ),
+                    ],
                   ),
-                  const SizedBox(width: 8),
-                  SizedBox(
-                    width: 22,
-                    child: Text(
-                      '$count',
-                      textAlign: TextAlign.end,
-                      style: const TextStyle(color: TrialVisualDesign.text),
-                    ),
-                  ),
+                  const SizedBox(height: 6),
                 ],
-              ),
-              const SizedBox(height: 6),
-            ],
-            const Text(
-              'ตัวเลขคือจำนวนตำแหน่งที่คำนวณได้ ไม่ใช่คะแนนดีหรือร้าย',
-              style: TextStyle(fontSize: 14, color: TrialVisualDesign.muted),
+                const Text(
+                  'ตัวเลขคือจำนวนตำแหน่งที่คำนวณได้ ไม่ใช่คะแนนดีหรือร้าย',
+                  style: TextStyle(
+                    fontSize: 14,
+                    color: TrialVisualDesign.muted,
+                  ),
+                ),
+              ],
             ),
           ],
         ],
