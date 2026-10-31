@@ -31,7 +31,9 @@ The reference boards' literal signs, pillars and predictions were not copied.
 The implementation uses decorative art plus existing computed values. Four
 Overall cards are 2×2 on desktop while collapsed and retain full text on
 expansion. Trial Thai deep sections and annual infographic tiles are jade and
-gold; regular Thai remains unchanged. Visual differences remain: the reference
+gold; regular Thai remains unchanged. The hosted synthetic cases had no annual
+infographic, so its palette is covered by a widget regression rather than a
+hosted screenshot. Visual differences remain: the reference
 uses ornate chart wheels and bespoke icons, Chinese/Western desktop articles
 are linear below their hero, and the 320 px Overall title wraps with some lens
 fact chips abbreviated by ellipsis. Owner review of the running UI is still

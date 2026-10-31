@@ -19,7 +19,9 @@ existing overview and element proportions in one illustrated surface. Thai
 deep-report section cards and the nested annual infographic palette use jade
 and gold only in the anonymous trial; standalone Thai remains at its original
 styling. All source values remain live model data, not text or chart marks from
-the AI boards.
+the AI boards. The hosted synthetic fixtures did not render a 12-month
+infographic, so its trial palette was verified by a widget regression, not a
+hosted screenshot.
 
 The exact guarded build is `pr149-e8bcfa7`, using only
 `https://knowme-overall-pr149-preview-avbyttircq-as.a.run.app` and a plugin-free

@@ -17,7 +17,9 @@ available via disclosure and are explicitly not scores. Western puts calculated
 Sun/Moon/Rising and element proportions with the existing overview in one
 illustrated surface. Thai deep report sections and the nested annual
 infographic cards use jade/gold only for anonymous trial; the standalone Thai
-view and export defaults retain their prior design.
+view and export defaults retain their prior design. A widget regression checked
+the annual infographic palette; the hosted synthetic cases did not include an
+annual infographic to screenshot.
 
 Local 390×844, 1280×800 and 320×740 journeys passed without horizontal
 overflow. Final Hosted Preview version `618a0d087d43aa9b` repeated fresh

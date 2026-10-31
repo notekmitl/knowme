@@ -28,8 +28,9 @@ The Chinese day master and four pillars sit in the same illustrated panel;
 element counts remain available in its disclosure. The Western Big 3, overview
 and calculated element proportions share one illustrated surface. Thai deep
 report section cards and the nested 12-month infographic tiles use jade and
-gold only in the anonymous trial. The
-standalone Thai report is unchanged.
+gold only in the anonymous trial. The hosted synthetic cases did not render
+a 12-month infographic, so that palette was verified by a widget regression
+rather than a hosted screenshot. The standalone Thai report is unchanged.
 
 The references contain ornate chart wheels and bespoke illustrated icons that
 are not calculated chart renderers. The implementation keeps the generated
