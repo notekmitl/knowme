@@ -1,3 +1,57 @@
+# KnowMe PR149 approved visual direction — isolated trial, 2026-10-31
+
+The approved `mobile-four-readers.png` and `pc-four-readers.png` boards from
+the Owner's ZIP guide the look and layout only. Application commit
+`252e5fa2cae174aa4494487ed35a179e633e3b33` adds decorative WebP artwork
+and a shared trial visual system across start, birth form, loading/error,
+Overall, Thai, Chinese and Western readers. Test-only HEAD
+`4d9974980604f63aaaadc0851e0ef55a9e1db077` updates the landing CTA
+regression. CI run `41191026203` passed all required checks. No board text,
+Chinese character, zodiac placement or prediction is used as chart data.
+
+Overall still renders the original four life-topic strings, including the
+unchanged complete disclosure text. It keeps the 0.6 agreement threshold,
+source audit hidden from readers, and conflict/fail-closed behavior. The
+Overall hero shows the three prepared perspectives without asserting universal
+agreement. Thai hero shows the computed profile ascendant and existing
+consumer-view reading/tags. Chinese shows the computed day master, four
+pillars and element-slot counts; these bars are counts, not good/bad scores.
+Western shows the computed Sun/Moon/Rising signs and natal element percentages.
+None of the four decorative images encodes a star position or a numeric chart.
+Navigation reuses the prepared results; it does not invoke another calculator.
+Regular single-tradition menu behavior is outside this trial visual change.
+
+Local visual journeys used two synthetic cases at 390×844 and 1280×800, plus
+320-pixel width and unknown-time checks. The new Hosting Preview version
+`0f8eeafff3e0857b` passed fresh independent journeys at both required sizes.
+Known-time runs each sent exactly two HTTP 200 calculator POSTs to the separate
+Backend Preview and none on expansion, back or direct lens switches.
+Unknown-time runs displayed the reason for stopping and sent zero POSTs.
+Recorded requests from first load contained zero Google Sign-In/Firebase
+Auth/Firestore SDK/API or Production API requests, zero other writes, zero
+failed requests and zero application errors. No measured or visible horizontal
+overflow or duplicate expanded excerpt remained. See the [hosted images and
+approved-board comparison](qa/pr149-approved-visual/README.md) and local
+network evidence in `C:\Users\USER\Documents\Knowme\pr149_design_20261031`.
+
+The guarded build version `pr149-252e5fa` uses only
+`https://knowme-overall-pr149-preview-avbyttircq-as.a.run.app`. Hosted
+index/bootstrap/main JS hashes match its staged files; values are in
+`docs/CURRENT_STATUS.md`. Preview URL:
+<https://knowme-app-694e1--pr-149-overall-safe-c41ic92g.web.app/beta/thai>.
+Expiry is **7 Nov 2026 17:12:09 Asia/Bangkok**. Only existing Hosting Preview
+channel `pr-149-overall-safe` was deployed with `--no-authorized-domains`;
+Production `live` stayed at `d32e72678324e634` and Backend Preview stayed at
+revision `knowme-overall-pr149-preview-00003-5lg`. No Backend, Auth,
+Firestore, IAM/rules, Production deploy or merge occurred.
+
+The detailed Thai report retains its established light inner panels under the
+new dark reader shell. This differs from the all-dark reference cards; report
+content and hierarchy remain intact. Owner acceptance of the running UI is
+pending. PR #149 stays Draft.
+
+---
+
 # KnowMe PR149 Hosted Preview with scoped Backend CORS - 2026-10-31
 
 The current Preview is functional after a **Backend Preview-only** CORS env

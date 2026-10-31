@@ -1,3 +1,60 @@
+# KnowMe Draft PR #149 — approved visual direction on Hosted Preview, 2026-10-31
+
+Owner approved the two visual boards in the supplied ZIP as a **direction**.
+This implementation is still awaiting Owner review. Application SHA
+`252e5fa2cae174aa4494487ed35a179e633e3b33` and regression-test follow-up
+HEAD `4d9974980604f63aaaadc0851e0ef55a9e1db077` were pushed to the same
+Draft PR. Required run `41191026203` passed `backend-validation`,
+`flutter-validation` (complete suite) and `isolated-trial-build`. The preceding
+run failed only because an old landing test expected the previous CTA; the
+test was corrected and passed locally and in the new complete CI run.
+
+The isolated trial now has midnight-purple Overall, jade-and-gold Thai,
+ink-and-red Chinese, and navy-and-gold Western screens. Four purpose-made WebP
+artworks are decorative only; no board text or fake chart placements were
+copied. The Thai ascendant label, Chinese day master/four pillars/element
+counts, and Western Big 3/element percentages are rendered from prepared
+calculation models. The four Overall readings, their complete expand/collapse
+text, formulas, 0.6 evidence threshold and conflict gate were not changed.
+The regular single-tradition menus are unchanged. Start, form, calendar,
+loading/error/unknown-time states and mobile/desktop reader navigation use
+the new trial visual system. The detailed Thai report keeps its original
+light inner cards within the dark trial shell; this differs from the approved
+board and remains for Owner review.
+
+Local QA used two synthetic known-time inputs at 390×844 and 1280×800 plus
+320-pixel overflow and unknown-time checks. A fresh Hosted Preview version
+`0f8eeafff3e0857b` on existing channel `pr-149-overall-safe` then passed
+independent 390×844 and 1280×800 journeys: start → form → Overall → Thai,
+Chinese, Western → Overall, with both return-to-Overall and direct lens
+switching. Opening/closing Overall details and Thai full reading added no
+calculation. Each known-time run sent exactly **two** POSTs (BaZi and Western,
+both HTTP 200) to the isolated Backend Preview; each unknown-time run stopped
+on the form with the time-required message and **zero** POSTs. The four hosted
+traces contained no Google Sign-In/Firebase Auth/Firestore SDK/API request,
+Production API request, other write, failed request or app console error.
+Observed document widths matched their viewport; no text duplication or
+visible overflow was found. Sources were inspected from page load, with no
+signed-in session. The full Hosted QA summary and network traces are under
+`C:\Users\USER\Documents\Knowme\pr149_design_20261031`.
+
+Hosted index/bootstrap/main JS SHA-256 matched the isolated application build:
+`78cedd49c3aaed6f98880d735e118cd2f9778041bcd9253c38d8b254710e1377`,
+`0caeb983adbd7fa4d47b7fbc36e28754774f122ffa7cd22472d3088d5339bb76`,
+`a9495d1c9e61ce628dcd55c017648862b620301747a8e316737e69a72ee232b3`.
+The build version is `pr149-252e5fa`, with Overall Preview enabled, Evidence
+Badge off, plugin-free registrant and separate Backend Preview API. Current
+URL: <https://knowme-app-694e1--pr-149-overall-safe-c41ic92g.web.app/beta/thai>.
+The channel expires **7 Nov 2026 17:12:09 Asia/Bangkok**. Its origin stayed
+identical; Backend Preview revision remains `...00003-5lg` and Production
+Hosting `live` remains `d32e72678324e634`. Only Hosting Preview was deployed,
+with `--no-authorized-domains`; no Backend, Auth, Firestore, IAM/rules or live
+change occurred. [Open the approved/hosted image comparison](qa/pr149-approved-visual/README.md).
+The PR remains Draft and has not been merged. The visual direction approval
+is not final UI acceptance.
+
+---
+
 # KnowMe PR149 Backend Preview CORS repair and Hosted QA - 2026-10-31
 
 Draft PR #149 application remains SHA `3c747ae7f37bf47529ee61bb83b08bd017f1fbe9`;

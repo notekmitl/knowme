@@ -1,3 +1,49 @@
+# KnowMe PR149 handoff — approved visual direction in Preview, 2026-10-31
+
+Continue Draft PR #149 on `codex/three-tradition-overall-v1`. Application
+commit `252e5fa2cae174aa4494487ed35a179e633e3b33` implements the Owner's
+approved board direction in the isolated trial; test-only follow-up HEAD is
+`4d9974980604f63aaaadc0851e0ef55a9e1db077`. Required CI run
+`41191026203` passed all three jobs, including the complete Flutter suite.
+The earlier suite failure was an obsolete landing CTA assertion, fixed in the
+test follow-up. Owner has approved the reference **direction**, not the final
+hosted UI; keep the PR Draft and await visual review.
+
+Working Owner review URL:
+<https://knowme-app-694e1--pr-149-overall-safe-c41ic92g.web.app/beta/thai>.
+Hosting Preview channel `pr-149-overall-safe`, site `knowme-app-694e1`, is
+version `0f8eeafff3e0857b`, expiring **7 Nov 2026 17:12:09 Thailand time**.
+The `pr149-252e5fa` isolated build points only to
+`https://knowme-overall-pr149-preview-avbyttircq-as.a.run.app`; Backend
+revision `knowme-overall-pr149-preview-00003-5lg` and exact CORS origin were
+unchanged. The Hosting-only deployment used `--no-authorized-domains`.
+Before/after channel snapshots show Production `live` retained release
+`1790074568414000` / version `d32e72678324e634` and the Preview URL suffix
+remained `c41ic92g`.
+
+Hosted index/bootstrap/main JS matched the staged SHA-256 values in
+`docs/CURRENT_STATUS.md` and the local `hosted-hashes.json`. Fresh independent
+known-time journeys at 390×844 and 1280×800 each had two successful Preview
+calculator POSTs; direct reader switches, back navigation, and detail toggles
+added none. Separate unknown-time journeys at both sizes had zero POSTs and an
+explanation on the form. Network collection began before initial load; every
+trace had zero forbidden Auth/Firestore/Production API requests, other writes,
+failed requests and app console errors. Measured document widths equalled
+viewport widths. Local 320-pixel checks also passed. Use only synthetic data
+for further QA; the traces and images under
+`C:\Users\USER\Documents\Knowme\pr149_design_20261031` contain no real birth
+details. [Open all approved reference and hosted comparison images](qa/pr149-approved-visual/README.md).
+
+The four WebP pictures are decorative, with chart values and reading text
+rendered separately from calculated results. Thai deep-report inner cards
+retain their previous light design inside the new jade trial shell; note this
+difference during Owner review. Do not mistake the AI board's characters,
+chart numbers or predictions for actual results. No formula, evidence rule,
+single-system menu, Backend, Production Hosting, Auth, Firestore, IAM or rules
+change was made. Do not merge or deploy live.
+
+---
+
 # KnowMe PR149 handoff - Backend Preview CORS repaired, 2026-10-31
 
 The preceding CORS blocker below is resolved for the current Preview origin.

@@ -1,0 +1,23 @@
+{
+  "index.html": {
+    "url": "https://knowme-app-694e1--pr-149-overall-safe-c41ic92g.web.app/index.html?qa=pr149-252e5fa",
+    "status": 200,
+    "local_sha256": "78cedd49c3aaed6f98880d735e118cd2f9778041bcd9253c38d8b254710e1377",
+    "hosted_sha256": "78cedd49c3aaed6f98880d735e118cd2f9778041bcd9253c38d8b254710e1377",
+    "match": true
+  },
+  "flutter_bootstrap.js": {
+    "url": "https://knowme-app-694e1--pr-149-overall-safe-c41ic92g.web.app/flutter_bootstrap.js?qa=pr149-252e5fa",
+    "status": 200,
+    "local_sha256": "0caeb983adbd7fa4d47b7fbc36e28754774f122ffa7cd22472d3088d5339bb76",
+    "hosted_sha256": "0caeb983adbd7fa4d47b7fbc36e28754774f122ffa7cd22472d3088d5339bb76",
+    "match": true
+  },
+  "main.dart.js": {
+    "url": "https://knowme-app-694e1--pr-149-overall-safe-c41ic92g.web.app/main.dart.js?qa=pr149-252e5fa",
+    "status": 200,
+    "local_sha256": "a9495d1c9e61ce628dcd55c017648862b620301747a8e316737e69a72ee232b3",
+    "hosted_sha256": "a9495d1c9e61ce628dcd55c017648862b620301747a8e316737e69a72ee232b3",
+    "match": true
+  }
+}
