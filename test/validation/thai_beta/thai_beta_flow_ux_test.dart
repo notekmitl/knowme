@@ -3,14 +3,14 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_store.dart';
 import 'package:knowme/features/thai_beta/presentation/pages/thai_beta_completion_page.dart';
 import 'package:knowme/features/thai_beta/presentation/pages/thai_beta_landing_page.dart';
+import 'package:knowme/features/astrology/fusion/presentation/trial_visual_design.dart';
 import 'package:knowme/features/thai_beta/presentation/widgets/thai_beta_progress_bar.dart';
 
 void main() {
-  testWidgets('Landing screen sets expectations and shows the start CTA',
-      (tester) async {
-    await tester.pumpWidget(
-      const MaterialApp(home: ThaiBetaLandingPage()),
-    );
+  testWidgets('Landing screen sets expectations and shows the start CTA', (
+    tester,
+  ) async {
+    await tester.pumpWidget(const MaterialApp(home: ThaiBetaLandingPage()));
     await tester.pump();
 
     // CTA lives in the bottom bar (always visible); the info tiles scroll.
@@ -19,22 +19,28 @@ void main() {
     expect(find.text('ใช้เวลาโดยประมาณ'), findsOneWidget);
   });
 
-  testWidgets('anonymous trial does not read research participants',
-      (tester) async {
+  testWidgets('anonymous trial does not read research participants', (
+    tester,
+  ) async {
     final store = _TrackingStore();
-    await tester.pumpWidget(MaterialApp(
-      home: ThaiBetaLandingPage(store: store, anonymousTrial: true),
-    ));
+    await tester.pumpWidget(
+      MaterialApp(
+        home: ThaiBetaLandingPage(store: store, anonymousTrial: true),
+      ),
+    );
     await tester.pump();
 
     expect(store.readCount, 0);
-    expect(find.text('เริ่มทดลองดูดวง'), findsOneWidget);
+    expect(find.text('เริ่มดูดวงรวม'), findsOneWidget);
+    expect(find.byType(TrialArtworkBanner), findsOneWidget);
+    expect(find.text('สามศาสตร์ · พื้นดวงเดียว'), findsOneWidget);
     expect(find.text('การเข้าร่วมงานวิจัย'), findsNothing);
     expect(find.textContaining('โดยไม่บันทึกลงบัญชี'), findsOneWidget);
   });
 
-  testWidgets('Completion screen shows thanks + reference id + restart',
-      (tester) async {
+  testWidgets('Completion screen shows thanks + reference id + restart', (
+    tester,
+  ) async {
     await tester.pumpWidget(
       const MaterialApp(
         home: ThaiBetaCompletionPage(researchId: 'TH-00000042'),
@@ -50,9 +56,7 @@ void main() {
   testWidgets('Progress bar renders all four step labels', (tester) async {
     await tester.pumpWidget(
       const MaterialApp(
-        home: Scaffold(
-          body: ThaiBetaProgressBar(current: ThaiBetaStep.read),
-        ),
+        home: Scaffold(body: ThaiBetaProgressBar(current: ThaiBetaStep.read)),
       ),
     );
     await tester.pump();
