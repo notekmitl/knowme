@@ -1,3 +1,38 @@
+# KnowMe PR149 isolated Hosting Preview - 2026-10-31 blocker
+
+The application code remains SHA `3c747ae7f37bf47529ee61bb83b08bd017f1fbe9`
+with passing CI run `41030181383`. A fresh isolated build from this SHA set
+`KNOWME_OVERALL_PREVIEW=true`, disabled the Evidence Badge, and selected
+`https://knowme-overall-pr149-preview-avbyttircq-as.a.run.app`. The plugin
+registrant and bundle privacy guards passed. Query version is `pr149-3c747ae`.
+
+Only Hosting channel `pr-149-overall-safe` was created/updated with a
+Hosting-only config and `--no-authorized-domains`. The old channel had expired;
+Firebase returned a new URL suffix: `c41ic92g`. The canonical path is
+`https://knowme-app-694e1--pr-149-overall-safe-c41ic92g.web.app/beta/thai`.
+Hosting version `e7ea691e701bcdbd` expires 2026-11-07 10:19:52 Asia/Bangkok.
+Hosting live remained version `d32e72678324e634`, release `1790074568414000`.
+Hosted index/bootstrap/main SHA-256 matched the build exactly; see the current
+status and handoff files for the three values.
+
+The new origin failed both calculator CORS preflights: OPTIONS 400 with no
+allow-origin for BaZi and Western chart. The previously allowed origin still
+passes OPTIONS but its expired Hosting URL returns 404. No Backend/CORS/IAM
+change is authorized in this turn. **Known-time Hosted Preview QA stops here**:
+there is no basis to claim two successful POSTs, a rendered Overall report,
+working lens navigation, or no extra calculation for this hosted version.
+The earlier local QA and exact hosted file hashes establish code identity,
+not browser access to the calculator from the new origin.
+
+Read-only fresh loads at 390x844 and 1280x800 showed HTTP 200, 14 requests
+each, zero forbidden SDK/API requests, zero app console errors and document
+width equal to viewport width. Separate unknown-time forms showed the explicit
+time-required banner and sent zero POSTs. No report-page overflow or disclosure
+claim is made for the new Hosted Preview. Owner confirmed the previous
+duplicate-excerpt image fix only; full UI review remains pending. PR is Draft.
+
+---
+
 # KnowMe PR149 Overall card disclosure - 2026-10-30
 
 Follow-up from `9b8e21f`: each of the four life-area cards conditionally shows

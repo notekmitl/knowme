@@ -1,3 +1,60 @@
+# KnowMe PR149 Hosting Preview follow-up - 2026-10-31: CORS blocker
+
+Application SHA `3c747ae7f37bf47529ee61bb83b08bd017f1fbe9` remains the
+unchanged Draft PR #149 code. Its CI run `41030181383` passed backend-validation,
+flutter-validation (including the complete suite) and isolated-trial-build.
+Owner confirmed that `expanded-390.png` fixed the duplicate excerpt, **not**
+that the entire UI is approved. No application code or evidence threshold changed.
+
+With Owner authorization, a fresh `tool/build_trial_web.py` build used
+`lib/main_trial.dart`, `KNOWME_OVERALL_PREVIEW=true`, Evidence Badge off and
+`https://knowme-overall-pr149-preview-avbyttircq-as.a.run.app`. The generated
+registrant and no-Auth/Firestore/Production-API bundle guards passed. Build
+version query key: `pr149-3c747ae`. A Hosting-only config targeted site
+`knowme-app-694e1`; only Preview channel `pr-149-overall-safe` was deployed
+for 7 days with `--no-authorized-domains`. No live, Backend, Auth, Firestore,
+IAM or rules change was made.
+
+Before deployment the old Preview channel was absent (expired), and Hosting
+`live` was version `d32e72678324e634` / release `1790074568414000`. Firebase
+re-created the same channel ID with a **new origin**:
+`https://knowme-app-694e1--pr-149-overall-safe-c41ic92g.web.app/beta/thai`.
+Its version is `e7ea691e701bcdbd`, release `1793416799875000`, and expiry is
+**2026-11-07 10:19:52 Asia/Bangkok** (`2026-11-07T03:19:52.495576224Z`).
+The post-deploy read confirmed the identical `live` version and release.
+
+Hosted index/bootstrap/main downloads all returned 200 and matched the
+staged build SHA-256 exactly:
+
+| Asset | SHA-256 |
+| --- | --- |
+| index.html | `31e5c221705cb6379e9f4c37c8fbff816d04de71a90b4ef4a424a4c099cbdd09` |
+| flutter_bootstrap.js | `58ce590aa31c3379bbb15dabfa7e210b64d60e13ab6bf10e9b7997f15022bd95` |
+| main.dart.js | `1ffa1b4b087147a073e87f8ee5c9a00775ff600d808681737c09cd67b00aac81` |
+
+**Hosted functional QA is blocked.** Before deployment, OPTIONS from the
+historical Preview origin returned 200 with exact allow-origin on both
+calculator paths. That old URL now returns 404. OPTIONS from the newly created
+origin returns **400 with no Access-Control-Allow-Origin** for both
+`/v1/calculate-bazi` and `/v1/calculate-chart`. The browser therefore cannot
+complete known-time calculations through the separate Backend Preview. The
+required 2 successful POSTs, Overall report, reader switching, disclosure
+toggle and no-recalculation claims were **not** established on this hosted
+version. Changing Backend Preview CORS is outside this authorization; do not
+share this URL as a working Owner review link until a separate scoped decision.
+
+Fresh browser loads at 390x844 and 1280x800 each returned HTTP 200 with 14
+resource requests, zero calculation POSTs, zero forbidden SDK/API requests,
+zero app console errors and document width equal to viewport width. Separate
+synthetic unknown-time forms at both sizes displayed the time-required banner,
+stayed on the form and sent zero POSTs. These checks do not replace the blocked
+known-time journey or prove the report layout on Hosted Preview. Evidence is
+stored outside the repo under `C:\Users\USER\Documents\Knowme\pr149_hosted_20261031`.
+PR remains Open + Draft; no merge or live deployment. Owner UI review remains
+pending beyond the confirmed duplicate-excerpt fix.
+
+---
+
 # KnowMe PR149 Overall disclosure follow-up - 2026-10-30
 
 Continued Draft PR #149 from `9b8e21f` on `codex/three-tradition-overall-v1`.

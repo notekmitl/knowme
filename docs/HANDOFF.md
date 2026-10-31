@@ -1,3 +1,43 @@
+# KnowMe PR149 handoff - Preview CORS blocker, 2026-10-31
+
+Draft PR #149 application remains `3c747ae7f37bf47529ee61bb83b08bd017f1fbe9`;
+CI run `41030181383` passed all three checks. The authorized Hosting-only
+Preview update used a fresh guarded `tool/build_trial_web.py` artifact with
+version query key `pr149-3c747ae`, Overall Preview enabled, Evidence Badge off
+and the separate Backend Preview API. `--no-authorized-domains` was used. No
+application code, Backend, live Hosting, Auth, Firestore, IAM or rules changed.
+
+Channel `pr-149-overall-safe` had expired before this update. The new channel
+URL is `https://knowme-app-694e1--pr-149-overall-safe-c41ic92g.web.app/beta/thai`,
+version `e7ea691e701bcdbd`, expiring **7 Nov 2026 10:19:52 Thailand time**.
+The live version/release before and after remained
+`d32e72678324e634` / `1790074568414000`. Hosted SHA-256 matched build for
+index `31e5c221705cb6379e9f4c37c8fbff816d04de71a90b4ef4a424a4c099cbdd09`,
+bootstrap `58ce590aa31c3379bbb15dabfa7e210b64d60e13ab6bf10e9b7997f15022bd95`,
+and main JS `1ffa1b4b087147a073e87f8ee5c9a00775ff600d808681737c09cd67b00aac81`.
+
+**Do not send the new URL as a functioning Owner trial yet.** Firebase assigned
+a new origin suffix after the old channel expired. The old URL returns 404.
+The Backend Preview still allows the old exact origin (OPTIONS 200), but rejects
+both calculator preflights from the new origin (OPTIONS 400, no allow-origin).
+Known-time Hosted QA cannot reach the required two successful calculation
+POSTs or the report. Do not infer hosted disclosure, lens navigation or
+no-recalculation from the earlier local QA. Updating Backend CORS needs a
+separate scoped authorization; do not widen origins or alter IAM to make this
+test pass.
+
+What was verified on the new host: fresh 390x844 and 1280x800 loads each
+returned 200, 14 requests, zero forbidden Auth/Firestore/Production API
+requests, zero app console errors and no horizontal document overflow.
+Synthetic unknown-time forms displayed the time-required banner, stayed on
+the form and sent zero POSTs at both sizes. Build and hosted asset hashes match.
+Local artifacts under `C:\Users\USER\Documents\Knowme\pr149_hosted_20261031`
+include channel snapshots, CORS responses, hosted hashes, network JSON and
+screenshots. Owner acknowledged the duplicate-excerpt fix in the earlier
+`expanded-390.png`, not overall UI approval. Keep PR Draft; no merge/deploy live.
+
+---
+
 # KnowMe PR149 handoff - Overall disclosure, 2026-10-30
 
 Draft PR #149 continues from `9b8e21f`. The four Overall cards now show their
