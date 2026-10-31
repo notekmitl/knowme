@@ -272,6 +272,9 @@ class WesternReaderBody extends StatelessWidget {
               key: const Key('trial-western-infographic'),
               asset: TrialVisualDesign.westernArt,
               background: TrialVisualDesign.western,
+              alignment: MediaQuery.sizeOf(context).width >= 800
+                  ? const Alignment(0, -0.45)
+                  : Alignment.center,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [

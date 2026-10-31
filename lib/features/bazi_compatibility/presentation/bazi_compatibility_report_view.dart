@@ -212,6 +212,7 @@ class _TrialPillars extends StatelessWidget {
           TrialIllustratedHero(
             asset: TrialVisualDesign.chineseArt,
             background: TrialVisualDesign.chinese,
+            alignment: Alignment.topCenter,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
