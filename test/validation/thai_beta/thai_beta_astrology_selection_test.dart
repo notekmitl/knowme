@@ -142,6 +142,17 @@ void main() {
           ),
           isTrue,
         );
+        final annualCanvas = tester.widget<Container>(
+          find.byKey(const Key('thai_annual_infographic_canvas')),
+        );
+        expect(
+          (annualCanvas.decoration! as BoxDecoration).gradient,
+          isA<LinearGradient>().having(
+            (gradient) => gradient.colors.first,
+            'trial jade background',
+            const Color(0xFF08251F),
+          ),
+        );
         expect(
           find.byKey(const Key('thai_annual_infographic_save')),
           findsNothing,

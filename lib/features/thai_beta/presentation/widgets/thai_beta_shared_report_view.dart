@@ -165,6 +165,7 @@ class ThaiBetaSharedReportView extends StatelessWidget {
             data: document.infographic!,
             boundaryKey: infographicBoundaryKey,
             showSaveAction: showInfographicSave,
+            trialVisual: trialVisual,
           ),
         );
         infographicInserted = true;
@@ -176,6 +177,7 @@ class ThaiBetaSharedReportView extends StatelessWidget {
           data: document.infographic!,
           boundaryKey: infographicBoundaryKey,
           showSaveAction: showInfographicSave,
+          trialVisual: trialVisual,
         ),
       );
     }
@@ -343,11 +345,13 @@ class ThaiBetaAnnualInfographicPanel extends StatelessWidget {
     required this.data,
     required this.boundaryKey,
     this.showSaveAction = true,
+    this.trialVisual = false,
   });
 
   final ThaiBetaAnnualInfographicData data;
   final GlobalKey boundaryKey;
   final bool showSaveAction;
+  final bool trialVisual;
 
   Future<void> _save(BuildContext context) async {
     final messenger = ScaffoldMessenger.maybeOf(context);
@@ -399,7 +403,10 @@ class ThaiBetaAnnualInfographicPanel extends StatelessWidget {
                 alignment: Alignment.topCenter,
                 child: RepaintBoundary(
                   key: boundaryKey,
-                  child: _AnnualInfographicCanvas(data: data),
+                  child: _AnnualInfographicCanvas(
+                    data: data,
+                    trialVisual: trialVisual,
+                  ),
                 ),
               ),
             ),
@@ -420,13 +427,19 @@ class ThaiBetaAnnualInfographicPanel extends StatelessWidget {
 }
 
 class _AnnualInfographicCanvas extends StatelessWidget {
-  const _AnnualInfographicCanvas({required this.data});
+  const _AnnualInfographicCanvas({
+    required this.data,
+    required this.trialVisual,
+  });
 
   final ThaiBetaAnnualInfographicData data;
+  final bool trialVisual;
 
   @override
   Widget build(BuildContext context) {
-    const deepIndigo = Color(0xff18254f);
+    final deepIndigo = trialVisual
+        ? const Color(0xFF14382E)
+        : const Color(0xff18254f);
     const gold = Color(0xffc7a760);
     const cream = Color(0xfffff8e8);
     const ivory = Color(0xfff5f0e4);
@@ -438,10 +451,12 @@ class _AnnualInfographicCanvas extends StatelessWidget {
       width: ThaiBetaAnnualInfographicCapture.logicalSize.width,
       height: ThaiBetaAnnualInfographicCapture.logicalSize.height,
       decoration: BoxDecoration(
-        gradient: const LinearGradient(
+        gradient: LinearGradient(
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
-          colors: [Color(0xff0d1530), Color(0xff17244a), Color(0xff0f1936)],
+          colors: trialVisual
+              ? const [Color(0xFF08251F), Color(0xFF103A30), Color(0xFF0A2B24)]
+              : const [Color(0xff0d1530), Color(0xff17244a), Color(0xff0f1936)],
         ),
         border: Border.all(color: gold.withValues(alpha: .42), width: 1.2),
       ),
@@ -570,12 +585,14 @@ class _AnnualInfographicCanvas extends StatelessWidget {
                         Expanded(
                           child: _InfographicCategoryRow(
                             category: data.categories[0],
+                            trialVisual: trialVisual,
                           ),
                         ),
                         const SizedBox(width: 8),
                         Expanded(
                           child: _InfographicCategoryRow(
                             category: data.categories[1],
+                            trialVisual: trialVisual,
                           ),
                         ),
                       ],
@@ -590,12 +607,14 @@ class _AnnualInfographicCanvas extends StatelessWidget {
                         Expanded(
                           child: _InfographicCategoryRow(
                             category: data.categories[2],
+                            trialVisual: trialVisual,
                           ),
                         ),
                         const SizedBox(width: 8),
                         Expanded(
                           child: _InfographicCategoryRow(
                             category: data.categories[3],
+                            trialVisual: trialVisual,
                           ),
                         ),
                       ],
@@ -615,6 +634,7 @@ class _AnnualInfographicCanvas extends StatelessWidget {
                             label: 'โอกาสที่ควรใช้',
                             value: data.opportunity,
                             color: teal,
+                            trialVisual: trialVisual,
                           ),
                         ),
                         const SizedBox(width: 8),
@@ -625,6 +645,7 @@ class _AnnualInfographicCanvas extends StatelessWidget {
                             label: 'เรื่องที่ควรระวัง',
                             value: data.caution,
                             color: amber,
+                            trialVisual: trialVisual,
                           ),
                         ),
                       ],
@@ -636,7 +657,9 @@ class _AnnualInfographicCanvas extends StatelessWidget {
                     height: 74,
                     padding: const EdgeInsets.fromLTRB(11, 8, 11, 8),
                     decoration: BoxDecoration(
-                      color: const Color(0xff202f60),
+                      color: trialVisual
+                          ? const Color(0xFF164235)
+                          : const Color(0xff202f60),
                       borderRadius: BorderRadius.circular(12),
                       border: Border.all(color: gold.withValues(alpha: .65)),
                     ),
@@ -690,9 +713,13 @@ class _AnnualInfographicCanvas extends StatelessWidget {
 }
 
 class _InfographicCategoryRow extends StatelessWidget {
-  const _InfographicCategoryRow({required this.category});
+  const _InfographicCategoryRow({
+    required this.category,
+    required this.trialVisual,
+  });
 
   final ThaiBetaAnnualInfographicCategory category;
+  final bool trialVisual;
 
   @override
   Widget build(BuildContext context) {
@@ -704,7 +731,9 @@ class _InfographicCategoryRow extends StatelessWidget {
       key: ThaiBetaAnnualInfographicLayoutKeys.category(category.id),
       padding: const EdgeInsets.fromLTRB(9, 8, 9, 8),
       decoration: BoxDecoration(
-        color: ivory.withValues(alpha: .97),
+        color: trialVisual
+            ? const Color(0xFF10372D)
+            : ivory.withValues(alpha: .97),
         borderRadius: BorderRadius.circular(12),
         border: Border.all(color: gold.withValues(alpha: .62)),
         boxShadow: const [
@@ -730,7 +759,7 @@ class _InfographicCategoryRow extends StatelessWidget {
                 ),
                 child: _InfographicGlyph(
                   name: category.iconName,
-                  color: indigo,
+                  color: trialVisual ? gold : indigo,
                   size: 14,
                 ),
               ),
@@ -738,8 +767,8 @@ class _InfographicCategoryRow extends StatelessWidget {
               Expanded(
                 child: Text(
                   category.title,
-                  style: const TextStyle(
-                    color: indigo,
+                  style: TextStyle(
+                    color: trialVisual ? gold : indigo,
                     fontSize: 9.1,
                     fontWeight: FontWeight.w800,
                   ),
@@ -753,8 +782,8 @@ class _InfographicCategoryRow extends StatelessWidget {
               alignment: Alignment.topLeft,
               child: Text(
                 category.summary,
-                style: const TextStyle(
-                  color: navy,
+                style: TextStyle(
+                  color: trialVisual ? ivory : navy,
                   fontSize: 7.8,
                   height: 1.25,
                 ),
@@ -836,21 +865,27 @@ class _Band extends StatelessWidget {
     required this.label,
     required this.value,
     required this.color,
+    this.trialVisual = false,
   });
 
   final String iconName;
   final String label;
   final String value;
   final Color color;
+  final bool trialVisual;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.fromLTRB(9, 8, 9, 8),
       decoration: BoxDecoration(
-        color: color,
+        color: trialVisual ? const Color(0xFF174639) : color,
         borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: Colors.white.withValues(alpha: .25)),
+        border: Border.all(
+          color: trialVisual
+              ? TrialVisualDesign.gold.withValues(alpha: .55)
+              : Colors.white.withValues(alpha: .25),
+        ),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
