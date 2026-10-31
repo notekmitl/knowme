@@ -4,7 +4,7 @@ The approved `mobile-four-readers.png` and `pc-four-readers.png` boards from
 the Owner's ZIP guide the look and layout only. Application commit
 `252e5fa2cae174aa4494487ed35a179e633e3b33` adds decorative WebP artwork
 and a shared trial visual system across start, birth form, loading/error,
-Overall, Thai, Chinese and Western readers. Test-only HEAD
+Overall, Thai, Chinese and Western readers. Test-only follow-up commit
 `4d9974980604f63aaaadc0851e0ef55a9e1db077` updates the landing CTA
 regression. CI run `41191026203` passed all required checks. No board text,
 Chinese character, zodiac placement or prediction is used as chart data.

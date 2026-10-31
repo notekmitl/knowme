@@ -3,7 +3,7 @@
 Owner approved the two visual boards in the supplied ZIP as a **direction**.
 This implementation is still awaiting Owner review. Application SHA
 `252e5fa2cae174aa4494487ed35a179e633e3b33` and regression-test follow-up
-HEAD `4d9974980604f63aaaadc0851e0ef55a9e1db077` were pushed to the same
+commit `4d9974980604f63aaaadc0851e0ef55a9e1db077` were pushed to the same
 Draft PR. Required run `41191026203` passed `backend-validation`,
 `flutter-validation` (complete suite) and `isolated-trial-build`. The preceding
 run failed only because an old landing test expected the previous CTA; the

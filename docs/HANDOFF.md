@@ -2,7 +2,7 @@
 
 Continue Draft PR #149 on `codex/three-tradition-overall-v1`. Application
 commit `252e5fa2cae174aa4494487ed35a179e633e3b33` implements the Owner's
-approved board direction in the isolated trial; test-only follow-up HEAD is
+approved board direction in the isolated trial; test-only follow-up commit is
 `4d9974980604f63aaaadc0851e0ef55a9e1db077`. Required CI run
 `41191026203` passed all three jobs, including the complete Flutter suite.
 The earlier suite failure was an obsolete landing CTA assertion, fixed in the
