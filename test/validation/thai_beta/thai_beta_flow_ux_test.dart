@@ -38,6 +38,71 @@ void main() {
     expect(find.textContaining('โดยไม่บันทึกลงบัญชี'), findsOneWidget);
   });
 
+  for (final size in [
+    const Size(1920, 911),
+    const Size(1280, 800),
+    const Size(390, 844),
+  ]) {
+    testWidgets('trial landing has one reachable CTA at $size', (tester) async {
+      tester.view.physicalSize = size;
+      tester.view.devicePixelRatio = 1;
+      addTearDown(() {
+        tester.view.resetPhysicalSize();
+        tester.view.resetDevicePixelRatio();
+      });
+
+      await tester.pumpWidget(
+        const MaterialApp(home: ThaiBetaLandingPage(anonymousTrial: true)),
+      );
+      await tester.pump();
+
+      final scaffold = tester.widget<Scaffold>(find.byType(Scaffold).first);
+      expect(
+        scaffold.bottomNavigationBar,
+        size.width >= 800 ? isNull : isNotNull,
+      );
+      expect(find.text('เริ่มดูดวงรวม'), findsOneWidget);
+      expect(find.byType(TrialArtworkBanner), findsOneWidget);
+      expect(tester.takeException(), isNull);
+
+      if (size.width >= 800) {
+        final logoLeft = tester.getTopLeft(find.text('KnowMe')).dx;
+        final imageLeft = tester.getTopLeft(find.byType(TrialArtworkBanner)).dx;
+        expect((logoLeft - imageLeft).abs(), lessThan(3));
+        expect(
+          tester.getTopLeft(find.byType(FilledButton).first).dx,
+          greaterThan(size.width / 2),
+        );
+        expect(
+          tester.getBottomRight(find.byType(FilledButton).first).dy,
+          lessThan(size.height),
+        );
+      }
+    });
+  }
+
+  testWidgets('trial desktop landing scrolls on a short screen', (
+    tester,
+  ) async {
+    tester.view.physicalSize = const Size(1280, 450);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(() {
+      tester.view.resetPhysicalSize();
+      tester.view.resetDevicePixelRatio();
+    });
+
+    await tester.pumpWidget(
+      const MaterialApp(home: ThaiBetaLandingPage(anonymousTrial: true)),
+    );
+    await tester.pump();
+    final cta = find.text('เริ่มดูดวงรวม');
+    expect(cta, findsOneWidget);
+    await tester.ensureVisible(cta);
+    await tester.pump();
+    expect(tester.getBottomRight(cta).dy, lessThan(450));
+    expect(tester.takeException(), isNull);
+  });
+
   testWidgets('Completion screen shows thanks + reference id + restart', (
     tester,
   ) async {

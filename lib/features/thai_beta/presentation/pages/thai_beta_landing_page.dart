@@ -154,41 +154,43 @@ class _ThaiBetaLandingPageState extends State<ThaiBetaLandingPage> {
   Widget _buildTrialLanding(BuildContext context) {
     final theme = TrialVisualDesign.theme(TrialVisualDesign.overall);
     final wideScreen = MediaQuery.sizeOf(context).width >= 800;
-    final intro = Column(
+    final headline = Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text(
+        Text(
           'สามศาสตร์ · พื้นดวงเดียว',
-          style: TextStyle(color: TrialVisualDesign.gold, fontSize: 14),
+          style: TextStyle(
+            color: TrialVisualDesign.gold,
+            fontSize: wideScreen ? 15 : 14,
+          ),
         ),
         const SizedBox(height: 8),
-        const Text(
+        Text(
           'อ่านชีวิตผ่านสามมุมมอง',
           style: TextStyle(
             color: TrialVisualDesign.text,
-            fontSize: 27,
-            height: 1.3,
+            fontSize: wideScreen ? 40 : 27,
+            height: wideScreen ? 1.2 : 1.3,
             fontWeight: FontWeight.w700,
           ),
         ),
         const SizedBox(height: 8),
-        const Text(
+        Text(
           'กรอกข้อมูลเกิดครั้งเดียว แล้วอ่านดวงรวมพร้อมเลือกดูไทย จีน และตะวันตก',
           style: TextStyle(
             color: TrialVisualDesign.muted,
-            fontSize: 16,
-            height: 1.6,
+            fontSize: wideScreen ? 17 : 16,
+            height: wideScreen ? 1.55 : 1.6,
           ),
         ),
-        const SizedBox(height: 16),
-        TrialArtworkBanner(
-          asset: TrialVisualDesign.overallArt,
-          height: wideScreen ? 410 : 250,
-          alignment: wideScreen
-              ? const Alignment(0, -0.35)
-              : const Alignment(0, -0.2),
-        ),
       ],
+    );
+    final artwork = TrialArtworkBanner(
+      asset: TrialVisualDesign.overallArt,
+      height: wideScreen ? 550 : 250,
+      alignment: wideScreen
+          ? const Alignment(0, -0.7)
+          : const Alignment(0, -0.2),
     );
     final steps = Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -246,51 +248,99 @@ class _ThaiBetaLandingPageState extends State<ThaiBetaLandingPage> {
               ),
             ),
           ),
-        const SizedBox(height: 8),
-        const Text(
-          'ข้อมูลเกิดส่งไปยังบริการคำนวณแยกเพื่อแสดงผลในหน้านี้ '
-          'โดยไม่บันทึกลงบัญชีหรือฐานข้อมูลของระบบ',
-          style: TextStyle(color: TrialVisualDesign.muted, height: 1.6),
-        ),
       ],
+    );
+    const privacy = Text(
+      'ข้อมูลเกิดส่งไปยังบริการคำนวณแยกเพื่อแสดงผลในหน้านี้ '
+      'โดยไม่บันทึกลงบัญชีหรือฐานข้อมูลของระบบ',
+      style: TextStyle(color: TrialVisualDesign.muted, height: 1.6),
+    );
+    final startButton = FilledButton.icon(
+      onPressed: _start,
+      icon: const Icon(Icons.arrow_forward_rounded),
+      label: const Text('เริ่มดูดวงรวม'),
     );
     return Theme(
       data: theme,
       child: Scaffold(
         appBar: AppBar(
           automaticallyImplyLeading: false,
-          title: const Text(
-            'KnowMe',
-            style: TextStyle(
-              color: TrialVisualDesign.gold,
-              fontFamily: 'serif',
-              fontSize: 25,
-            ),
-          ),
+          titleSpacing: wideScreen ? 0 : null,
+          title: wideScreen
+              ? Center(
+                  child: ConstrainedBox(
+                    constraints: const BoxConstraints(maxWidth: 1180),
+                    child: const Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        'KnowMe',
+                        style: TextStyle(
+                          color: TrialVisualDesign.gold,
+                          fontFamily: 'serif',
+                          fontSize: 25,
+                        ),
+                      ),
+                    ),
+                  ),
+                )
+              : const Text(
+                  'KnowMe',
+                  style: TextStyle(
+                    color: TrialVisualDesign.gold,
+                    fontFamily: 'serif',
+                    fontSize: 25,
+                  ),
+                ),
         ),
         body: SafeArea(
           child: Center(
             child: ConstrainedBox(
-              constraints: const BoxConstraints(maxWidth: 1040),
+              constraints: BoxConstraints(maxWidth: wideScreen ? 1220 : 1040),
               child: LayoutBuilder(
                 builder: (context, constraints) {
                   final wide = constraints.maxWidth >= 800;
                   return ListView(
-                    padding: const EdgeInsets.fromLTRB(20, 14, 20, 24),
+                    padding: EdgeInsets.fromLTRB(20, wide ? 18 : 14, 20, 24),
                     children: [
                       if (wide)
-                        Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Expanded(flex: 6, child: intro),
-                            const SizedBox(width: 28),
-                            Expanded(flex: 4, child: steps),
-                          ],
+                        ConstrainedBox(
+                          constraints: BoxConstraints(
+                            minHeight: constraints.maxHeight - 42,
+                          ),
+                          child: Center(
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Expanded(child: artwork),
+                                const SizedBox(width: 44),
+                                Expanded(
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.stretch,
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+                                      headline,
+                                      const SizedBox(height: 24),
+                                      steps,
+                                      const SizedBox(height: 8),
+                                      SizedBox(height: 52, child: startButton),
+                                      const SizedBox(height: 14),
+                                      privacy,
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
                         )
                       else ...[
-                        intro,
+                        headline,
+                        const SizedBox(height: 16),
+                        artwork,
                         const SizedBox(height: 20),
                         steps,
+                        const SizedBox(height: 8),
+                        privacy,
                       ],
                     ],
                   );
@@ -299,23 +349,18 @@ class _ThaiBetaLandingPageState extends State<ThaiBetaLandingPage> {
             ),
           ),
         ),
-        bottomNavigationBar: SafeArea(
-          minimum: const EdgeInsets.fromLTRB(20, 8, 20, 14),
-          child: Center(
-            heightFactor: 1,
-            child: ConstrainedBox(
-              constraints: const BoxConstraints(maxWidth: 560),
-              child: SizedBox(
-                width: double.infinity,
-                child: FilledButton.icon(
-                  onPressed: _start,
-                  icon: const Icon(Icons.arrow_forward_rounded),
-                  label: const Text('เริ่มดูดวงรวม'),
+        bottomNavigationBar: wideScreen
+            ? null
+            : SafeArea(
+                minimum: const EdgeInsets.fromLTRB(20, 8, 20, 14),
+                child: Center(
+                  heightFactor: 1,
+                  child: ConstrainedBox(
+                    constraints: const BoxConstraints(maxWidth: 560),
+                    child: SizedBox(width: double.infinity, child: startButton),
+                  ),
                 ),
               ),
-            ),
-          ),
-        ),
       ),
     );
   }
