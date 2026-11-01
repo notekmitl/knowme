@@ -1,4 +1,49 @@
-# KnowMe PR149 handoff — integrated visual pass, 2026-10-31
+# KnowMe PR149 handoff — CPU fallback artwork, 2026-11-01
+
+Continue Draft PR #149 on `codex/three-tradition-overall-v1`. Starting HEAD
+`0b858df` had no pending changes. Application SHA
+`7cd80f065997cc980f68d09217e0f02721dab41e` is a presentation-only
+repair in `trial_visual_design.dart`: trial web art uses a browser image
+element backed by the same-origin asset, while non-web keeps `Image.asset`.
+The three previous UI corrections, all calculated values, readings, 0.6
+evidence threshold, conflict rules, prepared-reader flow and normal single
+tradition screens remain unchanged. Focused Flutter tests passed; CI run
+[41272194209](https://github.com/notekmitl/knowme/actions/runs/41272194209)
+passed all three required jobs including the complete Flutter suite.
+
+Owner review URL:
+<https://knowme-app-694e1--pr-149-overall-safe-c41ic92g.web.app/beta/thai>.
+The same safe Preview channel now serves Hosting version
+`a10df6e87fc5e43f`, guarded application build `pr149-7cd80f0`, expiring
+**8 Nov 2026 11:26:08 Asia/Bangkok**. `--no-authorized-domains` was used.
+Its index/bootstrap/main SHA-256 exactly matched the isolated build, and
+that bundle points only to the separate Backend Preview calculator. Hosting
+`live` stayed release `1790074568414000` / version `d32e72678324e634`;
+the Preview URL suffix stayed `c41ic92g`. No Backend, Auth, Firestore, IAM,
+rules or Production deployment was made.
+
+The old build's artwork was blank in reproducible Chrome CPU/WebGL-disabled
+contexts at 390×844 and 1280×800 despite 200 `image/webp` responses and
+successful browser decode. Replacing the response with PNG bytes of the same
+art in a disposable test browser was also blank. The fix painted the landing
+and Overall art in CPU fallback, and all four reader images were inspected at
+both sizes. Hosted known-time journeys in fresh normal and CPU contexts each
+sent two successful Preview calculator POSTs, none on reader switching or
+detail toggles. Unknown-time journeys sent zero with an explanation. All had
+zero forbidden Auth/Firestore/Production API requests, other writes, failed
+requests, app errors and overflow. [Full screenshots, hashes, sanitized
+signals and before/after Hosting state](qa/pr149-artwork-cpu-fallback/README.md).
+
+Keep one limitation visible in Owner review: the first hosted CPU mobile
+capture taken about 550 ms after opening Thai and Chinese showed blank art;
+three independent fresh repeats painted both at the immediate capture and
+after 2.2 s. Response timing at the first capture was not logged, so its
+cause is unconfirmed. The earlier blank ChatGPT inspection tab was not
+retained; newly opened in-app tabs painted the image before and after this
+change. Do not claim these observations prove the same underlying mechanism
+or that Owner has approved the UI. Keep PR Draft; do not merge or deploy live.
+
+## Previous handoff — integrated visual pass, 2026-10-31
 
 Continue Draft PR #149 on `codex/three-tradition-overall-v1`. Starting HEAD was
 `bab1b4c`; application SHA is `e8bcfa72ffc292964f40e1df1de0465db1070960`.

@@ -1,4 +1,49 @@
-# KnowMe PR149 integrated illustrated readers — isolated trial, 2026-10-31
+# KnowMe PR149 artwork paint under CPU fallback — 2026-11-01
+
+Application SHA `7cd80f065997cc980f68d09217e0f02721dab41e` repairs only
+the trial artwork paint path. On web, `TrialArtworkBanner` and
+`TrialIllustratedHero` render their existing, decorative, same-origin bundled
+images through `Image.network` with `WebHtmlElementStrategy.prefer`; non-web
+continues to use `Image.asset`. The live model labels, calculations, reading
+strings, four Overall topics, 0.6 threshold, evidence/conflict gates and
+prepared-reader navigation are unchanged. Required [CI run
+41272194209](https://github.com/notekmitl/knowme/actions/runs/41272194209)
+passed all three jobs, including the full Flutter suite; focused trial,
+Overall, Thai, BaZi and Western regressions also passed locally.
+
+**Verified:** Fresh Chrome 156 with GPU/WebGL disabled reproduced blank art
+on the prior hosted build across Overall, Thai, Chinese and Western at 390×844
+and 1280×800. The assets returned 200 `image/webp`, and browser decode of
+`overall.webp` succeeded at 1024×1536. A disposable response substitution
+with PNG bytes of the same artwork stayed blank. The old CPU landing art
+rectangle had uniform pixels; the new hosted CPU rectangle contains painted
+image detail. This supports a browser/Flutter paint-path repair, not a claim
+that WebP itself was broken.
+
+The exact plugin-free build `pr149-7cd80f0` was released only to the existing
+[safe Hosting Preview](https://knowme-app-694e1--pr-149-overall-safe-c41ic92g.web.app/beta/thai)
+as version `a10df6e87fc5e43f`; it expires **8 Nov 2026 11:26:08
+Asia/Bangkok**. Its index/bootstrap/main JS hashes match the local guarded
+build. Production live release/version stayed unchanged, and no Backend,
+Auth, Firestore, IAM or rules deployment was made. Fresh Hosted 390×844 and
+1280×800 journeys in normal Chrome and CPU fallback reached all four readers.
+Known time produced exactly two successful Preview calculator POSTs and no
+more on switching or expanding; unknown time stopped with an explanation and
+zero POSTs. All initial-load traces had no Auth/Firestore/Production API
+requests, other writes, failed requests, app errors or horizontal overflow.
+
+**Unresolved timing observation:** The first hosted CPU mobile screenshots
+taken roughly 550 ms after switching to Thai and Chinese were blank in the
+art region. Three independent fresh repeats painted both at the immediate
+capture and again 2.2 s later. The first capture's asset arrival time was not
+recorded, so do not attribute it to a specific loading cause or claim
+guaranteed instant paint. The earlier ChatGPT inspection tab was likewise
+not available for instrumentation; newly opened in-app tabs painted art.
+The [diagnostic evidence and all reader screenshots](qa/pr149-artwork-cpu-fallback/README.md)
+separate confirmed behavior from inference. Owner acceptance of the final UI
+remains pending; PR #149 stays Draft.
+
+## Previous illustrated reader pass — isolated trial, 2026-10-31
 
 Application SHA `e8bcfa72ffc292964f40e1df1de0465db1070960` refines only
 anonymous-trial presentation after the prior approved-board implementation.

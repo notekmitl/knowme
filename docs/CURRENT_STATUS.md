@@ -1,4 +1,62 @@
-# KnowMe Draft PR #149 — integrated trial readers, 2026-10-31
+# KnowMe Draft PR #149 — CPU fallback artwork repair, 2026-11-01
+
+Starting branch `codex/three-tradition-overall-v1` was clean at `0b858df`.
+The three earlier UI corrections remain closed. Application commit
+`7cd80f065997cc980f68d09217e0f02721dab41e` changes only how the
+decorative trial images paint on web. `TrialArtworkBanner` and
+`TrialIllustratedHero` use same-origin bundled assets through Flutter's
+browser HTML image strategy; non-web still uses `Image.asset`. No calculation,
+prediction text, evidence threshold, flow, Backend, Auth, Firestore, IAM or
+rules were changed. Focused trial, Overall, Thai, BaZi and Western regressions
+passed. Required CI run
+[41272194209](https://github.com/notekmitl/knowme/actions/runs/41272194209)
+passed backend validation, isolated trial build and Flutter validation,
+including the full suite, for the application SHA.
+
+**Confirmed diagnosis:** Fresh Chrome 156 with `--disable-gpu --disable-webgl`
+reproduced blank Overall/Thai/Chinese/Western art on the previous hosted build
+at 390×844 and 1280×800, with the CPU-only `webGLVersion is -1` warning.
+All art requests returned 200 `image/webp`, and the browser decoded
+`overall.webp` as 1024×1536. Serving identical artwork as PNG inside the
+disposable test browser still left it blank. A 390 px landing art region had
+RGB deviation `(0,0,0)` before the fix, versus `(64.43,45.36,33.36)` on the
+fixed hosted CPU view. Ordinary Chrome painted the old images. A newly opened
+ChatGPT in-app browser also painted the old and new landing images; the
+Owner-reported original blank tab was not retained for instrumentation.
+The controlled CPU fallback failure is confirmed, but its identity with the
+original in-app failure remains an inference, not a proven fact.
+
+Only existing Hosting Preview channel `pr-149-overall-safe` was updated, with
+`--no-authorized-domains`, to version `a10df6e87fc5e43f` from guarded build
+`pr149-7cd80f0`. [Preview](https://knowme-app-694e1--pr-149-overall-safe-c41ic92g.web.app/beta/thai)
+expires **8 Nov 2026 11:26:08 Asia/Bangkok**. The plugin-free build contains
+only `https://knowme-overall-pr149-preview-avbyttircq-as.a.run.app` as its
+calculator origin. Hosted SHA-256 matched the build: `index.html`
+`d99154e6a147a5b17b6ba2f11caa96c6b395e8cccb0819215e3148ede1625d4d`,
+`flutter_bootstrap.js`
+`064f101fad446d32ab61476121ac04e02f2dca67c77661209b7f9d872d4a4ad7`,
+and `main.dart.js`
+`ce0819bcd8247b1986f267a65b4ace4454d8711b9e8881234feb7f1355219de6`.
+Before/after Hosting state confirms Production `live` stayed release
+`1790074568414000` / version `d32e72678324e634`; the Preview URL stayed
+unchanged. No Backend deployment was issued.
+
+Fresh Hosted Chrome and CPU/WebGL-disabled journeys at 390×844 and 1280×800
+painted the landing and Overall art and reached Thai, Chinese and Western.
+Every known-time run sent exactly two successful Preview calculator POSTs;
+switching readers and opening details sent no more. Unknown-time runs at both
+sizes stopped with an explanation and zero POSTs. All runs had zero
+Auth/Firestore/Production API requests, other writes, failed requests, app
+errors and horizontal overflow. **Remaining observation:** In the first CPU
+mobile capture about 550 ms after switching, Thai and Chinese art were blank.
+Three independent fresh repeat journeys painted both immediately and again
+after 2.2 s. The first capture's asset status was recorded by journey end,
+not at capture time, so the exact timing cause is unconfirmed. Do not claim
+instant paint is guaranteed in every run. See [screenshots, pixel measurements,
+hashes and sanitized QA evidence](qa/pr149-artwork-cpu-fallback/README.md).
+Owner review of the running UI is pending; Draft PR #149 remains unmerged.
+
+## Previous visual pass — integrated trial readers, 2026-10-31
 
 Starting HEAD was `bab1b4c365d33ce2b74f33183aee25a502791f91`, with a clean
 worktree. The presentation-only application work ends at
