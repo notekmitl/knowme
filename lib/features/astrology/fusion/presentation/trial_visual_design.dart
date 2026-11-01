@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 /// Presentation only. All chart values and readings remain in the supplied
@@ -72,12 +73,7 @@ class TrialArtworkBanner extends StatelessWidget {
     child: SizedBox(
       height: height,
       width: double.infinity,
-      child: Image.asset(
-        asset,
-        fit: BoxFit.cover,
-        alignment: alignment,
-        excludeFromSemantics: true,
-      ),
+      child: _TrialArtworkImage(asset, fit: BoxFit.cover, alignment: alignment),
     ),
   );
 }
@@ -104,11 +100,10 @@ class TrialIllustratedHero extends StatelessWidget {
     child: Stack(
       children: [
         Positioned.fill(
-          child: Image.asset(
+          child: _TrialArtworkImage(
             asset,
             fit: BoxFit.cover,
             alignment: alignment,
-            excludeFromSemantics: true,
           ),
         ),
         Positioned.fill(
@@ -131,6 +126,39 @@ class TrialIllustratedHero extends StatelessWidget {
         Padding(padding: const EdgeInsets.all(18), child: child),
       ],
     ),
+  );
+}
+
+/// Paint decorative trial art through a browser image element on web. In a
+/// WebGL-less CanvasKit fallback, Image.asset left art unpainted even though
+/// the browser decoded the same files successfully.
+class _TrialArtworkImage extends StatelessWidget {
+  const _TrialArtworkImage(
+    this.asset, {
+    required this.fit,
+    required this.alignment,
+  });
+
+  final String asset;
+  final BoxFit fit;
+  final Alignment alignment;
+
+  @override
+  Widget build(BuildContext context) => IgnorePointer(
+    child: kIsWeb
+        ? Image.network(
+            'assets/$asset',
+            fit: fit,
+            alignment: alignment,
+            excludeFromSemantics: true,
+            webHtmlElementStrategy: WebHtmlElementStrategy.prefer,
+          )
+        : Image.asset(
+            asset,
+            fit: fit,
+            alignment: alignment,
+            excludeFromSemantics: true,
+          ),
   );
 }
 
