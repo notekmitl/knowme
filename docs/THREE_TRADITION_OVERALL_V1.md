@@ -1,4 +1,41 @@
-# KnowMe PR149 artwork paint under CPU fallback — 2026-11-01
+# KnowMe PR149 trial landing PC layout — 2026-11-01
+
+Starting HEAD `a4ed48d` was clean. Application SHA
+`130cdfa7d028ba6a7da13361d8fa1321fbe7dbf8` changes only the anonymous
+trial landing presentation and its regression: centered 1180 px desktop
+content, aligned logo, balanced image and text columns with a 44 px gap,
+larger PC headline, and one start button under the three steps within the
+scrolling body. The existing artwork widget and CPU fallback remain in use.
+The 390×844 mobile normal Chrome view is pixel-identical to the prior hosted
+page. No formula, reading, evidence/conflict rule, 0.6 threshold, prepared
+reader flow, Backend, Auth, Firestore, IAM or rules code changed.
+
+Required [CI run 41283667419](https://github.com/notekmitl/knowme/actions/runs/41283667419)
+passed backend validation, isolated trial build and Flutter validation,
+including the complete suite. The plugin-free build `pr149-130cdfa` targets
+only the separate Backend Preview. It was deployed only to the existing
+[safe Hosting Preview](https://knowme-app-694e1--pr-149-overall-safe-c41ic92g.web.app/beta/thai)
+with `--no-authorized-domains`, now version `610a6ddab261189a` and expiring
+**8 Nov 2026 14:22:22 Asia/Bangkok**. Hosted index/bootstrap/main JS SHA-256
+matched the build; Production live release/version stayed unchanged.
+
+Fresh Hosted 1920×911 and 1280×800 screenshots in normal Chrome and CPU
+fallback show the landing artwork painted, all three rings visible, and the
+only start button below the steps in the first screen. At 390×844, the
+mobile presentation is unchanged. The button reaches the existing form and
+Overall at 1920 in both rendering modes. Full 390 and 1280 journeys reached
+Overall, Thai, Chinese, Western and returned; exactly two successful Preview
+calculator POSTs occurred for known time and no extra POST on reader switching
+or detail toggles. Unknown time stopped with an explanation and zero POSTs.
+No Auth/Firestore/Production API request, other write, failed request, app
+error or horizontal overflow was observed. [Before/after imagery, Hosted
+screenshots, hashes, versions and sanitized traces](qa/pr149-landing-pc/README.md)
+document the result. One immediate Thai-reader art capture at 1280 ordinary
+Chrome was blank, and its settled capture painted; this is a timing
+observation outside the landing-only edit. Owner review of the whole UI is
+still pending. PR #149 remains Draft, with no merge or Production deploy.
+
+# Previous investigation — artwork paint under CPU fallback, 2026-11-01
 
 Application SHA `7cd80f065997cc980f68d09217e0f02721dab41e` repairs only
 the trial artwork paint path. On web, `TrialArtworkBanner` and

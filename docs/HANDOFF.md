@@ -1,4 +1,41 @@
-# KnowMe PR149 handoff — CPU fallback artwork, 2026-11-01
+# KnowMe PR149 handoff — trial landing PC layout, 2026-11-01
+
+Continue Draft PR #149 on `codex/three-tradition-overall-v1`. Starting HEAD
+`a4ed48d` was clean; application SHA
+`130cdfa7d028ba6a7da13361d8fa1321fbe7dbf8` alters only the anonymous
+trial landing layout and adds viewport/scroll regression. PC now centers an
+1180 px frame, aligns the logo to the artwork, gives the artwork and text
+equal columns separated by 44 px, and puts the single start button under the
+three steps. Mobile remains pixel-identical in normal Chrome at 390×844.
+Keep the `TrialArtworkBanner` web CPU fallback, calculations, wording, 0.6
+threshold, conflict gates, prepared-reader flow and normal single-tradition
+screens unchanged.
+
+Required [CI run 41283667419](https://github.com/notekmitl/knowme/actions/runs/41283667419)
+passed all three jobs, including the full Flutter suite. The isolated guarded
+build `pr149-130cdfa` points only to the separate Backend Preview. Only the
+existing [Hosting Preview](https://knowme-app-694e1--pr-149-overall-safe-c41ic92g.web.app/beta/thai)
+was deployed with a Hosting-only config and `--no-authorized-domains`. It is
+version `610a6ddab261189a`, expiring **8 Nov 2026 14:22:22 Asia/Bangkok**.
+Hosted index/bootstrap/main JS hashes match the build. Production live stayed
+release `1790074568414000` / version `d32e72678324e634`; no Backend, Auth,
+Firestore, IAM, rules or live deployment occurred.
+
+Fresh 1920×911 and 1280×800 Hosted images show the PC button below the steps
+in the first screen, and the image painted in normal Chrome and CPU fallback.
+The 390×844 normal Chrome view matches the old landing pixel for pixel.
+Hosted known-time journeys through all readers at 390 and 1280 made only two
+successful calculation POSTs total; 1920 normal and CPU start-button journeys
+also reached form and Overall with two POSTs. Unknown-time journeys stopped
+with an explanation and zero POSTs. Initial load and full journeys had no
+Auth/Firestore/Production API request, other write, failed request, app error
+or horizontal overflow. See [reviewable before/after screenshots, versions,
+hashes and sanitized QA](qa/pr149-landing-pc/README.md). An immediate Thai
+reader image capture at 1280 ordinary Chrome was blank, then painted in its
+settled capture; preserve this timing observation in Owner review. Owner has
+not approved the full UI. Keep the PR Draft; do not merge or deploy live.
+
+# Previous handoff — CPU fallback artwork, 2026-11-01
 
 Continue Draft PR #149 on `codex/three-tradition-overall-v1`. Starting HEAD
 `0b858df` had no pending changes. Application SHA

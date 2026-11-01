@@ -1,0 +1,43 @@
+{
+  "api": "https://knowme-overall-pr149-preview-avbyttircq-as.a.run.app",
+  "version": "pr149-130cdfa",
+  "disabled_registrations": [
+    "cloud_firestore",
+    "cloud_firestore_web",
+    "firebase_auth",
+    "firebase_auth_web",
+    "firebase_core",
+    "firebase_core_web",
+    "flutter_google_places_sdk",
+    "flutter_google_places_sdk_android",
+    "flutter_google_places_sdk_ios",
+    "flutter_google_places_sdk_linux",
+    "flutter_google_places_sdk_macos",
+    "flutter_google_places_sdk_web",
+    "flutter_google_places_sdk_windows",
+    "flutter_plugin_android_lifecycle",
+    "geocoding",
+    "geocoding_android",
+    "geocoding_ios",
+    "geolocator",
+    "geolocator_android",
+    "geolocator_apple",
+    "geolocator_web",
+    "geolocator_windows",
+    "google_maps_flutter",
+    "google_maps_flutter_android",
+    "google_maps_flutter_ios",
+    "google_maps_flutter_web",
+    "google_sign_in",
+    "google_sign_in_android",
+    "google_sign_in_ios",
+    "google_sign_in_web",
+    "printing"
+  ],
+  "registrant_verified": true,
+  "sha256": {
+    "main.dart.js": "ed1372ffd2d94a51bb926fb02f8fc5907f2986e90f6709a4742638c3a10868bc",
+    "flutter_bootstrap.js": "2e4ff7de2b229e3e54190c3b7a36c94fd79221dcdad10c438fc75218a176004b",
+    "index.html": "e6c82d875631b6314fdcc2d70125e04ea09428118f9ead0f27ffe95644e4d359"
+  }
+}

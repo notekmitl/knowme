@@ -1,0 +1,20 @@
+{
+  "build_version": "pr149-130cdfa",
+  "hosted_version": "610a6ddab261189a",
+  "expected": {
+    "index.html": "e6c82d875631b6314fdcc2d70125e04ea09428118f9ead0f27ffe95644e4d359",
+    "flutter_bootstrap.js": "2e4ff7de2b229e3e54190c3b7a36c94fd79221dcdad10c438fc75218a176004b",
+    "main.dart.js": "ed1372ffd2d94a51bb926fb02f8fc5907f2986e90f6709a4742638c3a10868bc"
+  },
+  "actual": {
+    "index.html": "e6c82d875631b6314fdcc2d70125e04ea09428118f9ead0f27ffe95644e4d359",
+    "flutter_bootstrap.js": "2e4ff7de2b229e3e54190c3b7a36c94fd79221dcdad10c438fc75218a176004b",
+    "main.dart.js": "ed1372ffd2d94a51bb926fb02f8fc5907f2986e90f6709a4742638c3a10868bc"
+  },
+  "http_status": {
+    "index.html": 200,
+    "flutter_bootstrap.js": 200,
+    "main.dart.js": 200
+  },
+  "all_match": true
+}

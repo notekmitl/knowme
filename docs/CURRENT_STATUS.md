@@ -1,4 +1,44 @@
-# KnowMe Draft PR #149 — CPU fallback artwork repair, 2026-11-01
+# KnowMe Draft PR #149 — trial landing PC layout, 2026-11-01
+
+Starting HEAD `a4ed48d` was clean. Application commit
+`130cdfa7d028ba6a7da13361d8fa1321fbe7dbf8` changes only the anonymous
+trial landing page and its widget regression. The desktop layout uses a
+centered 1180 px content frame, aligned KnowMe logo, balanced artwork and
+text columns with a 44 px gap, and one start button directly below the three
+steps. The headline is larger on PC; short screens can scroll. The existing
+`TrialArtworkBanner` CPU paint strategy, mobile layout, calculations,
+readings, evidence rules and flow are unchanged. The 390×844 normal Chrome
+before/after screenshots match pixel for pixel.
+
+Required [CI run 41283667419](https://github.com/notekmitl/knowme/actions/runs/41283667419)
+passed all three jobs, including the complete Flutter suite. Local focused
+landing tests and the complete Flutter suite passed; the latter used an
+already installed `pypdf` runtime because the default local Python path
+lacked that CI-installed dependency. The guarded plugin-free build
+`pr149-130cdfa` targets only the separate Backend Preview calculator.
+
+Only existing [safe Hosting Preview](https://knowme-app-694e1--pr-149-overall-safe-c41ic92g.web.app/beta/thai)
+was updated with `--no-authorized-domains` to version `610a6ddab261189a`,
+expiring **8 Nov 2026 14:22:22 Asia/Bangkok**. The hosted index/bootstrap/main
+JS SHA-256 hashes matched the isolated build; Production live stayed release
+`1790074568414000` / version `d32e72678324e634`. Fresh Hosted Chrome and
+CPU fallback checks at 1920×911, 1280×800 and 390×844 painted the landing
+art and showed one start button. At 390 and 1280, known-time synthetic journeys
+reached Overall, Thai, Chinese, Western and back with exactly two successful
+Preview calculator POSTs total; switching and disclosure did not add a POST.
+At 1920, the start button reached the existing form and Overall in both
+rendering modes. Unknown-time runs stopped with the existing explanation and
+zero POSTs. Across those runs, there were zero Auth, Firestore, Production API
+requests, other writes, failed requests, app errors or horizontal overflow.
+
+[Before/after PC images, Hosted CPU images, hashes, versions and sanitized QA](qa/pr149-landing-pc/README.md)
+are reviewable. One Thai-reader image at 1280 px in ordinary Chrome was blank
+in an immediate capture after switching but painted in the settled capture;
+the landing image painted in every checked context. This timing observation
+is outside the landing-only change. Owner acceptance of the complete UI is
+pending; PR #149 remains Draft and unmerged.
+
+# Previous status — CPU fallback artwork repair, 2026-11-01
 
 Starting branch `codex/three-tradition-overall-v1` was clean at `0b858df`.
 The three earlier UI corrections remain closed. Application commit
