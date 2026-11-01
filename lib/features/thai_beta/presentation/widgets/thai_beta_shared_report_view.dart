@@ -9,6 +9,7 @@ import 'package:knowme/features/astrology/thai/knowledge/canon/integration/prese
 import 'package:knowme/features/thai_beta/application/core_reading/thai_birth_profile_core_reading.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_report_export_document.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_report_export_download.dart';
+import 'package:knowme/features/astrology/fusion/presentation/trial_visual_design.dart';
 
 const _reportDomainHeadings = {
   'การงาน',
@@ -62,11 +63,15 @@ class ThaiBetaSharedReportView extends StatelessWidget {
     required this.document,
     required this.infographicBoundaryKey,
     this.badges = const [],
+    this.showInfographicSave = true,
+    this.trialVisual = false,
   });
 
   final ThaiBetaReportExportDocument document;
   final GlobalKey infographicBoundaryKey;
   final List<ThaiPublicEvidenceBadgeBetaViewModel> badges;
+  final bool showInfographicSave;
+  final bool trialVisual;
 
   @override
   Widget build(BuildContext context) {
@@ -80,9 +85,13 @@ class ThaiBetaSharedReportView extends StatelessWidget {
         key: const Key('thai_shared_report_header'),
         width: double.infinity,
         padding: const EdgeInsets.fromLTRB(22, 28, 22, 24),
-        decoration: const BoxDecoration(
-          color: Color(0xff111936),
-          borderRadius: BorderRadius.vertical(bottom: Radius.circular(24)),
+        decoration: BoxDecoration(
+          color: trialVisual
+              ? const Color(0xFF0B2922)
+              : const Color(0xff111936),
+          borderRadius: const BorderRadius.vertical(
+            bottom: Radius.circular(24),
+          ),
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -122,7 +131,10 @@ class ThaiBetaSharedReportView extends StatelessWidget {
               section.title == 'รายละเอียดหลักฐาน')) {
         continue;
       }
-      Widget sectionWidget = _SharedReportSection(section: section);
+      Widget sectionWidget = _SharedReportSection(
+        section: section,
+        trialVisual: trialVisual,
+      );
       if (!timelineStarted &&
           section.kind == ThaiBetaReportExportSectionKind.timeline) {
         timelineStarted = true;
@@ -152,6 +164,8 @@ class ThaiBetaSharedReportView extends StatelessWidget {
           ThaiBetaAnnualInfographicPanel(
             data: document.infographic!,
             boundaryKey: infographicBoundaryKey,
+            showSaveAction: showInfographicSave,
+            trialVisual: trialVisual,
           ),
         );
         infographicInserted = true;
@@ -162,6 +176,8 @@ class ThaiBetaSharedReportView extends StatelessWidget {
         ThaiBetaAnnualInfographicPanel(
           data: document.infographic!,
           boundaryKey: infographicBoundaryKey,
+          showSaveAction: showInfographicSave,
+          trialVisual: trialVisual,
         ),
       );
     }
@@ -179,9 +195,13 @@ class ThaiBetaSharedReportView extends StatelessWidget {
 }
 
 class _SharedReportSection extends StatelessWidget {
-  const _SharedReportSection({required this.section});
+  const _SharedReportSection({
+    required this.section,
+    required this.trialVisual,
+  });
 
   final ThaiBetaReportExportSection section;
+  final bool trialVisual;
 
   @override
   Widget build(BuildContext context) {
@@ -190,7 +210,9 @@ class _SharedReportSection extends StatelessWidget {
     final isTimeline = section.kind == ThaiBetaReportExportSectionKind.timeline;
     final isDisclaimer =
         section.kind == ThaiBetaReportExportSectionKind.disclaimer;
-    final background = isChapter
+    final background = trialVisual
+        ? (isChapter ? const Color(0xFF123C32) : const Color(0xFF102D27))
+        : isChapter
         ? const Color(0xff18203f)
         : isTimeline
         ? const Color(0xfff3f1ea)
@@ -205,6 +227,10 @@ class _SharedReportSection extends StatelessWidget {
       _ => null,
     };
 
+    final ink = trialVisual ? TrialVisualDesign.text : const Color(0xff18203f);
+    final accent = trialVisual
+        ? TrialVisualDesign.gold
+        : const Color(0xff96702e);
     return Container(
       key: ValueKey(section.id),
       margin: EdgeInsets.fromLTRB(18, isChapter ? 12 : 0, 18, 14),
@@ -213,7 +239,9 @@ class _SharedReportSection extends StatelessWidget {
         color: background,
         borderRadius: BorderRadius.circular(16),
         border: Border.all(
-          color: isChapter
+          color: trialVisual
+              ? TrialVisualDesign.gold.withValues(alpha: .40)
+              : isChapter
               ? const Color(0xffc7a760)
               : isDisclaimer
               ? const Color(0xffd7a84d)
@@ -227,7 +255,7 @@ class _SharedReportSection extends StatelessWidget {
             Text(
               phaseLabel,
               style: theme.textTheme.labelMedium?.copyWith(
-                color: const Color(0xff96702e),
+                color: accent,
                 fontWeight: FontWeight.w700,
               ),
             ),
@@ -236,7 +264,9 @@ class _SharedReportSection extends StatelessWidget {
           Text(
             section.title,
             style: theme.textTheme.titleMedium?.copyWith(
-              color: isChapter
+              color: trialVisual
+                  ? TrialVisualDesign.text
+                  : isChapter
                   ? const Color(0xfffff8e8)
                   : const Color(0xff18203f),
               fontWeight: FontWeight.w800,
@@ -248,7 +278,9 @@ class _SharedReportSection extends StatelessWidget {
             Text(
               'เรื่องสำคัญของช่วงนี้',
               style: theme.textTheme.labelLarge?.copyWith(
-                color: const Color(0xff4b536c),
+                color: trialVisual
+                    ? TrialVisualDesign.muted
+                    : const Color(0xff4b536c),
                 fontWeight: FontWeight.w700,
               ),
             ),
@@ -264,14 +296,14 @@ class _SharedReportSection extends StatelessWidget {
                   Icon(
                     _domainIcon(section.paragraphs[index]),
                     size: 18,
-                    color: const Color(0xff96702e),
+                    color: accent,
                   ),
                   const SizedBox(width: 8),
                   Expanded(
                     child: Text(
                       section.paragraphs[index],
                       style: theme.textTheme.labelLarge?.copyWith(
-                        color: const Color(0xff18203f),
+                        color: ink,
                         fontWeight: FontWeight.w800,
                       ),
                     ),
@@ -283,7 +315,11 @@ class _SharedReportSection extends StatelessWidget {
                 section.paragraphs[index],
                 key: ValueKey(section.paragraphIds[index]),
                 style: theme.textTheme.bodyMedium?.copyWith(
-                  color: isChapter ? const Color(0xffddd4bd) : null,
+                  color: trialVisual
+                      ? TrialVisualDesign.text
+                      : isChapter
+                      ? const Color(0xffddd4bd)
+                      : null,
                   height: isChapter ? 1.48 : 1.62,
                 ),
               ),
@@ -308,10 +344,14 @@ class ThaiBetaAnnualInfographicPanel extends StatelessWidget {
     super.key,
     required this.data,
     required this.boundaryKey,
+    this.showSaveAction = true,
+    this.trialVisual = false,
   });
 
   final ThaiBetaAnnualInfographicData data;
   final GlobalKey boundaryKey;
+  final bool showSaveAction;
+  final bool trialVisual;
 
   Future<void> _save(BuildContext context) async {
     final messenger = ScaffoldMessenger.maybeOf(context);
@@ -363,18 +403,23 @@ class ThaiBetaAnnualInfographicPanel extends StatelessWidget {
                 alignment: Alignment.topCenter,
                 child: RepaintBoundary(
                   key: boundaryKey,
-                  child: _AnnualInfographicCanvas(data: data),
+                  child: _AnnualInfographicCanvas(
+                    data: data,
+                    trialVisual: trialVisual,
+                  ),
                 ),
               ),
             ),
           ),
-          const SizedBox(height: 10),
-          FilledButton.icon(
-            key: const Key('thai_annual_infographic_save'),
-            onPressed: () => _save(context),
-            icon: const Icon(Icons.download_outlined),
-            label: const Text('บันทึกภาพ'),
-          ),
+          if (showSaveAction) ...[
+            const SizedBox(height: 10),
+            FilledButton.icon(
+              key: const Key('thai_annual_infographic_save'),
+              onPressed: () => _save(context),
+              icon: const Icon(Icons.download_outlined),
+              label: const Text('บันทึกภาพ'),
+            ),
+          ],
         ],
       ),
     );
@@ -382,13 +427,19 @@ class ThaiBetaAnnualInfographicPanel extends StatelessWidget {
 }
 
 class _AnnualInfographicCanvas extends StatelessWidget {
-  const _AnnualInfographicCanvas({required this.data});
+  const _AnnualInfographicCanvas({
+    required this.data,
+    required this.trialVisual,
+  });
 
   final ThaiBetaAnnualInfographicData data;
+  final bool trialVisual;
 
   @override
   Widget build(BuildContext context) {
-    const deepIndigo = Color(0xff18254f);
+    final deepIndigo = trialVisual
+        ? const Color(0xFF14382E)
+        : const Color(0xff18254f);
     const gold = Color(0xffc7a760);
     const cream = Color(0xfffff8e8);
     const ivory = Color(0xfff5f0e4);
@@ -400,10 +451,12 @@ class _AnnualInfographicCanvas extends StatelessWidget {
       width: ThaiBetaAnnualInfographicCapture.logicalSize.width,
       height: ThaiBetaAnnualInfographicCapture.logicalSize.height,
       decoration: BoxDecoration(
-        gradient: const LinearGradient(
+        gradient: LinearGradient(
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
-          colors: [Color(0xff0d1530), Color(0xff17244a), Color(0xff0f1936)],
+          colors: trialVisual
+              ? const [Color(0xFF08251F), Color(0xFF103A30), Color(0xFF0A2B24)]
+              : const [Color(0xff0d1530), Color(0xff17244a), Color(0xff0f1936)],
         ),
         border: Border.all(color: gold.withValues(alpha: .42), width: 1.2),
       ),
@@ -532,12 +585,14 @@ class _AnnualInfographicCanvas extends StatelessWidget {
                         Expanded(
                           child: _InfographicCategoryRow(
                             category: data.categories[0],
+                            trialVisual: trialVisual,
                           ),
                         ),
                         const SizedBox(width: 8),
                         Expanded(
                           child: _InfographicCategoryRow(
                             category: data.categories[1],
+                            trialVisual: trialVisual,
                           ),
                         ),
                       ],
@@ -552,12 +607,14 @@ class _AnnualInfographicCanvas extends StatelessWidget {
                         Expanded(
                           child: _InfographicCategoryRow(
                             category: data.categories[2],
+                            trialVisual: trialVisual,
                           ),
                         ),
                         const SizedBox(width: 8),
                         Expanded(
                           child: _InfographicCategoryRow(
                             category: data.categories[3],
+                            trialVisual: trialVisual,
                           ),
                         ),
                       ],
@@ -577,6 +634,7 @@ class _AnnualInfographicCanvas extends StatelessWidget {
                             label: 'โอกาสที่ควรใช้',
                             value: data.opportunity,
                             color: teal,
+                            trialVisual: trialVisual,
                           ),
                         ),
                         const SizedBox(width: 8),
@@ -587,6 +645,7 @@ class _AnnualInfographicCanvas extends StatelessWidget {
                             label: 'เรื่องที่ควรระวัง',
                             value: data.caution,
                             color: amber,
+                            trialVisual: trialVisual,
                           ),
                         ),
                       ],
@@ -598,7 +657,9 @@ class _AnnualInfographicCanvas extends StatelessWidget {
                     height: 74,
                     padding: const EdgeInsets.fromLTRB(11, 8, 11, 8),
                     decoration: BoxDecoration(
-                      color: const Color(0xff202f60),
+                      color: trialVisual
+                          ? const Color(0xFF164235)
+                          : const Color(0xff202f60),
                       borderRadius: BorderRadius.circular(12),
                       border: Border.all(color: gold.withValues(alpha: .65)),
                     ),
@@ -652,9 +713,13 @@ class _AnnualInfographicCanvas extends StatelessWidget {
 }
 
 class _InfographicCategoryRow extends StatelessWidget {
-  const _InfographicCategoryRow({required this.category});
+  const _InfographicCategoryRow({
+    required this.category,
+    required this.trialVisual,
+  });
 
   final ThaiBetaAnnualInfographicCategory category;
+  final bool trialVisual;
 
   @override
   Widget build(BuildContext context) {
@@ -666,7 +731,9 @@ class _InfographicCategoryRow extends StatelessWidget {
       key: ThaiBetaAnnualInfographicLayoutKeys.category(category.id),
       padding: const EdgeInsets.fromLTRB(9, 8, 9, 8),
       decoration: BoxDecoration(
-        color: ivory.withValues(alpha: .97),
+        color: trialVisual
+            ? const Color(0xFF10372D)
+            : ivory.withValues(alpha: .97),
         borderRadius: BorderRadius.circular(12),
         border: Border.all(color: gold.withValues(alpha: .62)),
         boxShadow: const [
@@ -692,7 +759,7 @@ class _InfographicCategoryRow extends StatelessWidget {
                 ),
                 child: _InfographicGlyph(
                   name: category.iconName,
-                  color: indigo,
+                  color: trialVisual ? gold : indigo,
                   size: 14,
                 ),
               ),
@@ -700,8 +767,8 @@ class _InfographicCategoryRow extends StatelessWidget {
               Expanded(
                 child: Text(
                   category.title,
-                  style: const TextStyle(
-                    color: indigo,
+                  style: TextStyle(
+                    color: trialVisual ? gold : indigo,
                     fontSize: 9.1,
                     fontWeight: FontWeight.w800,
                   ),
@@ -715,8 +782,8 @@ class _InfographicCategoryRow extends StatelessWidget {
               alignment: Alignment.topLeft,
               child: Text(
                 category.summary,
-                style: const TextStyle(
-                  color: navy,
+                style: TextStyle(
+                  color: trialVisual ? ivory : navy,
                   fontSize: 7.8,
                   height: 1.25,
                 ),
@@ -798,21 +865,27 @@ class _Band extends StatelessWidget {
     required this.label,
     required this.value,
     required this.color,
+    this.trialVisual = false,
   });
 
   final String iconName;
   final String label;
   final String value;
   final Color color;
+  final bool trialVisual;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.fromLTRB(9, 8, 9, 8),
       decoration: BoxDecoration(
-        color: color,
+        color: trialVisual ? const Color(0xFF174639) : color,
         borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: Colors.white.withValues(alpha: .25)),
+        border: Border.all(
+          color: trialVisual
+              ? TrialVisualDesign.gold.withValues(alpha: .55)
+              : Colors.white.withValues(alpha: .25),
+        ),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

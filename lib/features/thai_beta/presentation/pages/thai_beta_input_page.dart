@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:knowme/core/config/api_config.dart';
+import 'package:knowme/features/astrology/fusion/presentation/trial_visual_design.dart';
 
 import '../../application/thai_beta_analysis.dart';
 import '../../application/thai_beta_current_analysis.dart';
@@ -11,21 +13,18 @@ import 'thai_beta_astrology_selection_page.dart';
 
 DateTime _systemNow() => DateTime.now();
 
-typedef ThaiBetaAnalysisExecutor = Future<ThaiBetaAnalysis> Function(
-  ThaiBetaInput input, {
-  required DateTime startedAt,
-  required DateTime asOf,
-});
+typedef ThaiBetaAnalysisExecutor =
+    Future<ThaiBetaAnalysis> Function(
+      ThaiBetaInput input, {
+      required DateTime startedAt,
+      required DateTime asOf,
+    });
 
 Future<ThaiBetaAnalysis> _runAnalysis(
   ThaiBetaInput input, {
   required DateTime startedAt,
   required DateTime asOf,
-}) => ThaiBetaAnalysisRunner.runAsync(
-  input,
-  startedAt: startedAt,
-  asOf: asOf,
-);
+}) => ThaiBetaAnalysisRunner.runAsync(input, startedAt: startedAt, asOf: asOf);
 
 /// `/beta/thai` — the public Thai Astrology Research entry form.
 class ThaiBetaInputPage extends StatefulWidget {
@@ -82,22 +81,41 @@ class _ThaiBetaInputPageState extends State<ThaiBetaInputPage> {
       firstDate: DateTime(1920),
       lastDate: now,
       helpText: 'เลือกวันเกิด',
+      builder: (context, child) => ApiConfig.isOverallPreview
+          ? Theme(
+              data: TrialVisualDesign.theme(TrialVisualDesign.overall),
+              child: child!,
+            )
+          : child!,
     );
     if (picked != null) setState(() => _birthDate = picked);
   }
 
+  Widget _nameField(TextEditingController controller, String label) =>
+      TextFormField(
+        controller: controller,
+        textInputAction: TextInputAction.next,
+        decoration: InputDecoration(
+          labelText: '$label *',
+          border: const OutlineInputBorder(),
+        ),
+        validator: (v) =>
+            (v == null || v.trim().isEmpty) ? 'กรุณากรอก$label' : null,
+      );
+
   void _submit() {
     if (!(_formKey.currentState?.validate() ?? false)) return;
     if (_birthDate == null) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('กรุณาเลือกวันเกิด')),
-      );
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(const SnackBar(content: Text('กรุณาเลือกวันเกิด')));
       return;
     }
     final submittedAt = widget.clock();
 
     final displayedHour = int.tryParse(_birthHourController.text.trim());
-    final resolvedHour = _birthHour ??
+    final resolvedHour =
+        _birthHour ??
         (displayedHour != null && displayedHour >= 0 && displayedHour <= 23
             ? displayedHour
             : null);
@@ -113,6 +131,19 @@ class _ThaiBetaInputPageState extends State<ThaiBetaInputPage> {
       gender: _gender,
     );
 
+    // The trial opens the combined reading first. All three calculations
+    // require a known birth time and a resolvable birthplace.
+    if (!input.hasBirthTime || (input.provinceKey?.trim().isEmpty ?? true)) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text(
+            'ดวงรวมต้องทราบเวลาเกิดและจังหวัดที่เกิด กรุณากรอกให้ครบ',
+          ),
+        ),
+      );
+      return;
+    }
+
     // A newly submitted profile must not leave an older Thai result exportable
     // while the user is deciding which system to open.
     ThaiBetaCurrentAnalysis.clear();
@@ -123,6 +154,7 @@ class _ThaiBetaInputPageState extends State<ThaiBetaInputPage> {
           startedAt: _startedAt,
           submittedAt: submittedAt,
           analysisExecutor: widget.analysisExecutor,
+          startWithOverall: true,
         ),
       ),
     );
@@ -130,163 +162,191 @@ class _ThaiBetaInputPageState extends State<ThaiBetaInputPage> {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
+    final trial = ApiConfig.isOverallPreview;
+    final theme = trial
+        ? TrialVisualDesign.theme(TrialVisualDesign.overall)
+        : Theme.of(context);
     final scheme = theme.colorScheme;
     final dateLabel = _birthDate == null
         ? 'เลือกวันเกิด'
         : '${_birthDate!.day}/${_birthDate!.month}/${_birthDate!.year}';
 
-    return Scaffold(
+    final scaffold = Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: const Text('ดูดวงไทย — งานวิจัย'),
+        title: Text(trial ? 'KnowMe · ข้อมูลเกิด' : 'ทดลองดูดวงรวม'),
       ),
       body: SafeArea(
         child: Column(
           children: [
-            const ThaiBetaProgressBar(current: ThaiBetaStep.fillIn),
+            trial
+                ? const TrialFlowSteps(current: 1)
+                : const ThaiBetaProgressBar(current: ThaiBetaStep.fillIn),
             Expanded(
               child: Center(
-          child: ConstrainedBox(
-            constraints: const BoxConstraints(maxWidth: 560),
-            child: SingleChildScrollView(
-              padding: const EdgeInsets.fromLTRB(20, 16, 20, 40),
-              child: Form(
-                key: _formKey,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    Text(
-                      'กรอกข้อมูลเพื่อดูผลวิเคราะห์ดวงไทยของคุณ',
-                      style: theme.textTheme.titleMedium,
-                    ),
-                    const SizedBox(height: 4),
-                    Text(
-                      'ระบบนี้อยู่ในช่วงเก็บข้อมูลวิจัย ความคิดเห็นของคุณจะช่วยให้เราพัฒนาให้แม่นยำขึ้น',
-                      style: theme.textTheme.bodySmall
-                          ?.copyWith(color: scheme.onSurfaceVariant),
-                    ),
-                    const SizedBox(height: 24),
-                    TextFormField(
-                      controller: _firstName,
-                      textInputAction: TextInputAction.next,
-                      decoration: const InputDecoration(
-                        labelText: 'ชื่อจริง *',
-                        border: OutlineInputBorder(),
-                      ),
-                      validator: (v) =>
-                          (v == null || v.trim().isEmpty) ? 'กรุณากรอกชื่อจริง' : null,
-                    ),
-                    const SizedBox(height: 16),
-                    TextFormField(
-                      controller: _lastName,
-                      textInputAction: TextInputAction.next,
-                      decoration: const InputDecoration(
-                        labelText: 'นามสกุล *',
-                        border: OutlineInputBorder(),
-                      ),
-                      validator: (v) => (v == null || v.trim().isEmpty)
-                          ? 'กรุณากรอกนามสกุล'
-                          : null,
-                    ),
-                    const SizedBox(height: 16),
-                    _FieldButton(
-                      icon: Icons.calendar_today_rounded,
-                      label: 'วันเกิด *',
-                      value: dateLabel,
-                      onTap: _pickDate,
-                    ),
-                    const SizedBox(height: 16),
-                    if (!_birthTimeUnknown) ...[
-                      Align(
-                        alignment: Alignment.centerLeft,
-                        child: Text('เวลาเกิด (24 ชั่วโมง)',
-                            style: theme.textTheme.bodySmall
-                                ?.copyWith(color: scheme.onSurfaceVariant)),
-                      ),
-                      const SizedBox(height: 8),
-                      ThaiBetaTimeField(
-                        hour: _birthHour,
-                        minute: _birthMinute,
-                        hourController: _birthHourController,
-                        onHourChanged: (v) => setState(() => _birthHour = v),
-                        onMinuteChanged: (v) =>
-                            setState(() => _birthMinute = v),
-                      ),
-                      const SizedBox(height: 4),
-                    ],
-                    CheckboxListTile(
-                      contentPadding: EdgeInsets.zero,
-                      controlAffinity: ListTileControlAffinity.leading,
-                      value: _birthTimeUnknown,
-                      onChanged: (v) =>
-                          setState(() => _birthTimeUnknown = v ?? false),
-                      title: const Text('ฉันไม่ทราบเวลาเกิด'),
-                    ),
-                    if (_birthTimeUnknown)
-                      Container(
-                        margin: const EdgeInsets.only(top: 4, bottom: 8),
-                        padding: const EdgeInsets.all(12),
-                        decoration: BoxDecoration(
-                          color: scheme.secondaryContainer.withValues(alpha: 0.5),
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Icon(Icons.info_outline_rounded,
-                                size: 18, color: scheme.onSecondaryContainer),
-                            const SizedBox(width: 8),
-                            Expanded(
+                child: ConstrainedBox(
+                  constraints: BoxConstraints(maxWidth: trial ? 900 : 560),
+                  child: SingleChildScrollView(
+                    padding: const EdgeInsets.fromLTRB(20, 16, 20, 40),
+                    child: Form(
+                      key: _formKey,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: [
+                          Text(
+                            'กรอกข้อมูลเพื่อดูดวงรวม',
+                            style: theme.textTheme.titleMedium,
+                          ),
+                          const SizedBox(height: 4),
+                          Text(
+                            'ใช้ข้อมูลเกิดชุดเดียวอ่านภาพรวมจากไทย จีน และตะวันตก แล้วเลือกอ่านแต่ละศาสตร์ได้',
+                            style: theme.textTheme.bodySmall?.copyWith(
+                              color: scheme.onSurfaceVariant,
+                            ),
+                          ),
+                          if (trial) ...[
+                            const SizedBox(height: 14),
+                            const TrialArtworkBanner(
+                              asset: TrialVisualDesign.overallArt,
+                              height: 135,
+                              alignment: Alignment(0, -0.35),
+                            ),
+                          ],
+                          const SizedBox(height: 24),
+                          LayoutBuilder(
+                            builder: (context, constraints) {
+                              final first = _nameField(_firstName, 'ชื่อจริง');
+                              final last = _nameField(_lastName, 'นามสกุล');
+                              if (trial && constraints.maxWidth >= 600) {
+                                return Row(
+                                  children: [
+                                    Expanded(child: first),
+                                    const SizedBox(width: 16),
+                                    Expanded(child: last),
+                                  ],
+                                );
+                              }
+                              return Column(
+                                children: [
+                                  first,
+                                  const SizedBox(height: 16),
+                                  last,
+                                ],
+                              );
+                            },
+                          ),
+                          const SizedBox(height: 16),
+                          _FieldButton(
+                            icon: Icons.calendar_today_rounded,
+                            label: 'วันเกิด *',
+                            value: dateLabel,
+                            onTap: _pickDate,
+                          ),
+                          const SizedBox(height: 16),
+                          if (!_birthTimeUnknown) ...[
+                            Align(
+                              alignment: Alignment.centerLeft,
                               child: Text(
-                                'หากไม่ทราบเวลาเกิด รายงานจะเว้นหัวข้อที่ต้องใช้เวลาเกิด เช่น ลัคนาและเรือน เพื่อไม่สรุปเกินข้อมูลที่มี',
+                                'เวลาเกิด (24 ชั่วโมง)',
                                 style: theme.textTheme.bodySmall?.copyWith(
-                                  color: scheme.onSecondaryContainer,
-                                  height: 1.4,
+                                  color: scheme.onSurfaceVariant,
                                 ),
                               ),
                             ),
+                            const SizedBox(height: 8),
+                            ThaiBetaTimeField(
+                              compact:
+                                  trial &&
+                                  MediaQuery.sizeOf(context).width < 360,
+                              hour: _birthHour,
+                              minute: _birthMinute,
+                              hourController: _birthHourController,
+                              onHourChanged: (v) =>
+                                  setState(() => _birthHour = v),
+                              onMinuteChanged: (v) =>
+                                  setState(() => _birthMinute = v),
+                            ),
+                            const SizedBox(height: 4),
                           ],
-                        ),
+                          CheckboxListTile(
+                            contentPadding: EdgeInsets.zero,
+                            controlAffinity: ListTileControlAffinity.leading,
+                            value: _birthTimeUnknown,
+                            onChanged: (v) =>
+                                setState(() => _birthTimeUnknown = v ?? false),
+                            title: const Text('ฉันไม่ทราบเวลาเกิด'),
+                          ),
+                          if (_birthTimeUnknown)
+                            Container(
+                              margin: const EdgeInsets.only(top: 4, bottom: 8),
+                              padding: const EdgeInsets.all(12),
+                              decoration: BoxDecoration(
+                                color: scheme.secondaryContainer.withValues(
+                                  alpha: 0.5,
+                                ),
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              child: Row(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Icon(
+                                    Icons.info_outline_rounded,
+                                    size: 18,
+                                    color: scheme.onSecondaryContainer,
+                                  ),
+                                  const SizedBox(width: 8),
+                                  Expanded(
+                                    child: Text(
+                                      'ดวงรวมต้องทราบเวลาเกิด จึงจะคำนวณทั้งสามศาสตร์ได้ กรุณากลับมากรอกเมื่อทราบเวลา',
+                                      style: theme.textTheme.bodySmall
+                                          ?.copyWith(
+                                            color: scheme.onSecondaryContainer,
+                                            height: 1.4,
+                                          ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          const SizedBox(height: 12),
+                          ThaiBetaProvinceField(
+                            value: _province,
+                            onChanged: (v) => setState(() => _province = v),
+                          ),
+                          const SizedBox(height: 16),
+                          DropdownButtonFormField<String>(
+                            initialValue: _gender,
+                            isExpanded: true,
+                            decoration: const InputDecoration(
+                              labelText: 'เพศ (ถ้าต้องการระบุ)',
+                              border: OutlineInputBorder(),
+                            ),
+                            items: [
+                              for (final g in _genders)
+                                DropdownMenuItem(value: g, child: Text(g)),
+                            ],
+                            onChanged: (v) => setState(() => _gender = v),
+                          ),
+                          const SizedBox(height: 28),
+                          FilledButton(
+                            onPressed: _submit,
+                            style: FilledButton.styleFrom(
+                              padding: const EdgeInsets.symmetric(vertical: 16),
+                            ),
+                            child: const Text('ดูดวงรวม'),
+                          ),
+                        ],
                       ),
-                    const SizedBox(height: 12),
-                    ThaiBetaProvinceField(
-                      value: _province,
-                      onChanged: (v) => setState(() => _province = v),
                     ),
-                    const SizedBox(height: 16),
-                    DropdownButtonFormField<String>(
-                      initialValue: _gender,
-                      isExpanded: true,
-                      decoration: const InputDecoration(
-                        labelText: 'เพศ (ถ้าต้องการระบุ)',
-                        border: OutlineInputBorder(),
-                      ),
-                      items: [
-                        for (final g in _genders)
-                          DropdownMenuItem(value: g, child: Text(g)),
-                      ],
-                      onChanged: (v) => setState(() => _gender = v),
-                    ),
-                    const SizedBox(height: 28),
-                    FilledButton(
-                      onPressed: _submit,
-                      style: FilledButton.styleFrom(
-                        padding: const EdgeInsets.symmetric(vertical: 16),
-                      ),
-                      child: const Text('เริ่มวิเคราะห์'),
-                    ),
-                  ],
+                  ),
                 ),
-              ),
-            ),
-          ),
               ),
             ),
           ],
         ),
       ),
     );
+    return trial ? Theme(data: theme, child: scaffold) : scaffold;
   }
 }
 

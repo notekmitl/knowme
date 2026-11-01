@@ -1,0 +1,84 @@
+{
+  "viewport": [
+    1280,
+    800
+  ],
+  "requests": [
+    {
+      "method": "GET",
+      "url": "https://knowme-app-694e1--pr-149-overall-safe-c41ic92g.web.app/beta/thai"
+    },
+    {
+      "method": "GET",
+      "url": "https://knowme-app-694e1--pr-149-overall-safe-c41ic92g.web.app/flutter_bootstrap.js?v=pr149-e8bcfa7"
+    },
+    {
+      "method": "GET",
+      "url": "https://www.gstatic.com/flutter-canvaskit/327ed814500baca0480a02f8555aa84a9afe32bf/chromium/canvaskit.wasm"
+    },
+    {
+      "method": "GET",
+      "url": "https://www.gstatic.com/flutter-canvaskit/327ed814500baca0480a02f8555aa84a9afe32bf/chromium/canvaskit.js"
+    },
+    {
+      "method": "GET",
+      "url": "https://knowme-app-694e1--pr-149-overall-safe-c41ic92g.web.app/main.dart.js?v=pr149-e8bcfa7"
+    },
+    {
+      "method": "GET",
+      "url": "https://knowme-app-694e1--pr-149-overall-safe-c41ic92g.web.app/assets/FontManifest.json"
+    },
+    {
+      "method": "GET",
+      "url": "https://knowme-app-694e1--pr-149-overall-safe-c41ic92g.web.app/assets/fonts/MaterialIcons-Regular.otf"
+    },
+    {
+      "method": "GET",
+      "url": "https://knowme-app-694e1--pr-149-overall-safe-c41ic92g.web.app/assets/assets/fonts/noto_sans_thai/NotoSansThai-Regular.ttf"
+    },
+    {
+      "method": "GET",
+      "url": "https://knowme-app-694e1--pr-149-overall-safe-c41ic92g.web.app/assets/assets/fonts/noto_sans_thai/NotoSansThai-Bold.ttf"
+    },
+    {
+      "method": "GET",
+      "url": "https://knowme-app-694e1--pr-149-overall-safe-c41ic92g.web.app/assets/assets/fonts/noto_sans_thai/NotoSans-Regular.ttf"
+    },
+    {
+      "method": "GET",
+      "url": "https://knowme-app-694e1--pr-149-overall-safe-c41ic92g.web.app/assets/assets/fonts/noto_sans_thai/NotoSans-Bold.ttf"
+    },
+    {
+      "method": "GET",
+      "url": "https://knowme-app-694e1--pr-149-overall-safe-c41ic92g.web.app/assets/packages/cupertino_icons/assets/CupertinoIcons.ttf"
+    },
+    {
+      "method": "GET",
+      "url": "https://fonts.gstatic.com/s/roboto/v32/KFOmCnqEu92Fr1Me4GZLCzYlKw.woff2"
+    },
+    {
+      "method": "GET",
+      "url": "https://knowme-app-694e1--pr-149-overall-safe-c41ic92g.web.app/assets/AssetManifest.bin.json"
+    },
+    {
+      "method": "GET",
+      "url": "https://fonts.gstatic.com/s/notosansthai/v25/iJWnBXeUZi_OHPqn4wq6hQ2_hbJ1xyN9wd43SofNWcd1MKVQt_So_9CdU5RtpzR-QRvzzXg.woff2"
+    },
+    {
+      "method": "GET",
+      "url": "https://knowme-app-694e1--pr-149-overall-safe-c41ic92g.web.app/assets/assets/trial_visual/overall.webp"
+    }
+  ],
+  "post_responses": [],
+  "document_widths": {
+    "landing": 1280,
+    "form": 1280,
+    "date-picker": 1280,
+    "form-ready": 1280,
+    "unknown-result": 1280
+  },
+  "forbidden_count": 0,
+  "other_write_count": 0,
+  "app_error_count": 0,
+  "failed_request_count": 0
+}

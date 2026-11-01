@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:knowme/core/config/api_config.dart';
 
 import 'package:firebase_core/firebase_core.dart';
 
@@ -61,7 +62,9 @@ void main() async {
     WebLaunchRouter.effectiveLaunchRoute(launchRouteName),
   );
 
-  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  if (!ApiConfig.isOverallPreview) {
+    await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  }
 
   // Re-read after async init: DOM early-capture / pathname is reliable here.
   // Prefer a non-null refresh so a null first read cannot force AuthGate.
@@ -80,7 +83,8 @@ void main() async {
   // Public Beta must never touch AuthGate. A dedicated app shell guarantees
   // anonymous `/beta/thai` shows ThaiBetaLandingPage even if Navigator/URL
   // sync later misfires on the full KnowMeApp route table.
-  if (ThaiBetaRoutes.isAnonymousPublicLandingRoute(effectiveLaunchRoute)) {
+  if (ApiConfig.isOverallPreview ||
+      ThaiBetaRoutes.isAnonymousPublicLandingRoute(effectiveLaunchRoute)) {
     runApp(const PublicThaiBetaApp());
     return;
   }

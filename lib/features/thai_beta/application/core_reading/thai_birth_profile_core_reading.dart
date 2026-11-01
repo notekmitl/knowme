@@ -320,6 +320,9 @@ class ThaiBirthProfileCoreReading {
   static const medicalDisclaimer =
       ThaiBirthProfileCoreReadingCopy.medicalDisclaimer;
 
+  /// Stable house-lord meaning used by other readers without parsing prose.
+  static String houseModeForLordKey(String lordKey) => _planetMode(lordKey).$1;
+
   final String title;
   final String subtitle;
   final List<ThaiBirthProfileCoreSection> sections;

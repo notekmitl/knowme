@@ -13,6 +13,10 @@ typedef ThaiBetaBaziGenerator =
     Future<BaziChartModel> Function(String userId, ProfileModel profile);
 typedef ThaiBetaWesternGenerator =
     Future<AstrologyChartModel> Function(String userId, ProfileModel profile);
+typedef ThaiBetaBaziCalculator =
+    Future<BaziChartModel> Function(ProfileModel profile);
+typedef ThaiBetaWesternCalculator =
+    Future<AstrologyChartModel> Function(ProfileModel profile);
 
 class ThaiBetaPreparedAstrology {
   const ThaiBetaPreparedAstrology._({this.baziChart, this.westernChart});
@@ -38,11 +42,38 @@ class ThaiBetaAstrologyHandoff {
   ThaiBetaAstrologyHandoff({
     ThaiBetaBaziGenerator? generateBazi,
     ThaiBetaWesternGenerator? generateWestern,
+    ThaiBetaBaziCalculator? calculateBazi,
+    ThaiBetaWesternCalculator? calculateWestern,
   }) : _generateBazi = generateBazi ?? _generateBaziOnly,
-       _generateWestern = generateWestern ?? _generateWesternOnly;
+       _generateWestern = generateWestern ?? _generateWesternOnly,
+       _calculateBazi = calculateBazi ?? _calculateBaziOnly,
+       _calculateWestern = calculateWestern ?? _calculateWesternOnly;
 
   final ThaiBetaBaziGenerator _generateBazi;
   final ThaiBetaWesternGenerator _generateWestern;
+  final ThaiBetaBaziCalculator _calculateBazi;
+  final ThaiBetaWesternCalculator _calculateWestern;
+
+  /// Overall reading calculates from birth data without a Firebase account or
+  /// a profile/chart write. Only the existing single-system path persists.
+  Future<ThaiBetaPreparedAstrology> prepareAnonymous({
+    required ThaiBetaInput input,
+    required String systemId,
+  }) async {
+    if (systemId != 'bazi' && systemId != 'western') {
+      throw ArgumentError.value(systemId, 'systemId', 'Unsupported system');
+    }
+    if (systemId == 'western' &&
+        (!input.hasBirthTime || (input.provinceKey?.trim().isEmpty ?? true))) {
+      throw StateError(
+        'Western astrology requires a known birth time and province',
+      );
+    }
+    final profile = profileFromInput(input);
+    return systemId == 'bazi'
+        ? ThaiBetaPreparedAstrology.bazi(await _calculateBazi(profile))
+        : ThaiBetaPreparedAstrology.western(await _calculateWestern(profile));
+  }
 
   Future<ThaiBetaPreparedAstrology> prepare({
     required String userId,
@@ -134,6 +165,31 @@ class ThaiBetaAstrologyHandoff {
       latitude: profile.latitude,
       longitude: profile.longitude,
       canonicalProfile: profile.toMap(),
+    );
+  }
+
+  static Future<BaziChartModel> _calculateBaziOnly(ProfileModel profile) {
+    return BaziApiService.calculateBazi(
+      birthDate: BirthProfileReadiness.apiBirthDate(profile),
+      birthTime: profile.birthTime.trim().isEmpty
+          ? null
+          : profile.birthTime.trim(),
+      timezone: profile.timezone,
+      gender: profile.gender,
+      latitude: profile.latitude,
+      longitude: profile.longitude,
+    );
+  }
+
+  static Future<AstrologyChartModel> _calculateWesternOnly(
+    ProfileModel profile,
+  ) {
+    return AstrologyApiService.calculateChart(
+      birthDate: BirthProfileReadiness.apiBirthDate(profile),
+      birthTime: profile.birthTime.trim(),
+      timezone: profile.timezone,
+      latitude: profile.latitude,
+      longitude: profile.longitude,
     );
   }
 

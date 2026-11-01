@@ -1,5 +1,7 @@
+import 'package:knowme/features/astrology/fusion/presentation/trial_reader_typography.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:knowme/features/astrology/fusion/presentation/trial_visual_design.dart';
 import 'package:knowme/data/models/astrology_chart_model.dart';
 import 'package:knowme/features/astrology/application/birth_profile_readiness.dart';
 import 'package:knowme/features/astrology/shared/astrology_flow_state.dart';
@@ -123,7 +125,7 @@ class _AstrologyResultPageState extends State<AstrologyResultPage> {
               onPrimaryAction: _retryGeneration,
               primaryActionLabel: AstrologyFlowCopy.retryCta,
             )
-          : _WesternReaderBody(chart: chart),
+          : WesternReaderBody(chart: chart),
     );
   }
 }
@@ -146,10 +148,16 @@ Future<AstrologyChartModel> _generateWesternChartForUser(String uid) async {
   );
 }
 
-class _WesternReaderBody extends StatelessWidget {
-  const _WesternReaderBody({required this.chart});
+/// Reusable, read-only chart view for signed-in and anonymous trial readings.
+class WesternReaderBody extends StatelessWidget {
+  const WesternReaderBody({
+    super.key,
+    required this.chart,
+    this.trialVisual = false,
+  });
 
   final AstrologyChartModel chart;
+  final bool trialVisual;
 
   static const _navy = Color(0xFF111B34);
   static const _violet = Color(0xFF8B7CF6);
@@ -158,7 +166,7 @@ class _WesternReaderBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final sections = WesternReaderV2Copy.sections(chart);
-    return DecoratedBox(
+    final view = DecoratedBox(
       decoration: const BoxDecoration(
         gradient: LinearGradient(
           colors: [Color(0xFF09101F), Color(0xFF121D38), Color(0xFF21183C)],
@@ -172,29 +180,72 @@ class _WesternReaderBody extends StatelessWidget {
           padding: const EdgeInsets.fromLTRB(18, 18, 18, 48),
           child: Center(
             child: ConstrainedBox(
-              constraints: const BoxConstraints(maxWidth: 880),
+              constraints: BoxConstraints(maxWidth: trialVisual ? 1040 : 880),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  _hero(),
-                  const SizedBox(height: 18),
-                  _bigThree(),
-                  const SizedBox(height: 30),
-                  const _SectionHeading(
-                    eyebrow: 'คำอ่านหลัก',
-                    title: 'อ่านเป็นเรื่องชีวิต ไม่ใช่ป้ายราศี',
-                    subtitle:
-                        'เริ่มจากพฤติกรรมที่พบได้จริง ผลที่มักเกิด และวิธีใช้ให้เป็นประโยชน์',
-                  ),
-                  const SizedBox(height: 14),
-                  for (final section in sections) ...[
-                    _ReadingCard(section: section),
-                    const SizedBox(height: 12),
+                  _hero(context),
+                  if (!trialVisual) ...[
+                    const SizedBox(height: 18),
+                    LayoutBuilder(
+                      builder: (context, constraints) {
+                        final hasBalance =
+                            trialVisual &&
+                            WesternReaderV2Copy.balance(
+                              chart,
+                              'elements',
+                            ).isNotEmpty;
+                        if (hasBalance && constraints.maxWidth >= 1000) {
+                          return Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Expanded(child: _bigThree()),
+                              const SizedBox(width: 20),
+                              Expanded(child: _trialElementBalance()),
+                            ],
+                          );
+                        }
+                        return Column(
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          children: [
+                            _bigThree(),
+                            if (hasBalance) ...[
+                              const SizedBox(height: 18),
+                              _trialElementBalance(),
+                            ],
+                          ],
+                        );
+                      },
+                    ),
                   ],
-                  const SizedBox(height: 20),
-                  _chartStructure(),
-                  const SizedBox(height: 24),
-                  _methodAndDisclaimer(),
+                  const SizedBox(height: 30),
+                  Center(
+                    child: ConstrainedBox(
+                      constraints: BoxConstraints(
+                        maxWidth: trialVisual ? 820 : 880,
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: [
+                          const _SectionHeading(
+                            eyebrow: 'คำอ่านหลัก',
+                            title: 'อ่านเป็นเรื่องชีวิต ไม่ใช่ป้ายราศี',
+                            subtitle:
+                                'เริ่มจากพฤติกรรมที่พบได้จริง ผลที่มักเกิด และวิธีใช้ให้เป็นประโยชน์',
+                          ),
+                          const SizedBox(height: 14),
+                          for (final section in sections) ...[
+                            _ReadingCard(section: section),
+                            const SizedBox(height: 12),
+                          ],
+                          const SizedBox(height: 20),
+                          _chartStructure(),
+                          const SizedBox(height: 24),
+                          _methodAndDisclaimer(),
+                        ],
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -202,9 +253,81 @@ class _WesternReaderBody extends StatelessWidget {
         ),
       ),
     );
+    return trialVisual ? TrialReaderTypography(child: view) : view;
   }
 
-  Widget _hero() {
+  Widget _hero(BuildContext context) {
+    if (trialVisual) {
+      return Container(
+        key: const Key('western-reader-v2-hero'),
+        decoration: BoxDecoration(
+          color: _navy,
+          borderRadius: BorderRadius.circular(20),
+          border: Border.all(color: _gold.withValues(alpha: .42)),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            TrialIllustratedHero(
+              key: const Key('trial-western-infographic'),
+              asset: TrialVisualDesign.westernArt,
+              background: TrialVisualDesign.western,
+              alignment: MediaQuery.sizeOf(context).width >= 800
+                  ? const Alignment(0, -0.45)
+                  : Alignment.center,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text(
+                    'แผนที่ชีวิตแบบตะวันตก',
+                    style: TextStyle(
+                      color: TrialVisualDesign.text,
+                      fontSize: 25,
+                      fontWeight: FontWeight.w800,
+                    ),
+                  ),
+                  const SizedBox(height: 78),
+                  const Text(
+                    'สามตำแหน่งหลักในดวงกำเนิด',
+                    style: TextStyle(
+                      color: TrialVisualDesign.gold,
+                      fontWeight: FontWeight.w800,
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+                  Row(
+                    children: [
+                      _trialPlanet(
+                        'อาทิตย์',
+                        Icons.wb_sunny_outlined,
+                        chart.big3['sun'],
+                      ),
+                      const SizedBox(width: 5),
+                      _trialPlanet(
+                        'จันทร์',
+                        Icons.nights_stay_outlined,
+                        chart.big3['moon'],
+                      ),
+                      const SizedBox(width: 5),
+                      _trialPlanet(
+                        'ลัคนา',
+                        Icons.explore_outlined,
+                        chart.big3['rising'],
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(18, 14, 18, 4),
+              child: _trialOverview(),
+            ),
+            _trialElementBalance(),
+          ],
+        ),
+      );
+    }
     return Container(
       key: const Key('western-reader-v2-hero'),
       padding: const EdgeInsets.all(24),
@@ -242,13 +365,53 @@ class _WesternReaderBody extends StatelessWidget {
               fontWeight: FontWeight.w800,
             ),
           ),
-          const SizedBox(height: 14),
-          Text(
-            WesternReaderV2Copy.overview(chart),
-            style: TextStyle(
-              color: Colors.white.withValues(alpha: 0.9),
-              fontSize: 17,
-              height: 1.7,
+          if (trialVisual) ...[
+            const SizedBox(height: 16),
+            const TrialArtworkBanner(
+              asset: TrialVisualDesign.westernArt,
+              height: 175,
+              alignment: Alignment(0, -0.25),
+            ),
+          ],
+          if (!trialVisual) ...[
+            const SizedBox(height: 14),
+            Text(
+              WesternReaderV2Copy.overview(chart),
+              style: TextStyle(
+                color: Colors.white.withValues(alpha: 0.9),
+                fontSize: 17,
+                height: 1.7,
+              ),
+            ),
+          ],
+        ],
+      ),
+    );
+  }
+
+  Widget _trialOverview() {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 4),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            width: 3,
+            height: 48,
+            decoration: BoxDecoration(
+              color: _gold,
+              borderRadius: BorderRadius.circular(3),
+            ),
+          ),
+          const SizedBox(width: 16),
+          Expanded(
+            child: Text(
+              WesternReaderV2Copy.overview(chart),
+              style: const TextStyle(
+                color: Colors.white,
+                fontSize: 17,
+                height: 1.7,
+              ),
             ),
           ),
         ],
@@ -256,7 +419,71 @@ class _WesternReaderBody extends StatelessWidget {
     );
   }
 
+  Widget _trialElementBalance() {
+    final elements = WesternReaderV2Copy.balance(chart, 'elements');
+    if (elements.isEmpty) return const SizedBox.shrink();
+    return Padding(
+      key: const Key('trial-western-element-balance'),
+      padding: const EdgeInsets.fromLTRB(18, 12, 18, 18),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Text('สัดส่วนธาตุในดวงนี้', style: _cardTitleStyle),
+          const SizedBox(height: 6),
+          const Text(
+            'เปรียบเทียบภายในดวงเดียวกัน ไม่ใช่คะแนนดีหรือร้าย',
+            style: _supportStyle,
+          ),
+          const SizedBox(height: 18),
+          _BalanceGroup(
+            title: 'ธาตุ',
+            values: elements,
+            label: WesternReaderV2Copy.elementLabel,
+          ),
+        ],
+      ),
+    );
+  }
+
   Widget _bigThree() {
+    if (trialVisual) {
+      return _SurfaceCard(
+        key: const Key('trial-western-infographic'),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Text('สามตำแหน่งหลักในดวงกำเนิด', style: _cardTitleStyle),
+            const SizedBox(height: 6),
+            const Text(
+              'ตำแหน่งที่คำนวณได้ ใช้อ่านภาพรวมร่วมกัน',
+              style: _supportStyle,
+            ),
+            const SizedBox(height: 18),
+            Row(
+              children: [
+                _trialPlanet(
+                  'อาทิตย์',
+                  Icons.wb_sunny_outlined,
+                  chart.big3['sun'],
+                ),
+                const SizedBox(width: 7),
+                _trialPlanet(
+                  'จันทร์',
+                  Icons.nights_stay_outlined,
+                  chart.big3['moon'],
+                ),
+                const SizedBox(width: 7),
+                _trialPlanet(
+                  'ลัคนา',
+                  Icons.explore_outlined,
+                  chart.big3['rising'],
+                ),
+              ],
+            ),
+          ],
+        ),
+      );
+    }
     return _SurfaceCard(
       key: const Key('western-reader-v2-big-three-basis'),
       child: Column(
@@ -276,6 +503,39 @@ class _WesternReaderBody extends StatelessWidget {
             style: _supportStyle,
           ),
         ],
+      ),
+    );
+  }
+
+  Widget _trialPlanet(String label, IconData icon, dynamic sign) {
+    return Expanded(
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 12),
+        decoration: BoxDecoration(
+          color: _violet.withValues(alpha: 0.10),
+          borderRadius: BorderRadius.circular(14),
+          border: Border.all(color: _gold.withValues(alpha: 0.38)),
+        ),
+        child: Column(
+          children: [
+            Icon(icon, color: _gold, size: 34),
+            const SizedBox(height: 8),
+            Text(
+              label,
+              style: const TextStyle(color: Colors.white70, fontSize: 14),
+            ),
+            const SizedBox(height: 5),
+            Text(
+              WesternReaderV2Copy.signLabel(sign),
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.w700,
+                fontSize: 19,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -301,8 +561,7 @@ class _WesternReaderBody extends StatelessWidget {
             style: _supportStyle,
           ),
           children: [
-            _balances(),
-            const SizedBox(height: 12),
+            if (!trialVisual) ...[_balances(), const SizedBox(height: 12)],
             _dominance(),
             const SizedBox(height: 12),
             _aspects(),
@@ -529,7 +788,7 @@ class _SectionHeading extends StatelessWidget {
         Text(
           eyebrow,
           style: const TextStyle(
-            color: _WesternReaderBody._gold,
+            color: WesternReaderBody._gold,
             fontSize: 11,
             fontWeight: FontWeight.w800,
             letterSpacing: 1.3,
@@ -593,7 +852,7 @@ class _BalanceGroup extends StatelessWidget {
                       value: entry.value.clamp(0, 100) / 100,
                       backgroundColor: Colors.white.withValues(alpha: 0.08),
                       valueColor: const AlwaysStoppedAnimation(
-                        _WesternReaderBody._violet,
+                        WesternReaderBody._violet,
                       ),
                     ),
                   ),
@@ -668,19 +927,19 @@ class _Tag extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 9),
       decoration: BoxDecoration(
         color: highlighted
-            ? _WesternReaderBody._gold.withValues(alpha: 0.18)
+            ? WesternReaderBody._gold.withValues(alpha: 0.18)
             : Colors.white.withValues(alpha: 0.07),
         borderRadius: BorderRadius.circular(999),
         border: Border.all(
           color: highlighted
-              ? _WesternReaderBody._gold.withValues(alpha: 0.42)
+              ? WesternReaderBody._gold.withValues(alpha: 0.42)
               : Colors.white.withValues(alpha: 0.08),
         ),
       ),
       child: Text(
         text,
         style: TextStyle(
-          color: highlighted ? _WesternReaderBody._gold : Colors.white,
+          color: highlighted ? WesternReaderBody._gold : Colors.white,
           fontSize: 13,
           fontWeight: FontWeight.w700,
         ),
@@ -700,7 +959,7 @@ class _SurfaceCard extends StatelessWidget {
     return Container(
       padding: padding ?? const EdgeInsets.all(20),
       decoration: BoxDecoration(
-        color: _WesternReaderBody._navy.withValues(alpha: 0.88),
+        color: WesternReaderBody._navy.withValues(alpha: 0.88),
         borderRadius: BorderRadius.circular(20),
         border: Border.all(color: Colors.white.withValues(alpha: 0.08)),
       ),

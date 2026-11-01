@@ -1,0 +1,845 @@
+{
+  "synthetic_data_only": true,
+  "records": [
+    {
+      "phase": "hosted_before",
+      "run": "hosted-a-390-chrome",
+      "viewport": [
+        390,
+        844
+      ],
+      "webgl_available": true,
+      "browser_image_decode": "ok",
+      "decoded_dimensions": [
+        1024,
+        1536
+      ],
+      "art_responses": [
+        {
+          "file": "overall.webp",
+          "status": 200,
+          "content_type": "image/webp"
+        },
+        {
+          "file": "overall.webp",
+          "status": 200,
+          "content_type": "image/webp"
+        },
+        {
+          "file": "thai.webp",
+          "status": 200,
+          "content_type": "image/webp"
+        },
+        {
+          "file": "chinese.webp",
+          "status": 200,
+          "content_type": "image/webp"
+        },
+        {
+          "file": "western.webp",
+          "status": 200,
+          "content_type": "image/webp"
+        }
+      ],
+      "cpu_warning": false,
+      "calculator_posts": 2,
+      "calculator_statuses": [
+        200,
+        200
+      ],
+      "forbidden_requests": 0,
+      "other_writes": 0,
+      "page_errors": 0,
+      "failed_requests": 0,
+      "horizontal_overflow": false
+    },
+    {
+      "phase": "hosted_before",
+      "run": "hosted-a-390-cpu",
+      "viewport": [
+        390,
+        844
+      ],
+      "webgl_available": false,
+      "browser_image_decode": "ok",
+      "decoded_dimensions": [
+        1024,
+        1536
+      ],
+      "art_responses": [
+        {
+          "file": "overall.webp",
+          "status": 200,
+          "content_type": "image/webp"
+        },
+        {
+          "file": "overall.webp",
+          "status": 200,
+          "content_type": "image/webp"
+        },
+        {
+          "file": "thai.webp",
+          "status": 200,
+          "content_type": "image/webp"
+        },
+        {
+          "file": "chinese.webp",
+          "status": 200,
+          "content_type": "image/webp"
+        },
+        {
+          "file": "western.webp",
+          "status": 200,
+          "content_type": "image/webp"
+        }
+      ],
+      "cpu_warning": true,
+      "calculator_posts": 2,
+      "calculator_statuses": [
+        200,
+        200
+      ],
+      "forbidden_requests": 0,
+      "other_writes": 0,
+      "page_errors": 0,
+      "failed_requests": 0,
+      "horizontal_overflow": false
+    },
+    {
+      "phase": "hosted_before",
+      "run": "hosted-b-1280-chrome",
+      "viewport": [
+        1280,
+        800
+      ],
+      "webgl_available": true,
+      "browser_image_decode": "ok",
+      "decoded_dimensions": [
+        1024,
+        1536
+      ],
+      "art_responses": [
+        {
+          "file": "overall.webp",
+          "status": 200,
+          "content_type": "image/webp"
+        },
+        {
+          "file": "overall.webp",
+          "status": 200,
+          "content_type": "image/webp"
+        },
+        {
+          "file": "thai.webp",
+          "status": 200,
+          "content_type": "image/webp"
+        },
+        {
+          "file": "chinese.webp",
+          "status": 200,
+          "content_type": "image/webp"
+        },
+        {
+          "file": "western.webp",
+          "status": 200,
+          "content_type": "image/webp"
+        }
+      ],
+      "cpu_warning": false,
+      "calculator_posts": 2,
+      "calculator_statuses": [
+        200,
+        200
+      ],
+      "forbidden_requests": 0,
+      "other_writes": 0,
+      "page_errors": 0,
+      "failed_requests": 0,
+      "horizontal_overflow": false
+    },
+    {
+      "phase": "hosted_before",
+      "run": "hosted-b-1280-cpu",
+      "viewport": [
+        1280,
+        800
+      ],
+      "webgl_available": false,
+      "browser_image_decode": "ok",
+      "decoded_dimensions": [
+        1024,
+        1536
+      ],
+      "art_responses": [
+        {
+          "file": "overall.webp",
+          "status": 200,
+          "content_type": "image/webp"
+        },
+        {
+          "file": "overall.webp",
+          "status": 200,
+          "content_type": "image/webp"
+        },
+        {
+          "file": "thai.webp",
+          "status": 200,
+          "content_type": "image/webp"
+        },
+        {
+          "file": "chinese.webp",
+          "status": 200,
+          "content_type": "image/webp"
+        },
+        {
+          "file": "western.webp",
+          "status": 200,
+          "content_type": "image/webp"
+        }
+      ],
+      "cpu_warning": true,
+      "calculator_posts": 2,
+      "calculator_statuses": [
+        200,
+        200
+      ],
+      "forbidden_requests": 0,
+      "other_writes": 0,
+      "page_errors": 0,
+      "failed_requests": 0,
+      "horizontal_overflow": false
+    },
+    {
+      "phase": "hosted_before",
+      "run": "hosted-a-390-cpu_png",
+      "viewport": [
+        390,
+        844
+      ],
+      "webgl_available": false,
+      "browser_image_decode": "ok",
+      "decoded_dimensions": [
+        1024,
+        1536
+      ],
+      "art_responses": [
+        {
+          "file": "overall.webp",
+          "status": 200,
+          "content_type": "image/png"
+        },
+        {
+          "file": "overall.webp",
+          "status": 200,
+          "content_type": "image/png"
+        },
+        {
+          "file": "thai.webp",
+          "status": 200,
+          "content_type": "image/png"
+        },
+        {
+          "file": "chinese.webp",
+          "status": 200,
+          "content_type": "image/png"
+        },
+        {
+          "file": "western.webp",
+          "status": 200,
+          "content_type": "image/png"
+        }
+      ],
+      "cpu_warning": true,
+      "calculator_posts": 2,
+      "calculator_statuses": [
+        200,
+        200
+      ],
+      "forbidden_requests": 0,
+      "other_writes": 0,
+      "page_errors": 0,
+      "failed_requests": 0,
+      "horizontal_overflow": false
+    },
+    {
+      "phase": "isolated_fixed",
+      "run": "a-390-chrome",
+      "viewport": [
+        390,
+        844
+      ],
+      "webgl_available": true,
+      "browser_image_decode": "ok",
+      "decoded_dimensions": [
+        1024,
+        1536
+      ],
+      "art_responses": [
+        {
+          "file": "overall.webp",
+          "status": 200,
+          "content_type": "application/octet-stream"
+        },
+        {
+          "file": "thai.webp",
+          "status": 200,
+          "content_type": "application/octet-stream"
+        },
+        {
+          "file": "chinese.webp",
+          "status": 200,
+          "content_type": "application/octet-stream"
+        },
+        {
+          "file": "western.webp",
+          "status": 200,
+          "content_type": "application/octet-stream"
+        }
+      ],
+      "cpu_warning": false,
+      "calculator_posts": 2,
+      "calculator_statuses": [
+        200,
+        200
+      ],
+      "forbidden_requests": 0,
+      "other_writes": 0,
+      "page_errors": 0,
+      "failed_requests": 0,
+      "horizontal_overflow": false
+    },
+    {
+      "phase": "isolated_fixed",
+      "run": "a-390-cpu",
+      "viewport": [
+        390,
+        844
+      ],
+      "webgl_available": false,
+      "browser_image_decode": "ok",
+      "decoded_dimensions": [
+        1024,
+        1536
+      ],
+      "art_responses": [
+        {
+          "file": "overall.webp",
+          "status": 200,
+          "content_type": "application/octet-stream"
+        },
+        {
+          "file": "thai.webp",
+          "status": 200,
+          "content_type": "application/octet-stream"
+        },
+        {
+          "file": "chinese.webp",
+          "status": 200,
+          "content_type": "application/octet-stream"
+        },
+        {
+          "file": "western.webp",
+          "status": 200,
+          "content_type": "application/octet-stream"
+        }
+      ],
+      "cpu_warning": true,
+      "calculator_posts": 2,
+      "calculator_statuses": [
+        200,
+        200
+      ],
+      "forbidden_requests": 0,
+      "other_writes": 0,
+      "page_errors": 0,
+      "failed_requests": 0,
+      "horizontal_overflow": false
+    },
+    {
+      "phase": "isolated_fixed",
+      "run": "b-1280-chrome",
+      "viewport": [
+        1280,
+        800
+      ],
+      "webgl_available": true,
+      "browser_image_decode": "ok",
+      "decoded_dimensions": [
+        1024,
+        1536
+      ],
+      "art_responses": [
+        {
+          "file": "overall.webp",
+          "status": 200,
+          "content_type": "application/octet-stream"
+        },
+        {
+          "file": "thai.webp",
+          "status": 200,
+          "content_type": "application/octet-stream"
+        },
+        {
+          "file": "chinese.webp",
+          "status": 200,
+          "content_type": "application/octet-stream"
+        },
+        {
+          "file": "western.webp",
+          "status": 200,
+          "content_type": "application/octet-stream"
+        }
+      ],
+      "cpu_warning": false,
+      "calculator_posts": 2,
+      "calculator_statuses": [
+        200,
+        200
+      ],
+      "forbidden_requests": 0,
+      "other_writes": 0,
+      "page_errors": 0,
+      "failed_requests": 0,
+      "horizontal_overflow": false
+    },
+    {
+      "phase": "isolated_fixed",
+      "run": "b-1280-cpu",
+      "viewport": [
+        1280,
+        800
+      ],
+      "webgl_available": false,
+      "browser_image_decode": "ok",
+      "decoded_dimensions": [
+        1024,
+        1536
+      ],
+      "art_responses": [
+        {
+          "file": "overall.webp",
+          "status": 200,
+          "content_type": "application/octet-stream"
+        },
+        {
+          "file": "thai.webp",
+          "status": 200,
+          "content_type": "application/octet-stream"
+        },
+        {
+          "file": "chinese.webp",
+          "status": 200,
+          "content_type": "application/octet-stream"
+        },
+        {
+          "file": "western.webp",
+          "status": 200,
+          "content_type": "application/octet-stream"
+        }
+      ],
+      "cpu_warning": true,
+      "calculator_posts": 2,
+      "calculator_statuses": [
+        200,
+        200
+      ],
+      "forbidden_requests": 0,
+      "other_writes": 0,
+      "page_errors": 0,
+      "failed_requests": 0,
+      "horizontal_overflow": false
+    },
+    {
+      "phase": "isolated_fixed",
+      "run": "unknown-390-cpu",
+      "viewport": [
+        390,
+        844
+      ],
+      "webgl_available": false,
+      "browser_image_decode": "ok",
+      "decoded_dimensions": [
+        1024,
+        1536
+      ],
+      "art_responses": [
+        {
+          "file": "overall.webp",
+          "status": 200,
+          "content_type": "application/octet-stream"
+        }
+      ],
+      "cpu_warning": true,
+      "calculator_posts": 0,
+      "calculator_statuses": [],
+      "forbidden_requests": 0,
+      "other_writes": 0,
+      "page_errors": 0,
+      "failed_requests": 0,
+      "horizontal_overflow": false
+    },
+    {
+      "phase": "isolated_fixed",
+      "run": "unknown-1280-chrome",
+      "viewport": [
+        1280,
+        800
+      ],
+      "webgl_available": true,
+      "browser_image_decode": "ok",
+      "decoded_dimensions": [
+        1024,
+        1536
+      ],
+      "art_responses": [
+        {
+          "file": "overall.webp",
+          "status": 200,
+          "content_type": "application/octet-stream"
+        }
+      ],
+      "cpu_warning": false,
+      "calculator_posts": 0,
+      "calculator_statuses": [],
+      "forbidden_requests": 0,
+      "other_writes": 0,
+      "page_errors": 0,
+      "failed_requests": 0,
+      "horizontal_overflow": false
+    },
+    {
+      "phase": "hosted_fixed",
+      "run": "hosted-a-390-chrome",
+      "viewport": [
+        390,
+        844
+      ],
+      "webgl_available": true,
+      "browser_image_decode": "ok",
+      "decoded_dimensions": [
+        1024,
+        1536
+      ],
+      "art_responses": [
+        {
+          "file": "overall.webp",
+          "status": 200,
+          "content_type": "image/webp"
+        },
+        {
+          "file": "thai.webp",
+          "status": 200,
+          "content_type": "image/webp"
+        },
+        {
+          "file": "chinese.webp",
+          "status": 200,
+          "content_type": "image/webp"
+        },
+        {
+          "file": "western.webp",
+          "status": 200,
+          "content_type": "image/webp"
+        }
+      ],
+      "cpu_warning": false,
+      "calculator_posts": 2,
+      "calculator_statuses": [
+        200,
+        200
+      ],
+      "forbidden_requests": 0,
+      "other_writes": 0,
+      "page_errors": 0,
+      "failed_requests": 0,
+      "horizontal_overflow": false
+    },
+    {
+      "phase": "hosted_fixed",
+      "run": "hosted-a-390-cpu",
+      "viewport": [
+        390,
+        844
+      ],
+      "webgl_available": false,
+      "browser_image_decode": "ok",
+      "decoded_dimensions": [
+        1024,
+        1536
+      ],
+      "art_responses": [
+        {
+          "file": "overall.webp",
+          "status": 200,
+          "content_type": "image/webp"
+        },
+        {
+          "file": "thai.webp",
+          "status": 200,
+          "content_type": "image/webp"
+        },
+        {
+          "file": "chinese.webp",
+          "status": 200,
+          "content_type": "image/webp"
+        },
+        {
+          "file": "western.webp",
+          "status": 200,
+          "content_type": "image/webp"
+        }
+      ],
+      "cpu_warning": true,
+      "calculator_posts": 2,
+      "calculator_statuses": [
+        200,
+        200
+      ],
+      "forbidden_requests": 0,
+      "other_writes": 0,
+      "page_errors": 0,
+      "failed_requests": 0,
+      "horizontal_overflow": false
+    },
+    {
+      "phase": "hosted_fixed",
+      "run": "hosted-b-1280-chrome",
+      "viewport": [
+        1280,
+        800
+      ],
+      "webgl_available": true,
+      "browser_image_decode": "ok",
+      "decoded_dimensions": [
+        1024,
+        1536
+      ],
+      "art_responses": [
+        {
+          "file": "overall.webp",
+          "status": 200,
+          "content_type": "image/webp"
+        },
+        {
+          "file": "thai.webp",
+          "status": 200,
+          "content_type": "image/webp"
+        },
+        {
+          "file": "chinese.webp",
+          "status": 200,
+          "content_type": "image/webp"
+        },
+        {
+          "file": "western.webp",
+          "status": 200,
+          "content_type": "image/webp"
+        }
+      ],
+      "cpu_warning": false,
+      "calculator_posts": 2,
+      "calculator_statuses": [
+        200,
+        200
+      ],
+      "forbidden_requests": 0,
+      "other_writes": 0,
+      "page_errors": 0,
+      "failed_requests": 0,
+      "horizontal_overflow": false
+    },
+    {
+      "phase": "hosted_fixed",
+      "run": "hosted-b-1280-cpu",
+      "viewport": [
+        1280,
+        800
+      ],
+      "webgl_available": false,
+      "browser_image_decode": "ok",
+      "decoded_dimensions": [
+        1024,
+        1536
+      ],
+      "art_responses": [
+        {
+          "file": "overall.webp",
+          "status": 200,
+          "content_type": "image/webp"
+        },
+        {
+          "file": "thai.webp",
+          "status": 200,
+          "content_type": "image/webp"
+        },
+        {
+          "file": "chinese.webp",
+          "status": 200,
+          "content_type": "image/webp"
+        },
+        {
+          "file": "western.webp",
+          "status": 200,
+          "content_type": "image/webp"
+        }
+      ],
+      "cpu_warning": true,
+      "calculator_posts": 2,
+      "calculator_statuses": [
+        200,
+        200
+      ],
+      "forbidden_requests": 0,
+      "other_writes": 0,
+      "page_errors": 0,
+      "failed_requests": 0,
+      "horizontal_overflow": false
+    },
+    {
+      "phase": "hosted_fixed",
+      "run": "hosted-unknown-390-cpu",
+      "viewport": [
+        390,
+        844
+      ],
+      "webgl_available": false,
+      "browser_image_decode": "ok",
+      "decoded_dimensions": [
+        1024,
+        1536
+      ],
+      "art_responses": [
+        {
+          "file": "overall.webp",
+          "status": 200,
+          "content_type": "image/webp"
+        }
+      ],
+      "cpu_warning": true,
+      "calculator_posts": 0,
+      "calculator_statuses": [],
+      "forbidden_requests": 0,
+      "other_writes": 0,
+      "page_errors": 0,
+      "failed_requests": 0,
+      "horizontal_overflow": false
+    },
+    {
+      "phase": "hosted_fixed",
+      "run": "hosted-unknown-1280-chrome",
+      "viewport": [
+        1280,
+        800
+      ],
+      "webgl_available": true,
+      "browser_image_decode": "ok",
+      "decoded_dimensions": [
+        1024,
+        1536
+      ],
+      "art_responses": [
+        {
+          "file": "overall.webp",
+          "status": 200,
+          "content_type": "image/webp"
+        }
+      ],
+      "cpu_warning": false,
+      "calculator_posts": 0,
+      "calculator_statuses": [],
+      "forbidden_requests": 0,
+      "other_writes": 0,
+      "page_errors": 0,
+      "failed_requests": 0,
+      "horizontal_overflow": false
+    }
+  ],
+  "landing_art_region_rgb_stddev": {
+    "hosted_before_cpu_390": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "hosted_before_chrome_390": [
+      67.68,
+      49.47,
+      37.86
+    ],
+    "hosted_before_cpu_png_390": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "isolated_fixed_cpu_390": [
+      64.43,
+      45.36,
+      33.36
+    ],
+    "isolated_fixed_cpu_1280": [
+      66.96,
+      49.67,
+      37.09
+    ],
+    "hosted_fixed_cpu_390": [
+      64.43,
+      45.36,
+      33.36
+    ],
+    "hosted_fixed_cpu_1280": [
+      66.96,
+      49.67,
+      37.09
+    ]
+  },
+  "hosted_first_cpu_mobile_capture_max_rgb_stddev": {
+    "thai": 0.0,
+    "chinese": 0.0
+  },
+  "hosted_cpu_mobile_repeat_reader_art": [
+    {
+      "overall": 38.57,
+      "thai": {
+        "immediate": 56.22,
+        "settled": 56.22
+      },
+      "chinese": {
+        "immediate": 14.53,
+        "settled": 14.53
+      },
+      "western": {
+        "immediate": 19.27,
+        "settled": 19.27
+      }
+    },
+    {
+      "overall": 38.57,
+      "thai": {
+        "immediate": 56.22,
+        "settled": 56.22
+      },
+      "chinese": {
+        "immediate": 14.53,
+        "settled": 14.53
+      },
+      "western": {
+        "immediate": 19.27,
+        "settled": 19.27
+      }
+    },
+    {
+      "overall": 38.57,
+      "thai": {
+        "immediate": 56.22,
+        "settled": 56.22
+      },
+      "chinese": {
+        "immediate": 14.53,
+        "settled": 14.53
+      },
+      "western": {
+        "immediate": 19.27,
+        "settled": 19.27
+      }
+    }
+  ]
+}
