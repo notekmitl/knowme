@@ -1,0 +1,12 @@
+[
+  {
+    "name": "knowme-app-694e1",
+    "defaultUrl": "https://knowme-app-694e1.web.app",
+    "type": "DEFAULT_SITE"
+  },
+  {
+    "name": "knowme-trial-694e1",
+    "defaultUrl": "https://knowme-trial-694e1.web.app",
+    "type": "USER_SITE"
+  }
+]

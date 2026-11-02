@@ -1,0 +1,15 @@
+{
+  "build_version": "pr149-7cd80f0",
+  "hosted_version": "a10df6e87fc5e43f",
+  "expected": {
+    "main.dart.js": "ce0819bcd8247b1986f267a65b4ace4454d8711b9e8881234feb7f1355219de6",
+    "flutter_bootstrap.js": "064f101fad446d32ab61476121ac04e02f2dca67c77661209b7f9d872d4a4ad7",
+    "index.html": "d99154e6a147a5b17b6ba2f11caa96c6b395e8cccb0819215e3148ede1625d4d"
+  },
+  "actual": {
+    "index.html": "d99154e6a147a5b17b6ba2f11caa96c6b395e8cccb0819215e3148ede1625d4d",
+    "flutter_bootstrap.js": "064f101fad446d32ab61476121ac04e02f2dca67c77661209b7f9d872d4a4ad7",
+    "main.dart.js": "ce0819bcd8247b1986f267a65b4ace4454d8711b9e8881234feb7f1355219de6"
+  },
+  "all_match": true
+}

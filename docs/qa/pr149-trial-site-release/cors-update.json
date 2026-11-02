@@ -1,0 +1,15 @@
+{
+  "afterRevision": "knowme-overall-pr149-preview-00004-kt9",
+  "allowedOriginsBefore": "https://knowme-app-694e1--pr-149-overall-safe-vbx6de6a.web.app,https://knowme-app-694e1.web.app,https://knowme-app-694e1.firebaseapp.com,https://knowme-app-694e1--pr-149-overall-safe-c41ic92g.web.app",
+  "image": "asia-southeast1-docker.pkg.dev/knowme-app-694e1/cloud-run-source-deploy/knowme-overall-pr149-preview@sha256:db2d1575a07ada28ca38ee7b62f5e2f6499066008b81231d7ff188f7ca1da119",
+  "serviceAccount": "knowme-pr149-overall-preview@knowme-app-694e1.iam.gserviceaccount.com",
+  "traffic": [
+    {
+      "percent": 100,
+      "revision": "knowme-overall-pr149-preview-00004-kt9"
+    }
+  ],
+  "allowedOriginsAfter": "https://knowme-app-694e1--pr-149-overall-safe-vbx6de6a.web.app,https://knowme-app-694e1.web.app,https://knowme-app-694e1.firebaseapp.com,https://knowme-app-694e1--pr-149-overall-safe-c41ic92g.web.app,https://knowme-trial-694e1.web.app",
+  "previewOriginUnchanged": true,
+  "beforeRevision": "knowme-overall-pr149-preview-00003-5lg"
+}

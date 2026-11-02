@@ -1,0 +1,498 @@
+{
+  "journeys": [
+    {
+      "case": "a",
+      "viewport": [
+        1280,
+        800
+      ],
+      "mode": "chrome",
+      "request_domains": [
+        "fonts.gstatic.com",
+        "knowme-overall-pr149-preview-avbyttircq-as.a.run.app",
+        "knowme-trial-694e1.web.app",
+        "www.gstatic.com"
+      ],
+      "post_count": 2,
+      "post_statuses": [
+        200,
+        200
+      ],
+      "forbidden_count": 0,
+      "other_write_count": 0,
+      "error_count": 0,
+      "failed_request_count": 0,
+      "horizontal_overflow": false,
+      "visited_screens": [
+        "landing",
+        "form",
+        "date-picker",
+        "form-ready",
+        "overall",
+        "overall-expanded",
+        "overall-recollapsed",
+        "thai",
+        "thai-settled",
+        "thai-reading",
+        "thai-full-reading",
+        "thai-full-deep",
+        "thai-annual-search",
+        "chinese",
+        "chinese-settled",
+        "chinese-reading",
+        "chinese-elements",
+        "western",
+        "western-settled",
+        "western-reading",
+        "overall-returned"
+      ],
+      "art_response_statuses": [
+        200,
+        200,
+        200,
+        200
+      ],
+      "landing_art_rgb_stddev_max": 68.32,
+      "reader_art_rgb_stddev_max": {
+        "overall": 37.07,
+        "thai": {
+          "immediate": 61.0,
+          "settled": 61.0
+        },
+        "chinese": {
+          "immediate": 13.69,
+          "settled": 13.69
+        },
+        "western": {
+          "immediate": 16.96,
+          "settled": 16.96
+        }
+      }
+    },
+    {
+      "case": "a",
+      "viewport": [
+        1280,
+        800
+      ],
+      "mode": "cpu",
+      "request_domains": [
+        "fonts.gstatic.com",
+        "knowme-overall-pr149-preview-avbyttircq-as.a.run.app",
+        "knowme-trial-694e1.web.app",
+        "www.gstatic.com"
+      ],
+      "post_count": 2,
+      "post_statuses": [
+        200,
+        200
+      ],
+      "forbidden_count": 0,
+      "other_write_count": 0,
+      "error_count": 0,
+      "failed_request_count": 0,
+      "horizontal_overflow": false,
+      "visited_screens": [
+        "landing",
+        "form",
+        "date-picker",
+        "form-ready",
+        "overall",
+        "overall-expanded",
+        "overall-recollapsed",
+        "thai",
+        "thai-settled",
+        "thai-reading",
+        "thai-full-reading",
+        "thai-full-deep",
+        "thai-annual-search",
+        "chinese",
+        "chinese-settled",
+        "chinese-reading",
+        "chinese-elements",
+        "western",
+        "western-settled",
+        "western-reading",
+        "overall-returned"
+      ],
+      "art_response_statuses": [
+        200,
+        200,
+        200,
+        200
+      ],
+      "landing_art_rgb_stddev_max": 68.97,
+      "reader_art_rgb_stddev_max": {
+        "overall": 36.34,
+        "thai": {
+          "immediate": 60.77,
+          "settled": 60.77
+        },
+        "chinese": {
+          "immediate": 13.6,
+          "settled": 13.6
+        },
+        "western": {
+          "immediate": 16.79,
+          "settled": 16.79
+        }
+      }
+    },
+    {
+      "case": "a",
+      "viewport": [
+        390,
+        844
+      ],
+      "mode": "chrome",
+      "request_domains": [
+        "fonts.gstatic.com",
+        "knowme-overall-pr149-preview-avbyttircq-as.a.run.app",
+        "knowme-trial-694e1.web.app",
+        "www.gstatic.com"
+      ],
+      "post_count": 2,
+      "post_statuses": [
+        200,
+        200
+      ],
+      "forbidden_count": 0,
+      "other_write_count": 0,
+      "error_count": 0,
+      "failed_request_count": 0,
+      "horizontal_overflow": false,
+      "visited_screens": [
+        "landing",
+        "form",
+        "date-picker",
+        "form-ready",
+        "overall",
+        "overall-expanded",
+        "overall-recollapsed",
+        "thai",
+        "thai-settled",
+        "thai-reading",
+        "thai-full-reading",
+        "thai-full-deep",
+        "thai-annual-search",
+        "chinese",
+        "chinese-settled",
+        "chinese-reading",
+        "chinese-elements",
+        "western",
+        "western-settled",
+        "western-reading",
+        "overall-returned"
+      ],
+      "art_response_statuses": [
+        200,
+        200,
+        200,
+        200
+      ],
+      "landing_art_rgb_stddev_max": 64.86,
+      "reader_art_rgb_stddev_max": {
+        "overall": 38.82,
+        "thai": {
+          "immediate": 0.0,
+          "settled": 56.34
+        },
+        "chinese": {
+          "immediate": 14.44,
+          "settled": 14.44
+        },
+        "western": {
+          "immediate": 0.74,
+          "settled": 19.38
+        }
+      }
+    },
+    {
+      "case": "a",
+      "viewport": [
+        390,
+        844
+      ],
+      "mode": "cpu",
+      "request_domains": [
+        "fonts.gstatic.com",
+        "knowme-overall-pr149-preview-avbyttircq-as.a.run.app",
+        "knowme-trial-694e1.web.app",
+        "www.gstatic.com"
+      ],
+      "post_count": 2,
+      "post_statuses": [
+        200,
+        200
+      ],
+      "forbidden_count": 0,
+      "other_write_count": 0,
+      "error_count": 0,
+      "failed_request_count": 0,
+      "horizontal_overflow": false,
+      "visited_screens": [
+        "landing",
+        "form",
+        "date-picker",
+        "form-ready",
+        "overall",
+        "overall-expanded",
+        "overall-recollapsed",
+        "thai",
+        "thai-settled",
+        "thai-reading",
+        "thai-full-reading",
+        "thai-full-deep",
+        "thai-annual-search",
+        "chinese",
+        "chinese-settled",
+        "chinese-reading",
+        "chinese-elements",
+        "western",
+        "western-settled",
+        "western-reading",
+        "overall-returned"
+      ],
+      "art_response_statuses": [
+        200,
+        200,
+        200,
+        200
+      ],
+      "landing_art_rgb_stddev_max": 64.43,
+      "reader_art_rgb_stddev_max": {
+        "overall": 38.57,
+        "thai": {
+          "immediate": 56.22,
+          "settled": 56.22
+        },
+        "chinese": {
+          "immediate": 14.53,
+          "settled": 14.53
+        },
+        "western": {
+          "immediate": 19.27,
+          "settled": 19.27
+        }
+      }
+    },
+    {
+      "case": "unknown",
+      "viewport": [
+        1280,
+        800
+      ],
+      "mode": "cpu",
+      "request_domains": [
+        "fonts.gstatic.com",
+        "knowme-trial-694e1.web.app",
+        "www.gstatic.com"
+      ],
+      "post_count": 0,
+      "post_statuses": [],
+      "forbidden_count": 0,
+      "other_write_count": 0,
+      "error_count": 0,
+      "failed_request_count": 0,
+      "horizontal_overflow": false,
+      "visited_screens": [
+        "landing",
+        "form",
+        "date-picker",
+        "form-ready",
+        "unknown-result"
+      ],
+      "art_response_statuses": [
+        200
+      ],
+      "landing_art_rgb_stddev_max": 68.97,
+      "reader_art_rgb_stddev_max": {}
+    },
+    {
+      "case": "unknown",
+      "viewport": [
+        390,
+        844
+      ],
+      "mode": "chrome",
+      "request_domains": [
+        "fonts.gstatic.com",
+        "knowme-trial-694e1.web.app",
+        "www.gstatic.com"
+      ],
+      "post_count": 0,
+      "post_statuses": [],
+      "forbidden_count": 0,
+      "other_write_count": 0,
+      "error_count": 0,
+      "failed_request_count": 0,
+      "horizontal_overflow": false,
+      "visited_screens": [
+        "landing",
+        "form",
+        "date-picker",
+        "form-ready",
+        "unknown-result"
+      ],
+      "art_response_statuses": [
+        200
+      ],
+      "landing_art_rgb_stddev_max": 64.86,
+      "reader_art_rgb_stddev_max": {}
+    }
+  ],
+  "reloads": [
+    {
+      "viewport": [
+        1280,
+        800
+      ],
+      "cpu_fallback": false,
+      "checks": [
+        {
+          "step": "initial",
+          "url": "https://knowme-trial-694e1.web.app/",
+          "cta_count": 1,
+          "art_rgb_stddev_max": 68.35,
+          "document_width": 1280
+        },
+        {
+          "step": "reload",
+          "url": "https://knowme-trial-694e1.web.app/",
+          "cta_count": 1,
+          "art_rgb_stddev_max": 68.35,
+          "document_width": 1280
+        }
+      ],
+      "art_responses": [
+        {
+          "url": "https://knowme-trial-694e1.web.app/assets/assets/trial_visual/overall.webp",
+          "status": 200
+        },
+        {
+          "url": "https://knowme-trial-694e1.web.app/assets/assets/trial_visual/overall.webp",
+          "status": 200
+        }
+      ],
+      "forbidden_count": 0,
+      "write_count": 0,
+      "error_count": 0,
+      "failed_count": 0,
+      "service_worker_controlled": false
+    },
+    {
+      "viewport": [
+        1920,
+        911
+      ],
+      "cpu_fallback": false,
+      "checks": [
+        {
+          "step": "initial",
+          "url": "https://knowme-trial-694e1.web.app/",
+          "cta_count": 1,
+          "art_rgb_stddev_max": 68.36,
+          "document_width": 1920
+        },
+        {
+          "step": "reload",
+          "url": "https://knowme-trial-694e1.web.app/",
+          "cta_count": 1,
+          "art_rgb_stddev_max": 68.36,
+          "document_width": 1920
+        }
+      ],
+      "art_responses": [
+        {
+          "url": "https://knowme-trial-694e1.web.app/assets/assets/trial_visual/overall.webp",
+          "status": 200
+        },
+        {
+          "url": "https://knowme-trial-694e1.web.app/assets/assets/trial_visual/overall.webp",
+          "status": 200
+        }
+      ],
+      "forbidden_count": 0,
+      "write_count": 0,
+      "error_count": 0,
+      "failed_count": 0,
+      "service_worker_controlled": false
+    },
+    {
+      "viewport": [
+        1920,
+        911
+      ],
+      "cpu_fallback": true,
+      "checks": [
+        {
+          "step": "initial",
+          "url": "https://knowme-trial-694e1.web.app/",
+          "cta_count": 1,
+          "art_rgb_stddev_max": 69.12,
+          "document_width": 1920
+        },
+        {
+          "step": "reload",
+          "url": "https://knowme-trial-694e1.web.app/",
+          "cta_count": 1,
+          "art_rgb_stddev_max": 69.12,
+          "document_width": 1920
+        }
+      ],
+      "art_responses": [
+        {
+          "url": "https://knowme-trial-694e1.web.app/assets/assets/trial_visual/overall.webp",
+          "status": 200
+        },
+        {
+          "url": "https://knowme-trial-694e1.web.app/assets/assets/trial_visual/overall.webp",
+          "status": 200
+        }
+      ],
+      "forbidden_count": 0,
+      "write_count": 0,
+      "error_count": 0,
+      "failed_count": 0,
+      "service_worker_controlled": false
+    },
+    {
+      "viewport": [
+        390,
+        844
+      ],
+      "cpu_fallback": false,
+      "checks": [
+        {
+          "step": "initial",
+          "url": "https://knowme-trial-694e1.web.app/",
+          "cta_count": 1,
+          "art_rgb_stddev_max": 64.86,
+          "document_width": 390
+        },
+        {
+          "step": "reload",
+          "url": "https://knowme-trial-694e1.web.app/",
+          "cta_count": 1,
+          "art_rgb_stddev_max": 64.86,
+          "document_width": 390
+        }
+      ],
+      "art_responses": [
+        {
+          "url": "https://knowme-trial-694e1.web.app/assets/assets/trial_visual/overall.webp",
+          "status": 200
+        },
+        {
+          "url": "https://knowme-trial-694e1.web.app/assets/assets/trial_visual/overall.webp",
+          "status": 200
+        }
+      ],
+      "forbidden_count": 0,
+      "write_count": 0,
+      "error_count": 0,
+      "failed_count": 0,
+      "service_worker_controlled": false
+    }
+  ]
+}

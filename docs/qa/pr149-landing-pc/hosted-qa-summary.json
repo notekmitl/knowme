@@ -1,0 +1,444 @@
+{
+  "landing": [
+    {
+      "viewport": [
+        1280,
+        800
+      ],
+      "mode": "chrome",
+      "cta_count": 1,
+      "cta_box": {
+        "x": 662,
+        "y": 581.5,
+        "width": 568,
+        "height": 52
+      },
+      "landing_posts": 0,
+      "total_posts": 0,
+      "post_statuses": [],
+      "art_statuses": [
+        200
+      ],
+      "forbidden_count": 0,
+      "other_writes_count": 0,
+      "error_count": 0,
+      "failed_count": 0,
+      "horizontal_overflow": false,
+      "cpu_warning": false
+    },
+    {
+      "viewport": [
+        1280,
+        800
+      ],
+      "mode": "cpu",
+      "cta_count": 1,
+      "cta_box": {
+        "x": 662,
+        "y": 581.5,
+        "width": 568,
+        "height": 52
+      },
+      "landing_posts": 0,
+      "total_posts": 0,
+      "post_statuses": [],
+      "art_statuses": [
+        200
+      ],
+      "forbidden_count": 0,
+      "other_writes_count": 0,
+      "error_count": 0,
+      "failed_count": 0,
+      "horizontal_overflow": false,
+      "cpu_warning": true
+    },
+    {
+      "viewport": [
+        1920,
+        911
+      ],
+      "mode": "chrome",
+      "cta_count": 1,
+      "cta_box": {
+        "x": 982,
+        "y": 637,
+        "width": 568,
+        "height": 52
+      },
+      "landing_posts": 0,
+      "total_posts": 2,
+      "post_statuses": [
+        200,
+        200
+      ],
+      "art_statuses": [
+        200
+      ],
+      "forbidden_count": 0,
+      "other_writes_count": 0,
+      "error_count": 0,
+      "failed_count": 0,
+      "horizontal_overflow": false,
+      "cpu_warning": false
+    },
+    {
+      "viewport": [
+        1920,
+        911
+      ],
+      "mode": "cpu",
+      "cta_count": 1,
+      "cta_box": {
+        "x": 982,
+        "y": 637,
+        "width": 568,
+        "height": 52
+      },
+      "landing_posts": 0,
+      "total_posts": 2,
+      "post_statuses": [
+        200,
+        200
+      ],
+      "art_statuses": [
+        200
+      ],
+      "forbidden_count": 0,
+      "other_writes_count": 0,
+      "error_count": 0,
+      "failed_count": 0,
+      "horizontal_overflow": false,
+      "cpu_warning": true
+    },
+    {
+      "viewport": [
+        390,
+        844
+      ],
+      "mode": "chrome",
+      "cta_count": 1,
+      "cta_box": {
+        "x": 20,
+        "y": 790,
+        "width": 350,
+        "height": 40
+      },
+      "landing_posts": 0,
+      "total_posts": 0,
+      "post_statuses": [],
+      "art_statuses": [
+        200
+      ],
+      "forbidden_count": 0,
+      "other_writes_count": 0,
+      "error_count": 0,
+      "failed_count": 0,
+      "horizontal_overflow": false,
+      "cpu_warning": false
+    },
+    {
+      "viewport": [
+        390,
+        844
+      ],
+      "mode": "cpu",
+      "cta_count": 1,
+      "cta_box": {
+        "x": 20,
+        "y": 790,
+        "width": 350,
+        "height": 40
+      },
+      "landing_posts": 0,
+      "total_posts": 0,
+      "post_statuses": [],
+      "art_statuses": [
+        200
+      ],
+      "forbidden_count": 0,
+      "other_writes_count": 0,
+      "error_count": 0,
+      "failed_count": 0,
+      "horizontal_overflow": false,
+      "cpu_warning": true
+    }
+  ],
+  "journeys": [
+    {
+      "viewport": [
+        1280,
+        800
+      ],
+      "mode": "chrome",
+      "case": "a",
+      "calculation_posts": 2,
+      "post_statuses": [
+        200,
+        200
+      ],
+      "forbidden_count": 0,
+      "other_writes_count": 0,
+      "error_count": 0,
+      "failed_count": 0,
+      "horizontal_overflow": false,
+      "visited_screens": [
+        "landing",
+        "form",
+        "date-picker",
+        "form-ready",
+        "overall",
+        "overall-expanded",
+        "overall-recollapsed",
+        "thai",
+        "thai-settled",
+        "thai-reading",
+        "thai-full-reading",
+        "thai-full-deep",
+        "thai-annual-search",
+        "chinese",
+        "chinese-settled",
+        "chinese-reading",
+        "chinese-elements",
+        "western",
+        "western-settled",
+        "western-reading",
+        "overall-returned"
+      ],
+      "landing_art_rgb_stddev_max": 68.32,
+      "reader_art_rgb_stddev_max": {
+        "overall": 37.07,
+        "thai": {
+          "immediate": 0.0,
+          "settled": 61.0
+        },
+        "chinese": {
+          "immediate": 13.69,
+          "settled": 13.69
+        },
+        "western": {
+          "immediate": 16.96,
+          "settled": 16.96
+        }
+      }
+    },
+    {
+      "viewport": [
+        1280,
+        800
+      ],
+      "mode": "cpu",
+      "case": "a",
+      "calculation_posts": 2,
+      "post_statuses": [
+        200,
+        200
+      ],
+      "forbidden_count": 0,
+      "other_writes_count": 0,
+      "error_count": 0,
+      "failed_count": 0,
+      "horizontal_overflow": false,
+      "visited_screens": [
+        "landing",
+        "form",
+        "date-picker",
+        "form-ready",
+        "overall",
+        "overall-expanded",
+        "overall-recollapsed",
+        "thai",
+        "thai-settled",
+        "thai-reading",
+        "thai-full-reading",
+        "thai-full-deep",
+        "thai-annual-search",
+        "chinese",
+        "chinese-settled",
+        "chinese-reading",
+        "chinese-elements",
+        "western",
+        "western-settled",
+        "western-reading",
+        "overall-returned"
+      ],
+      "landing_art_rgb_stddev_max": 68.97,
+      "reader_art_rgb_stddev_max": {
+        "overall": 36.34,
+        "thai": {
+          "immediate": 60.77,
+          "settled": 60.77
+        },
+        "chinese": {
+          "immediate": 13.6,
+          "settled": 13.6
+        },
+        "western": {
+          "immediate": 16.79,
+          "settled": 16.79
+        }
+      }
+    },
+    {
+      "viewport": [
+        390,
+        844
+      ],
+      "mode": "chrome",
+      "case": "a",
+      "calculation_posts": 2,
+      "post_statuses": [
+        200,
+        200
+      ],
+      "forbidden_count": 0,
+      "other_writes_count": 0,
+      "error_count": 0,
+      "failed_count": 0,
+      "horizontal_overflow": false,
+      "visited_screens": [
+        "landing",
+        "form",
+        "date-picker",
+        "form-ready",
+        "overall",
+        "overall-expanded",
+        "overall-recollapsed",
+        "thai",
+        "thai-settled",
+        "thai-reading",
+        "thai-full-reading",
+        "thai-full-deep",
+        "thai-annual-search",
+        "chinese",
+        "chinese-settled",
+        "chinese-reading",
+        "chinese-elements",
+        "western",
+        "western-settled",
+        "western-reading",
+        "overall-returned"
+      ],
+      "landing_art_rgb_stddev_max": 64.86,
+      "reader_art_rgb_stddev_max": {
+        "overall": 38.82,
+        "thai": {
+          "immediate": 56.34,
+          "settled": 56.34
+        },
+        "chinese": {
+          "immediate": 14.44,
+          "settled": 14.44
+        },
+        "western": {
+          "immediate": 19.38,
+          "settled": 19.38
+        }
+      }
+    },
+    {
+      "viewport": [
+        390,
+        844
+      ],
+      "mode": "cpu",
+      "case": "a",
+      "calculation_posts": 2,
+      "post_statuses": [
+        200,
+        200
+      ],
+      "forbidden_count": 0,
+      "other_writes_count": 0,
+      "error_count": 0,
+      "failed_count": 0,
+      "horizontal_overflow": false,
+      "visited_screens": [
+        "landing",
+        "form",
+        "date-picker",
+        "form-ready",
+        "overall",
+        "overall-expanded",
+        "overall-recollapsed",
+        "thai",
+        "thai-settled",
+        "thai-reading",
+        "thai-full-reading",
+        "thai-full-deep",
+        "thai-annual-search",
+        "chinese",
+        "chinese-settled",
+        "chinese-reading",
+        "chinese-elements",
+        "western",
+        "western-settled",
+        "western-reading",
+        "overall-returned"
+      ],
+      "landing_art_rgb_stddev_max": 64.43,
+      "reader_art_rgb_stddev_max": {
+        "overall": 38.57,
+        "thai": {
+          "immediate": 56.22,
+          "settled": 56.22
+        },
+        "chinese": {
+          "immediate": 14.53,
+          "settled": 14.53
+        },
+        "western": {
+          "immediate": 19.27,
+          "settled": 19.27
+        }
+      }
+    },
+    {
+      "viewport": [
+        1280,
+        800
+      ],
+      "mode": "cpu",
+      "case": "unknown",
+      "calculation_posts": 0,
+      "post_statuses": [],
+      "forbidden_count": 0,
+      "other_writes_count": 0,
+      "error_count": 0,
+      "failed_count": 0,
+      "horizontal_overflow": false,
+      "visited_screens": [
+        "landing",
+        "form",
+        "date-picker",
+        "form-ready",
+        "unknown-result"
+      ],
+      "landing_art_rgb_stddev_max": 68.97,
+      "reader_art_rgb_stddev_max": {}
+    },
+    {
+      "viewport": [
+        390,
+        844
+      ],
+      "mode": "chrome",
+      "case": "unknown",
+      "calculation_posts": 0,
+      "post_statuses": [],
+      "forbidden_count": 0,
+      "other_writes_count": 0,
+      "error_count": 0,
+      "failed_count": 0,
+      "horizontal_overflow": false,
+      "visited_screens": [
+        "landing",
+        "form",
+        "date-picker",
+        "form-ready",
+        "unknown-result"
+      ],
+      "landing_art_rgb_stddev_max": 64.86,
+      "reader_art_rgb_stddev_max": {}
+    }
+  ]
+}

@@ -43,6 +43,10 @@ flutter:
   uses-material-design: true
   generate: true
   assets:
+    - assets/trial_visual/overall.webp
+    - assets/trial_visual/thai.webp
+    - assets/trial_visual/chinese.webp
+    - assets/trial_visual/western.webp
     - assets/fonts/noto_sans_thai/NotoSansThai-Regular.ttf
     - assets/fonts/noto_sans_thai/NotoSansThai-Bold.ttf
     - assets/fonts/noto_sans_thai/NotoSans-Regular.ttf

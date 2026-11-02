@@ -41,14 +41,28 @@ class WesternCanonicalProfileRequest(BaseModel):
         return self.model_dump(by_alias=True)
 
 
-class GenerateChartRequest(BaseModel):
-    uid: str
+class CalculateChartRequest(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+
     birth_date: str
     birth_time: str
     timezone: str = "Asia/Bangkok"
     latitude: float
     longitude: float
+
+
+class GenerateChartRequest(CalculateChartRequest):
+    model_config = ConfigDict(extra="ignore")
+
+    uid: str
     profile: WesternCanonicalProfileRequest | None = None
+
+
+@router.post("/v1/calculate-chart")
+def calculate_chart_v1(request: CalculateChartRequest):
+    """Calculate the anonymous overall reader's Western lens in memory."""
+    chart = _build_western_chart(request, {})
+    return {"success": True, "version": chart["version"], "chart": chart}
 
 
 @router.post("/generate-chart", deprecated=True)
@@ -105,13 +119,46 @@ def _generate_chart(
     timings: dict[str, float] | None = None,
 ):
     timings = timings if timings is not None else {}
-    input_started = time.perf_counter()
     if not write_uid:
         raise HTTPException(
             status_code=400,
             detail={"code": "MISSING_UID", "message": "uid is required"},
         )
 
+    profile_data = _validated_profile(request)
+    chart = _build_western_chart(request, timings)
+    results_snapshot = build_results_snapshot(chart)
+
+    save_started = time.perf_counter()
+    try:
+        save_chart(
+            write_uid,
+            chart,
+            results_snapshot,
+            profile_data=profile_data,
+        )
+    except Exception as exc:
+        raise HTTPException(
+            status_code=500,
+            detail={"code": "FIRESTORE_SAVE_FAILED", "message": str(exc)},
+        ) from exc
+    timings["firestore_save_ms"] = (time.perf_counter() - save_started) * 1000
+
+    return {
+        "success": True,
+        "version": chart["version"],
+        "chart": chart,
+        "saved_paths": {
+            "astrology": f"users/{write_uid}/astrology/western_natal",
+            "results": f"users/{write_uid}/results/astrology",
+        },
+    }
+
+
+def _build_western_chart(
+    request: CalculateChartRequest, timings: dict[str, float]
+) -> dict:
+    input_started = time.perf_counter()
     if not request.birth_date.strip() or not request.birth_time.strip():
         raise HTTPException(
             status_code=400,
@@ -121,7 +168,6 @@ def _generate_chart(
             },
         )
 
-    profile_data = _validated_profile(request)
     timings["profile_input_loading_ms"] = (
         time.perf_counter() - input_started
     ) * 1000
@@ -151,35 +197,10 @@ def _generate_chart(
         reader_overview if isinstance(reader_overview, dict) else overall_summary
     )
 
-    results_snapshot = build_results_snapshot(chart)
     timings["response_assembly_ms"] = (
         time.perf_counter() - response_assembly_started
     ) * 1000
-
-    save_started = time.perf_counter()
-    try:
-        save_chart(
-            write_uid,
-            chart,
-            results_snapshot,
-            profile_data=profile_data,
-        )
-    except Exception as exc:
-        raise HTTPException(
-            status_code=500,
-            detail={"code": "FIRESTORE_SAVE_FAILED", "message": str(exc)},
-        ) from exc
-    timings["firestore_save_ms"] = (time.perf_counter() - save_started) * 1000
-
-    return {
-        "success": True,
-        "version": chart["version"],
-        "chart": chart,
-        "saved_paths": {
-            "astrology": f"users/{write_uid}/astrology/western_natal",
-            "results": f"users/{write_uid}/results/astrology",
-        },
-    }
+    return chart
 
 
 def _auth_timing(value) -> FirebaseAuthTiming:

@@ -14,6 +14,7 @@ class ThaiBetaTimeField extends StatelessWidget {
     required this.onHourChanged,
     required this.onMinuteChanged,
     this.hourController,
+    this.compact = false,
   });
 
   /// Selected hour, or null when not yet chosen.
@@ -22,6 +23,7 @@ class ThaiBetaTimeField extends StatelessWidget {
   final ValueChanged<int?> onHourChanged;
   final ValueChanged<int> onMinuteChanged;
   final TextEditingController? hourController;
+  final bool compact;
 
   static String two(int v) => v.toString().padLeft(2, '0');
 
@@ -40,7 +42,7 @@ class ThaiBetaTimeField extends StatelessWidget {
             menuHeight: 260,
             expandedInsets: EdgeInsets.zero,
             label: const Text('ชั่วโมง'),
-            leadingIcon: const Icon(Icons.access_time_rounded),
+            leadingIcon: compact ? null : const Icon(Icons.access_time_rounded),
             onSelected: onHourChanged,
             dropdownMenuEntries: [
               for (var h = 0; h <= 23; h++)
@@ -52,8 +54,10 @@ class ThaiBetaTimeField extends StatelessWidget {
           padding: EdgeInsets.symmetric(horizontal: 8),
           child: Padding(
             padding: EdgeInsets.only(top: 18),
-            child: Text(':',
-                style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
+            child: Text(
+              ':',
+              style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+            ),
           ),
         ),
         Expanded(

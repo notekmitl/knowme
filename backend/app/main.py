@@ -22,6 +22,7 @@ logger = logging.getLogger("knowme.api")
 PRODUCTION_WEB_ORIGINS = [
     "https://knowme-app-694e1.web.app",
     "https://knowme-app-694e1.firebaseapp.com",
+    "https://knowme-app-694e1--pr-149-overall-v1-nr8oa6e0.web.app",
 ]
 
 LOCAL_DEV_ORIGINS = [

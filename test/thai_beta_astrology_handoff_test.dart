@@ -85,6 +85,44 @@ void main() {
     });
 
     test(
+      'anonymous overall handoff uses only normalized calculation input',
+      () async {
+        final calls = <String>[];
+        final baziChart = BaziCompatibilityOwnerFixtures.chart(
+          BaziOwnerCase.known,
+        );
+        final handoff = ThaiBetaAstrologyHandoff(
+          calculateBazi: (profile) async {
+            calls.add('bazi');
+            expect(profile.birthTime, '00:35');
+            expect(profile.timezone, 'Asia/Bangkok');
+            return baziChart;
+          },
+          calculateWestern: (profile) async {
+            calls.add('western');
+            expect(profile.latitude, closeTo(18.7883, 0.0001));
+            return _westernChart;
+          },
+        );
+        final bazi = await handoff.prepareAnonymous(
+          input: _knownInput,
+          systemId: 'bazi',
+        );
+        final western = await handoff.prepareAnonymous(
+          input: _knownInput,
+          systemId: 'western',
+        );
+        expect(calls, ['bazi', 'western']);
+        expect(bazi.baziChart, same(baziChart));
+        expect(western.westernChart, same(_westernChart));
+        await expectLater(
+          handoff.prepareAnonymous(input: _unknownInput, systemId: 'western'),
+          throwsStateError,
+        );
+      },
+    );
+
+    test(
       'delegates BaZi profile persistence to the authenticated API',
       () async {
         final events = <String>[];

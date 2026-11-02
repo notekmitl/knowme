@@ -1,0 +1,14 @@
+{
+  "capturedAt": "2026-10-31T09:52:19.6253077Z",
+  "preview": {
+    "name": "projects/knowme-app-694e1/sites/knowme-app-694e1/channels/pr-149-overall-safe",
+    "url": "https://knowme-app-694e1--pr-149-overall-safe-c41ic92g.web.app",
+    "version": "projects/knowme-app-694e1/sites/knowme-app-694e1/versions/e7ea691e701bcdbd",
+    "release": "projects/knowme-app-694e1/sites/knowme-app-694e1/channels/pr-149-overall-safe/releases/1793416799875000",
+    "expireTime": "2026-11-07T03:19:52.495576224Z"
+  },
+  "live": {
+    "version": "projects/knowme-app-694e1/sites/knowme-app-694e1/versions/d32e72678324e634",
+    "release": "projects/knowme-app-694e1/sites/knowme-app-694e1/channels/live/releases/1790074568414000"
+  }
+}

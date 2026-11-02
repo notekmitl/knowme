@@ -180,6 +180,22 @@ void main() {
     test('maps day master and engine fields to registry themes', () {
       final chart = _sampleBaziChart();
       final outputs = BaziRealAdapter.adapt(chart);
+      final reportOutputs = BaziRealAdapter.adapt(
+        chart,
+        mergeEvidence: true,
+      );
+      final legacyDriven = outputs.singleWhere(
+        (output) => output.themeId == 'driven',
+      );
+      final reportDriven = reportOutputs.singleWhere(
+        (output) => output.themeId == 'driven',
+      );
+      expect(legacyDriven.evidence, ['Dominant Element: fire']);
+      expect(reportDriven.evidence, contains('Dominant Element: fire'));
+      expect(
+        reportDriven.evidence.any((fact) => fact.startsWith('Year Animal:')),
+        isTrue,
+      );
       final themeIds = outputs.map((output) => output.themeId).toSet();
 
       for (final themeId
@@ -254,7 +270,7 @@ void main() {
       );
       expect(
         outputs.first.evidence.first,
-        'Lagna: $contentKey',
+        'ลัคนา: ลัคนาราศีพฤษภ',
       );
     });
 

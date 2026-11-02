@@ -1,0 +1,173 @@
+{
+  "viewport": [
+    1280,
+    800
+  ],
+  "case": "b",
+  "requests": [
+    {
+      "method": "GET",
+      "url": "https://knowme-app-694e1--pr-149-overall-safe-c41ic92g.web.app/beta/thai"
+    },
+    {
+      "method": "GET",
+      "url": "https://knowme-app-694e1--pr-149-overall-safe-c41ic92g.web.app/flutter_bootstrap.js?v=pr149-252e5fa"
+    },
+    {
+      "method": "GET",
+      "url": "https://www.gstatic.com/flutter-canvaskit/327ed814500baca0480a02f8555aa84a9afe32bf/chromium/canvaskit.wasm"
+    },
+    {
+      "method": "GET",
+      "url": "https://www.gstatic.com/flutter-canvaskit/327ed814500baca0480a02f8555aa84a9afe32bf/chromium/canvaskit.js"
+    },
+    {
+      "method": "GET",
+      "url": "https://knowme-app-694e1--pr-149-overall-safe-c41ic92g.web.app/main.dart.js?v=pr149-252e5fa"
+    },
+    {
+      "method": "GET",
+      "url": "https://knowme-app-694e1--pr-149-overall-safe-c41ic92g.web.app/assets/FontManifest.json"
+    },
+    {
+      "method": "GET",
+      "url": "https://knowme-app-694e1--pr-149-overall-safe-c41ic92g.web.app/assets/fonts/MaterialIcons-Regular.otf"
+    },
+    {
+      "method": "GET",
+      "url": "https://knowme-app-694e1--pr-149-overall-safe-c41ic92g.web.app/assets/assets/fonts/noto_sans_thai/NotoSansThai-Regular.ttf"
+    },
+    {
+      "method": "GET",
+      "url": "https://knowme-app-694e1--pr-149-overall-safe-c41ic92g.web.app/assets/assets/fonts/noto_sans_thai/NotoSansThai-Bold.ttf"
+    },
+    {
+      "method": "GET",
+      "url": "https://knowme-app-694e1--pr-149-overall-safe-c41ic92g.web.app/assets/assets/fonts/noto_sans_thai/NotoSans-Regular.ttf"
+    },
+    {
+      "method": "GET",
+      "url": "https://knowme-app-694e1--pr-149-overall-safe-c41ic92g.web.app/assets/assets/fonts/noto_sans_thai/NotoSans-Bold.ttf"
+    },
+    {
+      "method": "GET",
+      "url": "https://knowme-app-694e1--pr-149-overall-safe-c41ic92g.web.app/assets/packages/cupertino_icons/assets/CupertinoIcons.ttf"
+    },
+    {
+      "method": "GET",
+      "url": "https://fonts.gstatic.com/s/roboto/v32/KFOmCnqEu92Fr1Me4GZLCzYlKw.woff2"
+    },
+    {
+      "method": "GET",
+      "url": "https://knowme-app-694e1--pr-149-overall-safe-c41ic92g.web.app/assets/AssetManifest.bin.json"
+    },
+    {
+      "method": "GET",
+      "url": "https://fonts.gstatic.com/s/notosansthai/v25/iJWnBXeUZi_OHPqn4wq6hQ2_hbJ1xyN9wd43SofNWcd1MKVQt_So_9CdU5RtpzR-QRvzzXg.woff2"
+    },
+    {
+      "method": "GET",
+      "url": "https://knowme-app-694e1--pr-149-overall-safe-c41ic92g.web.app/assets/assets/trial_visual/overall.webp"
+    },
+    {
+      "method": "POST",
+      "url": "https://knowme-overall-pr149-preview-avbyttircq-as.a.run.app/v1/calculate-bazi"
+    },
+    {
+      "method": "POST",
+      "url": "https://knowme-overall-pr149-preview-avbyttircq-as.a.run.app/v1/calculate-chart"
+    },
+    {
+      "method": "GET",
+      "url": "https://knowme-app-694e1--pr-149-overall-safe-c41ic92g.web.app/assets/knowledge/canon/production/foundation_v1.knowme.json"
+    },
+    {
+      "method": "GET",
+      "url": "https://knowme-app-694e1--pr-149-overall-safe-c41ic92g.web.app/assets/assets/trial_visual/thai.webp"
+    },
+    {
+      "method": "GET",
+      "url": "https://knowme-app-694e1--pr-149-overall-safe-c41ic92g.web.app/assets/assets/trial_visual/chinese.webp"
+    },
+    {
+      "method": "GET",
+      "url": "https://fonts.gstatic.com/s/notosanshk/v32/nKKF-GM_FYFRJvXzVXaAPe97P1KHynJFP716qHB--oD7kYrUzT7-NvA3pTohjc3XVtNXX8A7gG1LO2KAPAw.104.woff2"
+    },
+    {
+      "method": "GET",
+      "url": "https://fonts.gstatic.com/s/notosanskr/v36/PbyxFmXiEBPT4ITbgNA5Cgms3VYcOA-vvnIzzuoyeLGC5nwuDo-KBTUm6CryotyJROlrnQ.93.woff2"
+    },
+    {
+      "method": "GET",
+      "url": "https://fonts.gstatic.com/s/notosanssc/v37/k3kCo84MPvpLmixcA63oeAL7Iqp5IZJF9bmaG9_FnYkldv7JjxkkgFsFSSOPMOkySAZ73y9ViAt3acb8NexQ2w.108.woff2"
+    },
+    {
+      "method": "GET",
+      "url": "https://fonts.gstatic.com/s/notosanssc/v37/k3kCo84MPvpLmixcA63oeAL7Iqp5IZJF9bmaG9_FnYkldv7JjxkkgFsFSSOPMOkySAZ73y9ViAt3acb8NexQ2w.118.woff2"
+    },
+    {
+      "method": "GET",
+      "url": "https://fonts.gstatic.com/s/notosanssc/v37/k3kCo84MPvpLmixcA63oeAL7Iqp5IZJF9bmaG9_FnYkldv7JjxkkgFsFSSOPMOkySAZ73y9ViAt3acb8NexQ2w.116.woff2"
+    },
+    {
+      "method": "GET",
+      "url": "https://fonts.gstatic.com/s/notosanssc/v37/k3kCo84MPvpLmixcA63oeAL7Iqp5IZJF9bmaG9_FnYkldv7JjxkkgFsFSSOPMOkySAZ73y9ViAt3acb8NexQ2w.81.woff2"
+    },
+    {
+      "method": "GET",
+      "url": "https://fonts.gstatic.com/s/notosanssc/v37/k3kCo84MPvpLmixcA63oeAL7Iqp5IZJF9bmaG9_FnYkldv7JjxkkgFsFSSOPMOkySAZ73y9ViAt3acb8NexQ2w.115.woff2"
+    },
+    {
+      "method": "GET",
+      "url": "https://fonts.gstatic.com/s/notosanssc/v37/k3kCo84MPvpLmixcA63oeAL7Iqp5IZJF9bmaG9_FnYkldv7JjxkkgFsFSSOPMOkySAZ73y9ViAt3acb8NexQ2w.117.woff2"
+    },
+    {
+      "method": "GET",
+      "url": "https://knowme-app-694e1--pr-149-overall-safe-c41ic92g.web.app/assets/assets/trial_visual/western.webp"
+    }
+  ],
+  "post_responses": [
+    {
+      "method": "POST",
+      "url": "https://knowme-overall-pr149-preview-avbyttircq-as.a.run.app/v1/calculate-bazi",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "url": "https://knowme-overall-pr149-preview-avbyttircq-as.a.run.app/v1/calculate-chart",
+      "status": 200
+    }
+  ],
+  "posts": [
+    {
+      "method": "POST",
+      "url": "https://knowme-overall-pr149-preview-avbyttircq-as.a.run.app/v1/calculate-bazi"
+    },
+    {
+      "method": "POST",
+      "url": "https://knowme-overall-pr149-preview-avbyttircq-as.a.run.app/v1/calculate-chart"
+    }
+  ],
+  "forbidden": [],
+  "other_writes": [],
+  "errors": [],
+  "failed_requests": [],
+  "document_widths": {
+    "landing": 1280,
+    "form": 1280,
+    "date-picker": 1280,
+    "form-ready": 1280,
+    "overall": 1280,
+    "overall-expanded": 1280,
+    "overall-recollapsed": 1280,
+    "thai": 1280,
+    "thai-reading": 1280,
+    "thai-full-reading": 1280,
+    "thai-full-deep": 1280,
+    "chinese": 1280,
+    "chinese-reading": 1280,
+    "western": 1280,
+    "western-reading": 1280,
+    "overall-returned": 1280
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "hosting": {
+    "site": "knowme-trial-694e1",
+    "public": "rollback-web",
+    "ignore": ["firebase.json"],
+    "headers": [
+      {
+        "source": "**",
+        "headers": [{"key": "Cache-Control", "value": "no-store"}]
+      }
+    ]
+  }
+}

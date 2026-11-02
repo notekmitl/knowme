@@ -1,0 +1,30 @@
+{
+  "before": {
+    "pr-149-overall-safe": {
+      "url": "https://knowme-app-694e1--pr-149-overall-safe-c41ic92g.web.app",
+      "release": "1793449616349000",
+      "version": "b96c8553b7e3c522",
+      "expiry_utc": "2026-11-07T12:26:49.396995090Z"
+    },
+    "live": {
+      "url": "https://knowme-app-694e1.web.app",
+      "release": "1790074568414000",
+      "version": "d32e72678324e634",
+      "expiry_utc": null
+    }
+  },
+  "after": {
+    "pr-149-overall-safe": {
+      "url": "https://knowme-app-694e1--pr-149-overall-safe-c41ic92g.web.app",
+      "release": "1793450457783000",
+      "version": "618a0d087d43aa9b",
+      "expiry_utc": "2026-11-07T12:40:50.896213235Z"
+    },
+    "live": {
+      "url": "https://knowme-app-694e1.web.app",
+      "release": "1790074568414000",
+      "version": "d32e72678324e634",
+      "expiry_utc": null
+    }
+  }
+}
