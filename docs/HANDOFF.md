@@ -1,3 +1,21 @@
+# KnowMe PR149 handoff — PC landing accepted by Owner, 2026-11-02
+
+The Owner's **"ok ผ่าน"** accepts the revised desktop trial landing shown in
+the preceding review: aligned logo, balanced image/text columns and the start
+button beneath the steps. Application SHA remains
+`130cdfa7d028ba6a7da13361d8fa1321fbe7dbf8`; reviewed Preview version is
+`610a6ddab261189a`. [Reviewed candidate and QA](https://github.com/notekmitl/knowme/blob/d98f7c6a28f5410cb154c401beea8b3e2b9dfbfe/docs/qa/pr149-landing-pc/README.md).
+
+The PC landing is no longer awaiting Owner review. Preserve that accepted
+layout; further changes require a new request or an evidenced defect.
+Full-product UI acceptance remains separate. Keep PR #149 Draft; this
+acceptance does not authorize merge or Production deployment. Continue from
+the latest remote branch head and retain the existing privacy, calculation,
+reading and infrastructure constraints. This is a documentation-only update,
+with no new application build or deployment.
+
+---
+
 # KnowMe PR149 handoff — trial landing PC layout, 2026-11-01
 
 Continue Draft PR #149 on `codex/three-tradition-overall-v1`. Starting HEAD

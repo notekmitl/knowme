@@ -1,3 +1,19 @@
+# KnowMe PR149 — PC trial landing acceptance, 2026-11-02
+
+Owner accepted the revised **PC trial landing page** with **"ok ผ่าน"** after
+reviewing the updated layout. The accepted application is
+`130cdfa7d028ba6a7da13361d8fa1321fbe7dbf8`, reviewed on Hosting Preview
+`610a6ddab261189a`. [Screenshots and QA for the accepted candidate](https://github.com/notekmitl/knowme/blob/d98f7c6a28f5410cb154c401beea8b3e2b9dfbfe/docs/qa/pr149-landing-pc/README.md)
+are pinned to evidence HEAD `d98f7c6`.
+
+This records visual acceptance of that screen only, separately from the
+existing technical QA and any future acceptance of the other readers.
+No application, assets or deployment changed in this documentation update.
+PR #149 remains Draft; merge and Production deployment are not authorized
+by this screen-level approval.
+
+---
+
 # KnowMe PR149 trial landing PC layout — 2026-11-01
 
 Starting HEAD `a4ed48d` was clean. Application SHA

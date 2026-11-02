@@ -1,3 +1,19 @@
+# KnowMe Draft PR #149 — Owner accepted PC landing, 2026-11-02
+
+Owner reviewed the revised desktop trial landing and replied **"ok ผ่าน"**.
+This closes the Owner review of that screen's proportions, aligned logo,
+two-column composition and start-button placement. Accepted application SHA:
+`130cdfa7d028ba6a7da13361d8fa1321fbe7dbf8`; reviewed Hosting Preview version:
+`610a6ddab261189a`. [The reviewed images and technical QA](https://github.com/notekmitl/knowme/blob/d98f7c6a28f5410cb154c401beea8b3e2b9dfbfe/docs/qa/pr149-landing-pc/README.md)
+were recorded at `d98f7c6`.
+
+Acceptance is limited to the **PC trial landing page**. It does not certify
+the complete astrology UI or authorize a merge or Production deployment.
+PR #149 remains Draft. This update records the Owner decision in documentation
+only; application code, artwork, Hosting and Backend were not changed.
+
+---
+
 # KnowMe Draft PR #149 — trial landing PC layout, 2026-11-01
 
 Starting HEAD `a4ed48d` was clean. Application commit
