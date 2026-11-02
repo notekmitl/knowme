@@ -1,0 +1,44 @@
+[
+  {
+    "endpoint": "calculate-bazi",
+    "origin": "https://knowme-trial-694e1.web.app",
+    "status": 200,
+    "allow_origin": "https://knowme-trial-694e1.web.app",
+    "allow_methods": "POST"
+  },
+  {
+    "endpoint": "calculate-bazi",
+    "origin": "https://knowme-app-694e1--pr-149-overall-safe-c41ic92g.web.app",
+    "status": 200,
+    "allow_origin": "https://knowme-app-694e1--pr-149-overall-safe-c41ic92g.web.app",
+    "allow_methods": "POST"
+  },
+  {
+    "endpoint": "calculate-bazi",
+    "origin": "https://unapproved-pr149.example.invalid",
+    "status": 400,
+    "allow_origin": null,
+    "allow_methods": "POST"
+  },
+  {
+    "endpoint": "calculate-chart",
+    "origin": "https://knowme-trial-694e1.web.app",
+    "status": 200,
+    "allow_origin": "https://knowme-trial-694e1.web.app",
+    "allow_methods": "POST"
+  },
+  {
+    "endpoint": "calculate-chart",
+    "origin": "https://knowme-app-694e1--pr-149-overall-safe-c41ic92g.web.app",
+    "status": 200,
+    "allow_origin": "https://knowme-app-694e1--pr-149-overall-safe-c41ic92g.web.app",
+    "allow_methods": "POST"
+  },
+  {
+    "endpoint": "calculate-chart",
+    "origin": "https://unapproved-pr149.example.invalid",
+    "status": 400,
+    "allow_origin": null,
+    "allow_methods": "POST"
+  }
+]

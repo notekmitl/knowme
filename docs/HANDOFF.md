@@ -1,4 +1,50 @@
-# KnowMe PR149 handoff — publish isolated trial site
+# KnowMe PR149 handoff — dedicated trial site live, 2026-11-02
+
+Draft PR #149 remains on `codex/three-tradition-overall-v1`, unmerged.
+Starting HEAD `e82e869` was clean; application SHA
+`130cdfa7d028ba6a7da13361d8fa1321fbe7dbf8` and the Owner-accepted PC
+landing are unchanged. Owner authorized **“Deploy เลย”** for the anonymous
+trial. A separate Firebase Hosting USER_SITE `knowme-trial-694e1` was created
+in project `knowme-app-694e1` and released at
+<https://knowme-trial-694e1.web.app/beta/thai>. Trial live release
+`1793599203756000` / version `c0ad58f8d39f8731` serves guarded build
+`trial-pr149-130cdfa`. The disposable config contained only Hosting and
+selected only `hosting:trial`. The main KnowMe site remained release
+`1790074568414000` / version `d32e72678324e634`, with the same three
+entry-file hashes and cache headers before and after.
+
+Calculator CORS was the only Backend Preview configuration change: exact
+origin `https://knowme-trial-694e1.web.app` was appended to the existing
+allowlist. Revision `knowme-overall-pr149-preview-00004-kt9` now serves 100%;
+prior revision `knowme-overall-pr149-preview-00003-5lg` is the rollback
+target. Image digest, service account, `PREVIEW_ORIGIN`, other env and origins
+remain baseline-identical. OPTIONS on both endpoints allows the new exact
+origin and old Preview, rejects an unapproved origin. No main-site, IAM,
+Auth, Firestore, rules or billing change was made.
+
+Hosted index/bootstrap/main JS SHA-256 matches the guarded build. First load
+and reload at 390×844, 1280×800 and 1920×911 painted the landing in normal
+Chrome and CPU fallback; the accepted landing pixels match the previous
+Preview at all three widths. Fresh 390/1280 known-time journeys in Chrome and
+CPU reached Overall, Thai, Chinese, Western and back with two successful
+calculator POSTs total. Reader switches/disclosures added none. Unknown time
+stopped with an explanation and zero POSTs. There were no Auth/Firestore
+SDK/API or Production API requests, other writes, failed requests, app errors
+or horizontal overflow. The immediate 390 px Chrome Thai/Western art captures
+were blank but painted in their settled captures; retain this timing detail
+in future review. See [release evidence and site-specific rollback procedure](qa/pr149-trial-site-release/README.md).
+
+If a critical defect appears, deploy the prepared static holding page using
+the Hosting-only config in `docs/qa/pr149-trial-site-release/rollback` to
+**only** `knowme-trial-694e1`; do not delete the site or alter the main site.
+Then, if necessary, route the same calculator service to prior revision
+`knowme-overall-pr149-preview-00003-5lg` at 100% traffic. These rollback
+commands were prepared but not executed because Hosted QA passed. Keep the
+PR Draft; Owner approval of the PC landing does not certify the whole UI.
+
+---
+
+# Previous handoff — publish isolated trial site (pending at that time)
 
 Date: 2026-11-02. After accepting the PC landing, Owner instructed **"Deploy เลย"**.
 This authorizes publishing the anonymous astrology trial. Earlier no-deploy

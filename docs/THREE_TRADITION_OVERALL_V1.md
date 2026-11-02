@@ -1,4 +1,50 @@
-# KnowMe PR149 — trial release authorization and deployment handoff
+# KnowMe PR149 — dedicated trial Hosting release, 2026-11-02
+
+Owner authorized **“Deploy เลย”** after accepting the PC trial landing.
+Starting HEAD `e82e869` was clean and the application remained
+`130cdfa7d028ba6a7da13361d8fa1321fbe7dbf8`. A guarded plugin-free
+build `trial-pr149-130cdfa` targets only the existing separate calculator.
+It was released to a new, explicit Firebase Hosting site/target
+`knowme-trial-694e1` / `hosting:trial` in project `knowme-app-694e1`:
+[open the trial](https://knowme-trial-694e1.web.app/beta/thai). Trial live
+release `1793599203756000` serves version `c0ad58f8d39f8731`. The existing
+main KnowMe site stayed release `1790074568414000` / version
+`d32e72678324e634`, with byte-identical index/bootstrap/main JS hashes and
+cache headers before and after.
+
+The trial origin was absent from the calculator CORS allowlist and both
+preflights returned 400. Only `https://knowme-trial-694e1.web.app` was
+appended, producing Backend Preview revision
+`knowme-overall-pr149-preview-00004-kt9`. Both calculator endpoints now
+return OPTIONS 200 with the exact trial allow-origin; the old Preview remains
+allowed and an unapproved origin remains rejected. The image digest, service
+account, `PREVIEW_ORIGIN`, other env and origins did not change. No main
+Hosting, IAM, Auth, Firestore, rules or billing mutation was made.
+
+Hosted index/bootstrap/main JS hashes matched the build byte for byte.
+First-load and reload checks on the released site at 390×844, 1280×800 and
+1920×911 painted the landing in normal Chrome and CPU fallback. Landing
+screenshots at all three widths match the Owner-reviewed Preview pixel for
+pixel. Fresh known-time 390/1280 journeys in normal/CPU Chrome followed
+Overall → Thai → Chinese → Western → Overall; they made exactly two
+successful Preview calculator POSTs total, with no more on switching or
+expanding details. Unknown-time journeys stopped with an explanation and
+zero POSTs. No Auth/Firestore SDK/API, Production API, other write, failed
+request, app error or overflow was observed. The 390 px ordinary Chrome
+journey briefly captured blank Thai/Western reader art immediately after
+switching; settled captures painted. This is a timing observation, not an
+instant-paint guarantee or an Owner acceptance of the full UI.
+
+[Actual site screenshots, baseline, CORS, hashes, sanitized Hosted QA and
+site-specific rollback](qa/pr149-trial-site-release/README.md) are reviewable.
+The new trial site had no prior release; a static holding page and prior
+calculator revision are retained as scoped rollback targets. No rollback was
+needed. PR #149 remains Draft and unmerged; calculations, readings, formula,
+0.6 evidence threshold, conflict rules and flow are unchanged.
+
+---
+
+# Previous authorization and deployment handoff (pending at that time)
 
 Date: 2026-11-02. After accepting the PC landing, Owner instructed **"Deploy เลย"**.
 This authorizes publishing the anonymous astrology trial. Earlier no-deploy
