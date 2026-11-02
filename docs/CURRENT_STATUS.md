@@ -1,3 +1,46 @@
+# KnowMe PR149 — trial deployment authorized, execution pending
+
+Date: 2026-11-02. After accepting the PC landing, Owner instructed **"Deploy เลย"**.
+This authorizes publishing the anonymous astrology trial. Earlier no-deploy
+gates are superseded for this trial release only; no PR merge is authorized.
+
+Release approach: use a dedicated Firebase Hosting site within project
+`knowme-app-694e1`, keeping the existing main KnowMe site and its routes
+unchanged. The isolated trial entrypoint and catch-all rewrite must not be
+cloned over the main site. Verify any existing dedicated trial site before
+choosing or creating a site ID; no new site or public URL has been verified.
+
+Application remains `130cdfa7d028ba6a7da13361d8fa1321fbe7dbf8`.
+[CI of authorization baseline `9b2b0b0`](https://github.com/notekmitl/knowme/actions/runs/41387665570)
+completed successfully. Preserve the accepted PC layout, mobile layout,
+CPU artwork strategy, readings, calculations and privacy guards.
+
+**Deployment is pending, not completed.** This handoff environment has no
+Firebase/gcloud CLI or authenticated Firebase deployment tool exposed.
+No Hosting, Backend, Auth, Firestore, IAM or rules mutation occurred here.
+Use the existing Windows Codex executor with the authorized Firebase access.
+
+Before release, read current Hosting/Cloud Run baselines and retain a scoped
+rollback. Build using `tool/build_trial_web.py` and the existing isolated
+calculator `https://knowme-overall-pr149-preview-avbyttircq-as.a.run.app`.
+Deploy with a Hosting-only config and an explicit dedicated-site target.
+If required, append only that site's exact HTTPS origin(s) to the existing
+calculator CORS allowlist, preserving all existing origins, image digest,
+service account, IAM and other configuration. Do not change main KnowMe
+Hosting, Auth, Firestore, rules, billing or unrelated infrastructure.
+
+Completion requires matching hosted index/bootstrap/main JS SHA-256 hashes,
+cache/reload checks, and fresh Hosted journeys at 390×844 and 1280×800;
+also inspect the accepted PC landing at 1920×911 and artwork in CPU fallback.
+Known time: two calculator POSTs returning 200 total; reader switches and
+disclosures add none. Unknown time: explanatory stop with zero POSTs.
+No forbidden Auth/Firestore SDK/API, Production API, data write, app error or
+horizontal overflow. Record the actual site, release, build, hashes, QA and
+rollback in these three existing documents. Keep PR #149 Draft and unmerged;
+do not claim deployment or Hosted QA success until independently verified.
+
+---
+
 # KnowMe Draft PR #149 — Owner accepted PC landing, 2026-11-02
 
 Owner reviewed the revised desktop trial landing and replied **"ok ผ่าน"**.
