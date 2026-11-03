@@ -1,3 +1,32 @@
+## 2026-11-03 — Cloud Run cost reduction applied
+
+Owner instructed reducing KnowMe's costs while the product has no revenue.
+Production service `knowme-astrology-api` now uses request-based billing
+(`cpu-throttling: true`) and revision minimum instances `0`; service minimum
+was already `0`. Ready revision `knowme-astrology-api-00015-gws` routes 100%
+with the exact pre-change image digest `sha256:fc7822d48c3ad7d93bd91bb822308e232a11b8d498fc1b7a6e7e896172dccd50`.
+Observed prior revision was `00014-j2z`, not the historical `00013-zc8`
+in the September closeout below. The service spec was compared before/after;
+only revision minimum `1 -> 0` and CPU throttling `false -> true` changed.
+Production `/health` returned `status: ok` before and after. Cloud Run reports
+Ready and routing completed. The trial calculator `00004-kt9` was already
+request-based with zero minimum; it was inspected but not modified.
+
+This cost-first decision supersedes September's always-warm performance
+configuration. First requests after idle can take longer. Runtime code,
+container image, CPU/RAM limits, timeouts, concurrency, service account,
+CORS/env, Auth, IAM, Firestore data/rules, Hosting and PR #149 are unchanged.
+The existing Western cache is retained; no new database/cache is introduced.
+The deployment script now explicitly sets `--cpu-throttling --min 0
+--min-instances 0` to prevent restoring the old always-on default.
+
+Evidence and precise verification limits: [Cloud Run cost control](CLOUD_RUN_COST_CONTROL.md).
+Full authenticated chart generation, observed idle-to-zero-to-wake, and actual
+post-change billing have not yet been verified in this run. Do not claim
+zero total cost or reuse the September latency range as a new measurement.
+
+---
+
 # Handoff - Western Reader V2 authenticated latency closeout (2026-09-22)
 
 Production acceptance is complete. PR #147 merged as
