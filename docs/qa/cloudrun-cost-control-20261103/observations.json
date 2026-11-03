@@ -1,0 +1,52 @@
+{
+  "observedAtUtc": "2026-11-03T10:02:48.202Z",
+  "project": "knowme-app-694e1",
+  "region": "asia-southeast1",
+  "service": "knowme-astrology-api",
+  "beforeRevision": "knowme-astrology-api-00014-j2z",
+  "afterRevision": "knowme-astrology-api-00015-gws",
+  "imageDigest": "sha256:fc7822d48c3ad7d93bd91bb822308e232a11b8d498fc1b7a6e7e896172dccd50",
+  "before": {
+    "revisionMinInstances": 1,
+    "serviceMinInstances": 0,
+    "cpuThrottling": false
+  },
+  "after": {
+    "revisionMinInstances": 0,
+    "serviceMinInstances": 0,
+    "cpuThrottling": true
+  },
+  "serviceSpecOnlyTwoCostChanges": true,
+  "trafficPercent": 100,
+  "healthBefore": {
+    "status": "ok",
+    "service": "knowme-astrology-api"
+  },
+  "healthAfter": {
+    "status": "ok",
+    "service": "knowme-astrology-api"
+  },
+  "preview": {
+    "revision": "knowme-overall-pr149-preview-00004-kt9",
+    "minimumInstances": 0,
+    "requestBased": true,
+    "modified": false
+  },
+  "limits": {
+    "cpu": 1,
+    "memory": "512Mi",
+    "requestTimeoutSeconds": 120,
+    "concurrency": 80,
+    "revisionMaxInstances": 10,
+    "serviceMaxInstances": 20
+  },
+  "conditionTransitions": [
+    "lastTransitionTime: \"2026-11-03T09:59:46.245941Z\"",
+    "lastTransitionTime: \"2026-11-03T09:59:33.476317Z\"",
+    "lastTransitionTime: \"2026-11-03T09:59:46.199337Z\""
+  ],
+  "limitations": [
+    "Authenticated generation and real idle-to-zero-to-wake have not yet been exercised in this run.",
+    "Billing totals after the change are not yet available."
+  ]
+}
