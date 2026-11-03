@@ -48,5 +48,24 @@
   "limitations": [
     "Authenticated generation and real idle-to-zero-to-wake have not yet been exercised in this run.",
     "Billing totals after the change are not yet available."
-  ]
+  ],
+  "followup": {
+    "observedAtUtc": "2026-11-03T10:14:22.491Z",
+    "mergedPullRequest": 150,
+    "mergeCommit": "b776895317cd72ef1ac16d3f894e02e054b0b5c9",
+    "defaultBranchDeployFlags": [
+      "--cpu-throttling",
+      "--min 0",
+      "--min-instances 0"
+    ],
+    "existingAuthenticatedWesternResultPageRendered": true,
+    "consoleErrorsObserved": 0,
+    "billableInstanceTimeRate": {
+      "priorDisplayedSample": 1.002,
+      "postChangeDisplayedSample": 0.013,
+      "unit": "seconds/second",
+      "postChangeSample": "2026-11-03T17:10:00+07:00",
+      "note": "Monitoring sample, not a final bill or a measured full-month saving."
+    }
+  }
 }

@@ -1,3 +1,23 @@
+## 2026-11-03 — Cost change verification follow-up
+
+PR [#150](https://github.com/notekmitl/knowme/pull/150) was squash-merged as
+`b776895317cd72ef1ac16d3f894e02e054b0b5c9`. Default-branch deployment script
+was read back and explicitly contains request-based CPU and both zero minimum
+flags. GitHub returned no statuses/checks; main has no CI workflows, so this
+is not recorded as a CI pass. The only script diff is the cost flags.
+
+After the live runtime change, the existing signed-in main web session could
+open the astrology menu and display its stored Western reading. No regenerate
+or edit-profile action was selected. Browser console error count was 0.
+This verifies existing-result display, not new authenticated calculation/save.
+The displayed billable container-time rate fell from about `1.002 s/s` before
+the change to `0.013 s/s` in the 17:10 Thailand monitoring sample. This is
+observed compute usage, not a promise of zero cost or a full-month saving.
+Actual future billing and a real zero-to-wake cycle remain unverified.
+See [the detailed record](CLOUD_RUN_COST_CONTROL.md).
+
+---
+
 ## 2026-11-03 — Cloud Run cost reduction applied
 
 Owner instructed reducing KnowMe's costs while the product has no revenue.

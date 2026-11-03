@@ -79,6 +79,22 @@ This change does not merge PR #149 or deploy its trial bundle over the main
 Hosting site. The trial continues to use its separate compute-only calculator;
 no new result persistence is added to that privacy-guarded path.
 
+## Post-merge verification
+
+- PR [#150](https://github.com/notekmitl/knowme/pull/150) merged as
+  `b776895317cd72ef1ac16d3f894e02e054b0b5c9`. Read back the default-branch script;
+  all three zero-idle-cost flags are present. No CI statuses/checks were returned;
+  no automated CI run is claimed for this script/documentation change.
+- At `2026-11-03T10:14:22.491Z`, the existing signed-in main site successfully
+  displayed its stored Western result after opening the astrology menu.
+  No regenerate/profile-edit action was selected. Observed browser console
+  errors: 0. This does not certify new authenticated generation/save.
+- Provider monitoring shows a displayed billable container-time rate near
+  `1.002 s/s` before the change, and `0.013 s/s` for the 17:10 Thailand sample
+  after the change. The sample demonstrates a drop in billed compute time;
+  it is not a monthly bill forecast and does not prove an observed zero-to-wake
+  cycle. Actual post-change billing still needs to accrue.
+
 ## Rollback
 
 Retain old revision `knowme-astrology-api-00014-j2z`; do not delete it or its
