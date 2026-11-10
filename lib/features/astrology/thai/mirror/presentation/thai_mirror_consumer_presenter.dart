@@ -482,6 +482,7 @@ abstract final class ThaiMirrorConsumerPresenter {
       whyItAppears: parts.whyItAppears,
       suggestedAction: parts.suggestedAction,
       status: _lifeStatus(priorityThemeIds.length),
+      currentStateSource: parts.currentStateSource,
     );
   }
 

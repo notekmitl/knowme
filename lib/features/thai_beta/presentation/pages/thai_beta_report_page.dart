@@ -612,8 +612,8 @@ class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
                                       ),
                                       const SizedBox(height: 5),
                                       Text(
-                                        TrialReadingCopy.thai(
-                                          items[i].currentState,
+                                        TrialReadingCopy.thaiDashboard(
+                                          items[i],
                                         ),
                                         style: const TextStyle(
                                           color: TrialVisualDesign.muted,

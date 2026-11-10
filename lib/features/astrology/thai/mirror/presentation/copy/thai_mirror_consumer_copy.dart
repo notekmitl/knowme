@@ -1,3 +1,5 @@
+import '../models/thai_mirror_dashboard_copy_source.dart';
+
 import 'package:knowme/core/themes/theme_catalog_v1.dart';
 import '../../thai_mirror_stable_hash.dart';
 
@@ -341,6 +343,7 @@ abstract final class ThaiMirrorConsumerCopy {
     String whyItAppears,
     String suggestedAction,
     String themeId,
+    ThaiMirrorDashboardCopySource? currentStateSource,
   })
   lifeAspectDashboardParts({
     required String aspect,
@@ -395,10 +398,11 @@ abstract final class ThaiMirrorConsumerCopy {
       }
     }
     final phrase = ThaiMirrorThemePhrases.phrase(themeId);
-    final hints = ThaiMirrorThemeVariants.aspectHintVariants(themeId, aspect);
+    final sources = ThaiMirrorThemeVariants.aspectHintSources(themeId, aspect);
+    final hints = sources.map((source) => source.text).toList();
     final advice = ThaiMirrorThemeVariants.adviceVariants(themeId);
 
-    final hintIndex =
+    var hintIndex =
         (profileSeed.abs() + aspectOffset * 3) %
         (hints.isEmpty ? 1 : hints.length);
 
@@ -406,7 +410,8 @@ abstract final class ThaiMirrorConsumerCopy {
         ? hints[hintIndex]
         : 'ด้าน${_aspectLabelTh(aspect)} — ${phrase.tag}';
     if (usedCurrentStates.contains(currentState) && hints.length > 1) {
-      currentState = hints[(hintIndex + 1) % hints.length];
+      hintIndex = (hintIndex + 1) % hints.length;
+      currentState = hints[hintIndex];
     }
 
     final whyItAppears = 'ดวงสะท้อน${phrase.tag} — ${phrase.heroDetail}';
@@ -443,6 +448,7 @@ abstract final class ThaiMirrorConsumerCopy {
       whyItAppears: whyItAppears,
       suggestedAction: suggestedAction,
       themeId: themeId,
+      currentStateSource: sources.isEmpty ? null : sources[hintIndex],
     );
   }
 

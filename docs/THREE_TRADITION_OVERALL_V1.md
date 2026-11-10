@@ -1,3 +1,26 @@
+# PR149 — ซ่อมหมวดการ์ดและความหมายภาษา r3 · 10 พ.ย. 2026
+
+ต่อจากฐาน `6261951` / application `ffc960b` / ภาษา r2 โดยรักษางานเดิม.
+พิสูจน์ด้วย regression ก่อนแก้ว่า fixture B ผิดครบสี่การ์ด: variant สำรองอ้าง field
+คนละหมวด (รวมโชคและโอกาสซึ่งเป็นการ์ดที่ห้า). UI ไม่ได้สลับลำดับ.
+เพิ่ม metadata ต้นทางและซ่อม field reference เฉพาะ trial หลังเลือกธีมแล้ว.
+รักษา raw view, variant pools/ลำดับ/seed, snapshot/hash, สูตร คะแนน และหลักฐานเดิม.
+A ที่ถูกอยู่แล้วตรง r2 ทั้งห้าการ์ด; unknown ไม่มีการ์ดที่แต่งแทนข้อมูลที่ขาด.
+
+แก้ “เกณฑ์จบงาน” เป็นสิ่งที่ต้องทำครบ และคืนคำเตือนเพียงว่างานอาจกระจัดกระจาย
+ไม่ขยายผลว่าไม่มีงานใดเสร็จ. เก็บคำอ่านทั้งย่อหน้าของทั้งสี่มุมมอง/รายละเอียด/เอกสารไทย
+แก้คำลอยและคำซ้ำโดยเทียบประธาน เงื่อนไข เหตุ–ผล ขอบเขต เวลา และความแน่นอนกับต้นฉบับ.
+[ก่อน–หลัง 23 ตัวอย่างและต้นเหตุ](qa/pr149-dashboard-meaning-repair/REVIEW.md).
+
+Focused regression/consensus/selection/date contracts ผ่าน 53 tests.
+Analyzer ผ่าน gate (0 errors, 276 warning/info ที่มีอยู่เดิม).
+Local full suite ผ่าน 3,167 tests / skipped 3 แต่ PDF gate หนึ่ง test ขาด pypdf ใน system Python;
+รัน PDF file เดิมด้วย bundled Python ผ่านครบ 4 tests แล้ว. รอ CI เต็มของ revision ใหม่.
+ยังไม่เผยแพร่ r3; จะตรวจ trial target/สิทธิ์ล่าสุดและ rollback ก่อน deploy เฉพาะ trial เดิม.
+ไม่แก้ backend/Auth/Firestore/IAM/billing/main site ไม่ Merge PR149. **รอผลทดลองอ่าน**.
+
+---
+
 # KnowMe PR149 — ภาษาไทย r2 ขึ้น trial แล้ว · 10 พ.ย. 2026
 
 เผยแพร่เฉพาะ [trial เดิม](https://knowme-trial-694e1.web.app/beta/thai) แล้ว:

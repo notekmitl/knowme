@@ -1,4 +1,5 @@
 import 'package:knowme/core/themes/theme_registry.dart';
+import '../models/thai_mirror_dashboard_copy_source.dart';
 
 import 'thai_mirror_theme_life_hints.dart';
 import 'thai_mirror_theme_phrases.dart';
@@ -315,20 +316,39 @@ abstract final class ThaiMirrorThemeVariants {
     ],
   };
 
-  static List<String> aspectHintVariants(String themeId, String aspect) {
+  static List<String> aspectHintVariants(String themeId, String aspect) =>
+      aspectHintSources(themeId, aspect).map((entry) => entry.text).toList();
+
+  /// Retain the legacy pool (including its order/deduplication) so attaching
+  /// provenance cannot change selection or any later used-theme decisions.
+  /// The trial repairs a cross-area field reference only after selection.
+  static List<ThaiMirrorDashboardCopySource> aspectHintSources(
+    String themeId,
+    String aspect,
+  ) {
     final hint = ThaiMirrorThemePhrases.aspectHint(themeId, aspect);
     if (hint.isEmpty) return const [];
 
     final phrase = ThaiMirrorThemePhrases.phrase(themeId);
     final life = ThaiMirrorThemeLifeHints.forTheme(themeId);
-    final alt = switch (aspect) {
-      'work' => life.money,
-      'money' => life.work,
-      'love' => life.health,
-      'health' => life.love,
-      'luck' => life.work,
-      _ => life.luck,
+    final alternateAspect = switch (aspect) {
+      'work' => 'money',
+      'money' => 'work',
+      'love' => 'health',
+      'health' => 'love',
+      'luck' => 'work',
+      _ => 'luck',
     };
+    String lifeHint(String key) => switch (key) {
+      'work' => life.work,
+      'money' => life.money,
+      'love' => life.love,
+      'health' => life.health,
+      'luck' => life.luck,
+      _ => hint,
+    };
+    final alt = lifeHint(alternateAspect);
+    final matching = lifeHint(aspect);
 
     const aspectLabels = {
       'work': 'การงาน',
@@ -339,19 +359,44 @@ abstract final class ThaiMirrorThemeVariants {
     };
     final aspectLabel = aspectLabels[aspect] ?? aspect;
 
-    return [
-      hint,
-      'ด้าน$aspectLabel — ${phrase.heroDetail}',
-      '${phrase.tag}: ${switch (aspect) {
-        'work' => life.work,
-        'money' => life.money,
-        'love' => life.love,
-        'health' => life.health,
-        'luck' => life.luck,
-        _ => hint,
-      }}',
-      if (alt.isNotEmpty && alt != hint) '$alt (ผ่าน${phrase.tag})',
-    ].where((s) => s.isNotEmpty).toSet().toList();
+    ThaiMirrorDashboardCopySource source(
+      String text,
+      String field, {
+      String? sourceAspect,
+      String? matchingText,
+    }) => ThaiMirrorDashboardCopySource(
+      text: text,
+      themeId: themeId,
+      requestedAspect: aspect,
+      sourceAspect: sourceAspect ?? aspect,
+      sourceField: field,
+      matchingAspectText: matchingText ?? text,
+      matchingSourceField: sourceAspect == null
+          ? field
+          : 'ThaiMirrorThemeLifeHints.$themeId.$aspect',
+    );
+    final entries = [
+      source(hint, 'ThaiMirrorThemePhrases.aspectHint($themeId,$aspect)'),
+      source(
+        'ด้าน$aspectLabel — ${phrase.heroDetail}',
+        'ThaiMirrorThemePhrases.$themeId.heroDetail',
+      ),
+      source(
+        '${phrase.tag}: $matching',
+        'ThaiMirrorThemeLifeHints.$themeId.$aspect',
+      ),
+      if (alt.isNotEmpty && alt != hint)
+        source(
+          '$alt (ผ่าน${phrase.tag})',
+          'ThaiMirrorThemeLifeHints.$themeId.$alternateAspect',
+          sourceAspect: alternateAspect,
+          matchingText: '$matching (ผ่าน${phrase.tag})',
+        ),
+    ];
+    final seen = <String>{};
+    return entries
+        .where((entry) => entry.text.isNotEmpty && seen.add(entry.text))
+        .toList();
   }
 
   static bool hasStrengthCoverageForAllThemes() {

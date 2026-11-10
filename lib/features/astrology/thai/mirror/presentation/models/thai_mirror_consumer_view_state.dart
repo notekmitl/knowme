@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart' show Color, IconData, Icons;
 
+import 'thai_mirror_dashboard_copy_source.dart';
 import '../prediction/prediction_section_model.dart';
 import '../timeline/thai_mirror_life_timeline_state.dart';
 
@@ -240,6 +241,7 @@ class ThaiMirrorLifeDashboardItemState {
     required this.whyItAppears,
     required this.suggestedAction,
     required this.status,
+    this.currentStateSource,
   });
 
   final String label;
@@ -247,6 +249,7 @@ class ThaiMirrorLifeDashboardItemState {
   final String whyItAppears;
   final String suggestedAction;
   final ThaiMirrorLifeStatus status;
+  final ThaiMirrorDashboardCopySource? currentStateSource;
 }
 
 class ThaiMirrorSourceTransparencyState {

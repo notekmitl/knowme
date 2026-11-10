@@ -247,7 +247,15 @@ void main() {
               {
                 'title': item.label,
                 'before': item.currentState,
-                'after': TrialReadingCopy.thai(item.currentState),
+                'after': TrialReadingCopy.thaiDashboard(item),
+                if (item.currentStateSource case final source?)
+                  'source': {
+                    'themeId': source.themeId,
+                    'requestedAspect': source.requestedAspect,
+                    'originalSourceAspect': source.sourceAspect,
+                    'originalSourceField': source.sourceField,
+                    'displaySourceField': source.matchingSourceField,
+                  },
               },
           ],
         };
@@ -353,6 +361,85 @@ void main() {
           expect(jsonEncode(raw), untouched);
         }
         cases[id] = result;
+        final frozen =
+            (jsonDecode(
+                      File(
+                        'docs/qa/pr149-plain-thai/assembled-reading-review.json',
+                      ).readAsStringSync(),
+                    )
+                    as Map<String, dynamic>)[id]
+                as Map<String, dynamic>;
+        // Compare to the captured old revision, not another call of the new code.
+        for (final key in [
+          'thaiBefore',
+          'heroBefore',
+          'selectedFacts',
+          'gaps',
+          'conflicts',
+        ]) {
+          expect(result[key], frozen[key], reason: '$id $key changed');
+        }
+        for (final key in ['western', 'overall']) {
+          final rows = result[key] as List?;
+          if (rows == null) continue;
+          final old = frozen[key] as List;
+          for (var i = 0; i < rows.length; i++) {
+            for (final field in [
+              'before',
+              'basis',
+              'thaiEvidence',
+              'chineseEvidence',
+              'westernBasis',
+            ]) {
+              expect(
+                rows[i][field],
+                old[i][field],
+                reason: '$id $key $i $field',
+              );
+            }
+          }
+        }
+        if (id != 'unknown') {
+          final work = (result['overall'] as List).first['after'] as String;
+          expect(work, contains('ต้องทำอะไรครบจึงถือว่างานเสร็จ'));
+          expect(work, contains('หากไม่ตกลงกัน งานที่รับเพิ่มอาจกระจัดกระจาย'));
+          expect(work, contains('แทนที่จะค่อย ๆ รวมเป็นผลงาน'));
+          expect(work, isNot(contains('ไม่มีงานไหนเสร็จ')));
+          final westernWork = (result['western'] as List)[1]['after'] as String;
+          expect(westernWork, contains('ต้องทำอะไรครบจึงถือว่างานเสร็จ'));
+          expect(westernWork, isNot(contains('งานเสร็จเมื่อไร')));
+          final money = (result['western'] as List)[2]['after'] as String;
+          final overallMoney =
+              (result['overall'] as List)[1]['after'] as String;
+          expect(overallMoney, contains('หากจะขยายแผนที่วางไว้'));
+          if (id == 'a') {
+            expect(
+              money,
+              contains('สิ่งที่สำคัญกับตัวเอง ความรู้สึก และการช่วยคนอื่น'),
+            );
+            expect(
+              money,
+              contains('มักใช้เงินได้ง่ายเมื่อรู้สึกเอ็นดูหรือได้แรงบันดาลใจ'),
+            );
+            expect(
+              money,
+              contains('เว้นช่วงก่อนจ่ายและตั้งงบให้การช่วยคนอื่น'),
+            );
+          } else {
+            expect(westernWork, contains('เลือกงานหลักหนึ่งชิ้น'));
+            expect(
+              westernWork,
+              contains('เพื่อไม่ให้การปรับวิธีทำงานทำให้งานกระจัดกระจาย'),
+            );
+            expect(money, contains('มักตัดสินใจซื้อเร็ว เพราะอยากรู้สึกว่า'));
+            expect(money, contains('กำหนดวงเงินก่อนเห็นของที่อยากได้'));
+            final relationship =
+                (result['overall'] as List)[2]['after'] as String;
+            expect(relationship, contains('ใช้ความรู้ที่มี'));
+            expect(relationship, contains('ก่อนพัฒนาความสัมพันธ์'));
+            expect(relationship, isNot(contains('ก่อนเปลี่ยนความสัมพันธ์')));
+          }
+        }
       }
       final incomplete = BaziCompatibilityOwnerFixtures.chart(
         BaziOwnerCase.unknown,
