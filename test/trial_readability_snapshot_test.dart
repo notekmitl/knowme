@@ -10,6 +10,7 @@ import 'package:knowme/features/astrology/fusion/presentation/trial_reading_copy
 import 'package:knowme/features/astrology/fusion/presentation/trial_report_documents.dart';
 import 'package:knowme/features/bazi_compatibility/application/bazi_compatibility_owner_fixtures.dart';
 import 'package:knowme/features/bazi_compatibility/application/bazi_compatibility_report_builder.dart';
+import 'package:knowme/features/bazi_compatibility/application/bazi_symbolic_reading_engine.dart';
 import 'package:knowme/features/bazi_compatibility/domain/bazi_compatibility_report.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_analysis.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_report_export_document.dart';
@@ -57,6 +58,38 @@ void _sameTimingAndPossibility(String before, String after) {
 }
 
 void main() {
+  test(
+    'all ten Day Master profile paragraphs retain possibility and meaning fields',
+    () {
+      for (final stem in const [
+        '甲',
+        '乙',
+        '丙',
+        '丁',
+        '戊',
+        '己',
+        '庚',
+        '辛',
+        '壬',
+        '癸',
+      ]) {
+        final profile = BaziSymbolicReadingEngine.profileFor(stem);
+        final paragraph =
+            'ดวงนี้มีจุดเด่นคือ${profile.strengths.first} '
+            'คุณใช้จุดเด่นนี้ได้ดีเมื่อ${profile.practices.first} '
+            'เมื่อต้องรับหลายเรื่องพร้อมกัน ให้เลือกเรื่องสำคัญก่อนและกำหนดขอบเขตให้ชัด';
+        _sameTimingAndPossibility(
+          paragraph,
+          TrialReadingCopy.chinese(paragraph),
+        );
+        _sameTimingAndPossibility(
+          profile.cautions.first,
+          TrialReadingCopy.chinese(profile.cautions.first),
+        );
+      }
+    },
+  );
+
   test(
     'balanced and missing-time owner fixtures keep possibility and timing',
     () {
