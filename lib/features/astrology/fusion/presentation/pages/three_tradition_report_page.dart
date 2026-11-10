@@ -13,6 +13,8 @@ import 'package:knowme/presentation/pages/astrology/western_reader_v2_copy.dart'
 
 import '../../application/three_tradition_consensus.dart';
 import '../three_tradition_life_reading.dart';
+import '../trial_report_documents.dart';
+import '../trial_reading_copy.dart';
 
 /// The public report leads with supported life-area interpretations. The
 /// comparison and source evidence remain in the passed models for regression
@@ -66,7 +68,10 @@ class ThreeTraditionReportPage extends StatelessWidget {
                 foregroundColor: TrialVisualDesign.text,
               ),
               body: BaziCompatibilityReportView(
-                report: BaziCompatibilityReportBuilder.build(baziChart!),
+                report: TrialReportDocuments.chinese(
+                  BaziCompatibilityReportBuilder.build(baziChart!),
+                  baziChart!,
+                ),
                 trialChart: baziChart,
               ),
             ),
@@ -205,8 +210,7 @@ class ThreeTraditionReportPage extends StatelessWidget {
                         lifeReading.conflicts.isEmpty) ...[
                       const SizedBox(height: 20),
                       Text(
-                        'ข้อมูลที่มีอยู่ยังไม่พอสร้างคำทำนายรายด้าน '
-                        'จึงไม่เติมคำอ่านแทนหลักฐานที่ขาด',
+                        'ยังสรุปชีวิตแต่ละด้านไม่ได้ ดูข้อมูลที่ขาดด้านล่าง',
                         style: TextStyle(
                           color: _hasTrialLenses
                               ? TrialVisualDesign.text
@@ -264,8 +268,9 @@ class ThreeTraditionReportPage extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.only(top: 10),
                       child: Text(
-                        'ยังไม่แสดงคำทำนายรวมของ${conflict.title} '
-                        'เพราะหลักฐานให้มุมที่ขัดกันชัดเจน',
+                        'ยังสรุปเรื่อง${conflict.title}ร่วมกันไม่ได้ '
+                        'เพราะบางศาสตร์บอกว่าคุณเปิดเผยความรู้สึก '
+                        'แต่อีกศาสตร์บอกว่าคุณเก็บความรู้สึกไว้',
                         style: TextStyle(
                           color: _hasTrialLenses
                               ? TrialVisualDesign.muted
@@ -275,9 +280,9 @@ class ThreeTraditionReportPage extends StatelessWidget {
                     ),
                   const SizedBox(height: 20),
                   Text(
-                    'คำอ่านนี้เป็นแนวโน้มจากพื้นดวง ไม่ยืนยันเหตุการณ์หรือ'
-                    'ช่วงอายุ เพราะข้อมูลของสามศาสตร์ยังไม่มีช่วงเวลา'
-                    'ที่เทียบกันได้โดยตรง',
+                    'คำอ่านนี้บอกแนวโน้มจากข้อมูลเกิดของคุณ '
+                    'ยังบอกไม่ได้ว่าเหตุการณ์จะเกิดเมื่อไรหรืออายุเท่าไร '
+                    'เพราะข้อมูลช่วงเวลาของทั้งสามศาสตร์ยังเทียบกันไม่ได้',
                     style: theme.textTheme.bodySmall?.copyWith(
                       color: _hasTrialLenses
                           ? TrialVisualDesign.muted
@@ -366,8 +371,8 @@ class ThreeTraditionReportPage extends StatelessWidget {
           ),
           const SizedBox(height: 16),
           const Text(
-            'คำอ่านแต่ละด้านเป็นการตีความประกอบกันจากพื้นดวง '
-            'ไม่ได้หมายความว่าทั้งสามศาสตร์เห็นตรงกันทุกเรื่อง',
+            'คำอ่านแต่ละด้านนำดวงไทย จีน และตะวันตกมาดูประกอบกัน '
+            'ทั้งสามศาสตร์อาจอธิบายคุณต่างกันได้',
             style: TextStyle(
               color: TrialVisualDesign.text,
               fontSize: 13,
@@ -499,7 +504,9 @@ class ThreeTraditionReportPage extends StatelessWidget {
           ),
           const SizedBox(height: 12),
           _OverallTopicDetails(
-            reading: topic.reading,
+            reading: _hasTrialLenses
+                ? TrialReadingCopy.overall(topic.reading)
+                : topic.reading,
             theme: theme,
             accent: accent,
             number: number,
@@ -512,16 +519,7 @@ class ThreeTraditionReportPage extends StatelessWidget {
   }
 
   String _gapLabel(String gap) {
-    final title = gap.split(':').first.trim();
-    const lifeAreas = {
-      'การงาน',
-      'การเงิน',
-      'ความสัมพันธ์',
-      'การดูแลพลังและกิจวัตร',
-    };
-    return lifeAreas.contains(title)
-        ? 'ข้อมูลยังไม่พอสำหรับ$title'
-        : 'ข้อมูลยังไม่พอสำหรับคำอ่านบางด้าน';
+    return TrialReadingCopy.overall(gap);
   }
 }
 

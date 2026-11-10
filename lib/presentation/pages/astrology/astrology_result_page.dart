@@ -1,4 +1,5 @@
 import 'package:knowme/features/astrology/fusion/presentation/trial_reader_typography.dart';
+import 'package:knowme/features/astrology/fusion/presentation/trial_reading_copy.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:knowme/features/astrology/fusion/presentation/trial_visual_design.dart';
@@ -165,7 +166,18 @@ class WesternReaderBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final sections = WesternReaderV2Copy.sections(chart);
+    final sections = WesternReaderV2Copy.sections(chart)
+        .map(
+          (section) => trialVisual
+              ? WesternReaderSection(
+                  id: section.id,
+                  title: TrialReadingCopy.western(section.title),
+                  body: TrialReadingCopy.western(section.body),
+                  basis: section.basis,
+                )
+              : section,
+        )
+        .toList();
     final view = DecoratedBox(
       decoration: const BoxDecoration(
         gradient: LinearGradient(
@@ -227,11 +239,14 @@ class WesternReaderBody extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
-                          const _SectionHeading(
+                          _SectionHeading(
                             eyebrow: 'คำอ่านหลัก',
-                            title: 'อ่านเป็นเรื่องชีวิต ไม่ใช่ป้ายราศี',
-                            subtitle:
-                                'เริ่มจากพฤติกรรมที่พบได้จริง ผลที่มักเกิด และวิธีใช้ให้เป็นประโยชน์',
+                            title: trialVisual
+                                ? 'คำอ่านเกี่ยวกับชีวิตของคุณ'
+                                : 'อ่านเป็นเรื่องชีวิต ไม่ใช่ป้ายราศี',
+                            subtitle: trialVisual
+                                ? 'อ่านวิธีคิด การทำงาน ความสัมพันธ์ และเรื่องที่คุณควรระวัง'
+                                : 'เริ่มจากพฤติกรรมที่พบได้จริง ผลที่มักเกิด และวิธีใช้ให้เป็นประโยชน์',
                           ),
                           const SizedBox(height: 14),
                           for (final section in sections) ...[
@@ -376,7 +391,7 @@ class WesternReaderBody extends StatelessWidget {
           if (!trialVisual) ...[
             const SizedBox(height: 14),
             Text(
-              WesternReaderV2Copy.overview(chart),
+              _trialText(WesternReaderV2Copy.overview(chart)),
               style: TextStyle(
                 color: Colors.white.withValues(alpha: 0.9),
                 fontSize: 17,
@@ -406,7 +421,7 @@ class WesternReaderBody extends StatelessWidget {
           const SizedBox(width: 16),
           Expanded(
             child: Text(
-              WesternReaderV2Copy.overview(chart),
+              _trialText(WesternReaderV2Copy.overview(chart)),
               style: const TextStyle(
                 color: Colors.white,
                 fontSize: 17,
@@ -562,6 +577,15 @@ class WesternReaderBody extends StatelessWidget {
           ),
           children: [
             if (!trialVisual) ...[_balances(), const SizedBox(height: 12)],
+            if (trialVisual) ...[
+              const Text(
+                'เรือนคือส่วนของดวงที่ใช้ดูชีวิตแต่ละด้าน เช่น งานหรือเงิน '
+                'มุมดาวคือตำแหน่งของดาวสองดวงเมื่อเทียบกัน '
+                'ข้อมูลด้านล่างบอกที่มาของคำอ่าน',
+                style: _supportStyle,
+              ),
+              const SizedBox(height: 12),
+            ],
             _dominance(),
             const SizedBox(height: 12),
             _aspects(),
@@ -733,15 +757,24 @@ class WesternReaderBody extends StatelessWidget {
         children: [
           const Text('วิธีคำนวณ', style: _cardTitleStyle),
           const SizedBox(height: 8),
-          Text(WesternReaderV2Copy.method(chart), style: _supportStyle),
+          Text(
+            _trialText(WesternReaderV2Copy.method(chart)),
+            style: _supportStyle,
+          ),
           const SizedBox(height: 18),
           const Text('ข้อจำกัดของคำอ่าน', style: _cardTitleStyle),
           const SizedBox(height: 8),
-          Text(WesternReaderV2Copy.disclaimer(chart), style: _supportStyle),
+          Text(
+            _trialText(WesternReaderV2Copy.disclaimer(chart)),
+            style: _supportStyle,
+          ),
         ],
       ),
     );
   }
+
+  String _trialText(String value) =>
+      trialVisual ? TrialReadingCopy.western(value) : value;
 }
 
 class _ReadingCard extends StatelessWidget {

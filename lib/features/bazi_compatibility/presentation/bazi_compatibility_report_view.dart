@@ -279,7 +279,7 @@ class _TrialPillars extends StatelessWidget {
           ),
           const SizedBox(height: 4),
           const Text(
-            'อ่านตามปี เดือน วัน และเวลาเกิด',
+            'สี่เสาคือข้อมูล 4 ส่วนจากปี เดือน วัน และเวลาเกิด ธาตุประจำวันใช้เป็นหลักในการอ่านลักษณะของคุณ',
             style: TextStyle(color: TrialVisualDesign.muted, fontSize: 14),
           ),
           const SizedBox(height: 18),

@@ -452,7 +452,7 @@ void main() {
       );
       expect(reading.agreements.map((item) => item.sourceCount), [3, 2]);
       expect(
-        find.textContaining('ข้อมูลที่มีอยู่ยังไม่พอสร้างคำทำนายรายด้าน'),
+        find.textContaining('ยังสรุปชีวิตแต่ละด้านไม่ได้'),
         findsOneWidget,
       );
       expect(find.text('สอดคล้องกันทั้ง 3 ศาสตร์'), findsNothing);
@@ -626,10 +626,7 @@ void main() {
         ),
       ),
     );
-    expect(
-      find.textContaining('ข้อมูลที่มีอยู่ยังไม่พอสร้างคำทำนายรายด้าน'),
-      findsOneWidget,
-    );
+    expect(find.textContaining('ยังสรุปชีวิตแต่ละด้านไม่ได้'), findsOneWidget);
     expect(find.text('คำอ่านพื้นดวงรายด้าน'), findsNothing);
     expect(find.text('จุดร่วมที่หลักฐานรองรับ'), findsNothing);
     expect(tester.takeException(), isNull);
@@ -701,13 +698,10 @@ void main() {
       ),
     );
     expect(
-      find.textContaining('ยังไม่แสดงคำทำนายรวมของความสัมพันธ์'),
+      find.textContaining('ยังสรุปเรื่องความสัมพันธ์ร่วมกันไม่ได้'),
       findsOneWidget,
     );
-    expect(
-      find.textContaining('ข้อมูลที่มีอยู่ยังไม่พอสร้างคำทำนายรายด้าน'),
-      findsNothing,
-    );
+    expect(find.textContaining('ยังสรุปชีวิตแต่ละด้านไม่ได้'), findsNothing);
     expect(find.text('expressive'), findsNothing);
     expect(find.text('reserved'), findsNothing);
     expect(tester.takeException(), isNull);

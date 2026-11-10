@@ -251,7 +251,7 @@ class _ThaiBetaAstrologySelectionPageState
                       Text(
                         _westernReady
                             ? 'สร้างดวงรวมไม่สำเร็จ กรุณาลองอีกครั้ง'
-                            : 'ดวงรวมต้องทราบเวลาเกิดและจังหวัดที่เกิด',
+                            : 'ยังขาด${[if (!widget.input.hasBirthTime) 'เวลาเกิด', if (widget.input.provinceKey?.trim().isEmpty ?? true) 'จังหวัดที่เกิด'].join('และ')} จึงยังดูดวงรวมไม่ได้',
                         textAlign: TextAlign.center,
                       ),
                       if (_westernReady) ...[

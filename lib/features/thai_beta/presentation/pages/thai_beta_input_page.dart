@@ -135,9 +135,11 @@ class _ThaiBetaInputPageState extends State<ThaiBetaInputPage> {
     // require a known birth time and a resolvable birthplace.
     if (!input.hasBirthTime || (input.provinceKey?.trim().isEmpty ?? true)) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
+        SnackBar(
           content: Text(
-            'ดวงรวมต้องทราบเวลาเกิดและจังหวัดที่เกิด กรุณากรอกให้ครบ',
+            ApiConfig.isOverallPreview
+                ? 'ยังขาด${[if (!input.hasBirthTime) 'เวลาเกิด', if (input.provinceKey?.trim().isEmpty ?? true) 'จังหวัดที่เกิด'].join('และ')} จึงยังดูดวงรวมไม่ได้ กรุณากรอกข้อมูลส่วนนี้ให้ครบ'
+                : 'ดวงรวมต้องทราบเวลาเกิดและจังหวัดที่เกิด กรุณากรอกให้ครบ',
           ),
         ),
       );

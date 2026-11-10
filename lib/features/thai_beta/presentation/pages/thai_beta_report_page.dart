@@ -1,4 +1,6 @@
 import 'package:knowme/features/astrology/fusion/presentation/trial_reader_typography.dart';
+import 'package:knowme/features/astrology/fusion/presentation/trial_reading_copy.dart';
+import 'package:knowme/features/astrology/fusion/presentation/trial_report_documents.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:knowme/features/astrology/fusion/presentation/trial_visual_design.dart';
@@ -386,10 +388,13 @@ class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
         ? 24.0
         : 88 + MediaQuery.paddingOf(context).bottom;
     final narrativeView = ThaiBetaNarrativeComposer.narrativeView(analysis);
-    final document = ThaiBetaReportExportDocument.candidate(
+    final sourceDocument = ThaiBetaReportExportDocument.candidate(
       analysis,
       badges: _showBadgePanel ? _badges : const [],
     );
+    final document = widget.anonymousTrial
+        ? TrialReportDocuments.thai(sourceDocument)
+        : sourceDocument;
     _schedulePrintDocumentSync(document);
     final reportHorizontalPadding = widget.anonymousTrial
         ? 0.0
@@ -521,7 +526,7 @@ class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
               style: TextStyle(color: TrialVisualDesign.text),
             ),
             subtitle: const Text(
-              'คำอ่านและรายละเอียดเดิมอยู่ครบ เปิดอ่านต่อได้',
+              'ดูคำอ่าน ที่มา และช่วงเวลาที่ใช้สรุปผล',
               style: TextStyle(color: TrialVisualDesign.muted),
             ),
             children: [report],
@@ -607,7 +612,9 @@ class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
                                       ),
                                       const SizedBox(height: 5),
                                       Text(
-                                        items[i].currentState,
+                                        TrialReadingCopy.thai(
+                                          items[i].currentState,
+                                        ),
                                         style: const TextStyle(
                                           color: TrialVisualDesign.muted,
                                           fontSize: 16,
@@ -711,7 +718,9 @@ class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
                             ),
                           ),
                           Text(
-                            hero?.headline ?? 'ดวงไทยของคุณ',
+                            TrialReadingCopy.thaiHeadline(
+                              hero?.headline ?? 'ดวงไทยของคุณ',
+                            ),
                             style: const TextStyle(
                               color: TrialVisualDesign.text,
                               fontSize: 22,
@@ -727,7 +736,7 @@ class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
                 if (hero != null && hero.summary.trim().isNotEmpty) ...[
                   const SizedBox(height: 16),
                   Text(
-                    hero.summary.split('\n\n').first,
+                    TrialReadingCopy.thai(hero.summary.split('\n\n').first),
                     key: const Key('trial-thai-key-reading'),
                     style: const TextStyle(
                       color: TrialVisualDesign.text,

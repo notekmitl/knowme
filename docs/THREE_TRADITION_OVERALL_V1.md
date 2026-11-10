@@ -1,3 +1,41 @@
+# KnowMe PR149 — ปรับภาษาไทยเฉพาะ trial · 10 พ.ย. 2026
+
+เริ่มจาก remote HEAD `1d3b944` ที่ตรวจใหม่แล้ว PR #149 ยัง OPEN + DRAFT และ checkout
+ไม่มีงานค้าง รักษาประวัติและหน้าแรกที่ยอมรับแล้ว ผู้ทดลองส่วนใหญ่บอกว่าอ่านยาก
+รอบนี้ใช้คำพูดทั่วไปกับผู้ใหญ่ บอกความหมายตรง ๆ ระบุว่าใครทำอะไร คงเงื่อนไข
+ช่วงเวลาและ “อาจ” ไม่เติมเหตุการณ์หรือคำแนะนำใหม่แทนข้อมูลที่ขาด
+
+แก้เฉพาะชุดข้อความ deterministic ของ anonymous trial: ฟอร์ม/ข้อมูลขาด ดวงรวม
+ไทย/จีน/ตะวันตกและรายละเอียด รวม document ไทยที่ส่งทั้งให้เว็บและ browser print.
+อ่านต้นทาง UI/template/backend ครบแล้ว ใช้ trial-only presentation projection
+กับ clause/template ที่ตรวจบริบท ไม่เปลี่ยน calculator, คะแนน, เกณฑ์เลือกคำอ่าน,
+หลักฐาน, missing/conflict rules, API contract, reader revision หรือ cache ของแอปหลัก
+ไม่ต้องแก้/deploy backend และไม่เพิ่ม AI/service ตอนเปิดอ่าน
+
+local focused tests ผ่าน; full Flutter suite **3,162 passed / 3 skipped**
+ด้วย timezone ประเทศไทยของ Windows เดิม; analyzer ตาม policy และ plugin-free
+guarded build ผ่าน Chrome local 390×844/1280×800 ผ่านครบสี่ศาสตร์:
+known time 2 POST (200) รวม สลับหน้า/เปิดรายละเอียดไม่เพิ่ม; unknown time 0 POST.
+ไม่มี forbidden Auth/Firestore/Production API หรือ write อื่น/error/overflow.
+หน้าเริ่มต้นมือถือเทียบ hosted ก่อนแก้ตรงทุกพิกเซล มีตัวอย่างย่อหน้าจริงก่อน–หลัง
+14 ตัวอย่างและตรวจข้อมูลดวง/หลักฐานด้วย input/as-of เดียวกัน
+
+**ยังรอ CI revision ใหม่และเผยแพร่เฉพาะ trial เดิม**
+<https://knowme-trial-694e1.web.app/beta/thai>. ก่อนแก้ trial เป็น release
+`1793599203756000` / version `c0ad58f8d39f8731`; calculator ยังคง
+`knowme-overall-pr149-preview-00004-kt9`. เก็บ main hashes และ rollback เฉพาะ trial.
+ไม่ Merge PR #149 หรือแก้ main Hosting/Auth/Firestore/IAM/billing
+
+**รอผลทดลองอ่าน**: technical checks ไม่ใช่หลักฐานว่าผู้ทดลองเข้าใจแล้ว
+งานค้างเดิมที่แยกไว้: การ์ดสรุปไทยบาง input เลือกข้อความที่ไม่ชัดว่าเกี่ยวกับชื่อด้านอย่างไร
+(เช่นข้อความการใช้เงินอยู่ใต้การงาน) ไม่เดาความหมายใหม่หรือเปลี่ยน evidence selection
+เพื่อกลบปัญหาในงานภาษา
+
+[ขอบเขต/ผลตรวจ/ข้อจำกัด/rollback](qa/pr149-plain-thai/README.md) ·
+[ตารางก่อน–หลัง 14 ตัวอย่าง](qa/pr149-plain-thai/before-after.md)
+
+---
+
 # KnowMe PR149 — dedicated trial Hosting release, 2026-11-02
 
 Owner authorized **“Deploy เลย”** after accepting the PC trial landing.
