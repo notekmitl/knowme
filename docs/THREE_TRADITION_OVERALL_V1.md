@@ -19,6 +19,10 @@ Local full suite ผ่าน 3,167 tests / skipped 3 แต่ PDF gate หน�
 ยังไม่เผยแพร่ r3; จะตรวจ trial target/สิทธิ์ล่าสุดและ rollback ก่อน deploy เฉพาะ trial เดิม.
 ไม่แก้ backend/Auth/Firestore/IAM/billing/main site ไม่ Merge PR149. **รอผลทดลองอ่าน**.
 
+ตรวจ browser จริงพบ single-pass clause overlap ขวางคำอธิบายวลีถัดไป จึงแก้ขอบเขตวลี
+และเพิ่ม regression จากย่อหน้า Western B การงาน / A ความสัมพันธ์ ผ่าน 8 tests ล่าสุด.
+
+
 ---
 
 # KnowMe PR149 — ภาษาไทย r2 ขึ้น trial แล้ว · 10 พ.ย. 2026

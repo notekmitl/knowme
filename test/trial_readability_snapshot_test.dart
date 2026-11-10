@@ -413,6 +413,14 @@ void main() {
               (result['overall'] as List)[1]['after'] as String;
           expect(overallMoney, contains('หากจะขยายแผนที่วางไว้'));
           if (id == 'a') {
+            final love = (result['western'] as List)[3]['after'] as String;
+            expect(
+              love,
+              contains(
+                'ขณะเดียวกัน คุณต้องการความเป็นธรรมและการพูดคุยที่ทั้งสองฝ่ายได้บอกความเห็น',
+              ),
+            );
+            expect(love, isNot(contains('มีที่ยืน')));
             expect(
               money,
               contains('สิ่งที่สำคัญกับตัวเอง ความรู้สึก และการช่วยคนอื่น'),
@@ -426,6 +434,13 @@ void main() {
               contains('เว้นช่วงก่อนจ่ายและตั้งงบให้การช่วยคนอื่น'),
             );
           } else {
+            expect(
+              westernWork,
+              contains(
+                'เมื่อต้องทำให้งานคืบหน้า คุณทำได้ดีเมื่อสิ่งที่ทำสำคัญกับคุณ ได้ใช้ความคิดสร้างสรรค์ หรือได้ช่วยคนอื่น',
+              ),
+            );
+            expect(westernWork, isNot(contains('เชื่อมโยงกับความหมาย')));
             expect(westernWork, contains('เลือกงานหลักหนึ่งชิ้น'));
             expect(
               westernWork,
