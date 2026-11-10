@@ -67,12 +67,27 @@ abstract final class TrialReportDocuments {
     // calculated Day Master and explain its role without inventing a trait.
     final metaphor =
         'แกนดวงของคุณคือ ${profile.name} เปรียบเหมือน “${profile.symbol}” ';
-    String text(String value) => TrialReadingCopy.chinese(
-      value.replaceAll(
-        metaphor,
-        'ดวงจีนใช้ ${profile.name} เป็นธาตุประจำวัน เพื่ออ่านลักษณะของคุณ ',
-      ),
-    );
+    String text(String value) {
+      const missingCycle =
+          'ยังไม่แสดงดวงจรสิบปี เพราะข้อมูลเพศหรือเวลาเกิดไม่ครบ ระบบจึงไม่กำหนดทิศทางเดินดวงแทนผู้ใช้';
+      if (value == missingCycle) {
+        final missing = [
+          if (!chart.timeKnown) 'เวลาเกิด',
+          if (!const {'male', 'female'}.contains(chart.luck.gender))
+            'ข้อมูลเพศที่ใช้คำนวณ',
+        ];
+        return missing.isEmpty
+            ? 'ยังไม่มีผลคำนวณช่วงสิบปีที่ครอบคลุมปีนี้ จึงยังอ่านช่วงชีวิตปัจจุบันไม่ได้'
+            : 'ยังขาด${missing.join('และ')} จึงยังอ่านแนวโน้มช่วงละสิบปีไม่ได้';
+      }
+      return TrialReadingCopy.chinese(
+        value.replaceAll(
+          metaphor,
+          'ดวงจีนใช้ ${profile.name} เป็นธาตุประจำวัน เพื่ออ่านลักษณะของคุณ ',
+        ),
+      );
+    }
+
     return BaziCompatibilityReport(
       title: source.title,
       subtitle: text(source.subtitle),

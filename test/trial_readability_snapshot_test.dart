@@ -58,6 +58,49 @@ void _sameTimingAndPossibility(String before, String after) {
 }
 
 void main() {
+  test('missing-cycle copy names only absent calculation fields', () {
+    const source = BaziCompatibilityReport(
+      title: 'ดวงจีน',
+      subtitle: '',
+      sections: [
+        BaziCompatibilityReportSection(
+          title: 'จังหวะชีวิตปัจจุบัน',
+          paragraphs: [
+            'ยังไม่แสดงดวงจรสิบปี เพราะข้อมูลเพศหรือเวลาเกิดไม่ครบ ระบบจึงไม่กำหนดทิศทางเดินดวงแทนผู้ใช้',
+          ],
+        ),
+      ],
+    );
+    for (final (timeKnown, gender, hasTimeGap, hasGenderGap) in [
+      (true, 'unknown', false, true),
+      (false, 'female', true, false),
+      (false, 'unknown', true, true),
+    ]) {
+      final raw =
+          (jsonDecode(
+                    File(
+                      'test/fixtures/trial_readability/calculator-a.json',
+                    ).readAsStringSync(),
+                  )
+                  as Map<String, dynamic>)['bazi']
+              as Map<String, dynamic>;
+      raw['time_known'] = timeKnown;
+      (raw['luck'] as Map<String, dynamic>)['gender'] = gender;
+      final projected = TrialReportDocuments.chinese(
+        source,
+        BaziChartModel.fromMap(raw),
+      );
+      final text = projected.sections.single.paragraphs.single;
+      expect(text.contains('เวลาเกิด'), hasTimeGap);
+      expect(text.contains('ข้อมูลเพศ'), hasGenderGap);
+      expect(text, contains('ยังอ่านแนวโน้มช่วงละสิบปีไม่ได้'));
+      expect(
+        source.sections.single.paragraphs.single,
+        contains('เพศหรือเวลาเกิด'),
+      );
+    }
+  });
+
   test(
     'all ten Day Master profile paragraphs retain possibility and meaning fields',
     () {
