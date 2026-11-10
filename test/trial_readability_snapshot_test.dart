@@ -58,6 +58,26 @@ void _sameTimingAndPossibility(String before, String after) {
 
 void main() {
   test(
+    'balanced and missing-time owner fixtures keep possibility and timing',
+    () {
+      final fixtures = [
+        BaziCompatibilityOwnerFixtures.readerV3Chart(),
+        for (final item in BaziOwnerCase.values)
+          BaziCompatibilityOwnerFixtures.chart(item),
+      ];
+      for (final chart in fixtures) {
+        final original = BaziCompatibilityReportBuilder.build(
+          chart,
+          asOf: DateTime.parse(_asOf),
+        );
+        final projected = TrialReportDocuments.chinese(original, chart);
+        _sameTimingAndPossibility(original.plainText, projected.plainText);
+        expect(projected.sections.length, original.sections.length);
+      }
+    },
+  );
+
+  test(
     'assembled trial copy preserves source models, timing and selected evidence',
     () {
       final cases = <String, dynamic>{
