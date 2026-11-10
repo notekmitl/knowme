@@ -1,0 +1,16 @@
+[
+  {
+    "case": "hosted-a-390-chrome",
+    "pages": 4,
+    "paragraphs": 46,
+    "missing": [],
+    "normalization": "NFKD, whitespace, combining marks; Chrome PDF glyph mapping limitation separately visually reviewed"
+  },
+  {
+    "case": "hosted-b-1280-cpu",
+    "pages": 4,
+    "paragraphs": 46,
+    "missing": [],
+    "normalization": "NFKD, whitespace, combining marks; Chrome PDF glyph mapping limitation separately visually reviewed"
+  }
+]

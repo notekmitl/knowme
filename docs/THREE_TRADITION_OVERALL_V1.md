@@ -1,3 +1,39 @@
+# KnowMe PR149 — ภาษาไทย r2 ขึ้น trial แล้ว · 10 พ.ย. 2026
+
+เผยแพร่เฉพาะ [trial เดิม](https://knowme-trial-694e1.web.app/beta/thai) แล้ว:
+application `ffc960b`, copy `trial_plain_th_20261110_r2`, release
+`1794294064730000` / Hosting version `fbbc0bf77cbda8ff`.
+[CI ของ application revision นี้](https://github.com/notekmitl/knowme/actions/runs/42771291798) ผ่านครบทั้ง backend,
+isolated build, analyzer, Web builds และ Flutter suite เต็ม ก่อนเผยแพร่
+PR #149 ยังคง Draft ไม่ Merge ไม่ deploy เว็บหลักหรือ backend
+
+แก้ข้อความฟอร์ม ผลรวม ไทย จีน ตะวันตก รายละเอียด และ document ไทยที่ใช้พิมพ์
+ด้วยคำพูดทั่วไปกับผู้ใหญ่ อธิบายศัพท์ บอกเฉพาะข้อมูลที่ขาด และคง “อาจ”
+เงื่อนไข/ช่วงเวลา/คำแนะนำเดิม ใช้ชุดคำเฉพาะ trial ไม่มี AI/service ตอนเปิดอ่าน
+ไม่เปลี่ยนสูตร คะแนน เกณฑ์เลือกผล หลักฐาน missing/conflict rules หรือ API contract
+
+Hosted fresh journey 390×844 Chrome และ 1280×800 CPU fallback ผ่าน:
+known time 2 calculator POST (200) รวม เปิดรายละเอียด/สลับศาสตร์ไม่เพิ่ม;
+unknown time ทั้งสองขนาด 0 POST ไม่มี Auth/Firestore/Production API,
+write อื่น, app error, failed request หรือ horizontal overflow.
+index/bootstrap/main JS ตรง guarded build; initial/reload ผ่านและไม่มี service worker คุมหน้า.
+หน้าแรกมือถือและ PC เหมือนภาพก่อนทุกพิกเซล main release/version และสาม entry hashes/cache headers
+เหมือนเดิม calculator ยังคง `knowme-overall-pr149-preview-00004-kt9`.
+มี browser-print PDF จริงและภาพตรวจครบ พร้อม rollback เฉพาะ trial ไป version r1 `e660e016f97b4695`
+
+[ขอบเขต/หลักฐาน/rollback](qa/pr149-plain-thai/README.md) ·
+[ก่อน–หลัง 14 ย่อหน้าจริงครบสี่มุมมอง](qa/pr149-plain-thai/before-after.md).
+ข้อมูลดวงและการเลือกหลักฐานก่อน–หลังตรวจด้วย input/as-of เดียวกันและเท่ากัน
+local full suite ของ r2 ก่อนเก็บศัพท์รอบท้ายผ่าน 3,164 tests / 3 skipped;
+regression ข้อความล่าสุดผ่าน และ CI ของ application สุดท้ายผ่าน suite เต็มอีกครั้ง
+
+**รอผลทดลองอ่าน** จากคนทดลองรุ่นใหม่ ไม่อ้างว่าอ่านเข้าใจแล้วจาก tests.
+งานค้างที่ไม่เปลี่ยนตามขอบเขต: การ์ดสรุปไทยบาง input ใช้ข้อความที่ไม่ชัดว่าเกี่ยวกับชื่อด้านอย่างไร
+เช่นข้อความเรื่องใช้เงินอยู่ใต้การงาน ต้องตรวจเกณฑ์จัดหมวด/หลักฐานแยก ไม่แต่งความหมายใหม่กลบปัญหา
+ไม่มี blocker ด้านเครื่องมือหรือสิทธิ์เผยแพร่เหลืออยู่
+
+---
+
 # KnowMe PR149 — ปรับภาษาไทยเฉพาะ trial · 10 พ.ย. 2026
 
 เริ่มจาก remote HEAD `1d3b944` ที่ตรวจใหม่แล้ว PR #149 ยัง OPEN + DRAFT และ checkout

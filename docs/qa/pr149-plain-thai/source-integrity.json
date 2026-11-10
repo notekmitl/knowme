@@ -1,0 +1,15 @@
+{
+  "baseline": "1d3b9445e7cf7c34ac19c6e430a1697a0a22a6c2",
+  "application": "ffc960b40db01f155d01bf6682d66e25f77be2c7",
+  "unchanged_source_roots": [
+    "backend",
+    "lib/data/models",
+    "lib/features/astrology/fusion/application",
+    "lib/features/astrology/fusion/adapters",
+    "lib/features/thai_beta/application",
+    "lib/features/bazi_compatibility/application"
+  ],
+  "git_diff_quiet_pass": true,
+  "main_live_release": "1790074568414000",
+  "main_live_version": "d32e72678324e634"
+}

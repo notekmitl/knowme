@@ -1,0 +1,178 @@
+{
+  "application_sha": "ffc960b40db01f155d01bf6682d66e25f77be2c7",
+  "copy_revision": "trial_plain_th_20261110_r2",
+  "site": "knowme-trial-694e1",
+  "url": "https://knowme-trial-694e1.web.app/beta/thai",
+  "before": {
+    "release": "1793599203756000",
+    "version": "c0ad58f8d39f8731",
+    "time": "2026-11-02T06:00:03.756Z"
+  },
+  "after": {
+    "release": "1794294064730000",
+    "version": "fbbc0bf77cbda8ff",
+    "time": "2026-11-10T07:01:04.730Z"
+  },
+  "application_ci": {
+    "url": "https://github.com/notekmitl/knowme/actions/runs/42771291798",
+    "conclusion": "success",
+    "jobs": [
+      {
+        "name": "isolated-trial-build",
+        "conclusion": "success"
+      },
+      {
+        "name": "backend-validation",
+        "conclusion": "success"
+      },
+      {
+        "name": "flutter-validation",
+        "conclusion": "success"
+      }
+    ]
+  },
+  "build": {
+    "api": "https://knowme-overall-pr149-preview-avbyttircq-as.a.run.app",
+    "version": "trial-plain-th-20261110-r2",
+    "sha256": {
+      "main.dart.js": "ad0e36746470f9362db3b589d12f9ab3bbbc7d50ee67601d3ac1aeb7c7880bbf",
+      "flutter_bootstrap.js": "b1242e6af14e7e1e39452ec66737afb54523c8a16f3141bbaef99b4348d6101d",
+      "index.html": "592e083610873af380f84525a5c3c8e8cf25b13d85106255efbed24df95dead0"
+    },
+    "registrant_verified": true
+  },
+  "main_entry_files_unchanged": true,
+  "calculator_revision_unchanged": "knowme-overall-pr149-preview-00004-kt9",
+  "mobile_landing_pixel_equal": true,
+  "pc_cpu_landing_pixel_diff_bbox": null,
+  "hosted_qa": [
+    {
+      "case": "hosted-a-390-chrome",
+      "viewport": [
+        390,
+        844
+      ],
+      "posts": 2,
+      "post_statuses": [
+        200,
+        200
+      ],
+      "forbidden": 0,
+      "other_writes": 0,
+      "app_errors": 0,
+      "failed_requests": 0,
+      "document_widths": {
+        "landing": 390,
+        "form": 390,
+        "date-picker": 390,
+        "form-ready": 390,
+        "overall": 390,
+        "overall-expanded": 390,
+        "overall-recollapsed": 390,
+        "thai": 390,
+        "thai-settled": 390,
+        "thai-reading": 390,
+        "thai-full-reading": 390,
+        "thai-full-deep": 390,
+        "thai-annual-search": 390,
+        "chinese": 390,
+        "chinese-settled": 390,
+        "chinese-reading": 390,
+        "chinese-elements": 390,
+        "chinese-timeline-bottom": 390,
+        "western": 390,
+        "western-settled": 390,
+        "western-reading": 390,
+        "western-before-sources": 390,
+        "western-sources": 390,
+        "western-planets": 390,
+        "overall-returned": 390
+      }
+    },
+    {
+      "case": "hosted-b-1280-cpu",
+      "viewport": [
+        1280,
+        800
+      ],
+      "posts": 2,
+      "post_statuses": [
+        200,
+        200
+      ],
+      "forbidden": 0,
+      "other_writes": 0,
+      "app_errors": 0,
+      "failed_requests": 0,
+      "document_widths": {
+        "landing": 1280,
+        "form": 1280,
+        "date-picker": 1280,
+        "form-ready": 1280,
+        "overall": 1280,
+        "overall-expanded": 1280,
+        "overall-recollapsed": 1280,
+        "thai": 1280,
+        "thai-settled": 1280,
+        "thai-reading": 1280,
+        "thai-full-reading": 1280,
+        "thai-full-deep": 1280,
+        "thai-annual-search": 1280,
+        "chinese": 1280,
+        "chinese-settled": 1280,
+        "chinese-reading": 1280,
+        "chinese-elements": 1280,
+        "chinese-timeline-bottom": 1280,
+        "western": 1280,
+        "western-settled": 1280,
+        "western-reading": 1280,
+        "western-before-sources": 1280,
+        "western-sources": 1280,
+        "western-planets": 1280,
+        "overall-returned": 1280
+      }
+    },
+    {
+      "case": "hosted-unknown-390-chrome",
+      "viewport": [
+        390,
+        844
+      ],
+      "posts": 0,
+      "post_statuses": [],
+      "forbidden": 0,
+      "other_writes": 0,
+      "app_errors": 0,
+      "failed_requests": 0,
+      "document_widths": {
+        "landing": 390,
+        "form": 390,
+        "date-picker": 390,
+        "form-ready": 390,
+        "unknown-result": 390
+      }
+    },
+    {
+      "case": "hosted-unknown-1280-cpu",
+      "viewport": [
+        1280,
+        800
+      ],
+      "posts": 0,
+      "post_statuses": [],
+      "forbidden": 0,
+      "other_writes": 0,
+      "app_errors": 0,
+      "failed_requests": 0,
+      "document_widths": {
+        "landing": 1280,
+        "form": 1280,
+        "date-picker": 1280,
+        "form-ready": 1280,
+        "unknown-result": 1280
+      }
+    }
+  ],
+  "human_readability": "รอผลทดลองอ่าน",
+  "remaining_content_issue": "Existing Thai dashboard evidence/category mismatch in some inputs; selection unchanged by instruction"
+}

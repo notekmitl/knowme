@@ -1,3 +1,90 @@
+# ส่งมอบภาษาไทย trial r2 · 10 พ.ย. 2026
+
+สถานะ: **เผยแพร่ trial และ Hosted QA ผ่าน; รอผลทดลองอ่าน**.
+Application `ffc960b40db01f155d01bf6682d66e25f77be2c7`, copy revision
+`trial_plain_th_20261110_r2`, build pin `trial-plain-th-20261110-r2`.
+[Application CI](https://github.com/notekmitl/knowme/actions/runs/42771291798) ผ่านครบก่อน deploy. มีคอมมิตหลักฐานหลัง release;
+สถานะ checks ของคอมมิตหลักฐานดูที่ PR #149 และต้องรอให้จบก่อนปิดงาน
+
+[เปิด trial](https://knowme-trial-694e1.web.app/beta/thai) · release
+`1794294064730000` · version `fbbc0bf77cbda8ff`.
+[Release/QA summary](release-summary.json), [hosted hashes](hosted-hashes.json),
+[source integrity](source-integrity.json), [main ก่อน](main-before.json),
+[main หลัง](main-after.json) บันทึกผลจริง ไม่ใช่การอ้างจาก build อย่างเดียว
+
+รอบ r1 (`b804a47`, version `e660e016f97b4695`) ผ่านและขึ้น trial ก่อนแล้ว
+จากการอ่านจริงพบศัพท์นามธรรมใน profile จีนและรายละเอียดไทย จึงเก็บเพิ่มเป็น r2
+โดยคงเงื่อนไข ตัวเลขและระดับความแน่นอน พร้อมทดสอบ profile จีนครบสิบแบบ
+[ประวัติ r1](r1-release-summary.json) เก็บไว้ ไม่ใช้เป็นหลักฐานของ bundle r2
+
+## ผลตรวจปลายทางจริง
+
+| Fresh Chrome journey | ผล |
+| --- | --- |
+| 390×844, known-time A | 2 calculator POST, 200 ทั้งคู่; รวม/ไทย/จีน/ตะวันตก/กลับ เปิด–ปิดรายละเอียดและข้อมูลดาวไม่เพิ่ม POST |
+| 1280×800, known-time B, GPU/WebGL disabled | 2 calculator POST, 200 ทั้งคู่; เส้นทางเดียวกันผ่าน ภาพประดับแสดง |
+| 390×844, unknown-time | อธิบายว่าขาดเวลาเกิด; 0 POST |
+| 1280×800, unknown-time, CPU fallback | อธิบายว่าขาดเวลาเกิด; 0 POST |
+
+ทุก journey: Auth/Firestore SDK/API, Production API, write อื่น, failed request,
+app error และ horizontal overflow เป็นศูนย์. [390 trace](network-hosted-a-390-chrome.json),
+[1280 trace](network-hosted-b-1280-cpu.json), [unknown 390](network-hosted-unknown-390-chrome.json),
+[unknown 1280](network-hosted-unknown-1280-cpu.json).
+เปิด source explanation/ตำแหน่งดาวตะวันตกแล้วพบข้อความจริงครบใน
+[rendered text มือถือ](rendered-text-hosted-a-390-chrome.json) และ
+[rendered text PC](rendered-text-hosted-b-1280-cpu.json).
+ความพยายามครั้งแรกของ r1 ติด locator แบบ exact ที่ไม่รวม subtitle ของ Flutter semantics;
+แก้ตัวตรวจแล้วรัน fresh context ใหม่ ไม่ได้แก้แอปเพื่อกลบปัญหาหรือใช้ run ที่ไม่จบเป็น PASS
+
+[Initial/reload 390](reload-390-chrome.json) และ [1280 CPU](reload-1280-cpu.json)
+ผ่าน ภาพแสดง ไม่มี write หรือ service-worker controller. Landing 390 เทียบก่อนแก้
+และ landing 1280 CPU เทียบรุ่นที่ Owner ตรวจ ตรงทุกพิกเซล. main ยังคง release
+`1790074568414000` / version `d32e72678324e634`; entry hashes/cache headers เท่าเดิม.
+calculator revision ไม่เปลี่ยน และไม่มี Backend/CORS/Auth/Firestore/IAM/billing mutation
+
+| หน้าที่ตรวจ | มือถือ | PC |
+| --- | --- | --- |
+| หน้าแรก | [390](landing-hosted-a-390-chrome.png) | [1280 CPU](landing-hosted-b-1280-cpu.png) |
+| ดวงรวมเปิดรายละเอียด | [390](overall-expanded-hosted-a-390-chrome.png) | [1280 CPU](overall-expanded-hosted-b-1280-cpu.png) |
+| ไทยฉบับเต็ม | [390](thai-full-deep-hosted-a-390-chrome.png) | [1280 CPU](thai-full-deep-hosted-b-1280-cpu.png) |
+| จีน | [390](chinese-reading-hosted-a-390-chrome.png) | [1280 CPU](chinese-reading-hosted-b-1280-cpu.png) |
+| ตะวันตก | [390](western-reading-hosted-a-390-chrome.png) | [1280 CPU](western-reading-hosted-b-1280-cpu.png) |
+
+## Browser print / PDF
+
+trial ไม่มีปุ่มส่งออก PDF จีน/ตะวันตกหรือปุ่ม capture/PDF ไทย; ไม่เพิ่มฟีเจอร์ใหม่
+ไทยมี print document เดิมอยู่แล้ว ใช้ projected document เดียวกับ SharedReportView.
+ตรวจ PDF จริงจาก [มือถือ](print-hosted-a-390-chrome.pdf) และ
+[PC CPU](print-hosted-b-1280-cpu.pdf), render ด้วย Poppler และตรวจภาพทุกหน้า
+ดูข้อความจาก DOM ที่ส่งพิมพ์ตรง ๆ ได้ที่ [390 paragraphs](print-paragraphs-hosted-a-390-chrome.json)
+และ [1280 paragraphs](print-paragraphs-hosted-b-1280-cpu.json).
+
+ข้อจำกัดตัวตรวจ PDF: Chrome/ตัวอ่าน text mapping คืน NUL แทนเครื่องหมายประกอบไทยบางตัว
+จึงตรวจการมีอยู่ของทุก paragraph หลัง normalize Unicode/combining marks ร่วมกับ
+การดู glyph ที่ render จริง ไม่อ้างว่าการดึงข้อความดิบเท่ากันทุกอักขระ
+เคส browser เหล่านี้ไม่มีภาพสรุป 12 เดือน จึงไม่อ้างว่ามีภาพ Hosted ของส่วนที่ไม่ได้แสดง
+metadata และ trace ของ infographic เดิมยังส่งผ่าน ไม่เพิ่มหรือเลือกหลักฐานใหม่
+
+## Rollback ที่เตรียมไว้ (ไม่ได้ใช้)
+
+ย้อนเฉพาะ trial กลับ r1 ที่ผ่าน Hosted QA โดยใช้ version ของ site เดียวกัน:
+
+```powershell
+firebase hosting:clone knowme-trial-694e1@e660e016f97b4695 knowme-trial-694e1:live --project knowme-app-694e1 --non-interactive
+```
+
+CLI ที่ติดตั้งรองรับ source `site@version` และตรวจว่า target live มีอยู่แล้วก่อน release
+ไม่สร้าง channel ไม่แตะ Auth domains หรือ site หลัก. หากต้องหยุด trial ใช้ holding page
+กับ Hosting-only config เดิมใน `../pr149-trial-site-release/rollback` แทนการลบ site.
+ไม่จำเป็นต้องเปลี่ยน calculator traffic เพราะไม่แก้ backend/config ในงานภาษา
+
+**งานค้าง:** รอผลทดลองอ่านรุ่นใหม่ และตรวจการเลือกข้อความบนการ์ดสรุปไทยบาง input
+ที่ไม่สัมพันธ์กับชื่อด้านตามบันทึกด้านล่าง. ไม่มีการอ้างว่า correctness ของปัญหานั้นแก้แล้ว
+
+---
+
+## บันทึกการเตรียมรอบแรก (รักษาประวัติเดิม)
+
 # PR149 — ภาษาไทยอ่านครั้งเดียวเข้าใจ · 10 พ.ย. 2026
 
 สถานะก่อนเผยแพร่: local focused checks และ guarded trial build ผ่าน;

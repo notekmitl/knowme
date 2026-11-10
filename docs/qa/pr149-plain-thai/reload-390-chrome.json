@@ -1,0 +1,38 @@
+{
+  "viewport": [
+    390,
+    844
+  ],
+  "cpu_fallback": false,
+  "checks": [
+    {
+      "step": "initial",
+      "url": "https://knowme-trial-694e1.web.app/",
+      "cta_count": 1,
+      "art_rgb_stddev_max": 64.86,
+      "document_width": 390
+    },
+    {
+      "step": "reload",
+      "url": "https://knowme-trial-694e1.web.app/",
+      "cta_count": 1,
+      "art_rgb_stddev_max": 64.86,
+      "document_width": 390
+    }
+  ],
+  "art_responses": [
+    {
+      "url": "https://knowme-trial-694e1.web.app/assets/assets/trial_visual/overall.webp",
+      "status": 200
+    },
+    {
+      "url": "https://knowme-trial-694e1.web.app/assets/assets/trial_visual/overall.webp",
+      "status": 200
+    }
+  ],
+  "forbidden_count": 0,
+  "write_count": 0,
+  "error_count": 0,
+  "failed_count": 0,
+  "service_worker_controlled": false
+}
