@@ -1,0 +1,20 @@
+[
+  {
+    "case": "hosted-a-390-chrome",
+    "pages": 4,
+    "paragraphs": 46,
+    "missing": [],
+    "all_rendered_pages_reviewed": true,
+    "web_document_paragraphs_exactly_equal_reviewed_assembled_document": true,
+    "extraction_limitation": "Chrome maps some Thai combining glyphs to NUL. Presence check normalizes NFKD and combining marks; exact DOM paragraphs retained and all rendered pages visually inspected."
+  },
+  {
+    "case": "hosted-b-1280-cpu",
+    "pages": 4,
+    "paragraphs": 46,
+    "missing": [],
+    "all_rendered_pages_reviewed": true,
+    "web_document_paragraphs_exactly_equal_reviewed_assembled_document": true,
+    "extraction_limitation": "Chrome maps some Thai combining glyphs to NUL. Presence check normalizes NFKD and combining marks; exact DOM paragraphs retained and all rendered pages visually inspected."
+  }
+]

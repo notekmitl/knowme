@@ -1,3 +1,35 @@
+# PR149 — ซ่อมหมวดและความหมาย r3 ขึ้น trial แล้ว · 10 พ.ย. 2026
+
+เผยแพร่เฉพาะ [trial เดิม](https://knowme-trial-694e1.web.app/beta/thai) แล้ว:
+application `1607cdc`, copy/entry pin `trial_plain_th_20261110_r3`,
+release `1794307511201000` / version `85ab0ab69785f974`.
+[CI application](https://github.com/notekmitl/knowme/actions/runs/42800196340) ผ่านครบ รวม suite เต็มก่อน deploy.
+PR149 ยัง Draft ไม่ Merge; เอกสาร/หลักฐานที่ตามหลังไม่เปลี่ยน application.
+
+พิสูจน์ก่อนแก้ว่า variant สำรองอ้างข้อความคนละหมวดครบทั้งห้า ไม่ใช่ UI สลับหัวข้อ:
+work→money, money→work, love→health, health→love, luck→work.
+เพิ่ม metadata แล้วซ่อม field binding เฉพาะ trial โดยใช้คำอ่านเดิมในหมวดที่ถูกของธีมเดิม.
+คง pool/ลำดับ/seed, raw view, snapshot/hash, สูตร คะแนน และหลักฐานที่เลือก.
+A ที่ถูกอยู่แล้วตรง r2 ทั้งห้าการ์ด; unknown ไม่เติมคำอ่านแทนข้อมูลที่ขาด.
+
+แก้ “เกณฑ์จบงาน” เป็นสิ่งที่ต้องทำครบ คืนคำเตือนเพียงว่างานอาจกระจัดกระจาย
+ไม่ขยายเป็นไม่มีงานใดเสร็จ. อ่านทั้งย่อหน้าครบสี่มุมมอง/รายละเอียด/เอกสารไทย
+แก้คำลอย ซ้ำ ขอบเขตแผน ความรู้/การพัฒนาความสัมพันธ์ และ clause overlap
+โดยคงประธาน เงื่อนไข เหตุ–ผล เวลา และความแน่นอน. [ก่อน–หลัง 23 ตัวอย่าง](qa/pr149-dashboard-meaning-repair/REVIEW.md).
+
+Hosted 390×844 / 1280×800 ผ่าน: known 2 calculator POST รวม, unknown 0 ทั้งสองขนาด;
+สลับศาสตร์/เปิดรายละเอียดไม่เพิ่ม ไม่มี Auth/Firestore/Production API, write อื่น หรือข้อความล้น.
+PDF ไทยสองไฟล์ 4 หน้า/46 ย่อหน้าต่อไฟล์ ตรง shared document; ตรวจภาพครบ 8 หน้า.
+Context r2 ค้าง reload ได้ r3 โดยไม่ clear storage/cache; หน้าแรก mobile/PC เหมือน r2 ทุกพิกเซล.
+เว็บหลัก release/version/entry hashes/headers และ calculator revision `00004-kt9` เท่าเดิม.
+[หลักฐาน/ข้อจำกัดการตรวจ/rollback กลับ r2 fbbc0bf77cbda8ff](qa/pr149-dashboard-meaning-repair/README.md).
+ไม่แก้ backend/Auth/Firestore/IAM/billing ไม่เพิ่มบริการหรือ runtime AI.
+
+โปรแกรมและความหมายเทียบต้นฉบับผ่าน. **รอผลทดลองอ่าน** จากคนทดลองรุ่นใหม่.
+ไม่มี blocker ด้านเครื่องมือหรือสิทธิ์ในขอบเขต trial. ประวัติก่อนหน้านี้คงไว้ด้านล่าง.
+
+---
+
 # PR149 — ซ่อมหมวดการ์ดและความหมายภาษา r3 · 10 พ.ย. 2026
 
 ต่อจากฐาน `6261951` / application `ffc960b` / ภาษา r2 โดยรักษางานเดิม.

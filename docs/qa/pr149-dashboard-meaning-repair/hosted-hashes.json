@@ -1,0 +1,23 @@
+{
+  "origin": "https://knowme-trial-694e1.web.app",
+  "files": {
+    "index.html": {
+      "status": 200,
+      "sha256": "71733e9a0d424f21ac4c132b123ecbd1597a9ce2fb25dea1328f435a042b6c69",
+      "bytes": 7331,
+      "cache_control": "no-cache"
+    },
+    "flutter_bootstrap.js": {
+      "status": 200,
+      "sha256": "41073f1d0c688048c7ec334e37a4155f160beab84d7bf62c0bb13436977facf7",
+      "bytes": 10101,
+      "cache_control": "no-cache, must-revalidate"
+    },
+    "main.dart.js": {
+      "status": 200,
+      "sha256": "ee338d97cc4102c11eb25a6487ed5bebe673e92d180f370423d9224ab12ed0fe",
+      "bytes": 6894080,
+      "cache_control": "no-cache, must-revalidate"
+    }
+  }
+}

@@ -1,0 +1,137 @@
+{
+  "application_sha": "1607cdca7d03e4b36d9ecc152bc8dbe324e66ee1",
+  "copy_revision": "trial_plain_th_20261110_r3",
+  "url": "https://knowme-trial-694e1.web.app/beta/thai",
+  "site": "knowme-trial-694e1",
+  "before": {
+    "release": "1794294064730000",
+    "version": "fbbc0bf77cbda8ff",
+    "time": "2026-11-10T07:01:04.730Z"
+  },
+  "after": {
+    "release": "1794307511201000",
+    "version": "85ab0ab69785f974",
+    "time": "2026-11-10T10:45:11.201Z"
+  },
+  "application_ci": {
+    "url": "https://github.com/notekmitl/knowme/actions/runs/42800196340",
+    "conclusion": "success",
+    "jobs": [
+      {
+        "name": "isolated-trial-build",
+        "conclusion": "success"
+      },
+      {
+        "name": "backend-validation",
+        "conclusion": "success"
+      },
+      {
+        "name": "flutter-validation",
+        "conclusion": "success"
+      }
+    ]
+  },
+  "build": {
+    "version": "trial_plain_th_20261110_r3",
+    "api": "https://knowme-overall-pr149-preview-avbyttircq-as.a.run.app",
+    "sha256": {
+      "main.dart.js": "ee338d97cc4102c11eb25a6487ed5bebe673e92d180f370423d9224ab12ed0fe",
+      "flutter_bootstrap.js": "41073f1d0c688048c7ec334e37a4155f160beab84d7bf62c0bb13436977facf7",
+      "index.html": "71733e9a0d424f21ac4c132b123ecbd1597a9ce2fb25dea1328f435a042b6c69"
+    },
+    "registrant_verified": true
+  },
+  "real_hosted_journeys": [
+    {
+      "case": "hosted-a-390-chrome",
+      "input": {
+        "birth_date": "2001-01-15",
+        "hour": 12,
+        "minute": 34,
+        "province": "กรุงเทพมหานคร",
+        "gender": "female",
+        "as_of": "2026-11-10T03:00:00Z"
+      },
+      "viewport": [
+        390,
+        844
+      ],
+      "real_calculator_posts": 2,
+      "forbidden": 0,
+      "other_writes": 0,
+      "errors": 0,
+      "failed_requests": 0,
+      "horizontal_overflow": false
+    },
+    {
+      "case": "hosted-b-1280-cpu",
+      "input": {
+        "birth_date": "1990-05-12",
+        "hour": 8,
+        "minute": 15,
+        "province": "เชียงใหม่",
+        "gender": "female",
+        "as_of": "2026-11-10T03:00:00Z"
+      },
+      "viewport": [
+        1280,
+        800
+      ],
+      "real_calculator_posts": 2,
+      "forbidden": 0,
+      "other_writes": 0,
+      "errors": 0,
+      "failed_requests": 0,
+      "horizontal_overflow": false
+    },
+    {
+      "case": "hosted-unknown-390-chrome",
+      "input": {
+        "birth_date": "2001-01-15",
+        "hour": null,
+        "minute": 0,
+        "province": "กรุงเทพมหานคร",
+        "gender": "female",
+        "as_of": "2026-11-10T03:00:00Z"
+      },
+      "viewport": [
+        390,
+        844
+      ],
+      "real_calculator_posts": 0,
+      "forbidden": 0,
+      "other_writes": 0,
+      "errors": 0,
+      "failed_requests": 0,
+      "horizontal_overflow": false
+    },
+    {
+      "case": "hosted-unknown-1280-cpu",
+      "input": {
+        "birth_date": "2001-01-15",
+        "hour": null,
+        "minute": 0,
+        "province": "กรุงเทพมหานคร",
+        "gender": "female",
+        "as_of": "2026-11-10T03:00:00Z"
+      },
+      "viewport": [
+        1280,
+        800
+      ],
+      "real_calculator_posts": 0,
+      "forbidden": 0,
+      "other_writes": 0,
+      "errors": 0,
+      "failed_requests": 0,
+      "horizontal_overflow": false
+    }
+  ],
+  "cached_r2_reload_to_r3_without_clear": true,
+  "mobile_and_pc_landing_pixel_equal": true,
+  "main_release": "1790074568414000",
+  "main_version": "d32e72678324e634",
+  "main_hashes_and_headers_equal": true,
+  "calculator_revision": "knowme-overall-pr149-preview-00004-kt9",
+  "human_readability": "รอผลทดลองอ่าน"
+}

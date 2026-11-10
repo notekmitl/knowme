@@ -45,4 +45,4 @@ UI อ่าน `analysis.consumerViewState.lifeDashboard` ตามลำดั
 
 การตรวจ source: frozen `dashboard-before-6261951.json` บันทึกก่อนแก้จริง (regression แดงครบสี่ UI cards); เปรียบเทียบ snapshot/hash/raw dashboard และ variant pools ทุกธีมทุก 5 หมวด. Snapshot reading test เทียบคำอ่านต้นทาง หลักฐานที่เลือก confidence ข้อขัดแย้ง และข้อมูลที่ขาดกับหลักฐาน r2 ที่บันทึกไว้. A ทั้งห้าการ์ดที่ถูกอยู่แล้วต้องตรง r2; unknown ไม่มีการ์ดแทนข้อมูลที่ขาด.
 
-ผล CI / hosted / PDF / rollback จะบันทึกหลังตรวจ revision ใหม่.
+ผล CI / hosted / PDF / rollback ตรวจแล้ว ดู [README](README.md) และ release-summary.json.

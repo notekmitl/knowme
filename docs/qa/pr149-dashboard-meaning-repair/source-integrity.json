@@ -1,0 +1,28 @@
+{
+  "baseline": "6261951e100835de5fd8317ca1b322230cae4ed0",
+  "application": "1607cdca7d03e4b36d9ecc152bc8dbe324e66ee1",
+  "unchanged_source_roots": [
+    "backend",
+    "lib/data/models",
+    "lib/features/astrology/fusion/application",
+    "lib/features/astrology/fusion/adapters",
+    "lib/features/thai_beta/application",
+    "lib/features/bazi_compatibility/application",
+    "lib/features/astrology/thai/mirror/runtime",
+    "lib/features/astrology/thai/mirror/presentation/copy/thai_mirror_theme_life_hints.dart",
+    "lib/features/astrology/thai/mirror/presentation/copy/thai_mirror_theme_phrases.dart",
+    "lib/features/thai_beta/domain/thai_beta_report_snapshot.dart",
+    "assets/trial_visual",
+    "lib/features/thai_beta/presentation/pages/thai_beta_landing_page.dart",
+    "test/fixtures/trial_readability/calculator-a.json",
+    "test/fixtures/trial_readability/calculator-b.json"
+  ],
+  "git_diff_quiet_pass": true,
+  "frozen_theme_pools": 57,
+  "domains_per_theme": 5,
+  "as_of": "2026-11-10T03:00:00Z",
+  "raw_snapshot_hashes_and_cards_equal": true,
+  "selected_facts_confidence_evidence_gaps_conflicts_equal": true,
+  "trial_display_only_binding_repair": true,
+  "cache_change": "only trial entry bundle query pin; no storage deletion or forced chart recomputation"
+}
