@@ -18,7 +18,8 @@ def main():
     parser.add_argument('--hosted', action='store_true')
     parser.add_argument('--no-pdf', action='store_true')
     parser.add_argument('--fixture-calculators', action='store_true')
-    parser.add_argument('--width', type=int, choices=[320, 390, 1280], required=True)
+    parser.add_argument('--overall-readings', type=Path)
+    parser.add_argument('--width', type=int, choices=[320, 390, 1280, 1920], required=True)
     parser.add_argument('--case', choices=['a', 'b', 'unknown'], required=True)
     parser.add_argument('--mode', choices=['chrome', 'cpu', 'cpu_png'], required=True)
     parser.add_argument('--out', type=Path, required=True)
@@ -26,7 +27,7 @@ def main():
     args = parser.parse_args()
     out = args.out.resolve()
     out.mkdir(parents=True, exist_ok=True)
-    height = {320: 740, 390: 844, 1280: 800}[args.width]
+    height = {320: 740, 390: 844, 1280: 800, 1920: 911}[args.width]
     if not args.hosted and args.build is None:
         parser.error('--build is required unless --hosted is set')
     build = args.build.resolve() if args.build else None
@@ -104,11 +105,78 @@ def main():
             if args.width == 390 else
             {'overall': (150, 230, 630, 470), 'thai': (160, 140, 1120, 295),
              'chinese': (145, 150, 160, 350), 'western': (1100, 200, 1140, 300)}
-            if args.width == 1280 else
+            if args.width >= 1280 else
             {'overall': (20, 175, 300, 275), 'thai': (40, 92, 280, 249),
              'chinese': (40, 98, 55, 230), 'western': (40, 125, 80, 210)}
         )
+        desktop_offset = max(0, (args.width - 1280) // 2)
+        if desktop_offset:
+            art_boxes = {
+                name: (left + desktop_offset, top, right + desktop_offset, bottom)
+                for name, (left, top, right, bottom) in art_boxes.items()
+            }
         art_paint = {}
+        overall_topics = []
+
+        def bring_into_view(target, down=True):
+            page.mouse.move(args.width * 0.65, height * 0.67)
+            bottom_margin = 75 if args.width < 800 else 20
+            for _ in range(20):
+                box = target.bounding_box(timeout=1000) if target.count() else None
+                if box and 120 <= box['y'] <= height - box['height'] - bottom_margin:
+                    return box
+                movement = (315 if down else -315) if box is None else round(box['y'] - 155)
+                page.mouse.wheel(0, movement)
+                page.wait_for_timeout(180)
+            raise AssertionError(f'Cannot scroll to {target}')
+
+        def check_overall_topics():
+            expected_topics = json.loads(args.overall_readings.read_text(encoding='utf-8'))[args.case]
+            for number, topic in enumerate(expected_topics, 1):
+                title = topic['title']
+                toggle = page.locator(f'[flt-semantics-identifier="overall-topic-{number}-toggle"]')
+                nodes = page.locator(f'[flt-semantics-identifier^="overall-topic-{number}-paragraph-"]')
+
+                def toggle_label():
+                    return toggle.evaluate("node => (node.getAttribute('aria-label') || node.innerText).trim()")
+
+                def read_paragraphs():
+                    return nodes.evaluate_all('''nodes => nodes.map(node => ({
+                        id: node.getAttribute('flt-semantics-identifier'),
+                        text: node.getAttribute('aria-label') || node.innerText,
+                        y: node.getBoundingClientRect().y,
+                        x: node.getBoundingClientRect().x,
+                        width: node.getBoundingClientRect().width,
+                        height: node.getBoundingClientRect().height,
+                    }))''')
+
+                bring_into_view(toggle)
+                assert toggle_label() == f'อ่านรายละเอียด {title}', toggle_label()
+                collapsed = read_paragraphs()
+                assert [p['text'] for p in collapsed] == topic['r4'][:1], (title, collapsed)
+                capture(f'topic-{number}-collapsed')
+                toggle.click()
+                page.wait_for_timeout(350)
+                assert toggle_label() == f'ย่อรายละเอียด {title}', toggle_label()
+                expanded = read_paragraphs()
+                assert [p['text'] for p in expanded] == topic['r4'], (title, expanded)
+                assert [p['id'] for p in expanded] == [f'overall-topic-{number}-paragraph-{i + 1}' for i in range(len(expanded))]
+                assert all(p['x'] >= 0 and p['x'] + p['width'] <= args.width for p in expanded), expanded
+                assert all(second['y'] - (first['y'] + first['height']) >= 13.5 for first, second in zip(expanded, expanded[1:])), expanded
+                capture(f'topic-{number}-expanded')
+                if expanded[-1]['y'] + expanded[-1]['height'] > height - 65:
+                    bring_into_view(nodes.last)
+                    capture(f'topic-{number}-expanded-end')
+                bring_into_view(toggle, down=False)
+                toggle.click()
+                page.wait_for_timeout(350)
+                assert toggle_label() == f'อ่านรายละเอียด {title}', toggle_label()
+                assert [p['text'] for p in read_paragraphs()] == topic['r4'][:1]
+                overall_topics.append({'title': title, 'collapsed': collapsed, 'expanded': expanded, 'recollapsed': True})
+            if args.width >= 800:
+                first = overall_topics[0]['collapsed'][0]
+                assert first['width'] >= 450, first
+                assert all(abs(t['collapsed'][0]['x'] - first['x']) < 1 for t in overall_topics)
 
         page.goto(ORIGIN + '/beta/thai', wait_until='domcontentloaded', timeout=30000)
         page.wait_for_timeout(3500)
@@ -117,7 +185,8 @@ def main():
         capture('landing')
         landing = out / f'landing-{label}.png'
         box = (20, 210, 370, 460) if args.width == 390 else (
-            (140, 184, 723, 594) if args.width == 1280 else (20, 210, 300, 460)
+            (140 + desktop_offset, 184, 723 + desktop_offset, 594)
+            if args.width >= 1280 else (20, 210, 300, 460)
         )
         with Image.open(landing) as rendered:
             painted_stddev = max(ImageStat.Stat(rendered.convert('RGB').crop(box)).stddev)
@@ -199,9 +268,14 @@ def main():
         if args.case == 'unknown':
             page.wait_for_timeout(1000)
             capture('unknown-result')
+            if args.overall_readings:
+                assert 'ยังขาดเวลาเกิด' in page.locator('body').inner_text()
+                assert not page.locator('[flt-semantics-identifier^="overall-topic-"]').count()
         else:
+            first_detail = (page.locator('[flt-semantics-identifier="overall-topic-1-toggle"]')
+                            if args.overall_readings else page.get_by_text('อ่านรายละเอียด', exact=True).first)
             try:
-                page.get_by_text('อ่านรายละเอียด', exact=True).first.wait_for(timeout=30000)
+                first_detail.wait_for(timeout=30000)
             except Exception:
                 capture('debug-after-submit')
                 print('DEBUG', responses, errors, failures,
@@ -212,13 +286,15 @@ def main():
             capture('overall')
             art_paint['overall'] = art_score('overall', art_boxes['overall'])
             assert art_paint['overall'] > 5, 'Overall art did not paint'
-            detail = page.get_by_text('อ่านรายละเอียด', exact=True).first
-            detail.click()
-            page.wait_for_timeout(450)
-            capture('overall-expanded')
-            detail.click()
-            page.wait_for_timeout(450)
-            capture('overall-recollapsed')
+            if args.overall_readings:
+                check_overall_topics()
+            else:
+                first_detail.click()
+                page.wait_for_timeout(450)
+                capture('overall-expanded')
+                first_detail.click()
+                page.wait_for_timeout(450)
+                capture('overall-recollapsed')
             for tab, screen in [('ไทย', 'thai'), ('จีน', 'chinese'), ('ตะวันตก', 'western')]:
                 page.get_by_role('button', name=tab, exact=True).click()
                 page.wait_for_timeout(550)
@@ -321,6 +397,7 @@ def main():
         result = {
             'viewport': [args.width, height],
             'case': args.case,
+            'overall_topics': overall_topics,
             'calculator_fixture_replay': args.fixture_calculators,
             'input': {'birth_date': '1990-05-12' if args.case == 'b' else '2001-01-15',
                       'hour': 8 if args.case == 'b' else (None if args.case == 'unknown' else 12),

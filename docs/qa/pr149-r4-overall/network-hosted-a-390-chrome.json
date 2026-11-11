@@ -1,0 +1,482 @@
+{
+  "viewport": [
+    390,
+    844
+  ],
+  "case": "a",
+  "overall_topics": [
+    {
+      "title": "การงาน",
+      "collapsed": [
+        {
+          "id": "overall-topic-1-paragraph-1",
+          "text": "คุณมีแนวโน้มทำได้ดีกับงานที่ให้คุณตัดสินใจเองได้ ทำงานกับคนเก่ง และแบ่งกันชัดว่าใครตัดสินใจเรื่องไหน",
+          "y": 611,
+          "x": 37,
+          "width": 316,
+          "height": 88
+        }
+      ],
+      "expanded": [
+        {
+          "id": "overall-topic-1-paragraph-1",
+          "text": "คุณมีแนวโน้มทำได้ดีกับงานที่ให้คุณตัดสินใจเองได้ ทำงานกับคนเก่ง และแบ่งกันชัดว่าใครตัดสินใจเรื่องไหน",
+          "y": 611,
+          "x": 37,
+          "width": 316,
+          "height": 88
+        },
+        {
+          "id": "overall-topic-1-paragraph-2",
+          "text": "เมื่อคุณทำอย่างมีระเบียบและต่อเนื่อง พร้อมค่อย ๆ เตรียมพื้นฐานทีละขั้น คุณมองภาพรวมของงาน เห็นว่างานแต่ละส่วนเกี่ยวกันอย่างไร และเสนอวิธีทำงานแบบใหม่ได้",
+          "y": 713,
+          "x": 37,
+          "width": 316,
+          "height": 67
+        },
+        {
+          "id": "overall-topic-1-paragraph-3",
+          "text": "คุณควรตกลงให้ชัดว่างานส่วนไหนเป็นหน้าที่คุณ งานต้องดีแค่ไหน และต้องทำอะไรครบจึงถือว่าเสร็จ",
+          "y": 847,
+          "x": 37,
+          "width": 316,
+          "height": 88
+        },
+        {
+          "id": "overall-topic-1-paragraph-4",
+          "text": "ถ้าไม่ตกลงเรื่องเหล่านี้ งานที่รับเพิ่มอาจกระจายไปหลายทาง แทนที่จะค่อย ๆ รวมเป็นผลงาน",
+          "y": 949,
+          "x": 37,
+          "width": 316,
+          "height": 81
+        }
+      ],
+      "recollapsed": true
+    },
+    {
+      "title": "การเงิน",
+      "collapsed": [
+        {
+          "id": "overall-topic-2-paragraph-1",
+          "text": "การเงินของคุณมีแนวโน้มขึ้นอยู่กับผลงานที่ทำได้จริงและงานที่คุณรับผิดชอบ",
+          "y": 424,
+          "x": 37,
+          "width": 316,
+          "height": 58
+        }
+      ],
+      "expanded": [
+        {
+          "id": "overall-topic-2-paragraph-1",
+          "text": "การเงินของคุณมีแนวโน้มขึ้นอยู่กับผลงานที่ทำได้จริงและงานที่คุณรับผิดชอบ",
+          "y": 424,
+          "x": 37,
+          "width": 316,
+          "height": 58
+        },
+        {
+          "id": "overall-topic-2-paragraph-2",
+          "text": "เวลาวางแผนเงิน คุณดูว่าอะไรคุ้มค่า อะไรพอดี และจะร่วมมือกันแบบไหนให้ทั้งสองฝ่ายรับได้",
+          "y": 496,
+          "x": 37,
+          "width": 316,
+          "height": 89
+        },
+        {
+          "id": "overall-topic-2-paragraph-3",
+          "text": "คุณนึกถึงสิ่งที่สำคัญกับคุณ ความรู้สึก และการช่วยคนอื่น",
+          "y": 599,
+          "x": 37,
+          "width": 316,
+          "height": 59
+        },
+        {
+          "id": "overall-topic-2-paragraph-4",
+          "text": "ถ้าคุณจะขยายแผน ควรแยกเงินส่วนตัวออกจากเงินที่ใช้ร่วมกัน เพราะค่าใช้จ่ายจากทีม หุ้นส่วน หรือการขยายงานอาจเพิ่มเร็วกว่าที่คุณสังเกตเห็น",
+          "y": 672,
+          "x": 37,
+          "width": 316,
+          "height": 108
+        }
+      ],
+      "recollapsed": true
+    },
+    {
+      "title": "ความสัมพันธ์",
+      "collapsed": [
+        {
+          "id": "overall-topic-3-paragraph-1",
+          "text": "คุณมักให้ความสำคัญกับการเห็นคุณค่าของกันและกัน คุณดูว่าอะไรพอดีและหาวิธีร่วมมือที่ทั้งสองฝ่ายรับได้",
+          "y": 423,
+          "x": 37,
+          "width": 316,
+          "height": 88
+        }
+      ],
+      "expanded": [
+        {
+          "id": "overall-topic-3-paragraph-1",
+          "text": "คุณมักให้ความสำคัญกับการเห็นคุณค่าของกันและกัน คุณดูว่าอะไรพอดีและหาวิธีร่วมมือที่ทั้งสองฝ่ายรับได้",
+          "y": 423,
+          "x": 37,
+          "width": 316,
+          "height": 88
+        },
+        {
+          "id": "overall-topic-3-paragraph-2",
+          "text": "คุณสังเกตความรู้สึกของคนรักได้แม้เป็นเรื่องเล็ก ๆ และพร้อมอ่อนโยนกับเขา",
+          "y": 525,
+          "x": 37,
+          "width": 316,
+          "height": 59
+        },
+        {
+          "id": "overall-topic-3-paragraph-3",
+          "text": "การทำตามที่ตกลงกันไว้มีแนวโน้มทำให้คุณกับอีกฝ่ายค่อย ๆ ผูกพันกันมากขึ้น",
+          "y": 598,
+          "x": 37,
+          "width": 316,
+          "height": 59
+        },
+        {
+          "id": "overall-topic-3-paragraph-4",
+          "text": "ความรักจะลงตัวขึ้นเมื่อคุณกับอีกฝ่ายคุยกันชัดเรื่องเวลา หน้าที่ และสิ่งที่คาดหวัง พร้อมตกลงว่าใครรับผิดชอบและตัดสินใจเรื่องไหน การดูแลกันจึงไม่กลายเป็นภาระที่คุณต้องคอยเดาใจอีกฝ่าย",
+          "y": 671,
+          "x": 37,
+          "width": 316,
+          "height": 109
+        }
+      ],
+      "recollapsed": true
+    },
+    {
+      "title": "ดูแลตัวเองในแต่ละวัน",
+      "collapsed": [
+        {
+          "id": "overall-topic-4-paragraph-1",
+          "text": "คุณเริ่มดูแลตัวเองด้วยการใช้ข้อมูล เทียบทางเลือก และคุยให้เข้าใจตรงกัน",
+          "y": 590,
+          "x": 37,
+          "width": 316,
+          "height": 60
+        }
+      ],
+      "expanded": [
+        {
+          "id": "overall-topic-4-paragraph-1",
+          "text": "คุณเริ่มดูแลตัวเองด้วยการใช้ข้อมูล เทียบทางเลือก และคุยให้เข้าใจตรงกัน",
+          "y": 590,
+          "x": 37,
+          "width": 316,
+          "height": 60
+        },
+        {
+          "id": "overall-topic-4-paragraph-2",
+          "text": "การคุยกันอย่างเป็นธรรมและทำให้ทั้งสองฝ่ายกลับมาอยู่กันได้อย่างพอดี ช่วยให้คุณตั้งหลักได้",
+          "y": 664,
+          "x": 37,
+          "width": 316,
+          "height": 88
+        },
+        {
+          "id": "overall-topic-4-paragraph-3",
+          "text": "คุณควรระวังการยึดความคิดเดิมเพราะมั่นใจหรือทำจนเคยชิน ลองรับฟังข้อมูลที่แย้งกับความคิดของคุณ",
+          "y": 766,
+          "x": 37,
+          "width": 316,
+          "height": 14
+        }
+      ],
+      "recollapsed": true
+    }
+  ],
+  "calculator_fixture_replay": false,
+  "input": {
+    "birth_date": "2001-01-15",
+    "hour": 12,
+    "minute": 34,
+    "province": "กรุงเทพมหานคร",
+    "gender": "female",
+    "as_of": "2026-11-10T03:00:00Z"
+  },
+  "local_build": null,
+  "local_assets_under_allowed_origin": false,
+  "requests": [
+    {
+      "method": "GET",
+      "url": "https://knowme-trial-694e1.web.app/beta/thai"
+    },
+    {
+      "method": "GET",
+      "url": "https://knowme-trial-694e1.web.app/flutter_bootstrap.js?v=trial_plain_th_20261111_r4"
+    },
+    {
+      "method": "GET",
+      "url": "https://www.gstatic.com/flutter-canvaskit/327ed814500baca0480a02f8555aa84a9afe32bf/chromium/canvaskit.wasm"
+    },
+    {
+      "method": "GET",
+      "url": "https://www.gstatic.com/flutter-canvaskit/327ed814500baca0480a02f8555aa84a9afe32bf/chromium/canvaskit.js"
+    },
+    {
+      "method": "GET",
+      "url": "https://knowme-trial-694e1.web.app/main.dart.js?v=trial_plain_th_20261111_r4"
+    },
+    {
+      "method": "GET",
+      "url": "https://knowme-trial-694e1.web.app/favicon.png"
+    },
+    {
+      "method": "GET",
+      "url": "https://knowme-trial-694e1.web.app/assets/FontManifest.json"
+    },
+    {
+      "method": "GET",
+      "url": "https://knowme-trial-694e1.web.app/assets/fonts/MaterialIcons-Regular.otf"
+    },
+    {
+      "method": "GET",
+      "url": "https://knowme-trial-694e1.web.app/assets/assets/fonts/noto_sans_thai/NotoSansThai-Regular.ttf"
+    },
+    {
+      "method": "GET",
+      "url": "https://knowme-trial-694e1.web.app/assets/assets/fonts/noto_sans_thai/NotoSansThai-Bold.ttf"
+    },
+    {
+      "method": "GET",
+      "url": "https://knowme-trial-694e1.web.app/assets/assets/fonts/noto_sans_thai/NotoSans-Regular.ttf"
+    },
+    {
+      "method": "GET",
+      "url": "https://knowme-trial-694e1.web.app/assets/assets/fonts/noto_sans_thai/NotoSans-Bold.ttf"
+    },
+    {
+      "method": "GET",
+      "url": "https://knowme-trial-694e1.web.app/assets/packages/cupertino_icons/assets/CupertinoIcons.ttf"
+    },
+    {
+      "method": "GET",
+      "url": "https://fonts.gstatic.com/s/roboto/v32/KFOmCnqEu92Fr1Me4GZLCzYlKw.woff2"
+    },
+    {
+      "method": "GET",
+      "url": "https://knowme-trial-694e1.web.app/assets/assets/trial_visual/overall.webp"
+    },
+    {
+      "method": "GET",
+      "url": "https://knowme-trial-694e1.web.app/favicon.png"
+    },
+    {
+      "method": "GET",
+      "url": "https://fonts.gstatic.com/s/notosansthai/v25/iJWnBXeUZi_OHPqn4wq6hQ2_hbJ1xyN9wd43SofNWcd1MKVQt_So_9CdU5RtpzR-QRvzzXg.woff2"
+    },
+    {
+      "method": "POST",
+      "url": "https://knowme-overall-pr149-preview-avbyttircq-as.a.run.app/v1/calculate-bazi",
+      "body": {
+        "birth_date": "2001-01-15",
+        "birth_time": "12:34",
+        "timezone": "Asia/Bangkok",
+        "gender": "female",
+        "latitude": 13.7563,
+        "longitude": 100.5018
+      }
+    },
+    {
+      "method": "POST",
+      "url": "https://knowme-overall-pr149-preview-avbyttircq-as.a.run.app/v1/calculate-chart",
+      "body": {
+        "birth_date": "2001-01-15",
+        "birth_time": "12:34",
+        "timezone": "Asia/Bangkok",
+        "latitude": 13.7563,
+        "longitude": 100.5018
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://knowme-trial-694e1.web.app/assets/knowledge/canon/production/foundation_v1.knowme.json"
+    },
+    {
+      "method": "GET",
+      "url": "https://knowme-trial-694e1.web.app/assets/assets/trial_visual/thai.webp"
+    },
+    {
+      "method": "GET",
+      "url": "https://fonts.gstatic.com/s/notosanssc/v37/k3kCo84MPvpLmixcA63oeAL7Iqp5IZJF9bmaG9_FrYtHbQ.woff2"
+    },
+    {
+      "method": "GET",
+      "url": "https://knowme-trial-694e1.web.app/assets/assets/trial_visual/chinese.webp"
+    },
+    {
+      "method": "GET",
+      "url": "https://fonts.gstatic.com/s/notosanskr/v36/PbyxFmXiEBPT4ITbgNA5Cgms3VYcOA-vvnIzzuoyeLGC5nwuDo-KBTUm6CryotyJROlrnQ.93.woff2"
+    },
+    {
+      "method": "GET",
+      "url": "https://fonts.gstatic.com/s/notosanssc/v37/k3kCo84MPvpLmixcA63oeAL7Iqp5IZJF9bmaG9_FnYkldv7JjxkkgFsFSSOPMOkySAZ73y9ViAt3acb8NexQ2w.101.woff2"
+    },
+    {
+      "method": "GET",
+      "url": "https://fonts.gstatic.com/s/notosanssc/v37/k3kCo84MPvpLmixcA63oeAL7Iqp5IZJF9bmaG9_FnYkldv7JjxkkgFsFSSOPMOkySAZ73y9ViAt3acb8NexQ2w.116.woff2"
+    },
+    {
+      "method": "GET",
+      "url": "https://fonts.gstatic.com/s/notosanssc/v37/k3kCo84MPvpLmixcA63oeAL7Iqp5IZJF9bmaG9_FnYkldv7JjxkkgFsFSSOPMOkySAZ73y9ViAt3acb8NexQ2w.112.woff2"
+    },
+    {
+      "method": "GET",
+      "url": "https://fonts.gstatic.com/s/notosanskr/v36/PbyxFmXiEBPT4ITbgNA5Cgms3VYcOA-vvnIzzuoyeLGC5nwuDo-KBTUm6CryotyJROlrnQ.68.woff2"
+    },
+    {
+      "method": "GET",
+      "url": "https://fonts.gstatic.com/s/notosanssc/v37/k3kCo84MPvpLmixcA63oeAL7Iqp5IZJF9bmaG9_FnYkldv7JjxkkgFsFSSOPMOkySAZ73y9ViAt3acb8NexQ2w.104.woff2"
+    },
+    {
+      "method": "GET",
+      "url": "https://fonts.gstatic.com/s/notosanssc/v37/k3kCo84MPvpLmixcA63oeAL7Iqp5IZJF9bmaG9_FnYkldv7JjxkkgFsFSSOPMOkySAZ73y9ViAt3acb8NexQ2w.118.woff2"
+    },
+    {
+      "method": "GET",
+      "url": "https://fonts.gstatic.com/s/notosanssc/v37/k3kCo84MPvpLmixcA63oeAL7Iqp5IZJF9bmaG9_FnYkldv7JjxkkgFsFSSOPMOkySAZ73y9ViAt3acb8NexQ2w.115.woff2"
+    },
+    {
+      "method": "GET",
+      "url": "https://fonts.gstatic.com/s/notosanssc/v37/k3kCo84MPvpLmixcA63oeAL7Iqp5IZJF9bmaG9_FnYkldv7JjxkkgFsFSSOPMOkySAZ73y9ViAt3acb8NexQ2w.110.woff2"
+    },
+    {
+      "method": "GET",
+      "url": "https://knowme-trial-694e1.web.app/assets/assets/trial_visual/western.webp"
+    }
+  ],
+  "post_responses": [
+    {
+      "method": "POST",
+      "url": "https://knowme-overall-pr149-preview-avbyttircq-as.a.run.app/v1/calculate-bazi",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "url": "https://knowme-overall-pr149-preview-avbyttircq-as.a.run.app/v1/calculate-chart",
+      "status": 200
+    }
+  ],
+  "posts": [
+    {
+      "method": "POST",
+      "url": "https://knowme-overall-pr149-preview-avbyttircq-as.a.run.app/v1/calculate-bazi",
+      "body": {
+        "birth_date": "2001-01-15",
+        "birth_time": "12:34",
+        "timezone": "Asia/Bangkok",
+        "gender": "female",
+        "latitude": 13.7563,
+        "longitude": 100.5018
+      }
+    },
+    {
+      "method": "POST",
+      "url": "https://knowme-overall-pr149-preview-avbyttircq-as.a.run.app/v1/calculate-chart",
+      "body": {
+        "birth_date": "2001-01-15",
+        "birth_time": "12:34",
+        "timezone": "Asia/Bangkok",
+        "latitude": 13.7563,
+        "longitude": 100.5018
+      }
+    }
+  ],
+  "forbidden": [],
+  "other_writes": [],
+  "errors": [],
+  "failed_requests": [],
+  "document_widths": {
+    "landing": 390,
+    "form": 390,
+    "date-picker": 390,
+    "form-ready": 390,
+    "overall": 390,
+    "topic-1-collapsed": 390,
+    "topic-1-expanded": 390,
+    "topic-1-expanded-end": 390,
+    "topic-2-collapsed": 390,
+    "topic-2-expanded": 390,
+    "topic-2-expanded-end": 390,
+    "topic-3-collapsed": 390,
+    "topic-3-expanded": 390,
+    "topic-3-expanded-end": 390,
+    "topic-4-collapsed": 390,
+    "topic-4-expanded": 390,
+    "topic-4-expanded-end": 390,
+    "thai": 390,
+    "thai-settled": 390,
+    "thai-reading": 390,
+    "thai-full-reading": 390,
+    "thai-full-deep": 390,
+    "thai-annual-search": 390,
+    "chinese": 390,
+    "chinese-settled": 390,
+    "chinese-reading": 390,
+    "chinese-elements": 390,
+    "chinese-timeline-bottom": 390,
+    "western": 390,
+    "western-settled": 390,
+    "western-reading": 390,
+    "western-before-sources": 390,
+    "western-sources": 390,
+    "western-planets": 390,
+    "overall-returned": 390
+  },
+  "artwork_responses": [
+    {
+      "url": "https://knowme-trial-694e1.web.app/assets/assets/trial_visual/overall.webp",
+      "status": 200,
+      "content_type": "image/webp",
+      "from_service_worker": false
+    },
+    {
+      "url": "https://knowme-trial-694e1.web.app/assets/assets/trial_visual/thai.webp",
+      "status": 200,
+      "content_type": "image/webp",
+      "from_service_worker": false
+    },
+    {
+      "url": "https://knowme-trial-694e1.web.app/assets/assets/trial_visual/chinese.webp",
+      "status": 200,
+      "content_type": "image/webp",
+      "from_service_worker": false
+    },
+    {
+      "url": "https://knowme-trial-694e1.web.app/assets/assets/trial_visual/western.webp",
+      "status": 200,
+      "content_type": "image/webp",
+      "from_service_worker": false
+    }
+  ],
+  "artwork_diagnostics": {
+    "decode": "ok",
+    "natural_width": 1024,
+    "natural_height": 1536,
+    "webgl_available": true,
+    "asset_entries": []
+  },
+  "landing_art_rgb_stddev_max": 64.86,
+  "reader_art_rgb_stddev_max": {
+    "overall": 38.82,
+    "thai": {
+      "immediate": 56.34,
+      "settled": 56.34
+    },
+    "chinese": {
+      "immediate": 14.44,
+      "settled": 14.44
+    },
+    "western": {
+      "immediate": 19.38,
+      "settled": 19.38
+    }
+  },
+  "warnings": [],
+  "final_text": "กลับ\nโหราศาสตร์โดยรวม\nแก้ไขข้อมูล\nอ่านรายละเอียด การงาน\nคุณมีแนวโน้มทำได้ดีกับงานที่ให้คุณตัดสินใจเองได้ ทำงานกับคนเก่ง และแบ่งกันชัดว่าใครตัดสินใจเรื่องไหน\nอ่านรายละเอียด การเงิน\nการเงินของคุณมีแนวโน้มขึ้นอยู่กับผลงานที่ทำได้จริงและงานที่คุณรับผิดชอบ\nอ่านรายละเอียด ความสัมพันธ์\nคุณมักให้ความสำคัญกับการเห็นคุณค่าของกันและกัน คุณดูว่าอะไรพอดีและหาวิธีร่วมมือที่ทั้งสองฝ่ายรับได้\nอ่านรายละเอียด ดูแลตัวเองในแต่ละวัน\nคุณเริ่มดูแลตัวเองด้วยการใช้ข้อมูล เทียบทางเลือก และคุยให้เข้าใจตรงกัน\nคำอ่านนี้บอกแนวโน้มจากข้อมูลเกิดของคุณ ยังบอกไม่ได้ว่าเหตุการณ์จะเกิดเมื่อไรหรืออายุเท่าไร เพราะข้อมูลช่วงเวลาของทั้งสามศาสตร์ยังเทียบกันไม่ได้\nดวงรวม\nไทย\nจีน\nตะวันตก"
+}

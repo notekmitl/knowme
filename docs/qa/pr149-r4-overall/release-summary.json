@@ -1,0 +1,94 @@
+{
+  "application": "f452cb0c93d1ba52e7abd3c1ba8e50066595ced0",
+  "copy_revision": "trial_plain_th_20261111_r4",
+  "trial": "https://knowme-trial-694e1.web.app/beta/thai",
+  "before": {
+    "release": "1794307511201000",
+    "version": "85ab0ab69785f974",
+    "time": "2026-11-10T10:45:11.201Z"
+  },
+  "after": {
+    "release": "1794389748199000",
+    "version": "32846bad7ef5ff9e",
+    "time": "2026-11-11T09:35:48.199Z"
+  },
+  "app_ci": {
+    "url": "https://github.com/notekmitl/knowme/actions/runs/42994589224",
+    "status": "success",
+    "jobs": {
+      "backend-validation": "success",
+      "isolated-trial-build": "success",
+      "flutter-validation": "success"
+    }
+  },
+  "main": {
+    "release": "1790074568414000",
+    "version": "d32e72678324e634",
+    "time": "2026-09-22T10:56:08.414Z"
+  },
+  "calculator_revision": "knowme-overall-pr149-preview-00004-kt9",
+  "checks": [
+    {
+      "case": "a",
+      "viewport": [
+        390,
+        844
+      ],
+      "posts": 2,
+      "topic_states_checked": 4,
+      "thai_print_paragraphs_matching_r3": 46,
+      "reading_width": 316
+    },
+    {
+      "case": "unknown",
+      "viewport": [
+        390,
+        844
+      ],
+      "posts": 0,
+      "topic_states_checked": 0
+    },
+    {
+      "case": "b",
+      "viewport": [
+        1280,
+        800
+      ],
+      "posts": 2,
+      "topic_states_checked": 4,
+      "thai_print_paragraphs_matching_r3": 46,
+      "reading_width": 452
+    },
+    {
+      "case": "unknown",
+      "viewport": [
+        1280,
+        800
+      ],
+      "posts": 0,
+      "topic_states_checked": 0
+    },
+    {
+      "case": "b",
+      "viewport": [
+        1920,
+        911
+      ],
+      "posts": 2,
+      "topic_states_checked": 4,
+      "thai_print_paragraphs_matching_r3": 46,
+      "reading_width": 452
+    },
+    {
+      "case": "unknown",
+      "viewport": [
+        1920,
+        911
+      ],
+      "posts": 0,
+      "topic_states_checked": 0
+    }
+  ],
+  "owner_r3": "rejected",
+  "owner_r4": "awaiting_reading"
+}
