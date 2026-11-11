@@ -15,6 +15,7 @@ import '../../application/three_tradition_consensus.dart';
 import '../three_tradition_life_reading.dart';
 import '../trial_report_documents.dart';
 import '../trial_reading_copy.dart';
+import '../trial_overall_topic_copy.dart';
 
 /// The public report leads with supported life-area interpretations. The
 /// comparison and source evidence remain in the passed models for regression
@@ -172,33 +173,23 @@ class ThreeTraditionReportPage extends StatelessWidget {
                         Expanded(child: _overviewHero(context, theme)),
                         const SizedBox(width: 20),
                         Expanded(
-                          child: LayoutBuilder(
-                            builder: (context, constraints) {
-                              const gap = 12.0;
-                              final tileWidth =
-                                  (constraints.maxWidth - gap) / 2;
-                              return Wrap(
-                                spacing: gap,
-                                runSpacing: gap,
-                                children: [
-                                  for (
-                                    var i = 0;
-                                    i < lifeReading.topics.length;
-                                    i++
-                                  )
-                                    SizedBox(
-                                      width: tileWidth,
-                                      child: _lifeTopicSection(
-                                        context,
-                                        lifeReading.topics[i],
-                                        theme,
-                                        number: i + 1,
-                                        total: lifeReading.topics.length,
-                                      ),
-                                    ),
-                                ],
-                              );
-                            },
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.stretch,
+                            spacing: 12,
+                            children: [
+                              for (
+                                var i = 0;
+                                i < lifeReading.topics.length;
+                                i++
+                              )
+                                _lifeTopicSection(
+                                  context,
+                                  lifeReading.topics[i],
+                                  theme,
+                                  number: i + 1,
+                                  total: lifeReading.topics.length,
+                                ),
+                            ],
                           ),
                         ),
                       ],
@@ -438,6 +429,10 @@ class ThreeTraditionReportPage extends StatelessWidget {
   }) {
     final trial = _hasTrialLenses;
     final compactDesktop = trial && MediaQuery.sizeOf(context).width >= 800;
+    final paragraphs = trial ? topic.trialParagraphs : const <String>[];
+    final title = paragraphs.isEmpty
+        ? topic.title
+        : TrialOverallTopicCopy.title(topic.title);
     final (icon, accent) = switch (topic.title) {
       'การงาน' => (Icons.terrain_outlined, TrialVisualDesign.gold),
       'การเงิน' => (Icons.savings_outlined, TrialVisualDesign.gold),
@@ -446,7 +441,7 @@ class ThreeTraditionReportPage extends StatelessWidget {
     };
     return Container(
       key: Key('overall-topic-card-$number'),
-      padding: EdgeInsets.all(compactDesktop ? 13 : 20),
+      padding: EdgeInsets.all(compactDesktop && paragraphs.isEmpty ? 13 : 20),
       decoration: BoxDecoration(
         color: trial ? const Color(0xFF1D1A2D) : Colors.white,
         borderRadius: BorderRadius.circular(18),
@@ -490,7 +485,7 @@ class ThreeTraditionReportPage extends StatelessWidget {
                     ),
                     const SizedBox(height: 2),
                     Text(
-                      topic.title,
+                      title,
                       style: theme.textTheme.titleLarge?.copyWith(
                         fontWeight: FontWeight.w800,
                         color: trial ? TrialVisualDesign.text : _ink,
@@ -504,7 +499,7 @@ class ThreeTraditionReportPage extends StatelessWidget {
           ),
           const SizedBox(height: 12),
           _OverallTopicDetails(
-            reading: _hasTrialLenses
+            reading: trial && paragraphs.isEmpty
                 ? TrialReadingCopy.overall(topic.reading)
                 : topic.reading,
             theme: theme,
@@ -512,6 +507,8 @@ class ThreeTraditionReportPage extends StatelessWidget {
             number: number,
             trial: trial,
             compact: compactDesktop,
+            paragraphs: paragraphs,
+            title: title,
           ),
         ],
       ),
@@ -531,6 +528,8 @@ class _OverallTopicDetails extends StatefulWidget {
     required this.number,
     required this.trial,
     required this.compact,
+    required this.paragraphs,
+    required this.title,
   });
 
   final String reading;
@@ -539,6 +538,8 @@ class _OverallTopicDetails extends StatefulWidget {
   final int number;
   final bool trial;
   final bool compact;
+  final List<String> paragraphs;
+  final String title;
 
   @override
   State<_OverallTopicDetails> createState() => _OverallTopicDetailsState();
@@ -549,6 +550,8 @@ class _OverallTopicDetailsState extends State<_OverallTopicDetails> {
 
   @override
   Widget build(BuildContext context) {
+    if (widget.paragraphs.isNotEmpty) return _buildParagraphs();
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -598,6 +601,62 @@ class _OverallTopicDetailsState extends State<_OverallTopicDetails> {
             const SizedBox(height: 12),
           ],
         ),
+      ],
+    );
+  }
+
+  Widget _buildParagraphs() {
+    final action = _expanded ? 'ย่อรายละเอียด' : 'อ่านรายละเอียด';
+    final toggle = () => setState(() => _expanded = !_expanded);
+    final style = widget.theme.textTheme.bodyLarge?.copyWith(
+      fontSize: 17,
+      height: 1.7,
+      color: TrialVisualDesign.text,
+    );
+
+    Widget paragraph(int index) {
+      final text = widget.paragraphs[index];
+      return Semantics(
+        identifier: 'overall-topic-${widget.number}-paragraph-${index + 1}',
+        container: true,
+        label: text,
+        excludeSemantics: true,
+        child: Text(text, style: style),
+      );
+    }
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Semantics(
+          key: Key('overall-topic-details-${widget.number}'),
+          identifier: 'overall-topic-${widget.number}-toggle',
+          label: '$action ${widget.title}',
+          button: true,
+          expanded: _expanded,
+          onTap: toggle,
+          excludeSemantics: true,
+          child: TextButton(
+            onPressed: toggle,
+            style: TextButton.styleFrom(
+              foregroundColor: widget.accent,
+              padding: EdgeInsets.zero,
+            ),
+            child: Row(
+              children: [
+                Expanded(child: Text(action)),
+                Icon(_expanded ? Icons.expand_less : Icons.expand_more),
+              ],
+            ),
+          ),
+        ),
+        const SizedBox(height: 8),
+        paragraph(0),
+        if (_expanded)
+          for (var i = 1; i < widget.paragraphs.length; i++) ...[
+            const SizedBox(height: 14),
+            paragraph(i),
+          ],
       ],
     );
   }

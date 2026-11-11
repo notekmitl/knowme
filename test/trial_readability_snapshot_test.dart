@@ -1,11 +1,14 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:knowme/data/models/astrology_chart_model.dart';
 import 'package:knowme/data/models/bazi_chart_model.dart';
 import 'package:knowme/features/astrology/fusion/application/three_tradition_consensus.dart';
+import 'package:knowme/features/astrology/fusion/presentation/pages/three_tradition_report_page.dart';
 import 'package:knowme/features/astrology/fusion/presentation/three_tradition_life_reading.dart';
+import 'package:knowme/features/astrology/fusion/presentation/trial_overall_topic_copy.dart';
 import 'package:knowme/features/astrology/fusion/presentation/trial_reading_copy.dart';
 import 'package:knowme/features/astrology/fusion/presentation/trial_report_documents.dart';
 import 'package:knowme/features/bazi_compatibility/application/bazi_compatibility_owner_fixtures.dart';
@@ -58,6 +61,124 @@ void _sameTimingAndPossibility(String before, String after) {
 }
 
 void main() {
+  testWidgets('r4 renders and toggles each real topic at all review widths', (
+    tester,
+  ) async {
+    final asOf = DateTime.parse(_asOf);
+    final thai = ThaiBetaAnalysisRunner.run(
+      ThaiBetaInput(
+        firstName: 'QA',
+        lastName: 'Synthetic',
+        birthDate: DateTime(1990, 5, 12),
+        birthHour: 8,
+        birthMinute: 15,
+        province: 'เชียงใหม่',
+        provinceKey: 'chiang mai',
+        gender: 'หญิง',
+      ),
+      startedAt: asOf,
+      asOf: asOf,
+    );
+    final raw =
+        jsonDecode(
+              File(
+                'test/fixtures/trial_readability/calculator-b.json',
+              ).readAsStringSync(),
+            )
+            as Map<String, dynamic>;
+    final bazi = BaziChartModel.fromMap(Map<String, dynamic>.from(raw['bazi']));
+    final western = AstrologyChartModel.fromMap(
+      Map<String, dynamic>.from(raw['western']),
+    );
+    final comparison = ThreeTraditionConsensus.analyzeCharts(
+      thai: thai.pipelineResult!.mirrorResult!,
+      bazi: bazi,
+      western: western,
+    );
+    final life = ThreeTraditionLifeReadingComposer.compose(
+      thai: thai,
+      bazi: bazi,
+      western: western,
+      comparison: comparison,
+    );
+    expect(life.topics, hasLength(4));
+    addTearDown(() => tester.binding.setSurfaceSize(null));
+    for (final size in [
+      const Size(390, 844),
+      const Size(1280, 800),
+      const Size(1920, 911),
+    ]) {
+      await tester.binding.setSurfaceSize(size);
+      await tester.pumpWidget(
+        MaterialApp(
+          key: ValueKey(size),
+          home: ThreeTraditionReportPage(
+            reading: comparison,
+            lifeReading: life,
+            thaiAnalysis: thai,
+            baziChart: bazi,
+            westernChart: western,
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+      double? left;
+      for (var i = 0; i < life.topics.length; i++) {
+        final card = find.byKey(Key('overall-topic-card-${i + 1}'));
+        final toggle = find.byKey(Key('overall-topic-details-${i + 1}'));
+        await tester.scrollUntilVisible(
+          toggle,
+          280,
+          scrollable: find.byType(Scrollable).first,
+        );
+        await tester.ensureVisible(toggle);
+        await tester.pumpAndSettle();
+        final expected = life.topics[i].trialParagraphs;
+        expect(expected.length, greaterThan(1));
+        Finder paragraph(String text) =>
+            find.descendant(of: card, matching: find.text(text));
+        void checkCollapsed() {
+          expect(paragraph(expected.first), findsOneWidget);
+          expect(
+            tester.widget<Text>(paragraph(expected.first)).maxLines,
+            isNull,
+          );
+          for (final text in expected.skip(1)) {
+            expect(paragraph(text), findsNothing);
+          }
+        }
+
+        left ??= tester.getTopLeft(card).dx;
+        expect(tester.getTopLeft(card).dx, left);
+        expect(
+          tester.getSize(card).width,
+          size.width >= 800 ? greaterThan(450) : lessThanOrEqualTo(size.width),
+        );
+        checkCollapsed();
+        await tester.tap(toggle);
+        await tester.pumpAndSettle();
+        for (var index = 0; index < expected.length; index++) {
+          final text = paragraph(expected[index]);
+          expect(text, findsOneWidget);
+          expect(tester.widget<Text>(text).maxLines, isNull);
+          if (index > 0) {
+            expect(
+              tester.getTopLeft(text).dy -
+                  tester.getBottomLeft(paragraph(expected[index - 1])).dy,
+              greaterThanOrEqualTo(14),
+            );
+          }
+        }
+        await tester.ensureVisible(toggle);
+        await tester.pumpAndSettle();
+        await tester.tap(toggle);
+        await tester.pumpAndSettle();
+        checkCollapsed();
+        expect(tester.takeException(), isNull);
+      }
+    }
+  });
+
   test('missing-cycle copy names only absent calculation fields', () {
     const source = BaziCompatibilityReport(
       title: 'ดวงจีน',
@@ -316,6 +437,8 @@ void main() {
                 'title': topic.title,
                 'before': topic.reading,
                 'after': TrialReadingCopy.overall(topic.reading),
+                'r4Title': TrialOverallTopicCopy.title(topic.title),
+                'r4Paragraphs': topic.trialParagraphs,
                 'thaiEvidence': topic.thaiEvidenceKeys,
                 'chineseEvidence': topic.chineseEvidenceKeys,
                 'westernBasis': topic.westernBasis,
@@ -326,6 +449,21 @@ void main() {
               topic.reading,
               TrialReadingCopy.overall(topic.reading),
             );
+            if (topic.trialParagraphs.isNotEmpty) {
+              _sameTimingAndPossibility(
+                topic.reading,
+                topic.trialParagraphs.join('\n\n'),
+              );
+              expect(topic.trialParagraphs, everyElement(isNotEmpty));
+              expect(
+                topic.trialParagraphs.toSet(),
+                hasLength(topic.trialParagraphs.length),
+              );
+              expect(
+                topic.trialParagraphs,
+                everyElement(isNot(contains('\n'))),
+              );
+            }
           }
           for (final section in WesternReaderV2Copy.sections(western)) {
             _sameTimingAndPossibility(
@@ -361,6 +499,26 @@ void main() {
           expect(jsonEncode(raw), untouched);
         }
         cases[id] = result;
+        final r3 =
+            (jsonDecode(
+                      File(
+                        'docs/qa/pr149-dashboard-meaning-repair/assembled-reading-review.json',
+                      ).readAsStringSync(),
+                    )
+                    as Map<String, dynamic>)[id]
+                as Map<String, dynamic>;
+        for (final key in [
+          'thaiAfter',
+          'dashboard',
+          'chineseAfter',
+          'western',
+        ]) {
+          expect(
+            result[key],
+            r3[key],
+            reason: '$id $key changed outside Overall',
+          );
+        }
         final frozen =
             (jsonDecode(
                       File(

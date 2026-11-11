@@ -170,19 +170,22 @@ void main() {
         );
         for (var index = 0; index < report.lifeReading.topics.length; index++) {
           final details = find.byKey(Key('overall-topic-details-${index + 1}'));
+          final card = find.byKey(Key('overall-topic-card-${index + 1}'));
+          final topic = report.lifeReading.topics[index];
           await tester.ensureVisible(details);
           await tester.tap(details);
           await tester.pumpAndSettle();
+          final paragraphs = topic.trialParagraphs.isEmpty
+              ? [topic.reading]
+              : topic.trialParagraphs;
           final fullText = tester
               .widgetList<Text>(
-                find.descendant(of: details, matching: find.byType(Text)),
+                find.descendant(of: card, matching: find.byType(Text)),
               )
-              .where(
-                (text) => text.data == report.lifeReading.topics[index].reading,
-              );
-          expect(fullText, hasLength(1));
-          expect(fullText.single.maxLines, isNull);
-          expect(fullText.single.overflow, isNull);
+              .where((text) => paragraphs.contains(text.data));
+          expect(fullText.map((text) => text.data), paragraphs);
+          expect(fullText.map((text) => text.maxLines), everyElement(isNull));
+          expect(fullText.map((text) => text.overflow), everyElement(isNull));
           expect(tester.takeException(), isNull);
         }
         expect(calculateCalls, 2);
@@ -241,22 +244,20 @@ void main() {
               for (var i = 1; i <= 4; i++)
                 find.byKey(Key('overall-topic-card-$i')),
             ];
-            expect(
-              tester.getTopLeft(cards[0]).dy,
-              tester.getTopLeft(cards[1]).dy,
-            );
-            expect(
-              tester.getTopLeft(cards[2]).dy,
-              tester.getTopLeft(cards[3]).dy,
-            );
-            expect(
-              tester.getTopLeft(cards[1]).dx,
-              greaterThan(tester.getTopLeft(cards[0]).dx),
-            );
-            expect(
-              tester.getTopLeft(cards[2]).dy,
-              greaterThan(tester.getTopLeft(cards[0]).dy),
-            );
+            for (var i = 1; i < cards.length; i++) {
+              expect(
+                tester.getTopLeft(cards[i]).dx,
+                tester.getTopLeft(cards[0]).dx,
+              );
+              expect(
+                tester.getSize(cards[i]).width,
+                tester.getSize(cards[0]).width,
+              );
+              expect(
+                tester.getTopLeft(cards[i]).dy,
+                greaterThan(tester.getBottomLeft(cards[i - 1]).dy),
+              );
+            }
           }
         }
 

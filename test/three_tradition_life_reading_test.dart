@@ -1,3 +1,6 @@
+import 'dart:convert';
+import 'dart:io';
+
 import 'package:flutter_test/flutter_test.dart';
 import 'package:knowme/data/models/astrology_chart_model.dart';
 import 'package:knowme/data/models/bazi_chart_model.dart';
@@ -7,6 +10,8 @@ import 'package:knowme/features/astrology/fusion/adapters/lens_theme_output.dart
 import 'package:knowme/features/astrology/fusion/domain/entities/astrology_lens.dart';
 import 'package:knowme/features/astrology/fusion/registry/theme_registry.dart';
 import 'package:knowme/features/astrology/fusion/presentation/western_natal_life_semantics.dart';
+import 'package:knowme/features/astrology/fusion/presentation/trial_overall_topic_copy.dart';
+import 'package:knowme/features/astrology/fusion/presentation/trial_reading_copy.dart';
 import 'package:knowme/features/astrology/thai/content/models/thai_content_key.dart';
 import 'package:knowme/features/bazi_compatibility/application/bazi_compatibility_owner_fixtures.dart';
 import 'package:knowme/features/bazi_compatibility/application/bazi_reader_v2.dart';
@@ -73,6 +78,77 @@ void main() {
       'การดูแลพลังและกิจวัตร',
     ]);
     expect(result.gaps.single, startsWith('การเงิน:'));
+  });
+
+  test('r4 assembles all four topics from the archived owner wording', () {
+    // Branch inputs reproduce the recorded wording. They are synthetic and
+    // contain no inferred birth details, personal placements, or scores.
+    final chart = _copyBazi(
+      bazi,
+      support: const BaziDayMasterSupport(band: 'supported'),
+      balance: const BaziTenGodBalance(
+        familyWeight: {'wealth': 2, 'peer': 2, 'resource': 3},
+        topFamilies: ['resource'],
+      ),
+    );
+    final result = compose(
+      core: _thaiCore(
+        'fixture',
+        lordOverrides: {
+          7: ThaiContentKeys.lagnaLordSun,
+          6: ThaiContentKeys.lagnaLordMoon,
+        },
+      ),
+      baziChart: chart,
+      westernChart: _westernChart(moonSign: 'Sagittarius'),
+    );
+    final source =
+        jsonDecode(
+              File(
+                'test/fixtures/trial_readability/owner-overall-source.json',
+              ).readAsStringSync(),
+            )
+            as Map<String, dynamic>;
+    expect(result.gaps, isEmpty);
+    expect([
+      for (final topic in result.topics)
+        {'title': topic.title, 'reading': topic.reading},
+    ], source['topics']);
+    final work = result.topics[0].trialParagraphs;
+    expect(work, hasLength(4));
+    expect(
+      work.first,
+      'คุณมีแนวโน้มทำได้ดีกับงานที่ต้องค้นคว้า จัดข้อมูลให้ใช้ได้ หรือช่วยคนอื่นหาข้อมูล',
+    );
+    expect(
+      work[1],
+      'เมื่อคุณกล้าลงมือทำและจัดการเรื่องด่วน คุณเรียนรู้เร็ว ใช้ข้อมูลหลายชุดประกอบกัน และอธิบายเรื่องยากให้คนอื่นเข้าใจได้',
+    );
+    expect(work[2], contains('ต้องทำอะไรครบจึงถือว่าเสร็จ'));
+    expect(work[3], startsWith('ถ้าไม่ตกลงเรื่องเหล่านี้ งานที่รับเพิ่มอาจ'));
+    final money = result.topics[1].trialParagraphs;
+    expect(
+      money[1],
+      'เวลาวางแผนเงิน คุณใช้สิ่งที่รู้และคิดถึงผลในระยะยาว คุณดูว่ามีเหตุผลพอก่อนขยายแผนนั้น',
+    );
+    expect(money.last, contains('แยกเงินส่วนตัวออกจากเงินที่ใช้ร่วมกัน'));
+    expect(result.topics[2].trialParagraphs, hasLength(3));
+    expect(result.topics[3].trialParagraphs, hasLength(3));
+
+    final path = const String.fromEnvironment('COPY_OWNER_SNAPSHOT');
+    if (path.isNotEmpty) {
+      File(path).writeAsStringSync(
+        const JsonEncoder.withIndent('  ').convert([
+          for (final topic in result.topics)
+            {
+              'title': TrialOverallTopicCopy.title(topic.title),
+              'source': topic.reading,
+              'r3': TrialReadingCopy.overall(topic.reading),
+              'r4': topic.trialParagraphs,
+            },
+        ]),
+      );
+    }
   });
 
   test('missing Western planet code omits dependent topics', () {
@@ -390,7 +466,11 @@ LensThemeOutput _theme(
   );
 }
 
-ThaiBirthProfileCoreReading _thaiCore(String wording, {int? omitHouse}) {
+ThaiBirthProfileCoreReading _thaiCore(
+  String wording, {
+  int? omitHouse,
+  Map<int, String> lordOverrides = const {},
+}) {
   final entries = <(int, ThaiBirthProfileCoreDomain, String)>[
     (10, ThaiBirthProfileCoreDomain.work, ThaiContentKeys.lagnaLordMars),
     (2, ThaiBirthProfileCoreDomain.money, ThaiContentKeys.lagnaLordJupiter),
@@ -430,7 +510,7 @@ ThaiBirthProfileCoreReading _thaiCore(String wording, {int? omitHouse}) {
                     kind: ThaiBirthProfileCoreAtomKind.houseLord,
                     domain: domain,
                     sourceRef: 'HouseEngine.calculate.house[$house].lordKey',
-                    rawValue: lord,
+                    rawValue: lordOverrides[house] ?? lord,
                     houseNumber: house,
                   ),
                 ],
@@ -446,12 +526,13 @@ AstrologyChartModel _westernChart({
   bool withMoon = true,
   String mercurySign = 'Gemini',
   String venusSign = 'Taurus',
+  String? moonSign,
 }) => AstrologyChartModel(
   version: WesternReaderV2Copy.chartVersion,
   contractId: WesternReaderV2Copy.contractId,
   engineVersion: 'fixture',
   inputHash: 'fixture',
-  big3: {if (withMoon) 'moon': venusSign},
+  big3: {if (withMoon) 'moon': moonSign ?? venusSign},
   planets: {
     'mercury': {'sign': mercurySign},
     if (withVenus) 'venus': {'sign': venusSign},
@@ -568,6 +649,7 @@ BaziChartModel _copyBazi(
   BaziChartModel base, {
   String? gender,
   BaziTenGodBalance? balance,
+  BaziDayMasterSupport? support,
 }) => BaziChartModel(
   version: base.version,
   contractId: base.contractId,
@@ -588,7 +670,7 @@ BaziChartModel _copyBazi(
   ambiguities: base.ambiguities,
   suppressedFields: base.suppressedFields,
   tenGodBalance: balance ?? base.tenGodBalance,
-  dayMasterSupport: base.dayMasterSupport,
+  dayMasterSupport: support ?? base.dayMasterSupport,
   natalRelations: base.natalRelations,
   luck: BaziLuck(
     gender: gender ?? base.luck.gender,

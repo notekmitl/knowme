@@ -9,6 +9,7 @@ import 'package:knowme/presentation/pages/astrology/western_reader_v2_copy.dart'
 
 import 'three_tradition_meaning_alignment.dart';
 import 'three_tradition_core_conflict.dart';
+import 'trial_overall_topic_copy.dart';
 import 'western_natal_life_semantics.dart';
 
 /// A life-area interpretation with its three existing reader claims attached.
@@ -23,6 +24,7 @@ class ThreeTraditionLifeTopic {
     required this.chineseEvidenceKeys,
     required this.western,
     required this.westernBasis,
+    this.trialParagraphs = const [],
   });
 
   final String title;
@@ -33,6 +35,7 @@ class ThreeTraditionLifeTopic {
   final List<String> chineseEvidenceKeys;
   final String western;
   final String westernBasis;
+  final List<String> trialParagraphs;
 }
 
 class ThreeTraditionLifeReading {
@@ -214,6 +217,12 @@ abstract final class ThreeTraditionLifeReadingComposer {
           'งานลักษณะนี้ควรมีขอบเขตความรับผิดชอบ มาตรฐานคุณภาพ '
           'และเกณฑ์จบงานที่ตกลงกันไว้ มิฉะนั้นงานที่รับเพิ่มอาจกระจาย'
           'แทนที่จะสะสมเป็นผลงาน',
+      trialParagraphs: TrialOverallTopicCopy.work(
+        families: bazi.tenGodBalance.topFamilies,
+        chineseFocus: chineseFocus,
+        thaiMethod: thaiMethod,
+        westernMethod: westernMethod,
+      ),
       thai: thai.text,
       thaiEvidenceKeys: thai.evidenceKeys,
       chinese: chinese.work,
@@ -245,13 +254,15 @@ abstract final class ThreeTraditionLifeReadingComposer {
     }
     final thaiBasis = _houseMode(thai, 2);
     final westernValue = WesternNatalLifeSemantics.moneyValue(western);
-    final chineseBase = weights['wealth']! >= 4
+    final usesResources = weights['wealth']! >= 4;
+    final separatesSharedMoney = weights['peer']! >= weights['wealth']!;
+    final chineseBase = usesResources
         ? 'การจัดเวลา งบ และทรัพยากรให้เกิดผลต่อเนื่อง'
         : 'ผลงานและความรับผิดชอบที่จับต้องได้';
-    final chineseBoundary = weights['peer']! >= weights['wealth']!
+    final chineseBoundary = separatesSharedMoney
         ? 'แยกเงินส่วนตัวกับเงินร่วม'
         : 'กำหนดเพดานลงทุนและจุดหยุด';
-    final chineseRisk = weights['peer']! >= weights['wealth']!
+    final chineseRisk = separatesSharedMoney
         ? 'ค่าใช้จ่ายจากทีม หุ้นส่วน หรือการขยายงานอาจโตเร็วกว่าที่เห็น'
         : 'โอกาสใหม่อาจดึงเงินออกจากงานหลัก';
     if (thaiBasis.isEmpty || westernValue.isEmpty) return null;
@@ -261,6 +272,12 @@ abstract final class ThreeTraditionLifeReadingComposer {
           'ฐานการเงินของคุณมีแนวโน้มพึ่ง$chineseBase '
           'คุณวางแผนจาก$thaiBasis และให้ค่ากับ$westernValue '
           'หากจะขยายแผน ควร$chineseBoundary เพราะ$chineseRisk',
+      trialParagraphs: TrialOverallTopicCopy.money(
+        usesResources: usesResources,
+        separatesSharedMoney: separatesSharedMoney,
+        thaiBasis: thaiBasis,
+        westernValue: westernValue,
+      ),
       thai: thai.text,
       thaiEvidenceKeys: thai.evidenceKeys,
       chinese: chinese.money,
@@ -299,9 +316,10 @@ abstract final class ThreeTraditionLifeReadingComposer {
     final spouseWeight = spouseFamily == null
         ? null
         : bazi.tenGodBalance.familyWeight[spouseFamily];
-    final chinesePace = spouseWeight == null
+    final coupleIsProminent = spouseWeight == null ? null : spouseWeight >= 4;
+    final chinesePace = coupleIsProminent == null
         ? ''
-        : spouseWeight >= 4
+        : coupleIsProminent
         ? 'เรื่องคู่สัมพันธ์มีน้ำหนักในพื้นดวงนี้ '
         : 'ความผูกพันมีแนวโน้มค่อย ๆ เติบโตจากการทำสิ่งที่ตกลงกันไว้ ';
     return ThreeTraditionLifeTopic(
@@ -313,6 +331,11 @@ abstract final class ThreeTraditionLifeReadingComposer {
           'ความรักจะลงตัวขึ้นเมื่อคุยเรื่องเวลา บทบาท และความคาดหวัง'
           'ให้ตรงกัน พร้อมแบ่งความรับผิดชอบและพื้นที่ตัดสินใจ '
           'ความตั้งใจดูแลกันจึงไม่กลายเป็นภาระที่ต้องเดาใจ',
+      trialParagraphs: TrialOverallTopicCopy.relationships(
+        thaiTrust: thaiTrust,
+        westernStyle: westernStyle,
+        coupleIsProminent: coupleIsProminent,
+      ),
       thai: thai.text,
       thaiEvidenceKeys: thai.evidenceKeys,
       chinese: chinese.relationships,
@@ -352,6 +375,11 @@ abstract final class ThreeTraditionLifeReadingComposer {
           'การดูแลพลังของคุณเริ่มจาก$thaiMode '
           'การ$westernActionช่วยให้คุณกลับมาตั้งหลัก '
           'ขณะเดียวกัน $chineseAction',
+      trialParagraphs: TrialOverallTopicCopy.wellbeing(
+        thaiMode: thaiMode,
+        westernAction: westernAction,
+        chineseAction: chineseAction,
+      ),
       thai: thai.text,
       thaiEvidenceKeys: thai.evidenceKeys,
       chinese: chinese.balance,
