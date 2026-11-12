@@ -138,11 +138,16 @@ void main() {
     );
     expect(
       money.last,
-      'ถ้าจะเพิ่มเรื่องใหม่เข้าไปในแผนการเงิน คุณควรแยกเงินส่วนตัวออกจากเงินที่ใช้ร่วมกับคนอื่น '
-      'เหตุผลคือค่าใช้จ่ายจากทีม หุ้นส่วน หรือการขยายงานอาจเพิ่มขึ้นเร็วจนคุณสังเกตไม่ทัน',
+      'คุณควรแยกเงินที่ใช้ส่วนตัวออกจากเงินที่ใช้ร่วมกับคนอื่น '
+      'เพราะค่าใช้จ่ายของทีม คนที่ทำธุรกิจร่วมกับคุณ หรือการขยายงานอาจเพิ่มเร็วจนคุณสังเกตไม่ทัน',
     );
     expect(result.topics[2].trialParagraphs, hasLength(3));
-    expect(result.topics[3].trialParagraphs, hasLength(3));
+    final wellbeing = result.topics[3].trialParagraphs;
+    expect(wellbeing, hasLength(3));
+    expect(
+      wellbeing.first,
+      'คุณสังเกตสิ่งที่เปลี่ยนไปรอบตัว และรับรู้ว่าคนรอบตัวต้องการอะไร',
+    );
 
     final path = const String.fromEnvironment('COPY_OWNER_SNAPSHOT');
     if (path.isNotEmpty) {
@@ -206,15 +211,23 @@ void main() {
       'Aquarius',
       'Pisces',
     ];
-    const lords = [
-      ThaiContentKeys.lagnaLordSun,
-      ThaiContentKeys.lagnaLordMoon,
-      ThaiContentKeys.lagnaLordMars,
-      ThaiContentKeys.lagnaLordMercury,
-      ThaiContentKeys.lagnaLordJupiter,
-      ThaiContentKeys.lagnaLordVenus,
-      ThaiContentKeys.lagnaLordSaturn,
-    ];
+    const observations = {
+      ThaiContentKeys.lagnaLordSun:
+          'คุณดูให้ชัดว่าต้องทำอะไร แล้วตัดสินใจด้วยตัวเอง',
+      ThaiContentKeys.lagnaLordMoon:
+          'คุณสังเกตสิ่งที่เปลี่ยนไปรอบตัว และรับรู้ว่าคนรอบตัวต้องการอะไร',
+      ThaiContentKeys.lagnaLordMars: 'คุณกล้าลงมือทำและรับมือกับเรื่องด่วน',
+      ThaiContentKeys.lagnaLordMercury:
+          'คุณใช้ข้อมูล เทียบทางเลือก และคุยให้เข้าใจตรงกัน',
+      ThaiContentKeys.lagnaLordJupiter:
+          'คุณใช้สิ่งที่รู้และคิดถึงผลในระยะยาว คุณดูเหตุผลก่อนจะทำอะไรเพิ่มจากที่ทำอยู่',
+      ThaiContentKeys.lagnaLordVenus:
+          'คุณดูว่าสิ่งที่จะทำมีค่าแค่ไหนและมากเกินไปไหม '
+          'เวลาทำอะไรกับคนอื่น คุณหาวิธีที่ทั้งสองฝ่ายรับได้',
+      ThaiContentKeys.lagnaLordSaturn:
+          'คุณทำตามขั้นตอนอย่างสม่ำเสมอ คุณค่อย ๆ เตรียมสิ่งจำเป็นทีละอย่าง',
+    };
+    final lords = observations.keys.toList();
     const workFamilies = [
       ['resource'],
       ['peer'],
@@ -263,6 +276,15 @@ void main() {
       final work = result.topics.first.trialParagraphs;
       expect(work[1], startsWith('เวลาทำงาน คุณ'));
       expect(work[2], anyOf(startsWith('คุณ'), startsWith('เวลาคุณอธิบาย')));
+      final wellbeing = result.topics.last;
+      final thaiAnalysisMode = ThaiBirthProfileCoreReading.houseModeForLordKey(
+        lord,
+      );
+      expect(
+        wellbeing.reading,
+        startsWith('การดูแลพลังของคุณเริ่มจาก$thaiAnalysisMode'),
+      );
+      expect(wellbeing.trialParagraphs.first, observations[lord], reason: lord);
       reviewed.add({
         'sign': sign,
         'lord': lord,
@@ -325,7 +347,7 @@ void main() {
     }
   });
 
-  test('money wording follows calculated wealth and peer branches', () {
+  test('trial money advice follows BaZi without a plan-expansion condition', () {
     for (final caseData in [
       (
         wealth: 1,
@@ -333,6 +355,11 @@ void main() {
         base: 'ผลงานและความรับผิดชอบที่จับต้องได้',
         boundary: 'แยกเงินส่วนตัวกับเงินร่วม',
         risk: 'ค่าใช้จ่ายจากทีม หุ้นส่วน หรือการขยายงานอาจโตเร็วกว่าที่เห็น',
+        sourceAdvice:
+            'ต้องแยกเงินส่วนตัว เงินร่วม และอำนาจตัดสินใจให้ชัด เพราะค่าใช้จ่ายจากทีม หุ้นส่วน หรือการขยายงานอาจโตเร็วกว่าที่เห็น',
+        trialAdvice:
+            'คุณควรแยกเงินที่ใช้ส่วนตัวออกจากเงินที่ใช้ร่วมกับคนอื่น '
+            'เพราะค่าใช้จ่ายของทีม คนที่ทำธุรกิจร่วมกับคุณ หรือการขยายงานอาจเพิ่มเร็วจนคุณสังเกตไม่ทัน',
       ),
       (
         wealth: 5,
@@ -340,6 +367,11 @@ void main() {
         base: 'การจัดเวลา งบ และทรัพยากรให้เกิดผลต่อเนื่อง',
         boundary: 'กำหนดเพดานลงทุนและจุดหยุด',
         risk: 'โอกาสใหม่อาจดึงเงินออกจากงานหลัก',
+        sourceAdvice:
+            'ควรกำหนดเพดานลงทุนและจุดหยุดไว้ล่วงหน้า เพื่อไม่ให้โอกาสใหม่ดึงเงินออกจากงานหลัก',
+        trialAdvice:
+            'คุณควรกำหนดไว้ล่วงหน้าว่าจะลงทุนได้ไม่เกินเท่าไร และจะหยุดลงทุนในกรณีไหน '
+            'เหตุผลคือโอกาสใหม่อาจดึงเงินจากงานหลักไปใช้',
       ),
     ]) {
       final chart = _withMoneyWeights(bazi, caseData.wealth, caseData.peer);
@@ -348,19 +380,11 @@ void main() {
         (topic) => topic.title == 'การเงิน',
       );
       expect(money.reading, contains(caseData.base));
-      expect(money.reading, contains(caseData.boundary));
+      expect(money.reading, contains('หากจะขยายแผน ควร${caseData.boundary}'));
       expect(money.reading, contains(caseData.risk));
       expect(money.reading, isNot(contains('กันเงินสำรอง')));
-      expect(money.chinese, isNotEmpty);
-      expect(
-        money.trialParagraphs.last,
-        caseData.peer >= caseData.wealth
-            ? contains('อาจเพิ่มขึ้นเร็วจนคุณสังเกตไม่ทัน')
-            : equals(
-                'ถ้าจะเพิ่มเรื่องใหม่เข้าไปในแผนการเงิน คุณควรกำหนดว่าจะลงทุนได้ไม่เกินเท่าไรและจะหยุดลงทุนในกรณีไหน '
-                'เหตุที่ควรกำหนดไว้ก่อนคือ โอกาสใหม่อาจดึงเงินจากงานหลักไปใช้',
-              ),
-      );
+      expect(money.chinese, endsWith(caseData.sourceAdvice));
+      expect(money.trialParagraphs.last, caseData.trialAdvice);
     }
   });
 

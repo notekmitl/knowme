@@ -1,8 +1,6 @@
 /// Reader-facing paragraphs for the four core topics of the trial report.
 /// The composer supplies the source fragments and branches it already chose.
 abstract final class TrialOverallTopicCopy {
-  static const _financeExpansion = 'เพิ่มเรื่องใหม่เข้าไปในแผนการเงิน';
-
   static String title(String source) =>
       source == 'การดูแลพลังและกิจวัตร' ? 'ดูแลตัวเองในแต่ละวัน' : source;
 
@@ -30,13 +28,14 @@ abstract final class TrialOverallTopicCopy {
     usesResources
         ? 'การเงินของคุณมีแนวโน้มขึ้นอยู่กับการจัดเวลา เงิน คน และของที่ต้องใช้ เพื่อให้งานได้ผลต่อเนื่อง'
         : 'การเงินของคุณมีแนวโน้มขึ้นอยู่กับงานที่คุณรับผิดชอบและผลงานที่คุณทำได้จริง',
-    'เวลาวางแผนการเงิน คุณ${_houseAction(thaiBasis, expansion: _financeExpansion)}',
+    'เวลาวางแผนการเงิน คุณ${_houseAction(thaiBasis, expansion: 'เพิ่มเรื่องใหม่เข้าไปในแผนการเงิน')}',
     _moneyValues[westernValue] ?? 'คุณให้ความสำคัญกับ$westernValue',
+    // BaZi's advice applies within the selected branch independently of the Thai planning style.
     separatesSharedMoney
-        ? 'ถ้าจะ$_financeExpansion คุณควรแยกเงินส่วนตัวออกจากเงินที่ใช้ร่วมกับคนอื่น '
-              'เหตุผลคือค่าใช้จ่ายจากทีม หุ้นส่วน หรือการขยายงานอาจเพิ่มขึ้นเร็วจนคุณสังเกตไม่ทัน'
-        : 'ถ้าจะ$_financeExpansion คุณควรกำหนดว่าจะลงทุนได้ไม่เกินเท่าไรและจะหยุดลงทุนในกรณีไหน '
-              'เหตุที่ควรกำหนดไว้ก่อนคือ โอกาสใหม่อาจดึงเงินจากงานหลักไปใช้',
+        ? 'คุณควรแยกเงินที่ใช้ส่วนตัวออกจากเงินที่ใช้ร่วมกับคนอื่น '
+              'เพราะค่าใช้จ่ายของทีม คนที่ทำธุรกิจร่วมกับคุณ หรือการขยายงานอาจเพิ่มเร็วจนคุณสังเกตไม่ทัน'
+        : 'คุณควรกำหนดไว้ล่วงหน้าว่าจะลงทุนได้ไม่เกินเท่าไร และจะหยุดลงทุนในกรณีไหน '
+              'เหตุผลคือโอกาสใหม่อาจดึงเงินจากงานหลักไปใช้',
   ];
 
   static List<String> relationships({
@@ -68,7 +67,15 @@ abstract final class TrialOverallTopicCopy {
     required String westernAction,
     required String chineseAction,
   }) => [
-    'คุณเริ่มดูแลตัวเองด้วยการ${_houseAction(thaiMode, expansion: 'เพิ่มวิธีดูแลตัวเอง')}',
+    // The house mode comes from Thai analysis. The following paragraphs carry the guidance.
+    switch (thaiMode) {
+      'การรับรู้ความเปลี่ยนแปลงและความต้องการรอบตัว' =>
+        'คุณสังเกตสิ่งที่เปลี่ยนไปรอบตัว และรับรู้ว่าคนรอบตัวต้องการอะไร',
+      'คุณค่า ความพอดี และความร่วมมือที่ทั้งสองฝ่ายรับได้' =>
+        'คุณดูว่าสิ่งที่จะทำมีค่าแค่ไหนและมากเกินไปไหม '
+            'เวลาทำอะไรกับคนอื่น คุณหาวิธีที่ทั้งสองฝ่ายรับได้',
+      _ => 'คุณ${_houseAction(thaiMode, expansion: 'ทำอะไรเพิ่มจากที่ทำอยู่')}',
+    },
     '${_recoveryActions[westernAction] ?? 'การ$westernAction'} '
         'ช่วยให้คุณรู้สึกพร้อมรับมืออีกครั้ง',
     _balanceActions[chineseAction] ?? chineseAction,
