@@ -5,7 +5,7 @@ import 'package:knowme/features/astrology/thai/mirror/presentation/models/thai_m
 /// Keep conditions, dates, uncertainty and selected evidence in the source
 /// models. Unknown clauses pass through unchanged; never fill a missing claim.
 abstract final class TrialReadingCopy {
-  static const revision = 'trial_plain_th_20261112_r5_1';
+  static const revision = 'trial_plain_th_20261112_r5_2';
 
   /// Correct only a proven cross-area source binding. Keep the selected theme,
   /// legacy pool and all raw report/evidence data unchanged. No word matching.
