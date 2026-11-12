@@ -1,0 +1,50 @@
+{
+  "baseline": "trial_plain_th_20261112_r6",
+  "revision": "trial_plain_th_20261112_r6_1",
+  "as_of": "2026-11-10T03:00:00Z",
+  "cases": {
+    "a": {
+      "matched_fields": [
+        "thaiBefore",
+        "heroBefore",
+        "chineseBefore",
+        "selectedFacts",
+        "gaps",
+        "conflicts"
+      ],
+      "western_and_overall_source_and_evidence_match": true,
+      "dashboard_source_binding_matches": true,
+      "facts_sha256": "8d5cdcd262e7769c1a2548072d2f06df777a05166d5cb2478cdd1ec53de97c4c",
+      "before_print_paragraphs": 60,
+      "after_print_paragraphs": 60
+    },
+    "b": {
+      "matched_fields": [
+        "thaiBefore",
+        "heroBefore",
+        "chineseBefore",
+        "selectedFacts",
+        "gaps",
+        "conflicts"
+      ],
+      "western_and_overall_source_and_evidence_match": true,
+      "dashboard_source_binding_matches": true,
+      "facts_sha256": "c57d00cf060ab13a65fcbf53a1dc8f9dd05de363b088a33baa892e2cd59d3482",
+      "before_print_paragraphs": 60,
+      "after_print_paragraphs": 60
+    },
+    "unknown": {
+      "matched_fields": [
+        "thaiBefore",
+        "heroBefore"
+      ],
+      "western_and_overall_source_and_evidence_match": true,
+      "dashboard_source_binding_matches": true,
+      "facts_sha256": null,
+      "before_print_paragraphs": 9,
+      "after_print_paragraphs": 9
+    }
+  },
+  "incomplete_chinese_raw_match": true,
+  "owner_legacy_raw_match": true
+}

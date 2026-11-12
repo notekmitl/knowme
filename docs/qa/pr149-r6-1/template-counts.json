@@ -1,0 +1,2311 @@
+{
+  "western_sources": [
+    {
+      "source": "_SUN_OVERVIEW[Aries][0]",
+      "raw": "คุณเป็นคนตัดสินใจไว กล้าเริ่ม และอยากเห็นเรื่องต่าง ๆ เดินหน้า",
+      "assembled": 1,
+      "verbatim_after_projection": 1
+    },
+    {
+      "source": "_SUN_OVERVIEW[Taurus][0]",
+      "raw": "คุณเป็นคนหนักแน่น ให้ค่ากับความมั่นคง และชอบสร้างผลลัพธ์ที่จับต้องได้",
+      "assembled": 1,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_SUN_OVERVIEW[Gemini][0]",
+      "raw": "คุณเป็นคนช่างสงสัย เรียนรู้เร็ว และสนใจหลายเรื่อง",
+      "assembled": 1,
+      "verbatim_after_projection": 1
+    },
+    {
+      "source": "_SUN_OVERVIEW[Cancer][0]",
+      "raw": "คุณเป็นคนใส่ใจความรู้สึก ผูกพันกับคนใกล้ตัว และต้องการฐานชีวิตที่ไว้ใจได้",
+      "assembled": 1,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_SUN_OVERVIEW[Leo][0]",
+      "raw": "คุณเป็นคนอบอุ่น กล้าแสดงออก และอยากทำสิ่งที่ตนเองภาคภูมิใจ",
+      "assembled": 1,
+      "verbatim_after_projection": 1
+    },
+    {
+      "source": "_SUN_OVERVIEW[Virgo][0]",
+      "raw": "คุณเป็นคนช่างสังเกต ชอบปรับปรุง และมองเห็นรายละเอียดที่คนอื่นอาจข้าม",
+      "assembled": 1,
+      "verbatim_after_projection": 1
+    },
+    {
+      "source": "_SUN_OVERVIEW[Libra][0]",
+      "raw": "คุณเป็นคนมองหลายฝ่าย ให้ค่ากับความยุติธรรม และอยากให้ความสัมพันธ์เดินอย่างสมดุล",
+      "assembled": 1,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_SUN_OVERVIEW[Scorpio][0]",
+      "raw": "คุณเป็นคนจริงจังกับความไว้ใจ มองลึก และไม่พอใจกับคำตอบผิวเผิน",
+      "assembled": 1,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_SUN_OVERVIEW[Sagittarius][0]",
+      "raw": "คุณเป็นคนมองไกล ชอบเรียนรู้จากประสบการณ์ และต้องการชีวิตที่ยังมีพื้นที่ให้เติบโต",
+      "assembled": 1,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_SUN_OVERVIEW[Capricorn][0]",
+      "raw": "คุณเป็นคนมีเป้าหมาย รับผิดชอบ และพร้อมค่อย ๆ สร้างสิ่งที่ยืนระยะ",
+      "assembled": 1,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_SUN_OVERVIEW[Aquarius][0]",
+      "raw": "คุณเป็นคนคิดเป็นระบบ รักอิสระทางความคิด และมักมองเห็นทางเลือกที่ต่างจากคนส่วนใหญ่",
+      "assembled": 1,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_SUN_OVERVIEW[Pisces][0]",
+      "raw": "คุณเป็นคนรับความรู้สึกและบรรยากาศไว มีจินตนาการ และมองเห็นความละเอียดอ่อนของผู้คน",
+      "assembled": 1,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_MOON_OVERVIEW[Aries][0]",
+      "raw": "ต้องการตอบสนองความรู้สึกอย่างตรงไปตรงมา",
+      "assembled": 5,
+      "verbatim_after_projection": 5
+    },
+    {
+      "source": "_MOON_OVERVIEW[Aries][1]",
+      "raw": "คุณต้องได้เลือกและลงมือด้วยตัวเอง",
+      "assembled": 1,
+      "verbatim_after_projection": 1
+    },
+    {
+      "source": "_MOON_OVERVIEW[Taurus][0]",
+      "raw": "ต้องการความสม่ำเสมอและสิ่งแวดล้อมที่คาดเดาได้",
+      "assembled": 5,
+      "verbatim_after_projection": 5
+    },
+    {
+      "source": "_MOON_OVERVIEW[Taurus][1]",
+      "raw": "คุณมีเกณฑ์ของตัวเองและไม่เปลี่ยนใจง่าย",
+      "assembled": 1,
+      "verbatim_after_projection": 1
+    },
+    {
+      "source": "_MOON_OVERVIEW[Gemini][0]",
+      "raw": "ต้องการพูดคุย ทำความเข้าใจ และมีข้อมูลพอให้ใจคลายกังวล",
+      "assembled": 5,
+      "verbatim_after_projection": 5
+    },
+    {
+      "source": "_MOON_OVERVIEW[Gemini][1]",
+      "raw": "คุณต้องได้ถามและคิดให้ครบก่อนตัดสินใจ",
+      "assembled": 1,
+      "verbatim_after_projection": 1
+    },
+    {
+      "source": "_MOON_OVERVIEW[Cancer][0]",
+      "raw": "ต้องการความผูกพันและพื้นที่ที่ปลอดภัยพอจะเป็นตัวเอง",
+      "assembled": 5,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_MOON_OVERVIEW[Cancer][1]",
+      "raw": "คุณปกป้องสิ่งสำคัญและต้องการความไว้ใจที่จริงใจ",
+      "assembled": 1,
+      "verbatim_after_projection": 1
+    },
+    {
+      "source": "_MOON_OVERVIEW[Leo][0]",
+      "raw": "ต้องการการยอมรับที่จริงใจและพื้นที่แสดงความรู้สึกอย่างเต็มที่",
+      "assembled": 5,
+      "verbatim_after_projection": 5
+    },
+    {
+      "source": "_MOON_OVERVIEW[Leo][1]",
+      "raw": "คุณรู้ว่าตัวเองให้คุณค่ากับอะไรและไม่อยากถูกมองข้าม",
+      "assembled": 1,
+      "verbatim_after_projection": 1
+    },
+    {
+      "source": "_MOON_OVERVIEW[Virgo][0]",
+      "raw": "ต้องการจัดระเบียบสิ่งที่กังวลและรู้ว่าตนเองช่วยอะไรได้บ้าง",
+      "assembled": 5,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_MOON_OVERVIEW[Virgo][1]",
+      "raw": "คุณมีมาตรฐานและต้องการเวลาคิดรายละเอียดให้ลงตัว",
+      "assembled": 1,
+      "verbatim_after_projection": 1
+    },
+    {
+      "source": "_MOON_OVERVIEW[Libra][0]",
+      "raw": "ต้องการความเป็นธรรมและบทสนทนาที่ทั้งสองฝ่ายมีที่ยืน",
+      "assembled": 5,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_MOON_OVERVIEW[Libra][1]",
+      "raw": "คุณมีมุมมองของตัวเองและต้องการข้อตกลงที่สมดุล",
+      "assembled": 1,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_MOON_OVERVIEW[Scorpio][0]",
+      "raw": "ต้องการความซื่อตรง ความลึก และความไว้ใจที่พิสูจน์ได้",
+      "assembled": 5,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_MOON_OVERVIEW[Scorpio][1]",
+      "raw": "คุณมีขอบเขตชัดและไม่เปิดพื้นที่ส่วนตัวให้ใครง่าย ๆ",
+      "assembled": 1,
+      "verbatim_after_projection": 1
+    },
+    {
+      "source": "_MOON_OVERVIEW[Sagittarius][0]",
+      "raw": "ต้องการอิสระในการคิด",
+      "assembled": 5,
+      "verbatim_after_projection": 5
+    },
+    {
+      "source": "_MOON_OVERVIEW[Sagittarius][1]",
+      "raw": "คุณมีความคิดเห็นและต้องการพื้นที่ตัดสินใจของตัวเอง",
+      "assembled": 1,
+      "verbatim_after_projection": 1
+    },
+    {
+      "source": "_MOON_OVERVIEW[Capricorn][0]",
+      "raw": "ต้องการเห็นว่าความพยายามมีทิศทางและรับผิดชอบได้",
+      "assembled": 5,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_MOON_OVERVIEW[Capricorn][1]",
+      "raw": "คุณมีแผนของตัวเองและไม่อยากให้ใครลดทอนความจริงจังนั้น",
+      "assembled": 1,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_MOON_OVERVIEW[Aquarius][0]",
+      "raw": "ต้องการพื้นที่คิดอย่างเป็นอิสระและความสัมพันธ์ที่เคารพความแตกต่าง",
+      "assembled": 5,
+      "verbatim_after_projection": 5
+    },
+    {
+      "source": "_MOON_OVERVIEW[Aquarius][1]",
+      "raw": "คุณมีหลักคิดของตัวเองและต้องการสิทธิ์กำหนดระยะห่าง",
+      "assembled": 1,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_MOON_OVERVIEW[Pisces][0]",
+      "raw": "ต้องการเวลาสงบเพื่อแยกความรู้สึกของตนเองออกจากบรรยากาศรอบตัว",
+      "assembled": 5,
+      "verbatim_after_projection": 5
+    },
+    {
+      "source": "_MOON_OVERVIEW[Pisces][1]",
+      "raw": "คุณรับรู้อะไรได้มากแต่ยังต้องการขอบเขตที่ชัด",
+      "assembled": 1,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_RISING_OVERVIEW[Aries][0]",
+      "raw": "เป็นคนตรง กระฉับกระเฉง และพร้อมเริ่มก่อน",
+      "assembled": 1,
+      "verbatim_after_projection": 1
+    },
+    {
+      "source": "_RISING_OVERVIEW[Aries][1]",
+      "raw": "มีคนคิดว่าคุณใจร้อนหรือไม่ฟังใคร",
+      "assembled": 1,
+      "verbatim_after_projection": 1
+    },
+    {
+      "source": "_RISING_OVERVIEW[Taurus][0]",
+      "raw": "เป็นคนสงบ น่าเชื่อถือ และไม่รีบเปลี่ยนท่าที",
+      "assembled": 1,
+      "verbatim_after_projection": 1
+    },
+    {
+      "source": "_RISING_OVERVIEW[Taurus][1]",
+      "raw": "มีคนคิดว่าคุณยอมรับการเปลี่ยนแปลงยาก",
+      "assembled": 1,
+      "verbatim_after_projection": 1
+    },
+    {
+      "source": "_RISING_OVERVIEW[Gemini][0]",
+      "raw": "เป็นคนคุยง่าย คล่องตัว และสนใจสิ่งรอบตัว",
+      "assembled": 1,
+      "verbatim_after_projection": 1
+    },
+    {
+      "source": "_RISING_OVERVIEW[Gemini][1]",
+      "raw": "มีคนคิดว่าคุณเปลี่ยนเรื่องเร็วหรือไม่จริงจัง",
+      "assembled": 1,
+      "verbatim_after_projection": 1
+    },
+    {
+      "source": "_RISING_OVERVIEW[Cancer][0]",
+      "raw": "เป็นคนระมัดระวัง อ่อนโยน และใส่ใจความสบายใจของคนรอบตัว",
+      "assembled": 1,
+      "verbatim_after_projection": 1
+    },
+    {
+      "source": "_RISING_OVERVIEW[Cancer][1]",
+      "raw": "มีคนคิดว่าคุณอ่อนไหวง่ายหรือไม่กล้าตัดสินใจ",
+      "assembled": 1,
+      "verbatim_after_projection": 1
+    },
+    {
+      "source": "_RISING_OVERVIEW[Leo][0]",
+      "raw": "เป็นคนอบอุ่น มั่นใจ และมีตัวตนชัดในกลุ่ม",
+      "assembled": 1,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_RISING_OVERVIEW[Leo][1]",
+      "raw": "มีคนคิดว่าคุณต้องการเป็นจุดสนใจเสมอ",
+      "assembled": 1,
+      "verbatim_after_projection": 1
+    },
+    {
+      "source": "_RISING_OVERVIEW[Virgo][0]",
+      "raw": "เป็นคนเรียบร้อย สังเกตเก่ง และพร้อมช่วยแก้รายละเอียด",
+      "assembled": 1,
+      "verbatim_after_projection": 1
+    },
+    {
+      "source": "_RISING_OVERVIEW[Virgo][1]",
+      "raw": "มีคนคิดว่าคุณกังวลหรือจับผิดมากเกินไป",
+      "assembled": 1,
+      "verbatim_after_projection": 1
+    },
+    {
+      "source": "_RISING_OVERVIEW[Libra][0]",
+      "raw": "เป็นคนสุภาพ เข้าหาง่าย และพยายามรักษาบรรยากาศที่ดี",
+      "assembled": 1,
+      "verbatim_after_projection": 1
+    },
+    {
+      "source": "_RISING_OVERVIEW[Libra][1]",
+      "raw": "มีคนคิดว่าคุณลังเลหรือยอมตามเพื่อเลี่ยงความขัดแย้ง",
+      "assembled": 1,
+      "verbatim_after_projection": 1
+    },
+    {
+      "source": "_RISING_OVERVIEW[Scorpio][0]",
+      "raw": "เป็นคนสุขุม อ่านสถานการณ์เก่ง และไม่เผยทุกอย่างทันที",
+      "assembled": 1,
+      "verbatim_after_projection": 1
+    },
+    {
+      "source": "_RISING_OVERVIEW[Scorpio][1]",
+      "raw": "มีคนคิดว่าคุณเข้าถึงยากหรือระแวง",
+      "assembled": 1,
+      "verbatim_after_projection": 1
+    },
+    {
+      "source": "_RISING_OVERVIEW[Sagittarius][0]",
+      "raw": "เป็นคนเปิดกว้าง ตรงไปตรงมา และชวนให้บรรยากาศขยับ",
+      "assembled": 1,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_RISING_OVERVIEW[Sagittarius][1]",
+      "raw": "มีคนคิดว่าคุณไม่ชอบผูกมัดหรือมองข้ามรายละเอียด",
+      "assembled": 1,
+      "verbatim_after_projection": 1
+    },
+    {
+      "source": "_RISING_OVERVIEW[Capricorn][0]",
+      "raw": "เป็นคนจริงจัง สุขุม และน่าไว้วางใจเรื่องความรับผิดชอบ",
+      "assembled": 1,
+      "verbatim_after_projection": 1
+    },
+    {
+      "source": "_RISING_OVERVIEW[Capricorn][1]",
+      "raw": "มีคนคิดว่าคุณเคร่งหรือรักษาระยะมากเกินไป",
+      "assembled": 1,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_RISING_OVERVIEW[Aquarius][0]",
+      "raw": "เป็นคนเป็นตัวของตัวเอง มองภาพรวม และไม่ยึดติดวิธีเดิม",
+      "assembled": 1,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_RISING_OVERVIEW[Aquarius][1]",
+      "raw": "มีคนคิดว่าคุณห่างเหินหรือเดาท่าทีได้ยาก",
+      "assembled": 1,
+      "verbatim_after_projection": 1
+    },
+    {
+      "source": "_RISING_OVERVIEW[Pisces][0]",
+      "raw": "เป็นคนอ่อนโยนและปรับตัวเก่ง",
+      "assembled": 1,
+      "verbatim_after_projection": 1
+    },
+    {
+      "source": "_RISING_OVERVIEW[Pisces][1]",
+      "raw": "มีคนคิดว่าคุณตามใจง่าย",
+      "assembled": 1,
+      "verbatim_after_projection": 1
+    },
+    {
+      "source": "_SUN_CHOICE[Aries][0]",
+      "raw": "มักเลือกทางที่เริ่มลงมือได้ทันทีและเห็นความคืบหน้าเร็ว",
+      "assembled": 1,
+      "verbatim_after_projection": 1
+    },
+    {
+      "source": "_SUN_CHOICE[Taurus][0]",
+      "raw": "มักเทียบว่าทางใดมั่นคง ใช้ได้จริง และคุ้มกับแรงที่ต้องลง",
+      "assembled": 1,
+      "verbatim_after_projection": 1
+    },
+    {
+      "source": "_SUN_CHOICE[Gemini][0]",
+      "raw": "มักเก็บข้อมูลและเปรียบเทียบหลายทางเพื่อให้เห็นข้อดีข้อเสียครบ",
+      "assembled": 1,
+      "verbatim_after_projection": 1
+    },
+    {
+      "source": "_SUN_CHOICE[Cancer][0]",
+      "raw": "มักดูว่าทางใดรักษาความมั่นคงของตนและคนที่เกี่ยวข้องได้",
+      "assembled": 1,
+      "verbatim_after_projection": 1
+    },
+    {
+      "source": "_SUN_CHOICE[Leo][0]",
+      "raw": "มักเลือกทางที่ได้แสดงความสามารถและเป็นผลงานที่ตนภูมิใจ",
+      "assembled": 1,
+      "verbatim_after_projection": 1
+    },
+    {
+      "source": "_SUN_CHOICE[Virgo][0]",
+      "raw": "มักแยกแต่ละทางเป็นข้อย่อยแล้วตรวจว่ามีจุดใดต้องแก้ก่อน",
+      "assembled": 1,
+      "verbatim_after_projection": 1
+    },
+    {
+      "source": "_SUN_CHOICE[Libra][0]",
+      "raw": "มักชั่งน้ำหนักผลต่อทุกฝ่ายและหาทางที่อธิบายได้ว่าเป็นธรรม",
+      "assembled": 1,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_SUN_CHOICE[Scorpio][0]",
+      "raw": "มักค้นข้อมูลเบื้องหลังและเลือกเมื่อมั่นใจว่าเงื่อนไขสำคัญไม่ถูกซ่อน",
+      "assembled": 1,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_SUN_CHOICE[Sagittarius][0]",
+      "raw": "มักเลือกทางที่เปิดโอกาสให้เรียนรู้และไม่ปิดอนาคตเร็วเกินไป",
+      "assembled": 1,
+      "verbatim_after_projection": 1
+    },
+    {
+      "source": "_SUN_CHOICE[Capricorn][0]",
+      "raw": "มักเลือกทางที่มีขั้นตอนรับผิดชอบได้และพาไปถึงเป้าหมายระยะยาว",
+      "assembled": 1,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_SUN_CHOICE[Aquarius][0]",
+      "raw": "มักเทียบทั้งวิธีเดิมกับทางเลือกใหม่แล้วดูว่าทางใดแก้ปัญหาเชิงระบบได้",
+      "assembled": 1,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_SUN_CHOICE[Pisces][0]",
+      "raw": "มักสังเกตทั้งข้อเท็จจริงและความรู้สึกของคนที่ได้รับผลก่อนเลือก",
+      "assembled": 1,
+      "verbatim_after_projection": 1
+    },
+    {
+      "source": "_MOON_DECISION[Aries][0]",
+      "raw": "ถ้าความคิดกับความรู้สึกไม่ตรงกัน คุณอาจรีบเลือกเพื่อให้ความอึดอัดจบเร็ว",
+      "assembled": 1,
+      "verbatim_after_projection": 1
+    },
+    {
+      "source": "_MOON_DECISION[Taurus][0]",
+      "raw": "ถ้าความคิดกับความรู้สึกไม่ตรงกัน คุณอาจยึดทางที่คุ้นเคยเพราะยังไม่พร้อมรับความไม่แน่นอน",
+      "assembled": 1,
+      "verbatim_after_projection": 1
+    },
+    {
+      "source": "_MOON_DECISION[Gemini][0]",
+      "raw": "ถ้าความคิดกับความรู้สึกไม่ตรงกัน คุณอาจถามเพิ่มหรือเปลี่ยนเหตุผลไปมาจนตัดสินใจช้า",
+      "assembled": 1,
+      "verbatim_after_projection": 1
+    },
+    {
+      "source": "_MOON_DECISION[Cancer][0]",
+      "raw": "ถ้าความคิดกับความรู้สึกไม่ตรงกัน คุณอาจเลือกปกป้องความสบายใจของคนอื่นก่อนความต้องการของตน",
+      "assembled": 1,
+      "verbatim_after_projection": 1
+    },
+    {
+      "source": "_MOON_DECISION[Leo][0]",
+      "raw": "ถ้าความคิดกับความรู้สึกไม่ตรงกัน คุณอาจเอนไปทางที่ทำให้ตนยังรู้สึกได้รับการยอมรับ",
+      "assembled": 1,
+      "verbatim_after_projection": 1
+    },
+    {
+      "source": "_MOON_DECISION[Virgo][0]",
+      "raw": "ถ้าความคิดกับความรู้สึกไม่ตรงกัน คุณอาจตรวจรายละเอียดซ้ำเพราะกลัวเลือกผิด",
+      "assembled": 1,
+      "verbatim_after_projection": 1
+    },
+    {
+      "source": "_MOON_DECISION[Libra][0]",
+      "raw": "ถ้าความคิดกับความรู้สึกไม่ตรงกัน คุณอาจเลื่อนคำตอบเพื่อหลีกเลี่ยงการทำให้ฝ่ายใดผิดหวัง",
+      "assembled": 1,
+      "verbatim_after_projection": 1
+    },
+    {
+      "source": "_MOON_DECISION[Scorpio][0]",
+      "raw": "ถ้าความคิดกับความรู้สึกไม่ตรงกัน คุณอาจเก็บคำตอบไว้จนกว่าจะมั่นใจว่าไว้ใจสถานการณ์ได้",
+      "assembled": 1,
+      "verbatim_after_projection": 1
+    },
+    {
+      "source": "_MOON_DECISION[Sagittarius][0]",
+      "raw": "ถ้าความคิดกับความรู้สึกไม่ตรงกัน คุณอาจเก็บทุกทางเลือกไว้เพราะยังไม่อยากเสียอิสระในการตัดสินใจ",
+      "assembled": 1,
+      "verbatim_after_projection": 1
+    },
+    {
+      "source": "_MOON_DECISION[Capricorn][0]",
+      "raw": "ถ้าความคิดกับความรู้สึกไม่ตรงกัน คุณอาจเลือกหน้าที่ก่อนแล้วค่อยกลับมาจัดการความรู้สึกทีหลัง",
+      "assembled": 1,
+      "verbatim_after_projection": 1
+    },
+    {
+      "source": "_MOON_DECISION[Aquarius][0]",
+      "raw": "ถ้าความคิดกับความรู้สึกไม่ตรงกัน คุณอาจอธิบายด้วยเหตุผลต่อไปทั้งที่ใจยังไม่พร้อม",
+      "assembled": 1,
+      "verbatim_after_projection": 1
+    },
+    {
+      "source": "_MOON_DECISION[Pisces][0]",
+      "raw": "ถ้าความคิดกับความรู้สึกไม่ตรงกัน คุณอาจรับความต้องการของคนรอบตัวมาปนกับคำตอบของตน",
+      "assembled": 1,
+      "verbatim_after_projection": 1
+    },
+    {
+      "source": "_RISING_DECISION[Aries][0]",
+      "raw": "ท่าทีที่ตรงและเร็วอาจทำให้คนอื่นคิดว่าคุณตัดสินใจก่อนฟังข้อมูลทั้งหมด",
+      "assembled": 1,
+      "verbatim_after_projection": 1
+    },
+    {
+      "source": "_RISING_DECISION[Taurus][0]",
+      "raw": "ท่าทีที่นิ่งอาจทำให้คนอื่นคิดว่าคุณปฏิเสธทางเลือกใหม่ทั้งที่กำลังใช้เวลาประเมิน",
+      "assembled": 1,
+      "verbatim_after_projection": 1
+    },
+    {
+      "source": "_RISING_DECISION[Gemini][0]",
+      "raw": "ท่าทีที่คุยง่ายอาจทำให้คนอื่นโยนทางเลือกเพิ่มจนคุณมีข้อมูลมากเกินจำเป็น",
+      "assembled": 1,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_RISING_DECISION[Cancer][0]",
+      "raw": "ท่าทีที่ระมัดระวังอาจทำให้คนอื่นคิดว่าคุณไม่พร้อมเลือกทั้งที่กำลังดูผลต่อคนรอบตัว",
+      "assembled": 1,
+      "verbatim_after_projection": 1
+    },
+    {
+      "source": "_RISING_DECISION[Leo][0]",
+      "raw": "ท่าทีที่มั่นใจอาจทำให้คนอื่นคิดว่าคุณตัดสินใจแล้วทั้งที่ยังต้องการข้อมูลเพิ่ม",
+      "assembled": 1,
+      "verbatim_after_projection": 1
+    },
+    {
+      "source": "_RISING_DECISION[Virgo][0]",
+      "raw": "ท่าทีที่ใส่ใจรายละเอียดอาจทำให้คนอื่นคิดว่าคุณกำลังจับผิดแทนที่จะช่วยลดความเสี่ยง",
+      "assembled": 1,
+      "verbatim_after_projection": 1
+    },
+    {
+      "source": "_RISING_DECISION[Libra][0]",
+      "raw": "ท่าทีที่รับฟังทุกฝ่ายอาจทำให้คนอื่นคิดว่าคุณไม่มีคำตอบของตนเอง",
+      "assembled": 1,
+      "verbatim_after_projection": 1
+    },
+    {
+      "source": "_RISING_DECISION[Scorpio][0]",
+      "raw": "ท่าทีที่ไม่เปิดคำตอบทันทีอาจทำให้คนอื่นคิดว่าคุณไม่ไว้ใจทั้งที่กำลังตรวจข้อมูล",
+      "assembled": 1,
+      "verbatim_after_projection": 1
+    },
+    {
+      "source": "_RISING_DECISION[Sagittarius][0]",
+      "raw": "ท่าทีที่เปิดกว้างอาจทำให้คนอื่นคิดว่าคุณพร้อมรับทุกทางเลือกโดยไม่มีเงื่อนไข",
+      "assembled": 1,
+      "verbatim_after_projection": 1
+    },
+    {
+      "source": "_RISING_DECISION[Capricorn][0]",
+      "raw": "ท่าทีที่จริงจังอาจทำให้คนอื่นคิดว่าคุณเลือกทางปลอดภัยเสมอทั้งที่คุณกำลังคุมความเสี่ยง",
+      "assembled": 1,
+      "verbatim_after_projection": 1
+    },
+    {
+      "source": "_RISING_DECISION[Aquarius][0]",
+      "raw": "ท่าทีที่เว้นระยะอาจทำให้คนอื่นคิดว่าคุณไม่สนใจทั้งที่กำลังมองผลต่อทั้งระบบ",
+      "assembled": 1,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_RISING_DECISION[Pisces][0]",
+      "raw": "ท่าทีที่อ่อนโยนอาจทำให้คนอื่นเร่งให้คุณตอบหรือคิดว่าคุณยอมตาม ทั้งที่คุณยังประเมินทางเลือกอยู่",
+      "assembled": 1,
+      "verbatim_after_projection": 1
+    },
+    {
+      "source": "_MERCURY_WORK[Aries][0]",
+      "raw": "จับประเด็นแล้วตอบสนองเร็ว",
+      "assembled": 5,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_MERCURY_WORK[Taurus][0]",
+      "raw": "คิดเป็นขั้นและต้องเห็นว่าวิธีนั้นใช้ได้จริง",
+      "assembled": 5,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_MERCURY_WORK[Gemini][0]",
+      "raw": "เรียนรู้ไว เชื่อมข้อมูลหลายชุด และอธิบายเรื่องยากให้คนตามทัน",
+      "assembled": 5,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_MERCURY_WORK[Cancer][0]",
+      "raw": "จดจำบริบทของคนและอ่านน้ำหนักทางอารมณ์ในการสื่อสาร",
+      "assembled": 5,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_MERCURY_WORK[Leo][0]",
+      "raw": "สื่อสารด้วยภาพใหญ่และทำให้คนเห็นความสำคัญของเรื่องนั้น",
+      "assembled": 5,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_MERCURY_WORK[Virgo][0]",
+      "raw": "แยกปัญหาเป็นส่วนย่อย ตรวจรายละเอียด และปรับกระบวนการ",
+      "assembled": 5,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_MERCURY_WORK[Libra][0]",
+      "raw": "เปรียบเทียบหลายมุมและหาถ้อยคำที่ทุกฝ่ายร่วมงานกันได้",
+      "assembled": 5,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_MERCURY_WORK[Scorpio][0]",
+      "raw": "ค้นข้อมูลลึก จับประเด็นที่ซ่อนอยู่ และรักษาความลับได้",
+      "assembled": 5,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_MERCURY_WORK[Sagittarius][0]",
+      "raw": "คิดจากภาพใหญ่ เรียนรู้ผ่านประสบการณ์ และชวนคนมองไกลขึ้น",
+      "assembled": 5,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_MERCURY_WORK[Capricorn][0]",
+      "raw": "จัดลำดับเหตุผล วางกรอบ และสื่อสารตามเป้าหมายระยะยาว",
+      "assembled": 5,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_MERCURY_WORK[Aquarius][0]",
+      "raw": "มองระบบ เห็นความเชื่อมโยง และเสนอวิธีที่ต่างจากของเดิม",
+      "assembled": 5,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_MERCURY_WORK[Pisces][0]",
+      "raw": "คิดเชิงภาพและความรู้สึก จับบรรยากาศ และเล่าเรื่องให้คนเห็นภาพ",
+      "assembled": 5,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_MARS_WORK[Aries][0]",
+      "raw": "ลงมือทันทีเมื่อเป้าหมายชัด",
+      "assembled": 5,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_MARS_WORK[Taurus][0]",
+      "raw": "เดินหน้าสม่ำเสมอและไม่ทิ้งงานกลางทาง",
+      "assembled": 5,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_MARS_WORK[Gemini][0]",
+      "raw": "ขยับหลายงานได้ดีเมื่อได้สลับโจทย์และพูดคุย",
+      "assembled": 5,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_MARS_WORK[Cancer][0]",
+      "raw": "ทุ่มแรงเมื่อรู้ว่างานนั้นปกป้องคนหรือสิ่งที่สำคัญ",
+      "assembled": 5,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_MARS_WORK[Leo][0]",
+      "raw": "ทำเต็มกำลังเมื่อได้เป็นเจ้าของผลงานและเห็นผลที่น่าภูมิใจ",
+      "assembled": 5,
+      "verbatim_after_projection": 5
+    },
+    {
+      "source": "_MARS_WORK[Virgo][0]",
+      "raw": "ลงมือด้วยการแก้จุดบกพร่องและทำระบบให้แม่นขึ้น",
+      "assembled": 5,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_MARS_WORK[Libra][0]",
+      "raw": "ขับเคลื่อนผ่านการเจรจาและการแบ่งบทบาทที่เป็นธรรม",
+      "assembled": 5,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_MARS_WORK[Scorpio][0]",
+      "raw": "ทนแรงกดดันและตามปัญหาจนถึงต้นตอ",
+      "assembled": 5,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_MARS_WORK[Sagittarius][0]",
+      "raw": "มีแรงเมื่อได้ทดลอง ขยายขอบเขต หรือเห็นอนาคตของงาน",
+      "assembled": 5,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_MARS_WORK[Capricorn][0]",
+      "raw": "วางหมุดหมายและไต่ระดับจนงานเสร็จ",
+      "assembled": 5,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_MARS_WORK[Aquarius][0]",
+      "raw": "มีแรงกับโจทย์ที่ได้ปรับระบบหรือสร้างประโยชน์ต่อกลุ่ม",
+      "assembled": 5,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_MARS_WORK[Pisces][0]",
+      "raw": "ทำได้ดีเมื่อเชื่อมโยงกับความหมาย ความสร้างสรรค์ หรือการช่วยเหลือ",
+      "assembled": 5,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_MODALITY_WORK[cardinal][0]",
+      "raw": "คุณทำงานได้ดีเมื่อมีสิทธิ์เริ่ม กำหนดทิศ และทำให้เรื่องหยุดนิ่งขยับ",
+      "assembled": 15,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_MODALITY_WORK[cardinal][1]",
+      "raw": "แบ่งจังหวะให้คนอื่นตามและตรวจว่างานเดิมมีเจ้าภาพก่อนเปิดเรื่องใหม่",
+      "assembled": 15,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_MODALITY_WORK[fixed][0]",
+      "raw": "คุณทำงานได้ดีเมื่อได้สร้างมาตรฐาน รักษาคุณภาพ และเห็นผลระยะยาว",
+      "assembled": 15,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_MODALITY_WORK[fixed][1]",
+      "raw": "ตั้งจุดทบทวนไว้ล่วงหน้าเพื่อไม่ยึดวิธีเดิมเพียงเพราะลงทุนไปมากแล้ว",
+      "assembled": 15,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_MODALITY_WORK[mutable][0]",
+      "raw": "คุณทำงานได้ดีเมื่อได้แก้โจทย์ เรียนรู้เร็ว เปลี่ยนบทบาท หรือเชื่อมหลายฝ่าย",
+      "assembled": 15,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_MODALITY_WORK[mutable][1]",
+      "raw": "กำหนดงานหลักหนึ่งชิ้นและเกณฑ์จบให้ชัดเพื่อไม่ให้การปรับตัวกลายเป็นงานกระจาย",
+      "assembled": 15,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_MODALITY_WORK[balanced][0]",
+      "raw": "คุณสลับได้ทั้งบทบาทเริ่มงาน ยืนระยะ และปรับแผนตามสถานการณ์",
+      "assembled": 15,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_MODALITY_WORK[balanced][1]",
+      "raw": "ตกลงบทบาทหลักของตนในแต่ละช่วงเพื่อไม่รับทุกหน้าที่พร้อมกัน",
+      "assembled": 15,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_VENUS_MONEY[Aries][0]",
+      "raw": "ความคล่องตัวและสิทธิ์เลือกทันที",
+      "assembled": 3,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_VENUS_MONEY[Aries][1]",
+      "raw": "ตัดสินใจซื้อเร็วเพราะอยากได้ความรู้สึกเดินหน้า",
+      "assembled": 3,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_VENUS_MONEY[Aries][2]",
+      "raw": "กำหนดวงเงินก่อนเห็นของที่อยากได้",
+      "assembled": 3,
+      "verbatim_after_projection": 3
+    },
+    {
+      "source": "_VENUS_MONEY[Taurus][0]",
+      "raw": "คุณภาพ ความสบาย และสิ่งที่อยู่ได้นาน",
+      "assembled": 3,
+      "verbatim_after_projection": 3
+    },
+    {
+      "source": "_VENUS_MONEY[Taurus][1]",
+      "raw": "ยอมจ่ายมากขึ้นเมื่อเชื่อว่าของนั้นคุ้มและใช้จริง",
+      "assembled": 3,
+      "verbatim_after_projection": 3
+    },
+    {
+      "source": "_VENUS_MONEY[Taurus][2]",
+      "raw": "ก่อนซื้อให้แยกว่าเป็นของที่ใช้บ่อยจริง หรือซื้อเพราะรู้สึกว่าเก็บไว้แล้วอุ่นใจ",
+      "assembled": 3,
+      "verbatim_after_projection": 3
+    },
+    {
+      "source": "_VENUS_MONEY[Gemini][0]",
+      "raw": "ทางเลือก ข้อมูล และประสบการณ์ใหม่",
+      "assembled": 3,
+      "verbatim_after_projection": 3
+    },
+    {
+      "source": "_VENUS_MONEY[Gemini][1]",
+      "raw": "กระจายเงินไปหลายความสนใจได้ง่าย",
+      "assembled": 3,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_VENUS_MONEY[Gemini][2]",
+      "raw": "รวมรายจ่ายย่อยแล้วทบทวนเป็นก้อนเดียวทุกสัปดาห์",
+      "assembled": 3,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_VENUS_MONEY[Cancer][0]",
+      "raw": "ความมั่นคงของบ้านและคนใกล้ตัว",
+      "assembled": 3,
+      "verbatim_after_projection": 3
+    },
+    {
+      "source": "_VENUS_MONEY[Cancer][1]",
+      "raw": "พร้อมใช้เงินเพื่อดูแลหรือสร้างความสบายใจ",
+      "assembled": 3,
+      "verbatim_after_projection": 3
+    },
+    {
+      "source": "_VENUS_MONEY[Cancer][2]",
+      "raw": "แยกงบช่วยคนอื่นออกจากเงินสำรองของตัวเอง",
+      "assembled": 3,
+      "verbatim_after_projection": 3
+    },
+    {
+      "source": "_VENUS_MONEY[Leo][0]",
+      "raw": "คุณภาพที่ทำให้ภูมิใจและการแบ่งปันกับคนสำคัญ",
+      "assembled": 3,
+      "verbatim_after_projection": 3
+    },
+    {
+      "source": "_VENUS_MONEY[Leo][1]",
+      "raw": "ใช้เงินกับสิ่งที่ช่วยแสดงตัวตนหรือสร้างช่วงเวลาดี ๆ",
+      "assembled": 3,
+      "verbatim_after_projection": 3
+    },
+    {
+      "source": "_VENUS_MONEY[Leo][2]",
+      "raw": "ตั้งเกณฑ์ว่าความประทับใจใดคุ้มกับเป้าหมายระยะยาว",
+      "assembled": 3,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_VENUS_MONEY[Virgo][0]",
+      "raw": "ประโยชน์จริง รายละเอียด และความคุ้มค่า",
+      "assembled": 3,
+      "verbatim_after_projection": 3
+    },
+    {
+      "source": "_VENUS_MONEY[Virgo][1]",
+      "raw": "ตรวจข้อมูลก่อนจ่ายและชอบสิ่งที่ช่วยให้ชีวิตเป็นระบบ",
+      "assembled": 3,
+      "verbatim_after_projection": 3
+    },
+    {
+      "source": "_VENUS_MONEY[Virgo][2]",
+      "raw": "อย่าใช้เวลาหาคำตอบที่สมบูรณ์จนพลาดการตัดสินใจที่เพียงพอ",
+      "assembled": 3,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_VENUS_MONEY[Libra][0]",
+      "raw": "ความสวยงาม ความพอดี และการแบ่งกันอย่างเป็นธรรม",
+      "assembled": 3,
+      "verbatim_after_projection": 3
+    },
+    {
+      "source": "_VENUS_MONEY[Libra][1]",
+      "raw": "คำนึงถึงประสบการณ์ร่วมและภาพรวมของความสัมพันธ์",
+      "assembled": 3,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_VENUS_MONEY[Libra][2]",
+      "raw": "ตกลงสัดส่วนค่าใช้จ่ายให้ชัดแทนการเดาว่าอะไรยุติธรรม",
+      "assembled": 3,
+      "verbatim_after_projection": 3
+    },
+    {
+      "source": "_VENUS_MONEY[Scorpio][0]",
+      "raw": "ความไว้ใจ ความเป็นส่วนตัว และคุณค่าที่ลึกจริง",
+      "assembled": 3,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_VENUS_MONEY[Scorpio][1]",
+      "raw": "ตัดสินใจเรื่องเงินอย่างจริงจังเมื่อเกี่ยวกับความมั่นคงหรือทรัพย์สินร่วม",
+      "assembled": 3,
+      "verbatim_after_projection": 3
+    },
+    {
+      "source": "_VENUS_MONEY[Scorpio][2]",
+      "raw": "ขอข้อมูลและเงื่อนไขครบก่อนผูกเงินระยะยาว",
+      "assembled": 3,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_VENUS_MONEY[Sagittarius][0]",
+      "raw": "อิสระ การเรียนรู้ และประสบการณ์ที่เปิดโลก",
+      "assembled": 3,
+      "verbatim_after_projection": 3
+    },
+    {
+      "source": "_VENUS_MONEY[Sagittarius][1]",
+      "raw": "พร้อมจ่ายกับการเดินทาง การศึกษา หรือโอกาสใหม่",
+      "assembled": 3,
+      "verbatim_after_projection": 3
+    },
+    {
+      "source": "_VENUS_MONEY[Sagittarius][2]",
+      "raw": "กันงบสำรวจไว้ต่างหากเพื่อไม่ให้เบียดเงินเป้าหมายหลัก",
+      "assembled": 3,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_VENUS_MONEY[Capricorn][0]",
+      "raw": "ความมั่นคง มาตรฐาน และผลระยะยาว",
+      "assembled": 3,
+      "verbatim_after_projection": 3
+    },
+    {
+      "source": "_VENUS_MONEY[Capricorn][1]",
+      "raw": "มองการใช้เงินเป็นส่วนหนึ่งของแผนและความรับผิดชอบ",
+      "assembled": 3,
+      "verbatim_after_projection": 3
+    },
+    {
+      "source": "_VENUS_MONEY[Capricorn][2]",
+      "raw": "อย่าให้ความกลัวพลาดทำให้เลื่อนสิ่งจำเป็นหรือไม่ยอมรับความช่วยเหลือ",
+      "assembled": 3,
+      "verbatim_after_projection": 3
+    },
+    {
+      "source": "_VENUS_MONEY[Aquarius][0]",
+      "raw": "อิสระทางเลือก เทคโนโลยี และสิ่งที่มีประโยชน์ต่อกลุ่ม",
+      "assembled": 3,
+      "verbatim_after_projection": 3
+    },
+    {
+      "source": "_VENUS_MONEY[Aquarius][1]",
+      "raw": "ยอมลงทุนกับแนวคิดหรือเครื่องมือใหม่เมื่อเห็นภาพระบบ",
+      "assembled": 3,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_VENUS_MONEY[Aquarius][2]",
+      "raw": "กำหนดหลักฐานที่ต้องเห็นก่อนสนับสนุนโครงการที่ยังทดลอง",
+      "assembled": 3,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_VENUS_MONEY[Pisces][0]",
+      "raw": "ความหมาย ความรู้สึก และการช่วยเหลือ",
+      "assembled": 3,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_VENUS_MONEY[Pisces][1]",
+      "raw": "ใช้เงินตามความเอ็นดูหรือแรงบันดาลใจได้ง่าย",
+      "assembled": 3,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_VENUS_MONEY[Pisces][2]",
+      "raw": "เว้นช่วงก่อนจ่ายและตั้งงบให้การช่วยคนอื่นอย่างชัดเจน",
+      "assembled": 3,
+      "verbatim_after_projection": 3
+    },
+    {
+      "source": "_VENUS_LOVE[Aries][0]",
+      "raw": "แสดงความสนใจตรงและชอบความสัมพันธ์ที่มีชีวิตชีวา",
+      "assembled": 4,
+      "verbatim_after_projection": 4
+    },
+    {
+      "source": "_VENUS_LOVE[Aries][1]",
+      "raw": "อีกฝ่ายมักรับรู้ความชัดเจนได้เร็ว",
+      "assembled": 4,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_VENUS_LOVE[Aries][2]",
+      "raw": "เปิดพื้นที่ให้อีกฝ่ายตอบในจังหวะของเขา",
+      "assembled": 4,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_VENUS_LOVE[Taurus][0]",
+      "raw": "แสดงความรักผ่านความสม่ำเสมอ การสัมผัส และการดูแลที่จับต้องได้",
+      "assembled": 4,
+      "verbatim_after_projection": 4
+    },
+    {
+      "source": "_VENUS_LOVE[Taurus][1]",
+      "raw": "ความสัมพันธ์มั่นคงเมื่อคำพูดตรงกับการกระทำ",
+      "assembled": 4,
+      "verbatim_after_projection": 4
+    },
+    {
+      "source": "_VENUS_LOVE[Taurus][2]",
+      "raw": "บอกตรง ๆ ว่าอะไรไม่สบายใจ แทนการเงียบรอให้อีกฝ่ายเดา",
+      "assembled": 4,
+      "verbatim_after_projection": 4
+    },
+    {
+      "source": "_VENUS_LOVE[Gemini][0]",
+      "raw": "ผูกพันผ่านบทสนทนา อารมณ์ขัน และความอยากรู้อยากเห็น",
+      "assembled": 4,
+      "verbatim_after_projection": 4
+    },
+    {
+      "source": "_VENUS_LOVE[Gemini][1]",
+      "raw": "ความสัมพันธ์สดเมื่อยังแลกเปลี่ยนความคิดกันได้",
+      "assembled": 4,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_VENUS_LOVE[Gemini][2]",
+      "raw": "อยู่กับความรู้สึกให้จบก่อนเปลี่ยนไปคุยเรื่องใหม่",
+      "assembled": 4,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_VENUS_LOVE[Cancer][0]",
+      "raw": "ดูแลผ่านความใส่ใจและการสร้างพื้นที่ที่ไว้ใจกัน",
+      "assembled": 4,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_VENUS_LOVE[Cancer][1]",
+      "raw": "อีกฝ่ายมักรู้สึกว่าได้รับการจดจำในรายละเอียด",
+      "assembled": 4,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_VENUS_LOVE[Cancer][2]",
+      "raw": "บอกความต้องการตรง ๆ แทนการรอให้อีกฝ่ายเดา",
+      "assembled": 4,
+      "verbatim_after_projection": 4
+    },
+    {
+      "source": "_VENUS_LOVE[Leo][0]",
+      "raw": "รักอย่างเปิดเผย อบอุ่น และให้ความสำคัญกับการเห็นคุณค่ากัน",
+      "assembled": 4,
+      "verbatim_after_projection": 4
+    },
+    {
+      "source": "_VENUS_LOVE[Leo][1]",
+      "raw": "ความสัมพันธ์เติบโตเมื่อทั้งคู่ชื่นชมกันอย่างจริงใจ",
+      "assembled": 4,
+      "verbatim_after_projection": 4
+    },
+    {
+      "source": "_VENUS_LOVE[Leo][2]",
+      "raw": "แยกการไม่ได้รับคำชมออกจากการไม่ได้รับความรัก",
+      "assembled": 4,
+      "verbatim_after_projection": 4
+    },
+    {
+      "source": "_VENUS_LOVE[Virgo][0]",
+      "raw": "แสดงความรักผ่านการช่วยแก้ปัญหาและดูแลรายละเอียด",
+      "assembled": 4,
+      "verbatim_after_projection": 4
+    },
+    {
+      "source": "_VENUS_LOVE[Virgo][1]",
+      "raw": "อีกฝ่ายมักสัมผัสได้จากสิ่งเล็ก ๆ ที่คุณทำสม่ำเสมอ",
+      "assembled": 4,
+      "verbatim_after_projection": 4
+    },
+    {
+      "source": "_VENUS_LOVE[Virgo][2]",
+      "raw": "ถามก่อนช่วยเพื่อไม่ให้ความหวังดีกลายเป็นการวิจารณ์",
+      "assembled": 4,
+      "verbatim_after_projection": 4
+    },
+    {
+      "source": "_VENUS_LOVE[Libra][0]",
+      "raw": "ให้ค่ากับการรับฟัง ความสุภาพ และการตัดสินใจร่วมกัน",
+      "assembled": 4,
+      "verbatim_after_projection": 4
+    },
+    {
+      "source": "_VENUS_LOVE[Libra][1]",
+      "raw": "ความสัมพันธ์เดินดีเมื่อทั้งสองฝ่ายรู้สึกว่าเสียงของตนมีน้ำหนัก",
+      "assembled": 4,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_VENUS_LOVE[Libra][2]",
+      "raw": "อย่าเลื่อนบทสนทนายากเพียงเพื่อรักษาบรรยากาศ",
+      "assembled": 4,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_VENUS_LOVE[Scorpio][0]",
+      "raw": "ผูกพันลึกและให้ความสำคัญกับความซื่อตรง",
+      "assembled": 4,
+      "verbatim_after_projection": 4
+    },
+    {
+      "source": "_VENUS_LOVE[Scorpio][1]",
+      "raw": "เมื่อไว้ใจแล้วคุณพร้อมอยู่กับเรื่องยากอย่างจริงจัง",
+      "assembled": 4,
+      "verbatim_after_projection": 4
+    },
+    {
+      "source": "_VENUS_LOVE[Scorpio][2]",
+      "raw": "แยกการปกป้องความสัมพันธ์ออกจากการควบคุมข้อมูลหรืออีกฝ่าย",
+      "assembled": 4,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_VENUS_LOVE[Sagittarius][0]",
+      "raw": "รักผ่านการแบ่งปันประสบการณ์ ความคิด และการเติบโต",
+      "assembled": 4,
+      "verbatim_after_projection": 4
+    },
+    {
+      "source": "_VENUS_LOVE[Sagittarius][1]",
+      "raw": "ความสัมพันธ์มีพลังเมื่อยังให้พื้นที่กันเรียนรู้",
+      "assembled": 4,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_VENUS_LOVE[Sagittarius][2]",
+      "raw": "ตกลงเรื่องเสรีภาพและความรับผิดชอบให้ชัด",
+      "assembled": 4,
+      "verbatim_after_projection": 4
+    },
+    {
+      "source": "_VENUS_LOVE[Capricorn][0]",
+      "raw": "แสดงความรักผ่านความรับผิดชอบและการวางแผนอนาคต",
+      "assembled": 4,
+      "verbatim_after_projection": 4
+    },
+    {
+      "source": "_VENUS_LOVE[Capricorn][1]",
+      "raw": "อีกฝ่ายมักเห็นความจริงจังจากสิ่งที่คุณทำต่อเนื่อง",
+      "assembled": 4,
+      "verbatim_after_projection": 4
+    },
+    {
+      "source": "_VENUS_LOVE[Capricorn][2]",
+      "raw": "อย่าให้หน้าที่แทนที่การบอกความรู้สึก",
+      "assembled": 4,
+      "verbatim_after_projection": 4
+    },
+    {
+      "source": "_VENUS_LOVE[Aquarius][0]",
+      "raw": "ต้องการความเป็นเพื่อน ความเท่าเทียม และพื้นที่เป็นตัวเอง",
+      "assembled": 4,
+      "verbatim_after_projection": 4
+    },
+    {
+      "source": "_VENUS_LOVE[Aquarius][1]",
+      "raw": "ความสัมพันธ์แข็งแรงเมื่อคุยกันด้วยเหตุผลและเคารพความต่าง",
+      "assembled": 4,
+      "verbatim_after_projection": 4
+    },
+    {
+      "source": "_VENUS_LOVE[Aquarius][2]",
+      "raw": "บอกความรู้สึกด้วย ไม่ใช่อธิบายหลักคิดเพียงอย่างเดียว",
+      "assembled": 4,
+      "verbatim_after_projection": 4
+    },
+    {
+      "source": "_VENUS_LOVE[Pisces][0]",
+      "raw": "รับรู้ความรู้สึกละเอียดและพร้อมอ่อนโยนกับคนรัก",
+      "assembled": 4,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_VENUS_LOVE[Pisces][1]",
+      "raw": "ความสัมพันธ์ลึกได้จากความเข้าอกเข้าใจ",
+      "assembled": 4,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_VENUS_LOVE[Pisces][2]",
+      "raw": "ตั้งขอบเขตเพื่อไม่รับบทช่วยเหลือทุกเรื่องแทนอีกฝ่าย",
+      "assembled": 4,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_MOON_RECOVERY[Aries][0]",
+      "raw": "ได้ขยับร่างกายหรือจัดการเรื่องค้างทีละเรื่อง",
+      "assembled": 2,
+      "verbatim_after_projection": 2
+    },
+    {
+      "source": "_MOON_RECOVERY[Aries][1]",
+      "raw": "อารมณ์กลับมาชัดและตัดสินใจง่ายขึ้น",
+      "assembled": 2,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_MOON_RECOVERY[Aries][2]",
+      "raw": "อย่าตอบทันทีในช่วงที่ยังเดือด",
+      "assembled": 2,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_MOON_RECOVERY[Taurus][0]",
+      "raw": "กลับสู่กิจวัตรที่คุ้นเคย กินและพักให้ตรงเวลา",
+      "assembled": 2,
+      "verbatim_after_projection": 2
+    },
+    {
+      "source": "_MOON_RECOVERY[Taurus][1]",
+      "raw": "ใจจะนิ่งขึ้นเมื่อร่างกายรับรู้ความสม่ำเสมอ",
+      "assembled": 2,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_MOON_RECOVERY[Taurus][2]",
+      "raw": "อย่ายื้อกิจวัตรเดิมหากมันไม่ช่วยแล้ว",
+      "assembled": 2,
+      "verbatim_after_projection": 2
+    },
+    {
+      "source": "_MOON_RECOVERY[Gemini][0]",
+      "raw": "ได้เขียน พูด หรือจัดข้อมูลที่วนอยู่ในหัว",
+      "assembled": 2,
+      "verbatim_after_projection": 2
+    },
+    {
+      "source": "_MOON_RECOVERY[Gemini][1]",
+      "raw": "ความกังวลลดลงเมื่อความคิดมีชื่อและลำดับ",
+      "assembled": 2,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_MOON_RECOVERY[Gemini][2]",
+      "raw": "พักจากข้อมูลเพิ่มเมื่อสมองเริ่มกระโดดหลายเรื่อง",
+      "assembled": 2,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_MOON_RECOVERY[Cancer][0]",
+      "raw": "ได้อยู่ในพื้นที่ปลอดภัยและคุยกับคนที่ไว้ใจ",
+      "assembled": 2,
+      "verbatim_after_projection": 2
+    },
+    {
+      "source": "_MOON_RECOVERY[Cancer][1]",
+      "raw": "ความรู้สึกคลี่คลายเมื่อไม่ต้องป้องกันตัวตลอดเวลา",
+      "assembled": 2,
+      "verbatim_after_projection": 2
+    },
+    {
+      "source": "_MOON_RECOVERY[Cancer][2]",
+      "raw": "อย่าแบกอารมณ์ของทุกคนเป็นหน้าที่ของตน",
+      "assembled": 2,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_MOON_RECOVERY[Leo][0]",
+      "raw": "ได้สร้างสรรค์ เล่น หรืออยู่กับคนที่ชื่นชมกันจริง",
+      "assembled": 2,
+      "verbatim_after_projection": 2
+    },
+    {
+      "source": "_MOON_RECOVERY[Leo][1]",
+      "raw": "พลังกลับมาเมื่อได้แสดงตัวตนโดยไม่ต้องพิสูจน์",
+      "assembled": 2,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_MOON_RECOVERY[Leo][2]",
+      "raw": "อย่าผูกคุณค่าตนเองกับการตอบรับทันที",
+      "assembled": 2,
+      "verbatim_after_projection": 2
+    },
+    {
+      "source": "_MOON_RECOVERY[Virgo][0]",
+      "raw": "ได้จัดพื้นที่และแบ่งปัญหาเป็นขั้นเล็ก ๆ",
+      "assembled": 2,
+      "verbatim_after_projection": 2
+    },
+    {
+      "source": "_MOON_RECOVERY[Virgo][1]",
+      "raw": "ใจสงบขึ้นเมื่อรู้ว่าขั้นต่อไปคืออะไร",
+      "assembled": 2,
+      "verbatim_after_projection": 2
+    },
+    {
+      "source": "_MOON_RECOVERY[Virgo][2]",
+      "raw": "หยุดตรวจซ้ำเมื่อสิ่งนั้นดีพอใช้งาน",
+      "assembled": 2,
+      "verbatim_after_projection": 2
+    },
+    {
+      "source": "_MOON_RECOVERY[Libra][0]",
+      "raw": "ได้คุยอย่างเป็นธรรมและทำให้ความสัมพันธ์กลับมาสมดุล",
+      "assembled": 2,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_MOON_RECOVERY[Libra][1]",
+      "raw": "ใจเบาขึ้นเมื่อข้อตกลงไม่ทิ้งฝ่ายใดไว้ข้างหลัง",
+      "assembled": 2,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_MOON_RECOVERY[Libra][2]",
+      "raw": "อย่าเก็บความไม่พอใจเพื่อเลี่ยงความขัดแย้ง",
+      "assembled": 2,
+      "verbatim_after_projection": 2
+    },
+    {
+      "source": "_MOON_RECOVERY[Scorpio][0]",
+      "raw": "ได้อยู่ลำพังพอจะยอมรับความรู้สึกที่ลึกจริง",
+      "assembled": 2,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_MOON_RECOVERY[Scorpio][1]",
+      "raw": "พลังกลับมาเมื่อไม่ต้องซ่อนหรือควบคุมทุกอย่าง",
+      "assembled": 2,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_MOON_RECOVERY[Scorpio][2]",
+      "raw": "เลือกคนรับฟังที่ไว้ใจได้แทนการปิดทั้งหมด",
+      "assembled": 2,
+      "verbatim_after_projection": 2
+    },
+    {
+      "source": "_MOON_RECOVERY[Sagittarius][0]",
+      "raw": "ได้เปลี่ยนบรรยากาศ เรียนรู้ หรือมองเรื่องนั้นจากภาพใหญ่",
+      "assembled": 2,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_MOON_RECOVERY[Sagittarius][1]",
+      "raw": "ใจกลับมามีพลังเมื่อเห็นว่าตนยังมีทางเลือก",
+      "assembled": 2,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_MOON_RECOVERY[Sagittarius][2]",
+      "raw": "การเปลี่ยนบรรยากาศช่วยพักใจได้ แต่ควรกำหนดเวลากลับมาจัดการเรื่องที่ยังค้าง",
+      "assembled": 2,
+      "verbatim_after_projection": 2
+    },
+    {
+      "source": "_MOON_RECOVERY[Capricorn][0]",
+      "raw": "ได้วางแผนและทำสิ่งสำคัญให้คืบหน้าทีละขั้น",
+      "assembled": 2,
+      "verbatim_after_projection": 2
+    },
+    {
+      "source": "_MOON_RECOVERY[Capricorn][1]",
+      "raw": "ความมั่นคงทางใจเพิ่มเมื่อเห็นว่าตนยังจัดการได้",
+      "assembled": 2,
+      "verbatim_after_projection": 2
+    },
+    {
+      "source": "_MOON_RECOVERY[Capricorn][2]",
+      "raw": "พักก่อนที่ความรับผิดชอบจะกลายเป็นการกดตัวเอง",
+      "assembled": 2,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_MOON_RECOVERY[Aquarius][0]",
+      "raw": "ได้ถอยออกมาคิดและมองปัญหาเป็นระบบ",
+      "assembled": 2,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_MOON_RECOVERY[Aquarius][1]",
+      "raw": "อารมณ์ชัดขึ้นเมื่อมีระยะและไม่ถูกบังคับให้ตอบทันที",
+      "assembled": 2,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_MOON_RECOVERY[Aquarius][2]",
+      "raw": "กลับมาบอกความรู้สึกหลังคิดเสร็จ",
+      "assembled": 2,
+      "verbatim_after_projection": 2
+    },
+    {
+      "source": "_MOON_RECOVERY[Pisces][0]",
+      "raw": "ได้อยู่เงียบ ๆ ฟังเพลง สร้างสรรค์ หรือพักจากบรรยากาศของคนอื่น",
+      "assembled": 2,
+      "verbatim_after_projection": 2
+    },
+    {
+      "source": "_MOON_RECOVERY[Pisces][1]",
+      "raw": "ใจจะค่อย ๆ แยกได้ว่าอะไรเป็นความรู้สึกของตน",
+      "assembled": 2,
+      "verbatim_after_projection": 2
+    },
+    {
+      "source": "_MOON_RECOVERY[Pisces][2]",
+      "raw": "กำหนดเวลาพักและขอบเขต ไม่ปล่อยให้การหลีกเลี่ยงยืดเยื้อ",
+      "assembled": 2,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_PLANET_ROLE[sun][0]",
+      "raw": "งานหรือบทบาทที่ต้องกำหนดทิศทาง ตัดสินใจ และรับผิดชอบเป้าหมายร่วม",
+      "assembled": 5,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_PLANET_ROLE[moon][0]",
+      "raw": "งานหรือบทบาทที่ต้องสังเกตความต้องการของคน ดูแลประสบการณ์ หรือประสานทีม",
+      "assembled": 5,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_PLANET_ROLE[mercury][0]",
+      "raw": "งานหรือบทบาทที่ต้องเรียนรู้ข้อมูลใหม่ วิเคราะห์ สื่อสาร หรือเชื่อมหลายฝ่าย",
+      "assembled": 5,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_PLANET_ROLE[venus][0]",
+      "raw": "งานหรือบทบาทที่ต้องเจรจา ออกแบบประสบการณ์ หรือสร้างความร่วมมือ",
+      "assembled": 5,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_PLANET_ROLE[mars][0]",
+      "raw": "งานหรือบทบาทที่ต้องลงมือแก้ปัญหา เร่งงาน หรือรับมือแรงกดดัน",
+      "assembled": 5,
+      "verbatim_after_projection": 5
+    },
+    {
+      "source": "_PLANET_ROLE[jupiter][0]",
+      "raw": "งานหรือบทบาทที่ต้องสอน วางภาพใหญ่ หรือขยายโอกาสให้คนอื่น",
+      "assembled": 5,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_PLANET_ROLE[saturn][0]",
+      "raw": "งานหรือบทบาทที่ต้องวางระบบ ตั้งมาตรฐาน และรับผิดชอบงานระยะยาว",
+      "assembled": 5,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_ELEMENT_VOICE[fire][0]",
+      "raw": "คุณสร้างแรงเริ่มต้นและทำให้คนเห็นเป้าหมายได้",
+      "assembled": 8,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_ELEMENT_VOICE[fire][1]",
+      "raw": "ความเร็วอาจทำให้ข้ามข้อมูลหรือความรู้สึกของคนที่ยังตามไม่ทัน",
+      "assembled": 2,
+      "verbatim_after_projection": 2
+    },
+    {
+      "source": "_ELEMENT_VOICE[earth][0]",
+      "raw": "คุณทำเรื่องที่ซับซ้อนให้เป็นระบบและค่อย ๆ สร้างผลที่วัดได้",
+      "assembled": 8,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_ELEMENT_VOICE[earth][1]",
+      "raw": "ความต้องการความแน่นอนอาจทำให้ยื้อวิธีเดิมนานเกินไป",
+      "assembled": 2,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_ELEMENT_VOICE[air][0]",
+      "raw": "คุณเรียนรู้ไว เห็นหลายมุม และเชื่อมข้อมูลหรือผู้คนเข้าหากันได้",
+      "assembled": 8,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_ELEMENT_VOICE[air][1]",
+      "raw": "การคิดหลายทางพร้อมกันอาจทำให้เรื่องสำคัญค้างอยู่ในขั้นวิเคราะห์",
+      "assembled": 2,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_ELEMENT_VOICE[water][0]",
+      "raw": "คุณอ่านบรรยากาศและเข้าใจสิ่งที่คนอื่นยังไม่พูดออกมาได้ดี",
+      "assembled": 8,
+      "verbatim_after_projection": 8
+    },
+    {
+      "source": "_ELEMENT_VOICE[water][1]",
+      "raw": "การรับความรู้สึกมากเกินไปอาจทำให้แบกเรื่องที่ไม่ใช่หน้าที่ของตน",
+      "assembled": 2,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_ELEMENT_VOICE[balanced][0]",
+      "raw": "คุณสลับใช้การคิด ความรู้สึก การลงมือ และความเป็นจริงได้ตามโจทย์",
+      "assembled": 8,
+      "verbatim_after_projection": 0
+    },
+    {
+      "source": "_ELEMENT_VOICE[balanced][1]",
+      "raw": "ความยืดหยุ่นสูงอาจทำให้คนอื่นไม่แน่ใจว่าคุณยึดหลักอะไร",
+      "assembled": 2,
+      "verbatim_after_projection": 2
+    }
+  ],
+  "assembled_fields": [
+    {
+      "lens": "chinese",
+      "field": "กติกาและข้อมูลสำหรับตรวจซ้ำ/row-label",
+      "verbatim": 6,
+      "changed": 4
+    },
+    {
+      "lens": "chinese",
+      "field": "กติกาและข้อมูลสำหรับตรวจซ้ำ/row-value",
+      "verbatim": 17,
+      "changed": 2
+    },
+    {
+      "lens": "chinese",
+      "field": "กติกาและข้อมูลสำหรับตรวจซ้ำ/title",
+      "changed": 1
+    },
+    {
+      "lens": "chinese",
+      "field": "การงาน",
+      "changed": 3
+    },
+    {
+      "lens": "chinese",
+      "field": "การงาน/title",
+      "verbatim": 1
+    },
+    {
+      "lens": "chinese",
+      "field": "การเงิน",
+      "changed": 2
+    },
+    {
+      "lens": "chinese",
+      "field": "การเงิน/title",
+      "verbatim": 1
+    },
+    {
+      "lens": "chinese",
+      "field": "ข้อจำกัดและคำเตือน/note",
+      "verbatim": 3,
+      "changed": 3
+    },
+    {
+      "lens": "chinese",
+      "field": "ข้อจำกัดและคำเตือน/title",
+      "verbatim": 1
+    },
+    {
+      "lens": "chinese",
+      "field": "ข้อมูลดวงที่ใช้ประกอบคำอ่าน/intro",
+      "verbatim": 1
+    },
+    {
+      "lens": "chinese",
+      "field": "ข้อมูลดวงที่ใช้ประกอบคำอ่าน/row-label",
+      "verbatim": 7
+    },
+    {
+      "lens": "chinese",
+      "field": "ข้อมูลดวงที่ใช้ประกอบคำอ่าน/row-value",
+      "verbatim": 17,
+      "flagged_paragraphs": 1
+    },
+    {
+      "lens": "chinese",
+      "field": "ข้อมูลดวงที่ใช้ประกอบคำอ่าน/title",
+      "verbatim": 1
+    },
+    {
+      "lens": "chinese",
+      "field": "ข้อมูลที่ใช้คำนวณ/note",
+      "verbatim": 1
+    },
+    {
+      "lens": "chinese",
+      "field": "ข้อมูลที่ใช้คำนวณ/row-label",
+      "verbatim": 4
+    },
+    {
+      "lens": "chinese",
+      "field": "ข้อมูลที่ใช้คำนวณ/row-value",
+      "verbatim": 12
+    },
+    {
+      "lens": "chinese",
+      "field": "ข้อมูลที่ใช้คำนวณ/title",
+      "verbatim": 1
+    },
+    {
+      "lens": "chinese",
+      "field": "ความรักและความสัมพันธ์",
+      "verbatim": 1,
+      "changed": 3
+    },
+    {
+      "lens": "chinese",
+      "field": "ความรักและความสัมพันธ์/title",
+      "verbatim": 1
+    },
+    {
+      "lens": "chinese",
+      "field": "ความสัมพันธ์ของธาตุที่มองเห็น/intro",
+      "changed": 1
+    },
+    {
+      "lens": "chinese",
+      "field": "ความสัมพันธ์ของธาตุที่มองเห็น/note",
+      "changed": 1,
+      "verbatim": 1
+    },
+    {
+      "lens": "chinese",
+      "field": "ความสัมพันธ์ของธาตุที่มองเห็น/row-label",
+      "verbatim": 5,
+      "flagged_paragraphs": 1
+    },
+    {
+      "lens": "chinese",
+      "field": "ความสัมพันธ์ของธาตุที่มองเห็น/row-value",
+      "changed": 121
+    },
+    {
+      "lens": "chinese",
+      "field": "ความสัมพันธ์ของธาตุที่มองเห็น/title",
+      "verbatim": 1
+    },
+    {
+      "lens": "chinese",
+      "field": "คำทำนายพื้นดวงแบบรายด้าน/intro",
+      "changed": 1
+    },
+    {
+      "lens": "chinese",
+      "field": "คำทำนายพื้นดวงแบบรายด้าน/note",
+      "changed": 1
+    },
+    {
+      "lens": "chinese",
+      "field": "คำทำนายพื้นดวงแบบรายด้าน/row-label",
+      "verbatim": 4,
+      "changed": 1
+    },
+    {
+      "lens": "chinese",
+      "field": "คำทำนายพื้นดวงแบบรายด้าน/row-value",
+      "changed": 655,
+      "flagged_paragraphs": 462
+    },
+    {
+      "lens": "chinese",
+      "field": "คำทำนายพื้นดวงแบบรายด้าน/title",
+      "verbatim": 1
+    },
+    {
+      "lens": "chinese",
+      "field": "จังหวะชีวิตปัจจุบัน",
+      "changed": 10,
+      "verbatim": 1
+    },
+    {
+      "lens": "chinese",
+      "field": "จังหวะชีวิตปัจจุบัน/title",
+      "verbatim": 10
+    },
+    {
+      "lens": "chinese",
+      "field": "จังหวะรายปี",
+      "changed": 1
+    },
+    {
+      "lens": "chinese",
+      "field": "จังหวะรายปี/title",
+      "verbatim": 1
+    },
+    {
+      "lens": "chinese",
+      "field": "จำนวนธาตุที่ปรากฏ/intro",
+      "changed": 1
+    },
+    {
+      "lens": "chinese",
+      "field": "จำนวนธาตุที่ปรากฏ/row-label",
+      "verbatim": 6
+    },
+    {
+      "lens": "chinese",
+      "field": "จำนวนธาตุที่ปรากฏ/row-value",
+      "verbatim": 7
+    },
+    {
+      "lens": "chinese",
+      "field": "จำนวนธาตุที่ปรากฏ/title",
+      "verbatim": 1
+    },
+    {
+      "lens": "chinese",
+      "field": "ตัวตนและวิธีใช้พลัง",
+      "changed": 2
+    },
+    {
+      "lens": "chinese",
+      "field": "ตัวตนและวิธีใช้พลัง/title",
+      "changed": 1
+    },
+    {
+      "lens": "chinese",
+      "field": "ที่มาของผลคำนวณและคำอ่าน/intro",
+      "changed": 1
+    },
+    {
+      "lens": "chinese",
+      "field": "ที่มาของผลคำนวณและคำอ่าน/note",
+      "changed": 1
+    },
+    {
+      "lens": "chinese",
+      "field": "ที่มาของผลคำนวณและคำอ่าน/row-label",
+      "verbatim": 5
+    },
+    {
+      "lens": "chinese",
+      "field": "ที่มาของผลคำนวณและคำอ่าน/row-value",
+      "verbatim": 5
+    },
+    {
+      "lens": "chinese",
+      "field": "ที่มาของผลคำนวณและคำอ่าน/title",
+      "verbatim": 1
+    },
+    {
+      "lens": "chinese",
+      "field": "ปี 2565",
+      "changed": 1,
+      "verbatim": 1
+    },
+    {
+      "lens": "chinese",
+      "field": "ปี 2565/title",
+      "verbatim": 1
+    },
+    {
+      "lens": "chinese",
+      "field": "ปี 2566",
+      "verbatim": 1,
+      "changed": 1
+    },
+    {
+      "lens": "chinese",
+      "field": "ปี 2566/title",
+      "verbatim": 1
+    },
+    {
+      "lens": "chinese",
+      "field": "ปี 2567",
+      "changed": 1,
+      "verbatim": 1
+    },
+    {
+      "lens": "chinese",
+      "field": "ปี 2567/title",
+      "verbatim": 1
+    },
+    {
+      "lens": "chinese",
+      "field": "ปี 2568",
+      "changed": 2
+    },
+    {
+      "lens": "chinese",
+      "field": "ปี 2568/title",
+      "verbatim": 1
+    },
+    {
+      "lens": "chinese",
+      "field": "ปี 2569",
+      "changed": 3
+    },
+    {
+      "lens": "chinese",
+      "field": "ปี 2569/title",
+      "verbatim": 1
+    },
+    {
+      "lens": "chinese",
+      "field": "ปี 2570",
+      "verbatim": 1,
+      "changed": 2
+    },
+    {
+      "lens": "chinese",
+      "field": "ปี 2570/title",
+      "verbatim": 1
+    },
+    {
+      "lens": "chinese",
+      "field": "ปี 2571",
+      "verbatim": 1,
+      "changed": 1
+    },
+    {
+      "lens": "chinese",
+      "field": "ปี 2571/title",
+      "verbatim": 1
+    },
+    {
+      "lens": "chinese",
+      "field": "ปี 2572",
+      "changed": 3
+    },
+    {
+      "lens": "chinese",
+      "field": "ปี 2572/title",
+      "verbatim": 1
+    },
+    {
+      "lens": "chinese",
+      "field": "ปี 2573",
+      "verbatim": 1,
+      "changed": 2
+    },
+    {
+      "lens": "chinese",
+      "field": "ปี 2573/title",
+      "verbatim": 1
+    },
+    {
+      "lens": "chinese",
+      "field": "ปี 2574",
+      "changed": 2
+    },
+    {
+      "lens": "chinese",
+      "field": "ปี 2574/title",
+      "verbatim": 1
+    },
+    {
+      "lens": "chinese",
+      "field": "ปี 2575",
+      "changed": 1,
+      "verbatim": 1
+    },
+    {
+      "lens": "chinese",
+      "field": "ปี 2575/title",
+      "verbatim": 1
+    },
+    {
+      "lens": "chinese",
+      "field": "ปี 2576",
+      "verbatim": 2
+    },
+    {
+      "lens": "chinese",
+      "field": "ปี 2576/title",
+      "verbatim": 1
+    },
+    {
+      "lens": "chinese",
+      "field": "ปี 2593",
+      "verbatim": 1,
+      "changed": 1
+    },
+    {
+      "lens": "chinese",
+      "field": "ปี 2593/title",
+      "verbatim": 1
+    },
+    {
+      "lens": "chinese",
+      "field": "ปี 2643",
+      "changed": 1
+    },
+    {
+      "lens": "chinese",
+      "field": "ปี 2643/title",
+      "verbatim": 1
+    },
+    {
+      "lens": "chinese",
+      "field": "ผลเสาหลักที่ยืนยันได้/intro",
+      "changed": 1
+    },
+    {
+      "lens": "chinese",
+      "field": "ผลเสาหลักที่ยืนยันได้/note",
+      "verbatim": 3
+    },
+    {
+      "lens": "chinese",
+      "field": "ผลเสาหลักที่ยืนยันได้/row-label",
+      "verbatim": 5
+    },
+    {
+      "lens": "chinese",
+      "field": "ผลเสาหลักที่ยืนยันได้/row-value",
+      "verbatim": 6
+    },
+    {
+      "lens": "chinese",
+      "field": "ผลเสาหลักที่ยืนยันได้/title",
+      "verbatim": 1
+    },
+    {
+      "lens": "chinese",
+      "field": "ผังปาจื้อของคุณ/note",
+      "verbatim": 3
+    },
+    {
+      "lens": "chinese",
+      "field": "ผังปาจื้อของคุณ/row-label",
+      "verbatim": 3,
+      "changed": 1
+    },
+    {
+      "lens": "chinese",
+      "field": "ผังปาจื้อของคุณ/row-value",
+      "verbatim": 10
+    },
+    {
+      "lens": "chinese",
+      "field": "ผังปาจื้อของคุณ/title",
+      "verbatim": 1
+    },
+    {
+      "lens": "chinese",
+      "field": "ภาพรวมคำอ่านพื้นดวง",
+      "changed": 133,
+      "flagged_paragraphs": 51
+    },
+    {
+      "lens": "chinese",
+      "field": "ภาพรวมคำอ่านพื้นดวง/intro",
+      "changed": 1
+    },
+    {
+      "lens": "chinese",
+      "field": "ภาพรวมคำอ่านพื้นดวง/note",
+      "verbatim": 1,
+      "changed": 2
+    },
+    {
+      "lens": "chinese",
+      "field": "ภาพรวมคำอ่านพื้นดวง/title",
+      "changed": 1
+    },
+    {
+      "lens": "chinese",
+      "field": "ภาพรวมดวง",
+      "changed": 4
+    },
+    {
+      "lens": "chinese",
+      "field": "ภาพรวมดวง/title",
+      "changed": 1
+    },
+    {
+      "lens": "chinese",
+      "field": "ภาพระยะยาว/intro",
+      "changed": 1
+    },
+    {
+      "lens": "chinese",
+      "field": "ภาพระยะยาว/row-label",
+      "verbatim": 11
+    },
+    {
+      "lens": "chinese",
+      "field": "ภาพระยะยาว/row-value",
+      "verbatim": 1,
+      "changed": 8,
+      "flagged_paragraphs": 1
+    },
+    {
+      "lens": "chinese",
+      "field": "ภาพระยะยาว/title",
+      "changed": 1
+    },
+    {
+      "lens": "chinese",
+      "field": "สิ่งที่ควรระวังและการรักษาสมดุล",
+      "changed": 4
+    },
+    {
+      "lens": "chinese",
+      "field": "สิ่งที่ควรระวังและการรักษาสมดุล/title",
+      "changed": 1
+    },
+    {
+      "lens": "chinese",
+      "field": "เส้นทางที่ผ่านมา/intro",
+      "changed": 1
+    },
+    {
+      "lens": "chinese",
+      "field": "เส้นทางที่ผ่านมา/row-label",
+      "verbatim": 15
+    },
+    {
+      "lens": "chinese",
+      "field": "เส้นทางที่ผ่านมา/row-value",
+      "verbatim": 8,
+      "changed": 6,
+      "flagged_paragraphs": 1
+    },
+    {
+      "lens": "chinese",
+      "field": "เส้นทางที่ผ่านมา/title",
+      "changed": 1
+    },
+    {
+      "lens": "chinese",
+      "field": "แกนตัวตนตาม Day Master/intro",
+      "changed": 1
+    },
+    {
+      "lens": "chinese",
+      "field": "แกนตัวตนตาม Day Master/note",
+      "changed": 1
+    },
+    {
+      "lens": "chinese",
+      "field": "แกนตัวตนตาม Day Master/row-label",
+      "verbatim": 2,
+      "changed": 4
+    },
+    {
+      "lens": "chinese",
+      "field": "แกนตัวตนตาม Day Master/row-value",
+      "verbatim": 31,
+      "changed": 29
+    },
+    {
+      "lens": "chinese",
+      "field": "แกนตัวตนตาม Day Master/title",
+      "changed": 1
+    },
+    {
+      "lens": "chinese",
+      "field": "แนวโน้ม 5 ปีข้างหน้า/intro",
+      "changed": 1
+    },
+    {
+      "lens": "chinese",
+      "field": "แนวโน้ม 5 ปีข้างหน้า/row-label",
+      "verbatim": 24
+    },
+    {
+      "lens": "chinese",
+      "field": "แนวโน้ม 5 ปีข้างหน้า/row-value",
+      "changed": 29,
+      "verbatim": 2
+    },
+    {
+      "lens": "chinese",
+      "field": "แนวโน้ม 5 ปีข้างหน้า/title",
+      "verbatim": 1
+    },
+    {
+      "lens": "thai",
+      "field": "report-body-02",
+      "changed": 1
+    },
+    {
+      "lens": "thai",
+      "field": "report-body-03",
+      "changed": 12,
+      "flagged_paragraphs": 16,
+      "verbatim": 6
+    },
+    {
+      "lens": "thai",
+      "field": "report-body-04",
+      "changed": 14,
+      "verbatim": 1
+    },
+    {
+      "lens": "thai",
+      "field": "report-body-05",
+      "changed": 7
+    },
+    {
+      "lens": "thai",
+      "field": "report-body-06",
+      "changed": 7,
+      "verbatim": 1
+    },
+    {
+      "lens": "thai",
+      "field": "report-body-07",
+      "changed": 5,
+      "verbatim": 1
+    },
+    {
+      "lens": "thai",
+      "field": "report-body-08",
+      "changed": 6,
+      "verbatim": 1
+    },
+    {
+      "lens": "thai",
+      "field": "report-body-09",
+      "changed": 12
+    },
+    {
+      "lens": "thai",
+      "field": "report-body-25",
+      "changed": 4
+    },
+    {
+      "lens": "thai",
+      "field": "report-body-26",
+      "changed": 8
+    },
+    {
+      "lens": "thai",
+      "field": "report-body-27",
+      "changed": 13
+    },
+    {
+      "lens": "thai",
+      "field": "report-body-28",
+      "changed": 1
+    },
+    {
+      "lens": "thai",
+      "field": "report-body-predictive-v2-current",
+      "changed": 22,
+      "verbatim": 1,
+      "flagged_paragraphs": 1
+    },
+    {
+      "lens": "thai",
+      "field": "report-body-predictive-v2-horizon",
+      "changed": 11,
+      "flagged_paragraphs": 10
+    },
+    {
+      "lens": "thai",
+      "field": "report-body-predictive-v2-next-life-period",
+      "changed": 23,
+      "flagged_paragraphs": 2
+    },
+    {
+      "lens": "thai",
+      "field": "report-body-predictive-v2-provenance-chart",
+      "changed": 23
+    },
+    {
+      "lens": "thai",
+      "field": "report-body-predictive-v2-report-header",
+      "verbatim": 23
+    },
+    {
+      "lens": "thai",
+      "field": "report-body-predictive-v2-summary",
+      "changed": 17
+    },
+    {
+      "lens": "thai",
+      "field": "report-chapter-01",
+      "changed": 1
+    },
+    {
+      "lens": "thai",
+      "field": "report-chapter-24",
+      "verbatim": 1,
+      "flagged_paragraphs": 1
+    },
+    {
+      "lens": "thai",
+      "field": "report-chapter-25",
+      "verbatim": 1,
+      "flagged_paragraphs": 1
+    },
+    {
+      "lens": "thai",
+      "field": "report-chapter-26",
+      "verbatim": 1,
+      "flagged_paragraphs": 1
+    },
+    {
+      "lens": "thai",
+      "field": "report-chapter-predictive-v2-part-2",
+      "changed": 1
+    },
+    {
+      "lens": "thai",
+      "field": "report-chapter-predictive-v2-part-3",
+      "changed": 1
+    },
+    {
+      "lens": "thai",
+      "field": "report-disclaimer-27",
+      "changed": 1
+    },
+    {
+      "lens": "thai",
+      "field": "report-disclaimer-28",
+      "changed": 1
+    },
+    {
+      "lens": "thai",
+      "field": "report-disclaimer-29",
+      "changed": 1
+    },
+    {
+      "lens": "thai",
+      "field": "report-disclaimer-predictive-v2-advice",
+      "verbatim": 1,
+      "changed": 1
+    },
+    {
+      "lens": "thai",
+      "field": "report-timeline-predictive-v2-past-2",
+      "changed": 17,
+      "verbatim": 6
+    },
+    {
+      "lens": "thai",
+      "field": "unknown-safe-civil",
+      "changed": 1
+    },
+    {
+      "lens": "thai",
+      "field": "unknown-safe-future",
+      "changed": 1
+    },
+    {
+      "lens": "thai",
+      "field": "unknown-safe-limits",
+      "changed": 1
+    },
+    {
+      "lens": "thai",
+      "field": "unknown-safe-past-current",
+      "changed": 1
+    },
+    {
+      "lens": "western",
+      "field": "cautions",
+      "changed": 10
+    },
+    {
+      "lens": "western",
+      "field": "guidance",
+      "verbatim": 1
+    },
+    {
+      "lens": "western",
+      "field": "identity",
+      "changed": 12
+    },
+    {
+      "lens": "western",
+      "field": "love",
+      "changed": 42,
+      "verbatim": 6
+    },
+    {
+      "lens": "western",
+      "field": "money",
+      "changed": 33,
+      "verbatim": 3
+    },
+    {
+      "lens": "western",
+      "field": "overview",
+      "changed": 11,
+      "verbatim": 1,
+      "flagged_paragraphs": 1
+    },
+    {
+      "lens": "western",
+      "field": "strengths",
+      "changed": 40
+    },
+    {
+      "lens": "western",
+      "field": "wellbeing",
+      "changed": 24
+    },
+    {
+      "lens": "western",
+      "field": "work",
+      "changed": 60
+    }
+  ]
+}
