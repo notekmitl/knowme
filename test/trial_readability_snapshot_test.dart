@@ -490,6 +490,27 @@ void main() {
               TrialReadingCopy.western(section.body),
             );
           }
+          if (id == 'a') {
+            final work = WesternReaderV2Copy.sections(
+              western,
+            ).singleWhere((section) => section.id == 'work');
+            expect(work.body, contains('มองระบบ เห็นความเชื่อมโยง'));
+            final paragraphs = TrialReadingCopy.western(
+              work.body,
+            ).split('\n\n').map((paragraph) => paragraph.trim()).toList();
+            expect(paragraphs, hasLength(5));
+            expect(
+              paragraphs[0],
+              contains('เห็นว่าส่วนต่าง ๆ เกี่ยวกันอย่างไร'),
+            );
+            expect(paragraphs[1], contains('รับมือกับแรงกดดัน'));
+            expect(paragraphs[2], startsWith('คุณทำงานได้ดีเมื่อกำหนดได้ว่า'));
+            expect(
+              paragraphs[3],
+              contains('มีสิทธิ์ตัดสินใจในเรื่องที่คุณรับผิดชอบ'),
+            );
+            expect(paragraphs[4], contains('ต้องทำอะไรครบจึงถือว่างานเสร็จ'));
+          }
           result['gaps'] = life.gaps;
           result['conflicts'] = life.conflicts
               .map((c) => {'title': c.title, 'axis': c.axis})
@@ -601,7 +622,7 @@ void main() {
             expect(westernWork, contains('เลือกงานหลักหนึ่งชิ้น'));
             expect(
               westernWork,
-              contains('เพื่อไม่ให้การปรับวิธีทำงานทำให้งานกระจัดกระจาย'),
+              contains('เพื่อให้การเปลี่ยนวิธีทำงานยังมุ่งไปที่งานหลัก'),
             );
             expect(money, contains('มักตัดสินใจซื้อเร็ว เพราะอยากรู้สึกว่า'));
             expect(money, contains('กำหนดวงเงินก่อนเห็นของที่อยากได้'));
@@ -625,6 +646,22 @@ void main() {
         incomplete,
       );
       expect(incompleteAfter.sections.length, incompleteBefore.sections.length);
+      final fallback = incompleteAfter.plainText;
+      expect(incompleteBefore.plainText, contains('จุดตรวจเรื่องงบและภาระ'));
+      expect(fallback, contains('丁 Ding · ไฟหยิน'));
+      expect(fallback, contains('ธาตุกลุ่มการจัดการทรัพยากรมี 2 ช่อง'));
+      expect(fallback, contains('พลังร่วมธาตุ 3 ช่อง'));
+      expect(
+        fallback,
+        contains('เงินที่ตั้งไว้ใช้พอกับค่าใช้จ่ายที่ต้องรับผิดชอบไหม'),
+      );
+      expect(fallback, contains('ตกลงว่าใครตัดสินใจเรื่องเงินได้'));
+      expect(
+        fallback,
+        contains('ไม่ได้บอกว่าคุณจะได้คู่แบบไหนหรือความสัมพันธ์จะลงเอยอย่างไร'),
+      );
+      expect(fallback, contains('ส่วนที่ต้องใช้เสาชั่วโมงยังอ่านไม่ได้'));
+      expect(fallback, isNot(contains('เจรจาพื้นที่')));
       cases['incompleteChinese'] = {
         'before': _chineseDocument(incompleteBefore),
         'after': _chineseDocument(incompleteAfter),

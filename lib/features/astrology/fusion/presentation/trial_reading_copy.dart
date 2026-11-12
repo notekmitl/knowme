@@ -1,13 +1,14 @@
 import 'package:knowme/features/astrology/thai/mirror/presentation/models/thai_mirror_consumer_view_state.dart';
 
 part 'trial_reading_copy_r6.dart';
+part 'trial_reading_copy_r6_1.dart';
 
 /// Editorial copy for the anonymous trial only. These are reviewed template
 /// clauses, not a vocabulary substitution or a new interpretation engine.
 /// Keep conditions, dates, uncertainty and selected evidence in the source
 /// models. Unknown clauses pass through unchanged; never fill a missing claim.
 abstract final class TrialReadingCopy {
-  static const revision = 'trial_plain_th_20261112_r6';
+  static const revision = 'trial_plain_th_20261112_r6_1';
 
   static final _thaiBase = _TrialClauses({
     ..._houseClauses,
@@ -36,11 +37,12 @@ abstract final class TrialReadingCopy {
     return thai(text);
   }
 
-  static String thai(String value) => _thaiR6.apply(_thaiBase.apply(value));
+  static String thai(String value) =>
+      _thaiR61.apply(_thaiR6.apply(_thaiBase.apply(value)));
   static String chinese(String value) =>
-      _chineseR6.apply(_chineseBase.apply(value));
+      _chineseR61.apply(_chineseR6.apply(_chineseBase.apply(value)));
   static String western(String value) =>
-      _westernR6.apply(_westernBase.apply(value));
+      _westernR61.apply(_westernR6.apply(_westernBase.apply(value)));
   static String overall(String value) =>
       _overallR6.apply(_overallBase.apply(value));
 
