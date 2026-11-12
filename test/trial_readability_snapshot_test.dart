@@ -612,6 +612,11 @@ void main() {
               contains('เว้นช่วงก่อนจ่ายและตั้งงบให้การช่วยคนอื่น'),
             );
           } else {
+            final identity = (result['western'] as List)[0]['after'] as String;
+            expect(
+              identity,
+              contains('\n\nท่าทีที่คุยง่ายอาจทำให้คนอื่นเสนอทางเลือกเพิ่ม'),
+            );
             expect(
               westernWork,
               contains(
