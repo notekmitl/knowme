@@ -640,7 +640,12 @@ class WesternReaderBody extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text('ดาวและเรือนที่มีน้ำหนัก', style: _cardTitleStyle),
+          Text(
+            trialVisual
+                ? 'ดาวและเรือนที่ใช้เน้นในคำอ่าน'
+                : 'ดาวและเรือนที่มีน้ำหนัก',
+            style: _cardTitleStyle,
+          ),
           const SizedBox(height: 14),
           Wrap(
             spacing: 8,
@@ -683,8 +688,10 @@ class WesternReaderBody extends StatelessWidget {
         children: [
           const Text('มุมดาวสำคัญ', style: _cardTitleStyle),
           const SizedBox(height: 6),
-          const Text(
-            'เรียงจากมุมที่ใกล้จุดสมบูรณ์ที่สุด จึงมีน้ำหนักต่อรูปแบบชีวิตมากกว่า',
+          Text(
+            trialVisual
+                ? 'เรียงจากคู่ดาวที่ทำมุมใกล้องศาที่กำหนดมากที่สุด มุมที่ใกล้กว่ามีผลต่อคำอ่านมากกว่า'
+                : 'เรียงจากมุมที่ใกล้จุดสมบูรณ์ที่สุด จึงมีน้ำหนักต่อรูปแบบชีวิตมากกว่า',
             style: _supportStyle,
           ),
           const SizedBox(height: 14),

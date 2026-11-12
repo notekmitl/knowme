@@ -8,6 +8,11 @@ import 'trial_reading_copy.dart';
 /// Projects only display fields after the original report has selected claims.
 /// The same Thai document feeds the visible report and browser-print sync.
 abstract final class TrialReportDocuments {
+  static Iterable<String> _paragraphs(String text) => text
+      .split('\n\n')
+      .map((part) => part.trim())
+      .where((part) => part.isNotEmpty);
+
   static ThaiBetaReportExportDocument thai(
     ThaiBetaReportExportDocument source,
   ) {
@@ -21,7 +26,10 @@ abstract final class TrialReportDocuments {
         for (final section in source.sections)
           ThaiBetaReportExportSection(
             title: TrialReadingCopy.thai(section.title),
-            paragraphs: section.paragraphs.map(TrialReadingCopy.thai).toList(),
+            paragraphs: section.paragraphs
+                .map(TrialReadingCopy.thai)
+                .expand(_paragraphs)
+                .toList(),
             kind: section.kind,
             id: section.id,
             fieldSource: section.fieldSource,
@@ -96,11 +104,14 @@ abstract final class TrialReportDocuments {
           BaziCompatibilityReportSection(
             title: text(section.title),
             intro: section.intro == null ? null : text(section.intro!),
-            paragraphs: section.paragraphs.map(text).toList(),
+            paragraphs: section.paragraphs
+                .map(text)
+                .expand(_paragraphs)
+                .toList(),
             rows: [
               for (final row in section.rows)
                 BaziCompatibilityReportRow(
-                  label: row.label,
+                  label: text(row.label),
                   value: text(row.value),
                 ),
             ],

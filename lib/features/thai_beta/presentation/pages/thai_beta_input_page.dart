@@ -138,7 +138,7 @@ class _ThaiBetaInputPageState extends State<ThaiBetaInputPage> {
         SnackBar(
           content: Text(
             ApiConfig.isOverallPreview
-                ? 'ยังขาด${[if (!input.hasBirthTime) 'เวลาเกิด', if (input.provinceKey?.trim().isEmpty ?? true) 'จังหวัดที่เกิด'].join('และ')} จึงยังดูดวงรวมไม่ได้ กรุณากรอกข้อมูลส่วนนี้ให้ครบ'
+                ? 'ยังขาด${[if (!input.hasBirthTime) 'เวลาเกิด', if (input.provinceKey?.trim().isEmpty ?? true) 'จังหวัดที่เกิด'].join('และ')} กรุณากรอกให้ครบเพื่อดูดวงรวม'
                 : 'ดวงรวมต้องทราบเวลาเกิดและจังหวัดที่เกิด กรุณากรอกให้ครบ',
           ),
         ),
@@ -201,7 +201,9 @@ class _ThaiBetaInputPageState extends State<ThaiBetaInputPage> {
                           ),
                           const SizedBox(height: 4),
                           Text(
-                            'ใช้ข้อมูลเกิดชุดเดียวอ่านภาพรวมจากไทย จีน และตะวันตก แล้วเลือกอ่านแต่ละศาสตร์ได้',
+                            trial
+                                ? 'กรอกครั้งเดียวเพื่อดูดวงรวม จากนั้นเลือกอ่านดวงไทย จีน หรือตะวันตกได้'
+                                : 'ใช้ข้อมูลเกิดชุดเดียวอ่านภาพรวมจากไทย จีน และตะวันตก แล้วเลือกอ่านแต่ละศาสตร์ได้',
                             style: theme.textTheme.bodySmall?.copyWith(
                               color: scheme.onSurfaceVariant,
                             ),
@@ -299,7 +301,9 @@ class _ThaiBetaInputPageState extends State<ThaiBetaInputPage> {
                                   const SizedBox(width: 8),
                                   Expanded(
                                     child: Text(
-                                      'ดวงรวมต้องทราบเวลาเกิด จึงจะคำนวณทั้งสามศาสตร์ได้ กรุณากลับมากรอกเมื่อทราบเวลา',
+                                      trial
+                                          ? 'ต้องใช้เวลาเกิดเพื่อดูดวงรวม กลับมากรอกได้เมื่อทราบเวลา'
+                                          : 'ดวงรวมต้องทราบเวลาเกิด จึงจะคำนวณทั้งสามศาสตร์ได้ กรุณากลับมากรอกเมื่อทราบเวลา',
                                       style: theme.textTheme.bodySmall
                                           ?.copyWith(
                                             color: scheme.onSecondaryContainer,

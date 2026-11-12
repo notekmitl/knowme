@@ -1,11 +1,27 @@
 import 'package:knowme/features/astrology/thai/mirror/presentation/models/thai_mirror_consumer_view_state.dart';
 
+part 'trial_reading_copy_r6.dart';
+
 /// Editorial copy for the anonymous trial only. These are reviewed template
 /// clauses, not a vocabulary substitution or a new interpretation engine.
 /// Keep conditions, dates, uncertainty and selected evidence in the source
 /// models. Unknown clauses pass through unchanged; never fill a missing claim.
 abstract final class TrialReadingCopy {
-  static const revision = 'trial_plain_th_20261112_r5_2';
+  static const revision = 'trial_plain_th_20261112_r6';
+
+  static final _thaiBase = _TrialClauses({
+    ..._houseClauses,
+    ..._runtimeClauses,
+    ..._thai,
+  });
+  static final _chineseBase = _TrialClauses(_chinese);
+  static final _westernBase = _TrialClauses(_western);
+  static final _overallBase = _TrialClauses({
+    ..._houseClauses,
+    ..._chinese,
+    ..._western,
+    ..._overall,
+  });
 
   /// Correct only a proven cross-area source binding. Keep the selected theme,
   /// legacy pool and all raw report/evidence data unchanged. No word matching.
@@ -20,12 +36,13 @@ abstract final class TrialReadingCopy {
     return thai(text);
   }
 
-  static String thai(String value) =>
-      _apply(value, {..._houseClauses, ..._runtimeClauses, ..._thai});
-  static String chinese(String value) => _apply(value, _chinese);
-  static String western(String value) => _apply(value, _western);
+  static String thai(String value) => _thaiR6.apply(_thaiBase.apply(value));
+  static String chinese(String value) =>
+      _chineseR6.apply(_chineseBase.apply(value));
+  static String western(String value) =>
+      _westernR6.apply(_westernBase.apply(value));
   static String overall(String value) =>
-      _apply(value, {..._houseClauses, ..._chinese, ..._western, ..._overall});
+      _overallR6.apply(_overallBase.apply(value));
 
   /// Exact headline templates from ThaiMirrorEvidenceComposer.headline.
   /// Captures retain the selected traits, contrast and frequency.
@@ -34,7 +51,7 @@ abstract final class TrialReadingCopy {
     final templates = <(String, String Function(RegExpMatch))>[
       (
         r'^คุณเป็นคนที่(.+?) แต่ในเวลาเดียวกัน ก็(.+)$',
-        (m) => 'คุณ${m[1]}และ${m[2]}',
+        (m) => 'คุณ${m[1]} แต่ก็${m[2]}',
       ),
       (
         r'^หลายคนเห็นคุณเป็นคนที่(.+?) แต่จริง ๆ แล้ว คุณ(.+?)มากกว่าที่คิด$',
@@ -58,7 +75,7 @@ abstract final class TrialReadingCopy {
       ),
       (
         r'^ถ้าให้บอกสั้น ๆ คุณคือคนที่(.+?) แต่ก็(.+?)ไปพร้อมกัน$',
-        (m) => 'คุณ${m[1]}และ${m[2]}ไปพร้อมกัน',
+        (m) => 'คุณ${m[1]} แต่ก็${m[2]}ไปพร้อมกัน',
       ),
       (
         r'^คุณไม่ได้เป็นแค่คนที่(.+?) คุณยังเป็นคนที่(.+?) และ(.+)$',
@@ -66,7 +83,7 @@ abstract final class TrialReadingCopy {
       ),
       (
         r'^เบื้องหลังความเป็นคนที่(.+?) คือคนที่(.+?) มากกว่าที่ใครเห็น$',
-        (m) => 'คุณ${m[1]}และ${m[2]}มากกว่าที่คนอื่นเห็น',
+        (m) => 'คนอื่นเห็นว่าคุณ${m[1]} แต่คุณ${m[2]}มากกว่าที่คนอื่นเห็น',
       ),
       (
         r'^คุณ(.+?) เป็นธรรมชาติ และพอถึงเวลา ก็(.+?) ได้แบบไม่ต้องฝืน$',
@@ -226,12 +243,7 @@ abstract final class TrialReadingCopy {
 
   // One pass over the original text prevents one edit triggering another.
   static String _apply(String value, Map<String, String> clauses) {
-    final keys = clauses.keys.toList()
-      ..sort((a, b) => b.length.compareTo(a.length));
-    return value.replaceAllMapped(
-      RegExp(keys.map(RegExp.escape).join('|')),
-      (match) => clauses[match[0]]!,
-    );
+    return _TrialClauses(clauses).apply(value);
   }
 
   // ThaiBirthProfileCoreReading, ThaiBetaNarrativeComposer and the adult
@@ -567,4 +579,19 @@ abstract final class TrialReadingCopy {
     'คำนวณแบบ Tropical Zodiac ด้วย Swiss Ephemeris ใช้เวลาเกิดท้องถิ่น เขตเวลา IANA พิกัดเกิด ระบบเรือน Placidus และมุมสัมพันธ์หลัก':
         'ใช้วัน เวลา เขตเวลา และสถานที่เกิดคำนวณตำแหน่งดาวแบบตะวันตก (Tropical Zodiac) ด้วย Swiss Ephemeris แล้วดูส่วนต่าง ๆ ของชีวิตตามระบบ Placidus และมุมระหว่างดาว',
   };
+}
+
+class _TrialClauses {
+  _TrialClauses(this._clauses)
+    : _pattern = RegExp(
+        (_clauses.keys.toList()..sort((a, b) => b.length.compareTo(a.length)))
+            .map(RegExp.escape)
+            .join('|'),
+      );
+
+  final Map<String, String> _clauses;
+  final RegExp _pattern;
+
+  String apply(String value) =>
+      value.replaceAllMapped(_pattern, (match) => _clauses[match[0]]!);
 }
