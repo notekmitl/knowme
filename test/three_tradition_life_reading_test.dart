@@ -80,7 +80,7 @@ void main() {
     expect(result.gaps.single, startsWith('การเงิน:'));
   });
 
-  test('r4 assembles all four topics from the archived owner wording', () {
+  test('r5 keeps independent work claims and the original conditional risk', () {
     // Branch inputs reproduce the recorded wording. They are synthetic and
     // contain no inferred birth details, personal placements, or scores.
     final chart = _copyBazi(
@@ -115,23 +115,32 @@ void main() {
         {'title': topic.title, 'reading': topic.reading},
     ], source['topics']);
     final work = result.topics[0].trialParagraphs;
-    expect(work, hasLength(4));
+    expect(work, hasLength(6));
     expect(
       work.first,
-      'คุณมีแนวโน้มทำได้ดีกับงานที่ต้องค้นคว้า จัดข้อมูลให้ใช้ได้ หรือช่วยคนอื่นหาข้อมูล',
+      'คุณมีแนวโน้มทำได้ดีกับงานที่ต้องค้นคว้าให้เข้าใจเรื่องที่ทำอย่างละเอียด จัดข้อมูลให้คนอื่นใช้ได้ หรือช่วยคนอื่นหาข้อมูล',
     );
+    expect(work[1], 'เวลาทำงาน คุณกล้าลงมือทำและรับมือกับเรื่องด่วน');
     expect(
-      work[1],
-      'เมื่อคุณกล้าลงมือทำและจัดการเรื่องด่วน คุณเรียนรู้เร็ว ใช้ข้อมูลหลายชุดประกอบกัน และอธิบายเรื่องยากให้คนอื่นเข้าใจได้',
+      work[2],
+      'คุณเรียนรู้เร็ว คุณเห็นว่าข้อมูลแต่ละส่วนเกี่ยวกันอย่างไร',
     );
-    expect(work[2], contains('ต้องทำอะไรครบจึงถือว่าเสร็จ'));
-    expect(work[3], startsWith('ถ้าไม่ตกลงเรื่องเหล่านี้ งานที่รับเพิ่มอาจ'));
+    expect(work[3], 'คุณอธิบายเรื่องยากให้คนอื่นเข้าใจได้');
+    expect(work[4], contains('ต้องทำอะไรครบจึงถือว่างานเสร็จ'));
+    expect(
+      work.last,
+      'ถ้าไม่ตกลงเรื่องงานให้ชัด งานที่รับเพิ่มอาจให้ผลงานเป็นชิ้น ๆ ที่ไม่ค่อยต่อกัน',
+    );
     final money = result.topics[1].trialParagraphs;
     expect(
       money[1],
-      'เวลาวางแผนเงิน คุณใช้สิ่งที่รู้และคิดถึงผลในระยะยาว คุณดูว่ามีเหตุผลพอก่อนขยายแผนนั้น',
+      'เวลาวางแผนการเงิน คุณใช้สิ่งที่รู้และคิดถึงผลในระยะยาว คุณดูเหตุผลก่อนจะเพิ่มเรื่องใหม่เข้าไปในแผนการเงิน',
     );
-    expect(money.last, contains('แยกเงินส่วนตัวออกจากเงินที่ใช้ร่วมกัน'));
+    expect(
+      money.last,
+      'ถ้าจะเพิ่มเรื่องใหม่เข้าไปในแผนการเงิน คุณควรแยกเงินส่วนตัวออกจากเงินที่ใช้ร่วมกับคนอื่น '
+      'เหตุผลคือค่าใช้จ่ายจากทีม หุ้นส่วน หรือการขยายงานอาจเพิ่มขึ้นเร็วจนคุณสังเกตไม่ทัน',
+    );
     expect(result.topics[2].trialParagraphs, hasLength(3));
     expect(result.topics[3].trialParagraphs, hasLength(3));
 
@@ -144,7 +153,7 @@ void main() {
               'title': TrialOverallTopicCopy.title(topic.title),
               'source': topic.reading,
               'r3': TrialReadingCopy.overall(topic.reading),
-              'r4': topic.trialParagraphs,
+              'paragraphs': topic.trialParagraphs,
             },
         ]),
       );
@@ -182,7 +191,7 @@ void main() {
     expect(result.gaps.single, startsWith('การงาน:'));
   });
 
-  test('Western sign registry covers every Reader V2 sign', () {
+  test('trial paragraphs cover every source wording branch', () {
     const signs = [
       'Aries',
       'Taurus',
@@ -197,12 +206,102 @@ void main() {
       'Aquarius',
       'Pisces',
     ];
-    for (final sign in signs) {
+    const lords = [
+      ThaiContentKeys.lagnaLordSun,
+      ThaiContentKeys.lagnaLordMoon,
+      ThaiContentKeys.lagnaLordMars,
+      ThaiContentKeys.lagnaLordMercury,
+      ThaiContentKeys.lagnaLordJupiter,
+      ThaiContentKeys.lagnaLordVenus,
+      ThaiContentKeys.lagnaLordSaturn,
+    ];
+    const workFamilies = [
+      ['resource'],
+      ['peer'],
+      ['output'],
+      ['wealth'],
+      ['authority'],
+      ['resource', 'output'],
+    ];
+    final reviewed = <Map<String, dynamic>>[];
+    for (final (index, sign) in signs.indexed) {
       final chart = _westernChart(mercurySign: sign, venusSign: sign);
-      expect(WesternNatalLifeSemantics.workMethod(chart), isNotEmpty);
-      expect(WesternNatalLifeSemantics.moneyValue(chart), isNotEmpty);
-      expect(WesternNatalLifeSemantics.relationshipStyle(chart), isNotEmpty);
-      expect(WesternNatalLifeSemantics.recoveryAction(chart), isNotEmpty);
+      final lord = lords[index % lords.length];
+      final families = workFamilies[index % workFamilies.length];
+      final wealth = index % 2 == 0 ? 2 : 5;
+      final peer = index % 4 < 2 ? 5 : 1;
+      final band = index % 2 == 0 ? 'balanced' : 'supported';
+      final result = compose(
+        core: _thaiCore(
+          'fixture',
+          lordOverrides: {
+            for (final house in [10, 2, 7, 6]) house: lord,
+          },
+        ),
+        westernChart: chart,
+        baziChart: _copyBazi(
+          bazi,
+          gender: 'female',
+          balance: BaziTenGodBalance(
+            familyWeight: {
+              'wealth': wealth,
+              'peer': peer,
+              'authority': index % 2 == 0 ? 5 : 1,
+            },
+            topFamilies: families,
+          ),
+          support: BaziDayMasterSupport(band: band),
+        ),
+      );
+      expect(result.gaps, isEmpty, reason: sign);
+      expect(result.topics, hasLength(4));
+      for (final topic in result.topics) {
+        expect(topic.trialParagraphs, isNotEmpty);
+        // Missing catalog mappings must not expose a raw source fragment.
+        expect(topic.trialParagraphs.join(' '), isNot(contains('ตั้งหลัก')));
+      }
+      final work = result.topics.first.trialParagraphs;
+      expect(work[1], startsWith('เวลาทำงาน คุณ'));
+      expect(work[2], anyOf(startsWith('คุณ'), startsWith('เวลาคุณอธิบาย')));
+      reviewed.add({
+        'sign': sign,
+        'lord': lord,
+        'families': families,
+        'band': band,
+        'topics': [
+          for (final topic in result.topics)
+            {
+              'title': topic.title,
+              'source': topic.reading,
+              'paragraphs': topic.trialParagraphs,
+            },
+        ],
+      });
+    }
+    final lean = compose(
+      baziChart: _copyBazi(
+        bazi,
+        support: const BaziDayMasterSupport(band: 'lean'),
+      ),
+    );
+    expect(lean.gaps.single, startsWith('การงาน:'));
+    final wellbeing = lean.topics.last;
+    expect(wellbeing.trialParagraphs.last, contains('ก่อนรับหน้าที่เพิ่ม'));
+    reviewed.add({
+      'band': 'lean',
+      'topics': [
+        {
+          'title': wellbeing.title,
+          'source': wellbeing.reading,
+          'paragraphs': wellbeing.trialParagraphs,
+        },
+      ],
+    });
+    final path = const String.fromEnvironment('COPY_BRANCH_SNAPSHOT');
+    if (path.isNotEmpty) {
+      File(
+        path,
+      ).writeAsStringSync(const JsonEncoder.withIndent('  ').convert(reviewed));
     }
   });
 
@@ -253,6 +352,15 @@ void main() {
       expect(money.reading, contains(caseData.risk));
       expect(money.reading, isNot(contains('กันเงินสำรอง')));
       expect(money.chinese, isNotEmpty);
+      expect(
+        money.trialParagraphs.last,
+        caseData.peer >= caseData.wealth
+            ? contains('อาจเพิ่มขึ้นเร็วจนคุณสังเกตไม่ทัน')
+            : equals(
+                'ถ้าจะเพิ่มเรื่องใหม่เข้าไปในแผนการเงิน คุณควรกำหนดว่าจะลงทุนได้ไม่เกินเท่าไรและจะหยุดลงทุนในกรณีไหน '
+                'เหตุที่ควรกำหนดไว้ก่อนคือ โอกาสใหม่อาจดึงเงินจากงานหลักไปใช้',
+              ),
+      );
     }
   });
 

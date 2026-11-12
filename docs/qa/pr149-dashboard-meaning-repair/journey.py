@@ -134,6 +134,7 @@ def main():
             expected_topics = json.loads(args.overall_readings.read_text(encoding='utf-8'))[args.case]
             for number, topic in enumerate(expected_topics, 1):
                 title = topic['title']
+                expected = topic['paragraphs'] if 'paragraphs' in topic else topic['r4']
                 toggle = page.locator(f'[flt-semantics-identifier="overall-topic-{number}-toggle"]')
                 nodes = page.locator(f'[flt-semantics-identifier^="overall-topic-{number}-paragraph-"]')
 
@@ -153,13 +154,13 @@ def main():
                 bring_into_view(toggle)
                 assert toggle_label() == f'อ่านรายละเอียด {title}', toggle_label()
                 collapsed = read_paragraphs()
-                assert [p['text'] for p in collapsed] == topic['r4'][:1], (title, collapsed)
+                assert [p['text'] for p in collapsed] == expected[:1], (title, collapsed)
                 capture(f'topic-{number}-collapsed')
                 toggle.click()
                 page.wait_for_timeout(350)
                 assert toggle_label() == f'ย่อรายละเอียด {title}', toggle_label()
                 expanded = read_paragraphs()
-                assert [p['text'] for p in expanded] == topic['r4'], (title, expanded)
+                assert [p['text'] for p in expanded] == expected, (title, expanded)
                 assert [p['id'] for p in expanded] == [f'overall-topic-{number}-paragraph-{i + 1}' for i in range(len(expanded))]
                 assert all(p['x'] >= 0 and p['x'] + p['width'] <= args.width for p in expanded), expanded
                 assert all(second['y'] - (first['y'] + first['height']) >= 13.5 for first, second in zip(expanded, expanded[1:])), expanded
@@ -171,7 +172,7 @@ def main():
                 toggle.click()
                 page.wait_for_timeout(350)
                 assert toggle_label() == f'อ่านรายละเอียด {title}', toggle_label()
-                assert [p['text'] for p in read_paragraphs()] == topic['r4'][:1]
+                assert [p['text'] for p in read_paragraphs()] == expected[:1]
                 overall_topics.append({'title': title, 'collapsed': collapsed, 'expanded': expanded, 'recollapsed': True})
             if args.width >= 800:
                 first = overall_topics[0]['collapsed'][0]
