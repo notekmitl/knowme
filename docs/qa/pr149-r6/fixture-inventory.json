@@ -1,0 +1,218 @@
+{
+  "local_regression_tests": 76,
+  "as_of": "2026-11-10T03:00:00Z",
+  "thai": {
+    "assembled": 24,
+    "known": 23,
+    "infographics": 23,
+    "monthly_available": 0,
+    "section_ids": [
+      "report-body-02",
+      "report-body-03",
+      "report-body-04",
+      "report-body-05",
+      "report-body-06",
+      "report-body-07",
+      "report-body-08",
+      "report-body-09",
+      "report-body-25",
+      "report-body-26",
+      "report-body-27",
+      "report-body-28",
+      "report-body-predictive-v2-current",
+      "report-body-predictive-v2-horizon",
+      "report-body-predictive-v2-next-life-period",
+      "report-body-predictive-v2-provenance-chart",
+      "report-body-predictive-v2-report-header",
+      "report-body-predictive-v2-summary",
+      "report-chapter-01",
+      "report-chapter-24",
+      "report-chapter-25",
+      "report-chapter-26",
+      "report-chapter-predictive-v2-part-2",
+      "report-chapter-predictive-v2-part-3",
+      "report-disclaimer-27",
+      "report-disclaimer-28",
+      "report-disclaimer-29",
+      "report-disclaimer-predictive-v2-advice",
+      "report-timeline-predictive-v2-past-2",
+      "report-timeline-predictive-v2-past-heading",
+      "unknown-safe-civil",
+      "unknown-safe-future",
+      "unknown-safe-limits",
+      "unknown-safe-past-current"
+    ],
+    "readiness_matrix": {
+      "normalization": 776160,
+      "known": 1909,
+      "documents": 126,
+      "unknown": 539
+    },
+    "additional_annual_graphic_fixtures": [
+      "a",
+      "b"
+    ]
+  },
+  "chinese": {
+    "assembled": 49,
+    "fixture_years": {
+      "a": [
+        1980,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026,
+        2027,
+        2028,
+        2029,
+        2030,
+        2031,
+        2032,
+        2033,
+        2050,
+        2100
+      ],
+      "b": [
+        1980,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026,
+        2027,
+        2028,
+        2029,
+        2030,
+        2031,
+        2032,
+        2033,
+        2050,
+        2100
+      ],
+      "jieUnknown": [
+        2026
+      ],
+      "known": [
+        2026
+      ],
+      "lichunUnknown": [
+        2026
+      ],
+      "unknown": [
+        2026
+      ],
+      "v3": [
+        1980,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026,
+        2027,
+        2028,
+        2029,
+        2030,
+        2031,
+        2032,
+        2033,
+        2050,
+        2100
+      ]
+    },
+    "section_titles": [
+      "การงาน",
+      "การเงิน",
+      "ข้อจำกัดและคำเตือน",
+      "ข้อมูลที่ใช้คำนวณ",
+      "ความรักและความสัมพันธ์",
+      "ความสัมพันธ์ของธาตุที่มองเห็น",
+      "คำทำนายพื้นดวงแบบรายด้าน",
+      "คำอ่านจากธาตุประจำวัน (Day Master)",
+      "จังหวะชีวิตปัจจุบัน",
+      "จังหวะรายปี",
+      "จำนวนธาตุที่ปรากฏ",
+      "ช่วงชีวิตที่ผ่านมา",
+      "ที่มาของผลคำนวณและคำอ่าน",
+      "ปี 2565",
+      "ปี 2566",
+      "ปี 2567",
+      "ปี 2568",
+      "ปี 2569",
+      "ปี 2570",
+      "ปี 2571",
+      "ปี 2572",
+      "ปี 2573",
+      "ปี 2574",
+      "ปี 2575",
+      "ปี 2576",
+      "ปี 2593",
+      "ปี 2643",
+      "ผลเสาหลักที่ยืนยันได้",
+      "ผังปาจื้อของคุณ",
+      "ลักษณะของคุณและวิธีใช้จุดเด่น",
+      "วิธีคำนวณและข้อมูลที่ใช้ตรวจซ้ำ",
+      "สรุปคำอ่านจากดวงเกิด",
+      "สรุปดวงจีน",
+      "เรื่องที่ควรระวังและการแบ่งเวลาพัก",
+      "แนวโน้ม 5 ปีข้างหน้า",
+      "แนวโน้มสองช่วงสิบปีถัดไป"
+    ],
+    "additional_v2_legacy_fixture": "offline only"
+  },
+  "western": {
+    "assembled": 72,
+    "sign": [
+      "Aquarius",
+      "Aries",
+      "Cancer",
+      "Capricorn",
+      "Gemini",
+      "Leo",
+      "Libra",
+      "Pisces",
+      "Sagittarius",
+      "Scorpio",
+      "Taurus",
+      "Virgo"
+    ],
+    "aspect": [
+      "conjunction",
+      "none",
+      "opposition",
+      "sextile",
+      "square",
+      "trine"
+    ],
+    "house": [
+      0,
+      1,
+      2,
+      6,
+      8,
+      10
+    ],
+    "element": [
+      "air",
+      "balanced",
+      "earth",
+      "fire",
+      "water"
+    ],
+    "modality": [
+      "balanced",
+      "cardinal",
+      "fixed",
+      "mutable"
+    ]
+  },
+  "overall": {
+    "fixtures": [
+      "a",
+      "b",
+      "owner-wording",
+      "unknown"
+    ],
+    "branch_variants": 13
+  }
+}

@@ -2,6 +2,7 @@ from datetime import datetime, timezone
 import argparse
 import json
 from pathlib import Path
+import re
 from urllib.parse import urlsplit
 
 from PIL import Image, ImageStat
@@ -19,6 +20,7 @@ def main():
     parser.add_argument('--no-pdf', action='store_true')
     parser.add_argument('--fixture-calculators', action='store_true')
     parser.add_argument('--overall-readings', type=Path)
+    parser.add_argument('--assembled-readings', type=Path)
     parser.add_argument('--width', type=int, choices=[320, 390, 1280, 1920], required=True)
     parser.add_argument('--case', choices=['a', 'b', 'unknown'], required=True)
     parser.add_argument('--mode', choices=['chrome', 'cpu', 'cpu_png'], required=True)
@@ -32,6 +34,10 @@ def main():
         parser.error('--build is required unless --hosted is set')
     build = args.build.resolve() if args.build else None
     label = f'{"hosted-" if args.hosted else ""}{args.case}-{args.width}-{args.mode}'
+    assembled = (
+        json.loads(args.assembled_readings.read_text(encoding='utf-8'))[args.case]
+        if args.assembled_readings else None
+    )
 
     def local_asset(route):
         path = urlsplit(route.request.url).path.lstrip('/')
@@ -117,6 +123,66 @@ def main():
             }
         art_paint = {}
         overall_topics = []
+        reader_checks = {}
+
+        def check_reader_text(screen):
+            if not assembled:
+                return
+            normalize = lambda value: ''.join(value.split())
+            selectable_rows = []
+            if screen == 'thai':
+                expected = [p for s in assembled['thaiAfter']['sections'] for p in s['paragraphs']]
+            elif screen == 'chinese':
+                sections = [s for s in assembled['chineseAfter'] if s['title'] != 'ผังปาจื้อของคุณ']
+                selectable_rows = [r for s in sections for r in s['rows']]
+                expected = [
+                    p for s in sections
+                    for p in [*s['paragraphs'], *s['notes'], s['intro']] if p
+                ]
+            else:
+                expected = [assembled['westernOverview']['after'], *(s['after'] for s in assembled['western'])]
+            remaining = {normalize(text): text for text in expected}
+            page.mouse.move(args.width * 0.57, height * 0.65)
+            page.mouse.wheel(0, -30000)
+            page.wait_for_timeout(350)
+            unchanged = 0
+            previous = None
+            annual_seen = False
+            for _ in range(60):
+                visible = page.evaluate("""() => [
+                    ...document.querySelectorAll('flt-semantics'),
+                    ...document.querySelectorAll('flt-semantics input, flt-semantics textarea')
+                ].map(n => [
+                    n.getAttribute('aria-label'), n.getAttribute('aria-valuetext'),
+                    n.value, n.innerText
+                ].filter(Boolean).join(' ')).join(' ')""")
+                normalized = normalize(visible)
+                remaining = {key: text for key, text in remaining.items() if key not in normalized}
+                if screen == 'thai' and not annual_seen:
+                    annual = page.get_by_role('img', name=re.compile('แนวโน้ม 12 เดือนข้างหน้า ช่วง'))
+                    if annual.count():
+                        annual_seen = True
+                unchanged = unchanged + 1 if visible == previous else 0
+                if not remaining or unchanged >= 5:
+                    break
+                previous = visible
+                page.mouse.wheel(0, 330)
+                page.wait_for_timeout(100)
+            check = {'text_items_expected': len(expected), 'unseen': list(remaining.values())}
+            if screen == 'thai':
+                check['annual_image_semantics_seen'] = annual_seen
+            if selectable_rows:
+                # Flutter paints selectable timeline rows even when its web
+                # accessibility tree omits them. Keep overlapping screenshots.
+                page.mouse.wheel(0, 30000)
+                page.wait_for_timeout(350)
+                for index in range(8):
+                    capture(f'chinese-timeline-sweep-{index + 1:02}')
+                    page.mouse.wheel(0, -round(height * 0.52))
+                    page.wait_for_timeout(220)
+                check['selectable_row_labels'] = [row['label'] for row in selectable_rows]
+            reader_checks[screen] = check
+            (out / f'readers-{label}.json').write_text(json.dumps(reader_checks, ensure_ascii=False, indent=2), encoding='utf-8')
 
         def bring_into_view(target, down=True):
             page.mouse.move(args.width * 0.65, height * 0.67)
@@ -336,8 +402,13 @@ def main():
                         (out / f'print-{label}.txt').write_text(print_root.inner_text(), encoding='utf-8')
                         (out / f'print-{label}.html').write_text(print_root.inner_html(), encoding='utf-8')
                         (out / f'print-paragraphs-{label}.json').write_text(json.dumps(print_root.locator('[data-paragraph-id]').all_text_contents(), ensure_ascii=False, indent=2), encoding='utf-8')
+                        if assembled:
+                            expected = [p for s in assembled['thaiAfter']['sections'] for p in s['paragraphs']]
+                            assert print_root.locator('[data-paragraph-id]').all_text_contents() == expected
                         if not args.no_pdf:
                             page.pdf(path=str(out / f'print-{label}.pdf'), print_background=True, prefer_css_page_size=True)
+                    elif assembled:
+                        raise AssertionError('Thai report did not prepare the print document')
                     annual = page.get_by_text('ภาพสรุป 12 เดือนข้างหน้า')
                     for _ in range(40):
                         if annual.count():
@@ -350,6 +421,16 @@ def main():
                         capture('thai-annual')
                     else:
                         capture('thai-annual-search')
+                    if assembled:
+                        page.mouse.move(args.width * 0.55, height * 0.64)
+                        page.mouse.wheel(0, -30000)
+                        page.wait_for_timeout(350)
+                        # The hidden print DOM repeats the headings. Sweep
+                        # the visible scroll area for the annual graphic.
+                        for index in range(18):
+                            capture(f'thai-report-sweep-{index + 1:02}')
+                            page.mouse.wheel(0, round(height * 0.62))
+                            page.wait_for_timeout(160)
                 if screen == 'chinese':
                     page.get_by_text('ดูสัดส่วนธาตุที่คำนวณได้').click()
                     page.wait_for_timeout(350)
@@ -380,6 +461,7 @@ def main():
                     planets.click()
                     page.wait_for_timeout(350)
                     capture('western-planets')
+                check_reader_text(screen)
                 page.get_by_role('button', name='ดวงรวม', exact=True).click()
                 page.wait_for_timeout(450)
             for tab in ('ไทย', 'จีน', 'ตะวันตก', 'ดวงรวม'):
