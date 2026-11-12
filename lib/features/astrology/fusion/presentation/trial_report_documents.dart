@@ -89,10 +89,15 @@ abstract final class TrialReportDocuments {
             : 'ยังขาด${missing.join('และ')} จึงยังอ่านแนวโน้มช่วงละสิบปีไม่ได้';
       }
       return TrialReadingCopy.chinese(
-        value.replaceAll(
-          metaphor,
-          'ดวงจีนใช้ ${profile.name} เป็นธาตุประจำวัน เพื่ออ่านลักษณะของคุณ ',
-        ),
+        value
+            .replaceAll(
+              metaphor,
+              'ดวงจีนใช้ ${profile.name} เป็นธาตุประจำวัน เพื่ออ่านลักษณะของคุณ ',
+            )
+            .replaceFirst(
+              'แกนวันเกิดของดวงนี้คือ ${profile.name}',
+              'ธาตุประจำวัน (Day Master) ของคุณคือ ${profile.name}',
+            ),
       );
     }
 
