@@ -1,0 +1,57 @@
+{
+  "as_of": "2026-11-10T03:00:00Z",
+  "baseline": "trial_plain_th_20261112_r5",
+  "revision": "trial_plain_th_20261112_r5_1",
+  "matched": {
+    "a": {
+      "selected_facts_sha256": "8d5cdcd262e7769c1a2548072d2f06df777a05166d5cb2478cdd1ec53de97c4c",
+      "gaps": [],
+      "conflicts": [],
+      "other_fields_exact_match": [
+        "thaiBefore",
+        "thaiAfter",
+        "heroBefore",
+        "heroAfter",
+        "dashboard",
+        "chineseBefore",
+        "chineseAfter",
+        "western",
+        "westernOverview",
+        "overall",
+        "gaps",
+        "conflicts",
+        "selectedFacts"
+      ]
+    },
+    "b": {
+      "selected_facts_sha256": "c57d00cf060ab13a65fcbf53a1dc8f9dd05de363b088a33baa892e2cd59d3482",
+      "gaps": [],
+      "conflicts": [],
+      "other_fields_exact_match": [
+        "thaiBefore",
+        "thaiAfter",
+        "heroBefore",
+        "heroAfter",
+        "dashboard",
+        "chineseBefore",
+        "chineseAfter",
+        "western",
+        "westernOverview",
+        "overall",
+        "gaps",
+        "conflicts",
+        "selectedFacts"
+      ]
+    }
+  },
+  "owner_raw_exact_match": true,
+  "unknown_exact_match": true,
+  "incomplete_chinese_exact_match": true,
+  "work_relationships_exact_match": true,
+  "money_changed_paragraphs": [
+    4
+  ],
+  "wellbeing_changed_paragraphs": [
+    1
+  ]
+}

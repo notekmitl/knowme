@@ -1,0 +1,98 @@
+{
+  "application": "52c007b1c7328635153df747fcdceb548bfe640c",
+  "copy_revision": "trial_plain_th_20261112_r5_1",
+  "trial": "https://knowme-trial-694e1.web.app/beta/thai",
+  "before": {
+    "release": "1794461492962000",
+    "version": "59ab457cfafda774",
+    "time": "2026-11-12T05:31:32.962Z"
+  },
+  "after": {
+    "release": "1794474597038000",
+    "version": "8934e10662a0a374",
+    "time": "2026-11-12T09:09:57.038Z"
+  },
+  "app_ci": {
+    "url": "https://github.com/notekmitl/knowme/actions/runs/43187590598",
+    "status": "success",
+    "jobs": {
+      "flutter-validation": "success",
+      "isolated-trial-build": "success",
+      "backend-validation": "success"
+    }
+  },
+  "main": {
+    "release": "1790074568414000",
+    "version": "d32e72678324e634",
+    "time": "2026-09-22T10:56:08.414Z"
+  },
+  "calculator_revision": "knowme-overall-pr149-preview-00004-kt9",
+  "checks": [
+    {
+      "case": "a",
+      "viewport": [
+        390,
+        844
+      ],
+      "posts": 2,
+      "topic_states_checked": 4,
+      "thai_print_paragraphs_matching_r5": 46,
+      "reading_width": 316
+    },
+    {
+      "case": "unknown",
+      "viewport": [
+        390,
+        844
+      ],
+      "posts": 0,
+      "topic_states_checked": 0
+    },
+    {
+      "case": "b",
+      "viewport": [
+        1280,
+        800
+      ],
+      "posts": 2,
+      "topic_states_checked": 4,
+      "thai_print_paragraphs_matching_r5": 46,
+      "reading_width": 452
+    },
+    {
+      "case": "unknown",
+      "viewport": [
+        1280,
+        800
+      ],
+      "posts": 0,
+      "topic_states_checked": 0
+    },
+    {
+      "case": "b",
+      "viewport": [
+        1920,
+        911
+      ],
+      "posts": 2,
+      "topic_states_checked": 4,
+      "thai_print_paragraphs_matching_r5": 46,
+      "reading_width": 452
+    },
+    {
+      "case": "unknown",
+      "viewport": [
+        1920,
+        911
+      ],
+      "posts": 0,
+      "topic_states_checked": 0
+    }
+  ],
+  "reviewer_findings": [
+    "money_plan_expansion_condition",
+    "wellbeing_observation_as_guidance"
+  ],
+  "owner_r5": "undecided",
+  "owner_r5_1": "awaiting_reading"
+}
