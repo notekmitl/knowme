@@ -1,0 +1,52 @@
+{
+  "as_of": "2026-11-10T03:00:00Z",
+  "baseline": "trial_plain_th_20261112_r5_1",
+  "revision": "trial_plain_th_20261112_r5_2",
+  "matched": {
+    "a": {
+      "selected_facts_sha256": "8d5cdcd262e7769c1a2548072d2f06df777a05166d5cb2478cdd1ec53de97c4c",
+      "gaps": [],
+      "conflicts": [],
+      "fields_matched_except_trial_paragraphs": [
+        "thaiBefore",
+        "thaiAfter",
+        "heroBefore",
+        "heroAfter",
+        "dashboard",
+        "chineseBefore",
+        "chineseAfter",
+        "western",
+        "westernOverview",
+        "overall",
+        "gaps",
+        "conflicts",
+        "selectedFacts"
+      ]
+    },
+    "b": {
+      "selected_facts_sha256": "c57d00cf060ab13a65fcbf53a1dc8f9dd05de363b088a33baa892e2cd59d3482",
+      "gaps": [],
+      "conflicts": [],
+      "fields_matched_except_trial_paragraphs": [
+        "thaiBefore",
+        "thaiAfter",
+        "heroBefore",
+        "heroAfter",
+        "dashboard",
+        "chineseBefore",
+        "chineseAfter",
+        "western",
+        "westernOverview",
+        "overall",
+        "gaps",
+        "conflicts",
+        "selectedFacts"
+      ]
+    }
+  },
+  "owner_raw_exact_match": true,
+  "unknown_exact_match": true,
+  "incomplete_chinese_exact_match": true,
+  "independent_thai_work_and_western_skills_exact_match": true,
+  "wellbeing_opening_all_seven_modes_exact_match": true
+}
