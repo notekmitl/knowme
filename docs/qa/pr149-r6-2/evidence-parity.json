@@ -1,0 +1,54 @@
+{
+  "baseline": "trial_plain_th_20261112_r6_1",
+  "revision": "trial_plain_th_20261113_r6_2",
+  "as_of": "2026-11-10T03:00:00Z",
+  "cases": {
+    "a": {
+      "unchanged": [
+        "thaiBefore",
+        "heroBefore",
+        "heroAfter",
+        "dashboard",
+        "chineseBefore",
+        "selectedFacts",
+        "gaps",
+        "conflicts",
+        "overall"
+      ],
+      "western_raw_and_sections_match": true,
+      "facts_sha256": "8d5cdcd262e7769c1a2548072d2f06df777a05166d5cb2478cdd1ec53de97c4c"
+    },
+    "b": {
+      "unchanged": [
+        "thaiBefore",
+        "heroBefore",
+        "heroAfter",
+        "dashboard",
+        "chineseBefore",
+        "selectedFacts",
+        "gaps",
+        "conflicts",
+        "overall"
+      ],
+      "western_raw_and_sections_match": true,
+      "facts_sha256": "c57d00cf060ab13a65fcbf53a1dc8f9dd05de363b088a33baa892e2cd59d3482"
+    },
+    "unknown": {
+      "unchanged": [
+        "thaiBefore",
+        "heroBefore",
+        "heroAfter",
+        "dashboard"
+      ],
+      "western_raw_and_sections_match": true,
+      "facts_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b"
+    }
+  },
+  "incomplete_chinese_match": true,
+  "owner_wording_match": true,
+  "thai_raw_cases": 24,
+  "chinese_raw_cases": 240,
+  "chinese_row_labels_and_presence_match": true,
+  "western_raw_cases": 72,
+  "thai_trace_ids_match": true
+}
