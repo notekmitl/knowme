@@ -1,10 +1,12 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:knowme/data/models/astrology_chart_model.dart';
 import 'package:knowme/data/models/bazi_chart_model.dart';
 import 'package:knowme/features/astrology/fusion/presentation/three_tradition_life_reading.dart';
+import 'package:knowme/features/astrology/fusion/presentation/pages/three_tradition_report_page.dart';
 import 'package:knowme/features/astrology/fusion/application/three_tradition_consensus.dart';
 import 'package:knowme/features/astrology/fusion/adapters/lens_theme_output.dart';
 import 'package:knowme/features/astrology/fusion/domain/entities/astrology_lens.dart';
@@ -16,6 +18,8 @@ import 'package:knowme/features/astrology/thai/content/models/thai_content_key.d
 import 'package:knowme/features/bazi_compatibility/application/bazi_compatibility_owner_fixtures.dart';
 import 'package:knowme/features/bazi_compatibility/application/bazi_reader_v2.dart';
 import 'package:knowme/features/thai_beta/application/core_reading/thai_birth_profile_core_reading.dart';
+import 'package:knowme/features/thai_beta/application/thai_beta_analysis.dart';
+import 'package:knowme/features/thai_beta/domain/thai_beta_input.dart';
 import 'package:knowme/presentation/pages/astrology/western_reader_v2_copy.dart';
 
 void main() {
@@ -206,7 +210,9 @@ void main() {
     expect(result.gaps.single, startsWith('การงาน:'));
   });
 
-  test('screenshot branches use topic-specific openings with source limits', () {
+  testWidgets('screenshot branches show only the topic lead until opened', (
+    tester,
+  ) async {
     // Selected modes reproduce the two copy branches, not a person's chart.
     final result = compose(
       core: _thaiCore(
@@ -251,6 +257,66 @@ void main() {
       contains('ไม่ได้บอกว่าการทำแบบนี้จะทำให้คุณมีแรงขึ้น'),
     );
     expect(wellbeing.reading, startsWith('การดูแลพลังของคุณเริ่มจากข้อมูล'));
+    await tester.binding.setSurfaceSize(const Size(390, 844));
+    addTearDown(() => tester.binding.setSurfaceSize(null));
+    final asOf = DateTime(2026, 11, 10);
+    // A separate, already documented QA input activates the anonymous view.
+    // The card readings come from the synthetic branch result above.
+    final thai = ThaiBetaAnalysisRunner.run(
+      ThaiBetaInput(
+        firstName: 'QA',
+        lastName: 'Synthetic',
+        birthDate: DateTime(2001, 1, 15),
+        birthHour: 12,
+        birthMinute: 34,
+        province: 'กรุงเทพมหานคร',
+        provinceKey: 'bangkok',
+        gender: 'หญิง',
+      ),
+      asOf: asOf,
+      startedAt: asOf,
+    );
+    await tester.pumpWidget(
+      MaterialApp(
+        home: ThreeTraditionReportPage(
+          reading: const ThreeTraditionReading(agreements: [], byLens: {}),
+          lifeReading: result,
+          thaiAnalysis: thai,
+          baziChart: bazi,
+          westernChart: western,
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+    for (final (number, topic) in [(3, relationship), (4, wellbeing)]) {
+      final toggle = find.byKey(Key('overall-topic-details-$number'));
+      final card = find.byKey(Key('overall-topic-card-$number'));
+      Finder paragraph(String value) =>
+          find.descendant(of: card, matching: find.text(value));
+      await tester.scrollUntilVisible(
+        toggle,
+        260,
+        scrollable: find.byType(Scrollable).first,
+      );
+      await tester.ensureVisible(toggle);
+      await tester.pumpAndSettle();
+      expect(paragraph(topic.trialParagraphs.first), findsOneWidget);
+      for (final detail in topic.trialParagraphs.skip(1)) {
+        expect(paragraph(detail), findsNothing);
+      }
+      await tester.tap(toggle);
+      await tester.pumpAndSettle();
+      for (final text in topic.trialParagraphs) {
+        final finder = paragraph(text);
+        expect(finder, findsOneWidget);
+        expect(tester.widget<Text>(finder).maxLines, isNull);
+      }
+      await tester.ensureVisible(toggle);
+      await tester.tap(toggle);
+      await tester.pumpAndSettle();
+      expect(paragraph(topic.trialParagraphs.last), findsNothing);
+    }
+    expect(tester.takeException(), isNull);
     final path = const String.fromEnvironment(
       'COPY_SCREENSHOT_BRANCH_SNAPSHOT',
     );
