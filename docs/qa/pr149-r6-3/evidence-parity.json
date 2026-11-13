@@ -1,0 +1,61 @@
+{
+  "baseline": "trial_plain_th_20261113_r6_2",
+  "revision": "trial_plain_th_20261113_r6_3",
+  "as_of": "2026-11-10T03:00:00Z",
+  "cases": {
+    "a": {
+      "unchanged": [
+        "thaiBefore",
+        "heroBefore",
+        "heroAfter",
+        "dashboard",
+        "chineseBefore",
+        "chineseAfter",
+        "westernOverview",
+        "western",
+        "selectedFacts",
+        "gaps",
+        "conflicts"
+      ],
+      "same_overall_raw_topics_evidence_and_order": true,
+      "thai_print_changed_sections": [
+        "report-body-08"
+      ],
+      "facts_sha256": "8d5cdcd262e7769c1a2548072d2f06df777a05166d5cb2478cdd1ec53de97c4c"
+    },
+    "b": {
+      "unchanged": [
+        "thaiBefore",
+        "heroBefore",
+        "heroAfter",
+        "dashboard",
+        "chineseBefore",
+        "chineseAfter",
+        "westernOverview",
+        "western",
+        "selectedFacts",
+        "gaps",
+        "conflicts"
+      ],
+      "same_overall_raw_topics_evidence_and_order": true,
+      "thai_print_changed_sections": [
+        "report-body-08"
+      ],
+      "facts_sha256": "c57d00cf060ab13a65fcbf53a1dc8f9dd05de363b088a33baa892e2cd59d3482"
+    },
+    "unknown": {
+      "unchanged": [
+        "thaiBefore",
+        "heroBefore",
+        "heroAfter",
+        "dashboard"
+      ],
+      "same_overall_raw_topics_evidence_and_order": true,
+      "thai_print_changed_sections": [],
+      "facts_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b"
+    }
+  },
+  "incomplete_chinese_match": true,
+  "owner_wording_raw_match": true,
+  "branch_raw_cases": 13
+}

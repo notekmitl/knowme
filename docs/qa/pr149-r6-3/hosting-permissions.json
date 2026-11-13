@@ -1,0 +1,11 @@
+{
+  "checked_at": "2026-11-13T11:22:17.816Z",
+  "project": "knowme-app-694e1",
+  "operation": "read-only testIamPermissions; no policy changes",
+  "allowed": [
+    "firebase.projects.get",
+    "firebasehosting.sites.update"
+  ],
+  "missing": [],
+  "passed": true
+}

@@ -1,0 +1,123 @@
+{
+  "viewport": [
+    1920,
+    911
+  ],
+  "case": "unknown",
+  "overall_topics": [],
+  "calculator_fixture_replay": false,
+  "input": {
+    "birth_date": "2001-01-15",
+    "hour": null,
+    "minute": 0,
+    "province": "กรุงเทพมหานคร",
+    "gender": "female",
+    "as_of": "2026-11-10T03:00:00Z"
+  },
+  "local_build": null,
+  "local_assets_under_allowed_origin": false,
+  "requests": [
+    {
+      "method": "GET",
+      "url": "https://knowme-trial-694e1.web.app/beta/thai"
+    },
+    {
+      "method": "GET",
+      "url": "https://knowme-trial-694e1.web.app/flutter_bootstrap.js?v=trial_plain_th_20261113_r6_3"
+    },
+    {
+      "method": "GET",
+      "url": "https://www.gstatic.com/flutter-canvaskit/327ed814500baca0480a02f8555aa84a9afe32bf/chromium/canvaskit.wasm"
+    },
+    {
+      "method": "GET",
+      "url": "https://www.gstatic.com/flutter-canvaskit/327ed814500baca0480a02f8555aa84a9afe32bf/chromium/canvaskit.js"
+    },
+    {
+      "method": "GET",
+      "url": "https://knowme-trial-694e1.web.app/main.dart.js?v=trial_plain_th_20261113_r6_3"
+    },
+    {
+      "method": "GET",
+      "url": "https://knowme-trial-694e1.web.app/favicon.png"
+    },
+    {
+      "method": "GET",
+      "url": "https://knowme-trial-694e1.web.app/assets/FontManifest.json"
+    },
+    {
+      "method": "GET",
+      "url": "https://knowme-trial-694e1.web.app/assets/fonts/MaterialIcons-Regular.otf"
+    },
+    {
+      "method": "GET",
+      "url": "https://knowme-trial-694e1.web.app/assets/assets/fonts/noto_sans_thai/NotoSansThai-Regular.ttf"
+    },
+    {
+      "method": "GET",
+      "url": "https://knowme-trial-694e1.web.app/assets/assets/fonts/noto_sans_thai/NotoSansThai-Bold.ttf"
+    },
+    {
+      "method": "GET",
+      "url": "https://knowme-trial-694e1.web.app/assets/assets/fonts/noto_sans_thai/NotoSans-Regular.ttf"
+    },
+    {
+      "method": "GET",
+      "url": "https://knowme-trial-694e1.web.app/assets/assets/fonts/noto_sans_thai/NotoSans-Bold.ttf"
+    },
+    {
+      "method": "GET",
+      "url": "https://knowme-trial-694e1.web.app/assets/packages/cupertino_icons/assets/CupertinoIcons.ttf"
+    },
+    {
+      "method": "GET",
+      "url": "https://fonts.gstatic.com/s/roboto/v32/KFOmCnqEu92Fr1Me4GZLCzYlKw.woff2"
+    },
+    {
+      "method": "GET",
+      "url": "https://knowme-trial-694e1.web.app/assets/assets/trial_visual/overall.webp"
+    },
+    {
+      "method": "GET",
+      "url": "https://knowme-trial-694e1.web.app/favicon.png"
+    },
+    {
+      "method": "GET",
+      "url": "https://fonts.gstatic.com/s/notosansthai/v25/iJWnBXeUZi_OHPqn4wq6hQ2_hbJ1xyN9wd43SofNWcd1MKVQt_So_9CdU5RtpzR-QRvzzXg.woff2"
+    }
+  ],
+  "post_responses": [],
+  "posts": [],
+  "forbidden": [],
+  "other_writes": [],
+  "errors": [],
+  "failed_requests": [],
+  "document_widths": {
+    "landing": 1920,
+    "form": 1920,
+    "date-picker": 1920,
+    "form-ready": 1920,
+    "unknown-result": 1920
+  },
+  "artwork_responses": [
+    {
+      "url": "https://knowme-trial-694e1.web.app/assets/assets/trial_visual/overall.webp",
+      "status": 200,
+      "content_type": "image/webp",
+      "from_service_worker": false
+    }
+  ],
+  "artwork_diagnostics": {
+    "decode": "ok",
+    "natural_width": 1024,
+    "natural_height": 1536,
+    "webgl_available": false,
+    "asset_entries": []
+  },
+  "landing_art_rgb_stddev_max": 68.93,
+  "reader_art_rgb_stddev_max": {},
+  "warnings": [
+    "WARNING: Falling back to CPU-only rendering. Reason: webGLVersion is -1"
+  ],
+  "final_text": "KnowMe · ข้อมูลเกิด\n1\nข้อมูลเกิด\n2\nอ่านดวงรวม\nกรอกข้อมูลเพื่อดูดวงรวม\nกรอกครั้งเดียวเพื่อดูดวงรวม จากนั้นเลือกอ่านดวงไทย จีน หรือตะวันตกได้\nวันเกิด *\n15/1/2001\nต้องใช้เวลาเกิดเพื่อดูดวงรวม กลับมากรอกได้เมื่อทราบเวลา\nล้าง\nเพศ (ถ้าต้องการระบุ) หญิง\nดูดวงรวม\nยังขาดเวลาเกิด กรุณากรอกให้ครบเพื่อดูดวงรวม"
+}
