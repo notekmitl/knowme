@@ -16,6 +16,7 @@ import 'package:knowme/features/bazi_compatibility/application/bazi_compatibilit
 import 'package:knowme/features/bazi_compatibility/application/bazi_symbolic_reading_engine.dart';
 import 'package:knowme/features/bazi_compatibility/domain/bazi_compatibility_report.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_analysis.dart';
+import 'package:knowme/features/thai_beta/application/core_reading/thai_birth_profile_core_reading.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_report_export_document.dart';
 import 'package:knowme/features/thai_beta/domain/thai_beta_input.dart';
 import 'package:knowme/presentation/pages/astrology/western_reader_v2_copy.dart';
@@ -61,6 +62,55 @@ void _sameTimingAndPossibility(String before, String after) {
 }
 
 void main() {
+  test(
+    'all seven Thai house modes describe an association without a direction',
+    () {
+      const modes = {
+        'sun': 'ตัดสินใจเอง',
+        'moon': 'ความต้องการของคนรอบตัว',
+        'mars': 'จัดการเรื่องด่วน',
+        'mercury': 'เทียบทางเลือก',
+        'jupiter': 'ดูเหตุผลก่อนทำอะไรเพิ่ม',
+        'venus': 'ทั้งสองฝ่ายทำด้วยกันได้',
+        'saturn': 'เตรียมสิ่งจำเป็นทีละขั้น',
+      };
+      for (final entry in modes.entries) {
+        final source = ThaiBirthProfileCoreReading.houseModeForLordKey(
+          'lagna_lord_${entry.key}',
+        );
+        expect(source, isNotEmpty, reason: entry.key);
+        final text = TrialReadingCopy.thai(
+          'พลังชีวิตของคุณสัมพันธ์กับ$source '
+          'สัญญาณที่ควรฟังคือเวลาฟื้นตัวที่ยาวขึ้นต่อเนื่อง ไม่ใช่ความล้าเพียงวันเดียว',
+        );
+        final paragraphs = text.split('\n\n');
+        expect(paragraphs, hasLength(2));
+        expect(paragraphs.first, contains(entry.value));
+        expect(paragraphs.first, contains('ไม่ได้บอกว่ากำลังจะเพิ่มหรือลด'));
+        expect(paragraphs.first, isNot(contains('มีผลต่อกำลัง')));
+        expect(paragraphs.last, contains('ความเหนื่อยแค่วันเดียว'));
+      }
+    },
+  );
+
+  test('Thai age-specific summary keeps each period with its own subjects', () {
+    const source =
+        'รอบปัจจุบันกำลังขยายผลจากสิ่งที่ทำต่อเนื่อง '
+        'รอบ 12 เดือนจะเห็นผลผ่านความสัมพันธ์กับผู้ดูแลควบคู่กับการนอนและกำลัง '
+        'ส่วนช่วงชีวิตถัดไปจะย้ายแกนหลักไปที่การเรียนและหน้าที่';
+    final summary = TrialReadingCopy.thai(
+      source,
+    ).split('\n\n').map((part) => part.trim()).toList();
+    expect(summary, hasLength(3));
+    expect(summary[0], startsWith('ช่วงนี้'));
+    expect(summary[1], startsWith('ใน 12 เดือนข้างหน้า'));
+    expect(
+      summary[1],
+      contains('ความสัมพันธ์กับผู้ดูแล และเรื่องการนอนและกำลัง'),
+    );
+    expect(summary[2], 'ส่วนช่วงชีวิตถัดไปจะเน้นการเรียนและหน้าที่');
+  });
+
   test('Thai trial headline keeps the contrast between the two traits', () {
     expect(
       TrialReadingCopy.thaiHeadline(
@@ -433,6 +483,30 @@ void main() {
           final chinese = TrialReportDocuments.chinese(report, bazi);
           expect(report.plainText, reportBefore);
           _sameTimingAndPossibility(reportBefore, chinese.plainText);
+          if (id == 'a') {
+            final annual = chinese.sections.firstWhere(
+              (section) => section.title.startsWith('ปี '),
+            );
+            expect(annual.paragraphs, hasLength(3));
+            expect(annual.paragraphs[0], startsWith('ปีนี้'));
+            expect(
+              annual.paragraphs[1],
+              contains('เพราะความเข้าใจไม่ตรงกันอาจ'),
+            );
+            expect(annual.paragraphs[2], startsWith('จึงควรตกลงก่อน'));
+            final decades = chinese.sections.firstWhere(
+              (section) => section.title.startsWith('แนวโน้มสองช่วงสิบปี'),
+            );
+            expect(
+              decades.rows.first.label,
+              contains('2577–2586 (อายุจีน 34–43)'),
+            );
+            expect(decades.rows.first.value.split('\n\n'), hasLength(3));
+            expect(
+              decades.rows.last.value,
+              contains('ในช่วงนี้มีทั้งเรื่องที่ต้องเปลี่ยน'),
+            );
+          }
           result['chineseBefore'] = _chineseDocument(report);
           result['chineseAfter'] = _chineseDocument(chinese);
           result['western'] = [
@@ -450,6 +524,13 @@ void main() {
               WesternReaderV2Copy.overview(western),
             ),
           };
+          final overview =
+              (result['westernOverview'] as Map)['after'] as String;
+          final overviewParts = overview.split('\n\n');
+          expect(overviewParts, hasLength(4));
+          expect(overviewParts[2], startsWith('ตอนแรกคนรอบตัวมักเห็นว่าคุณ'));
+          expect(overviewParts[2], contains('จึงอาจคิดว่าคุณ'));
+          expect(overviewParts[3], startsWith('แต่อีกด้านหนึ่ง คุณ'));
           result['overall'] = [
             for (final topic in life.topics)
               {

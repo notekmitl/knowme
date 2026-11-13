@@ -13,6 +13,37 @@ abstract final class TrialReportDocuments {
       .map((part) => part.trim())
       .where((part) => part.isNotEmpty);
 
+  // BaziReaderV2/V4 join the selected period theme, relation, and action with
+  // spaces. Mark those exact boundaries before the existing phrase projection.
+  static final _timingParagraphStart = RegExp(
+    r' (?=(?<!ในช่วงยาวนี้ )(?:ในช่วงยาวนี้|มีทั้งเรื่องที่ต้องเปลี่ยนและเรื่องที่ต้องร่วมมือ|'
+    r'แผนเดิมอาจต้องปรับ ทั้งเรื่องงาน|(?:ต้องคุยเรื่อง|เรื่อง)เวลา หน้าที่ และข้อตกลง|'
+    r'(?:เหมาะกับการรวม|การรวม)คน ความรู้ หรือทรัพยากร|'
+    r'ปีนี้ย้ำว่า|(?:จึง)?ควร(?:ลงทุนกับความรู้|ทดลองแบบเล็กก่อน|ทดลองทางเลือกแบบจำกัดขอบเขต|'
+    r'สร้างผลงานในชื่อของตน|เขียนข้อตกลงเรื่องเงิน|ทำความรู้หรือผลงานให้เป็นระบบ|'
+    r'ใช้การเปลี่ยนแปลงแก้คอขวดหลัก|วางกระแสเงินสด|คัดโอกาสจากผลตอบแทน|'
+    r'สร้างมาตรฐาน เอกสาร|เลือกโจทย์ยากที่คุ้มกับพลัง|วางเป้าหมายระยะยาวให้ชัด|'
+    r'เพิ่มทักษะ|ลองทางเลือกใหม่ในขอบเขตเล็ก|'
+    r'เลือกเรื่องที่(?:คุณ)?เป็นเจ้าของเอง|ทบทวน(?:ทีม|คู่ค้า)|ทำผลงานให้เสร็จ|'
+    r'แก้ระบบที่ติดขัด|จัดงบ|ประเมินตลาด|กำหนดบทบาท ข้อตกลง|'
+    r'เลือกงานสำคัญหนึ่งเรื่อง|(?:ตั้ง|เลือก)เป้าหมายที่วัดผลได้)|'
+    r'หากเปิดตลาดหรือเครือข่ายใหม่))',
+  );
+
+  static String _timingParagraphs(String value) {
+    final age = _currentCycleAge.firstMatch(value);
+    if (age != null) {
+      value =
+          '${age[0]} ${value.substring(0, age.start).trim()}'
+          '${value.substring(age.end)}';
+    }
+    return value.replaceAll(_timingParagraphStart, '\n\n');
+  }
+
+  static final _currentCycleAge = RegExp(
+    r'จังหวะนี้อยู่ในช่วงอายุจีน \d+–\d+ ปี',
+  );
+
   static ThaiBetaReportExportDocument thai(
     ThaiBetaReportExportDocument source,
   ) {
@@ -75,7 +106,7 @@ abstract final class TrialReportDocuments {
     // calculated Day Master and explain its role without inventing a trait.
     final metaphor =
         'แกนดวงของคุณคือ ${profile.name} เปรียบเหมือน “${profile.symbol}” ';
-    String text(String value) {
+    String text(String value, {bool timing = false}) {
       const missingCycle =
           'ยังไม่แสดงดวงจรสิบปี เพราะข้อมูลเพศหรือเวลาเกิดไม่ครบ ระบบจึงไม่กำหนดทิศทางเดินดวงแทนผู้ใช้';
       if (value == missingCycle) {
@@ -88,8 +119,9 @@ abstract final class TrialReportDocuments {
             ? 'ยังไม่มีผลคำนวณช่วงสิบปีที่ครอบคลุมปีนี้ จึงยังอ่านช่วงชีวิตปัจจุบันไม่ได้'
             : 'ยังขาด${missing.join('และ')} จึงยังอ่านแนวโน้มช่วงละสิบปีไม่ได้';
       }
-      return TrialReadingCopy.chinese(
-        value
+      final source = timing ? _timingParagraphs(value) : value;
+      final projected = TrialReadingCopy.chinese(
+        source
             .replaceAll(
               metaphor,
               'ดวงจีนใช้ ${profile.name} เป็นธาตุประจำวัน เพื่ออ่านลักษณะของคุณ ',
@@ -99,6 +131,7 @@ abstract final class TrialReportDocuments {
               'ธาตุประจำวัน (Day Master) ของคุณคือ ${profile.name}',
             ),
       );
+      return timing ? _paragraphs(projected).join('\n\n') : projected;
     }
 
     return BaziCompatibilityReport(
@@ -110,14 +143,14 @@ abstract final class TrialReportDocuments {
             title: text(section.title),
             intro: section.intro == null ? null : text(section.intro!),
             paragraphs: section.paragraphs
-                .map(text)
+                .map((value) => text(value, timing: _isTiming(section.title)))
                 .expand(_paragraphs)
                 .toList(),
             rows: [
               for (final row in section.rows)
                 BaziCompatibilityReportRow(
                   label: text(row.label),
-                  value: text(row.value),
+                  value: text(row.value, timing: _isTiming(section.title)),
                 ),
             ],
             notes: section.notes.map(text).toList(),
@@ -125,4 +158,13 @@ abstract final class TrialReportDocuments {
       ],
     );
   }
+
+  static bool _isTiming(String title) =>
+      title.startsWith('จังหวะชีวิตปัจจุบัน') ||
+      title.startsWith('ปี ') ||
+      const {
+        'เส้นทางที่ผ่านมา · ดวงจรสิบปี',
+        'แนวโน้ม 5 ปีข้างหน้า',
+        'ภาพระยะยาว · สองดวงจรถัดไป',
+      }.contains(title);
 }
