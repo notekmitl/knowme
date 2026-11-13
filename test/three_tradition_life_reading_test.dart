@@ -118,7 +118,7 @@ void main() {
     expect(work, hasLength(6));
     expect(
       work.first,
-      'คุณมีแนวโน้มทำได้ดีกับงานที่ต้องหาข้อมูลและศึกษาเรื่องนั้นให้ละเอียด จัดข้อมูลให้คนอื่นใช้ได้ หรือช่วยคนอื่นหาข้อมูล',
+      'คุณมีแนวโน้มทำได้ดีกับงานที่ต้องค้นคว้าให้ละเอียด จัดข้อมูลให้คนอื่นใช้ได้ หรือช่วยคนอื่นหาข้อมูล',
     );
     expect(work[1], 'เวลาทำงาน คุณกล้าลงมือทำและรับมือกับเรื่องด่วน');
     expect(
@@ -146,17 +146,18 @@ void main() {
     );
     final relationships = result.topics[2].trialParagraphs;
     expect(relationships, hasLength(4));
-    expect(relationships[1], contains('เช่น จับมือหรือกอด'));
+    expect(relationships.first, contains('เช่น จับมือหรือกอด'));
     expect(relationships.join(' '), isNot(contains('ค่อย ๆ รู้สึกใกล้ชิด')));
     expect(relationships.join(' '), isNot(contains('เรื่องคู่เป็นเรื่องเด่น')));
     final wellbeing = result.topics[3].trialParagraphs;
     expect(wellbeing, hasLength(5));
+    expect(wellbeing.first, contains('หรือเรียนรู้สิ่งใหม่'));
+    expect(wellbeing[1], contains('พร้อมรับมือได้เหมือนกัน'));
+    expect(wellbeing.last, contains('ความต้องการของคนรอบข้าง'));
     expect(
-      wellbeing.first,
-      'คุณสังเกตสิ่งที่เปลี่ยนไปรอบตัว และรับรู้ว่าคนรอบตัวต้องการอะไร',
+      wellbeing.last,
+      contains('ไม่ได้บอกว่าการทำแบบนี้จะทำให้คุณมีแรงขึ้น'),
     );
-    expect(wellbeing[1], contains('หรือเรียนรู้สิ่งใหม่'));
-    expect(wellbeing[2], contains('พร้อมรับมือได้เหมือนกัน'));
 
     final path = const String.fromEnvironment('COPY_OWNER_SNAPSHOT');
     if (path.isNotEmpty) {
@@ -205,6 +206,71 @@ void main() {
     expect(result.gaps.single, startsWith('การงาน:'));
   });
 
+  test('screenshot branches use topic-specific openings with source limits', () {
+    // Selected modes reproduce the two copy branches, not a person's chart.
+    final result = compose(
+      core: _thaiCore(
+        'synthetic branch review',
+        lordOverrides: {
+          6: ThaiContentKeys.lagnaLordMercury,
+          7: ThaiContentKeys.lagnaLordMoon,
+        },
+      ),
+      westernChart: _westernChart(moonSign: 'Libra', venusSign: 'Virgo'),
+    );
+    final relationship = result.topics[2];
+    final wellbeing = result.topics[3];
+    expect(
+      relationship.trialParagraphs.first,
+      'คุณแสดงความรักด้วยการช่วยแก้ปัญหาและใส่ใจเรื่องเล็ก ๆ ของคนที่คบอยู่',
+    );
+    expect(relationship.trialParagraphs[1], contains('คนรอบข้างต้องการอะไร'));
+    expect(
+      relationship.trialParagraphs[1],
+      contains('ไม่ได้ระบุว่าเป็นคนไหนหรือเรื่องอะไร'),
+    );
+    expect(relationship.trialParagraphs[1], isNot(contains('แฟน')));
+    expect(
+      relationship.trialParagraphs.join(' '),
+      isNot(contains('ค่อย ๆ รู้สึกใกล้ชิด')),
+    );
+    expect(
+      wellbeing.trialParagraphs.first,
+      'การคุยกันอย่างเป็นธรรม และหาวิธีอยู่ร่วมกันที่ทั้งสองฝ่ายรับได้ช่วยให้คุณรู้สึกพร้อมรับมือกับเรื่องที่เจออีกครั้ง',
+    );
+    expect(
+      wellbeing.trialParagraphs.last,
+      contains('ใช้ข้อมูลเทียบสิ่งที่เลือกได้'),
+    );
+    expect(
+      wellbeing.trialParagraphs.last,
+      endsWith('มีแรงขึ้นหรือเหนื่อยกว่าเดิม'),
+    );
+    expect(
+      TrialReadingCopy.overall(wellbeing.reading),
+      contains('ไม่ได้บอกว่าการทำแบบนี้จะทำให้คุณมีแรงขึ้น'),
+    );
+    expect(wellbeing.reading, startsWith('การดูแลพลังของคุณเริ่มจากข้อมูล'));
+    final path = const String.fromEnvironment(
+      'COPY_SCREENSHOT_BRANCH_SNAPSHOT',
+    );
+    if (path.isNotEmpty) {
+      File(path).writeAsStringSync(
+        const JsonEncoder.withIndent('  ').convert([
+          for (final topic in result.topics)
+            {
+              'title': topic.title,
+              'source': topic.reading,
+              'paragraphs': topic.trialParagraphs,
+              'thaiEvidence': topic.thaiEvidenceKeys,
+              'chineseEvidence': topic.chineseEvidenceKeys,
+              'westernBasis': topic.westernBasis,
+            },
+        ]),
+      );
+    }
+  });
+
   test('trial paragraphs cover every source wording branch', () {
     const signs = [
       'Aries',
@@ -221,20 +287,13 @@ void main() {
       'Pisces',
     ];
     const observations = {
-      ThaiContentKeys.lagnaLordSun:
-          'คุณดูให้ชัดว่าต้องทำอะไร แล้วตัดสินใจด้วยตัวเอง',
-      ThaiContentKeys.lagnaLordMoon:
-          'คุณสังเกตสิ่งที่เปลี่ยนไปรอบตัว และรับรู้ว่าคนรอบตัวต้องการอะไร',
-      ThaiContentKeys.lagnaLordMars: 'คุณกล้าลงมือทำและรับมือกับเรื่องด่วน',
-      ThaiContentKeys.lagnaLordMercury:
-          'คุณใช้ข้อมูล เทียบทางเลือก และคุยให้เข้าใจตรงกัน',
-      ThaiContentKeys.lagnaLordJupiter:
-          'คุณใช้สิ่งที่รู้และคิดถึงผลในระยะยาว คุณดูเหตุผลก่อนจะทำอะไรเพิ่มจากที่ทำอยู่',
-      ThaiContentKeys.lagnaLordVenus:
-          'คุณดูว่าสิ่งที่จะทำมีค่าแค่ไหนและมากเกินไปไหม '
-          'เวลาทำอะไรกับคนอื่น คุณหาวิธีที่ทั้งสองฝ่ายรับได้',
-      ThaiContentKeys.lagnaLordSaturn:
-          'คุณทำตามขั้นตอนอย่างสม่ำเสมอ คุณค่อย ๆ เตรียมสิ่งจำเป็นทีละอย่าง',
+      ThaiContentKeys.lagnaLordSun: 'การตัดสินใจเอง',
+      ThaiContentKeys.lagnaLordMoon: 'ความต้องการของคนรอบข้าง',
+      ThaiContentKeys.lagnaLordMars: 'การจัดการเรื่องด่วน',
+      ThaiContentKeys.lagnaLordMercury: 'เทียบสิ่งที่เลือกได้',
+      ThaiContentKeys.lagnaLordJupiter: 'การคิดถึงอนาคต',
+      ThaiContentKeys.lagnaLordVenus: 'ทำอย่างไรให้ทั้งสองฝ่ายทำด้วยกันได้',
+      ThaiContentKeys.lagnaLordSaturn: 'เตรียมสิ่งจำเป็นทีละขั้น',
     };
     final lords = observations.keys.toList();
     const workFamilies = [
@@ -279,12 +338,21 @@ void main() {
       expect(result.topics, hasLength(4));
       for (final topic in result.topics) {
         expect(topic.trialParagraphs, isNotEmpty);
+        expect(
+          topic.trialParagraphs.toSet(),
+          hasLength(topic.trialParagraphs.length),
+        );
         // Missing catalog mappings must not expose a raw source fragment.
         expect(topic.trialParagraphs.join(' '), isNot(contains('ตั้งหลัก')));
       }
       final work = result.topics.first.trialParagraphs;
       expect(work[1], startsWith('เวลาทำงาน คุณ'));
       expect(work[2], anyOf(startsWith('คุณ'), startsWith('เวลาคุณอธิบาย')));
+      expect(result.topics[1].trialParagraphs[1], contains('เงิน'));
+      expect(
+        result.topics[2].trialParagraphs[1],
+        anyOf(contains('คบกัน'), contains('ความสัมพันธ์')),
+      );
       final coupleParagraph = result.topics[2].trialParagraphs[2];
       expect(
         coupleParagraph,
@@ -301,7 +369,20 @@ void main() {
         wellbeing.reading,
         startsWith('การดูแลพลังของคุณเริ่มจาก$thaiAnalysisMode'),
       );
-      expect(wellbeing.trialParagraphs.first, observations[lord], reason: lord);
+      expect(
+        wellbeing.trialParagraphs.first,
+        contains('พร้อมรับมือ'),
+        reason: lord,
+      );
+      expect(
+        wellbeing.trialParagraphs.last,
+        contains(observations[lord]),
+        reason: lord,
+      );
+      expect(
+        wellbeing.trialParagraphs.last,
+        contains('ไม่ได้บอกว่าการทำแบบนี้จะทำให้คุณมีแรงขึ้น'),
+      );
       reviewed.add({
         'sign': sign,
         'lord': lord,
@@ -325,7 +406,10 @@ void main() {
     );
     expect(lean.gaps.single, startsWith('การงาน:'));
     final wellbeing = lean.topics.last;
-    expect(wellbeing.trialParagraphs.last, contains('ก่อนรับหน้าที่เพิ่ม'));
+    expect(
+      wellbeing.trialParagraphs,
+      contains(contains('ก่อนรับหน้าที่เพิ่ม')),
+    );
     reviewed.add({
       'band': 'lean',
       'topics': [
@@ -343,6 +427,29 @@ void main() {
       ).writeAsStringSync(const JsonEncoder.withIndent('  ').convert(reviewed));
     }
   });
+
+  test(
+    'unlisted copy uses a topic-specific opening and preserves source detail',
+    () {
+      const source = 'วิธีที่ยังไม่มีคำอธิบายแยก';
+      final relationships = TrialOverallTopicCopy.relationships(
+        thaiTrust: source,
+        westernStyle: 'พูดถึงสิ่งที่ทั้งสองคนชอบ',
+        coupleIsProminent: null,
+      );
+      expect(relationships.first, startsWith('คุณกับคนที่คบอยู่'));
+      expect(relationships, contains(contains(source)));
+      expect(relationships, contains(contains('พูดถึงสิ่งที่ทั้งสองคนชอบ')));
+      final wellbeing = TrialOverallTopicCopy.wellbeing(
+        thaiMode: source,
+        westernAction: 'ได้พักอยู่เงียบ ๆ',
+        chineseAction: 'ควรเผื่อเวลาพัก',
+      );
+      expect(wellbeing.first, endsWith('เมื่อได้พักอยู่เงียบ ๆ'));
+      expect(wellbeing[1], 'ควรเผื่อเวลาพัก');
+      expect(wellbeing.last, allOf(contains(source), contains('ไม่ได้บอกว่า')));
+    },
+  );
 
   test('male and female relationship branches both stay visible', () {
     for (final gender in ['male', 'female']) {
