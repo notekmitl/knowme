@@ -1,0 +1,311 @@
+{
+  "viewport": [
+    1280,
+    800
+  ],
+  "case": "a",
+  "overall_topics": [
+    {
+      "title": "ความสัมพันธ์",
+      "collapsed": [
+        "คุณใส่ใจคนที่คบอยู่ และช่วยให้ทั้งสองคนไว้ใจกัน"
+      ],
+      "expanded": [
+        "คุณใส่ใจคนที่คบอยู่ และช่วยให้ทั้งสองคนไว้ใจกัน",
+        "เวลาคบกัน คุณมักค่อย ๆ สร้างความไว้ใจด้วยการทำตัวสม่ำเสมอ",
+        "เมื่อคุณกับคนที่คบอยู่ทำตามที่ตกลงกันไว้ ทั้งสองคนมีแนวโน้มจะค่อย ๆ รู้สึกใกล้ชิดกันมากขึ้น",
+        "คุณกับคนที่คบอยู่จะเข้ากันได้ดีขึ้น ถ้าคุยกันให้ชัดว่าจะแบ่งเวลาให้กันอย่างไร ใครดูแลเรื่องไหน และเรื่องไหนใครเป็นคนตัดสินใจ"
+      ],
+      "recollapsed": true
+    }
+  ],
+  "calculator_fixture_replay": false,
+  "input": {
+    "birth_date": "1977-08-12",
+    "hour": 7,
+    "minute": 15,
+    "province": "เชียงใหม่",
+    "gender": "female",
+    "as_of": "2026-11-10T03:00:00Z"
+  },
+  "local_build": null,
+  "local_assets_under_allowed_origin": false,
+  "requests": [
+    {
+      "method": "GET",
+      "url": "https://knowme-trial-694e1.web.app/beta/thai"
+    },
+    {
+      "method": "GET",
+      "url": "https://knowme-trial-694e1.web.app/flutter_bootstrap.js?v=trial_plain_th_20261113_r6_4"
+    },
+    {
+      "method": "GET",
+      "url": "https://www.gstatic.com/flutter-canvaskit/327ed814500baca0480a02f8555aa84a9afe32bf/chromium/canvaskit.wasm"
+    },
+    {
+      "method": "GET",
+      "url": "https://www.gstatic.com/flutter-canvaskit/327ed814500baca0480a02f8555aa84a9afe32bf/chromium/canvaskit.js"
+    },
+    {
+      "method": "GET",
+      "url": "https://knowme-trial-694e1.web.app/main.dart.js?v=trial_plain_th_20261113_r6_4"
+    },
+    {
+      "method": "GET",
+      "url": "https://knowme-trial-694e1.web.app/favicon.png"
+    },
+    {
+      "method": "GET",
+      "url": "https://knowme-trial-694e1.web.app/assets/FontManifest.json"
+    },
+    {
+      "method": "GET",
+      "url": "https://knowme-trial-694e1.web.app/assets/fonts/MaterialIcons-Regular.otf"
+    },
+    {
+      "method": "GET",
+      "url": "https://knowme-trial-694e1.web.app/assets/assets/fonts/noto_sans_thai/NotoSansThai-Regular.ttf"
+    },
+    {
+      "method": "GET",
+      "url": "https://knowme-trial-694e1.web.app/assets/assets/fonts/noto_sans_thai/NotoSansThai-Bold.ttf"
+    },
+    {
+      "method": "GET",
+      "url": "https://knowme-trial-694e1.web.app/assets/assets/fonts/noto_sans_thai/NotoSans-Regular.ttf"
+    },
+    {
+      "method": "GET",
+      "url": "https://knowme-trial-694e1.web.app/assets/assets/fonts/noto_sans_thai/NotoSans-Bold.ttf"
+    },
+    {
+      "method": "GET",
+      "url": "https://knowme-trial-694e1.web.app/assets/packages/cupertino_icons/assets/CupertinoIcons.ttf"
+    },
+    {
+      "method": "GET",
+      "url": "https://fonts.gstatic.com/s/roboto/v32/KFOmCnqEu92Fr1Me4GZLCzYlKw.woff2"
+    },
+    {
+      "method": "GET",
+      "url": "https://knowme-trial-694e1.web.app/assets/assets/trial_visual/overall.webp"
+    },
+    {
+      "method": "GET",
+      "url": "https://knowme-trial-694e1.web.app/favicon.png"
+    },
+    {
+      "method": "GET",
+      "url": "https://fonts.gstatic.com/s/notosansthai/v25/iJWnBXeUZi_OHPqn4wq6hQ2_hbJ1xyN9wd43SofNWcd1MKVQt_So_9CdU5RtpzR-QRvzzXg.woff2"
+    },
+    {
+      "method": "POST",
+      "url": "https://knowme-overall-pr149-preview-avbyttircq-as.a.run.app/v1/calculate-bazi",
+      "body": {
+        "birth_date": "1977-08-12",
+        "birth_time": "07:15",
+        "timezone": "Asia/Bangkok",
+        "gender": "female",
+        "latitude": 18.7883,
+        "longitude": 98.9853
+      }
+    },
+    {
+      "method": "POST",
+      "url": "https://knowme-overall-pr149-preview-avbyttircq-as.a.run.app/v1/calculate-chart",
+      "body": {
+        "birth_date": "1977-08-12",
+        "birth_time": "07:15",
+        "timezone": "Asia/Bangkok",
+        "latitude": 18.7883,
+        "longitude": 98.9853
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://knowme-trial-694e1.web.app/assets/knowledge/canon/production/foundation_v1.knowme.json"
+    },
+    {
+      "method": "GET",
+      "url": "https://knowme-trial-694e1.web.app/assets/assets/trial_visual/thai.webp"
+    },
+    {
+      "method": "GET",
+      "url": "https://fonts.gstatic.com/s/notosanssc/v37/k3kCo84MPvpLmixcA63oeAL7Iqp5IZJF9bmaG9_FrYtHbQ.woff2"
+    },
+    {
+      "method": "GET",
+      "url": "https://knowme-trial-694e1.web.app/assets/assets/trial_visual/chinese.webp"
+    },
+    {
+      "method": "GET",
+      "url": "https://fonts.gstatic.com/s/notosanskr/v36/PbyxFmXiEBPT4ITbgNA5Cgms3VYcOA-vvnIzzuoyeLGC5nwuDo-KBTUm6CryotyJROlrnQ.93.woff2"
+    },
+    {
+      "method": "GET",
+      "url": "https://fonts.gstatic.com/s/notosanssc/v37/k3kCo84MPvpLmixcA63oeAL7Iqp5IZJF9bmaG9_FnYkldv7JjxkkgFsFSSOPMOkySAZ73y9ViAt3acb8NexQ2w.101.woff2"
+    },
+    {
+      "method": "GET",
+      "url": "https://fonts.gstatic.com/s/notosanskr/v36/PbyxFmXiEBPT4ITbgNA5Cgms3VYcOA-vvnIzzuoyeLGC5nwuDo-KBTUm6CryotyJROlrnQ.87.woff2"
+    },
+    {
+      "method": "GET",
+      "url": "https://fonts.gstatic.com/s/notosanssc/v37/k3kCo84MPvpLmixcA63oeAL7Iqp5IZJF9bmaG9_FnYkldv7JjxkkgFsFSSOPMOkySAZ73y9ViAt3acb8NexQ2w.112.woff2"
+    },
+    {
+      "method": "GET",
+      "url": "https://fonts.gstatic.com/s/notosanskr/v36/PbyxFmXiEBPT4ITbgNA5Cgms3VYcOA-vvnIzzuoyeLGC5nwuDo-KBTUm6CryotyJROlrnQ.77.woff2"
+    },
+    {
+      "method": "GET",
+      "url": "https://fonts.gstatic.com/s/notosanssc/v37/k3kCo84MPvpLmixcA63oeAL7Iqp5IZJF9bmaG9_FnYkldv7JjxkkgFsFSSOPMOkySAZ73y9ViAt3acb8NexQ2w.110.woff2"
+    },
+    {
+      "method": "GET",
+      "url": "https://fonts.gstatic.com/s/notosanssc/v37/k3kCo84MPvpLmixcA63oeAL7Iqp5IZJF9bmaG9_FnYkldv7JjxkkgFsFSSOPMOkySAZ73y9ViAt3acb8NexQ2w.81.woff2"
+    },
+    {
+      "method": "GET",
+      "url": "https://fonts.gstatic.com/s/notosanssc/v37/k3kCo84MPvpLmixcA63oeAL7Iqp5IZJF9bmaG9_FnYkldv7JjxkkgFsFSSOPMOkySAZ73y9ViAt3acb8NexQ2w.76.woff2"
+    },
+    {
+      "method": "GET",
+      "url": "https://fonts.gstatic.com/s/notosanssc/v37/k3kCo84MPvpLmixcA63oeAL7Iqp5IZJF9bmaG9_FnYkldv7JjxkkgFsFSSOPMOkySAZ73y9ViAt3acb8NexQ2w.118.woff2"
+    },
+    {
+      "method": "GET",
+      "url": "https://fonts.gstatic.com/s/notosanssc/v37/k3kCo84MPvpLmixcA63oeAL7Iqp5IZJF9bmaG9_FnYkldv7JjxkkgFsFSSOPMOkySAZ73y9ViAt3acb8NexQ2w.116.woff2"
+    },
+    {
+      "method": "GET",
+      "url": "https://fonts.gstatic.com/s/notosanssc/v37/k3kCo84MPvpLmixcA63oeAL7Iqp5IZJF9bmaG9_FnYkldv7JjxkkgFsFSSOPMOkySAZ73y9ViAt3acb8NexQ2w.32.woff2"
+    },
+    {
+      "method": "GET",
+      "url": "https://knowme-trial-694e1.web.app/assets/assets/trial_visual/western.webp"
+    }
+  ],
+  "post_responses": [
+    {
+      "method": "POST",
+      "url": "https://knowme-overall-pr149-preview-avbyttircq-as.a.run.app/v1/calculate-bazi",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "url": "https://knowme-overall-pr149-preview-avbyttircq-as.a.run.app/v1/calculate-chart",
+      "status": 200
+    }
+  ],
+  "posts": [
+    {
+      "method": "POST",
+      "url": "https://knowme-overall-pr149-preview-avbyttircq-as.a.run.app/v1/calculate-bazi",
+      "body": {
+        "birth_date": "1977-08-12",
+        "birth_time": "07:15",
+        "timezone": "Asia/Bangkok",
+        "gender": "female",
+        "latitude": 18.7883,
+        "longitude": 98.9853
+      }
+    },
+    {
+      "method": "POST",
+      "url": "https://knowme-overall-pr149-preview-avbyttircq-as.a.run.app/v1/calculate-chart",
+      "body": {
+        "birth_date": "1977-08-12",
+        "birth_time": "07:15",
+        "timezone": "Asia/Bangkok",
+        "latitude": 18.7883,
+        "longitude": 98.9853
+      }
+    }
+  ],
+  "forbidden": [],
+  "other_writes": [],
+  "errors": [],
+  "failed_requests": [],
+  "document_widths": {
+    "landing": 1280,
+    "form": 1280,
+    "date-picker": 1280,
+    "form-ready": 1280,
+    "overall": 1280,
+    "saturn-collapsed": 1280,
+    "saturn-expanded": 1280,
+    "thai": 1280,
+    "thai-settled": 1280,
+    "thai-reading": 1280,
+    "thai-full-reading": 1280,
+    "thai-full-deep": 1280,
+    "thai-annual-search": 1280,
+    "chinese": 1280,
+    "chinese-settled": 1280,
+    "chinese-reading": 1280,
+    "chinese-elements": 1280,
+    "chinese-timeline-bottom": 1280,
+    "western": 1280,
+    "western-settled": 1280,
+    "western-reading": 1280,
+    "western-before-sources": 1280,
+    "western-sources": 1280,
+    "western-planets": 1280,
+    "overall-returned": 1280
+  },
+  "artwork_responses": [
+    {
+      "url": "https://knowme-trial-694e1.web.app/assets/assets/trial_visual/overall.webp",
+      "status": 200,
+      "content_type": "image/webp",
+      "from_service_worker": false
+    },
+    {
+      "url": "https://knowme-trial-694e1.web.app/assets/assets/trial_visual/thai.webp",
+      "status": 200,
+      "content_type": "image/webp",
+      "from_service_worker": false
+    },
+    {
+      "url": "https://knowme-trial-694e1.web.app/assets/assets/trial_visual/chinese.webp",
+      "status": 200,
+      "content_type": "image/webp",
+      "from_service_worker": false
+    },
+    {
+      "url": "https://knowme-trial-694e1.web.app/assets/assets/trial_visual/western.webp",
+      "status": 200,
+      "content_type": "image/webp",
+      "from_service_worker": false
+    }
+  ],
+  "artwork_diagnostics": {
+    "decode": "ok",
+    "natural_width": 1024,
+    "natural_height": 1536,
+    "webgl_available": false,
+    "asset_entries": []
+  },
+  "landing_art_rgb_stddev_max": 68.97,
+  "reader_art_rgb_stddev_max": {
+    "overall": 36.39,
+    "thai": {
+      "immediate": 60.77,
+      "settled": 60.77
+    },
+    "chinese": {
+      "immediate": 13.59,
+      "settled": 13.59
+    },
+    "western": {
+      "immediate": 16.79,
+      "settled": 16.79
+    }
+  },
+  "warnings": [
+    "WARNING: Falling back to CPU-only rendering. Reason: webGLVersion is -1"
+  ],
+  "final_text": "กลับ\nโหราศาสตร์โดยรวม\nแก้ไขข้อมูล\nดวงรวม\nไทย\nจีน\nตะวันตก\nอ่านรายละเอียด การงาน\nคุณมีแนวโน้มทำได้ดีกับงานที่คุณตัดสินใจเองได้และได้ทำกับคนที่ทำงานเก่ง โดยแบ่งกันชัดว่าใครตัดสินใจเรื่องไหน และงานที่ต้องค้นคว้าให้ละเอียด จัดข้อมูลให้คนอื่นใช้ได้ หรือช่วยคนอื่นหาข้อมูล\nอ่านรายละเอียด การเงิน\nงานที่คุณรับผิดชอบและผลงานที่ทำได้จริง น่าจะมีผลสำคัญต่อเรื่องเงินของคุณ\nอ่านรายละเอียด ความสัมพันธ์\nคุณใส่ใจคนที่คบอยู่ และช่วยให้ทั้งสองคนไว้ใจกัน\nอ่านรายละเอียด ดูแลตัวเองในแต่ละวัน\nการอยู่ในที่ที่คุณรู้สึกปลอดภัยและคุยกับคนที่คุณไว้ใจช่วยให้คุณรู้สึกพร้อมรับมือกับเรื่องที่เจออีกครั้ง\nคำอ่านนี้บอกแนวโน้มจากข้อมูลเกิดของคุณ ยังบอกไม่ได้ว่าเหตุการณ์จะเกิดเมื่อไรหรืออายุเท่าไร เพราะข้อมูลช่วงเวลาของทั้งสามศาสตร์ยังเทียบกันไม่ได้"
+}

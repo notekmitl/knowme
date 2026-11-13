@@ -1,0 +1,98 @@
+{
+  "baseline": "trial_plain_th_20261113_r6_3",
+  "revision": "trial_plain_th_20261113_r6_4",
+  "as_of": "2026-11-10T03:00:00Z",
+  "assembled": {
+    "a": {
+      "thai_changed": [
+        "report-body-08"
+      ],
+      "western_changed": [
+        "wellbeing"
+      ],
+      "facts_sha256": "8d5cdcd262e7769c1a2548072d2f06df777a05166d5cb2478cdd1ec53de97c4c"
+    },
+    "b": {
+      "thai_changed": [],
+      "western_changed": [],
+      "facts_sha256": "c57d00cf060ab13a65fcbf53a1dc8f9dd05de363b088a33baa892e2cd59d3482"
+    },
+    "unknown": {
+      "thai_changed": [],
+      "western_changed": [],
+      "facts_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b"
+    }
+  },
+  "thai_corpus": [
+    {
+      "fixture": 7,
+      "sections": [
+        "report-body-07"
+      ]
+    },
+    {
+      "fixture": 12,
+      "sections": [
+        "report-body-08"
+      ]
+    },
+    {
+      "fixture": 15,
+      "sections": [
+        "report-body-07"
+      ]
+    },
+    {
+      "fixture": 20,
+      "sections": [
+        "report-body-08"
+      ]
+    },
+    {
+      "fixture": 22,
+      "sections": [
+        "report-body-07"
+      ]
+    },
+    {
+      "fixture": 25,
+      "sections": [
+        "report-body-07"
+      ]
+    },
+    {
+      "fixture": 26,
+      "sections": [
+        "report-body-07"
+      ]
+    },
+    {
+      "fixture": 27,
+      "sections": [
+        "report-body-07"
+      ]
+    },
+    {
+      "fixture": 28,
+      "sections": [
+        "report-body-07"
+      ]
+    }
+  ],
+  "western_corpus": [
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    78,
+    87,
+    107,
+    115
+  ],
+  "same_raw_topics_evidence_order_and_data_rules": true,
+  "same_chinese_including_incomplete": true,
+  "same_mercury_moon_fixture_evidence": true,
+  "branch_cases": 13
+}
