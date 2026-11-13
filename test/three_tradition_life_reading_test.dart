@@ -242,11 +242,20 @@ void main() {
     );
     expect(
       wellbeing.trialParagraphs.first,
-      'การคุยกันอย่างเป็นธรรม และหาวิธีอยู่ร่วมกันที่ทั้งสองฝ่ายรับได้ช่วยให้คุณรู้สึกพร้อมรับมือกับเรื่องที่เจออีกครั้ง',
+      allOf(
+        startsWith('คุณรู้สึกพร้อมรับมืออีกครั้ง'),
+        contains('คุยกันอย่างยุติธรรม'),
+        contains('หาวิธีอยู่ร่วมกันที่ทั้งสองฝ่ายตกลงกันได้'),
+      ),
     );
     expect(
       wellbeing.trialParagraphs.last,
-      contains('ใช้ข้อมูลเทียบสิ่งที่เลือกได้'),
+      allOf(
+        contains('ใช้ข้อมูลช่วยคิด'),
+        contains('ทางเลือกแต่ละอย่างต่างกันอย่างไร'),
+        contains('คุยให้เข้าใจตรงกัน'),
+        contains('คำอ่านนี้ยังบอกไม่ได้ว่า'),
+      ),
     );
     expect(
       wellbeing.trialParagraphs.last,
@@ -254,7 +263,7 @@ void main() {
     );
     expect(
       TrialReadingCopy.overall(wellbeing.reading),
-      contains('ไม่ได้บอกว่าการทำแบบนี้จะทำให้คุณมีแรงขึ้น'),
+      contains(wellbeing.trialParagraphs.last),
     );
     expect(wellbeing.reading, startsWith('การดูแลพลังของคุณเริ่มจากข้อมูล'));
     await tester.binding.setSurfaceSize(const Size(390, 844));
@@ -356,7 +365,7 @@ void main() {
       ThaiContentKeys.lagnaLordSun: 'การตัดสินใจเอง',
       ThaiContentKeys.lagnaLordMoon: 'ความต้องการของคนรอบข้าง',
       ThaiContentKeys.lagnaLordMars: 'การจัดการเรื่องด่วน',
-      ThaiContentKeys.lagnaLordMercury: 'เทียบสิ่งที่เลือกได้',
+      ThaiContentKeys.lagnaLordMercury: 'ทางเลือกแต่ละอย่างต่างกันอย่างไร',
       ThaiContentKeys.lagnaLordJupiter: 'การคิดถึงอนาคต',
       ThaiContentKeys.lagnaLordVenus: 'ทำอย่างไรให้ทั้งสองฝ่ายทำด้วยกันได้',
       ThaiContentKeys.lagnaLordSaturn: 'เตรียมสิ่งจำเป็นทีละขั้น',
@@ -419,6 +428,16 @@ void main() {
         result.topics[2].trialParagraphs[1],
         anyOf(contains('คบกัน'), contains('ความสัมพันธ์')),
       );
+      if (lord == ThaiContentKeys.lagnaLordSaturn) {
+        expect(
+          result.topics[2].trialParagraphs[1],
+          allOf(
+            contains('มัก'),
+            contains('ค่อย ๆ สร้างความไว้ใจ'),
+            contains('สม่ำเสมอ'),
+          ),
+        );
+      }
       final coupleParagraph = result.topics[2].trialParagraphs[2];
       expect(
         coupleParagraph,
@@ -447,7 +466,7 @@ void main() {
       );
       expect(
         wellbeing.trialParagraphs.last,
-        contains('ไม่ได้บอกว่าการทำแบบนี้จะทำให้คุณมีแรงขึ้น'),
+        allOf(contains('ไม่ได้'), endsWith('มีแรงขึ้นหรือเหนื่อยกว่าเดิม')),
       );
       reviewed.add({
         'sign': sign,

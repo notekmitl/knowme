@@ -69,7 +69,7 @@ void main() {
         'sun': 'ตัดสินใจเอง',
         'moon': 'ความต้องการของคนรอบข้าง',
         'mars': 'จัดการเรื่องด่วน',
-        'mercury': 'เทียบสิ่งที่เลือกได้',
+        'mercury': 'ทางเลือกแต่ละอย่างต่างกันอย่างไร',
         'jupiter': 'ดูเหตุผลก่อนทำอะไรเพิ่ม',
         'venus': 'ทั้งสองฝ่ายทำด้วยกันได้',
         'saturn': 'เตรียมสิ่งจำเป็นทีละขั้น',
@@ -88,9 +88,7 @@ void main() {
         expect(paragraphs.first, contains(entry.value));
         expect(
           paragraphs.first,
-          contains(
-            'ไม่ได้บอกว่าการทำแบบนี้จะทำให้คุณมีแรงขึ้นหรือเหนื่อยกว่าเดิม',
-          ),
+          allOf(contains('ไม่ได้'), contains('มีแรงขึ้นหรือเหนื่อยกว่าเดิม')),
         );
         expect(paragraphs.first, isNot(contains('มีผลต่อกำลัง')));
         expect(paragraphs.last, contains('ความเหนื่อยแค่วันเดียว'));

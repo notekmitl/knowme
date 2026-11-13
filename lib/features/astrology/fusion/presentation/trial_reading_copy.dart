@@ -8,7 +8,11 @@ part 'trial_reading_copy_r6_1.dart';
 /// Keep conditions, dates, uncertainty and selected evidence in the source
 /// models. Unknown clauses pass through unchanged; never fill a missing claim.
 abstract final class TrialReadingCopy {
-  static const revision = 'trial_plain_th_20261113_r6_3';
+  static const revision = 'trial_plain_th_20261113_r6_4';
+
+  static const libraMoonRecovery =
+      'คุณรู้สึกพร้อมรับมืออีกครั้งเมื่อได้คุยกันอย่างยุติธรรม '
+      'และหาวิธีอยู่ร่วมกันที่ทั้งสองฝ่ายตกลงกันได้';
 
   static final _thaiBase = _TrialClauses({
     ..._houseClauses,
@@ -169,6 +173,8 @@ abstract final class TrialReadingCopy {
 
   // ThaiBirthProfileCoreReading._composeHouseDomain associates each mode with
   // energy, but gives no direction. Its separate recovery cue stays intact.
+  static const _mercuryWellbeingMode =
+      'ข้อมูล การเปรียบเทียบ และการสื่อสารให้เข้าใจตรงกัน';
   static const _wellbeingHouseTopics = {
     'ความชัดเจนและการตัดสินใจด้วยตัวเอง':
         'การรู้ชัดว่าจะทำอะไรและการตัดสินใจเอง',
@@ -176,8 +182,8 @@ abstract final class TrialReadingCopy {
         'การสังเกตสิ่งที่เปลี่ยนไปรอบตัวและความต้องการของคนรอบข้าง',
     'ความกล้าลงมือและการจัดการสิ่งเร่งด่วน':
         'การกล้าลงมือทำและการจัดการเรื่องด่วน',
-    'ข้อมูล การเปรียบเทียบ และการสื่อสารให้เข้าใจตรงกัน':
-        'วิธีที่คุณรับข้อมูล ใช้ข้อมูลเทียบสิ่งที่เลือกได้ และคุยให้เข้าใจตรงกัน',
+    _mercuryWellbeingMode:
+        'การใช้ข้อมูลช่วยคิด การดูว่าทางเลือกแต่ละอย่างต่างกันอย่างไร และการคุยให้เข้าใจตรงกัน',
     'ภาพระยะยาว ความรู้ และการขยายอย่างมีหลัก':
         'การคิดถึงอนาคต การใช้สิ่งที่รู้ และการดูเหตุผลก่อนทำอะไรเพิ่ม',
     'คุณค่า ความพอดี และความร่วมมือที่ทั้งสองฝ่ายรับได้':
@@ -186,9 +192,13 @@ abstract final class TrialReadingCopy {
         'การทำสิ่งต่าง ๆ อย่างสม่ำเสมอและค่อย ๆ เตรียมสิ่งจำเป็นทีละขั้น',
   };
 
-  static String thaiWellbeingObservation(String mode) =>
-      'ในเรื่องกำลัง ดวงไทยกล่าวถึง${_wellbeingHouseTopics[mode] ?? ' $mode'} '
-      'คำอ่านส่วนนี้ไม่ได้บอกว่าการทำแบบนี้จะทำให้คุณมีแรงขึ้นหรือเหนื่อยกว่าเดิม';
+  static String thaiWellbeingObservation(String mode) {
+    final topic = _wellbeingHouseTopics[mode] ?? ' $mode';
+    final limitation = mode == _mercuryWellbeingMode
+        ? 'คำอ่านนี้ยังบอกไม่ได้ว่าสิ่งเหล่านี้ทำให้คุณมีแรงขึ้นหรือเหนื่อยกว่าเดิม'
+        : 'คำอ่านส่วนนี้ไม่ได้บอกว่าการทำแบบนี้จะทำให้คุณมีแรงขึ้นหรือเหนื่อยกว่าเดิม';
+    return 'ในเรื่องกำลัง ดวงไทยกล่าวถึง$topic $limitation';
+  }
 
   static final _wellbeingHouseClauses = {
     for (final mode in _wellbeingHouseTopics.keys)
@@ -383,6 +393,8 @@ abstract final class TrialReadingCopy {
         'คุณไว้ใจกันได้เมื่อเห็นคุณค่าของกันและกัน ไม่เรียกร้องเกินพอดี และตกลงร่วมกันได้',
     'ความไว้ใจเกิดจากภาพระยะยาว ความรู้ และการขยายอย่างมีหลัก':
         'คุณไว้ใจกันได้เมื่อมองอนาคตร่วมกัน ใช้ความรู้ที่มี และมีเหตุผลก่อนพัฒนาความสัมพันธ์',
+    'ความไว้ใจเกิดจากวินัย ความต่อเนื่อง และการสร้างฐานทีละขั้น':
+        'ความไว้ใจค่อย ๆ เกิดจากการทำตัวสม่ำเสมอ',
     'ข้อตกลงจึงต้องแบ่งเวลาและความรับผิดชอบโดยยังเหลือพื้นที่ให้แต่ละฝ่าย':
         'จึงควรตกลงว่าแต่ละคนให้เวลาและรับผิดชอบอะไร พร้อมให้แต่ละคนมีเวลาของตัวเอง',
     'สัญญาณที่ควรฟังคือเวลาฟื้นตัวที่ยาวขึ้นต่อเนื่อง ไม่ใช่ความล้าเพียงวันเดียว':
